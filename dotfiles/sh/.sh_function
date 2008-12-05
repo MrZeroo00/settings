@@ -1,0 +1,5 @@
+#!/bin/sh
+
+function title() {
+  printf "\033]2;$1\007"
+}

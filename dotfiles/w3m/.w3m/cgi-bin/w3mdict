@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo -e "Content-type: text/plain\n"
+/home/tanda/bin/eijiro $QUERY_STRING

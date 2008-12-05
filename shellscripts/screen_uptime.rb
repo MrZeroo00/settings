@@ -1,0 +1,7 @@
+#!/usr/bin/ruby
+while true
+  uptime, average = /up\s(.+?),.*ge:\s(\d+\.\d+)/.match(`uptime`)[1..2]
+  puts "uptime: #{uptime.strip!} | load average: #{average}"
+  STDOUT.flush
+  sleep 15
+end

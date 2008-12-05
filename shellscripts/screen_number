@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+if (@ARGV != 2) {
+  print STDERR "Usage: number <from> <to>\n";
+  exit -1;
+}
+
+unless ($ARGV[0] =~ /^[0-9]+$/ && $ARGV[1] =~ /^[0-9]+$/) {
+  print STDERR "Use number parameter!!\n";
+  exit -1;
+}
+
+
+my $from = $ARGV[0];
+my $to = $ARGV[1];
+my @cmds = ();
+
+push @cmds, "eval";
+push @cmds, "'select ${from}'";
+
+while ($from != $to) {
+  my $next = ($from < $to) ? $from+1 : $from-1;
+  push @cmds, "'number ${next}'";
+  $from = $next;
+}
+
+exec "screen -X @cmds";

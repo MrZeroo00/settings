@@ -1,0 +1,42 @@
+#!/usr/bin/perl
+# UTF-8 only
+
+use strict;
+use warnings;
+use WWW::Mechanize;
+use HTML::Selector::XPath qw(selector_to_xpath);
+use HTML::TreeBuilder::XPath;
+use HTML::Entities qw(decode_entities);
+use Getopt::Long;
+
+# Default option values
+my $num_result = 1; # number of results to display
+
+# Parse option
+GetOptions('-n=i' => \$num_result);
+my $query_word = $ARGV[$#ARGV];
+
+# Get HTML data
+my $mech = WWW::Mechanize->new;
+my $res = $mech->get('http://eow.alc.co.jp/' . $query_word . '/UTF-8/');
+my $encoding = $res->header('Content-Encoding');
+my $content = $res->content;
+
+# Build tree
+my $tree = HTML::TreeBuilder::XPath->new;
+$tree->parse($content);
+$tree->eof;
+
+# Parse & Print
+my @nodes = $tree->findnodes(selector_to_xpath('table#resultList tr td ul li'));
+for (my $i = 0; $i < $num_result; $i++) {
+  my $node = shift(@nodes);
+  my $word = $node->findvalue('span[@class="midashi"]')->as_string;
+  my $mean = $node->findvalue('div')->as_string;
+
+  print decode_entities($word) . "\n";
+  print '- ' . decode_entities($mean) . "\n";
+  print '-' x 80 . "\n\n";
+}
+
+$tree->delete;

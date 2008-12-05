@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+(cd /usr/share/zoneinfo/; /usr/bin/zdump **/*) 2>/dev/null | egrep '^posix' | egrep "Los_Angeles|Tokyo|Paris"

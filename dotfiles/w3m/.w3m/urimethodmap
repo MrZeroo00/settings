@@ -1,0 +1,9 @@
+ttp:	h%s
+tp:	ht%s
+g:	file:/cgi-bin/search.cgi?%s
+gcode:	file:/cgi-bin/search.cgi?%s
+del:	file:/cgi-bin/search.cgi?%s
+a:	file:/cgi-bin/search.cgi?%s
+youtube:	file:/cgi-bin/search.cgi?%s
+e:	file:/cgi-bin/goodict.cgi?%s
+s:	file:/cgi-bin/smb.cgi?%s

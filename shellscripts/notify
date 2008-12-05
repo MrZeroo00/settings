@@ -1,0 +1,2 @@
+#!/bin/sh
+echo $@ >> $HOME/.screen_notify.txt

@@ -1,0 +1,7 @@
+#keymap W GOTO file:/cgi-bin/foo.cgi
+keymap d GOTO file:///cgi-bin/del.icio.us.cgi
+#keymap e GOTO file:///cgi-bin/eijiro.cgi
+keymap e EXEC_SHELL "eijiro $W3M_CURRENT_WORD | lv"
+keymap X DISPLAY_IMAGE
+keymap C-c STOP_IMAGE
+keymap t SET_OPTION display_image=toggle

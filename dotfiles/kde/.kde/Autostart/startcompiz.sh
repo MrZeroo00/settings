@@ -1,0 +1,2 @@
+compiz --replace
+#emerald --replace

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+## aliases
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+    #eval "`dircolors -b`"
+    alias ls='ls -G'
+    #alias dir='ls --color=auto --format=vertical'
+    #alias vdir='ls --color=auto --format=long'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -a'
+alias lA='ls -A'
+
+# etc
+alias wcd=/usr/lib/wcd/wcd.exec
+alias number='screen_number'
+alias sl='ls'
+alias rm='rm -i'
+alias grep='egrep'
+alias psgrep='ps aux | egrep'
+alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
+alias w3m='LANG="" w3m'
+alias web='w3m http://www.google.co.jp/'
+alias gvim-remote='gvim --remote-silent'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+source ~/.sh_aliases.local

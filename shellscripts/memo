@@ -1,0 +1,9 @@
+#!/bin/sh
+
+MEMO_DIR=$HOME/memo
+
+if [ -z $1 ]; then
+  vim $MEMO_DIR
+else
+  vim $MEMO_DIR/$1
+fi

@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Time::HiRes;
+
+my $before = Time::HiRes::time();
+while (my $line = <STDIN>) {
+  my $after = Time::HiRes::time();
+  printf("%.10f: %s\n", $after - $before, $line);
+  $after = $before;
+}

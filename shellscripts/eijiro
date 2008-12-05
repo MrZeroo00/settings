@@ -1,0 +1,8 @@
+#!/bin/sh
+
+word="$*"
+url="http://eow.alc.co.jp/${word}/UTF-8/"
+echo "$url"
+wget -q --referer='http://eow.alc.co.jp/' -O - "$url" |\
+sed -ne '/id="resultList"/,/<\/table>/p' |\
+w3m -dump -T text/html | lv
