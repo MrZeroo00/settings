@@ -134,10 +134,10 @@ backtick 0 0 0 tail -F /home/$USER/.screen_notify.dat
 backtick 2 0 0 /home/$USER/bin/screen_uptime.rb
 
 ## default screen
-screen 0
+#screen 0
 #screen -t w3m 9 w3m http://www.google.co.jp/
-screen -t top 10 nice top
-select 0
+#screen -t top 10 nice top
+#select 0
 
 ### terminal settings
 ## これでステータスラインが消えなくなる
