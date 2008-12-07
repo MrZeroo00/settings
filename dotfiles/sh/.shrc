@@ -1,19 +1,22 @@
 #!/bin/sh
 
 # aliases
-if [ -f ~/.sh_aliases ]; then
-    source ~/.sh_aliases
+if [ -f $HOME/.sh_aliases ]; then
+    source $HOME/.sh_aliases
 fi
 
 # function
-if [ -f ~/.sh_function ]; then
-    source ~/.sh_function
+if [ -f $HOME/.sh_function ]; then
+    source $HOME/.sh_function
 fi
 
 ## variables
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
+if [ -d $HOME/bin ] ; then
+    PATH=$HOME/bin:"${PATH}"
+fi
+if [ -d $HOME/local/bin ] ; then
+    PATH=$HOME/local/bin:"${PATH}"
 fi
 
 #export EDITOR='vim'
@@ -22,10 +25,9 @@ export PAGER='lv'
 export TERMSCREEN='screen-bce'
 
 # for CPAN
-export PATH=$HOME/local/bin:$PATH
 export PERL5LIB=$HOME/local/lib/perl5/5.8.8:$HOME/local/lib/perl5/site_perl/5.8.8
 export PERL_BADLANG=0
 
-if [ -f ~/.shrc.local ]; then
-    source ~/.shrc.local
+if [ -f $HOME/.shrc.local ]; then
+    source $HOME/.shrc.local
 fi

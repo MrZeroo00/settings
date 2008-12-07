@@ -10,8 +10,8 @@
 #return 0	# Remove this line after editing this file as appropriate
 
 # read bash and zsh common setting
-if [ -f ~/.shrc ]; then
-    source ~/.shrc
+if [ -f $HOME/.shrc ]; then
+    source $HOME/.shrc
 fi
 
 # Search path for the cd command

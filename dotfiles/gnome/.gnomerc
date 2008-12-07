@@ -1,4 +1,4 @@
 #!/bin/sh
 
-. ~/.xsession
+source $HOME/.xsession
 tomboy &

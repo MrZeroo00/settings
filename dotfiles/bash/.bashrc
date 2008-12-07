@@ -3,8 +3,8 @@
 # for examples
 
 # read bash and zsh common setting
-if [ -f ~/.shrc ]; then
-    source ~/.shrc
+if [ -f $HOME/.shrc ]; then
+    source $HOME/.shrc
 fi
 
 # If not running interactively, don't do anything

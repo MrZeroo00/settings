@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ~/.xsession
+source $HOME/.xsession
 kooldock &
 katapult &
 superkaramba &

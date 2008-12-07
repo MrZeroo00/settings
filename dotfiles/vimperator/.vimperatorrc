@@ -162,6 +162,6 @@ EOM
 
 " Abbreviations
 
-"source! ~/.vimperatorrc.local
+"source! $HOME/.vimperatorrc.local
 
 " vim: set ft=vimperator:

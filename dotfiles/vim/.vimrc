@@ -8,8 +8,8 @@ nmap ,man :!man -S 2,3,1,4,5,6,7,8,9 <C-R><C-W><CR>
 map ,cd :cd %:p:h<CR>
 "nmap <C-N><C-N> :set invnumber<CR>
 nmap ,last '0
-nmap ,msession :mksession ~/etc/session.vim<CR>
-nmap ,rsession :source ~/etc/session.vim<CR>
+nmap ,msession :mksession $HOME/etc/session.vim<CR>
+nmap ,rsession :source $HOME/etc/session.vim<CR>
 nmap . .`[
 
 "" command line
@@ -189,7 +189,7 @@ set tags=./tags,tags,tags;/
 let g:xml_syntax_folding = 1
 set foldmethod=syntax
 " closetag.vim
-:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+:au Filetype html,xml,xsl source $HOME/.vim/scripts/closetag.vim
 
 " backup setting
 set backupdir=$HOME/etc/backup/vim/,/tmp
@@ -208,9 +208,9 @@ set imsearch=0
 set scrolloff=5
 set clipboard+=unnamed
 runtime ftplugin/man.vim
-set keywordprg=~/bin/eijiro
+set keywordprg=$HOME/bin/eijiro
 set grepprg=ack\ -a
-set dictionary=~/.vim/dictionary
+set dictionary=$HOME/.vim/dictionary
 set spell spelllang=en_us
 set sessionoptions+=unix,slash
 "autocmd BufEnter * execute ":lcd " . expand("%:p:h")
@@ -257,6 +257,6 @@ let g:howm_dir="$HOME/howm"
 let g:howm_grepprg="/bin/egrep"
 let g:howm_findprg="/usr/bin/find"
 
-if filereadable("~/.vimrc.local")
-  source ~/.vimrc.local
+if filereadable($HOME . '/.vimrc.local')
+  source $HOME/.vimrc.local
 endif

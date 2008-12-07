@@ -27,7 +27,7 @@
 # both here (if we're not a login shell) and from the .zprofile file (which
 # is only sourced if we are a login shell).
 #if [[ $SHLVL == 1 && ! -o LOGIN ]]; then
-#    source ~/.zpath
+#    source $HOME/.zpath
 #fi
 
 HISTFILE=$HOME/.zsh_history

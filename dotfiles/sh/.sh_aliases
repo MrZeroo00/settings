@@ -38,6 +38,6 @@ case "`uname`" in
   ;;
 esac
 
-if [ -f ~/.sh_aliases.local ]; then
-    source ~/.sh_aliases.local
+if [ -f $HOME/.sh_aliases.local ]; then
+    source $HOME/.sh_aliases.local
 fi
