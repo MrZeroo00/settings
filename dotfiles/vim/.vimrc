@@ -257,4 +257,6 @@ let g:howm_dir="$HOME/howm"
 let g:howm_grepprg="/bin/egrep"
 let g:howm_findprg="/usr/bin/find"
 
-source ~/.vimrc.local
+if filereadable("~/.vimrc.local")
+  source ~/.vimrc.local
+endif

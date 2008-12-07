@@ -1,8 +1,6 @@
 ;; base settings
 (cd "~/")
 (global-font-lock-mode t)
-(line-number-mode t)
-(column-number-mode 1)
 (setq tab-width 4)
 ;; sample setting
 (setq default-frame-alist
@@ -17,14 +15,6 @@
               default-frame-alist))
 
 (show-paren-mode t)
-
-;; mode line
-;(display-time)
-(column-number-mode 1)
-;; show current directory
-(add-to-list 'global-mode-string '("" default-directory "-"))
-;; show current function
-(which-function-mode 1)
 
 ;; Highlight current line
 (global-hl-line-mode)

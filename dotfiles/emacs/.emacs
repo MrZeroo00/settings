@@ -58,6 +58,8 @@
      (error (message "[eval-safe] %s" err))))
 
 (load "00_init")
+(load "01_util")
+(load "01_modeline")
 (load "50_abbrev")
 (load "50_c")
 (load "50_gtags")
@@ -71,6 +73,7 @@
 ;(load "60_auto-save")
 (load "60_dmacro")
 (load "60_flymake")
+(load "60_gnuserv")
 (load "60_iswitchb")
 (load "60_key-chord")
 (load "60_mcomplete")

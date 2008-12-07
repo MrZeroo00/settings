@@ -21,11 +21,23 @@ alias sl='ls'
 alias rm='rm -i'
 alias grep='egrep'
 alias psgrep='ps aux | egrep'
-alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
 alias w3m='LANG="" w3m'
 alias web='w3m http://www.google.co.jp/'
 alias gvim-remote='gvim --remote-silent'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-source ~/.sh_aliases.local
+# OS specific aliases
+case "`uname`" in
+  "Linux")
+  alias emacs='XMODIFIERS=@im=none emacs'
+  ;;
+  "Darwin")
+  alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+  alias ql='qlmanage -p "$@" >& /dev/null'
+  ;;
+esac
+
+if [ -f ~/.sh_aliases.local ]; then
+    source ~/.sh_aliases.local
+fi
