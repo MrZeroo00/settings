@@ -56,41 +56,41 @@ screen 0
         {
             # Tag default layout
             # tile, tileleft, max, floating
-            layout = "tileleft"
+            layout = "tile"
         }
         tag two
         {
-            layout = "tileleft"
+            layout = "tile"
         }
         tag three
         {
-            layout = "tileleft"
+            layout = "tile"
         }
         tag four
         {
-            layout = "tileleft"
+            layout = "tile"
         }
 #        tag five
 #        {
 #            # Number of master windows on this tag
 #            nmaster = 2
-#            layout = "tileleft"
+#            layout = "tile"
 #        }
 #        tag six
 #        {
 #            ncol = 2
-#            layout = "tileleft"
+#            layout = "tile"
 #        }
 #        tag seven
 #        {
-#            layout = "tileleft"
+#            layout = "tile"
 #        }
 #        tag eight
 #        {
 #            # Master width factor
 #            # 0 < mwfact < 1
 #            mwfact = 0.3
-#            layout = "tileleft"
+#            layout = "tile"
 #        }
 #        tag nine
 #        {
@@ -105,7 +105,7 @@ screen 0
             # Symbol drawn in statusbar for this layout
             symbol = "[]="
         }
-        layout tileleft
+        layout tile
         {
             symbol = "=[]"
         }
@@ -225,7 +225,7 @@ screen 1
             # Symbol drawn in statusbar for this layout
             symbol = "[]="
         }
-        layout tileleft
+        layout tile
         {
             symbol = "=[]"
         }
@@ -247,27 +247,22 @@ rules
         # Programe name (regexp)
         name = "Gimp"
         # Program tags (regexp)
-        tags = "nine"
+        #tags = "nine"
         # Should we set this program to floating mode?
         float = true
         # Physical screen to map this windows to
-        screen = 0
+        #screen = 0
     }
     rule
     {
         name = "MPlayer"
         float = true
     }
-    rule
-    {
-        name = "Acroread"
-        float = true
-    }
-    rule
-    {
-        name = "pinentry"
-        float = true
-    }
+#    rule
+#    {
+#        name = "Acroread"
+#        float = true
+#    }
     rule
     {
         name = "/usr/bin/cli /usr/lib/gnome-do/Do\.exe"
@@ -278,11 +273,11 @@ rules
         name = "cairo-clock"
         float = true
     }
-    rule
-    {
-        name = "p4v"
-        float = true
-    }
+#    rule
+#    {
+#        name = "p4v"
+#        float = true
+#    }
 }
 
 # Mouse buttons bindings
@@ -366,19 +361,19 @@ mouse
     # For click on client windows
     client
     {
-        modkey = {"Mod4"}
+        modkey = {"Mod1"}
         button = "1"
         command = "client_movemouse"
     }
     client
     {
-        modkey = {"Mod4"}
+        modkey = {"Mod1"}
         button = "2"
         command = "client_zoom"
     }
     client
     {
-        modkey = {"Mod4"}
+        modkey = {"Mod1"}
         button = "3"
         command = "client_resizemouse"
     }
