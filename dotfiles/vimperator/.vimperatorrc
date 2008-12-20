@@ -26,7 +26,7 @@ noremap <C-G> <Esc>
 "noremap } `a
 
 " disable css
-"map ! :set invusermode<CR>
+"map! :set invusermode<CR>
 
 " change guioptions
 map <A-b> :set guioptions+=b<CR>
@@ -51,7 +51,7 @@ cnoremap <C-p> <S-Tab>
 cnoremap <C-r>* <S-Insert>
 
 
-"" Options --------------------
+"" options --------------------
 "set complete=sbhSfl
 set defsearch=g
 set editor=/usr/bin/gvim -f
@@ -76,7 +76,7 @@ liberator.options.setPref('ui.key.generalAccessKey', 0);
 EOM
 
 
-"" plugin setting --------------------
+"" plugin settings --------------------
 " autoIgnoreKey.js
 "javascript <<EOM
 "liberator.globalVariables.autoignorekey_pages = uneval([
@@ -122,7 +122,7 @@ let g:ldrc_skip = "0.25"
 
 
 "" other setting --------------------
-" Add Mapping `C-c' copy or stop loading
+" add Mapping `C-c' copy or stop loading
 javascript <<EOM
 liberator.mappings.addUserMap([liberator.modes.NORMAL], ['<C-c>'],
   'Copy selected text or ',
@@ -139,7 +139,7 @@ liberator.mappings.addUserMap([liberator.modes.NORMAL], ['<C-c>'],
 );
 EOM
 
-" Show feed-button to statusbar
+" show feed-button to statusbar
 javascript <<EOM
 (function () {
 var feedPanel = document.createElement('statusbarpanel');
