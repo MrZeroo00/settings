@@ -77,14 +77,8 @@ EOM
 
 
 "" plugin settings --------------------
-" autoIgnoreKey.js
-"javascript <<EOM
-"liberator.globalVariables.autoignorekey_pages = uneval([
-"  /^https?:\/\/mail\.google\.com\//,
-"  /^https?:\/\/fastladder\.com\//,
-"  /^https?:\/\/reader\.livedoor\.com\//,
-"]);
-"EOM
+" browser_object.js
+let g:browser_object_prefix = ','
 
 " copy.js
 javascript <<EOM
@@ -107,18 +101,54 @@ let g:direct_sbm_is_normalize = true
 " encodingSwitcher.js
 set autodetector=ja
 
-"js <<EOF
-"autocommands.add('LocationChange',/reader\.livedoor\.com\/reader\//,
-"  'js plugins.feedKey.setup("j k s a p v c <Space> <S-Space> z Z < > q w b i".split(/ +/));');
-"EOF
+" feedSomeKeys_2
+autocmd LocationChange reader\\.livedoor\\.com/reader :fmap! j k s a p o v c <Space> <S-Space> z b < >
+autocmd LocationChange mail\\.google\\.com/mail :fmap! -depth 4 c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
 
 " ime_control.js
 let g:ex_ime_mode = "inactive"
 
-" ldr_cooperation.js
+" ldrize_cooperation.js
 let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']"
 let g:ldrc_intelligence_bind = "true"
 let g:ldrc_skip = "0.25"
+
+" nextlink.js
+let g:nextlink_followlink = "true"
+
+" proxy.js
+javascript <<EOM
+liberator.globalVariables.proxy_settings = [
+  {
+    conf_name: 'disable',
+    conf_usage: 'direct connection',
+    settings: [
+    {
+      label: 'type',
+      param: 0
+    }
+    ]
+  },
+  {
+    conf_name: 'polipo',
+    conf_usage: 'use polipo cache proxy',
+    settings: [
+    {
+      label: 'type',
+      param: 1
+    },
+    {
+      label: 'http',
+      param: 'localhost'
+    },
+    {
+      label: 'http_port',
+      param: 8123
+    }
+    ]
+  }
+];
+EOM
 
 
 "" other setting --------------------
