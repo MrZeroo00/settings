@@ -1,4 +1,41 @@
-" key bindings
+"" key bindings --------------------
+" move cursor
+noremap j 5j
+noremap k 5k
+noremap J <C-d>
+noremap K <C-u>
+
+" open/close tab
+noremap T :tabopen<CR>
+noremap <C-q> :tabclose<CR>
+" select next/previous tab
+noremap } gt
+noremap { gT
+" move current tab left/right
+map <C-}> :tabmove! +1<CR>
+map <C-{> :tabmove! -1<CR>
+
+"noremap <Space> :forward<CR>
+"noremap b :back<CR>
+noremap U :open<Space>
+
+noremap <C-G> <Esc>
+
+" set/jump mark-a
+"noremap _ ma
+"noremap } `a
+
+" disable css
+"map ! :set invusermode<CR>
+
+" change guioptions
+map <A-b> :set guioptions+=b<CR>
+map <A-B> :set guioptions-=b<CR>
+" Unhidden and hidden the menubar and the toolbar
+map <A-Up> :set guioptions+=mT<CR>
+map <A-Down> :set guioptions-=mT<CR>
+
+noremap ,t :mb tumblr.reblog<CR>
 
 " command line
 cnoremap <C-A> <Home>
@@ -7,98 +44,39 @@ cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 cnoremap <Esc>f <S-Right>
 cnoremap <Esc>b <S-Left>
-
-noremap <C-G> <Esc>
-
-" move cursor
-noremap j 5j
-noremap k 5k
-noremap J <C-d>
-noremap K <C-u>
-
-" select next/previous tab
-noremap } gt
-noremap { gT
-
-" move current tab left/right
-"map <C-L> :tabmove! +1<CR>
-"map <C-H> :tabmove! -1<CR>
-map <C-}> :tabmove! +1<CR>
-map <C-{> :tabmove! -1<CR>
-
-" set/jump mark-a
-"noremap _ ma
-"noremap } `a
-
-" disable css
-"map ! :set invum<CR>
-
-"
-map <A-b> :set guioptions+=b<CR>
-"map ,b :set guioptions+=b<CR>
-map <A-B> :set guioptions-=b<CR>
-"map ,B :set guioptions-=b<CR>
-"map ,t :toggleToolbar<CR>
-noremap ,t :mb tumblr.reblog<CR>
-noremap ,p :pukka<CR>
-
-" Unhidden and hidden the menubar and the toolbar
-map <A-Up> :set guioptions+=mT<CR>
-map <A-Down> :set guioptions-=mT<CR>
-
 " compatibility with w3m
-"noremap <Space> :forward<CR>
-"noremap b :back<CR>
-noremap U :open<Space>
-noremap T :tabopen<CR>
-noremap <C-q> :tabclose<CR>
-
-" for ex mode
-cmap <C-n> <Tab>
-cmap <C-p> <S-Tab>
-
+cnoremap <C-n> <Tab>
+cnoremap <C-p> <S-Tab>
 " compatibility with vim
-cmap <C-r>* <S-Insert>
+cnoremap <C-r>* <S-Insert>
 
 
-" Options
+"" Options --------------------
+"set complete=sbhSfl
+set defsearch=g
+set editor=/usr/bin/gvim -f
 set guioptions+=b
+set history=1000
+"set suggestengines=google
+set suggestengines=g,w ",a,o,d
 "set titlestring=Vimperator
 set verbose=9
 set visualbell
-set history=1000
 "set wildoptions=auto
-"set complete=sbhSfl
-set defsearch=g
-"set suggestengines=google
-set suggestengines=g,w ",a,o,d
 "]]
 set nextpattern+=next, 次(の)?ページ,\b次.*,→\b,下一頁,Следующая,다음
 "[[
 set previouspattern+=prev, 前(の)?ページ,\b前.*,\b←
-"
-set editor=/usr/bin/gvim -f
 
-" encodingSwitcher.js
-set autodetector=ja
 
-" direct_bookmark.js
-let g:direct_sbm_use_services_by_tag = "d"
-let g:direct_sbm_use_services_by_post = "d"
-let g:direct_sbm_is_normalize = true
-"let g:direct_sbm_is_use_migemo = true
+"" set preferences --------------------
+" disable accesskey
+javascript <<EOM
+liberator.options.setPref('ui.key.generalAccessKey', 0);
+EOM
 
-" pukka plugin variable
-let g:pukka_normalizelink = "true"
 
-" ime_control.js
-let g:ex_ime_mode = "inactive"
-
-" ldr_cooperation.js
-let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']"
-let g:ldrc_intelligence_bind = "true"
-let g:ldrc_skip = "0.25"
-
+"" plugin setting --------------------
 " autoIgnoreKey.js
 "javascript <<EOM
 "liberator.globalVariables.autoignorekey_pages = uneval([
@@ -107,11 +85,6 @@ let g:ldrc_skip = "0.25"
 "  /^https?:\/\/reader\.livedoor\.com\//,
 "]);
 "EOM
-
-"js <<EOF
-"autocommands.add('LocationChange',/reader\.livedoor\.com\/reader\//,
-"  'js plugins.feedKey.setup("j k s a p v c <Space> <S-Space> z Z < > q w b i".split(/ +/));');
-"EOF
 
 " copy.js
 javascript <<EOM
@@ -125,6 +98,30 @@ liberator.globalVariables.copy_templates = [
 ];
 EOM
 
+" direct_bookmark.js
+let g:direct_sbm_use_services_by_tag = "d"
+let g:direct_sbm_use_services_by_post = "d"
+let g:direct_sbm_is_normalize = true
+"let g:direct_sbm_is_use_migemo = true
+
+" encodingSwitcher.js
+set autodetector=ja
+
+"js <<EOF
+"autocommands.add('LocationChange',/reader\.livedoor\.com\/reader\//,
+"  'js plugins.feedKey.setup("j k s a p v c <Space> <S-Space> z Z < > q w b i".split(/ +/));');
+"EOF
+
+" ime_control.js
+let g:ex_ime_mode = "inactive"
+
+" ldr_cooperation.js
+let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']"
+let g:ldrc_intelligence_bind = "true"
+let g:ldrc_skip = "0.25"
+
+
+"" other setting --------------------
 " Add Mapping `C-c' copy or stop loading
 javascript <<EOM
 liberator.mappings.addUserMap([liberator.modes.NORMAL], ['<C-c>'],
@@ -155,12 +152,8 @@ var feedButton = document.getElementById('feed-button');
 })();
 EOM
 
-" disable accesskey
-javascript <<EOM
-liberator.options.setPref('ui.key.generalAccessKey', 0);
-EOM
 
-" Abbreviations
+"" abbreviations --------------------
 
 "source! $HOME/.vimperatorrc.local
 
