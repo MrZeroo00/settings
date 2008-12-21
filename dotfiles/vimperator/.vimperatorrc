@@ -36,6 +36,8 @@ map <A-Up> :set guioptions+=mT<CR>
 map <A-Down> :set guioptions-=mT<CR>
 
 noremap ,t :mb tumblr.reblog<CR>
+noremap ,l :bmlreadlater
+noremap ,d :menu 表示-サイドバー-Mouseover_Dictionary<CR>
 
 " command line
 cnoremap <C-A> <Home>
