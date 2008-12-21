@@ -1,9 +1,9 @@
+_libly.js
 browser_object.js
-char-hints-mod.js
 commandBookmarklet.js
 copy.js
 direct_bookmark.js
-encodingSwitcher.js
+encodingSwitcherCommand.js
 ex_autocmd.js
 feedSomeKeys_2.js
 gmperator.js
@@ -12,7 +12,6 @@ gvimail.js
 ime_controller.js
 ldrize_cooperation.js
 ldrize_cooperation_fetch_flv.js
-lookupDictionary.js
 migemized_find.js
 migemo_completion.js
 migemo_hint.js
@@ -23,6 +22,7 @@ pluginManager.js
 proxy.js
 speeddial.js
 splitBrowser.js
+toggler.js
 tombloo.js
 twitter.js
 ubiquity.js
