@@ -39,6 +39,7 @@ noremap ,t :mb tumblr.reblog<CR>
 noremap ,rlater :bmlreadlater<CR>
 noremap ,bmark :sbm [archive]<CR>
 noremap ,dic :menu 表示-サイドバー-Mouseover_Dictionary<CR>
+noremap ,ever :menu ツール-Add_to_Evernote<CR>
 
 " command line
 cnoremap <C-A> <Home>
