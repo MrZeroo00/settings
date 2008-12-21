@@ -58,7 +58,7 @@ set complete=bSl
 set defsearch=google
 set editor='gvim -f'
 set focuscontent
-set guioptions+=b
+set guioptions+=Brbn
 set hintmatching=custom
 set history=1000
 set hlsearch
@@ -81,7 +81,7 @@ colorscheme Sweets
 "" set preferences --------------------
 set! accessibility.typeaheadfind.casesensitive=1
 set! browser.enabel_automatic_image_resizing=false
-set! browser.tabs.tabMinWidth=50
+"set! browser.tabs.tabMinWidth=50
 set! browser.urlbar.maxRichResults=20
 set! layout.word_select.eat_space_to_next_word=false
 set! ui.key.generalAccessKey=0
