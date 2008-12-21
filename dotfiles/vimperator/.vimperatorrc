@@ -65,7 +65,7 @@ set suggestengines='google,wikipedia'
 "set titlestring=Vimperator
 "set verbose=9
 set visualbell
-set wildoptions=auto
+"set wildoptions=auto
 "]]
 set nextpattern+='next, 次(の)?ページ,\b次.*,→\b,下一頁,Следующая,다음'
 "[[
