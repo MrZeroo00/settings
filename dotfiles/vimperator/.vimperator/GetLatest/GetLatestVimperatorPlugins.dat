@@ -1,13 +1,16 @@
 _libly.js
 browser_object.js
 commandBookmarklet.js
+command_menu.js
 copy.js
 direct_bookmark.js
 encodingSwitcherCommand.js
 ex_autocmd.js
 feedSomeKeys_2.js
+feeder.js
 gmperator.js
 googlesuggest.js
+growl.css
 gvimail.js
 ime_controller.js
 ldrize_cooperation.js
@@ -18,6 +21,8 @@ migemo_hint.js
 multi_requester.js
 nextlink.js
 nicontroller.js
+notifier.js
+observer_growl.js
 pluginManager.js
 proxy.js
 speeddial.js
