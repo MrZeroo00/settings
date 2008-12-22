@@ -70,32 +70,32 @@ screen 0
         {
             layout = "tile"
         }
-#        tag five
-#        {
-#            # Number of master windows on this tag
-#            nmaster = 2
-#            layout = "tile"
-#        }
-#        tag six
-#        {
-#            ncol = 2
-#            layout = "tile"
-#        }
-#        tag seven
-#        {
-#            layout = "tile"
-#        }
-#        tag eight
-#        {
-#            # Master width factor
-#            # 0 < mwfact < 1
-#            mwfact = 0.3
-#            layout = "tile"
-#        }
-#        tag nine
-#        {
-#            layout = "floating"
-#        }
+        tag five
+        {
+            # Number of master windows on this tag
+            #nmaster = 2
+            layout = "tile"
+        }
+        tag six
+        {
+            #ncol = 2
+            layout = "tile"
+        }
+        tag seven
+        {
+            layout = "tile"
+        }
+        tag eight
+        {
+            # Master width factor
+            # 0 < mwfact < 1
+            #mwfact = 0.3
+            layout = "tile"
+        }
+        tag nine
+        {
+            layout = "floating"
+        }
     }
     layouts
     {
@@ -190,32 +190,32 @@ screen 1
         {
             layout = "tile"
         }
-#        tag five
-#        {
-#            # Number of master windows on this tag
-#            nmaster = 2
-#            layout = "tile"
-#        }
-#        tag six
-#        {
-#            ncol = 2
-#            layout = "tile"
-#        }
-#        tag seven
-#        {
-#            layout = "tile"
-#        }
-#        tag eight
-#        {
-#            # Master width factor
-#            # 0 < mwfact < 1
-#            mwfact = 0.3
-#            layout = "tile"
-#        }
-#        tag nine
-#        {
-#            layout = "floating"
-#        }
+        tag five
+        {
+            # Number of master windows on this tag
+            #nmaster = 2
+            layout = "tile"
+        }
+        tag six
+        {
+            #ncol = 2
+            layout = "tile"
+        }
+        tag seven
+        {
+            layout = "tile"
+        }
+        tag eight
+        {
+            # Master width factor
+            # 0 < mwfact < 1
+            #mwfact = 0.3
+            layout = "tile"
+        }
+        tag nine
+        {
+            layout = "floating"
+        }
     }
     layouts
     {
@@ -278,6 +278,11 @@ rules
 #        name = "p4v"
 #        float = true
 #    }
+    rule
+    {
+        name = "alp-sim"
+        float = true
+    }
 }
 
 # Mouse buttons bindings

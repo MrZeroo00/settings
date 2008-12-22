@@ -73,7 +73,7 @@
 ;(load "60_auto-save")
 (load "60_dmacro")
 (load "60_flymake")
-(load "60_gnuserv")
+;(load "60_gnuserv")
 (load "60_iswitchb")
 (load "60_key-chord")
 (load "60_mcomplete")
