@@ -79,7 +79,7 @@ set previouspattern+='prev, 前(の)?ページ,\b前.*,\b←'
 
 
 "" colorscheme --------------------
-colorscheme Sweets
+colorscheme sweets
 
 
 "" set preferences --------------------
@@ -184,6 +184,9 @@ liberator.globalVariables.proxy_settings = [
   }
 ];
 EOM
+
+" refcontrol.js
+
 
 " toggler.js
 
