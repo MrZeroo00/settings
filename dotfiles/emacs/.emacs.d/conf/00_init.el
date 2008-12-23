@@ -34,6 +34,16 @@
 ;;(set-buffer-file-coding-system 'utf-8)
 ;;(setq default-buffer-file-coding-system 'utf-8)
 
+;; Etc
+(auto-insert-mode t)
+(auto-compression-mode t)
+(auto-image-file-mode t)
+(recentf-mode)
+(setq delete-auto-save-files t)
+(setq kill-whole-line t)
+(setq next-line-add-newlines nil)
+(setq visible-bell t)
+
 ;; key bind settings
 (global-set-key "\C-h" 'delete-backward-char)
 
