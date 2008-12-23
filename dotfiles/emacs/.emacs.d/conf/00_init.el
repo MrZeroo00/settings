@@ -1,7 +1,6 @@
 ;; base settings
 (cd "~/")
 (global-font-lock-mode t)
-(setq tab-width 4)
 ;; sample setting
 (setq default-frame-alist
       (append (list '(top . 30)	; 起動時の表示位置(右から)
@@ -14,12 +13,18 @@
                     )
               default-frame-alist))
 
+(transient-mark-mode t)
 (show-paren-mode t)
 
 ;; Highlight current line
 (global-hl-line-mode)
 ;(setq hl-line-face 'underline)
 (hl-line-mode 1)
+
+;; indent
+(setq tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq indent-line-function 'indent-relative-maybe)
 
 ;; Language
 ;;(require 'un-define)
