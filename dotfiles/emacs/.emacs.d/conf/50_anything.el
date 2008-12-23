@@ -11,3 +11,9 @@
 (global-set-key "\C-xb" 'anything)
 (define-key anything-map (kbd "C-M-n") 'anything-next-source)
 (define-key anything-map (kbd "C-M-p") 'anything-previous-source)
+
+
+;; anything-dabbrev-expand
+(require 'anything-dabbrev-expand)
+(global-set-key "\M-/" 'anything-dabbrev-expand)
+(define-key anything-dabbrev-map "\M-/" 'anything-dabbrev-find-all-buffers)
