@@ -82,6 +82,7 @@
 (load "60_key-chord")
 (load "60_linum")
 (load "60_mcomplete")
+(load "60_multiverse")
 (load "60_uniquify")
 (load "60_view")
 (load "60_windows")

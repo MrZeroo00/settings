@@ -5,7 +5,8 @@
                              anything-c-source-man-pages
                              anything-c-source-file-name-history
                              anything-c-source-locate
-                             anything-c-source-complex-command-history))
+                             anything-c-source-complex-command-history
+                             anything-c-source-kyr))
 (anything-iswitchb-setup)
 
 (global-set-key "\C-xb" 'anything)
