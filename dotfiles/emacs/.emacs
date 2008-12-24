@@ -61,7 +61,6 @@
 (load "01_util")
 (load "01_modeline")
 (load "50_abbrev")
-(load "50_anything")
 (load "50_c")
 (load "50_gtags")
 (load "50_howm")
@@ -86,3 +85,4 @@
 (load "60_uniquify")
 (load "60_view")
 (load "60_windows")
+(load "90_anything")
