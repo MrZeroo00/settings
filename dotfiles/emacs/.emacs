@@ -80,6 +80,7 @@
 ;(load "60_gnuserv")
 (load "60_iswitchb")
 (load "60_key-chord")
+(load "60_linum")
 (load "60_mcomplete")
 (load "60_uniquify")
 (load "60_view")
