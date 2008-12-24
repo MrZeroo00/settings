@@ -246,3 +246,5 @@ source $HOME/bin/cdd
 function chpwd() {
   _reg_pwd_screennum
 }
+
+[[ $EMACS = t ]] && unsetopt zle
