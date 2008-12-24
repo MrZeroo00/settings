@@ -18,3 +18,11 @@
 (require 'anything-dabbrev-expand)
 (global-set-key "\M-/" 'anything-dabbrev-expand)
 (define-key anything-dabbrev-map "\M-/" 'anything-dabbrev-find-all-buffers)
+
+;; anything-c-source-kyr
+(setq anything-kyr-functions
+      `((lambda ()
+          (when (assoc (current-buffer) multiverse-stored-versions)
+            (list "multiverse-restore"
+                  "multiverse-diff-current" "multiverse-diff-other"
+                  "multiverse-forget")))
