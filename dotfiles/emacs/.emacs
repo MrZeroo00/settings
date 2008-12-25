@@ -75,6 +75,7 @@
 ;(load "60_auto-save")
 (load "60_auto-complete")
 (load "60_backup")
+(load "60_doc-view")
 (load "60_dmacro")
 (load "60_flymake")
 ;(load "60_gnuserv")
