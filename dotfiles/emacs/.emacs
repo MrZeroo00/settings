@@ -66,6 +66,7 @@
 (load "50_howm")
 (load "50_moccur-edit")
 (load "50_occur")
+(load "50_org-mode")
 (load "50_perl")
 (load "50_pukiwiki")
 ;(load "50_w3m")

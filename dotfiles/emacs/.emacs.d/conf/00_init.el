@@ -43,6 +43,7 @@
 (setq kill-whole-line t)
 (setq next-line-add-newlines nil)
 (setq visible-bell t)
+(setq ange-ftp-try-passive-mode t)
 
 ;; key bind settings
 (global-set-key "\C-h" 'delete-backward-char)
