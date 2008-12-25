@@ -112,6 +112,7 @@ set fileencodings=utf-8,cp932,iso-2022-jp,euc-jp
 " format setting
 set shiftwidth=2
 set tabstop=2
+set softtabstop=0
 set expandtab
 set smarttab
 "set paste
@@ -125,8 +126,6 @@ set smartcase
 "" view setting
 " syntax setting
 syntax on
-let c_no_comment_fold=1
-let c_no_if0_fold=1
 
 set number
 set cursorline
@@ -183,13 +182,7 @@ filetype plugin indent on
 set cindent
 set tags=./tags,tags,tags;/
 "set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,b0,gs,hs,ps,ts,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,m0,M0,j1,)20,*30,#0
-"set cinoptions=t0
-
-" for XML
-let g:xml_syntax_folding = 1
-set foldmethod=syntax
-" closetag.vim
-:au Filetype html,xml,xsl source $HOME/.vim/scripts/closetag.vim
+set cinoptions=t0
 
 " backup setting
 set backupdir=$HOME/etc/backup/vim/,/tmp
