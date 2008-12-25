@@ -59,7 +59,7 @@ cnoremap <C-r>* <S-Insert>
 
 "" options --------------------
 set complete=bSl
-set defsearch=google
+set defsearch=g
 set editor='gvim -f'
 set focuscontent
 set guioptions+=Brbn
@@ -67,7 +67,7 @@ set hintmatching=custom
 set history=1000
 set hlsearch
 set newtab=all
-set suggestengines='google,wikipedia'
+set suggestengines='g,w'
 "set titlestring=Vimperator
 "set verbose=9
 set visualbell
