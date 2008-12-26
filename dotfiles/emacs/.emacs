@@ -89,3 +89,6 @@
 (load "60_view")
 (load "60_windows")
 (load "99_anything")
+
+(if (file-exists-p "~/.emacs.d/conf/99_local.el")
+    (load "99_local"))
