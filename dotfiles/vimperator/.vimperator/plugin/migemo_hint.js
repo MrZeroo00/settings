@@ -1,0 +1,1 @@
+../_plugin/coderepos/migemo_hint.js

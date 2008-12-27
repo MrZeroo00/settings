@@ -1,0 +1,1 @@
+../_plugin/coderepos/googlekanji.js
