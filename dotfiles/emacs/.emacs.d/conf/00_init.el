@@ -18,8 +18,9 @@
 
 ;; Highlight current line
 (global-hl-line-mode)
-;(setq hl-line-face 'underline)
 (hl-line-mode 1)
+;(setq hl-line-face 'underline)
+(set-face-background 'hl-line "#330")
 
 ;; indent
 (setq tab-width 4)
