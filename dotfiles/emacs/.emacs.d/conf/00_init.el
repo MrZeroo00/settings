@@ -15,6 +15,21 @@
                     )
               default-frame-alist))
 
+;; source code color setting
+;(if window-system (progn
+;                    (set-face-foreground 'font-lock-comment-face "MediumSeaGreen")
+;                    (set-face-foreground 'font-lock-string-face "purple")
+;                    (set-face-foreground 'font-lock-keyword-face "blue")
+;                    (set-face-foreground 'font-lock-function-name-face "blue")
+;                    (set-face-bold-p 'font-lock-function-name-face t)
+;                    (set-face-foreground 'font-lock-variable-name-face "black")
+;                    (set-face-foreground 'font-lock-type-face "LightSeaGreen")
+;                    (set-face-foreground 'font-lock-builtin-face "purple")
+;                    (set-face-foreground 'font-lock-constant-face "black")
+;                    (set-face-foreground 'font-lock-warning-face "blue")
+;                    (set-face-bold-p 'font-lock-warning-face nil)
+;))
+
 ;; other color setting
 (set-face-foreground 'modeline "gray10")
 (set-face-background 'modeline "bisque3")
@@ -54,6 +69,7 @@
 (setq next-line-add-newlines nil)
 (setq visible-bell t)
 (setq ange-ftp-try-passive-mode t)
+(set-scroll-bar-mode 'right)
 
 ;; key bind settings
 (global-set-key "\C-h" 'delete-backward-char)
