@@ -7,11 +7,20 @@
                     '(left . 200) ; 起動時の表示位置(左から)
                     '(width . 80) ; 起動時のサイズ(幅)
                     '(height . 45) ; 起動時のサイズ(縦)
-;                    '(foreground-color . "#000000") ; 文字の色
-;                    '(background-color . "old lace") ; 背景の色
+                    '(foreground-color . "green") ; 文字の色
+                    '(background-color . "black") ; 背景の色
+                    '(cursor-color . "DarkOliveGreen1") ; カーソルの色
+                    '(mouse-color . "DarkOliveGreen1") ; マウスポインタの色
 ;                    '(font . "fontset-tt14") ; 使うフォントセット
                     )
               default-frame-alist))
+
+;; other color setting
+(set-face-foreground 'modeline "gray10")
+(set-face-background 'modeline "bisque3")
+(set-face-foreground 'mode-line-inactive "gray30")
+(set-face-background 'mode-line-inactive "gray85")
+(set-face-background 'region "DeepPink1")
 
 (transient-mark-mode t)
 (show-paren-mode t)
@@ -20,7 +29,7 @@
 (global-hl-line-mode)
 (hl-line-mode 1)
 ;(setq hl-line-face 'underline)
-(set-face-background 'hl-line "#330")
+(set-face-background 'hl-line "DarkOliveGreen")
 
 ;; indent
 (setq tab-width 4)
