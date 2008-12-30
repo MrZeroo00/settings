@@ -3,15 +3,15 @@
 (global-font-lock-mode t)
 ;; sample setting
 (setq default-frame-alist
-      (append (list '(top . 30)	; 起動時の表示位置(右から)
-                    '(left . 200) ; 起動時の表示位置(左から)
-                    '(width . 80) ; 起動時のサイズ(幅)
-                    '(height . 45) ; 起動時のサイズ(縦)
-                    '(foreground-color . "green") ; 文字の色
-                    '(background-color . "black") ; 背景の色
+      (append (list '(top . 30)         ; 起動時の表示位置(右から)
+                    '(left . 200)       ; 起動時の表示位置(左から)
+                    '(width . 80)       ; 起動時のサイズ(幅)
+                    '(height . 45)      ; 起動時のサイズ(縦)
+                    '(foreground-color . "green")       ; 文字の色
+                    '(background-color . "black")       ; 背景の色
                     '(cursor-color . "DarkOliveGreen1") ; カーソルの色
                     '(mouse-color . "DarkOliveGreen1") ; マウスポインタの色
-;                    '(font . "fontset-tt14") ; 使うフォントセット
+                    ;'(font . "fontset-tt14") ; 使うフォントセット
                     )
               default-frame-alist))
 

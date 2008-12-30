@@ -5,9 +5,9 @@
 
 ;; display time
 (setq display-time-string-forms
-  '(month "/" day " " dayname " " 
-    24-hours ":" minutes " "
-    (if mail " Mail" "") ))
+      '(month "/" day " " dayname " " 
+              24-hours ":" minutes " "
+              (if mail " Mail" "") ))
 
 (display-time-mode 1)
 
