@@ -50,6 +50,7 @@
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
+(require 'indent-tabs-maybe)
 
 ;; Language
 ;;(require 'un-define)
