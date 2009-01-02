@@ -67,7 +67,7 @@
 (load "50_abbrev")
 (load "50_buffer")
 (load "50_c")
-;(load "50_dired")
+(load "50_dired")
 (load "50_file")
 (load "50_howm")
 (load "50_javascript")
