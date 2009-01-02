@@ -20,11 +20,15 @@
 
 
 ;; anything-c-imenu
+;(install-elisp-from-emacswiki "el-expectations.el")
+(require 'el-expectations)
 ;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
 (require 'anything-c-imenu)
 
 
 ;; anything-c-linkd-tags
+;(install-elisp-from-emacswiki "linkd.el")
+(require 'linkd)
 ;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
 (require 'anything-c-linkd-tags)
 

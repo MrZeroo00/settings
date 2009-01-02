@@ -8,11 +8,11 @@
 
 ;; text-adjust
 ;(install-elisp "http://taiyaki.org/elisp/text-adjust/src/text-adjust.el")
-(load "text-adjust")
-(setq adaptive-fill-regexp "[ \t]*")
-(setq adaptive-fill-mode t)
-(setq text-adjust-touten-from nil)
-(setq text-adjust-kuten-from nil)
+;(load "text-adjust")
+;(setq adaptive-fill-regexp "[ \t]*")
+;(setq adaptive-fill-mode t)
+;(setq text-adjust-touten-from nil)
+;(setq text-adjust-kuten-from nil)
 
 
 ;; word-count
