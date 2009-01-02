@@ -48,6 +48,7 @@
 
 ;; add conf and elisp to load-path
 (add-to-load-path "~/.emacs.d/elisp"
+		  "~/.emacs.d/elisp/mmm-mode"
                   "~/.emacs.d/conf")
 
 ;; define eval-safe
@@ -64,11 +65,13 @@
 (load "40_coding")
 (load "40_etc")
 (load "50_abbrev")
+(load "50_buffer")
 (load "50_c")
 (load "50_dired")
 (load "50_howm")
 (load "50_javascript")
 (load "50_lisp")
+(load "50_mmm-mode")
 (load "50_moccur-edit")
 (load "50_occur")
 ;(load "50_org-mode")
@@ -87,7 +90,6 @@
 (load "60_man")
 (load "60_mcomplete")
 (load "60_multiverse")
-(load "60_uniquify")
 (load "60_vcs")
 (load "60_view")
 (load "60_windows")

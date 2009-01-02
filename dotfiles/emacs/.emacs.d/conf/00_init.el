@@ -71,6 +71,7 @@
 (setq visible-bell t)
 (setq ange-ftp-try-passive-mode t)
 (set-scroll-bar-mode 'right)
+;(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; key bind settings
 (global-set-key "\C-h" 'delete-backward-char)
