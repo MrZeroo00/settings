@@ -1,3 +1,27 @@
+;; indent
+(setq tab-width 2)
+;(setq tab-stop-list
+;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
+(setq-default indent-tabs-mode nil)
+(setq indent-line-function 'indent-relative-maybe)
+(require 'indent-tabs-maybe)
+
+
+;; paren
+(show-paren-mode t)
+;(setq show-paren-style 'mixed)
+;(set-face-background 'show-paren-match-face "gray10")
+;(set-face-foreground 'show-paren-match-face "SkyBlue")
+;; mic-paren (highlight matching parenthesises)
+(if window-system
+    (progn
+      (require 'mic-paren)
+      (paren-activate)                  ; activating
+      (setq paren-match-face 'bold)
+      (setq paren-sexp-mode t)
+      ))
+
+
 ;; gtags
 (autoload 'gtags-mode "gtags" "" t)
 
@@ -13,6 +37,11 @@
              (gtags-mode 1)
              (gtags-make-complete-list)
              ))
+
+
+;; ediff
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq-default ediff-auto-refine-limit 10000)
 
 
 ;; flymake
@@ -37,16 +66,6 @@
 (add-hook 'c-mode-hook 'hs-minor-mode)
 (add-hook 'perl-mode-hook 'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
-
-
-;; mic-paren (highlight matching parenthesises)
-(if window-system
-    (progn
-      (require 'mic-paren)
-      (paren-activate)                  ; activating
-      (setq paren-match-face 'bold)
-      (setq paren-sexp-mode t)
-      ))
 
 
 ;; linum (show line number)

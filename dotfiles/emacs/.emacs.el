@@ -78,6 +78,7 @@
 ;(load "50_org-mode")
 (load "50_perl")
 (load "50_pukiwiki")
+(load "50_shell")
 ;(load "50_w3m")
 (load "60_ac-mode")
 ;(load "60_auto-save")

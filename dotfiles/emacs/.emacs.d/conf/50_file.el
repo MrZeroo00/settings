@@ -30,7 +30,7 @@
 
 ;; ffap (open cursor position file)
 (ffap-bindings)
-(setq ffap-newfile-prompt t)
+;(setq ffap-newfile-prompt t)
 
 
 ;; saveplace (save cursor position in last edit session)

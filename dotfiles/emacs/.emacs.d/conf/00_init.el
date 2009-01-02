@@ -49,16 +49,6 @@
 ;(pc-selection-mode)
 ;(delete-selection-mode 1)
 
-(show-paren-mode t)
-
-;; indent
-(setq tab-width 2)
-;(setq tab-stop-list
-;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
-(setq-default indent-tabs-mode nil)
-(setq indent-line-function 'indent-relative-maybe)
-(require 'indent-tabs-maybe)
-
 ;; Language
 ;;(require 'un-define)
 ;;(set-language-environment "Japanese")
