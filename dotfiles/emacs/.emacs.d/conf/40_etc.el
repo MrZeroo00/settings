@@ -23,6 +23,7 @@
 
 
 ;; yank current line
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=duplicate%20line
 (defun duplicate-line (&optional numlines)
   "One line is duplicated wherever there is a cursor."
   (interactive "p")
@@ -38,6 +39,7 @@
 
 
 ;; yank region text with line number
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=copy-region-with-info
 (defun copy-region-with-info (arg)
   "リージョンの各行に行番号とファイル名をつけてヤンクバッファにコピー
    C-u で数引数をつけると、ファイル名がフルパスで付与される"

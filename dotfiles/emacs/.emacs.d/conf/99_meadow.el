@@ -1,3 +1,5 @@
+;; buffer-fiber-exe
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=fiberfile
 (defun buffer-fiber-exe ()
   (interactive)
   (let ((file (buffer-file-name)))

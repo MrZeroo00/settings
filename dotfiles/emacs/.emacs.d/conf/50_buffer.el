@@ -5,6 +5,7 @@
 
 
 ;; persistent scratch buffer
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=delete%20scratch
 (defun my-make-scratch (&optional arg)
   (interactive)
   (progn

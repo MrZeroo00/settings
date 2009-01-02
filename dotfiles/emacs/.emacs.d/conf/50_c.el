@@ -11,7 +11,4 @@
                                  (setq tab-width 4)
                                  (setq c-basic-offset tab-width)
                                  (setq indent-tabs-mode nil)
-                                 ;; gtags
-                                 (gtags-mode 1)
-                                 (gtags-make-complete-list)
                                  ))

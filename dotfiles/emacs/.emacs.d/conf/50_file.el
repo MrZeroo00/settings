@@ -40,6 +40,7 @@
 
 
 ;; multiverse
+;; http://d.hatena.ne.jp/rubikitch/20081218/multiverse
 ;(install-elisp-from-emacswiki "multiverse.el")
 (require 'multiverse)
 
@@ -80,6 +81,7 @@
 
 
 ;; delete no content file
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=delete%20nocontents
 (if (not (memq 'delete-file-if-no-contents after-save-hook))
     (setq after-save-hook
           (cons 'delete-file-if-no-contents after-save-hook)))
@@ -100,6 +102,7 @@
 
 
 ;; auto byte-compile when saving ".emacs"
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=byte-compile%20after%20save
 ;(add-hook 'after-save-hook
 ;          (function (lambda ()
 ;                      (if (string= (expand-file-name "~/.emacs.el")

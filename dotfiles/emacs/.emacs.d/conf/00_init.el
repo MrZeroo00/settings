@@ -62,6 +62,7 @@
 (setq time-stamp-end ">")
 
 ;; Update timestamp when saving
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=myfunc%20time-stamp
 (defvar my-save-buffer-hook nil)
 (defun save-buffer-wrapper ()
   (interactive)
