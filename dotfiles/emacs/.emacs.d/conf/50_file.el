@@ -1,3 +1,11 @@
+;; find-file-hooks
+;(add-hook 'find-file-hooks
+;          (function (lambda ()
+;                      (if (string-match "/foo/bar/baz" buffer-file-name)
+;                          (setq foo baz))
+;                      )))
+
+
 (file-name-shadow-mode t)
 (partial-completion-mode t)
 (recentf-mode 1)
@@ -31,7 +39,7 @@
 
 
 ;; auto-save-buffers (save buffers automatically)
-(load "auto-save-buffers")
+;(load "auto-save-buffers")
 
 
 ;; reopen-file
@@ -53,3 +61,32 @@
         (fset 'ask-user-about-supersession-threat
               old-supersession-threat)))))
 (define-key ctl-x-map "\C-r" 'reopen-file)
+
+
+;; delete no content file
+(if (not (memq 'delete-file-if-no-contents after-save-hook))
+    (setq after-save-hook
+          (cons 'delete-file-if-no-contents after-save-hook)))
+
+(defun delete-file-if-no-contents ()
+  (when (and
+         (buffer-file-name (current-buffer))
+         (= (point-min) (point-max)))
+    (when (y-or-n-p "Delete file and kill buffer?")
+      (delete-file
+       (buffer-file-name (current-buffer)))
+      (kill-buffer (current-buffer)))))
+
+
+;; make executable if script file
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
+
+;; auto byte-compile when saving ".emacs"
+;(add-hook 'after-save-hook
+;          (function (lambda ()
+;                      (if (string= (expand-file-name "~/.emacs.el")
+;                                   (buffer-file-name))
+;                          (save-excursion
+;                            (byte-compile-file "~/.emacs.el"))))))

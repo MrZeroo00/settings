@@ -76,8 +76,8 @@
 
 
 ;; generic (coloring generic files)
-(require 'generic-x)
-(setq auto-mode-alist (append (list
-                               '("\\.bat$" . bat-generic-mode)
-                               '("\\.ini$" . ini-generic-mode)
-                               auto-mode-alist)))
+;(require 'generic-x)
+;(setq auto-mode-alist (append (list
+;                               '("\\.bat$" . bat-generic-mode)
+;                               '("\\.ini$" . ini-generic-mode)
+;                               auto-mode-alist)))
