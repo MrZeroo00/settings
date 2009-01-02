@@ -22,6 +22,13 @@
   "Display hexadecimal color codes, and show what they look like." t)
 
 
+;; keisen-mule
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=keisen
+(if window-system
+    (autoload 'keisen-mode "keisen-mouse" "MULE 版罫線モード + マウス" t)
+  (autoload 'keisen-mode "keisen-mule" "MULE 版罫線モード" t))
+
+
 ;; yank current line
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=duplicate%20line
 (defun duplicate-line (&optional numlines)

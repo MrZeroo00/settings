@@ -17,4 +17,7 @@
 ;; mcomplete
 ;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el")
 (require 'mcomplete)
+(require 'cl)
+;(install-elisp "http://www.bookshelf.jp/elc/mcomplete-history.el")
+(load "mcomplete-history")
 (turn-on-mcomplete-mode)
