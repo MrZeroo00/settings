@@ -57,6 +57,29 @@
 ;;(set-buffer-file-coding-system 'utf-8)
 ;;(setq default-buffer-file-coding-system 'utf-8)
 
+;; Timestamp
+(setq time-stamp-start "Time-stamp:[ \t]*<")
+(setq time-stamp-end ">")
+
+;; Update timestamp when saving
+(defvar my-save-buffer-hook nil)
+(defun save-buffer-wrapper ()
+  (interactive)
+  (let ((tostr (concat "$Lastupdate: " (format-time-string "%Y/%m/%d %k:%M:%S") " $")))
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward
+              "\\$Lastupdate\\([0-9/: ]*\\)?\\$" nil t)
+        (replace-match tostr nil t)))
+    (run-hooks 'my-save-buffer-hook)
+    (save-buffer)))
+(global-set-key "\C-x\C-s" 'save-buffer-wrapper)
+
+;; instamp
+(autoload 'instamp "instamp" "Insert TimeStamp on the point" t)
+;(define-key global-map "\C-cs" 'instamp)
+
+
 ;; Etc
 (auto-insert-mode t)
 (auto-compression-mode t)
@@ -64,11 +87,20 @@
 (recentf-mode)
 (setq delete-auto-save-files t)
 (setq kill-whole-line t)
+(setq kill-read-only-ok t)
 (setq next-line-add-newlines nil)
 (setq visible-bell t)
 (setq ange-ftp-try-passive-mode t)
 (set-scroll-bar-mode 'right)
 ;(fset 'yes-or-no-p 'y-or-n-p)
+(require 'redo)
+
+;; kill-summary
+(autoload 'kill-summary "kill-summary" nil t)
+(global-set-key "\M-y" 'kill-summary)
+
+;; list-register
+(require 'list-register)
 
 ;; key bind settings
 (global-set-key "\C-h" 'delete-backward-char)

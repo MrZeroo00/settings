@@ -94,7 +94,7 @@
 (load "60_multiverse")
 (load "60_vcs")
 (load "60_view")
-(load "60_windows")
+(load "60_window")
 (load "99_anything")
 
 (when (and run-w32 run-meadow)

@@ -1,0 +1,20 @@
+(setq paragraph-start '"^\\([ ¡¡¡¦¡û<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
+
+;(add-hook 'text-mode-hook
+;          '(lambda ()
+;             (refill-mode 1)
+;             ))
+
+
+;; text-adjust
+(load "text-adjust")
+(setq adaptive-fill-regexp "[ \t]*")
+(setq adaptive-fill-mode t)
+(setq text-adjust-touten-from nil)
+(setq text-adjust-kuten-from nil)
+
+
+;; word-count
+(autoload 'word-count-mode "word-count"
+  "Minor mode to count words." t nil)
+;(global-set-key "\M-+" 'word-count-mode)

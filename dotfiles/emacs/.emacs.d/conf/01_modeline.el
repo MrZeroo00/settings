@@ -13,3 +13,7 @@
 
 ;; show current directory
 (add-to-list 'global-mode-string '("" default-directory "-"))
+
+
+;; diminish
+(require 'diminish)
