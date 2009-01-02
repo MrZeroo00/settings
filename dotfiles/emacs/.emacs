@@ -67,7 +67,8 @@
 (load "50_abbrev")
 (load "50_buffer")
 (load "50_c")
-(load "50_dired")
+;(load "50_dired")
+(load "50_file")
 (load "50_howm")
 (load "50_javascript")
 (load "50_lisp")
@@ -100,3 +101,6 @@
 
 (if (file-exists-p "~/.emacs.d/conf/99_local.el")
     (load "99_local"))
+
+;(if (y-or-n-p-with-timeout "Load timeout?" 5 nil)
+;    (load "99_timeout"))

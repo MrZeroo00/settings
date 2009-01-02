@@ -37,17 +37,24 @@
 (set-face-background 'mode-line-inactive "gray85")
 (set-face-background 'region "DeepPink1")
 
-(transient-mark-mode t)
-(show-paren-mode t)
-
 ;; Highlight current line
 (global-hl-line-mode)
 (hl-line-mode 1)
 ;(setq hl-line-face 'underline)
 (set-face-background 'hl-line "DarkOliveGreen")
 
+;; region
+(transient-mark-mode t)
+;(setq highlight-nonselected-windows t)
+;(pc-selection-mode)
+;(delete-selection-mode 1)
+
+(show-paren-mode t)
+
 ;; indent
-(setq tab-width 4)
+(setq tab-width 2)
+;(setq tab-stop-list
+;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
 (require 'indent-tabs-maybe)
@@ -75,6 +82,7 @@
 
 ;; key bind settings
 (global-set-key "\C-h" 'delete-backward-char)
+(global-set-key [mouse-3] 'yank)
 
 ;; HTTP Proxy
 (setq http-proxy-server "localhost")
