@@ -16,4 +16,5 @@
 
 
 ;; diminish
+;(install-elisp "http://www.eskimo.com/~seldon/diminish.el")
 (require 'diminish)

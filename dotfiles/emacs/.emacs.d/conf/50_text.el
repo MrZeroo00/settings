@@ -7,6 +7,7 @@
 
 
 ;; text-adjust
+;(install-elisp "http://taiyaki.org/elisp/text-adjust/src/text-adjust.el")
 (load "text-adjust")
 (setq adaptive-fill-regexp "[ \t]*")
 (setq adaptive-fill-mode t)
@@ -15,6 +16,7 @@
 
 
 ;; word-count
+;(install-elisp "http://taiyaki.org/elisp/word-count/src/word-count.el")
 (autoload 'word-count-mode "word-count"
   "Minor mode to count words." t nil)
 ;(global-set-key "\M-+" 'word-count-mode)

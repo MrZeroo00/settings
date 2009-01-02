@@ -11,6 +11,7 @@
 
 
 ;; shell-toggle (switch shell buffer easily)
+;(install-elisp "http://user.it.uu.se/~mic/shell-toggle.el")
 (autoload 'shell-toggle "shell-toggle"
   "Toggles between the *shell* buffer and whatever buffer you are editing."
   t)

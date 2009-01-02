@@ -1,4 +1,5 @@
 ;; mmm-mode
+;; http://sourceforge.net/projects/mmm-mode/
 (require 'mmm-mode)
 (setq mmm-global-mode 'maybe)
 (set-face-background 'mmm-default-submode-face "navy")

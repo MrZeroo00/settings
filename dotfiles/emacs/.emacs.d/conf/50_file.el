@@ -17,6 +17,7 @@
 
 
 ;; dircolors (coloring file names)
+;(install-elisp "http://lfs.irisa.fr/~pad/rawaccess.query/hacks/dircolors.el")
 ;(require 'dircolors)
 
 
@@ -38,8 +39,23 @@
 (setq-default save-place t)
 
 
+;; multiverse
+;(install-elisp-from-emacswiki "multiverse.el")
+(require 'multiverse)
+
+(defun my-save-buffer (arg)
+  (interactive "P")
+  (if arg
+      (multiverse-store)
+    (save-buffer)))
+
+(global-set-key "\C-x\C-s" 'my-save-buffer)
+
+
 ;; auto-save-buffers (save buffers automatically)
+;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
 ;(load "auto-save-buffers")
+;(run-with-idle-timer 0.5 t 'auto-save-buffers)
 
 
 ;; reopen-file

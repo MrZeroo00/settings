@@ -1,3 +1,4 @@
+;; http://howm.sourceforge.jp/
 (autoload 'howm-menu "howm-mode" "Hitori Otegaru Wiki Modoki" t)
 
 (global-set-key "\C-c,," 'howm-menu)

@@ -41,14 +41,14 @@
   (define-key view-mode-map " " 'scroll-up))
 (add-hook 'view-mode-hook 'view-mode-hook0)
 
-;; 書き込み不能なファイルはview-modeで開くように
+;; $B=q$-9~$_ITG=$J%U%!%$%k$O(Bview-mode$B$G3+$/$h$&$K(B
 (defadvice find-file
   (around find-file-switch-to-view-file (file &optional wild) activate)
   (if (and (not (file-writable-p file))
            (not (file-directory-p file)))
       (view-file file)
     ad-do-it))
-;; 書き込み不能な場合はview-modeを抜けないように
+;; $B=q$-9~$_ITG=$J>l9g$O(Bview-mode$B$rH4$1$J$$$h$&$K(B
 (defvar view-mode-force-exit nil)
 (defmacro do-not-exit-view-mode-unless-writable-advice (f)
   `(defadvice ,f (around do-not-exit-view-mode-unless-writable activate)

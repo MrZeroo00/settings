@@ -1,4 +1,6 @@
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=exampleelisp%20color-moccur
+;(install-elisp "http://www.bookshelf.jp/elc/moccur-edit.el")
+;(install-elisp "http://www.bookshelf.jp/elc/color-moccur.el")
 (setq moccur-split-word t)
 (setq moccur-use-migemo t)
 (setq color-moccur-default-ime-status nil)

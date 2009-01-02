@@ -1,14 +1,23 @@
-;(load-library "p4")
-
-
 ;; bm
+;; http://www.nongnu.org/bm/
 (require 'bm)
 (global-set-key (kbd "<C-f2>") 'bm-toggle)
 (global-set-key (kbd "<f2>")   'bm-next)
 (global-set-key (kbd "<S-f2>") 'bm-previous)
 
 
+;; install-elisp
+;(install-elisp-from-emacswiki "install-elisp.el")
+(require 'install-elisp)
+(setq install-elisp-repository-directory "~/.emacs.d/elisp/")
+;(install-elisp-from-emacswiki "oddmuse.el")
+;(require 'oddmuse)
+;;(setq url-proxy-services '(("http" . "your.proxy.host:portnumber"))
+;(oddmuse-mode-initialize)
+
+
 ;; color-selection
+;(install-elisp "http://www.bookshelf.jp/elc/color-selection.el")
 (autoload 'list-hexadecimal-colors-display "color-selection"
   "Display hexadecimal color codes, and show what they look like." t)
 

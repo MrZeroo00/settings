@@ -76,6 +76,7 @@
 (global-set-key "\C-x\C-s" 'save-buffer-wrapper)
 
 ;; instamp
+;(install-elisp "http://www.gentei.org/~yuuji/software/euc/instamp.el")
 (autoload 'instamp "instamp" "Insert TimeStamp on the point" t)
 ;(define-key global-map "\C-cs" 'instamp)
 
@@ -93,13 +94,18 @@
 (setq ange-ftp-try-passive-mode t)
 (set-scroll-bar-mode 'right)
 ;(fset 'yes-or-no-p 'y-or-n-p)
+
+;; redo
+;(install-elisp "http://www.wonderworks.com/download/redo.el")
 (require 'redo)
 
 ;; kill-summary
+;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
 (autoload 'kill-summary "kill-summary" nil t)
 (global-set-key "\M-y" 'kill-summary)
 
 ;; list-register
+;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
 (require 'list-register)
 
 ;; key bind settings

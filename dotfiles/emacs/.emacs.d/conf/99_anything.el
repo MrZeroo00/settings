@@ -1,3 +1,5 @@
+;(install-elisp-from-emacswiki "anything")
+;(install-elisp-from-emacswiki "anything-config")
 (require 'anything)
 (require 'anything-config)
 
@@ -17,7 +19,18 @@
 (define-key anything-map "\C-z" 'anything-execute-persistent-action)
 
 
+;; anything-c-imenu
+;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
+(require 'anything-c-imenu)
+
+
+;; anything-c-linkd-tags
+;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
+(require 'anything-c-linkd-tags)
+
+
 ;; anything-c-moccur
+;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
 (require 'anything-c-moccur)
 (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
@@ -28,27 +41,52 @@
 (global-set-key (kbd "C-M-r") 'anything-c-moccur-isearch-backward)
 
 
+;; anything-c-source-buffers2
+;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-source-buffers2.el")
+(require 'anything-c-source-buffers2)
+
+
 ;; anything-complete
+;(install-elisp-from-emacswiki "anything-complete.el")
 (require 'anything-complete)
 (anything-lisp-complete-symbol-set-timer 150)
 
 
 ;; anything-dabbrev-expand
+;(install-elisp-from-emacswiki "anything-dabbrev-expand.el")
 (require 'anything-dabbrev-expand)
 (global-set-key "\M-/" 'anything-dabbrev-expand)
 (define-key anything-dabbrev-map "\M-/" 'anything-dabbrev-find-all-buffers)
 
 
+;; anything-delicious
+;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
+;(require 'anything-delicious)
+
+
+;; anything-grep
+;(install-elisp-from-emacswiki "anything-grep.el")
+(require 'anything-grep)
+
+
 ;; anything-gtags
+;(install-elisp-from-emacswiki "anything-gtags.el")
 (require 'anything-gtags)
 
 
+;; anything-match-plugin
+;(install-elisp-from-emacswiki "anything-match-plugin.el")
+(require 'anything-match-plugin)
+
+
 ;; anything-migemo
+;(install-elisp-from-emacswiki "anything-migemo.el")
 ;(require 'anything-migemo)
 ;(define-key global-map [(control ?:)] 'anything-migemo)
 
 
 ;; anything-rcodetools
+;(install-elisp-from-emacswiki "anything-rcodetools.el")
 ;(require 'anything-rcodetools)
 ;(setq rct-get-all-methods-command "PAGER=cat fri -l")
 ;(define-key anything-map "\C-z" 'anything-execute-persistent-action)

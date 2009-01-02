@@ -4,6 +4,7 @@
 ;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
+;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
 (require 'indent-tabs-maybe)
 
 
@@ -13,6 +14,7 @@
 ;(set-face-background 'show-paren-match-face "gray10")
 ;(set-face-foreground 'show-paren-match-face "SkyBlue")
 ;; mic-paren (highlight matching parenthesises)
+;(install-elisp "http://user.it.uu.se/~mic/mic-paren.el")
 (if window-system
     (progn
       (require 'mic-paren)
@@ -23,6 +25,7 @@
 
 
 ;; gtags
+;; http://tamacom.com/global-j.html
 (autoload 'gtags-mode "gtags" "" t)
 
 (setq gtags-mode-hook
@@ -32,11 +35,6 @@
          (local-set-key "\M-s" 'gtags-find-symbol)
          (local-set-key "\C-t" 'gtags-pop-stack)
          ))
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (gtags-mode 1)
-             (gtags-make-complete-list)
-             ))
 
 
 ;; ediff
@@ -45,6 +43,7 @@
 
 
 ;; flymake
+;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
 (require 'flymake)
 
 (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
@@ -90,8 +89,14 @@
 
 
 ;; develock (emphasize bad coding convention)
+;; http://www.jpl.org/elips/develock.el.gz
 (load "develock")
 (setq develock-auto-enable nil)
+
+
+;; p4
+;; http://p4el.sourceforge.net/
+;(load-library "p4")
 
 
 ;; emphasize Space/Tab/Newline
