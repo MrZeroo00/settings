@@ -1,18 +1,18 @@
 ;; Outputz
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
-(require 'outputz)
-(setq outputz-key "Your Private Key")      ;; 復活の呪文
-(setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
-(global-outputz-mode t)
-
-(require 'outputz)
-(defun outputz-buffers ()
-  (dolist (buf (buffer-list))
-    (with-current-buffer buf
-    (outputz))))
-
-(run-with-idle-timer 3 t 'outputz-buffers)
-(remove-hook 'after-save-hook 'outputz)
+;(require 'outputz)
+;(setq outputz-key "Your Private Key")      ;; 復活の呪文
+;(setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
+;(global-outputz-mode t)
+;
+;(require 'outputz)
+;(defun outputz-buffers ()
+;  (dolist (buf (buffer-list))
+;    (with-current-buffer buf
+;    (outputz))))
+;
+;(run-with-idle-timer 3 t 'outputz-buffers)
+;(remove-hook 'after-save-hook 'outputz)
 
 
 ;; bm
