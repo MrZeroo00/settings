@@ -12,6 +12,15 @@
 ;(install-elisp-from-emacswiki "auto-complete.el")
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(setq ac-sources '(ac-source-abbrev
+                   ac-source-words-in-buffer
+                   ac-source-files-in-current-dir))
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (make-local-variable 'ac-sources)
+            (add-to-list 'ac-sources 'ac-source-yasnippet)))
+(define-key ac-complete-mode-map "\C-n" 'ac-next)
+(define-key ac-complete-mode-map "\C-p" 'ac-previous)
 
 
 ;; mcomplete

@@ -47,10 +47,11 @@
 ;;    |       ...       |
 ;;    +-----------------+
 ;; 5. You can complete by seleting the menu item
-;;    by pressing M-n/<down>, M-p/<up>, and C-m/RET.
+;;    by pressing TAB, <down>, <up>, and RET.
 
 ;;; Tips:
 ;;
+;; ================================
 ;; Use C-n/C-p to select candidates
 ;; ================================
 ;;
@@ -61,6 +62,8 @@
 ;; (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 ;; ------------------------------
 ;;
+;;
+;; ====================================
 ;; Don't start completion automatically
 ;; ====================================
 ;;
@@ -77,6 +80,50 @@
 ;; ;; start completion when entered 3 characters
 ;; (setq ac-auto-start 3)
 ;; ------------------------------
+;;
+;;
+;; =================
+;; Completion by TAB
+;; =================
+;;
+;; Add following code to your .emacs.
+;;
+;; ------------------------------
+;; (define-key ac-complete-mode-map "\t" 'ac-complete)
+;; (define-key ac-complete-mode-map "\r" nil)
+;; ------------------------------
+;;
+;;
+;; ===================
+;; Do What I Mean mode
+;; ===================
+;;
+;; If DWIM (Do What I Mean) mode is enabled,
+;; the following features is available:
+;;
+;; a. TAB (ac-expand) behave as completion (ac-complete)
+;;    when only one candidate is left
+;; b. TAB (ac-expand) behave as completion (ac-complete)
+;;    after you select candidate
+;;
+;; DWIM mode is enabled by default.
+;; You can disable this feature by
+;; setting `ac-dwim' to nil.
+;;
+;;
+;; ==================================
+;; Change sources for particular mode
+;; ==================================
+;;
+;; `ac-sources' is global variable, so you have to
+;; make it local variable to change sources for particular mode like:
+;;
+;; ------------------------------
+;; (add-hook 'emacs-lisp-mode-hook
+;;             (lambda ()
+;;               (make-local-variable 'ac-sources)
+;;               (setq ac-sources '(ac-source-words-in-buffer ac-source-symbols))))
+;; ------------------------------
 
 ;; This extension is so simple that you can extend
 ;; how Emacs find a target and how Emacs enumerate
@@ -87,6 +134,10 @@
 
 ;;; History:
 
+;; 2008-11-26 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * auto-complete.el 0.1.0 released
+;;
 ;; 2008-11-19 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
 ;;
 ;;      * thanks for Taiki SUGAWARA <buzz.taiki@gmail.com>
@@ -143,10 +194,14 @@
 ;; - use double candidate menu
 ;; - omni completion
 ;; - show description
+;; - demo movie (YouTube)
+;; - backward menu in tiny buffer
+;; - dictionary
+;; - semantic
 
 ;;; Code:
 
-
+ 
 
 (defgroup auto-complete nil
   "Auto completion with popup menu"
@@ -264,7 +319,6 @@ using the `TARGET' that is given as a first argument.")
 (defvar ac-complete-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map "\t" 'ac-expand)
-    (define-key map "\M-\t" 'ac-expand-common)
     (define-key map "\r" 'ac-complete)
     
     (define-key map [down] 'ac-next)
@@ -279,7 +333,7 @@ using the `TARGET' that is given as a first argument.")
 (defvar ac-saved-local-map nil
   "Old keymap before `auto-complete' activated.")
 
-
+ 
 
 ;;;; Auto completion
 
@@ -446,7 +500,7 @@ using the `TARGET' that is given as a first argument.")
         (recenter (- (1+ i))))
     (if (> i ac-menu-offset)
         (let ((window-width (window-width))
-              (right (- (+ (ac-menu-line ac-menu) ac-candidate-menu-width)
+              (right (- (+ (ac-menu-column ac-menu) ac-candidate-menu-width)
                         (window-hscroll))))
           (if (> right window-width)
               (scroll-left (- right window-width)))))
@@ -481,7 +535,7 @@ using the `TARGET' that is given as a first argument.")
       (when (null ac-menu)
         (ac-setup point)
         (funcall ac-init-function))
-      (setq ac-target (buffer-substring point (point)))
+      (setq ac-target (buffer-substring-no-properties point (point)))
       (setq ac-limit ac-candidate-max)
       (ac-update-candidates
        (if (or ac-completing
@@ -536,12 +590,30 @@ using the `TARGET' that is given as a first argument.")
       auto-complete-mode auto-complete-mode-maybe
       :group 'auto-complete))
 
-
+ 
 
 ;;;; Sources implementation
 
 (defvar ac-sources '(ac-source-words-in-buffer)
-  "Sources.")
+  "Sources for completion.
+
+Source takes a form of alist:
+
+(init . INIT-FUNC)
+  INIT-FUNC will be called before creating candidate every time.
+
+(candidates . CANDIDATE-FUNC)
+  CANDIDATE-FUNC will return a list of string as candidates.
+CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for performance.
+
+(action . ACTION-FUNC)
+  ACTION-FUNC will be called when `ac-complete' is called.
+
+(limit . LIMIT-NUM)
+  A limit of candidates.
+
+(requires . REQUIRES-NUM)
+  This source will be included when `ac-target' length is larger than REQUIRES-NUM.")
 
 (defun ac-sources-init ()
   "Implementation for `ac-init-function' by sources."
@@ -560,10 +632,10 @@ using the `TARGET' that is given as a first argument.")
         (if (symbolp source)
             (setq source (symbol-value source)))
         (let* ((ac-limit (or (cdr-safe (assq 'limit source)) ac-limit))
-               (requires-pattern (cdr-safe (assq 'requires-pattern source)))
+               (requires (cdr-safe (assq 'requires source)))
                cand)
-          (if (or (null requires-pattern)
-                  (>= (length ac-target) requires-pattern))
+          (if (or (null requires)
+                  (>= (length ac-target) requires))
               (setq cand
                     (delq nil
                           (mapcar (lambda (candidate)
@@ -587,7 +659,7 @@ using the `TARGET' that is given as a first argument.")
           (goto-char ac-point)
           (while (and (< i ac-limit)
                       (re-search-backward regexp nil t))
-            (setq candidate (match-string 0))
+            (setq candidate (match-string-no-properties 0))
             (unless (member candidate candidates)
               (push candidate candidates)
               (setq i (1+ i))))
@@ -595,7 +667,7 @@ using the `TARGET' that is given as a first argument.")
           (goto-char (+ ac-point (length ac-target)))
           (while (and (< i ac-limit)
                       (re-search-forward regexp nil t))
-            (setq candidate (match-string 0))
+            (setq candidate (match-string-no-properties 0))
             (unless (member candidate candidates)
               (push candidate candidates)
               (setq i (1+ i))))
@@ -685,7 +757,7 @@ using the `TARGET' that is given as a first argument.")
     (limit . 3))
   "Source for Yasnippet.")
 
-
+ 
 
 ;;;; Popup menu
 
