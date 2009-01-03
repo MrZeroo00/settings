@@ -1,9 +1,36 @@
+;; Outputz
+;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
+(require 'outputz)
+(setq outputz-key "Your Private Key")      ;; 復活の呪文
+(setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
+(global-outputz-mode t)
+
+(require 'outputz)
+(defun outputz-buffers ()
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+    (outputz))))
+
+(run-with-idle-timer 3 t 'outputz-buffers)
+(remove-hook 'after-save-hook 'outputz)
+
+
 ;; bm
 ;; http://www.nongnu.org/bm/
 (require 'bm)
 (global-set-key (kbd "<C-f2>") 'bm-toggle)
 (global-set-key (kbd "<f2>")   'bm-next)
 (global-set-key (kbd "<S-f2>") 'bm-previous)
+
+
+;; minibuf-isearch
+(require 'minibuf-isearch)
+
+
+;; session
+;; http://emacs-session.sourceforge.net/
+(require 'session)
+(add-hook 'after-init-hook 'session-initialize)
 
 
 ;; install-elisp

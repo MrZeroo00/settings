@@ -1,6 +1,6 @@
 ;;; minibuf-isearch.el --- incremental search on minibuffer history
 
-;; Copyright (C) 2002 Keiichiro Nagano <knagano@sodan.org>
+;; Copyright (C) 2002-2007 Keiichiro Nagano <knagano@sodan.org>
 ;;
 ;; Filename: minibuf-isearch.el
 ;; Version: 1.7.1
@@ -146,9 +146,9 @@
 ;;   by Keiichiro Nagano <knagano@sodan.org>:
 ;;   - proof-of-concept prototypical code
 ;;   - the original idea and suggestions by Satoru Takabayashi
-;;     <satoru@namazu.org> (thanks)
-;;   - based on gmhist.el modified by HIROSE yuuji <yuuji@gentei.org>
-;;     (thanks)
+;;     <satoru AT namazu DOT org> (thanks)
+;;   - based on gmhist.el modified by HIROSE yuuji
+;;     <yuuji AT gentei DOT org> (thanks)
 ;;   - released for ELF mailing list
 ;;     (http://www.gentei.org/~yuuji/ml/ELF/)
 ;;
