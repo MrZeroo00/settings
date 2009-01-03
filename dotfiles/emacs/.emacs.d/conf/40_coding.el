@@ -25,8 +25,8 @@
 
 
 ;; ctags
-;(global-set-key "\M-t" 'find-tag)
-;(global-set-key "\C-t" 'pop-tag-mark)
+(global-set-key "\M-t" 'find-tag)
+(global-set-key "\C-t" 'pop-tag-mark)
 
 
 ;; gtags
@@ -45,6 +45,10 @@
                                  (gtags-mode 1)
                                  (gtags-make-complete-list)
                                  ))
+
+
+;; eldoc
+(autoload 'turn-on-eldoc-mode "eldoc" nil t)
 
 
 ;; ediff

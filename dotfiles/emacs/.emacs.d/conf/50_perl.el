@@ -14,6 +14,19 @@
              (add-to-list 'ac-sources 'ac-source-perl-completion)))
 
 
+;; eldoc
+(defun my-cperl-eldoc-documentation-function ()
+  "Return meaningful doc string for `eldoc-mode'."
+  (car
+   (let ((cperl-message-on-help-error nil))
+     (cperl-get-help))))
+
+(add-hook 'cperl-mode-hook
+          (lambda ()
+            (set (make-local-variable 'eldoc-documentation-function)
+                 'my-cperl-eldoc-documentation-function)))
+
+
 ;; brackets
 (add-hook 'cperl-mode-hook
           '(lambda()

@@ -77,6 +77,7 @@
 (load "50_c")
 (load "50_complete")
 (load "50_dired")
+(load "50_emacs-lisp")
 (load "50_file")
 (load "50_haskell")
 (load "50_hatena")

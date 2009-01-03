@@ -14,5 +14,8 @@
                    (require 'slime) 
                    (normal-mode)))))
 
+(add-hook 'lisp-interaction-mode-hook
+          'turn-on-eldoc-mode)
+
 (eval-after-load "slime"
   '(slime-setup '(slime-fancy slime-banner)))

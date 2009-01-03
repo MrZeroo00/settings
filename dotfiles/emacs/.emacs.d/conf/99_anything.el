@@ -85,8 +85,8 @@
 
 ;; anything-migemo
 ;(install-elisp-from-emacswiki "anything-migemo.el")
-;(require 'anything-migemo)
-;(define-key global-map [(control ?:)] 'anything-migemo)
+(require 'anything-migemo)
+(define-key global-map [(control ?:)] 'anything-migemo)
 
 
 ;; anything-rcodetools
