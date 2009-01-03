@@ -85,6 +85,11 @@
 (yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets")
 
 
+;; brackets
+;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
+(load "brackets")
+
+
 ;; linum (show line number)
 (require 'linum)
 ;(global-linum-mode t)

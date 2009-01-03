@@ -88,6 +88,7 @@
 (load "50_pukiwiki")
 (load "50_scheme")
 (load "50_shell")
+(load "50_systemtap")
 (load "50_text")
 (load "50_w3m")
 (load "50_xml")
