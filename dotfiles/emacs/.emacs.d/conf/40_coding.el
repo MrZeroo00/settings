@@ -61,6 +61,13 @@
               "SYNTAX_CHECK_MODE=1")))
 
 
+;; auto-compile
+;; http://d.hatena.ne.jp/higepon/20061107/1162902929
+;; http://sourceforge.net/project/showfiles.php?group_id=164970&package_id=210662
+(require 'auto-compile)
+(setq auto-compile-target-path-regexp-list (list "\/src"))
+
+
 ;; hs-minor-mode (fold code block)
 (load-library "hideshow")
 
