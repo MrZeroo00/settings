@@ -51,6 +51,11 @@
 (autoload 'turn-on-eldoc-mode "eldoc" nil t)
 
 
+;; doxymacs
+(require 'doxymacs)
+(add-hook 'c-mode-common-hook 'doxymacs-mode)
+
+
 ;; ediff
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq-default ediff-auto-refine-limit 10000)
