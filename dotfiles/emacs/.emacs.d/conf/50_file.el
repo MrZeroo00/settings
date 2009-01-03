@@ -53,6 +53,16 @@
 (global-set-key "\C-x\C-s" 'my-save-buffer)
 
 
+;; auto-save-buffers-enhanced
+;(install-elisp "http://svn.coderepos.org/share/lang/elisp/auto-save-buffers-enhanced/trunk/auto-save-buffers-enhanced.el")
+(require 'auto-save-buffers-enhanced)
+(auto-save-buffers-enhanced-include-only-checkout-path t)
+(auto-save-buffers-enhanced t)
+(global-set-key "\C-xas" 'auto-save-buffers-enhanced-toggle-activity)
+;(setq auto-save-buffers-enhanced-include-regexps '(".+"))
+;(setq auto-save-buffers-enhanced-exclude-regexps '("^not-save-file" "\\.ignore$"))
+
+
 ;; auto-save-buffers (save buffers automatically)
 ;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
 ;(load "auto-save-buffers")
