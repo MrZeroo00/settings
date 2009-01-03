@@ -34,3 +34,6 @@
 (global-set-key "\M-o" 'occur-by-moccur)
 (global-set-key "\C-c\C-x\C-o" 'moccur)
 ;;(global-set-key "\C-c\C-o" 'search-buffers)
+
+(setq *moccur-buffer-name-exclusion-list*
+      '("\.svn" "*Completions*" "*Messages*"))

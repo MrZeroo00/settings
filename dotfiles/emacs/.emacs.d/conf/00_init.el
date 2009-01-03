@@ -100,6 +100,10 @@
 ;(install-elisp "http://www.wonderworks.com/download/redo.el")
 (require 'redo)
 
+;; point-undo
+;(install-elisp-from-emacswiki "point-undo.el")
+(require 'point-undo)
+
 ;; kill-summary
 ;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
 (autoload 'kill-summary "kill-summary" nil t)
@@ -109,10 +113,9 @@
 ;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
 (require 'list-register)
 
+;; pit
+(require 'pit)
+
 ;; key bind settings
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key [mouse-3] 'yank)
-
-;; HTTP Proxy
-(setq http-proxy-server "localhost")
-(setq http-proxy-port 8080)

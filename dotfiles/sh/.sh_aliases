@@ -33,7 +33,7 @@ case "`uname`" in
   alias emacs='XMODIFIERS=@im=none emacs'
   ;;
   "Darwin")
-  alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+  alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
   alias ql='qlmanage -p "$@" >& /dev/null'
   ;;
 esac

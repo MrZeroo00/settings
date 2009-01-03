@@ -48,8 +48,15 @@
 
 ;; add conf and elisp to load-path
 (add-to-load-path "~/.emacs.d/elisp"
-		  "~/.emacs.d/elisp/mmm-mode"
                   "~/.emacs.d/conf")
+
+;; add additional load-path
+(if (file-exists-p "~/local/share/emacs/site-lisp/subdirs.el")
+    (let ((dir (expand-file-name "~/local/share/emacs/site-lisp")))
+      (if (member dir load-path) nil
+	(setq load-path (cons dir load-path))
+	(let ((default-directory dir))
+	  (load (expand-file-name "subdirs.el") t t t)))))
 
 ;; define eval-safe
 ;; http://www.sodan.org/~knagano/emacs/dotemacs.html#eval-safe
@@ -63,6 +70,7 @@
 (load "01_modeline")
 (load "05_server")
 (load "40_coding")
+(load "40_network")
 (load "40_etc")
 (load "50_buffer")
 (load "50_c")
@@ -75,18 +83,24 @@
 (load "50_lisp")
 (load "50_mmm-mode")
 (load "50_occur")
-;(load "50_org-mode")
+(load "50_outline")
 (load "50_perl")
 (load "50_pukiwiki")
+(load "50_scheme")
 (load "50_shell")
 (load "50_text")
-;(load "50_w3m")
+(load "50_w3m")
+(load "50_xml")
+(load "50_yaml")
 (load "60_backup")
 (load "60_dmacro")
 (load "60_doc-view")
+(load "60_howm")
 (load "60_iswitchb")
 (load "60_key-chord")
+(load "60_lookup")
 (load "60_man")
+(load "60_migemo")
 (load "60_spell")
 (load "60_vcs")
 (load "60_view")

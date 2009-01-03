@@ -1,3 +1,6 @@
+(setq inferior-lisp-program "clisp")
+
+
 ;; slime
 ;; http://common-lisp.net/project/slime/
 (setq load-path (cons "/opt/local/share/emacs/site-lisp/slime" load-path))
