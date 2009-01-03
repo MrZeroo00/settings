@@ -1,3 +1,6 @@
+(setq read-file-name-completion-ignore-case t)
+
+
 ;; dabbrev-highlight
 ;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
 (require 'dabbrev-highlight)

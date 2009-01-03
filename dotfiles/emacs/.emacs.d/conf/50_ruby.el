@@ -2,12 +2,9 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-(setq auto-mode-alist
-      (append '(("\\.rb$" . ruby-mode))
-              auto-mode-alist))
-(setq interpreter-mode-alist
-      (append '(("ruby" . ruby-mode))
-              interpreter-mode-alist))
+; association setting
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 (setq ruby-deep-indent-paren-style nil)
 

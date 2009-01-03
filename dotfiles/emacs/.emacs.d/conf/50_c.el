@@ -1,5 +1,6 @@
 (require 'cc-mode)
 
+; style setting
 (add-hook 'c-mode-common-hook '(lambda ()
                                  ;(c-set-style "GNU")
                                  (c-set-offset 'substatement-open 0)
@@ -14,8 +15,25 @@
                                  ))
 
 
+;; anything
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (make-local-variable 'anything-sources)
+            (add-to-list 'anything-sources 'anything-c-source-gtags-select)))
+
+
 ;; eldoc
 ;(install-elisp-from-emacswiki "c-eldoc.el")
 (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ ")
 (load "c-eldoc")
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+
+
+;; ff-find-other-file
+;(setq cc-search-directories
+;      (append '("/opt/local/include")
+;              cc-search-directories))
+(add-hook 'c-mode-common-hook (lambda ()
+            (define-key c-mode-map "\M-#" 'ff-find-other-file)
+            (define-key c++-mode-map "\M-#" 'ff-find-other-file)
+            ))

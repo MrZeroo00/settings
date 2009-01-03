@@ -3,6 +3,14 @@
 (require 'anything)
 (require 'anything-config)
 
+(setq anything-idle-delay 0.3)
+(setq anything-input-idle-delay 0)
+(setq anything-candidate-number-limit 100)
+;(setq anything-c-locate-db-file "~/home.locatedb")
+;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
+(setq anything-candidate-separator
+      "------------------------------------------------------------------------------------")
+
 (anything-iswitchb-setup)
 
 (define-key global-map (kbd "C-;") 'anything)
@@ -31,6 +39,11 @@
 (require 'linkd)
 ;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
 (require 'anything-c-linkd-tags)
+
+
+;; anything-c-lisp-complete-symbol
+;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-lisp-complete-symbol/anything-c-lisp-complete-symbol.el")
+(require 'anything-c-lisp-complete-symbol)
 
 
 ;; anything-c-moccur

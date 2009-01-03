@@ -216,10 +216,9 @@
 
 ;; generic (coloring generic files)
 ;(require 'generic-x)
-;(setq auto-mode-alist (append (list
-;                               '("\\.bat$" . bat-generic-mode)
-;                               '("\\.ini$" . ini-generic-mode)
-;                               auto-mode-alist)))
+;; association setting
+;(add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
+;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
 
 
 ;; assist TDD

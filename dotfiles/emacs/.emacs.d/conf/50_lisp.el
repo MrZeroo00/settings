@@ -1,6 +1,15 @@
 (setq inferior-lisp-program "clisp")
 
 
+;; anything
+(add-hook 'lisp-mode-hook
+          (lambda ()
+            (make-local-variable 'anything-sources)
+            (add-to-list 'anything-sources
+                         'anything-c-source-lisp-complete-symbol
+                         'anything-c-source-linkd-tag)))
+
+
 ;; slime
 ;; http://common-lisp.net/project/slime/
 (setq load-path (cons "/opt/local/share/emacs/site-lisp/slime" load-path))

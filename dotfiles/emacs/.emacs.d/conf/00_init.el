@@ -49,6 +49,11 @@
 ;(pc-selection-mode)
 ;(delete-selection-mode 1)
 
+;; scroll
+;(setq scroll-conservatively 35)
+(setq scroll-margin 0)
+(setq scroll-step 1)
+
 ;; Language
 ;;(require 'un-define)
 ;;(set-language-environment "Japanese")

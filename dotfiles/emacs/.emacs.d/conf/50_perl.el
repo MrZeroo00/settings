@@ -1,5 +1,7 @@
 (require 'cperl-mode)
 ;(defalias 'perl-mode 'cperl-mode)
+
+; association setting
 (add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))

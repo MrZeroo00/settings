@@ -1,4 +1,6 @@
 (autoload 'yaml-mode "yaml-mode" "YAML" t)
+
+; association setting
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 (add-hook 'yaml-mode-hook

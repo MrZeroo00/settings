@@ -1,8 +1,7 @@
 (load "rng-auto.el")
 
-(setq auto-mode-alist
-      (cons '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode)
-            auto-mode-alist))
+; association setting
+(add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))
 
 (add-hook 'nxml-mode-hook
           (lambda ()
