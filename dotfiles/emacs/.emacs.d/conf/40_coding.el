@@ -24,6 +24,11 @@
       ))
 
 
+;; ctags
+;(global-set-key "\M-t" 'find-tag)
+;(global-set-key "\C-t" 'pop-tag-mark)
+
+
 ;; gtags
 ;; http://tamacom.com/global-j.html
 (autoload 'gtags-mode "gtags" "" t)
