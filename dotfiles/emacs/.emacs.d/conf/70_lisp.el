@@ -2,6 +2,10 @@
 
 (setq inferior-lisp-program "clisp")
 
+(add-hook 'lisp-mode-hook
+          (lambda ()
+            (define-key lisp-mode-map "\C-m" 'newline-and-indent)))
+
 
 ;; anything
 (add-hook 'lisp-mode-hook

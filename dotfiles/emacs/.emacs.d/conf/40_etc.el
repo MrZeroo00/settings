@@ -33,6 +33,14 @@
 (add-hook 'after-init-hook 'session-initialize)
 
 
+;; autoarg
+;(require 'autoarg)
+
+
+;; viper
+;(require 'viper)
+
+
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
 (require 'install-elisp)
@@ -54,6 +62,18 @@
 (if window-system
     (autoload 'keisen-mode "keisen-mouse" "MULE 版罫線モード + マウス" t)
   (autoload 'keisen-mode "keisen-mule" "MULE 版罫線モード" t))
+
+
+;; iimage
+;(require 'iimage)
+
+
+;; thumbs
+(setq thumbs-thumbsdir
+      (expand-file-name "~/.emacs-thumbs"))
+(setq thumbs-temp-dir (expand-file-name "~/tmp"))
+(setq image-file-name-extensions
+      '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
 
 
 ;; functions

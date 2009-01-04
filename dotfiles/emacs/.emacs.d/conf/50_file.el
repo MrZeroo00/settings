@@ -6,14 +6,16 @@
 ;                      )))
 
 
-(file-name-shadow-mode t)
-(partial-completion-mode t)
-(recentf-mode 1)
-;(filesets-init)
 (auto-compression-mode)
 (setq completion-ignored-extensions
       (append completion-ignored-extensions
               '(".exe" ".com")))
+(recentf-mode 1)
+;(filesets-init)
+;(file-name-shadow-mode t)
+; complete
+;(partial-completion-mode t)
+(setq read-file-name-completion-ignore-case t)
 
 
 ;; dircolors (coloring file names)
