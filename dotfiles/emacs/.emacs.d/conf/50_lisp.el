@@ -1,3 +1,5 @@
+(require 'lisp-mode)
+
 (setq inferior-lisp-program "clisp")
 
 

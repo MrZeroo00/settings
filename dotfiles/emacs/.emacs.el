@@ -66,6 +66,9 @@
        (progn ,@body)
      (error (message "[eval-safe] %s" err))))
 
+(if (file-exists-p "~/.emacs.d/conf/00_local.el")
+    (load "00_local"))
+
 (load "00_init")
 (load "01_util")
 (load "01_modeline")

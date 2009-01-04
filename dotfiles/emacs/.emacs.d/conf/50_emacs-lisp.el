@@ -1,3 +1,5 @@
+(require 'lisp-mode)
+
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.el$" . emacs-lisp-mode))
 

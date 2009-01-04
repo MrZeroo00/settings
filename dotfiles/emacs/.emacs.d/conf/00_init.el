@@ -37,7 +37,9 @@
 (set-face-background 'mode-line-inactive "gray85")
 (set-face-background 'region "DeepPink1")
 
-;; Highlight current line
+;; highlight
+(require 'hi-lock)
+; highlight current line
 (global-hl-line-mode)
 (hl-line-mode 1)
 ;(setq hl-line-face 'underline)
