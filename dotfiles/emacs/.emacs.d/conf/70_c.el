@@ -1,5 +1,8 @@
 (require 'cc-mode)
 
+; association setting
+(add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
+
 ; style setting
 (add-hook 'c-mode-common-hook '(lambda ()
                                  ;(c-set-style "GNU")
@@ -37,3 +40,8 @@
             (define-key c-mode-map "\M-#" 'ff-find-other-file)
             (define-key c++-mode-map "\M-#" 'ff-find-other-file)
             ))
+
+
+;; cwarn
+(require 'cwarn)
+(add-hook 'c-mode-hook 'turn-on-cwarn-mode)

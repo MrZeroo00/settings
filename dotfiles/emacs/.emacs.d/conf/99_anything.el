@@ -124,9 +124,13 @@
 
 
 ;; anything-kyr
-(load "anything-kyr")
+(load "_anything-kyr")
 (setq anything-kyr-commands-by-major-mode
-      '((ruby-mode "rdefs" "rcov" "rbtest")
+      '((cc-mode "gtags-find-file" "gtags-find-rtag"
+                 "ff-find-other-file" "align"
+                 "hs-hide-block" "hs-show-block"
+                 "hide-ifdef-mode")
+        (ruby-mode "rdefs" "rcov" "rbtest")
         (emacs-lisp-mode "byte-compile-file")))
 (setq anything-kyr-functions
       '((lambda ()

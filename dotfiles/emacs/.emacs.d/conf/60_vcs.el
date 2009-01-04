@@ -13,4 +13,4 @@
 
 ;; p4
 ;; http://p4el.sourceforge.net/
-;(load-library "p4")
+;(load "p4")

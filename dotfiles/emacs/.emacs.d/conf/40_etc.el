@@ -41,6 +41,27 @@
 ;(require 'viper)
 
 
+;; clwiki
+;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
+;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")
+;(autoload 'clwiki "clwiki" "ChangeLog wiki-modoki." t)
+;(define-key ctl-x-map "M" 'clwiki)
+;(autoload 'clgrep "clgrep" "ChangeLog grep." t)
+;(autoload 'clgrep-item "clgrep" "ChangeLog grep." t)
+;(autoload 'clgrep-item-header "clgrep" "ChangeLog grep for item header" t)
+;(autoload 'clgrep-item-tag "clgrep" "ChangeLog grep for tag" t)
+;(autoload 'clgrep-item-notag "clgrep" "ChangeLog grep for item except for tag" t)
+;(autoload 'clgrep-item-nourl "clgrep" "ChangeLog grep item except for url" t)
+;(autoload 'clgrep-entry "clgrep" "ChangeLog grep for entry" t)
+;(autoload 'clgrep-entry-header "clgrep" "ChangeLog grep for entry header" t)
+;(autoload 'clgrep-entry-no-entry-header "clgrep" "ChangeLog grep for entry except entry header" t)
+;(autoload 'clgrep-entry-tag "clgrep" "ChangeLog grep for tag" t)
+;(autoload 'clgrep-entry-notag "clgrep" "ChangeLog grep for tag" t)
+;(autoload 'clgrep-entry-nourl "clgrep" "ChangeLog grep entry except for url" t)
+;(add-hook 'clmemo-mode-hook
+;          '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
+
+
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
 (require 'install-elisp)
