@@ -160,5 +160,6 @@
                              anything-c-source-file-name-history
                              anything-c-source-mac-spotlight
                              anything-c-source-locate
+                             anything-c-source-calculation-result
                              anything-c-source-complex-command-history
                              ))
