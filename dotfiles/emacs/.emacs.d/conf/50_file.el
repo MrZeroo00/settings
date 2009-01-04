@@ -87,7 +87,7 @@
 ;                            (byte-compile-file "~/.emacs.el"))))))
 
 
-;; functions
+;; macros
 (load "_reopen-file")
 (define-key ctl-x-map "\C-r" 'reopen-file)
 ;(load "_save-buffer-wrapper")

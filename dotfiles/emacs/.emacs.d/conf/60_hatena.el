@@ -6,4 +6,4 @@
 (add-hook 'hatena-mode-hook
           '(lambda ()
              ; other hooks must be wrote here!
-             (hatenahelper-mode 1)))
+             (hatenahelper-mode t)))

@@ -4,10 +4,10 @@
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
 
-;; functions
+;; macros
 (load "_my-make-scratch")
 (add-hook 'after-save-hook
           ;; when save *scratch* buffer, create new *scratch* buffer
           (function (lambda ()
                       (unless (member "*scratch*" (my-buffer-name-list))
-                        (my-make-scratch 1)))))
+                        (my-make-scratch t)))))

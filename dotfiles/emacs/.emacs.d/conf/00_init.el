@@ -41,7 +41,7 @@
 (require 'hi-lock)
 ; highlight current line
 (global-hl-line-mode)
-(hl-line-mode 1)
+(hl-line-mode t)
 ;(setq hl-line-face 'underline)
 (set-face-background 'hl-line "DarkOliveGreen")
 
@@ -49,7 +49,7 @@
 (transient-mark-mode t)
 ;(setq highlight-nonselected-windows t)
 ;(pc-selection-mode)
-;(delete-selection-mode 1)
+;(delete-selection-mode t)
 
 ;; scroll
 (setq scroll-conservatively 35)

@@ -49,7 +49,7 @@
          ))
 
 (add-hook 'c-mode-common-hook '(lambda ()
-                                 (gtags-mode 1)
+                                 (gtags-mode t)
                                  (gtags-make-complete-list)
                                  ))
 
@@ -196,7 +196,7 @@
 ;(ad-activate 'font-lock-mode)
 
 
-;; functions
+;; macros
 (load "_paren-match")
 (load "_tdd-bgcolor-rotate")
 (global-set-key "\C-cm" 'tdd-bgcolor-rotate)

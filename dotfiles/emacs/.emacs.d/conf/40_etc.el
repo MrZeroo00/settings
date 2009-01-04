@@ -97,7 +97,7 @@
       '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
 
 
-;; functions
+;; macros
 (load "_copy-region-with-info")
 (load "_duplicate-line")
 (define-key esc-map "Y" 'duplicate-line)

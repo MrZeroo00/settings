@@ -1,7 +1,7 @@
 (line-number-mode t)
-(column-number-mode 1)
+(column-number-mode t)
 ;; show current function
-(which-function-mode 1)
+(which-function-mode t)
 
 ;; display time
 (setq display-time-string-forms
@@ -9,7 +9,7 @@
               24-hours ":" minutes " "
               (if mail " Mail" "") ))
 
-(display-time-mode 1)
+(display-time-mode t)
 
 ;; show current directory
 (add-to-list 'global-mode-string '("" default-directory "-"))

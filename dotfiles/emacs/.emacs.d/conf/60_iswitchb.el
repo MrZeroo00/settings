@@ -1,4 +1,4 @@
-(iswitchb-mode 1)
+(iswitchb-mode t)
 
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb
 (add-hook 'iswitchb-define-mode-map-hook

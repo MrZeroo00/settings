@@ -45,10 +45,10 @@
 
 ;; winhist
 ;(require 'winhist)
-;(winhist-mode 1)
+;(winhist-mode t)
 
 
-;; functions
+;; macros
 (load "_window-toggle-division")
 (load "_swap-screen")
 ;(global-set-key [f2] 'swap-screen)

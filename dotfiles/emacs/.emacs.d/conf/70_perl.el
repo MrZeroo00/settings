@@ -44,7 +44,7 @@
                )))
 
 
-;; functions
+;; macros
 (load "_perl-insert-use-statement")
 (add-hook 'cperl-mode-hook
           (lambda ()

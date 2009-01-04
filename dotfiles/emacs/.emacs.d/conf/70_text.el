@@ -2,7 +2,7 @@
 
 ;(add-hook 'text-mode-hook
 ;          '(lambda ()
-;             (refill-mode 1)
+;             (refill-mode t)
 ;             ))
 
 

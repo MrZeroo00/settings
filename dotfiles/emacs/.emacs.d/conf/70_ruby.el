@@ -31,6 +31,6 @@
 ;(install-elisp-from-emacswiki "autotest.el")
 (require 'autotest)
 
-;; functions
+;; macros
 (load "_ruby-insert-magic-comment-if-needed")
 (add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)

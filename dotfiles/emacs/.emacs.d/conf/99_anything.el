@@ -78,7 +78,7 @@
 ;; anything-complete
 ;(install-elisp-from-emacswiki "anything-complete.el")
 (require 'anything-complete)
-(anything-read-string-mode 1)
+(anything-read-string-mode t)
 (anything-lisp-complete-symbol-set-timer 150)
 (setq anything-lisp-complete-symbol-input-idle-delay 0.0)
 
