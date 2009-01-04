@@ -33,4 +33,5 @@
 
 
 ;; icicles
+;(install-elisp-from-emacswiki "icicles.el")
 ;(require 'icicles)

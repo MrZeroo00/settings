@@ -55,6 +55,7 @@
 
 
 ;; xcscope
+;; http://cscope.sourceforge.net/
 ;(require 'xcscope)
 
 

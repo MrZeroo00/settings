@@ -124,45 +124,24 @@
 
 
 ;; anything-kyr
-(defvar anything-current-buffer nil)
-(unless (boundp 'anything-current-buffer)
-  (defadvice anything (before get-current-buffer activate)
-    (setq anything-current-buffer (current-buffer))))
-(defvar anything-kyr-candidates nil)
-(defvar anything-kyr-functions nil)
-(defvar anything-c-source-kyr
-  '((name . "Context-aware Commands")
-    (candidates . anything-kyr-candidates)
-    (type . command)))
-(defvar anything-kyr-commands-by-major-mode nil)
-(defun anything-kyr-candidates ()
-  (loop for func in anything-kyr-functions
-        append (with-current-buffer anything-current-buffer (funcall func))))
-(defun anything-kyr-commands-by-major-mode ()
-  (assoc-default major-mode anything-kyr-commands-by-major-mode))
-
-;; <<< KYR vars>>>
+(load "anything-kyr")
 (setq anything-kyr-commands-by-major-mode
       '((ruby-mode "rdefs" "rcov" "rbtest")
-        (emacs-lisp-mode "byte-compile-file"))
-      ;;
-      anything-kyr-functions
-      '(anything-kyr-commands-by-major-mode
-        ))
-
-;; anything-c-source-kyr
+        (emacs-lisp-mode "byte-compile-file")))
 (setq anything-kyr-functions
-      `((lambda ()
+      '((lambda ()
           (when (assoc (current-buffer) multiverse-stored-versions)
             (list "multiverse-restore"
                   "multiverse-diff-current" "multiverse-diff-other"
-                  "multiverse-forget")))))
+                  "multiverse-forget")))
+        anything-kyr-commands-by-major-mode))
 
-(setq anything-sources (list anything-c-source-buffers
+
+(setq anything-sources (list anything-c-source-kyr
+                             anything-c-source-buffers
                              anything-c-source-bookmarks
                              anything-c-source-man-pages
                              anything-c-source-file-name-history
-                             ;anything-c-source-lisp-complete-symbol
                              anything-c-source-locate
                              anything-c-source-complex-command-history
-                             anything-c-source-kyr))
+                             ))
