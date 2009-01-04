@@ -24,6 +24,13 @@
       ))
 
 
+;; generic (coloring generic files)
+;(require 'generic-x)
+;; association setting
+;(add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
+;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
+
+
 ;; ctags
 (global-set-key "\M-t" 'find-tag)
 (global-set-key "\C-t" 'pop-tag-mark)
@@ -47,6 +54,44 @@
                                  ))
 
 
+;; use ack
+;(setq grep-command "ack -a --nocolor ")
+;(defun ack ()
+;  (interactive)
+;  (let ((grep-find-command "ack --nocolor --nogroup "))
+;    (call-interactively 'grep-find)))
+
+
+;; speedbar
+(require 'speedbar)
+
+
+;; template (insert template code)
+(require 'autoinsert)
+(setq auto-insert-directory "~/etc/emacs/template/")
+(setq auto-insert-alist
+      (nconc '( ("\\.c$" . "template.c")
+                ("\\.f$" . "template.f")
+                ) auto-insert-alist))
+
+(add-hook 'find-file-not-found-hooks 'auto-insert)
+
+
+;; yasnippet
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets")
+
+
+;; brackets
+;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
+(load "brackets")
+
+
+;; align (align code)
+(require 'align)
+
+
 ;; eldoc
 (autoload 'turn-on-eldoc-mode "eldoc" nil t)
 
@@ -62,16 +107,9 @@
 
 
 ;; ediff
+(require 'ediff)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq-default ediff-auto-refine-limit 10000)
-
-
-;; use ack
-;(setq grep-command "ack -a --nocolor ")
-;(defun ack ()
-;  (interactive)
-;  (let ((grep-find-command "ack --nocolor --nogroup "))
-;    (call-interactively 'grep-find)))
 
 
 ;; flymake
@@ -106,17 +144,6 @@
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 
 
-;; yasnippet
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets")
-
-
-;; brackets
-;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
-(load "brackets")
-
-
 ;; linum (show line number)
 (require 'linum)
 ;(global-linum-mode t)
@@ -128,32 +155,10 @@
 (require 'wrap-region)
 
 
-;; align (align code)
-(require 'align)
-
-
-;; template (insert template code)
-(require 'autoinsert)
-(setq auto-insert-directory "~/etc/emacs/template/")
-(setq auto-insert-alist
-      (nconc '( ("\\.c$" . "template.c")
-                ("\\.f$" . "template.f")
-                ) auto-insert-alist))
-
-(add-hook 'find-file-not-found-hooks 'auto-insert)
-
-
 ;; develock (emphasize bad coding convention)
 ;; http://www.jpl.org/elips/develock.el.gz
 (load "develock")
 (setq develock-auto-enable nil)
-
-
-;; generic (coloring generic files)
-;(require 'generic-x)
-;; association setting
-;(add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
-;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
 
 
 ;; emphasize Space/Tab/Newline
