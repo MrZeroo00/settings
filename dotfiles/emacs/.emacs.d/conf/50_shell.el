@@ -5,6 +5,21 @@
 (add-hook 'comint-output-filter-functions
           'comint-watch-for-password-prompt)
 
+(setq comint-scroll-show-maximum-output t)
+
+
+;; anything
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (make-local-variable 'anything-sources)
+            (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
+
+
+;; shell-command
+;(install-elisp "http://namazu.org/~tsuchiya/elisp/shell-command.el")
+;(require 'shell-command) ; replaced by anything
+;(shell-command-completion-mode)
+
 
 ;; pcomplete
 ;(add-hook 'shell-mode-hook 'pcomplete-shell-setup)

@@ -48,6 +48,7 @@
 
 ;; add conf and elisp to load-path
 (add-to-load-path "~/.emacs.d/elisp"
+		  "~/.emacs.d/macro"
                   "~/.emacs.d/conf")
 
 ;; add additional load-path

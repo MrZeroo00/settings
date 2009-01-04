@@ -13,18 +13,22 @@
 
 (anything-iswitchb-setup)
 
+; key setting
 (define-key global-map (kbd "C-;") 'anything)
 (define-key global-map (kbd "C-:") 'anything-resume)
-(define-key anything-map (kbd "C-M-n") 'anything-next-source)
-(define-key anything-map (kbd "C-M-p") 'anything-previous-source)
-(define-key anything-map [end] 'anything-scroll-other-window)
-(define-key anything-map [home] 'anything-scroll-other-window-down)
-(define-key anything-map [next] 'anything-next-page)
-(define-key anything-map [prior] 'anything-previous-page)
-(define-key anything-map [delete] 'anything-execute-persistent-action)
+;(define-key anything-map "\M-N" 'anything-next-source)
+;(define-key anything-map "\M-P" 'anything-previous-source)
+(define-key anything-map "\C-\M-n" 'anything-next-source)
+(define-key anything-map "\C-\M-p" 'anything-previous-source)
+(define-key anything-map "\C-n" 'anything-next-line)
+(define-key anything-map "\C-p" 'anything-previous-line)
+(define-key anything-map "\C-v" 'anything-next-page)
+(define-key anything-map "\M-v" 'anything-previous-page)
+(define-key anything-map "\C-s" 'anything-isearch)
+(define-key anything-map "\C-z" 'anything-execute-persistent-action)
+(define-key anything-map "\C-i" 'anything-select-action)
 (define-key anything-map "\C-\M-v" 'anything-scroll-other-window)
 (define-key anything-map "\C-\M-y" 'anything-scroll-other-window-down)
-(define-key anything-map "\C-z" 'anything-execute-persistent-action)
 
 
 ;; anything-c-imenu
@@ -49,6 +53,9 @@
 ;; anything-c-moccur
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
 (require 'anything-c-moccur)
+(setq anything-c-moccur-enable-initial-pattern t)
+(setq anything-c-moccur-anything-idle-delay 0.1)
+;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
 (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
 (add-hook 'dired-mode-hook
@@ -66,12 +73,17 @@
 ;; anything-complete
 ;(install-elisp-from-emacswiki "anything-complete.el")
 (require 'anything-complete)
+(anything-read-string-mode 1)
 (anything-lisp-complete-symbol-set-timer 150)
+(setq anything-lisp-complete-symbol-input-idle-delay 0.0)
 
 
 ;; anything-dabbrev-expand
 ;(install-elisp-from-emacswiki "anything-dabbrev-expand.el")
 (require 'anything-dabbrev-expand)
+(setq anything-dabbrev-input-idle-delay 0.0)
+(setq anything-dabbrev-idle-delay 1.0)
+(setq anything-dabbrev-expand-candidate-number-limit 20)
 (global-set-key "\M-/" 'anything-dabbrev-expand)
 (define-key anything-dabbrev-map "\M-/" 'anything-dabbrev-find-all-buffers)
 
@@ -89,11 +101,13 @@
 ;; anything-gtags
 ;(install-elisp-from-emacswiki "anything-gtags.el")
 (require 'anything-gtags)
+(setq anything-gtags-classify t)
 
 
 ;; anything-match-plugin
 ;(install-elisp-from-emacswiki "anything-match-plugin.el")
 (require 'anything-match-plugin)
+(setq anything-mp-space-regexp "[\\ ] ")
 
 
 ;; anything-migemo

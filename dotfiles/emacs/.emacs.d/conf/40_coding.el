@@ -35,10 +35,10 @@
 
 (setq gtags-mode-hook
       '(lambda ()
-         (local-set-key "\M-t" 'gtags-find-tag)
-         (local-set-key "\M-r" 'gtags-find-rtag)
-         (local-set-key "\M-s" 'gtags-find-symbol)
-         (local-set-key "\C-t" 'gtags-pop-stack)
+         (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
+         (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
+         (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
+         (define-key gtags-mode-map "\C-t" 'gtags-pop-stack)
          ))
 
 (add-hook 'c-mode-common-hook '(lambda ()
@@ -149,50 +149,15 @@
 (setq develock-auto-enable nil)
 
 
-;; p4
-;; http://p4el.sourceforge.net/
-;(load-library "p4")
-
-
-;; paren-match
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=kakko%20warp
-(progn
-  (defvar com-point nil
-    "Remember com point as a marker. \(buffer specific\)")
-  (set-default 'com-point (make-marker))
-  (defun getcom (arg)
-    "Get com part of prefix-argument ARG."
-    (cond ((null arg) nil)
-          ((consp arg) (cdr arg))
-          (t nil)))
-  (defun paren-match (arg)
-    "Go to the matching parenthesis."
-    (interactive "P")
-    (let ((com (getcom arg)))
-      (if (numberp arg)
-          (if (or (> arg 99) (< arg 1))
-              (error "Prefix must be between 1 and 99.")
-            (goto-char
-             (if (> (point-max) 80000)
-                 (* (/ (point-max) 100) arg)
-               (/ (* (point-max) arg) 100)))
-            (back-to-indentation))
-        (cond ((looking-at "[\(\[{]")
-               (if com (move-marker com-point (point)))
-               (forward-sexp 1)
-               (if com
-                   (paren-match nil com)
-                 (backward-char)))
-              ((looking-at "[])]}")
-               (forward-char)
-               (if com (move-marker com-point (point)))
-               (backward-sexp 1)
-               (if com (paren-match nil com)))
-              (t (error ""))))))
-  (define-key ctl-x-map "%" 'paren-match))
+;; generic (coloring generic files)
+;(require 'generic-x)
+;; association setting
+;(add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
+;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
 
 
 ;; emphasize Space/Tab/Newline
+;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=visualize%20tab
 ;;;(defface my-face-r-1 '((t (:background "gray15"))) nil)
 ;(defface my-face-b-1 '((t (:background "gray"))) nil)
 ;(defface my-face-b-2 '((t (:background "gray26"))) nil)
@@ -214,44 +179,7 @@
 ;(ad-activate 'font-lock-mode)
 
 
-;; generic (coloring generic files)
-;(require 'generic-x)
-;; association setting
-;(add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
-;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
-
-
-;; assist TDD
-;; http://d.hatena.ne.jp/xcezx/20080305/1204698047
-;; http://coderepos.org/share/browser/dotfiles/emacs/typester/.emacs.d/conf/60_tdd.el
-(defvar tdd-bgcolor-alist
-  '(("Think"       . "while")
-    ("Red"         . "#ff4444")
-    ("Green"       . "#44dd44")
-    ("Refactoring" . "#ffaa44")))
-
-(defvar tdd-bgcolor-mode 3)
-(defvar tdd-bgcolor-mode-name "")
-(let (
-      (cell (or (memq 'mode-line-position mode-line-format)
-                (memq 'mode-line-buffer-identification mode-line-format)))
-      (newcdr 'tdd-bgcolor-mode-name))
-  (unless (member newcdr mode-line-format)
-    (setcdr cell (cons newcdr (cdr cell)))))
-
-(defun tdd-bgcolor-rotate ()
-  (interactive)
-  (let (pair)
-    (if (>= tdd-bgcolor-mode 3)
-        (setq tdd-bgcolor-mode 0)
-      (setq tdd-bgcolor-mode
-            (+ tdd-bgcolor-mode 1)))
-    (setq pair
-          (nth tdd-bgcolor-mode tdd-bgcolor-alist))
-    (setq tdd-bgcolor-mode-name (format "[%s]" (car pair)))
-    (message tdd-bgcolor-mode-name)
-    (set-face-foreground 'mode-line (cdr pair))
-    (set-face-bold-p 'mode-line t)
-    ))
-
+;; functions
+(load "_paren-match")
+(load "_tdd-bgcolor-rotate")
 (global-set-key "\C-cm" 'tdd-bgcolor-rotate)
