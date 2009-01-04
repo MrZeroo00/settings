@@ -54,6 +54,10 @@
                                  ))
 
 
+;; xcscope
+;(require 'xcscope)
+
+
 ;; use ack
 ;(setq grep-command "ack -a --nocolor ")
 ;(defun ack ()

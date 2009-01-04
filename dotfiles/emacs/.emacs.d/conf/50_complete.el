@@ -30,3 +30,7 @@
 ;(install-elisp "http://www.bookshelf.jp/elc/mcomplete-history.el")
 (load "mcomplete-history")
 (turn-on-mcomplete-mode)
+
+
+;; icicles
+;(require 'icicles)
