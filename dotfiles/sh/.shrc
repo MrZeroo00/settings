@@ -19,8 +19,8 @@ if [ -d $HOME/local/bin ] ; then
     PATH=$HOME/local/bin:"${PATH}"
 fi
 
-export EDITOR='vim'
-#export EDITOR='gnuclient'
+export EDITOR='emacsclient'
+export SVN_EDITOR='vim'
 export PAGER='lv'
 export TERMSCREEN='screen-bce'
 
