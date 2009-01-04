@@ -63,7 +63,7 @@
 
 
 ;; speedbar
-(require 'speedbar)
+;(require 'speedbar)
 
 
 ;; template (insert template code)
@@ -89,7 +89,7 @@
 
 
 ;; align (align code)
-(require 'align)
+;(require 'align)
 
 
 ;; eldoc
@@ -107,7 +107,7 @@
 
 
 ;; ediff
-(require 'ediff)
+;(require 'ediff)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq-default ediff-auto-refine-limit 10000)
 
@@ -131,6 +131,11 @@
 ;; http://sourceforge.net/project/showfiles.php?group_id=164970&package_id=210662
 (require 'auto-compile)
 (setq auto-compile-target-path-regexp-list (list "\/src"))
+
+
+;; gud
+;(require 'gud)
+(setq gud-gdb-command-name "gdb --annotate=3")
 
 
 ;; hs-minor-mode (fold code block)
