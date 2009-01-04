@@ -78,17 +78,15 @@
 ;; Etc
 (setq inhibit-startup-message t)
 (auto-insert-mode t)
-(auto-compression-mode t)
-(auto-image-file-mode t)
-(recentf-mode)
-(setq delete-auto-save-files t)
 (setq kill-whole-line t)
 (setq kill-read-only-ok t)
 (setq next-line-add-newlines nil)
 (setq visible-bell t)
-(setq ange-ftp-try-passive-mode t)
 (set-scroll-bar-mode 'right)
 ;(fset 'yes-or-no-p 'y-or-n-p)
+; for coding
+(setq grep-find-command "find . -type f ! -name '*,v' ! -name '*~' ! -name '*.o' ! -name '*.a' ! -name '*.so' ! -name '*.class' ! -name '*.jar' ! -name 'semantic.cache' ! -path '*.deps*' ! -path '*/obsolete/*' ! -path '*/.svn/*' ! -path '*/CVS/*' -print0 | xargs -0 -e grep -n -e ")
+
 
 ;; redo
 ;(install-elisp "http://www.wonderworks.com/download/redo.el")

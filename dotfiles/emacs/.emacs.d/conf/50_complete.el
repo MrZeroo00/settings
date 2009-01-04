@@ -1,11 +1,6 @@
-;; dabbrev-highlight
-;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
-(require 'dabbrev-highlight)
-
-
-;; ac-mode
-;(install-elisp "http://taiyaki.org/elisp/ac-mode/src/ac-mode.el")
-(autoload 'ac-mode "ac-mode" "Minor mode for advanced completion." t nil)
+; for coding
+(setq dabbrev-case-fold-search nil)
+(setq dabbrev-case-replace nil)
 
 
 ;; auto-complete
@@ -23,13 +18,23 @@
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 
 
+;; dabbrev-highlight
+;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
+(require 'dabbrev-highlight)
+
+
+;; ac-mode
+;(install-elisp "http://taiyaki.org/elisp/ac-mode/src/ac-mode.el")
+;(autoload 'ac-mode "ac-mode" "Minor mode for advanced completion." t nil)
+
+
 ;; mcomplete
 ;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el")
-(require 'mcomplete)
-(require 'cl)
+;(require 'mcomplete)
+;(require 'cl)
 ;(install-elisp "http://www.bookshelf.jp/elc/mcomplete-history.el")
-(load "mcomplete-history")
-(turn-on-mcomplete-mode)
+;(load "mcomplete-history")
+;(turn-on-mcomplete-mode)
 
 
 ;; icicles

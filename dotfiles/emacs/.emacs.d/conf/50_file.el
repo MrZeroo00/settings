@@ -6,11 +6,12 @@
 ;                      )))
 
 
-(auto-compression-mode)
+(auto-compression-mode t)
 (setq completion-ignored-extensions
       (append completion-ignored-extensions
               '(".exe" ".com")))
-(recentf-mode 1)
+(auto-image-file-mode t)
+(recentf-mode t)
 ;(filesets-init)
 ;(file-name-shadow-mode t)
 ; complete

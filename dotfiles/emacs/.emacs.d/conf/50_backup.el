@@ -7,3 +7,5 @@
 (setq kept-new-versions 2)
 (setq kept-old-versions 2)
 (setq delete-old-versions t)
+
+(setq delete-auto-save-files t)

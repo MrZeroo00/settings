@@ -88,7 +88,7 @@
 (load "60_doc-view")
 (load "60_hatena")
 (load "60_howm")
-(load "60_iswitchb")
+;(load "60_iswitchb")
 (load "60_key-chord")
 (load "60_lookup")
 (load "60_man")

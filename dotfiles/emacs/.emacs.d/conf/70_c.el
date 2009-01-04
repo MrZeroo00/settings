@@ -22,7 +22,10 @@
 (add-hook 'c-mode-common-hook
           (lambda ()
             (make-local-variable 'anything-sources)
-            (add-to-list 'anything-sources 'anything-c-source-gtags-select)))
+            (add-to-list 'anything-sources 'anything-c-source-gtags-select t)
+            (add-to-list 'anything-sources 'anything-c-source-yasnippet t)
+            (add-to-list 'anything-sources 'anything-c-source-imenu t)
+            ))
 
 
 ;; eldoc

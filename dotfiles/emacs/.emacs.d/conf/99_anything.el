@@ -11,7 +11,7 @@
 (setq anything-candidate-separator
       "------------------------------------------------------------------------------------")
 
-(anything-iswitchb-setup)
+;(anything-iswitchb-setup)
 
 ; key setting
 (define-key global-map (kbd "C-;") 'anything)
@@ -70,6 +70,11 @@
 (require 'anything-c-source-buffers2)
 
 
+;; anything-c-yasnippet
+(require 'anything-c-yasnippet)
+(setq anything-c-yas-space-match-any-greedy t)
+
+
 ;; anything-complete
 ;(install-elisp-from-emacswiki "anything-complete.el")
 (require 'anything-complete)
@@ -123,11 +128,16 @@
 ;(define-key anything-map "\C-z" 'anything-execute-persistent-action)
 
 
+;; anything-c-bm
+(load "_anything-c-bm")
+
+
 ;; anything-kyr
 (load "_anything-kyr")
 (setq anything-kyr-commands-by-major-mode
-      '((cc-mode "gtags-find-file" "gtags-find-rtag"
+      '((c-mode "gtags-find-file" "gtags-find-rtag"
                  "ff-find-other-file" "align"
+                 "develock-mode"
                  "hs-hide-block" "hs-show-block"
                  "hide-ifdef-mode")
         (ruby-mode "rdefs" "rcov" "rbtest")
@@ -143,7 +153,8 @@
 
 (setq anything-sources (list anything-c-source-kyr
                              anything-c-source-buffers
-                             anything-c-source-bookmarks
+                             anything-c-source-bm
+                             ;anything-c-source-bookmarks
                              anything-c-source-man-pages
                              anything-c-source-file-name-history
                              anything-c-source-locate

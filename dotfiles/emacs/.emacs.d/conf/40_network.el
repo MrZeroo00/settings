@@ -21,6 +21,7 @@
 
 ;; ange-ftp
 (setq ange-ftp-ftp-program-name "lftp")
+(setq ange-ftp-try-passive-mode t)
 
 
 ;; functions
