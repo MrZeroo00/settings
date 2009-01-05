@@ -1,5 +1,5 @@
-;(install-elisp-from-emacswiki "anything")
-;(install-elisp-from-emacswiki "anything-config")
+;(install-elisp-from-emacswiki "anything.el")
+;(install-elisp-from-emacswiki "anything-config.el")
 (require 'anything)
 (require 'anything-config)
 
@@ -126,6 +126,12 @@
 ;(require 'anything-rcodetools)
 ;(setq rct-get-all-methods-command "PAGER=cat fri -l")
 ;(define-key anything-map "\C-z" 'anything-execute-persistent-action)
+
+
+;; descbinds-anything
+;(install-elisp-from-emacswiki "descbinds-anything.el")
+(require 'descbinds-anything)
+(descbinds-anything-install)
 
 
 ;; anything-c-bm

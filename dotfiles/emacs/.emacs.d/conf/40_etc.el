@@ -43,7 +43,7 @@
 
 ;; thing-opt
 (require 'thingatpt)
-;(install-elisp-from-emacswiki "thing-opt")
+;(install-elisp-from-emacswiki "thing-opt.el")
 (require 'thing-opt)
 
 

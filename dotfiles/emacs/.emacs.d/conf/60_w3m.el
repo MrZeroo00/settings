@@ -30,7 +30,7 @@
 
 
 ;; w3m-type-ahead
-;(install-elisp-from-emacswiki "w3m-type-ahead")
+;(install-elisp-from-emacswiki "w3m-type-ahead.el")
 (eval-after-load "w3m"
   '(progn
      (load "w3m-type-ahead")
