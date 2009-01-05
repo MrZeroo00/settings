@@ -1,7 +1,5 @@
 (line-number-mode t)
 (column-number-mode t)
-;; show current function
-(which-function-mode t)
 
 ;; display time
 (setq display-time-string-forms

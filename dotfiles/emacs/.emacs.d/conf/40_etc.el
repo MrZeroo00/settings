@@ -41,6 +41,12 @@
 ;(require 'viper)
 
 
+;; thing-opt
+(require 'thingatpt)
+;(install-elisp-from-emacswiki "thing-opt")
+(require 'thing-opt)
+
+
 ;; clwiki
 ;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
 ;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")

@@ -54,6 +54,10 @@
                                  ))
 
 
+;; imenu
+;(require 'imenu)
+
+
 ;; xcscope
 ;; http://cscope.sourceforge.net/
 ;(require 'xcscope)
@@ -69,6 +73,11 @@
 
 ;; speedbar
 ;(require 'speedbar)
+
+
+;; which-func
+(require 'which-func)
+(which-func-mode t)
 
 
 ;; template (insert template code)
