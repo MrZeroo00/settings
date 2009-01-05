@@ -29,6 +29,7 @@
 (define-key anything-map "\C-i" 'anything-select-action)
 (define-key anything-map "\C-\M-v" 'anything-scroll-other-window)
 (define-key anything-map "\C-\M-y" 'anything-scroll-other-window-down)
+(define-key anything-map "\C-r" 'anything-select-source)
 
 
 ;; anything-c-imenu
@@ -136,6 +137,14 @@
 
 ;; anything-c-bm
 (load "_anything-c-bm")
+
+
+;; anything-c-key-chord-describe
+(load "_anything-c-key-chord-describe")
+
+
+;; anything-select-source
+(load "_anything-select-source")
 
 
 ;; anything-kyr
