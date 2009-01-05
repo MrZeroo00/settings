@@ -104,6 +104,7 @@
 
 
 ;; macros
+(load "_window-line")
 (load "_copy-region-with-info")
 (load "_duplicate-line")
 (define-key esc-map "Y" 'duplicate-line)
