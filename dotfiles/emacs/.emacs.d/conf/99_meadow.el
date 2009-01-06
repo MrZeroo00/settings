@@ -1,3 +1,8 @@
+(load "gnuserv")
+(gnuserv-start)
+(setq gnuserv-frame (selected-frame))
+
+
 ;; buffer-fiber-exe
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=fiberfile
 (defun buffer-fiber-exe ()

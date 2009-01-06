@@ -4,6 +4,7 @@
 ;; gnuserv
 ;(load "gnuserv")
 ;(gnuserv-start)
+;(setq gnuserv-frame (selected-frame))
 ;
 ;; http://www.rubyist.net/~rubikitch/computer/myruby/gnuclient-wrapper/
 ;(setq screen-command "/usr/bin/screen")
