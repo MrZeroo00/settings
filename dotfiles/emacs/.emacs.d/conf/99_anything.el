@@ -152,7 +152,7 @@
 (setq anything-kyr-commands-by-major-mode
       '((c-mode "gtags-find-file" "gtags-find-rtag"
                  "ff-find-other-file" "align"
-                 "develock-mode"
+                 "develock-mode" "highlight-lines-matching-regexp"
                  "hs-hide-block" "hs-show-block"
                  "hide-ifdef-mode")
         (ruby-mode "rdefs" "rcov" "rbtest")
@@ -173,8 +173,9 @@
                              anything-c-source-man-pages
                              anything-c-source-info-pages
                              anything-c-source-file-name-history
-                             anything-c-source-mac-spotlight
-                             anything-c-source-locate
-                             anything-c-source-calculation-result
+                             (if run-darwin
+                                 anything-c-source-mac-spotlight
+                               anything-c-source-locate)
+                             ;anything-c-source-calculation-result
                              anything-c-source-complex-command-history
                              ))

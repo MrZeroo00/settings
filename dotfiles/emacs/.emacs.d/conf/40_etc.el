@@ -24,6 +24,7 @@
 
 
 ;; minibuf-isearch
+;(install-elisp "http://svn.coderepos.org/share/lang/elisp/minibuf-isearch/minibuf-isearch.el")
 (require 'minibuf-isearch)
 
 
@@ -45,6 +46,12 @@
 (require 'thingatpt)
 ;(install-elisp-from-emacswiki "thing-opt.el")
 (require 'thing-opt)
+
+
+;; sense-region
+;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
+(autoload 'sense-region-on "sense-region"
+  "System to toggle region and rectangle." t nil)
 
 
 ;; clwiki
