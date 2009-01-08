@@ -14,7 +14,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
-launcher = "gmrun"
+launcher = "gnome-do"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
