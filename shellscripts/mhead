@@ -1,0 +1,7 @@
+#!/bin/sh
+
+num=$1
+command=$2
+shift 2
+
+exec $command $@ | head -n $num
