@@ -24,6 +24,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+alt_modkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -60,6 +61,7 @@ floatapps =
 -- Use the screen and tags indices.
 apptags =
 {
+    ["Thunderbird"] = { screen = 1, tag = 3 },
     -- ["Firefox"] = { screen = 1, tag = 2 },
     -- ["mocp"] = { screen = 2, tag = 4 },
 }
@@ -76,7 +78,11 @@ for s = 1, screen.count() do
     tags[s] = {}
     -- Create 9 tags per screen.
     for tagnumber = 1, 9 do
-        tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[1] })
+        if tagnumber == 1 then
+            tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[2] })
+        else
+            tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[1] })
+        end
         -- Add tags to screen one by one
         tags[s][tagnumber].screen = s
     end
@@ -91,10 +97,37 @@ mytextbox = widget({ type = "textbox", align = "right" })
 -- Set the default text in textbox
 mytextbox.text = "<b><small> " .. AWESOME_RELEASE .. " </small></b>"
 
+mythememenu = {}
+
+function theme_load(theme)
+    local cfg_path = awful.util.getdir("config")
+
+    -- Create a symlink from the given theme to /home/user/.config/awesome/current_theme
+    awful.util.spawn("ln -sf " .. cfg_path .. "themes/" .. theme .. " " .. cfg_path .. "current_theme")
+    awesome.restart()
+end
+
+function theme_menu()
+    -- List your theme files and feed the menu table
+    local cmd = "ls -1 " .. awful.util.getdir("config") .. "/themes/"
+    local f = io.popen(cmd)
+
+    for l in f:lines() do
+        local item = { l, function () theme_load(l) end }
+        table.insert(mythememenu, item)
+    end
+
+    f:close()
+end
+
+-- Generate your table at startup or restart
+theme_menu()
+
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+   { "themes", mythememenu },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -336,7 +369,7 @@ awful.hooks.manage.register(function (c)
     -- Add mouse bindings
     c:buttons({
         button({ }, 1, function (c) client.focus = c; c:raise() end),
-        button({ modkey }, 1, function (c) c:mouse_move() end),
+        button({ alt_modkey }, 1, function (c) c:mouse_move() end),
         button({ modkey }, 3, function (c) c:mouse_resize() end)
     })
     -- New client may not receive focus
@@ -416,4 +449,28 @@ awful.hooks.timer.register(1, function ()
     -- Otherwise use:
     -- mytextbox.text = " " .. os.date() .. " "
 end)
+
+-- Load revelation
+require("revelation")
+-- Add mod + F2 key binding to start revelation
+keybinding({ modkey }, "F2", revelation.revelation):add()
+
+
+-- Load naughty
+require('naughty')
+keybinding({ modkey }, "d", function ()
+    info = true
+    awful.prompt.run({ fg_cursor = "black", bg_cursor="orange", prompt = "<span color='#008DFA'>Dict:</span> " },
+    mypromptbox[mouse.screen],
+    function(word)
+        local f = io.popen("dict -d wn " .. word .. " 2>&1")
+        local fr = ""
+        for line in f:lines() do
+            fr = fr .. line .. '\n'
+        end
+        f:close()
+        naughty.notify({ text = '<span font_desc="Sans 7">'..fr..'</span>', timeout = 0, width = 400 })
+    end,
+    nil, awful.util.getdir("cache") .. "/dict")
+end):add()
 -- }}}
