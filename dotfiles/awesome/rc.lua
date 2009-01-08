@@ -13,7 +13,8 @@ theme_path = "/usr/local/stow/awesome-3.1/share/awesome/themes/default/theme"
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "gnome-terminal"
+launcher = "gmrun"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -213,7 +214,7 @@ keybinding({ modkey }, "Right", awful.tag.viewnext):add()
 keybinding({ modkey }, "Escape", awful.tag.history.restore):add()
 
 -- Standard program
-keybinding({ modkey }, "Return", function () awful.util.spawn(terminal) end):add()
+keybinding({ modkey }, "Return", function () awful.util.spawn(launcher) end):add()
 
 keybinding({ modkey, "Control" }, "r", function ()
                                            mypromptbox[mouse.screen].text =
