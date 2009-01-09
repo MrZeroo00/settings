@@ -79,7 +79,7 @@ for s = 1, screen.count() do
     -- Create 9 tags per screen.
     for tagnumber = 1, 9 do
         if tagnumber == 1 then
-            tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[2] })
+            tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[3] })
         else
             tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[1] })
         end
