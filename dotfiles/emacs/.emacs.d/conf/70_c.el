@@ -34,6 +34,9 @@
 (load "c-eldoc")
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 
+(when run-darwin
+  (setq c-eldoc-cpp-command "/usr/bin/cpp"))
+
 
 ;; ff-find-other-file
 ;(setq cc-search-directories

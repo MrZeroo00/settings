@@ -110,6 +110,15 @@
 (autoload 'turn-on-eldoc-mode "eldoc" nil t)
 
 
+;; mode-info
+;; http://www.namazu.org/~tsuchiya/elisp/mode-info.html
+(require 'mi-config)
+;(define-key global-map "\C-hf" 'mode-info-describe-function)
+;(define-key global-map "\C-hv" 'mode-info-describe-variable)
+;(define-key global-map "\M-." 'mode-info-find-tag)
+(require 'mi-fontify)
+
+
 ;; doxymacs
 (require 'doxymacs)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
