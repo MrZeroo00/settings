@@ -8,6 +8,16 @@ if [ -f $HOME/.shrc ]; then
   source $HOME/.shrc
 fi
 
+# aliases
+if [ -f $HOME/.zsh_aliases ]; then
+  source $HOME/.zsh_aliases
+fi
+
+# function
+if [ -f $HOME/.zsh_function ]; then
+  source $HOME/.zsh_function
+fi
+
 # Search path for the cd command
 #cdpath=(.. ~ ~/src ~/zsh)
 
@@ -18,19 +28,6 @@ limit core 0
 limit -s
 
 umask 022
-
-# Set up aliases
-alias mv='nocorrect mv'       # no spelling correction on mv
-alias cp='nocorrect cp'       # no spelling correction on cp
-alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
-
-# List only directories and symbolic
-# links that point to directories
-alias lsd='ls -ld *(-/DN)'
-
-# Shell functions
-setenv() { typeset -x "${1}${1:+=}${(@)argv[2,$#]}" }  # csh compatibility
-freload() { while (( $# )); do; unfunction $1; autoload -U $1; shift; done }
 
 # Where to look for autoloaded function definitions
 fpath=($fpath ~/.zfunc)

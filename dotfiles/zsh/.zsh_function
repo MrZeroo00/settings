@@ -1,0 +1,12 @@
+# csh compatibility
+setenv() {
+  typeset -x "${1}${1:+=}${(@)argv[2,$#]}"
+}
+
+freload() {
+  while (( $# )); do;
+    unfunction $1;
+    autoload -U $1;
+    shift;
+  done
+}
