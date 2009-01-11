@@ -21,7 +21,7 @@ fi
 export PATH
 
 #export MAIL=/var/spool/mail/$USERNAME
-#export LESS=-cex3M
+#export LESS=-cex4M
 export EDITOR='emacsclient -a vim'
 export PAGER='lv'
 export BROWSER='w3m'

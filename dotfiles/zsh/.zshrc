@@ -75,13 +75,94 @@ LOGCHECK=300                    # check every 5 min for login/logout activity
 WATCHFMT='%n %a %l from %m at %t.'
 
 # Set/unset  shell options
-#setopt   notify globdots correct pushdtohome cdablevars autolist
-setopt   notify globdots pushdtohome cdablevars autolist
-#setopt   correctall autocd recexact longlistjobs
-setopt   recexact longlistjobs
-setopt   autoresume histignoredups pushdsilent noclobber
-setopt   autopushd pushdminus extendedglob rcquotes mailwarning
-unsetopt bgnice autoparamslash
+# default
+#setopt aliases
+#setopt always_last_prompt
+#setopt append_history
+#setopt auto_list
+#setopt auto_menu
+#setopt auto_param_keys
+#setopt auto_param_slash
+#setopt auto_remove_slash
+#setopt beep
+#setopt case_glob
+#setopt clobber
+#setopt exec
+#setopt flow_control
+#setopt glob
+#setopt global_rcs
+#setopt hash_cmds
+#setopt hash_dirs
+#setopt hash_list_all
+#setopt hist_beep
+#setopt list_ambiguous
+#setopt list_beep
+#setopt list_types
+#setopt prompt_cr
+#setopt rcs
+
+# zsh default
+#setopt bad_pattern
+#setopt bang_hist
+#setopt bare_glob_qual
+#setopt bg_nice
+#setopt check_jobs
+#setopt equals
+#setopt function_argzero
+#setopt global_export
+#setopt hup
+#setopt multios
+#setopt nomatch
+#setopt notify
+#setopt prompt_percent
+#setopt short_loops
+#setopt unset
+
+#setopt auto_name_dirs
+setopt auto_pushd
+setopt autoresume
+setopt brace_ccl
+#setopt chase_dots
+#setopt chase_links
+setopt complete_aliases
+setopt complete_in_word
+setopt emacs
+setopt extended_glob
+setopt extended_history
+#setopt glob_assign
+#setopt glob_complete
+#setopt globdots
+setopt hist_ignore_dups
+#setopt hist_ignore_space
+setopt hist_reduce_blanks
+#setopt hist_verify
+setopt interactive_comments
+setopt longlistjobs
+setopt magic_equal_subst
+setopt mailwarning
+setopt notify
+setopt numeric_glob_sort
+#setopt print_eight_bit
+#setopt print_exit_value
+setopt pushd_ignore_dups
+setopt pushd_minus
+setopt pushd_silent
+setopt pushd_to_home
+setopt rc_quotes
+setopt rec_exact
+setopt share_history
+setopt transient_prompt
+
+unsetopt auto_cd
+unsetopt cdable_vars
+unsetopt clobber
+unsetopt correct
+unsetopt correctall
+unsetopt flow_control
+unsetopt list_beep
+unsetopt longlistjobs
+unsetopt recexact
+unsetopt rm_star_silent
 
 [[ $EMACS = t ]] && unsetopt zle
 
