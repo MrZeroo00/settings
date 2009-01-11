@@ -31,6 +31,9 @@ zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
 zmodload -ap zsh/mapfile mapfile
 autoload -U add-zsh-hook
+#autoload zed
+#autoload predict-on
+#predict-on
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
@@ -54,7 +57,7 @@ add-zsh-hook precmd _change_prompt_color_by_return_value
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
 
-WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>/'
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 
 # Some environment variables
 export HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
@@ -224,6 +227,9 @@ zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' \
 # ignore completion functions (until the _ignored completer)
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
+# use color
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+
 
 # aliases
 if [ -f $HOME/.zsh_aliases ]; then
@@ -234,4 +240,10 @@ fi
 # function
 if [ -f $HOME/.zsh_function ]; then
   source $HOME/.zsh_function
+fi
+
+
+# local setting
+if [ -f $HOME/.zshrc.local ]; then
+  source $HOME/.zshrc.local
 fi
