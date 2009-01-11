@@ -86,6 +86,7 @@
 (setq visible-bell t)
 (set-scroll-bar-mode 'right)
 ;(fset 'yes-or-no-p 'y-or-n-p)
+(setq history-length t)
 (setq diff-switches "-u")
 (setq debug-on-error nil)
 

@@ -38,8 +38,8 @@
 
 
 ;; saveplace (save cursor position in last edit session)
-(load "saveplace")
-(setq-default save-place t)
+;(load "saveplace")
+;(setq-default save-place t)
 
 
 ;; multiverse

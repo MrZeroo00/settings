@@ -1,9 +1,10 @@
 (setq paragraph-start '"^\\([ ¡¡¡¦¡û<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
 
-;(add-hook 'text-mode-hook
-;          '(lambda ()
-;             (refill-mode t)
-;             ))
+(add-hook 'text-mode-hook
+          '(lambda ()
+             (flyspell-mode)
+             ;(refill-mode t)
+             ))
 
 
 ;; text-adjust
