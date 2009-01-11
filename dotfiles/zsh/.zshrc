@@ -1,8 +1,3 @@
-# .zshrc is sourced in interactive shells.  It
-# should contain commands to set up aliases, functions,
-# options, key bindings, etc.
-#
-
 # read bash and zsh common setting
 if [ -f $HOME/.shrc ]; then
   source $HOME/.shrc
