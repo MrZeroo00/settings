@@ -41,13 +41,6 @@ for func in $^fpath/*(N-.x:t); autoload $func
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
 
-# Global aliases -- These do not have to be
-# at the beginning of the command line.
-alias -g L='|lv'
-alias -g H='|head'
-alias -g T='|tail'
-alias -g G='|grep'
-
 # Hosts to use for completion (see later zstyle)
 hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
 
