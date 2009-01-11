@@ -30,6 +30,7 @@ alias pbpaste='xclip -selection clipboard -o'
 # OS specific aliases
 case "`uname`" in
   "Linux")
+  alias open='gnome-open'
   alias emacs='XMODIFIERS=@im=none emacs'
   ;;
   "Darwin")

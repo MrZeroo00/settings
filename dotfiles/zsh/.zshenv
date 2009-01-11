@@ -30,10 +30,18 @@
 #    source $HOME/.zpath
 #fi
 
+# environmental variables
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+
+# autoload
+autoload zargs
+
+# options
 setopt extended_history
 setopt share_history
 #setopt hist_ignore_dups
+
+# functions
 function history-all { history -E 1 }
