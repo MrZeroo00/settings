@@ -14,18 +14,16 @@ freload() {
 }
 
 
-## dabbrev
-# http://d.hatena.ne.jp/secondlife/20060108/1136650653
-HARDCOPYFILE=$HOME/tmp/screen-hardcopy
-touch $HARDCOPYFILE
+## magic-abbrev-expand
+source $HOME/.zsh/function/magic-abbrev-expand.sh
+#zle -N magic-abbrev-expand
+#zle -N no-magic-abbrev-expand
+#bindkey " " magic-abbrev-expand
+#bindkey "^x " no-magic-abbrev-expand
 
-dabbrev-complete () {
-  local reply lines=80 # 80行分
-  screen -X eval "hardcopy -h $HARDCOPYFILE"
-  reply=($(sed '/^$/d' $HARDCOPYFILE | sed '$ d' | tail -$lines))
-  compadd - "${reply[@]%[*/=@|]}"
-}
 
+## dabbrev-complete
+source $HOME/.zsh/function/dabbrev-complete.sh
 zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
@@ -35,34 +33,14 @@ bindkey '^o^_' reverse-menu-complete
 # http://d.hatena.ne.jp/secondlife/20080218/1203303528
 autoload -U compinit
 compinit
-source $HOME/bin/cdd
-
+source $HOME/.zsh/function/cdd.sh
 add-zsh-hook chpwd _reg_pwd_screennum
 
 
 ## view/edit-file
-# http://dev.ariel-networks.com/Members/matsuyama/zsh-peek-file
-#function view-file() {
-#  zle -I
-#  local file
-#  local -a words
-#
-#  words=(${(z)LBUFFER})
-#  file="${words[$#words]}"
-#  [[ -f "$file" ]] && $PAGER "$file"
-#}
+source $HOME/.zsh/function/view-edit-file.sh
 #zle -N view-file
 #bindkey "^x^r" view-file
-#
-#function edit-file() {
-#  zle -I
-#  local file
-#  local -a words
-#
-#  words=(${(z)LBUFFER})
-#  file="${words[$#words]}"
-#  [[ -f "$file" ]] && $EDITOR "$file"
-#}
 #zle -N edit-file
 #bindkey "^x^f" edit-file
 
