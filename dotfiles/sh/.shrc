@@ -41,9 +41,11 @@ case "`uname`" in
   ;;
   "Darwin")
   MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:$MANPATH"
+  INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
   ;;
 esac
 export MANPATH
+export INFOPATH
 
 if [ -f $HOME/.shrc.local ]; then
     source $HOME/.shrc.local
