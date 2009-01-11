@@ -10,7 +10,7 @@ if [ -f $HOME/.sh_function ]; then
     source $HOME/.sh_function
 fi
 
-## variables
+## environmental variables
 # set PATH so it includes user's private bin if it exists
 if [ -d $HOME/bin ] ; then
     PATH=$HOME/bin:"${PATH}"
@@ -19,6 +19,8 @@ if [ -d $HOME/local/bin ] ; then
     PATH=$HOME/local/bin:"${PATH}"
 fi
 
+#export MAIL=/var/spool/mail/$USERNAME
+#export LESS=-cex3M
 export EDITOR='emacsclient -a vim'
 export SVN_EDITOR='vim'
 export PAGER='lv'

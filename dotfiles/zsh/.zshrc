@@ -79,8 +79,6 @@ RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
 
 # Some environment variables
-export MAIL=/var/spool/mail/$USERNAME
-export LESS=-cex3M
 export HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
 
 MAILCHECK=300
@@ -100,6 +98,8 @@ setopt   recexact longlistjobs
 setopt   autoresume histignoredups pushdsilent noclobber
 setopt   autopushd pushdminus extendedglob rcquotes mailwarning
 unsetopt bgnice autoparamslash
+
+[[ $EMACS = t ]] && unsetopt zle
 
 # Autoload zsh modules when they are referenced
 zmodload -a zsh/stat stat
@@ -246,5 +246,3 @@ source $HOME/bin/cdd
 function chpwd() {
   _reg_pwd_screennum
 }
-
-[[ $EMACS = t ]] && unsetopt zle
