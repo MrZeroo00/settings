@@ -24,6 +24,16 @@
 (setq ange-ftp-try-passive-mode t)
 
 
+;; google2
+;(install-elisp "http://www.bookshelf.jp/elc/google2.el")
+;(load "google2")
+
+
+;; autoinfo
+;(install-elisp-from-emacswiki "autoinfo.el")
+;(require 'autoinfo)
+
+
 ;; macros
 (load "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
 ;(load "_url-regexp") ; convert url "ttp:// to "http://"

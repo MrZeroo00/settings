@@ -37,3 +37,18 @@
 
 (setq *moccur-buffer-name-exclusion-list*
       '("\.svn" "*Completions*" "*Messages*"))
+
+(setq moccur-grep-default-word-near-point t)
+;(setq moccur-grep-following-mode-toggle t)
+
+
+;; dmoccur
+(setq dmoccur-use-list t)
+(setq dmoccur-list
+      '(
+        ("dir" default-directory (".*") dir)
+        ))
+
+
+;; macros
+;(load "_flush-keep-line")

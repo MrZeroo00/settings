@@ -29,6 +29,11 @@
 ;        ("application/pdf" "\\.pdf$" ("fiber.exe" file))))
 
 
+;; octet
+;(require 'octet)
+;(octet-mime-setup)
+
+
 ;; w3m-type-ahead
 ;(install-elisp-from-emacswiki "w3m-type-ahead.el")
 (eval-after-load "w3m"

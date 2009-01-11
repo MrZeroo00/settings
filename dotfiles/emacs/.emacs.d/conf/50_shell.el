@@ -15,6 +15,16 @@
             (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
 
 
+;; tails-comint-history
+;(install-elisp "http://www.bookshelf.jp/elc/tails-comint-history.el")
+;(load-library "tails-comint-history")
+
+
+;; shell-ex
+;; http://www.bookshelf.jp/elc/shell-ex.lzh
+;(load "shell-ex")
+
+
 ;; shell-command
 ;(install-elisp "http://namazu.org/~tsuchiya/elisp/shell-command.el")
 ;(require 'shell-command) ; replaced by anything

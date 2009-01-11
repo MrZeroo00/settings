@@ -48,6 +48,18 @@
             ))
 
 
+;; moccur
+(add-hook
+ 'c-mode-common-hook
+ '(lambda ()
+    (setq moccur-grep-default-mask "\\.\[HhCc\]$")))
+
+
+;; summarye
+;(install-elisp "http://www.bookshelf.jp/elc/summarye.el")
+;(autoload 'se/make-summary-buffer "summarye" nil t)
+
+
 ;; cpp-complt
 ;;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
 ;(add-hook 'c-mode-common-hook

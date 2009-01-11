@@ -36,7 +36,7 @@
                                 (session-file-alist 500 t)
                                 (file-name-history 10000)))
 (setq session-globals-max-string 100000000)
-(setq session-undo-check -1)
+;(setq session-undo-check -1)
 (add-hook 'after-init-hook 'session-initialize)
 
 
@@ -135,3 +135,4 @@
 (load "_copy-region-with-info")
 (load "_duplicate-line")
 (define-key esc-map "Y" 'duplicate-line)
+(load "_scroll-speedup.el")
