@@ -46,10 +46,10 @@ LPROMPT="%n@%m%% "
 autoload -U colors
 colors
 PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
-change_prompt_color_by_return_value () {
+_change_prompt_color_by_return_value () {
   PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
 }
-add-zsh-hook precmd change_prompt_color_by_return_value
+add-zsh-hook precmd _change_prompt_color_by_return_value
 
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "

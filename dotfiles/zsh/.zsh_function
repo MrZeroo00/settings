@@ -37,9 +37,7 @@ autoload -U compinit
 compinit
 source $HOME/bin/cdd
 
-function chpwd() {
-  _reg_pwd_screennum
-}
+add-zsh-hook chpwd _reg_pwd_screennum
 
 
 ## ssh_screen
@@ -54,8 +52,14 @@ fi
 
 # for screen status line
 if [ "$TERM" = $TERMSCREEN ]; then
-  chpwd () { echo -n "_`dirs`\\" }
-  preexec() {
+  #chpwd () {
+  _update_screen_title_by_cd () {
+    echo -n "_`dirs`\\"
+  }
+  add-zsh-hook chpwd _update_screen_title_by_cd
+
+  #preexec() {
+  _update_screen_title_by_command () {
     # see [zsh-workers:13180]
     # http://www.zsh.org/mla/workers/2000/msg03993.html
     emulate -L zsh
@@ -91,9 +95,15 @@ if [ "$TERM" = $TERMSCREEN ]; then
 
     prev=$cmd[1]
   }
-  precmd() {
+  add-zsh-hook preexec _update_screen_title_by_command
+
+  #precmd() {
+  _update_screen_title() {
     #local prev; prev=`history -1 | sed "s/^[ 0-9]*//" | sed "s/ .*$//"`
     echo -n "k$:$prev\\"
   }
-  chpwd
+  add-zsh-hook precmd _update_screen_title
+
+  #chpwd
+  _update_screen_title_by_cd
 fi
