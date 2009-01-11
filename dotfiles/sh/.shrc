@@ -18,6 +18,7 @@ fi
 if [ -d $HOME/local/bin ] ; then
     PATH=$HOME/local/bin:"${PATH}"
 fi
+export PATH
 
 #export MAIL=/var/spool/mail/$USERNAME
 #export LESS=-cex3M
@@ -31,6 +32,16 @@ export SVN_EDITOR='vim'
 # for CPAN
 export PERL5LIB=$HOME/local/lib/perl5/5.8.8:$HOME/local/lib/perl5/site_perl/5.8.8
 export PERL_BADLANG=0
+
+# OS specific environmental variables
+case "`uname`" in
+  "Linux")
+  ;;
+  "Darwin")
+  MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:$MANPATH"
+  ;;
+esac
+export MANPATH
 
 if [ -f $HOME/.shrc.local ]; then
     source $HOME/.shrc.local

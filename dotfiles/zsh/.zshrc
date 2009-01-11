@@ -1,13 +1,7 @@
-#
-# Example .zshrc file for zsh 4.0
-#
 # .zshrc is sourced in interactive shells.  It
 # should contain commands to set up aliases, functions,
 # options, key bindings, etc.
 #
-
-# THIS FILE IS NOT INTENDED TO BE USED AS /etc/zshrc, NOR WITHOUT EDITING
-#return 0	# Remove this line after editing this file as appropriate
 
 # read bash and zsh common setting
 if [ -f $HOME/.shrc ]; then
@@ -29,18 +23,10 @@ umask 022
 alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'       # no spelling correction on cp
 alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
-alias j=jobs
-alias pu=pushd
-alias po=popd
-alias d='dirs -v'
-alias h=history
 
 # List only directories and symbolic
 # links that point to directories
 alias lsd='ls -ld *(-/DN)'
-
-# List only file beginning with "."
-alias lsa='ls -ld .*'
 
 # Shell functions
 setenv() { typeset -x "${1}${1:+=}${(@)argv[2,$#]}" }  # csh compatibility
@@ -60,12 +46,10 @@ typeset -U path cdpath fpath manpath
 
 # Global aliases -- These do not have to be
 # at the beginning of the command line.
-alias -g M='|more'
+alias -g L='|lv'
 alias -g H='|head'
 alias -g T='|tail'
-
-manpath=(/usr/share/man $X11HOME/man /usr/man /usr/lang/man /usr/local/man $MANPATH)
-export MANPATH
+alias -g G='|grep'
 
 # Hosts to use for completion (see later zstyle)
 hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)

@@ -14,6 +14,12 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lA='ls -A'
 
+alias j='jobs'
+alias pu='pushd'
+alias po='popd'
+alias d='dirs -v'
+alias h='history'
+
 # etc
 alias wcd=/usr/lib/wcd/wcd.exec
 alias number='screen_number'
