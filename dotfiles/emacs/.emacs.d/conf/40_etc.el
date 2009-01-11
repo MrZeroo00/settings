@@ -54,6 +54,13 @@
   "System to toggle region and rectangle." t nil)
 
 
+;; alpaca
+;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
+(autoload 'alpaca-after-find-file "alpaca" nil t)
+(add-hook 'find-file-hooks 'alpaca-after-find-file)
+(setq alpaca-cache-passphrase t)
+
+
 ;; clwiki
 ;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
 ;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")

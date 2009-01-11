@@ -59,6 +59,10 @@
 	(let ((default-directory dir))
 	  (load (expand-file-name "subdirs.el") t t t)))))
 
+;; add executable PATH
+(when run-darwin
+  (add-to-list 'exec-path "/opt/local/bin"))
+
 ;; define eval-safe
 ;; http://www.sodan.org/~knagano/emacs/dotemacs.html#eval-safe
 (defmacro eval-safe (&rest body)

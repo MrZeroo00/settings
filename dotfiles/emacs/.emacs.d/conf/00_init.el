@@ -38,6 +38,8 @@
 (set-face-background 'region "DeepPink1")
 
 ;; highlight
+(setq search-highlight t)
+(setq query-replace-highlight t)
 (require 'hi-lock)
 ; highlight current line
 (global-hl-line-mode)
@@ -84,6 +86,8 @@
 (setq visible-bell t)
 (set-scroll-bar-mode 'right)
 ;(fset 'yes-or-no-p 'y-or-n-p)
+(setq diff-switches "-u")
+(setq debug-on-error nil)
 
 
 ;; redo
