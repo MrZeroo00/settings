@@ -103,6 +103,21 @@
 ;(install-elisp-from-emacswiki "anything-grep.el")
 (require 'anything-grep)
 
+(setq anything-grep-goto-hook
+      (lambda ()
+        (when anything-in-persistent-action
+          (anything-persistent-highlight-point (point-at-bol) (point-at-eol)))))
+
+(setq anything-grep-alist
+      ;; 全バッファのファイル名においてegrepをかける。moccurの代わり。
+      '(("buffers" ("egrep -Hin %s $buffers" "/"))
+        ;; ~/memo 以下から再帰的にegrepをかける。不要なファイルは除かれる。
+        ("memo" ("ack-grep -af | xargs egrep -Hin %s" "~/memo"))
+        ;; ~/ruby以下の全Rubyスクリプトと~/bin以下のファイルをまとめて検索する。
+        ("~/bin and ~/ruby"
+         ("ack-grep -afG 'rb$' | xargs egrep -Hin %s" "~/ruby")
+         ("ack-grep -af | xargs egrep -Hin %s" "~/bin"))))
+
 
 ;; anything-gtags
 ;(install-elisp-from-emacswiki "anything-gtags.el")
