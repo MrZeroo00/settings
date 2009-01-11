@@ -8,16 +8,6 @@ if [ -f $HOME/.shrc ]; then
   source $HOME/.shrc
 fi
 
-# aliases
-if [ -f $HOME/.zsh_aliases ]; then
-  source $HOME/.zsh_aliases
-fi
-
-# function
-if [ -f $HOME/.zsh_function ]; then
-  source $HOME/.zsh_function
-fi
-
 # Search path for the cd command
 #cdpath=(.. ~ ~/src ~/zsh)
 
@@ -29,6 +19,8 @@ limit -s
 
 umask 022
 
+
+## autoload
 # Where to look for autoloaded function definitions
 fpath=($fpath ~/.zfunc)
 
@@ -37,6 +29,13 @@ fpath=($fpath ~/.zfunc)
 # necessary, but gives you an easy way to stop the autoloading of a
 # particular shell function). $fpath should not be empty for this to work.
 for func in $^fpath/*(N-.x:t); autoload $func
+
+# autoload zsh modules when they are referenced
+zmodload -a zsh/add-zsh-hook add-zsh-hook
+zmodload -a zsh/stat stat
+zmodload -a zsh/zpty zpty
+zmodload -a zsh/zprof zprof
+zmodload -ap zsh/mapfile mapfile
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
@@ -73,7 +72,8 @@ watch=(notme)                   # watch for everybody but me
 LOGCHECK=300                    # check every 5 min for login/logout activity
 WATCHFMT='%n %a %l from %m at %t.'
 
-# Set/unset  shell options
+
+## set/unset shell options
 # default
 #setopt aliases
 #setopt always_last_prompt
@@ -166,14 +166,7 @@ unsetopt rm_star_silent
 [[ $EMACS = t ]] && unsetopt zle
 
 
-# Autoload zsh modules when they are referenced
-zmodload -a zsh/stat stat
-zmodload -a zsh/zpty zpty
-zmodload -a zsh/zprof zprof
-zmodload -ap zsh/mapfile mapfile
-
-
-# Some nice key bindings
+## key bindings
 #bindkey '^X^Z' universal-argument ' ' magic-space
 #bindkey '^X^A' vi-find-prev-char-skip
 #bindkey '^Xa' _expand_alias
@@ -188,6 +181,7 @@ bindkey ' ' magic-space    # also do history expansion on space
 bindkey '^I' complete-word # complete on tab, leave expansion to _expand
 
 
+## completion
 # Setup new style completion system. To see examples of the old style (compctl
 # based) programmable completion, check Misc/compctl-examples in the zsh
 # distribution.
@@ -233,3 +227,15 @@ zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' \
 
 # ignore completion functions (until the _ignored completer)
 zstyle ':completion:*:functions' ignored-patterns '_*'
+
+
+# aliases
+if [ -f $HOME/.zsh_aliases ]; then
+  source $HOME/.zsh_aliases
+fi
+
+
+# function
+if [ -f $HOME/.zsh_function ]; then
+  source $HOME/.zsh_function
+fi

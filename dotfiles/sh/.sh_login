@@ -1,0 +1,9 @@
+clear
+#stty dec new cr0 -tabs
+#mesg y
+#uptime
+fortune
+#log
+#from 2>/dev/null
+#cat notes
+#msgs -fp
