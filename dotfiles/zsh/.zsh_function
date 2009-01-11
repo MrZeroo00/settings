@@ -1,8 +1,10 @@
-# csh compatibility
+## setenv (csh compatibility)
 setenv() {
   typeset -x "${1}${1:+=}${(@)argv[2,$#]}"
 }
 
+
+## freload
 freload() {
   while (( $# )); do;
     unfunction $1;
@@ -11,7 +13,9 @@ freload() {
   done
 }
 
-# dabbrev (http://d.hatena.ne.jp/secondlife/20060108/1136650653)
+
+## dabbrev
+# http://d.hatena.ne.jp/secondlife/20060108/1136650653
 HARDCOPYFILE=$HOME/tmp/screen-hardcopy
 touch $HARDCOPYFILE
 
@@ -26,7 +30,9 @@ zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
 
-# cdd (http://d.hatena.ne.jp/secondlife/20080218/1203303528)
+
+## cdd
+# http://d.hatena.ne.jp/secondlife/20080218/1203303528
 autoload -U compinit
 compinit
 source $HOME/bin/cdd
@@ -35,7 +41,8 @@ function chpwd() {
   _reg_pwd_screennum
 }
 
-# ssh_screen
+
+## ssh_screen
 function ssh_screen() {
   eval server=\${$#}
     screen -t $server ssh "$@"
@@ -43,6 +50,7 @@ function ssh_screen() {
 if [ x$TERM = x$TERMSCREEN ]; then
   alias ssh=ssh_screen
 fi
+
 
 # for screen status line
 if [ "$TERM" = $TERMSCREEN ]; then
