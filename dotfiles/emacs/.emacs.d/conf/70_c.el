@@ -48,6 +48,35 @@
             ))
 
 
+;; cpp-complt
+;;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
+;(add-hook 'c-mode-common-hook
+;          (function (lambda ()
+;                      (require 'cpp-complt)
+;                      (define-key c-mode-map [mouse-2]
+;                        'cpp-complt-include-mouse-select)
+;                      (define-key c-mode-map "#"
+;                        'cpp-complt-instruction-completing)
+;                      (define-key c-mode-map "\C-c#"
+;                        'cpp-complt-ifdef-region)
+;                      (cpp-complt-init))))
+;
+;(setq cpp-complt-standard-header-path
+;      '(
+;        "/usr/include"
+;        ))
+
+
+;; pbf-mode
+;(install-elisp "http://www.bookshelf.jp/elc/pbf-mode.el")
+;(require 'pbf-mode)
+;(pbf-setup)
+;(pbf-mode t)
+;(pbf-project HOME nil
+;             "My private."
+;             :directory (expand-file-name "~/"))
+
+
 ;; cwarn
 (require 'cwarn)
 (add-hook 'c-mode-hook 'turn-on-cwarn-mode)

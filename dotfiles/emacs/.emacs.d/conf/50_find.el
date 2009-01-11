@@ -2,6 +2,12 @@
 (setq grep-find-command "find . -type f ! -name '*,v' ! -name '*~' ! -name '*.o' ! -name '*.a' ! -name '*.so' ! -name '*.class' ! -name '*.jar' ! -name 'semantic.cache' ! -path '*.deps*' ! -path '*/obsolete/*' ! -path '*/.svn/*' ! -path '*/CVS/*' -print0 | xargs -0 -e grep -n -e ")
 
 
+;; color-grep
+;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
+(require 'color-grep)
+(setq color-grep-sync-kill-buffer t)
+
+
 ;; grep-edit
 (require 'grep)
 ;(install-elisp "http://www.bookshelf.jp/elc/grep-edit.el")

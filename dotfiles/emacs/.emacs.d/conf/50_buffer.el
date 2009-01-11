@@ -4,6 +4,13 @@
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
 
+;; tempbuf
+;(install-elisp-from-emacswiki "tempbuf.el")
+;(require 'tempbuf)
+;(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
+;(add-hook 'Man-mode-hook 'turn-on-tempbuf-mode)
+
+
 ;; macros
 (load "_my-make-scratch")
 (add-hook 'after-save-hook

@@ -40,6 +40,13 @@
 (add-hook 'after-init-hook 'session-initialize)
 
 
+;; desktop
+;(autoload 'desktop-save "desktop" nil t)
+;(autoload 'desktop-clear "desktop" nil t)
+;(autoload 'desktop-load-default "desktop" nil t)
+;(autoload 'desktop-remove "desktop" nil t)
+
+
 ;; autoarg
 ;(require 'autoarg)
 
