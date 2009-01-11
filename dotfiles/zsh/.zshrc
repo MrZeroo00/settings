@@ -175,11 +175,13 @@ unsetopt rm_star_silent
 
 [[ $EMACS = t ]] && unsetopt zle
 
+
 # Autoload zsh modules when they are referenced
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
 zmodload -ap zsh/mapfile mapfile
+
 
 # Some nice key bindings
 #bindkey '^X^Z' universal-argument ' ' magic-space
@@ -194,6 +196,7 @@ zmodload -ap zsh/mapfile mapfile
 bindkey -e                 # emacs key bindings
 bindkey ' ' magic-space    # also do history expansion on space
 bindkey '^I' complete-word # complete on tab, leave expansion to _expand
+
 
 # Setup new style completion system. To see examples of the old style (compctl
 # based) programmable completion, check Misc/compctl-examples in the zsh
@@ -240,6 +243,7 @@ zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' \
 
 # ignore completion functions (until the _ignored completer)
 zstyle ':completion:*:functions' ignored-patterns '_*'
+
 
 ## screen setting
 # ssh
