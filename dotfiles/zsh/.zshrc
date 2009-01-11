@@ -5,7 +5,7 @@
 
 # read bash and zsh common setting
 if [ -f $HOME/.shrc ]; then
-    source $HOME/.shrc
+  source $HOME/.shrc
 fi
 
 # Search path for the cd command
@@ -58,9 +58,18 @@ hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
 #PROMPT='%m%# '    # default prompt
 #RPROMPT=' %~'     # prompt for right side of screen
 
-PROMPT="%n@%m%% "
+LPROMPT="%n@%m%% "
+autoload -U colors
+colors
+PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
+precmd () {
+  PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
+}
+
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
+
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>/'
 
 # Some environment variables
 export HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
@@ -151,7 +160,7 @@ setopt pushd_to_home
 setopt rc_quotes
 setopt rec_exact
 setopt share_history
-setopt transient_prompt
+#setopt transient_rprompt
 
 unsetopt auto_cd
 unsetopt cdable_vars
