@@ -26,11 +26,11 @@ fpath=($fpath ~/.zfunc)
 for func in $^fpath/*(N-.x:t); autoload $func
 
 # autoload zsh modules when they are referenced
-zmodload -a zsh/add-zsh-hook add-zsh-hook
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
 zmodload -ap zsh/mapfile mapfile
+autoload -U add-zsh-hook
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
@@ -46,9 +46,10 @@ LPROMPT="%n@%m%% "
 autoload -U colors
 colors
 PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
-precmd () {
+change_prompt_color_by_return_value () {
   PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
 }
+add-zsh-hook precmd change_prompt_color_by_return_value
 
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
