@@ -42,6 +42,7 @@
 
 (setq gtags-mode-hook
       '(lambda ()
+         (load "_gtags-hack.el")
          (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
          (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
          (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
@@ -235,3 +236,5 @@
 (load "_paren-match")
 (load "_tdd-bgcolor-rotate")
 (global-set-key "\C-cm" 'tdd-bgcolor-rotate)
+(load "_google-code-search")
+(load "_open-junk-file")

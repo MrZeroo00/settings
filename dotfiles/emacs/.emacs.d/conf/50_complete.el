@@ -22,8 +22,24 @@
           (lambda ()
             (make-local-variable 'ac-sources)
             (add-to-list 'ac-sources 'ac-source-yasnippet)))
-(define-key ac-complete-mode-map "\C-n" 'ac-next)
-(define-key ac-complete-mode-map "\C-p" 'ac-previous)
+;(define-key ac-complete-mode-map "\C-n" 'ac-next)
+;(define-key ac-complete-mode-map "\C-p" 'ac-previous)
+
+;; http://d.hatena.ne.jp/kiwanami/20081124/1227543508
+(defun ac-next-or-next-line (arg)
+  (interactive "p")
+  (if (= (length ac-candidates) 1)
+      (progn (ac-abort)
+             (next-line arg))
+    (ac-next)))
+(defun ac-previous-or-previous-line (arg)
+  (interactive "p")
+  (if (= (length ac-candidates) 1)
+      (progn (ac-abort)
+             (previous-line arg))
+    (ac-previous)))
+(define-key ac-complete-mode-map "\C-n" 'ac-next-or-next-line)
+(define-key ac-complete-mode-map "\C-p" 'ac-previous-or-previous-line)
 
 
 ;; dabbrev-highlight

@@ -34,6 +34,9 @@ autoload -U add-zsh-hook
 #autoload zed
 #autoload predict-on
 #predict-on
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey "^O" edit-command-line
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
