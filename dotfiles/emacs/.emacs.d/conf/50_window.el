@@ -19,6 +19,8 @@
 (win:startup-with-window)
 (define-key ctl-x-map "C" 'see-you-again)
 
+(setq win-save-timer (run-with-idle-timer 3600 t 'win-save-all-configurations))
+
 
 ;; widen-window
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/widen-window-mode/trunk/widen-window.el")

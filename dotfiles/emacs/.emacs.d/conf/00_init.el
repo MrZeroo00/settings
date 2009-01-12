@@ -88,6 +88,7 @@
 ;(fset 'yes-or-no-p 'y-or-n-p)
 (setq debug-on-error nil)
 (auto-insert-mode t)
+;(global-auto-revert-mode)
 (setq kill-whole-line t)
 (setq kill-read-only-ok t)
 (setq next-line-add-newlines nil)

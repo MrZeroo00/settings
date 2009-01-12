@@ -161,6 +161,17 @@
 (setq gud-gdb-command-name "gdb --annotate=3")
 
 
+;; ipa (in place annotations)
+;(install-elisp-from-emacswiki "ipa.el")
+(require 'ipa)
+
+
+;; usage-memo
+;(install-elisp-from-emacswiki "usage-memo.el")
+(require 'usage-memo)
+(umemo-initialize)
+
+
 ;; hs-minor-mode (fold code block)
 (load "hideshow")
 

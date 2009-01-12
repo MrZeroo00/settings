@@ -14,6 +14,7 @@
 ;(install-elisp-from-emacswiki "auto-complete.el")
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(setq ac-candidate-max 15)
 (setq ac-sources '(ac-source-abbrev
                    ac-source-words-in-buffer
                    ac-source-files-in-current-dir))

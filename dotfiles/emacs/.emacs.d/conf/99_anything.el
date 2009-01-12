@@ -188,9 +188,18 @@
                              anything-c-source-man-pages
                              anything-c-source-info-pages
                              anything-c-source-file-name-history
+                             anything-c-source-file-cache
                              (if run-darwin
                                  anything-c-source-mac-spotlight
                                anything-c-source-locate)
                              ;anything-c-source-calculation-result
                              anything-c-source-complex-command-history
                              ))
+
+
+;; advice
+(defadvice anything (around disable-ww-mode activate)
+  (ad-deactivate-regexp "widen-window")
+  (unwind-protect
+      ad-do-it
+    (ad-activate-regexp "widen-window")))

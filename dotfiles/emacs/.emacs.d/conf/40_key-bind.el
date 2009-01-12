@@ -24,3 +24,8 @@
 
 (easy-mmode-define-minor-mode my-keyjack-mode "Grab keys"
                               t " Keyjack" my-keyjack-mode-map)
+
+
+;; unbound
+;(install-elisp-from-emacswiki "unbound.el")
+;(require 'unbound)
