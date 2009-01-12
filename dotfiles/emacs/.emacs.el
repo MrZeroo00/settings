@@ -78,6 +78,7 @@
 (load "01_modeline")
 (load "05_server")
 (load "40_coding")
+(load "40_key-bind")
 (load "40_network")
 (load "40_etc")
 (load "50_backup")

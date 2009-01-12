@@ -90,6 +90,13 @@
 ;          '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
 
 
+;; postit
+;(install-elisp "http://www.bookshelf.jp/elc/postit.el")
+;(autoload 'postit "postit" nil t)
+;(setq postit-colorize 'dark)
+;(setq postit-compress-commands nil)
+
+
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
 (require 'install-elisp)
@@ -134,4 +141,6 @@
 (load "_copy-region-with-info")
 (load "_duplicate-line")
 (define-key esc-map "Y" 'duplicate-line)
-(load "_scroll-speedup.el")
+(load "_scroll-speedup")
+;(load "_my-memo")
+;(global-set-key "\C-c\C-w" 'my-memo)
