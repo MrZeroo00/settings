@@ -84,7 +84,6 @@
 (tool-bar-mode nil)
 (menu-bar-mode nil)
 (set-scroll-bar-mode 'right)
-(set-message-beep 'silent)
 (setq visible-bell t)
 ;(fset 'yes-or-no-p 'y-or-n-p)
 (setq debug-on-error nil)
