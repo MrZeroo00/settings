@@ -81,8 +81,8 @@
 ;; Etc
 (setq inhibit-startup-message t)
 (setq frame-title-format "%b")
-(tool-bar-mode nil)
-(menu-bar-mode nil)
+;(tool-bar-mode nil)
+;(menu-bar-mode nil)
 (set-scroll-bar-mode 'right)
 (setq visible-bell t)
 ;(fset 'yes-or-no-p 'y-or-n-p)
