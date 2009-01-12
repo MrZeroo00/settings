@@ -1,3 +1,10 @@
+(setq abbrev-file-name "~/.emacs.d/abbrev_defs")
+(quietly-read-abbrev-file)
+(setq save-abbrevs t)
+(add-hook 'pre-command-hook
+          (lambda ()
+            (setq abbrev-mode nil)))
+
 ; for coding
 (setq dabbrev-case-fold-search nil)
 (setq dabbrev-case-replace nil)
@@ -23,6 +30,16 @@
 (require 'dabbrev-highlight)
 
 
+;; dabbrev-ja
+;(install-elisp "http://namazu.org/%7Etsuchiya/elisp/dabbrev-ja.el")
+;(load "dabbrev-ja")
+
+
+;; abbrev-sort
+;(install-elisp "http://www.eskimo.com/~seldon/abbrev-sort.el")
+;(require 'abbrev-sort)
+
+
 ;; ac-mode
 ;(install-elisp "http://taiyaki.org/elisp/ac-mode/src/ac-mode.el")
 ;(autoload 'ac-mode "ac-mode" "Minor mode for advanced completion." t nil)
@@ -40,3 +57,7 @@
 ;; icicles
 ;(install-elisp-from-emacswiki "icicles.el")
 ;(require 'icicles)
+
+
+;; macros
+;(load "_maybe-capitalize-bos")

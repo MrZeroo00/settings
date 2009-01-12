@@ -118,6 +118,10 @@
   (autoload 'keisen-mode "keisen-mule" "MULE 版罫線モード" t))
 
 
+;; enriched-mode
+;(require 'enriched)
+
+
 ;; iimage
 ;(require 'iimage)
 
