@@ -23,11 +23,6 @@
 (global-set-key (kbd "<S-f2>") 'bm-previous)
 
 
-;; minibuf-isearch
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/minibuf-isearch/minibuf-isearch.el")
-(require 'minibuf-isearch)
-
-
 ;; session
 ;; http://emacs-session.sourceforge.net/
 (require 'session)

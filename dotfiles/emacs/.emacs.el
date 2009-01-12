@@ -86,6 +86,7 @@
 (load "50_dired")
 (load "50_file")
 (load "50_find")
+(load "50_minibuffer")
 (load "50_occur")
 (load "50_shell")
 (load "50_window")
