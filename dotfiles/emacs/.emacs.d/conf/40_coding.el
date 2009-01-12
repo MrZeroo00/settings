@@ -191,6 +191,12 @@
 (setq develock-auto-enable nil)
 
 
+;; jaspace
+;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
+(require 'jaspace)
+(setq jaspace-modes nil)
+
+
 ;; emphasize Space/Tab/Newline
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=visualize%20tab
 ;;;(defface my-face-r-1 '((t (:background "gray15"))) nil)

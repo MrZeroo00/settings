@@ -110,3 +110,7 @@
 
 ;; pit
 (require 'pit)
+
+
+;; macros
+;(load "_visible-mark-mode")
