@@ -10,7 +10,7 @@
 (mapcar (lambda (x)
           (define-key my-keyjack-mode-map (car x) (cdr x))
           (global-set-key (car x) (cdr x)))
-        '(("\M-s" . delete-horizontal-space)
+        '(("\M-SPC" . just-one-space)
           ("\C-\M-k" . windmove-up)
           ("\C-\M-j" . windmove-down)
           ("\C-\M-h" . windmove-left)
