@@ -15,6 +15,13 @@
 ;(remove-hook 'after-save-hook 'outputz)
 
 
+;; color-theme
+;; https://gna.org/projects/color-theme
+(require 'color-theme)
+(color-theme-initialize)
+;(color-theme-robin-hood)
+
+
 ;; bm
 ;; http://www.nongnu.org/bm/
 (require 'bm)
@@ -95,6 +102,12 @@
 ;(autoload 'postit "postit" nil t)
 ;(setq postit-colorize 'dark)
 ;(setq postit-compress-commands nil)
+
+
+;; stripes
+;(install-elisp-from-emacswiki "stripes.el")
+;(require 'stripes)
+;(set-face-background 'stripes-face "yellow")
 
 
 ;; install-elisp

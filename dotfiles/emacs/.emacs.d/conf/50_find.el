@@ -44,6 +44,19 @@
 ;(require 'ireplace)
 
 
+;; namazu
+;(install-elisp "http://www.bookshelf.jp/elc/namazu.el")
+;(setq namazu-search-num 100)
+;(setq namazu-auto-turn-page t)
+;(autoload 'namazu "namazu" nil t)
+;(setq namazu-default-dir "~/etc/namazu/")
+;(setq namazu-dir-alist
+;      '(("doc" . "~/etc/namazu/index")
+;        ))
+;(install-elisp "http://www.bookshelf.jp/elc/color-namazu.el")
+;(load "color-namazu")
+
+
 ;; http://dev.ariel-networks.com/Members/matsuyama/isearch-selected-text
 (defadvice isearch-mode (around isearch-mode-default-string (forward &optional regexp op-fun recursive-edit word-p) activate)
   (if (and transient-mark-mode mark-active)

@@ -3,12 +3,13 @@
 (global-font-lock-mode t)
 ;; sample setting
 (setq default-frame-alist
-      (append (list '(top . 30)         ; 起動時の表示位置(右から)
-                    '(left . 200)       ; 起動時の表示位置(左から)
+      (append (list '(top . 20)         ; 起動時の表示位置(右から)
+                    '(left . 100)       ; 起動時の表示位置(左から)
                     '(width . 80)       ; 起動時のサイズ(幅)
                     '(height . 45)      ; 起動時のサイズ(縦)
                     '(foreground-color . "green")       ; 文字の色
                     '(background-color . "black")       ; 背景の色
+                    ;'(alpha . (nil 70 50 30))           ; 透過
                     '(cursor-color . "DarkOliveGreen1") ; カーソルの色
                     '(mouse-color . "DarkOliveGreen1") ; マウスポインタの色
                     ;'(font . "fontset-tt14") ; 使うフォントセット
@@ -79,16 +80,24 @@
 
 ;; Etc
 (setq inhibit-startup-message t)
+(setq frame-title-format "%b")
+(tool-bar-mode nil)
+(menu-bar-mode nil)
+(set-scroll-bar-mode 'right)
+(set-message-beep 'silent)
+(setq visible-bell t)
+;(fset 'yes-or-no-p 'y-or-n-p)
+(setq debug-on-error nil)
 (auto-insert-mode t)
 (setq kill-whole-line t)
 (setq kill-read-only-ok t)
 (setq next-line-add-newlines nil)
-(setq visible-bell t)
-(set-scroll-bar-mode 'right)
-;(fset 'yes-or-no-p 'y-or-n-p)
+(setq truncate-lines t)
+(setq truncate-partial-width-windows t)
 (setq history-length t)
+(setq undo-limit 100000)
+(setq undo-strong-limit 130000)
 (setq diff-switches "-u")
-(setq debug-on-error nil)
 
 
 ;; redo
@@ -114,3 +123,4 @@
 
 ;; macros
 ;(load "_visible-mark-mode")
+;(load "_egoge-wash-out-colour")

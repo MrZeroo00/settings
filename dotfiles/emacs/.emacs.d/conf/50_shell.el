@@ -6,6 +6,10 @@
           'comint-watch-for-password-prompt)
 
 (setq comint-scroll-show-maximum-output t)
+;(setq explicit-shell-file-name "bash")
+;(setq shell-file-name "bash")
+;(setq shell-command-switch "-c")
+;(setq exec-suffix-list '(".exe" ".sh" ".pl"))
 
 
 ;; anything

@@ -2,6 +2,7 @@
 
 (add-hook 'text-mode-hook
           '(lambda ()
+             ;(ruler-mode)
              (flyspell-mode)
              ;(refill-mode t)
              ))

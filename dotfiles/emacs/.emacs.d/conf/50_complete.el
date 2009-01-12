@@ -54,6 +54,10 @@
 ;(turn-on-mcomplete-mode)
 
 
+;; hippie-exp
+;(require 'hippie-exp)
+
+
 ;; icicles
 ;(install-elisp-from-emacswiki "icicles.el")
 ;(require 'icicles)
