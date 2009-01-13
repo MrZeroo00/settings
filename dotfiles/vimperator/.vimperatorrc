@@ -59,7 +59,7 @@ cnoremap <C-r>* <S-Insert>
 
 "" options --------------------
 set complete=bSl
-set defsearch=g
+"set defsearch=g
 set editor='gvim -f'
 set focuscontent
 set guioptions+=Brbn
