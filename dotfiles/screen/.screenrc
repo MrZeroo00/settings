@@ -73,9 +73,9 @@ bind '}' history
 # Yet another hack:
 # Prepend/append register [/] to the paste if ^a^] is pressed.
 # This lets me have autoindent mode in vi.
-register [ "\033:se noai\015a"
-register ] "\033:se ai\015a"
-bind ^] paste [.]
+#register [ "\033:se noai\015a"
+#register ] "\033:se ai\015a"
+#bind ^] paste [.]
 
 # additional key bindings
 bind '-' exec screensplit.rb telnet
