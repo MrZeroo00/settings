@@ -1,3 +1,8 @@
+(eval-after-load "anything-config"
+  '(progn
+     (setq anything-c-locate-options `("mlocate" "-q" "-i" "-n 50" "-r" "--"))
+     ))
+
 (when window-system
   (progn
     (set-default-font "Bitstream Vera Sans Mono-10")
