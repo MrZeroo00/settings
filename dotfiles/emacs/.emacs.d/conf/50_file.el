@@ -32,7 +32,7 @@
     "filecache"
   '(progn
      (message "Loading file cache...")
-     (file-cache-add-directory-using-find "~/.emacs.d")
+     (file-cache-add-directory-using-find "~/.emacs.d/")
      ))
 (defun file-cache-add-this-file ()
   (and buffer-file-name
