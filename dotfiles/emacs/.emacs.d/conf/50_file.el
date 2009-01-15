@@ -28,7 +28,11 @@
 (require 'filecache)
 (file-cache-add-directory-list
  (list "~"))
-(file-cache-read-cache-from-file "~/.emacs.d/.file_cache")
+(defun file-cache-add-this-file ()
+  (and buffer-file-name
+       (file-exists-p buffer-file-name)
+       (file-cache-add-file buffer-file-name)))
+(add-hook 'kill-buffer-hook 'file-cache-add-this-file)
 (define-key minibuffer-local-completion-map
   "\C-c\C-i" 'file-cache-minibuffer-complete)
 
@@ -96,3 +100,5 @@
 (load "_delete-file-if-no-contents")
 (if (not (memq 'delete-file-if-no-contents after-save-hook))
     (add-hook 'after-save-hook 'delete-file-if-no-contents))
+;(load "_file_cache_read_save_cache")
+;(file-cache-read-cache-from-file "~/.emacs.d/.file_cache")
