@@ -37,7 +37,7 @@ alias pbpaste='xclip -selection clipboard -o'
 case "`uname`" in
   "Linux")
   alias open='gnome-open'
-  alias emacs='XMODIFIERS=@im=none emacs'
+  alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
   ;;
   "Darwin")
   alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
