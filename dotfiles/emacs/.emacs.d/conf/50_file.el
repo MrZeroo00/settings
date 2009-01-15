@@ -26,8 +26,14 @@
 
 ;; filecache (open long filename easily)
 (require 'filecache)
-(file-cache-add-directory-list
- (list "~"))
+;(file-cache-add-directory-list
+; (list "~"))
+(eval-after-load
+    "filecache"
+  '(progn
+     (message "Loading file cache...")
+     (file-cache-add-directory-using-find "~/.emacs.d")
+     ))
 (defun file-cache-add-this-file ()
   (and buffer-file-name
        (file-exists-p buffer-file-name)
