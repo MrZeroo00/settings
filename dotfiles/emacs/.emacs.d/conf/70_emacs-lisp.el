@@ -12,9 +12,11 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (make-local-variable 'anything-sources)
-            (add-to-list 'anything-sources
-                         'anything-c-source-lisp-complete-symbol
-                         'anything-c-source-linkd-tag)))
+            ;(add-to-list 'anything-sources
+;           ;              anything-c-source-lisp-complete-symbol
+;           ;              anything-c-source-linkd-tag
+            ;             )
+            ))
 
 
 ;; eldoc
