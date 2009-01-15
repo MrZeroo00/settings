@@ -28,6 +28,7 @@
 (require 'filecache)
 (file-cache-add-directory-list
  (list "~"))
+(file-cache-read-cache-from-file "~/.emacs.d/.file_cache")
 (define-key minibuffer-local-completion-map
   "\C-c\C-i" 'file-cache-minibuffer-complete)
 
