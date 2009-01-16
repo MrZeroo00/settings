@@ -62,7 +62,7 @@ floatapps =
 apptags =
 {
     ["Thunderbird"] = { screen = 1, tag = 3 },
-    -- ["Firefox"] = { screen = 1, tag = 2 },
+    ["Firefox"] = { screen = 1, tag = 1 },
     -- ["mocp"] = { screen = 2, tag = 4 },
 }
 
@@ -103,7 +103,7 @@ function theme_load(theme)
     local cfg_path = awful.util.getdir("config")
 
     -- Create a symlink from the given theme to /home/user/.config/awesome/current_theme
-    awful.util.spawn("ln -sf " .. cfg_path .. "themes/" .. theme .. " " .. cfg_path .. "current_theme")
+    awful.util.spawn("ln -sf " .. cfg_path .. "/themes/" .. theme .. " " .. cfg_path .. "/current_theme")
     awesome.restart()
 end
 
