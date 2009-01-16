@@ -8,7 +8,7 @@ set showtabline=2
 set noimdisable
 
 if has('multi_byte_ime')
-  set imcmdline=0
+  set noimcmdline
   highlight Cursor guifg=NONE guibg=Green
   highlight CursorIM guifg=NONE guibg=Purple
   " don't hold IM status in insert mode
