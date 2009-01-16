@@ -475,3 +475,7 @@ keybinding({ modkey }, "d", function ()
     nil, awful.util.getdir("cache") .. "/dict")
 end):add()
 -- }}}
+
+awful.util.spawn("gnome-terminal")
+awful.util.spawn("gnome-terminal")
+awful.util.spawn("firefox")
