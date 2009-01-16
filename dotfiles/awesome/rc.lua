@@ -5,9 +5,10 @@ require("beautiful")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- The default is a dark theme
-theme_path = "/usr/local/stow/awesome-3.1/share/awesome/themes/default/theme"
+-- theme_path = "/usr/local/stow/awesome-3.1/share/awesome/themes/default/theme"
 -- Uncommment this for a lighter theme
 -- theme_path = "/usr/local/stow/awesome-3.1/share/awesome/themes/sky/theme"
+theme_path = awful.util.getdir("config") .. "/current_theme"
 
 -- Actually load theme
 beautiful.init(theme_path)
@@ -103,7 +104,7 @@ function theme_load(theme)
     local cfg_path = awful.util.getdir("config")
 
     -- Create a symlink from the given theme to /home/user/.config/awesome/current_theme
-    awful.util.spawn("ln -sf " .. cfg_path .. "/themes/" .. theme .. " " .. cfg_path .. "/current_theme")
+    awful.util.spawn("ln -sf " .. cfg_path .. "/themes/" .. theme .. "/theme" .. " " .. cfg_path .. "/current_theme")
     awesome.restart()
 end
 
