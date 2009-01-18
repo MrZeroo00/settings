@@ -1,3 +1,5 @@
+(setq-default ispell-program-name "aspell")
+
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=ispell
 (setq ispell-grep-command "grep")
 ;(setq ispell-alternate-dictionary "~/etc/dictionary/words")

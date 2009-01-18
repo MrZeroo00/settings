@@ -28,6 +28,12 @@
             ))
 
 
+;; flymake
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (flymake-mode)))
+
+
 ;; eldoc
 ;(install-elisp-from-emacswiki "c-eldoc.el")
 (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ ")
