@@ -1,0 +1,3 @@
+#!/bin/sh
+
+singleton synergys -f --config $HOME/.synergy.conf &
