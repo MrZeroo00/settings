@@ -18,3 +18,4 @@
           (function (lambda ()
                       (unless (member "*scratch*" (my-buffer-name-list))
                         (my-make-scratch t)))))
+(load "_screen-hardcopy")
