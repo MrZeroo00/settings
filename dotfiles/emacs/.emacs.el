@@ -101,6 +101,7 @@
 (load "60_man")
 (load "60_migemo")
 (load "60_mmm-mode")
+(load "60_one-key")
 (load "60_outline")
 (load "60_pukiwiki")
 (load "60_spell")
