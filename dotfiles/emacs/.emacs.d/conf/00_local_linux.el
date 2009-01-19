@@ -9,3 +9,12 @@
     (set-fontset-font (frame-parameter nil 'font)
                       'japanese-jisx0208
                       '("VL ゴシック" . "unicode-bmp"))))
+
+
+;; anthy
+(load-library "anthy")
+(setq default-input-method "japanese-anthy")
+(global-set-key "\C-o" 'anthy-mode)
+;(anthy-change-hiragana-map "," "、")
+;(anthy-load-hiragana-map anthy-alt-char-map)
+(setq anthy-wide-space " ")
