@@ -1,4 +1,6 @@
-(setq migemo-command "cmigemo")
+(setq migemo-command
+      (or (my-which "cmigemo")
+          (my-which "migemo")))
 (setq migemo-options '("-q" "--emacs"))
 
 ; dictionary
