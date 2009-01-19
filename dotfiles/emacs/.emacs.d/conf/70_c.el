@@ -29,9 +29,9 @@
 
 
 ;; flymake
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (flymake-mode)))
+;(add-hook 'c-mode-common-hook
+;          '(lambda ()
+;             (flymake-mode)))
 
 
 ;; eldoc
