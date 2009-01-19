@@ -30,6 +30,11 @@
 #    source $HOME/.zpath
 #fi
 
+# read bash and zsh common setting
+if [ -f $HOME/.shrc ]; then
+  source $HOME/.shrc
+fi
+
 # environmental variables
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000

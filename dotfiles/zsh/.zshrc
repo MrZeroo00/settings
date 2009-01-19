@@ -1,8 +1,3 @@
-# read bash and zsh common setting
-if [ -f $HOME/.shrc ]; then
-  source $HOME/.shrc
-fi
-
 # Search path for the cd command
 #cdpath=(.. ~ ~/src ~/zsh)
 
