@@ -44,6 +44,25 @@
 ;(require 'ireplace)
 
 
+;; approx-search
+;; http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/
+;(require 'approx-search)
+;(if (boundp 'isearch-search-fun-function)
+;    (require 'approx-isearch)
+;  (require 'approx-old-isearch))
+;
+;(if migemo-isearch-enable-p
+;    (approx-isearch-set-disable)
+;  (approx-isearch-set-enable))
+;
+;(defadvice migemo-toggle-isearch-enable (before approx-ad-migemo-toggle-i
+;                                                arch-enable activate)
+;  "migemo を使う時は approx-search を使わない."
+;  (if migemo-isearch-enable-p
+;      (approx-isearch-set-enable) ; NOT disable!!! before advice なので
+;    (approx-isearch-set-disable)))
+
+
 ;; namazu
 ;(install-elisp "http://www.bookshelf.jp/elc/namazu.el")
 ;(setq namazu-search-num 100)
