@@ -62,8 +62,8 @@ floatapps =
 -- Use the screen and tags indices.
 apptags =
 {
-    ["Thunderbird"] = { screen = 1, tag = 3 },
     ["Firefox"] = { screen = 1, tag = 1 },
+    ["Thunderbird"] = { screen = 1, tag = 3 }
     -- ["mocp"] = { screen = 2, tag = 4 },
 }
 
@@ -446,9 +446,9 @@ end)
 -- Hook called every second
 awful.hooks.timer.register(1, function ()
     -- For unix time_t lovers
-    mytextbox.text = " " .. os.time() .. " time_t "
+    -- mytextbox.text = " " .. os.time() .. " time_t "
     -- Otherwise use:
-    -- mytextbox.text = " " .. os.date() .. " "
+    mytextbox.text = " " .. os.date() .. " "
 end)
 
 -- Load revelation
