@@ -125,3 +125,4 @@
 ;; macros
 ;(load "_visible-mark-mode")
 ;(load "_egoge-wash-out-colour")
+(load "_elisp-font-lock-top-quote")
