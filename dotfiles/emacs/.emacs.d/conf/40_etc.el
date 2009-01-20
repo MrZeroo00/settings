@@ -110,8 +110,9 @@
 ;(set-face-background 'stripes-face "yellow")
 
 
-;; apropos
-;(require 'apropos)
+;; edit-list
+;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
+;(require 'edit-list)
 
 
 ;; install-elisp
