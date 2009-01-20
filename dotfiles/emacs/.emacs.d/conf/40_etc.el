@@ -110,6 +110,10 @@
 ;(set-face-background 'stripes-face "yellow")
 
 
+;; apropos
+;(require 'apropos)
+
+
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
 (require 'install-elisp)
