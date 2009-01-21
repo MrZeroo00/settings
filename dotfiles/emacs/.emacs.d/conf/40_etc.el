@@ -15,6 +15,26 @@
 ;(remove-hook 'after-save-hook 'outputz)
 
 
+;; pdicv-mode
+;; http://pdicviewer.naochan.com/el/
+;(require 'pdicv-search)
+;(require 'pdicv-mode)
+(autoload 'pdicv "pdicviewer" "PDIC¼­½ñ¸¡º÷" t)
+(eval-after-load 'pdic
+  '(progn
+     (setq pdicv-dictionary-list
+           '((eijiro "~/etc/dictionary/EIJIRO95.DIC" (nil nil sjis sjis))
+             (waeijiro "~/etc/dictionary/WAEIJI52.DIC" (sjis nil sjis sjis) t)
+                                        ;(ej (eijiro waeijiro))
+        ))))
+;(global-set-key "\C-c\C-e" 'pdicv-eijiro-search-interactive)
+;(global-set-key "\C-c\C-r" 'pdicv-eijiro-search-region)
+;(global-set-key "\C-c\C-d" 'pdicv-set-current-dictionary)
+;(global-set-key "\C-c\C-i" 'pdicv-search-interactive)
+;(global-set-key "\C-c\C-j" 'pdicv-search-region)
+;(global-set-key "\C-c\C-p" 'pdicv-mode)
+
+
 ;; color-theme
 ;; https://gna.org/projects/color-theme
 (require 'color-theme)
