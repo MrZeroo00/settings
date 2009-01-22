@@ -1,7 +1,7 @@
 ;(install-elisp-from-emacswiki "one-key.el")
 (require 'one-key)
 (setq max-lisp-eval-depth 10000)
-(setq max-specpdl-size 10000)
+(setq max-specpdl-size 20000)
 
 
 ;; Gtags menu
