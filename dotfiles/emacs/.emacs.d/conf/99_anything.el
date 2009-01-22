@@ -4,7 +4,7 @@
 (require 'anything-config)
 
 (setq anything-idle-delay 0.3)
-(setq anything-input-idle-delay 0)
+(setq anything-input-idle-delay 0.2)
 (setq anything-candidate-number-limit 100)
 ;(setq anything-c-locate-db-file "~/home.locatedb")
 ;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
@@ -185,8 +185,8 @@
                              anything-c-source-buffers
                              anything-c-source-bm
                              ;anything-c-source-bookmarks
-                             anything-c-source-man-pages
-                             anything-c-source-info-pages
+                             ;anything-c-source-man-pages
+                             ;anything-c-source-info-pages
                              anything-c-source-file-name-history
                              anything-c-source-file-cache
                              (if run-darwin
