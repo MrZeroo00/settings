@@ -65,11 +65,11 @@
 
 
 ;; use ack
-;(setq grep-command "ack -a --nocolor ")
-;(defun ack ()
-;  (interactive)
-;  (let ((grep-find-command "ack --nocolor --nogroup "))
-;    (call-interactively 'grep-find)))
+(setq grep-command "ack -a --nocolor ")
+(defun ack ()
+  (interactive)
+  (let ((grep-find-command "ack --nocolor --nogroup "))
+    (call-interactively 'grep-find)))
 
 
 ;; speedbar
@@ -113,11 +113,11 @@
 
 ;; mode-info
 ;; http://www.namazu.org/~tsuchiya/elisp/mode-info.html
-(require 'mi-config)
-;(define-key global-map "\C-hf" 'mode-info-describe-function)
-;(define-key global-map "\C-hv" 'mode-info-describe-variable)
-;(define-key global-map "\M-." 'mode-info-find-tag)
-(require 'mi-fontify)
+;(require 'mi-config)
+;;(define-key global-map "\C-hf" 'mode-info-describe-function)
+;;(define-key global-map "\C-hv" 'mode-info-describe-variable)
+;;(define-key global-map "\M-." 'mode-info-find-tag)
+;(require 'mi-fontify)
 
 
 ;; doxymacs
@@ -155,8 +155,8 @@
 ;; auto-compile
 ;; http://d.hatena.ne.jp/higepon/20061107/1162902929
 ;; http://sourceforge.net/project/showfiles.php?group_id=164970&package_id=210662
-(require 'auto-compile)
-(setq auto-compile-target-path-regexp-list (list "\/src"))
+;(require 'auto-compile)
+;(setq auto-compile-target-path-regexp-list (list "\/src"))
 
 
 ;; gud
