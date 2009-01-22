@@ -165,11 +165,12 @@
 ;; anything-kyr
 (load "_anything-kyr")
 (setq anything-kyr-commands-by-major-mode
-      '((c-mode "gtags-find-file" "gtags-find-rtag"
-                 "ff-find-other-file" "align"
-                 "develock-mode" "highlight-lines-matching-regexp"
-                 "hs-hide-block" "hs-show-block"
-                 "hide-ifdef-mode")
+      '((c-mode "recompile" "compile"
+                "gtags-find-file" "gtags-find-rtag"
+                "ff-find-other-file" "align"
+                "develock-mode" "highlight-lines-matching-regexp"
+                "hs-hide-block" "hs-show-block"
+                "hide-ifdef-mode")
         (ruby-mode "rdefs" "rcov" "rbtest")
         (emacs-lisp-mode "byte-compile-file")))
 (setq anything-kyr-functions
