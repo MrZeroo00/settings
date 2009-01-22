@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash --login
 
 xset b off
 xset r rate 250 45
