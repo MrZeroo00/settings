@@ -1,6 +1,6 @@
 (eval-after-load "anything-config"
   '(progn
-     (setq anything-c-locate-options `("mlocate" "-q" "-i" "-n 50" "-r" "--"))
+     (setq anything-c-locate-options `("mlocate" "-q" "-i" "-n" "50" "-r"))
      ))
 
 (when window-system
