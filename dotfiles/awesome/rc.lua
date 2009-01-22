@@ -81,6 +81,8 @@ for s = 1, screen.count() do
     for tagnumber = 1, 9 do
         if tagnumber == 1 then
             tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[3] })
+        elseif tagnumber == 2 then
+            tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[3] })
         else
             tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[1] })
         end
@@ -477,5 +479,5 @@ end):add()
 -- }}}
 
 awful.util.spawn("gnome-terminal")
-awful.util.spawn("gnome-terminal")
+awful.util.spawn("emacs")
 awful.util.spawn("firefox")
