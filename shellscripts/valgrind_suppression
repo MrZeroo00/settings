@@ -1,0 +1,18 @@
+#!/usr/bin/awk
+
+BEGIN {
+  rule_index = 0;
+}
+
+/^=/ {
+  next;
+}
+
+/<insert a suppression name here>/ {
+  print "   rule_" rule_index++;
+  next;
+}
+
+{
+  print $0;
+}
