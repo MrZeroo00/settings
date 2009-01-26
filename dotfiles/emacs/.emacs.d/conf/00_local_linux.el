@@ -1,3 +1,5 @@
+(menu-bar-mode nil)
+
 (eval-after-load "anything-config"
   '(progn
      (setq anything-c-locate-options `("mlocate" "-q" "-i" "-n" "50" "-r"))
