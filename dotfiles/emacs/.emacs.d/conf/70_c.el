@@ -108,3 +108,7 @@
 ;; cwarn
 (require 'cwarn)
 (add-hook 'c-mode-hook 'turn-on-cwarn-mode)
+
+
+;; flyspell
+(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
