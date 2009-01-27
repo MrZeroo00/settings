@@ -51,7 +51,6 @@
 
 (add-hook 'c-mode-common-hook '(lambda ()
                                  (gtags-mode t)
-                                 (gtags-make-complete-list)
                                  ))
 
 
