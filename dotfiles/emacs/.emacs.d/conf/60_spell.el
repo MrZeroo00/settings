@@ -14,3 +14,4 @@
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 (setq flyspell-issue-message-flag nil)
+(setq flyspell-auto-correct-binding [(control ?\')])
