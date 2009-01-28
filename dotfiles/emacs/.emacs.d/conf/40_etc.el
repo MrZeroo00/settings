@@ -35,13 +35,6 @@
 ;(global-set-key "\C-c\C-p" 'pdicv-mode)
 
 
-;; color-theme
-;; https://gna.org/projects/color-theme
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-clarity)
-
-
 ;; bm
 ;; http://www.nongnu.org/bm/
 (require 'bm)

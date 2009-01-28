@@ -38,6 +38,13 @@
 (set-face-background 'mode-line-inactive "gray85")
 (set-face-background 'region "DeepPink1")
 
+;; color-theme
+;; https://gna.org/projects/color-theme
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-clarity)
+
+
 ;; highlight
 (setq search-highlight t)
 (setq query-replace-highlight t)
