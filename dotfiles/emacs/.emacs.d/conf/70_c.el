@@ -29,15 +29,17 @@
 
 
 ;; flymake
-(defun my-flymake-cc-init ()
+(defun my-flymake-gcc-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
                        'flymake-create-temp-inplace))
          (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
     (list "gcc" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
+(defun my-flymake-cc-conditional-init()
+  (cond (t 'my-flymake-gcc-init)))
 (setcdr (assoc "\\.c\\'" flymake-allowed-file-name-masks)
-        '(my-flymake-cc-init))
+        (my-flymake-cc-conditional-init))
 
 ;(add-hook 'c-mode-common-hook
 ;          '(lambda ()
@@ -46,7 +48,7 @@
 
 ;; eldoc
 ;(install-elisp-from-emacswiki "c-eldoc.el")
-(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ ")
+(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../ ")
 (load "c-eldoc")
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 
