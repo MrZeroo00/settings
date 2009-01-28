@@ -37,7 +37,9 @@
                        (file-name-directory buffer-file-name))))
     (list "gcc" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
 (defun my-flymake-cc-conditional-init()
-  (cond (t 'my-flymake-gcc-init)))
+  (cond
+   ((file-exists-p (concat flymake-base-dir "/" Makefile")) 'flymake-simple-make-init)
+   (t 'my-flymake-gcc-init)))
 (setcdr (assoc "\\.c\\'" flymake-allowed-file-name-masks)
         (my-flymake-cc-conditional-init))
 
