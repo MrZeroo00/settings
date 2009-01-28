@@ -113,6 +113,8 @@
       '(("buffers" ("egrep -Hin %s $buffers" "/"))
         ;; ~/memo 以下から再帰的にegrepをかける。不要なファイルは除かれる。
         ("memo" ("ack-grep -af | xargs egrep -Hin %s" "~/memo"))
+        ;; grep current directory (now testing)
+        ("current directory" ("ack-grep -af | xargs egrep -Hin %s" "."))
         ;; ~/ruby以下の全Rubyスクリプトと~/bin以下のファイルをまとめて検索する。
         ("~/bin and ~/ruby"
          ("ack-grep -afG 'rb$' | xargs egrep -Hin %s" "~/ruby")
