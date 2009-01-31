@@ -106,6 +106,7 @@
 (setq undo-strong-limit 130000)
 (setq diff-switches "-u")
 ;(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
+(setq x-select-enable-clipboard t)
 
 
 ;; redo
