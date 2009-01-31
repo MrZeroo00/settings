@@ -41,14 +41,21 @@
 (setq moccur-grep-default-word-near-point t)
 ;(setq moccur-grep-following-mode-toggle t)
 
+(defadvice moccur-edit-change-file
+  (after save-after-moccur-edit-buffer activate)
+  (save-buffer))
+
 
 ;; dmoccur
-(setq dmoccur-use-list t)
-(setq dmoccur-list
-      '(
-        ("dir" default-directory (".*") dir)
-        ))
-(add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*"))
+(eval-after-load "dmoccur"
+  '(progn
+     (setq dmoccur-use-list t)
+     (setq dmoccur-list
+           '(
+             ("dir" default-directory (".*") dir)
+             ))
+     (add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*"))
+     ))
 
 
 ;; macros
