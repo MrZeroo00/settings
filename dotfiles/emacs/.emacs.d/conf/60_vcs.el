@@ -1,3 +1,6 @@
+(setq vc-follow-symlinks t)
+
+
 ;; dsvn
 ;(install-elisp "http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/dsvn.el")
 (autoload 'svn-status "dsvn" "Run `svn status'." t)
