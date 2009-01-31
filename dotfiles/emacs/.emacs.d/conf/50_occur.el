@@ -48,6 +48,7 @@
       '(
         ("dir" default-directory (".*") dir)
         ))
+(add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*"))
 
 
 ;; macros
