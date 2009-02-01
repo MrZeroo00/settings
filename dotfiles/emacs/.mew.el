@@ -7,6 +7,7 @@
 (setq mew-decode-quoted t)
 (setq mew-use-fancy-thread t)
 (setq mew-thread-column 40)
+(setq mew-use-suffix t)
 (setq mew-use-biff t)
 (setq mew-biff-interval 30)
 (setq mew-prog-ssl (my-which "stunnel"))
