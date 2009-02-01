@@ -47,13 +47,13 @@
 
 
 ;; dmoccur
+(setq dmoccur-use-list t)
+(setq dmoccur-list
+      '(
+        ("dir" default-directory (".*") dir)
+        ))
 (eval-after-load "dmoccur"
   '(progn
-     (setq dmoccur-use-list t)
-     (setq dmoccur-list
-           '(
-             ("dir" default-directory (".*") dir)
-             ))
      (add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*"))
      ))
 
