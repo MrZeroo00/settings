@@ -34,6 +34,8 @@
 ;; ctags
 (global-set-key "\M-t" 'find-tag)
 (global-set-key "\C-t" 'pop-tag-mark)
+(setq tags-table-list
+      '("~/src"))
 
 
 ;; gtags
