@@ -160,6 +160,10 @@
 (load "_anything-c-key-chord-describe")
 
 
+;; anything-call-source
+(load "_anything-call-source")
+
+
 ;; anything-select-source
 (load "_anything-select-source")
 
