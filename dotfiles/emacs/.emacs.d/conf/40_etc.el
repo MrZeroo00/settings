@@ -62,6 +62,10 @@
 ;(autoload 'desktop-remove "desktop" nil t)
 
 
+;; remember
+(require 'remember)
+
+
 ;; autoarg
 ;(require 'autoarg)
 
