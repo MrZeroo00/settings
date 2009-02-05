@@ -1,0 +1,6 @@
+#!/bin/sh
+
+tempfile=`tempfile -p gtags`
+find $* > $tempfile
+vi $tempfile
+gtags -f $tempfile
