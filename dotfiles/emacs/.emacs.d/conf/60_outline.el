@@ -25,3 +25,10 @@
 ;; freemind
 ;(install-elisp-from-emacswiki "freemind.el")
 (require 'freemind)
+
+
+;; macros
+(load "_org-remember-code-reading")
+(load "_org-next-prev-visible-link")
+(define-key org-mode-map "\M-n" 'org-next-visible-link)
+(define-key org-mode-map "\M-p" 'org-previous-visible-link)
