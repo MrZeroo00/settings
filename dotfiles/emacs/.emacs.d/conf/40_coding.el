@@ -42,6 +42,11 @@
 ;; http://tamacom.com/global-j.html
 (autoload 'gtags-mode "gtags" "" t)
 
+(defun my-find-tag ()
+  (interactive)
+  (or (gtags-find-tag-from-here)
+      (find-tag)))
+
 (setq gtags-mode-hook
       '(lambda ()
          (load "_gtags-hack.el")
