@@ -13,6 +13,7 @@ synergys -f --config $HOME/.synergy.conf &
 #cairo-clock &
 #stardict &
 #xautolock -secure -locker /usr/bin/xlock -mode dilemma -time 30 &
+xscreensaver -no-splash &
 
 gnome-do &
 
