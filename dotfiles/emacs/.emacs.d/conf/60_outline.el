@@ -11,15 +11,17 @@
 
 (setq org-directory "~/memo/")
 (setq org-default-notes-file (concat org-directory "agenda.org"))
+(add-hook 'org-mode-hook '(lambda () (setq outline-regexp "\*=+")))
+
+
+;; remember
+(org-remember-insinuate)
+
 (setq org-remember-templates
       '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
         ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
         ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
         ))
-
-
-;; remember
-(org-remember-insinuate)
 
 
 ;; freemind
