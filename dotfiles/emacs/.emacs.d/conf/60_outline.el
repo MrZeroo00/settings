@@ -11,7 +11,6 @@
 
 (setq org-directory "~/memo/")
 (setq org-default-notes-file (concat org-directory "agenda.org"))
-(add-hook 'org-mode-hook '(lambda () (setq outline-regexp "\*=+")))
 
 
 ;; remember
