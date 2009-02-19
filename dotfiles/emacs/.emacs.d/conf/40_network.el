@@ -7,6 +7,16 @@
 (require 'tramp)
 
 
+;; emacs-wget
+;; http://pop-club.hp.infoseek.co.jp/emacs/emacs-wget/
+(autoload 'wget "wget" "wget interface for Emacs." t)
+(autoload 'wget-web-page "wget" "wget interface to download whole web page." t)
+(load "w3m-wget")
+(setq wget-basic-options (cons "-equiet=off" wget-basic-options))
+(setq wget-basic-options (cons "-P." wget-basic-options))
+(setq wget-process-buffer nil)
+
+
 ;; browser
 ;(setq browse-url-browser-function 'w3m-browse-firefox)
 (setq browse-url-browser-function 'w3m-browse-url)
