@@ -37,7 +37,8 @@ alias pbpaste='xclip -selection clipboard -o'
 case "`uname`" in
   "Linux")
   alias open='gnome-open'
-  alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
+  #alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
+  alias emacs='emacs-client -a emacs -n'
   alias ack='ack-grep'
   ;;
   "Darwin")
