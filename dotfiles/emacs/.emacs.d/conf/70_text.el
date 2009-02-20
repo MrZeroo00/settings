@@ -24,4 +24,4 @@
 ;(global-set-key "\M-+" 'word-count-mode)
 
 ;; macros
-(load "text-adjust-space-before-save-if-needed")
+;(load "text-adjust-space-before-save-if-needed")

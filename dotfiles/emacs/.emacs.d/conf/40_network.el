@@ -11,10 +11,13 @@
 ;; http://pop-club.hp.infoseek.co.jp/emacs/emacs-wget/
 (autoload 'wget "wget" "wget interface for Emacs." t)
 (autoload 'wget-web-page "wget" "wget interface to download whole web page." t)
-(load "w3m-wget")
-(setq wget-basic-options (cons "-equiet=off" wget-basic-options))
-(setq wget-basic-options (cons "-P." wget-basic-options))
-(setq wget-process-buffer nil)
+(eval-after-load
+    "wget"
+  '(progn
+     (load "w3m-wget")
+     (setq wget-basic-options (cons "-equiet=off" wget-basic-options))
+     (setq wget-basic-options (cons "-P." wget-basic-options))
+     (setq wget-process-buffer nil)))
 
 
 ;; browser
