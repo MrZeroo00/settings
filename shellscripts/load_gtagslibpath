@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export GTAGSLIBPATH
+
+for i in `cat $HOME/bin/_gtagslibpath`; do
+  if [ -f $i/GTAGS ]; then
+    GTAGSLIBPATH="$GTAGSLIBPATH:$i"
+  fi
+done
