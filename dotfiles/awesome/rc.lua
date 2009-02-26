@@ -62,8 +62,8 @@ floatapps =
 -- Use the screen and tags indices.
 apptags =
 {
-    ["Firefox"] = { screen = 1, tag = 1 },
-    ["Thunderbird"] = { screen = 1, tag = 3 }
+    ["Firefox"] = { screen = 1, tag = 2 },
+    ["Thunderbird"] = { screen = 1, tag = 3 },
     -- ["mocp"] = { screen = 2, tag = 4 },
 }
 
@@ -479,5 +479,5 @@ end):add()
 -- }}}
 
 awful.util.spawn("gnome-terminal")
-awful.util.spawn("emacs")
+awful.util.spawn("/usr/bin/emacs")
 awful.util.spawn("firefox")
