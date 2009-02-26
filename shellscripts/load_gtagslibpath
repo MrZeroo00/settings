@@ -2,6 +2,10 @@
 
 export GTAGSLIBPATH
 
+if [ ! -f $HOME/bin/_gtagslibpath ]; then
+  echo "Can't load GTAGS setting" > /dev/stderr
+fi
+
 for i in `cat $HOME/bin/_gtagslibpath`; do
   if [ -f $i/GTAGS ]; then
     GTAGSLIBPATH="$GTAGSLIBPATH:$i"
