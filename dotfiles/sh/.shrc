@@ -41,7 +41,7 @@ export SVN_EDITOR='vim'
 #export PERL_BADLANG=0
 
 # for Global
-source load_gtagslibpath
+source gtags_load_libpath
 
 # OS specific environmental variables
 case "`uname`" in
