@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+open(my $fh, "<", "$ENV{HOME}/bin/_gtagslibpath");
+while (my $dir = <$fh>) {
+  chomp($dir);
+  if (-d $dir) {
+    chdir($dir);
+    system("gtags -i -v -w .");
+  } else {
+    print(STDERR "$dir is not directory\n");
+  }
+}
