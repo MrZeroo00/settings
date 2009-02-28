@@ -138,3 +138,5 @@
 
 ;(if (y-or-n-p-with-timeout "Load timeout?" 5 nil)
 ;    (load "99_timeout"))
+
+(setq debug-on-error nil)
