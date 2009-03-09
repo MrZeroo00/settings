@@ -8,3 +8,5 @@ supdate:
 aupdate:
 	sudo aptitude update && \
 	sudo aptitude upgrade
+
+-include ~/Makefile.local
