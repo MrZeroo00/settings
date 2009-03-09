@@ -34,7 +34,7 @@
 
 ;; ac-anything
 ;(install-elisp-from-emacswiki "ac-anything.el")
-(require 'ac-anything)
+;(require 'ac-anything)
 ;(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything)
 
 
@@ -186,7 +186,10 @@
 
 
 ;; anything-kyr
-(load "_anything-kyr")
+(require 'anything-kyr-config)
+(when (require 'anything-complete nil t)
+  (anything-read-string-mode 1))
+
 (setq anything-kyr-commands-by-major-mode
       '((c-mode "recompile" "compile"
                 "gtags-find-file" "gtags-find-rtag"
@@ -195,14 +198,8 @@
                 "hs-hide-block" "hs-show-block"
                 "hide-ifdef-mode")
         (ruby-mode "rdefs" "rcov" "rbtest")
-        (emacs-lisp-mode "byte-compile-file")))
-(setq anything-kyr-functions
-      '((lambda ()
-          (when (assoc (current-buffer) multiverse-stored-versions)
-            (list "multiverse-restore"
-                  "multiverse-diff-current" "multiverse-diff-other"
-                  "multiverse-forget")))
-        anything-kyr-commands-by-major-mode))
+        (emacs-lisp-mode "byte-compile-file"))
+      anything-kyr-commands-by-major-mode)
 
 
 (setq anything-sources (list anything-c-source-kyr
