@@ -164,6 +164,17 @@
 (load "_anything-call-source")
 
 
+;; anything-compile-source--candidates-file
+(load "_anything-compile-source--candidates-file")
+(defvar anything-c-source-home-directory
+  '((name . "Home directory")
+    ;; /log/home.filelist にホームディレクトリのファイル名が1行につきひとつ格納されている
+    (candidates-file "/log/home.filelist" updating)
+    (requires-pattern . 5)
+    (candidate-number-limit . 20)
+    (type . file)))
+
+
 ;; anything-select-source
 (load "_anything-select-source")
 
