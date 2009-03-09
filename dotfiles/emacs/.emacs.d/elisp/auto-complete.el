@@ -1,10 +1,10 @@
 ;;; auto-complete.el --- Auto completion with popup menu
 
-;; Copyright (C) 2008  MATSUYAMA Tomohiro
+;; Copyright (C) 2008, 2009  MATSUYAMA Tomohiro
 
 ;; Author: MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
 ;; Keywords: convenience
-;; Version: 0.1.0
+;; Version: 0.2.0
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -82,6 +82,19 @@
 ;; ------------------------------
 ;;
 ;;
+;; ===============
+;; Stop completion
+;; ===============
+;;
+;; Add following code to your .emacs.
+;;
+;; ------------------------------
+;; (define-key ac-complete-mode-map "\M-/" 'ac-stop)
+;; ------------------------------
+;;
+;; Now you can stop completion by pressing M-/.
+;;
+;;
 ;; =================
 ;; Completion by TAB
 ;; =================
@@ -105,28 +118,38 @@
 ;;    when only one candidate is left
 ;; b. TAB (ac-expand) behave as completion (ac-complete)
 ;;    after you select candidate
+;; c. Disapear automatically when you
+;;    complete a candidate.
 ;;
 ;; DWIM mode is enabled by default.
 ;; You can disable this feature by
 ;; setting `ac-dwim' to nil.
 ;;
 ;;
+;; ======================
+;; Change default sources
+;; ======================
+;;
+;; `ac-sources' is global local variable, so you have to
+;; call `set-default' to set default value to `ac-sources'.
+;;
+;; ------------------------------
+;; (set-default 'ac-sources '(ac-source-abbrev ac-source-words-in-buffer))
+;; ------------------------------
+;;
+;;
 ;; ==================================
 ;; Change sources for particular mode
 ;; ==================================
 ;;
-;; `ac-sources' is global variable, so you have to
-;; make it local variable to change sources for particular mode like:
-;;
 ;; ------------------------------
 ;; (add-hook 'emacs-lisp-mode-hook
 ;;             (lambda ()
-;;               (make-local-variable 'ac-sources)
 ;;               (setq ac-sources '(ac-source-words-in-buffer ac-source-symbols))))
 ;; ------------------------------
 
 ;; This extension is so simple that you can extend
-;; how Emacs find a target and how Emacs enumerate
+;; how Emacs find a prefix and how Emacs enumerate
 ;; candidates.
 ;; I don't have intention to implement heavy functions :-)
 ;;
@@ -134,6 +157,51 @@
 
 ;;; History:
 
+;; 2008-02-20 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * fixed menu position bug at long line (thanks rubikitch <rubikitch@ruby-lang.org>)
+;;      * made dictionary source generator (ac-define-dictionary-source)
+;;      * devided into some files (auto-complete-ruby.el, auto-complete-yasnippet.el, etc)
+;;
+;; 2008-02-19 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * added ac-trigger-commands switch
+;;
+;; 2008-02-10 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * added ac-stop function (suggestion from Andy Stewart)
+;;      * added ac-override-local-map switch (suggestion from Andy Stewart)
+;;
+;; 2008-02-03 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * omni completion redesign
+;;      * ac-sources is now buffer local for every buffer
+;;      * fixed a menu position bug (thanks Andy Stewart)
+;;      * fixed byte-compile warnings (thanks Andy Stewart)
+;;
+;; 2008-01-22 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * added face/selection-face property for sources
+;;      * supported menu scroll
+;;
+;; 2008-01-20 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * omni completion
+;;
+;; 2008-12-24 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * suppress errors on command hook
+;;
+;; 2008-12-03 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * changed ac-dwim to nil by default
+;;      * made menu to be able to adjust width
+;;
+;; 2008-12-03 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
+;;
+;;      * renamed ac-find-function to ac-prefix-function
+;;      * renamed ac-target to ac-prefix
+;;
 ;; 2008-11-26 MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
 ;;
 ;;      * auto-complete.el 0.1.0 released
@@ -187,31 +255,26 @@
 ;;; TODO:
 ;;
 ;; - performance issue (cache issue)
-;; - single source mode
 ;; - fix narrowing bug (reported by Yuto Hayamizu <y.hayamizu@gmail.com>)
 ;; - care about undo (buffer-disable-undo)
-;; - support scroll in menu
-;; - use double candidate menu
-;; - omni completion
+;; - scroll bar (visual)
 ;; - show description
-;; - demo movie (YouTube)
-;; - backward menu in tiny buffer
 ;; - dictionary
 ;; - semantic
+;; - use cl
+;; - icon
+;; - refactoring (especially menu)
+;; - linum.el bug (reported by Andy Stewart)
+;; - flymake bug (reported by TiagoCamargo)
 
 ;;; Code:
 
- 
+
 
 (defgroup auto-complete nil
   "Auto completion with popup menu"
   :group 'convenience
   :prefix "auto-complete-")
-
-(defcustom ac-candidate-menu-width 25
-  "Max width of candidate menu."
-  :type 'number
-  :group 'auto-complete)
 
 (defcustom ac-candidate-menu-height 10
   "Max height of candidate menu."
@@ -227,10 +290,16 @@
   '(emacs-lisp-mode lisp-interaction-mode
                     c-mode cc-mode c++-mode java-mode
                     perl-mode cperl-mode python-mode ruby-mode
-                    ecmascript-mode javascript-mode php-mode css-mode
+                    ecmascript-mode javascript-mode js2-mode php-mode css-mode
                     makefile-mode sh-mode fortran-mode f90-mode ada-mode
                     xml-mode sgml-mode)
   "Major modes `auto-complete-mode' can run on."
+  :type '(list symbol)
+  :group 'auto-complete)
+
+(defcustom ac-trigger-commands
+  '(self-insert-command)
+  "Trigger commands that specify whether `auto-complete' should start or not."
   :type '(list symbol)
   :group 'auto-complete)
 
@@ -241,19 +310,26 @@ completion will be started automatically.
 If you specify `nil', never be started automatically."
   :group 'auto-complete)
 
-(defcustom ac-dwim t
+(defcustom ac-dwim nil
   "Non-nil means `auto-complete' works based on Do What I Mean."
   :type 'boolean
   :group 'auto-complete)
 
-(defface ac-selection-face
-  '((t (:background "blue" :foreground "white")))
-  "Face for the selected candidate."
+(defcustom ac-override-local-map nil
+  "Non-nil mean use `ac-complete-mode-map' override local map.
+Please set it to non-nil only if you faced to some problem about 
+minor-mode keymap conflicts."
+  :type 'boolean
   :group 'auto-complete)
 
 (defface ac-menu-face
   '((t (:background "lightgray" :foreground "black")))
   "Face for candidate menu."
+  :group 'auto-complete)
+
+(defface ac-selection-face
+  '((t (:background "blue" :foreground "white")))
+  "Face for the selected candidate."
   :group 'auto-complete)
 
 (defvar auto-complete-mode-hook nil
@@ -269,6 +345,9 @@ Or, `ac-menu' grows backward.")
 (defvar ac-menu-offset 0
   "Offset to contents.")
 
+(defvar ac-menu-scroll 0
+  "Scroll top of `ac-menu'.")
+
 (defvar ac-completing nil
   "Non-nil means `auto-complete-mode' is now working on completion.")
 
@@ -279,10 +358,14 @@ Or, `ac-menu' grows backward.")
   "Saved window hscroll value for restore.")
 
 (defvar ac-point nil
-  "Start point of target.")
+  "Start point of prefix.")
 
-(defvar ac-target nil
-  "Target string.")
+(defvar ac-old-point nil
+  "Previous start point of prefix.")
+
+(defvar ac-prefix nil
+  "Prefix.")
+(defvaralias 'ac-target 'ac-prefix)
 
 (defvar ac-limit 0
   "Limit of number of candidates.")
@@ -296,21 +379,25 @@ Or, `ac-menu' grows backward.")
 (defvar ac-dwim-enable nil
   "Non-nil means DWIM completion will be allowed.")
 
-(defvar ac-find-function 'ac-default-find
+(defvar ac-prefix-function 'ac-sources-prefix
   "When `auto-complete-mode' finds it can start completion
 or update candidates, it will call this function to find a
-start point of the completion target.
+start point of the prefix.
 
-If this function returns an integer, `auto-complete-mode'
-will set the substring between the point and current point to `ac-target'.
+If this function returns a point `auto-complete-mode'
+will set the substring between the point and current point to `ac-prefix'.
 And also it will start completion or update candidates by using
-the `ac-target'.
+the `ac-prefix'.
 
 If this function returns `nil', `auto-complete-mode'
 ignore starting completion or stop completing.")
+(defvaralias 'ac-find-function 'ac-prefix-function)
 
 (defvar ac-init-function 'ac-sources-init
   "This function will be called when candidate menu is setupped.")
+
+(defvar ac-cleanup-function 'ac-sources-cleanup
+  "This function will be called when candidate menu is cleanupped")
 
 (defvar ac-candidate-function 'ac-sources-candidate
   "This function can return candidates as list by
@@ -327,27 +414,28 @@ using the `TARGET' that is given as a first argument.")
     map)
   "Keymap for completion.")
 
-(or (assq 'ac-completing minor-mode-map-alist)
-    (push (cons 'ac-completing ac-complete-mode-map) minor-mode-map-alist))
-
 (defvar ac-saved-local-map nil
   "Old keymap before `auto-complete' activated.")
 
- 
+
 
 ;;;; Auto completion
 
-(defun ac-setup (point)
+(defun ac-setup (point width)
   "Setup popup menu."
+  (when ac-menu
+    ;; reposition
+    (ac-menu-delete ac-menu)
+    (setq ac-menu nil))
   (save-excursion
     (goto-char point)
-    (let ((column (current-column))
+    (let ((column (ac-current-physical-column))
           (line (line-number-at-pos)))
       (setq ac-saved-window-start (window-start))
       (setq ac-saved-window-hscroll (window-hscroll))
       (setq ac-menu-direction
-            (if (and (> line ac-candidate-max)
-                     (> ac-candidate-max
+            (if (and (> line ac-candidate-menu-height)
+                     (> ac-candidate-menu-height
                         (-
                          (max 1 (- (window-height)
                                    (if mode-line-format 1 0)
@@ -356,20 +444,21 @@ using the `TARGET' that is given as a first argument.")
                 -1
               1))
       (let ((window-width (window-width))
-            (right (- (+ column ac-candidate-menu-width)
+            (right (- (+ column width)
                       (window-hscroll))))
         (if (and (> right window-width)
-                 (>= right ac-candidate-menu-width))
-            (setq column (- column ac-candidate-menu-width))))
+                 (>= right width)
+                 (>= column width))
+            (setq column (- column width))))
       (if (> ac-menu-direction 0)
           (progn
             (forward-line)
             (if (eq line (line-number-at-pos))
                 (newline)
               (forward-line -1))
-            (setq ac-menu (ac-menu-create (1+ line) column ac-candidate-menu-width ac-candidate-menu-height))
+            (setq ac-menu (ac-menu-create (1+ line) column width ac-candidate-menu-height))
             (setq ac-point point))
-        (setq ac-menu (ac-menu-create (- line ac-candidate-max) column ac-candidate-menu-width ac-candidate-menu-height))
+        (setq ac-menu (ac-menu-create (- line ac-candidate-menu-height) column width ac-candidate-menu-height))
         (setq ac-point point)))))
 
 (defun ac-cleanup ()
@@ -380,22 +469,31 @@ using the `TARGET' that is given as a first argument.")
     (set-window-start (selected-window) ac-saved-window-start)
     (set-window-hscroll (selected-window) ac-saved-window-hscroll))
   (setq ac-menu nil)
+  (setq ac-menu-scroll 0)
   (setq ac-completing nil)
   (setq ac-point nil)
   (setq ac-candidates nil)
-  (setq ac-selection 0))
+  (setq ac-selection 0)
+  (setq ac-selection-scroll-top 0)
+  (funcall ac-cleanup-function))
 
 (defun ac-activate-mode-map ()
   "Activate `ac-complete-mode-map'."
-  (setq ac-saved-local-map overriding-terminal-local-map)
-  (if (eq ac-saved-local-map ac-complete-mode-map)
-      ;; maybe never reach here
-      (setq ac-saved-local-map nil))
-  (setq overriding-terminal-local-map ac-complete-mode-map))
+  (if ac-override-local-map
+      (progn
+        (setq ac-saved-local-map overriding-terminal-local-map)
+        (if (eq ac-saved-local-map ac-complete-mode-map)
+            ;; maybe never reach here
+            (setq ac-saved-local-map nil))
+        (setq overriding-terminal-local-map ac-complete-mode-map))
+    ;; rearrange ac-mode-map pair first
+    (assq-delete-all 'ac-completing minor-mode-map-alist)
+    (push (cons 'ac-completing ac-complete-mode-map) minor-mode-map-alist)))
 
 (defun ac-deactivate-mode-map ()
   "Deactivate `ac-complete-mode-map'."
-  (when (eq overriding-terminal-local-map ac-complete-mode-map)
+  (when (and ac-override-local-map
+             (eq overriding-terminal-local-map ac-complete-mode-map))
     (setq overriding-terminal-local-map ac-saved-local-map)
     (setq ac-saved-local-map nil)))
 
@@ -408,7 +506,13 @@ using the `TARGET' that is given as a first argument.")
       (ac-select-candidate
        (let ((selection (1+ ac-selection)))
          (if (= selection (+ ac-menu-offset (min ac-candidate-menu-height (length ac-candidates))))
-             ac-menu-offset
+             (if (< (+ (- ac-selection ac-menu-offset) ac-menu-scroll) (1- (length ac-candidates)))
+                 (prog1 ac-selection
+                   (setq ac-menu-scroll (1+ ac-menu-scroll))
+                   (ac-redraw-candidates))
+               (setq ac-menu-scroll 0)
+               (ac-redraw-candidates)
+               ac-menu-offset)
            selection)))))
 
 (defun ac-previous ()
@@ -420,7 +524,13 @@ using the `TARGET' that is given as a first argument.")
       (ac-select-candidate
        (let ((selection (1- ac-selection)))
          (if (< selection ac-menu-offset)
-             (1- (+ ac-menu-offset (min ac-candidate-menu-height (length ac-candidates))))
+             (if (= ac-menu-scroll 0)
+                 (prog1 (1- (+ ac-menu-offset (min ac-candidate-menu-height (length ac-candidates))))
+                   (setq ac-menu-scroll (- (length ac-candidates) (min ac-candidate-menu-height (length ac-candidates))))
+                   (ac-redraw-candidates))
+               (setq ac-menu-scroll (1- ac-menu-scroll))
+               (ac-redraw-candidates)
+               ac-selection)
            selection)))))
 
 (defun ac-expand-1 ()
@@ -428,14 +538,14 @@ using the `TARGET' that is given as a first argument.")
   (let ((string (overlay-get (ac-menu-line-overlay ac-menu ac-selection) 'real-string)))
     (delete-region ac-point (point))
     (insert string)
-    (setq ac-target string)))
+    (setq ac-prefix string)))
 
 (defun ac-expand ()
   "Try expansion but select next if expanded twice."
   (interactive)
   (if (and ac-dwim ac-dwim-enable)
       (ac-complete)
-    (let ((target ac-target)
+    (let ((target ac-prefix)
           (string (ac-expand-1)))
       (when (equal target string)
         (ac-next)
@@ -444,26 +554,68 @@ using the `TARGET' that is given as a first argument.")
 (defun ac-expand-common ()
   "Try expansion common part."
   (interactive)
-  (let ((common (try-completion ac-target ac-candidates)))
+  (let ((common (try-completion ac-prefix ac-candidates))
+        (buffer-undo-list t))
     (when (stringp common)
       (delete-region ac-point (point))
       (insert common)
-      (setq ac-target common))))
+      (setq ac-prefix common))))
 
 (defun ac-complete ()
   "Try completion."
   (interactive)
-  (let* ((string (overlay-get (ac-menu-line-overlay ac-menu ac-selection) 'real-string))
-         (source (get-text-property 0 'source string))
-         (complete-function (and source (cdr-safe (assq 'action source)))))
+  (let* ((candidate (ac-get-selected-candidate))
+         (action (ac-get-candidate-action candidate)))
     (ac-expand-1)
-    (if complete-function
-        (funcall complete-function))
+    (if action
+        (funcall action))
     (ac-abort)))
 
 (defun ac-abort ()
   "Abort completion."
   (ac-cleanup))
+
+(defun ac-stop ()
+  "Stop completiong."
+  (interactive)
+  (ac-abort))
+
+(defun ac-redraw-candidates ()
+  "Redraw the menu contents."
+  (let ((i ac-menu-offset))
+    ;; show line and set string to the line
+    (mapc
+     (lambda (candidate)
+       (when (< i ac-candidate-menu-height)
+         (ac-menu-show-line ac-menu i)
+         (ac-menu-set-line-string ac-menu i candidate
+                                  (if (= i ac-selection)
+                                      (or (ac-get-candidate-property 'selection-face candidate)
+                                          'ac-selection-face)
+                                    (ac-get-candidate-property 'menu-face candidate)))
+         (setq i (1+ i))))
+     (nthcdr ac-menu-scroll ac-candidates))
+    ;; ensure lines visible
+    (if (and (> ac-menu-direction 0)
+             (> i (-
+                   (max 1 (- (window-height)
+                             (if mode-line-format 1 0)
+                             (if header-line-format 1 0)))
+                   (1+ (count-lines (window-start) (point))))))
+        (recenter (- (1+ i))))
+    (if (> i ac-menu-offset)
+        (let ((window-width (window-width))
+              (right (- (+ (ac-menu-column ac-menu) (ac-menu-width ac-menu))
+                        (window-hscroll))))
+          (if (> right window-width)
+              (scroll-left (- right window-width)))))
+    ;; hide remaining lines
+    (if (> ac-menu-direction 0)
+        (while (< i ac-candidate-menu-height)
+          (ac-menu-hide-line ac-menu i)
+          (setq i (1+ i)))
+      (dotimes (i ac-menu-offset)
+        (ac-menu-hide-line ac-menu i)))))
 
 (defun ac-update-candidates (candidates)
   "Update candidates of popup menu."
@@ -481,88 +633,98 @@ using the `TARGET' that is given as a first argument.")
         (ac-activate-mode-map))
     (setq ac-completing nil)
     (ac-deactivate-mode-map))
-  (let ((i ac-menu-offset))
-    ;; show line and set string to the line
-    (mapcar
-     (lambda (candidate)
-       (when (< i ac-candidate-menu-height)
-         (ac-menu-show-line ac-menu i)
-         (ac-menu-set-line-string ac-menu i candidate (if (= i ac-selection) 'ac-selection-face))
-         (setq i (1+ i))))
-     candidates)
-    ;; ensure lines visible
-    (if (and (> ac-menu-direction 0)
-             (> i (-
-                   (max 1 (- (window-height)
-                             (if mode-line-format 1 0)
-                             (if header-line-format 1 0)))
-                   (1+ (count-lines (window-start) (point))))))
-        (recenter (- (1+ i))))
-    (if (> i ac-menu-offset)
-        (let ((window-width (window-width))
-              (right (- (+ (ac-menu-column ac-menu) ac-candidate-menu-width)
-                        (window-hscroll))))
-          (if (> right window-width)
-              (scroll-left (- right window-width)))))
-    ;; hide remaining lines
-    (if (> ac-menu-direction 0)
-        (while (< i ac-candidate-menu-height)
-          (ac-menu-hide-line ac-menu i)
-          (setq i (1+ i)))
-      (dotimes (i ac-menu-offset)
-        (ac-menu-hide-line ac-menu i)))))
+  (ac-redraw-candidates))
+
+(defun ac-get-selected-candidate ()
+  (overlay-get (ac-menu-line-overlay ac-menu ac-selection) 'real-string))
+
+(defun ac-get-candidate-action (candidate)
+  (ac-get-candidate-property 'action candidate))
+
+(defun ac-propertize-candidate (candidate &rest properties)
+  (apply 'propertize candidate properties))
+
+(defun ac-get-candidate-property (prop candidate)
+  (get-text-property 0 prop candidate))
 
 (defun ac-select-candidate (selection)
   "Select candidate pointed by `SELECTION'."
   (when ac-candidates
-    (ac-menu-set-line-string ac-menu ac-selection (nth (- ac-selection ac-menu-offset) ac-candidates))
-    (ac-menu-set-line-string ac-menu selection (nth (- selection ac-menu-offset) ac-candidates) 'ac-selection-face)
-    (setq ac-selection selection)))
-
-(defun ac-default-find ()
-  "Default implemention for `ac-find-function'."
-  (require 'thingatpt)
-  (car-safe (bounds-of-thing-at-point 'symbol)))
+    (let ((c1 (nth (+ (- ac-selection ac-menu-offset) ac-menu-scroll) ac-candidates))
+          (c2 (nth (+ (- selection ac-menu-offset) ac-menu-scroll) ac-candidates)))
+      (ac-menu-set-line-string ac-menu ac-selection c1
+                               (ac-get-candidate-property 'menu-face c1))
+      (ac-menu-set-line-string ac-menu selection c2
+                               (or (ac-get-candidate-property 'selection-face c2)
+                                   'ac-selection-face))
+      (setq ac-selection selection))))
 
 (defun ac-start ()
   "Start completion."
   (interactive)
-  (let ((point (funcall ac-find-function)))
-    (if (or (null point)
-            (and ac-menu
-                 (/= point ac-point)))
+  (let* ((point (save-excursion (funcall ac-prefix-function)))
+         (reposition (not (equal ac-point point))))
+    (if (null point)
         (ac-abort)
-      (when (null ac-menu)
-        (ac-setup point)
-        (funcall ac-init-function))
-      (setq ac-target (buffer-substring-no-properties point (point)))
+      (setq ac-point point)
+      (when (not (equal ac-point ac-old-point))
+        (setq ac-old-point point))
+      (setq ac-prefix (buffer-substring-no-properties point (point)))
       (setq ac-limit ac-candidate-max)
-      (ac-update-candidates
-       (if (or ac-completing
-               (not (integerp ac-auto-start))
-               (>= (length ac-target) ac-auto-start))
-           (funcall ac-candidate-function))))))
+      (if (or reposition (null ac-menu))
+          (save-excursion
+            (funcall ac-init-function)))
+      (let* ((candidates
+              (if (or ac-completing
+                      (not (integerp ac-auto-start))
+                      (>= (length ac-prefix) ac-auto-start))
+                  (save-excursion
+                    (funcall ac-candidate-function))))
+             (current-width (if ac-menu (ac-menu-width ac-menu) 0))
+             (width (let ((w '(0)) s)
+                      (dotimes (i ac-candidate-menu-height)
+                        (setq s (nth i candidates))
+                        (if (stringp s) (push (string-width s) w)))
+                      (apply 'max w))))
+        (if (or reposition
+                (null ac-menu)
+                (> width current-width)
+                (< width (- current-width 10)))
+            (ac-setup point (* (ceiling (/ width 10.0)) 10)))
+        (if (and ac-dwim
+                 (= (length candidates) 1)
+                 (equal (car candidates) ac-prefix)
+                 (null (ac-get-candidate-action (car candidates))))
+            (setq candidates nil))
+        (ac-update-candidates candidates)))))
 
 (defun ac-trigger-command-p ()
   "Return non-nil if `this-command' is a trigger command."
-  (or (eq this-command 'self-insert-command)
+  (or (memq this-command ac-trigger-commands)
       (and ac-completing
            (memq this-command
                  '(delete-backward-char
                    backward-delete-char
                    backward-delete-char-untabify)))))
 
+(defun ac-current-physical-column ()
+  "Current physical column. (not logical column)"
+  (- (point) (save-excursion (vertical-motion 0) (point))))
+
 (defun ac-on-pre-command ()
-  (if (and (not (ac-trigger-command-p))
-           (or (not (symbolp this-command))
-               (not (string-match "^ac-" (symbol-name this-command)))))
-      (ac-abort)))
+  (progn                                ; ignore-errors
+    (if (and (not (ac-trigger-command-p))
+             (or (not (symbolp this-command))
+                 (not (string-match "^ac-" (symbol-name this-command)))))
+        (ac-abort))))
 
 (defun ac-on-post-command ()
-  (if (and ac-auto-start
-           (not isearch-mode)
-           (ac-trigger-command-p))
-      (ac-start)))
+  (progn                                ; ignore-errors
+    (if (and (or ac-auto-start
+                 ac-completing)
+             (not isearch-mode)
+             (ac-trigger-command-p))
+        (ac-start))))
 
 (defun auto-complete-mode-maybe ()
   "What buffer `auto-complete-mode' prefers."
@@ -585,12 +747,11 @@ using the `TARGET' that is given as a first argument.")
     (remove-hook 'pre-command-hook 'ac-on-pre-command t)
     (ac-abort)))
 
-(if (fboundp 'define-global-minor-mode)
-    (define-global-minor-mode global-auto-complete-mode
-      auto-complete-mode auto-complete-mode-maybe
-      :group 'auto-complete))
+(define-global-minor-mode global-auto-complete-mode
+  auto-complete-mode auto-complete-mode-maybe
+  :group 'auto-complete)
 
- 
+
 
 ;;;; Sources implementation
 
@@ -599,61 +760,117 @@ using the `TARGET' that is given as a first argument.")
 
 Source takes a form of alist:
 
-(init . INIT-FUNC)
+init INIT-FUNC
   INIT-FUNC will be called before creating candidate every time.
 
-(candidates . CANDIDATE-FUNC)
+candidates CANDIDATE-FUNC
   CANDIDATE-FUNC will return a list of string as candidates.
 CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for performance.
 
-(action . ACTION-FUNC)
+action ACTION-FUNC
   ACTION-FUNC will be called when `ac-complete' is called.
 
-(limit . LIMIT-NUM)
+limit LIMIT-NUM
   A limit of candidates.
 
-(requires . REQUIRES-NUM)
-  This source will be included when `ac-target' length is larger than REQUIRES-NUM.")
+requires REQUIRES-NUM
+  This source will be included when `ac-prefix' length is larger than REQUIRES-NUM.")
+
+(make-variable-buffer-local 'ac-sources)
+
+(defvar ac-sources-prefix-function 'ac-sources-prefix-default
+  "Default prefix function for sources.
+You should override this variable instead of ac-prefix-function.")
+
+(defvar ac-current-sources nil
+  "Current working sources.")
+
+(defvar ac-omni-completion-sources nil
+  "An alist of REGEXP and SOURCES.
+If matched regexp, switch to omni-completion mode and
+use SOURCES as `ac-sources'.")
+
+(make-variable-buffer-local 'ac-omni-completion-sources)
+
+(defvar ac-sources-omni-completion nil
+  "Non-nil means `auto-complete-mode' is now working on omni-completion.")
 
 (defun ac-sources-init ()
   "Implementation for `ac-init-function' by sources."
-  (dolist (source ac-sources)
+  (or ac-current-sources (setq ac-current-sources ac-sources))
+  (dolist (source ac-current-sources)
     (if (symbolp source)
         (setq source (symbol-value source)))
-    (let ((init-function (cdr-safe (assq 'init source))))
+    (let ((init-function (assoc-default 'init source)))
       (if init-function
           (funcall init-function)))))
 
+(defun ac-sources-cleanup ()
+  "Implementation for `ac-cleanup-function' by sources."
+  (setq ac-current-sources nil)
+  (setq ac-sources-omni-completion nil))
+
+(defun ac-sources-prefix ()
+  "Implemention for `ac-prefix-function' by sources."
+  (let (point)
+    (dolist (pair ac-omni-completion-sources)
+      (when (looking-back (car pair))
+        (setq ac-current-sources (cdr pair))
+        (setq ac-sources-omni-completion t)
+        (setq ac-completing t)
+        (setq point (match-end 0))))
+    (or point
+        (if (and ac-completing ac-sources-omni-completion)
+            ac-point
+          (setq ac-current-sources ac-sources)
+          (setq ac-sources-omni-completion nil)
+          (funcall ac-sources-prefix-function)))))
+
+(defun ac-sources-prefix-default ()
+  "Default implementation for `ac-sources-prefix-function'."
+  (require 'thingatpt)
+  (car-safe (bounds-of-thing-at-point 'symbol)))
+
 (defun ac-sources-candidate ()
   "Implementation for `ac-cadidates-function' by sources."
-  (when (> (length ac-target) 0)
-    (let (candidates)
-      (dolist (source ac-sources)
-        (if (symbolp source)
-            (setq source (symbol-value source)))
-        (let* ((ac-limit (or (cdr-safe (assq 'limit source)) ac-limit))
-               (requires (cdr-safe (assq 'requires source)))
-               cand)
-          (if (or (null requires)
-                  (>= (length ac-target) requires))
-              (setq cand
-                    (delq nil
-                          (mapcar (lambda (candidate)
-                                    (propertize candidate 'source source))
-                                  (funcall (cdr (assq 'candidates source)))))))
-          (if (and (> ac-limit 1)
-                   (> (length cand) ac-limit))
-              (setcdr (nthcdr (1- ac-limit) cand) nil))
-          (setq candidates (append candidates cand))))
-      (delete-dups candidates))))
+  (let (candidates)
+    (dolist (source ac-current-sources)
+      (if (symbolp source)
+          (setq source (symbol-value source)))
+      (let* ((ac-limit (or (assoc-default 'limit source) ac-limit))
+             (requires (assoc-default 'requires source))
+             cand)
+        (when (or ac-sources-omni-completion
+                  (>= (length ac-prefix)
+                      (if (integerp requires)
+                          requires
+                        1)))
+          (setq cand
+                (delq nil
+                      (mapcar (lambda (candidate)
+                                (ac-propertize-candidate candidate
+                                                         'action (assoc-default 'action source)
+                                                         'menu-face (assoc-default 'menu-face source)
+                                                         'selection-face (assoc-default 'selection-face source)))
+                              (funcall (assoc-default 'candidates source))))))
+        (if (and (> ac-limit 1)
+                 (> (length cand) ac-limit))
+            (setcdr (nthcdr (1- ac-limit) (copy-sequence cand)) nil))
+        (setq candidates (append candidates cand))))
+    (delete-dups candidates)))
+
+
+
+
+;;;; Standard sources
 
 (defun ac-candidate-words-in-buffer ()
   "Default implemention for `ac-candidate-function'."
-  (if (> (length ac-target) 0)
+  (if (> (length ac-prefix) 0)
       (let ((i 0)
             candidate
             candidates
-            (regexp (concat "\\b" (regexp-quote ac-target) "\\(\\s_\\|\\sw\\)*\\b")))
+            (regexp (concat "\\b" (regexp-quote ac-prefix) "\\(\\s_\\|\\sw\\)*\\b")))
         (save-excursion
           ;; search backward
           (goto-char ac-point)
@@ -664,7 +881,7 @@ CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for perfo
               (push candidate candidates)
               (setq i (1+ i))))
           ;; search backward
-          (goto-char (+ ac-point (length ac-target)))
+          (goto-char (+ ac-point (length ac-prefix)))
           (while (and (< i ac-limit)
                       (re-search-forward regexp nil t))
             (setq candidate (match-string-no-properties 0))
@@ -680,21 +897,36 @@ CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for perfo
 (defvar ac-source-symbols
   '((candidates
      . (lambda ()
-         (all-completions ac-target obarray))))
+         (all-completions ac-prefix obarray))))
   "Source for Emacs lisp symbols.")
 
 (defvar ac-source-abbrev
   `((candidates
      . (lambda ()
-         (all-completions ac-target local-abbrev-table)))
+         (all-completions ac-prefix local-abbrev-table)))
     (action
      . expand-abbrev))
   "Source for abbrev.")
 
 (defvar ac-source-files-in-current-dir
   '((candidates
-     . (lambda () (all-completions ac-target (directory-files default-directory)))))
+     . (lambda ()
+         (all-completions ac-prefix (directory-files default-directory)))))
   "Source for listing files in current directory.")
+
+(defun ac-filename-candidate ()
+  (let ((dir (file-name-directory ac-prefix)))
+    (ignore-errors
+      (delq nil
+            (mapcar (lambda (file)
+                      (if (not (member file '("./" "../")))
+                          (concat dir file)))
+                    (file-name-all-completions
+                     (file-name-nondirectory ac-prefix) dir))))))
+
+(defvar ac-source-filename
+  '((candidates . ac-filename-candidate))
+  "Source for completing file name.")
 
 (defvar ac-imenu-index nil
   "Imenu index.")
@@ -712,11 +944,11 @@ CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for perfo
         (let ((car (car node))
               (cdr (cdr node)))
           (if (consp cdr)
-              (mapcar (lambda (child)
-                        (push child stack))
-                      cdr)
+              (mapc (lambda (child)
+                      (push child stack))
+                    cdr)
             (when (and (stringp car)
-                       (string-match (concat "^" (regexp-quote ac-target)) car))
+                       (string-match (concat "^" (regexp-quote ac-prefix)) car))
               (push car candidates)
               (setq i (1+ i)))))))
     (nreverse candidates)))
@@ -726,38 +958,18 @@ CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for perfo
      . (lambda ()
          (require 'imenu)
          (setq ac-imenu-index
-               (condition-case nil
-                   (imenu--make-index-alist)
-                 (error nil)))))
+               (ignore-errors (imenu--make-index-alist)))))
     (candidates . ac-imenu-candidate))
   "Source for imenu.")
 
-(defun ac-yasnippet-candidate-1 (table)
-  (let ((hashtab (yas/snippet-table-hash table))
-        (parent (yas/snippet-table-parent table))
-        candidates)
-    (maphash (lambda (key value)
-               (push key candidates))
-             hashtab)
-    (setq candidates (all-completions ac-target (nreverse candidates)))
-    (if parent
-        (setq candidates
-              (append candidates (ac-yasnippet-candidate-1 parent))))
-    candidates))
+(defmacro ac-define-dictionary-source (name list)
+  "Define dictionary source named `NAME'.
+`LIST' is a list of string.
+This is useful if you just want to define a dictionary/keywords source."
+  `(defvar ,name
+     '((candidates . (lambda () (all-completions ac-prefix ,list))))))
 
-(defun ac-yasnippet-candidate ()
-  (require 'yasnippet)
-  (let ((table (yas/snippet-table major-mode)))
-    (if table
-        (ac-yasnippet-candidate-1 table))))
-
-(defvar ac-source-yasnippet
-  '((candidates . ac-yasnippet-candidate)
-    (action . yas/expand)
-    (limit . 3))
-  "Source for Yasnippet.")
-
- 
+
 
 ;;;; Popup menu
 
@@ -800,7 +1012,7 @@ CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for perfo
   "Set contents of `LINE' in `MENU'."
   (let ((overlay (ac-menu-line-overlay menu line)))
     (overlay-put overlay 'real-string string)
-    (funcall (overlay-get overlay 'set-string-function) overlay string face)))
+    (funcall (overlay-get overlay 'set-string-function) menu overlay string face)))
 
 (defun ac-menu-create-line-string (menu string)
   "Adjust `STRING' into `MENU'."
@@ -866,7 +1078,7 @@ CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for perfo
           (overlay-put overlay 'postfix postfix)
           (overlay-put overlay 'width width)
           (overlay-put overlay 'set-string-function
-                       (lambda (overlay string &optional face)
+                       (lambda (menu overlay string &optional face)
                          (overlay-put overlay
                                       'after-string
                                       (concat (overlay-get overlay 'prefix)
@@ -875,10 +1087,10 @@ CANDIDATE-FUNC should care about `ac-limit' that is specified at limit for perfo
           (aset overlays i overlay))
         (forward-line))
       (let ((i 100))
-        (mapcar (lambda (overlay)
-                  (overlay-put overlay 'priority i)
-                  (setq i (1+ i)))
-                (nreverse (append overlays nil))))
+        (mapc (lambda (overlay)
+                (overlay-put overlay 'priority i)
+                (setq i (1+ i)))
+              (nreverse (append overlays nil))))
       (list line column width height overlays))))
 
 (defun ac-menu-delete (menu)

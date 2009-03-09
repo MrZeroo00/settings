@@ -32,6 +32,12 @@
 (define-key anything-map "\C-r" 'anything-select-source)
 
 
+;; ac-anything
+;(install-elisp-from-emacswiki "ac-anything.el")
+(require 'ac-anything)
+;(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything)
+
+
 ;; anything-c-imenu
 ;(install-elisp-from-emacswiki "el-expectations.el")
 (require 'el-expectations)
