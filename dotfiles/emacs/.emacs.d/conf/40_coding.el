@@ -124,6 +124,14 @@
 ;;(define-key global-map "\C-hv" 'mode-info-describe-variable)
 ;;(define-key global-map "\M-." 'mode-info-find-tag)
 ;(require 'mi-fontify)
+;(setq mode-info-index-directory "~/.emacs.d")
+;(setq mode-info-class-alist
+;      '((elisp  emacs-lisp-mode lisp-interaction-mode)
+;        (libc   c-mode c++-mode)
+;        (make   makefile-mode)
+;        (perl   perl-mode cperl-mode eperl-mode)
+;        (ruby   ruby-mode)
+;        (gauche scheme-mode scheme-interaction-mode inferior-scheme-mode)))
 
 
 ;; doxymacs
