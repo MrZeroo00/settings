@@ -134,6 +134,15 @@
 ;        (gauche scheme-mode scheme-interaction-mode inferior-scheme-mode)))
 
 
+;; info-look
+(require 'info-look)
+
+
+;; gtk-look
+;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
+(require 'gtk-look)
+
+
 ;; doxymacs
 (require 'doxymacs)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
