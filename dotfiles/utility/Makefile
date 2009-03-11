@@ -9,4 +9,7 @@ aupdate:
 	sudo aptitude update && \
 	sudo aptitude upgrade
 
+emacs-byte-compile:
+	emacs-snapshot -batch -f batch-byte-compile ~/.emacs.d/elisp/*.el
+
 -include ~/Makefile.local
