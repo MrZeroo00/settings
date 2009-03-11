@@ -1,5 +1,7 @@
 ;; w3m
-(require 'w3m-load)
+(if (= emacs-major-version 23)
+    (require 'w3m-ems)
+  (require 'w3m))
 ;(require 'mime-w3m)
 
 (eval-after-load "w3m"
