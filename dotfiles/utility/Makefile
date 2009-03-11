@@ -10,6 +10,7 @@ aupdate:
 	sudo aptitude upgrade
 
 emacs-byte-compile:
-	emacs-snapshot -batch -f batch-byte-compile ~/.emacs.d/elisp/*.el
+	#emacs-snapshot -batch -f batch-byte-compile ~/.emacs.d/elisp/{anything,js2}*.el
+	emacs-snapshot -batch -f batch-byte-compile ~/.emacs.d/elisp/js2.el
 
 -include ~/Makefile.local
