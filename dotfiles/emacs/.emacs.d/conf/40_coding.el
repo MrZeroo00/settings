@@ -140,7 +140,9 @@
 
 ;; gtk-look
 ;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
-(require 'gtk-look)
+(autoload 'gtk-lookup-symbol "gtk-look" nil t)
+(setq gtk-lookup-devhelp-indices
+      '("/usr/share/doc/lib*-doc/html/*.devhelp*"))
 
 
 ;; doxymacs
