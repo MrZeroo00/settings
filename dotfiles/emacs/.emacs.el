@@ -59,10 +59,6 @@
 	(let ((default-directory dir))
 	  (load (expand-file-name "subdirs.el") t t t)))))
 
-;; add executable PATH
-(when run-darwin
-  (add-to-list 'exec-path "/opt/local/bin"))
-
 ;; define eval-safe
 ;; http://www.sodan.org/~knagano/emacs/dotemacs.html#eval-safe
 (defmacro eval-safe (&rest body)
@@ -70,8 +66,24 @@
        (progn ,@body)
      (error (message "[eval-safe] %s" err))))
 
-(if (file-exists-p "~/.emacs.d/conf/00_local.el")
-    (load "00_local"))
+
+;; local settings
+(when run-linux
+  (progn
+    (if (file-exists-p "~/.emacs.d/conf/00_local_linux.el")
+	(load "00_local_linux"))))
+
+(when run-darwin
+  (progn
+    (add-to-list 'exec-path "/opt/local/bin")
+    (if (file-exists-p "~/.emacs.d/conf/00_local_darwin.el")
+	(load "00_local_darwin"))))
+
+(when (and run-w32 run-meadow)
+  (progn
+    (if (file-exists-p "~/.emacs.d/conf/00_local_meadow.el")
+	(load "00_local_meadow"))))
+
 
 (load "00_init")
 (load "01_util")
