@@ -35,6 +35,7 @@ export BROWSER='w3m'
 export HTMLPAGER='w3m -T text/html -dump'
 export TERMSCREEN='screen-bce'
 export SVN_EDITOR='vim'
+export GIT_EDITOR='vim'
 
 # for CPAN
 #export PERL5LIB=$HOME/local/lib/perl5/5.8.8:$HOME/local/lib/perl5/site_perl/5.8.8

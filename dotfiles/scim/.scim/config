@@ -1,6 +1,6 @@
 /DefaultIMEngineFactory/ja_JP = 065d7b20-dda2-47fb-8f94-3306d9a25e56
 /FrontEnd/ChangeFactoryGlobally = false
-/FrontEnd/IMOpenedByDefault = true
+/FrontEnd/IMOpenedByDefault = false
 /FrontEnd/OnTheSpot = true
 /FrontEnd/SharedInputMethod = true
 /FrontEnd/Socket/ConfigReadOnly = false
@@ -48,4 +48,4 @@
 /Panel/Gtk/ToolBar/ShowMenuIcon = true
 /Panel/Gtk/ToolBar/ShowSetupIcon = true
 /Panel/Gtk/ToolBar/ShowStickIcon = true
-/UpdateTimeStamp = 1234152056:923681
+/UpdateTimeStamp = 1238994189:31664

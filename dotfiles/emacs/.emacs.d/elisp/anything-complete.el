@@ -1,5 +1,5 @@
 ;;; anything-complete.el --- completion with anything
-;; $Id: anything-complete.el,v 1.36 2008/11/27 08:12:36 rubikitch Exp $
+;; $Id: anything-complete.el,v 1.43 2009/02/27 14:45:26 rubikitch Exp $
 
 ;; Copyright (C) 2008  rubikitch
 
@@ -39,19 +39,59 @@
 
 ;;; Installation:
 
-;; Install anything-match-plugin.el
+;; Put anything-complete.el to your load-path.
+;; The load-path is usually ~/elisp/.
+;; It's set in your ~/.emacs like this:
+;; (add-to-list 'load-path (expand-file-name "~/elisp"))
+;;
+;; Then install dependencies.
+;; 
+;; Install anything-match-plugin.el (must).
 ;; M-x install-elisp http://www.emacswiki.org/cgi-bin/wiki/download/anything-match-plugin.el
 ;;
-;; shell-history.el would help you.
+;; shell-history.el would help you (optional).
 ;; M-x install-elisp http://www.emacswiki.org/cgi-bin/wiki/download/shell-history.el
+;;
+;; If you want `anything-execute-extended-command' to show
+;; context-aware commands, use anything-kyr.el and
+;; anything-kyr-config.el (optional).
+;;
+;; M-x install-elisp http://www.emacswiki.org/cgi-bin/wiki/download/anything-kyr.el
+;; M-x install-elisp http://www.emacswiki.org/cgi-bin/wiki/download/anything-kyr-config.el
 
+;; And the following to your ~/.emacs startup file.
+;;
 ;; (require 'anything-complete)
 ;; ;; Automatically collect symbols by 150 secs
 ;; (anything-lisp-complete-symbol-set-timer 150)
+;; ;; replace completion commands with `anything'
+;; (anything-read-string-mode 1)
 
 ;;; History:
 
 ;; $Log: anything-complete.el,v $
+;; Revision 1.43  2009/02/27 14:45:26  rubikitch
+;; Fix a read-only bug in `alcs-make-candidates'.
+;;
+;; Revision 1.42  2009/02/19 23:04:33  rubikitch
+;; * update doc
+;; * use anything-kyr if any
+;;
+;; Revision 1.41  2009/02/19 22:54:29  rubikitch
+;; refactoring
+;;
+;; Revision 1.40  2009/02/06 09:19:08  rubikitch
+;; Fix a bug when 2nd argument of `anything-read-file-name' (DIR) is not a directory.
+;;
+;; Revision 1.39  2009/01/28 20:33:31  rubikitch
+;; add persistent-action for `anything-read-file-name' and `anything-read-buffer'.
+;;
+;; Revision 1.38  2009/01/08 19:28:33  rubikitch
+;; `anything-completing-read': fixed a bug when COLLECTION is a non-nested list.
+;;
+;; Revision 1.37  2009/01/02 15:08:03  rubikitch
+;; `anything-execute-extended-command': show commands which are not collected.
+;;
 ;; Revision 1.36  2008/11/27 08:12:36  rubikitch
 ;; `anything-read-buffer': accept empty buffer name
 ;;
@@ -213,7 +253,7 @@
 
 ;;; Code:
 
-(defvar anything-complete-version "$Id: anything-complete.el,v 1.36 2008/11/27 08:12:36 rubikitch Exp $")
+(defvar anything-complete-version "$Id: anything-complete.el,v 1.43 2009/02/27 14:45:26 rubikitch Exp $")
 (require 'anything-match-plugin)
 (require 'thingatpt)
 
@@ -272,18 +312,20 @@
 
 (defun alcs-make-candidates ()
   (message "Collecting symbols...")
-  (alcs-create-buffer alcs-variables-buffer)
-  (alcs-create-buffer alcs-functions-buffer)
-  (alcs-create-buffer alcs-commands-buffer)
-  (alcs-create-buffer alcs-symbol-buffer)
-  (mapatoms
-   (lambda (sym)
-     (let ((name (symbol-name sym))
-           (fbp (fboundp sym)))
-       (cond ((commandp sym) (set-buffer alcs-commands-buffer) (insert name "\n"))
-             (fbp (set-buffer alcs-functions-buffer) (insert name "\n")))
-       (cond ((boundp sym) (set-buffer alcs-variables-buffer) (insert name "\n"))
-             ((not fbp) (set-buffer alcs-symbol-buffer) (insert name "\n"))))))
+  ;; To ignore read-only property.
+  (let ((inhibit-read-only t))
+    (alcs-create-buffer alcs-variables-buffer)
+    (alcs-create-buffer alcs-functions-buffer)
+    (alcs-create-buffer alcs-commands-buffer)
+    (alcs-create-buffer alcs-symbol-buffer)
+    (mapatoms
+     (lambda (sym)
+       (let ((name (symbol-name sym))
+             (fbp (fboundp sym)))
+         (cond ((commandp sym) (set-buffer alcs-commands-buffer) (insert name "\n"))
+               (fbp (set-buffer alcs-functions-buffer) (insert name "\n")))
+         (cond ((boundp sym) (set-buffer alcs-variables-buffer) (insert name "\n"))
+               ((not fbp) (set-buffer alcs-symbol-buffer) (insert name "\n")))))))
   (message "Collecting symbols...done"))
 
 (defun anything-lisp-complete-symbol-set-timer (update-period)
@@ -513,7 +555,7 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
         (default-source (ac-default-source default t)))
   `(,default-source
     ((name . "Completions")
-     (candidates . ,(mapcar #'car collection))
+     (candidates . ,(mapcar (lambda (x) (or (car-safe x) x)) collection))
      ,@additional-attrs
      ,transformer-func)
     ,history-source
@@ -581,11 +623,12 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
         (add-to-list 'file-name-history result)))))
 
 (defun arfn-candidates (dir)
-  (loop for (f _ _ _ _ _ _ _ _ perm _ _ _) in (directory-files-and-attributes dir t)
-        for basename = (file-name-nondirectory f)
-        when (string= "d" (substring perm 0 1))
-        collect (cons (concat basename "/") f)
-        else collect (cons basename f)))
+  (if (file-directory-p dir)
+      (loop for (f _ _ _ _ _ _ _ _ perm _ _ _) in (directory-files-and-attributes dir t)
+            for basename = (file-name-nondirectory f)
+            when (string= "d" (substring perm 0 1))
+            collect (cons (concat basename "/") f)
+            else collect (cons basename f))))
 
 (defun* arfn-sources (prompt dir default-filename require-match initial-input predicate &optional (additional-attrs '((action . identity))))
   (setq arfn-dir dir)
@@ -603,9 +646,11 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
          (history-source (unless require-match
                            `((name . "History")
                              (candidates . file-name-history)
+                             (persistent-action . find-file)
                              ,@additional-attrs))))
     `(((name . "Default")
        (candidates . ,(if default-filename (list default-filename)))
+       (persistent-action . find-file)
        (filtered-candidate-transformer
         . (lambda (cands source)
             (if (and (not arfn-followed) (string= anything-pattern "")) cands nil)))
@@ -613,6 +658,7 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
        ,@additional-attrs)
       ((name . ,dir)
        (candidates . (lambda () (arfn-candidates ,dir)))
+       (persistent-action . find-file)
        ,@additional-attrs
        ,transformer-func)
       ,new-input-source
@@ -635,6 +681,7 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
 (defun* arb-sources (prompt default require-match start matches-set &optional (additional-attrs '((action . identity))))
   `(,(ac-default-source default t)
     ((name . ,prompt)
+     (persistent-action . switch-to-buffer)
      (candidates . (lambda () (mapcar 'buffer-name (buffer-list))))
      ,@additional-attrs)
     ,(ac-new-input-source prompt require-match additional-attrs)))
@@ -756,16 +803,34 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
                      "\\\\\n" ";" (buffer-substring s2 e2))
                (goto-char s2)))))))
 
+;; I do not want to make anything-c-source-* symbols because they are
+;; private in `anything-execute-extended-command'.
+(defvar anything-execute-extended-command-sources
+  '(((name . "Emacs Commands History")
+     (candidates . extended-command-history)
+     (action . identity)
+     (persistent-action . alcs-describe-function))
+    ((name . "Commands")
+     (init . (lambda () (anything-candidate-buffer
+                         (get-buffer alcs-commands-buffer))))
+     (candidates-in-buffer)
+     (action . identity)
+     (persistent-action . alcs-describe-function))
+    ((name . "Commands (by prefix)")
+     (candidates
+      . (lambda ()
+          (all-completions anything-pattern obarray 'commandp)))
+     (volatile)
+     (action . identity)
+     (persistent-action . alcs-describe-function))))
+
 (defun anything-execute-extended-command ()
   (interactive)
-  (let ((cmd (anything '(((name . "Emacs Commands History")
-                          (candidates . extended-command-history)
-                          (action . identity))
-                         ((name . "Commands")
-                          (init . (lambda () (anything-candidate-buffer
-                                              (get-buffer alcs-commands-buffer))))
-                          (candidates-in-buffer)
-                          (action . identity))))))
+  (let ((cmd (anything
+              (if (require 'anything-kyr-config nil t)
+                  (cons anything-c-source-kyr
+                        anything-execute-extended-command-sources)
+                anything-execute-extended-command-sources))))
     (when cmd
       (setq extended-command-history (cons cmd (delete cmd extended-command-history)))
       (call-interactively (intern cmd)))))
