@@ -1,5 +1,5 @@
 ;;; anything-gtags.el --- GNU GLOBAL anything.el interface
-;; $Id: anything-gtags.el,v 1.14 2009/01/27 09:51:34 rubikitch Exp $
+;; $Id: anything-gtags.el,v 1.18 2009/04/01 14:59:27 rubikitch Exp $
 
 ;; Copyright (C) 2008  rubikitch
 
@@ -28,9 +28,40 @@
 ;; * `anything-c-source-gtags-select' is a source for `gtags-find-tag'.
 ;; * Replace *GTAGS SELECT* buffer with `anything' interface.
 
+;;; Commands:
+;;
+;; Below are complete command list:
+;;
+;;  `anything-gtags-select'
+;;    Tag jump using gtags and `anything'.
+;;
+;;; Customizable Options:
+;;
+;; Below are customizable option list:
+;;
+;;  `anything-gtags-enable-initial-pattern'
+;;    *If non-nil, initial input of `anything-gtags-select' is current symbol.
+;;    default = nil
+;;  `anything-gtags-classify'
+;;    *If non-nil, use separate source file by file.
+;;    default = nil
+
 ;;; History:
 
 ;; $Log: anything-gtags.el,v $
+;; Revision 1.18  2009/04/01 14:59:27  rubikitch
+;; Disable no-filename display (`anything-gtags-classify' == t) because `aggs-select-it' needs file-name.
+;;
+;; Revision 1.17  2009/03/18 17:50:08  rubikitch
+;; If `anything-gtags-classify' is t, enable classification and suppress filename output.
+;; If it is other true symbol, enable classification and output filename.
+;;
+;; Revision 1.16  2009/03/18 17:35:01  rubikitch
+;; refactoring
+;;
+;; Revision 1.15  2009/03/18 17:31:39  rubikitch
+;; Apply SUGAWARA's patch to suppress filename output when `anything-gtags-classify' is non-nil.
+;;
 ;; Revision 1.14  2009/01/27 09:51:34  rubikitch
 ;; * Push context when jumping with `anything-gtags-select'.
 ;; * New variable: `anything-gtags-enable-initial-pattern'.
@@ -82,8 +113,14 @@
 (require 'anything)
 (require 'gtags)
 
-(defvar anything-gtags-enable-initial-pattern nil
-  "If non-nil, initial input of `anything-gtags-select' is current symbol.")
+(defgroup anything-gtags nil
+  "Gtags Anything interface"
+  :group 'anything)
+
+(defcustom anything-gtags-enable-initial-pattern nil
+  "*If non-nil, initial input of `anything-gtags-select' is current symbol."
+  :group 'anything-gtags
+  :type 'boolean)
 
 (defvar anything-c-source-gtags-select
   '((name . "GTAGS")
@@ -109,7 +146,12 @@
 ;;;; `gtags-select-mode' replacement
 (defvar anything-gtags-hijack-gtags-select-mode t
   "Use `anything' instead of `gtags-select-mode'.")
-(defvar anything-gtags-classify nil)
+(defcustom anything-gtags-classify nil
+  "*If non-nil, use separate source file by file.
+If it is t, enable classification and suppress file name output in candidates.
+If it is other symbol, display file name in candidates even if classification is enabled."
+  :group 'anything-gtags
+  :type '(choice boolean symbol))
 (defvar aggs-base-source
   '((candidates-in-buffer)
     (get-line . aggs-candidate-display)
@@ -173,8 +215,13 @@
          (unless (equal prev-filename filename)
            (setq files (cons filename files))
            (erase-buffer))
-         (insert-buffer-substring buffer bol eol)
-         (insert "\n"))
+         (save-excursion (insert-buffer-substring buffer bol eol))
+         ;; [2009/04/01] disabled. because aggs-select-it needs filename.
+;;          (when (eq anything-gtags-classify t)
+;;            (while (search-forward filename nil t)
+;;             (delete-region (match-beginning 0) (match-end 0))))
+         (goto-char (point-max))
+	 (insert "\n"))
        (forward-line 1)
        (setq prev-filename filename))
       (anything-set-sources
