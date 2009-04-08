@@ -27,11 +27,11 @@
 pointer = 1 8 3 4 5 6 7 2 9 10 11
 
 keycode 102 = Muhenkan
+keycode 108 = Alt_R
 keycode 100 = Super_L
-keycode 108 = Alt_L
 
 clear Mod1
 add Mod1 = Alt_L
 
-!clear Mod4
-!add Mod4 = Alt_R
+clear Mod2
+add Mod2 = Alt_R
