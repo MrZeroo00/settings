@@ -51,7 +51,7 @@
 ;(install-elisp-from-emacswiki "c-eldoc.el")
 (add-hook 'c-mode-common-hook
           (lambda ()
-            (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../ ")
+            (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
             (load "c-eldoc")
             (c-turn-on-eldoc-mode)
             (when run-darwin
