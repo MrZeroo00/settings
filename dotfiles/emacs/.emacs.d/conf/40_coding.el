@@ -276,6 +276,13 @@
 ;(ad-activate 'font-lock-mode)
 
 
+(add-hook 'change-log-mode-hook
+          (lambda ()
+            (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
+            ;(outline-minor-mode t)
+            (turn-on-orgstruct)))
+
+
 ;; macros
 (load "_paren-match")
 (load "_tdd-bgcolor-rotate")

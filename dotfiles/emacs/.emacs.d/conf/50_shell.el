@@ -68,3 +68,10 @@
  '(eshell-term-name "ansi")
  '(eshell-visual-commands (quote ("vi" "top" "screen" "less" "lynx"
                                   "ssh" "rlogin" "telnet"))))
+
+
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (setq outline-regexp "[^ ]*[>%#]")
+            ;(outline-minor-mode t)
+            (turn-on-orgstruct)))

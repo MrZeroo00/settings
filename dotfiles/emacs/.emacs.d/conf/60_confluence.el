@@ -70,3 +70,14 @@
 (add-hook 'confluence-mode-hook
           '(lambda ()
              (local-set-key "\C-xw" confluence-prefix-map)))
+
+(add-hook 'confluence-mode-hook
+          (lambda ()
+            (setq outline-regexp "^h[1-5]\\.")
+            (setq outline-heading-end-regexp "\n")
+            (setq outline-level
+                  (function (lambda ()
+                              (save-excursion
+                                (looking-at outline-regexp)
+                                (char-after (1- (match-end 0)))))))
+            (outline-minor-mode t)))
