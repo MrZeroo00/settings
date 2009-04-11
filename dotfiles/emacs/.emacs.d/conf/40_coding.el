@@ -226,6 +226,10 @@
 (require 'wrap-region)
 
 
+;; flyspell
+(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+
+
 ;; develock (emphasize bad coding convention)
 ;; http://www.jpl.org/elips/develock.el.gz
 (load "develock")

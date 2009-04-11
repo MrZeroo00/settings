@@ -115,7 +115,3 @@
           (lambda ()
             (require 'cwarn)
             (turn-on-cwarn-mode)))
-
-
-;; flyspell
-(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
