@@ -112,7 +112,7 @@
 ;(load "60_iswitchb")
 (load "60_key-chord")
 (load "60_lookup")
-(load "60_man")
+(load "60_woman")
 (load "60_mew")
 (load "60_migemo")
 (load "60_mmm-mode")
