@@ -80,4 +80,5 @@
                               (save-excursion
                                 (looking-at outline-regexp)
                                 (char-after (1- (match-end 0)))))))
-            (outline-minor-mode t)))
+            (outline-minor-mode t)
+            (turn-on-orgstruct)))
