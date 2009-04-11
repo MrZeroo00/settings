@@ -31,6 +31,17 @@
 ;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
 
 
+;; cedet
+;(load "~/local/share/emacs/site-lisp/cedet/common/cedet.el")
+;(global-ede-mode 1)
+;;(ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
+;(semantic-load-enable-minimum-features)
+;(semantic-load-enable-code-helpers)
+;;(semantic-load-enable-gaudy-code-helpers)
+;;(semantic-load-enable-all-exuberent-ctags-support)
+;;(global-srecode-minor-mode 1)
+
+
 ;; ctags
 (global-set-key "\M-t" 'find-tag)
 (global-set-key "\C-t" 'pop-tag-mark)
