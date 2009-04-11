@@ -3,7 +3,7 @@
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 
-; style setting
+; mode hook
 (add-hook 'c-mode-common-hook '(lambda ()
                                  (c-set-style "k&r")
                                  ;(c-set-offset 'substatement-open 0)
@@ -49,12 +49,13 @@
 
 ;; eldoc
 ;(install-elisp-from-emacswiki "c-eldoc.el")
-(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../ ")
-(load "c-eldoc")
-(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-
-(when run-darwin
-  (setq c-eldoc-cpp-command "/usr/bin/cpp"))
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../ ")
+            (load "c-eldoc")
+            (c-turn-on-eldoc-mode)
+            (when run-darwin
+              (setq c-eldoc-cpp-command "/usr/bin/cpp"))))
 
 
 ;; ff-find-other-file
@@ -68,10 +69,9 @@
 
 
 ;; moccur
-(add-hook
- 'c-mode-common-hook
- '(lambda ()
-    (setq moccur-grep-default-mask "\\.\[HhCc\]$")))
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (setq moccur-grep-default-mask "\\.\[HhCc\]$")))
 
 
 ;; summarye
@@ -100,17 +100,21 @@
 
 ;; pbf-mode
 ;(install-elisp "http://www.bookshelf.jp/elc/pbf-mode.el")
-;(require 'pbf-mode)
-;(pbf-setup)
-;(pbf-mode t)
-;(pbf-project HOME nil
-;             "My private."
-;             :directory (expand-file-name "~/"))
+;(add-hook 'c-mode-hook
+;          (lambda ()
+;            (require 'pbf-mode)
+;            (pbf-setup)
+;            (pbf-mode t)
+;            (pbf-project HOME nil
+;                         "My private."
+;             :directory (expand-file-name "~/"))))
 
 
 ;; cwarn
-(require 'cwarn)
-(add-hook 'c-mode-hook 'turn-on-cwarn-mode)
+(add-hook 'c-mode-hook
+          (lambda ()
+            (require 'cwarn)
+            (turn-on-cwarn-mode)))
 
 
 ;; flyspell

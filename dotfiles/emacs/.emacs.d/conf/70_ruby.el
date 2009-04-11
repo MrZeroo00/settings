@@ -8,15 +8,16 @@
 
 (setq ruby-deep-indent-paren-style nil)
 
+
 ;; flymake
 (setq flymake-allowed-file-name-masks
       (cons '(".+\\.rb$" flymake-ruby-init)
             flymake-allowed-file-name-masks))
 
 (add-hook 'ruby-mode-hook
-          '(lambda ()
-             (inf-ruby-keys)
-             (flymake-mode t)))
+          (lambda ()
+            (inf-ruby-keys)
+            (flymake-mode t)))
 
 
 ;; refe
@@ -24,12 +25,16 @@
 ;(require 'refe)
 ;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
 ;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
-(load "_refe2")
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (load "_refe2")))
 
 
 ;; autotest
 ;(install-elisp-from-emacswiki "autotest.el")
-(require 'autotest)
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (require 'autotest)))
 
 
 ;; align
@@ -56,5 +61,7 @@
 
 
 ;; macros
-(load "_ruby-insert-magic-comment-if-needed")
-(add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (load "_ruby-insert-magic-comment-if-needed")
+            (add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)))

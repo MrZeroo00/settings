@@ -31,22 +31,22 @@
 
 ;; brackets
 (add-hook 'cperl-mode-hook
-          '(lambda()
-             (progn
-               (define-key cperl-mode-map "{" 'insert-braces)
-               (define-key cperl-mode-map "(" 'insert-parens)
-               (define-key cperl-mode-map "\"" 'insert-double-quotation)
-               (define-key cperl-mode-map "[" 'insert-brackets)
-               (define-key cperl-mode-map "\C-c}" 'insert-braces-region)
-               (define-key cperl-mode-map "\C-c)" 'insert-parens-region)
-               (define-key cperl-mode-map "\C-c]" 'insert-brackets-region)
-               (define-key cperl-mode-map "\C-c\"" 'insert-double-quotation-region)
-               )))
+          (lambda()
+            (progn
+              (define-key cperl-mode-map "{" 'insert-braces)
+              (define-key cperl-mode-map "(" 'insert-parens)
+              (define-key cperl-mode-map "\"" 'insert-double-quotation)
+              (define-key cperl-mode-map "[" 'insert-brackets)
+              (define-key cperl-mode-map "\C-c}" 'insert-braces-region)
+              (define-key cperl-mode-map "\C-c)" 'insert-parens-region)
+              (define-key cperl-mode-map "\C-c]" 'insert-brackets-region)
+              (define-key cperl-mode-map "\C-c\"" 'insert-double-quotation-region)
+              )))
 
 
 ;; macros
-(load "_perl-insert-use-statement")
 (add-hook 'cperl-mode-hook
           (lambda ()
-            (local-set-key (kbd "\C-c \C-m") 'perl-insert-use-statement)))
-(load "_perltidy")
+            (load "_perl-insert-use-statement")
+            (local-set-key (kbd "\C-c \C-m") 'perl-insert-use-statement)
+            (load "_perltidy")))

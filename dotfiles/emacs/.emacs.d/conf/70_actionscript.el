@@ -3,4 +3,7 @@
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))
 
-(eval-after-load "actionscript-mode" '(load "as-config"))
+; mode hook
+(add-hook 'actionscript-mode-hook
+          (lambda ()
+            (load "as-config")))

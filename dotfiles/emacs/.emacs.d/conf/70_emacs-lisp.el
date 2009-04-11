@@ -3,6 +3,7 @@
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.el$" . emacs-lisp-mode))
 
+; mode hook
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (define-key emacs-lisp-mode-map "\C-m" 'newline-and-indent)))
@@ -24,4 +25,6 @@
 
 
 ;; checkdoc
-;(require 'checkdoc)
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (require 'checkdoc)))

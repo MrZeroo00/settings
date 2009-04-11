@@ -1,10 +1,11 @@
 (require 'lisp-mode)
 
-(setq inferior-lisp-program "clisp")
-
+; mode hook
 (add-hook 'lisp-mode-hook
           (lambda ()
             (define-key lisp-mode-map "\C-m" 'newline-and-indent)))
+
+(setq inferior-lisp-program "clisp")
 
 
 ;; anything
