@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# http://dev.ariel-networks.com/Members/matsuyama/use-make
 
 use strict;
 use warnings;
