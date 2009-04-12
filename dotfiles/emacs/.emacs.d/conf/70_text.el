@@ -27,6 +27,13 @@
             (setq text-adjust-touten-from nil)
             (setq text-adjust-kuten-from nil)))
 
+;(defun text-adjust-space-before-save-if-needed ()
+;  (when (memq major-mode
+;              '(org-mode text-mode mew-draft-mode))
+;    (text-adjust-space-buffer)))
+;(defalias 'spacer 'text-adjust-space-buffer)
+;(add-hook 'before-save-hook 'text-adjust-space-before-save-if-needed)
+
 
 ;; macros
 ;(add-hook 'text-mode-hook

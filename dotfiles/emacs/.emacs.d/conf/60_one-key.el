@@ -38,3 +38,9 @@
   (one-key-menu "ROOT" one-key-menu-root-alist nil))
 
 (global-set-key (kbd "C-c p") 'one-key-menu-root)
+
+
+;; one-key-default
+;(install-elisp-from-emacswiki "one-key-default.el")
+(require 'one-key-default)
+(one-key-default-setup-keys)

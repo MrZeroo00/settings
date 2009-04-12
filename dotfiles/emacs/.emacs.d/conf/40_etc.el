@@ -166,6 +166,33 @@
       '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
 
 
+;; screenshot
+;(install-elisp-from-emacswiki "screenshot.el")
+;(require 'screenshot)
+;(setq screenshot-schemes
+;      '(
+;        ;; To local image directory
+;        ("local"
+;         :dir "~/images/")
+;        ;; To current directory
+;        ("current-directory"
+;         :dir default-directory)
+;        ;; To remote ssh host
+;        ("remote-ssh"
+;         :dir "/tmp/"
+;         :ssh-dir "www.example.org:public_html/archive/"
+;         :url "http://www.example.org/archive/")
+;        ;; To EmacsWiki (need yaoddmuse.el)
+;        ("EmacsWiki"
+;         :dir "~/.yaoddmuse/EmacsWiki/"
+;         :yaoddmuse "EmacsWiki")
+;        ;; To local web server
+;        ("local-server"
+;         :dir "~/public_html/"
+;         :url "http://127.0.0.1/")))
+;(setq screenshot-default-scheme "local")
+
+
 ;; japanese-holidays
 ;(require 'calendar)
 ;(setq number-of-diary-entries 31)

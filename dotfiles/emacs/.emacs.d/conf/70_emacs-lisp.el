@@ -28,3 +28,8 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (require 'checkdoc)))
+
+
+;; lispxmp
+;(install-elisp-from-emacswiki "lispxmp.el")
+;(require 'lispxmp)

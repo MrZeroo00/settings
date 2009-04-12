@@ -11,6 +11,11 @@
 ;(add-hook 'Man-mode-hook 'turn-on-tempbuf-mode)
 
 
+;; contentswitch
+;(install-elisp-from-emacswiki "contentswitch.el")
+;(require 'contentswitch)
+
+
 ;; macros
 (load "_my-make-scratch")
 (add-hook 'after-save-hook

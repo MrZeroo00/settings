@@ -99,6 +99,7 @@
 
 
 ;; remember
+;; https://gna.org/p/remember-el
 (org-remember-insinuate)
 
 (setq org-remember-templates

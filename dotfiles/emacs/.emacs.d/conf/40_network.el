@@ -42,6 +42,13 @@
 (autoload 'riece "riece" "Start Riece" t)
 
 
+;; twit
+;(install-elisp-from-emacswiki "twit.el")
+;(require 'twit)
+;(setq twit-user "¡Á"
+;      twit-pass "¡Á")
+
+
 ;; MozRepl
 ;; http://hyperstruct.net/projects/mozlab
 (add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
