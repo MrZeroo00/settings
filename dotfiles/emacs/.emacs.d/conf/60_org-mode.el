@@ -36,14 +36,6 @@
 
 (setq org-agenda-custom-commands
       '(
-        ;; Weekly Review
-        ("W" "Weekly Review"
-         ((agenda "" ((org-agenda-ndays 7)))
-          (stuck "")
-          (todo "PROJECT")
-          (todo "WAITING")
-          (todo "MAYBE")
-	  ))
         ;; GTD contexts
         ("g" . "GTD contexts")
         ("go" "Office" tags-todo "@office")
@@ -65,6 +57,14 @@
           (org-agenda-ndays 1)
           (org-deadline-warning-days 60)
           (org-agenda-time-grid nil)))
+        ;; Weekly Review
+        ("W" "Weekly Review"
+         ((agenda "" ((org-agenda-ndays 7)))
+          (stuck "")
+          (todo "PROJECT")
+          (todo "WAITING")
+          (todo "MAYBE")
+	  ))
         ;; Printed agenda
         ("P" "Printed agenda"
          ((agenda "" ((org-agenda-ndays 7)
