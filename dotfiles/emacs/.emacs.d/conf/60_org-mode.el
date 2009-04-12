@@ -2,6 +2,7 @@
 (setq org-startup-truncated nil)
 (setq org-return-follows-link t)
 (require 'org)
+(require 'org-mouse)
 
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -18,16 +19,20 @@
 (setq org-hide-leading-stars t)
 (setq org-deadline-warning-days 7)
 
-(setq org-tag-alist
-      '(("@work" . ?w)
-        ("@home" . ?h)
-        ("by mail" . ?m)))
 
-(setq org-todo-keywords '("TODO" "WAITING" "PROJECT" "MAYBE" "DONE")
+(setq org-todo-keywords '("TODO" "NEXT" "WAITING" "PROJECT" "MAYBE" "DONE" "REFERENCE")
       org-todo-interpretation 'sequence)
 
-;(setq org-stuck-projects
-;      ("+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") ("@SHOP")))
+(setq org-tag-alist
+      '(("@office" . ?o)
+        ("@home" . ?h)
+        ("@computer" . ?c)
+        ("mail" . ?m)
+        ("errands" . ?e)
+	))
+
+(setq org-stuck-projects
+      '("+PROJECT/-MAYBE-DONE-REFERENCE" ("NEXT" "TODO") ("mail errands")))
 
 (setq org-agenda-custom-commands
       '(
@@ -36,20 +41,21 @@
          ((agenda "" ((org-agenda-ndays 7)))
           (stuck "")
           (todo "PROJECT")
+          (todo "WAITING")
           (todo "MAYBE")
-          (todo "WAITING")))
+	  ))
         ;; GTD contexts
         ("g" . "GTD contexts")
-        ("go" "Office" tags-todo "office")
-        ("gc" "Computer" tags-todo "computer")
-        ("gp" "Phone" tags-todo "phone")
-        ("gh" "Home" tags-todo "home")
+        ("go" "Office" tags-todo "@office")
+        ("gh" "Home" tags-todo "@home")
+        ("gc" "Computer" tags-todo "@computer")
+        ("gm" "Mail" tags-todo "mail")
         ("ge" "Errands" tags-todo "errands")
         ("G" "GTD Block Agenda"
-         ((tags-todo "office")
-          (tags-todo "computer")
-          (tags-todo "phone")
-          (tags-todo "home")
+         ((tags-todo "@office")
+          (tags-todo "@home")
+          (tags-todo "@computer")
+          (tags-todo "mail")
           (tags-todo "errands"))
          nil
          ("~/memo/next-actions.html"))
@@ -85,8 +91,6 @@
         ("Q" . "Custom queries")
         ("Qa" "Archive search" search ""
          ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
-        ("Qw" "Website search" search ""
-         ((org-agenda-files (file-expand-wildcards "~/website/*.org"))))
         ("Qb" "Projects and Archive" search ""
          ((org-agenda-text-search-extra-files (file-expand-wildcards "~/memo/archive/*.org"))))
         ("QA" "Archive tags search" org-tags-view ""
