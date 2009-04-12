@@ -11,6 +11,7 @@
 
 (setq org-directory "~/memo/")
 (setq org-default-notes-file (concat org-directory "agenda.org"))
+(setq org-agenda-files (list "~/memo/todo.org"))
 
 
 ;; remember

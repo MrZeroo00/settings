@@ -73,6 +73,12 @@
 
 (add-hook 'confluence-mode-hook
           (lambda ()
+            (setq truncate-lines nil)
+            (setq truncate-partial-width-windows nil)
+            (auto-show-mode)))
+
+(add-hook 'confluence-mode-hook
+          (lambda ()
             (setq outline-regexp "^h[1-5]\\.")
             (setq outline-heading-end-regexp "\n")
             (setq outline-level
