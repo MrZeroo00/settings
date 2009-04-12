@@ -15,7 +15,7 @@ freload() {
 
 
 ## magic-abbrev-expand
-source $HOME/.zsh/function/magic-abbrev-expand.sh
+source ${HOME}/.zsh/function/magic-abbrev-expand.sh
 #zle -N magic-abbrev-expand
 #zle -N no-magic-abbrev-expand
 #bindkey " " magic-abbrev-expand
@@ -23,7 +23,7 @@ source $HOME/.zsh/function/magic-abbrev-expand.sh
 
 
 ## dabbrev-complete
-source $HOME/.zsh/function/dabbrev-complete.sh
+source ${HOME}/.zsh/function/dabbrev-complete.sh
 zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
@@ -33,12 +33,12 @@ bindkey '^o^_' reverse-menu-complete
 # http://d.hatena.ne.jp/secondlife/20080218/1203303528
 autoload -U compinit
 compinit
-source $HOME/.zsh/function/cdd.sh
+source ${HOME}/.zsh/function/cdd.sh
 add-zsh-hook chpwd _reg_pwd_screennum
 
 
 ## view/edit-file
-source $HOME/.zsh/function/view-edit-file.sh
+source ${HOME}/.zsh/function/view-edit-file.sh
 #zle -N view-file
 #bindkey "^x^r" view-file
 #zle -N edit-file
@@ -50,13 +50,13 @@ function ssh_screen() {
   eval server=\${$#}
     screen -t $server ssh "$@"
 }
-if [ x$TERM = x$TERMSCREEN ]; then
+if [ x${TERM} = x${TERMSCREEN} ]; then
   alias ssh=ssh_screen
 fi
 
 
 # for screen status line
-if [ "$TERM" = $TERMSCREEN ]; then
+if [ "${TERM}" = ${TERMSCREEN} ]; then
   #chpwd () {
   _update_screen_title_by_cd () {
     echo -n "_`dirs`\\"
@@ -105,7 +105,7 @@ if [ "$TERM" = $TERMSCREEN ]; then
   #precmd() {
   _update_screen_title() {
     #local prev; prev=`history -1 | sed "s/^[ 0-9]*//" | sed "s/ .*$//"`
-    echo -n "k$:$prev\\"
+    echo -n "k$:${prev}\\"
   }
   add-zsh-hook precmd _update_screen_title
 
@@ -129,10 +129,10 @@ fi
 #local promptsize=${#${(%):---(%n@%m:%l)---()--}}
 #local pwdsize=${#${(%):-%~}}
 #
-#if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
-#  ((PR_PWDLEN=$TERMWIDTH - $promptsize))
+#if [[ "${promptsize} + ${pwdsize}" -gt ${TERMWIDTH} ]]; then
+#  ((PR_PWDLEN=${TERMWIDTH} - ${promptsize}))
 #else
-#  PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
+#  PR_FILLBAR="\${(l.((${TERMWIDTH} - (${promptsize} + ${pwdsize})))..${PR_HBAR}.)}"
 #fi
 #
 ####
@@ -147,7 +147,7 @@ fi
 #
 ##setopt extended_glob
 ##preexec () {
-##  if [[ "$TERM" == "screen" ]]; then
+##  if [[ "${TERM}" == "screen" ]]; then
 ##    local CMD=${1[(wr)^(*=*|sudo|-*)]}
 ##    echo -n "\ek$CMD\e\\"
 ##  fi
@@ -186,7 +186,7 @@ fi
 #
 #  ###
 #  # Decide if we need to set titlebar text.
-#  case $TERM in
+#  case ${TERM} in
 #    xterm*)
 #    PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
 #    ;;
@@ -200,7 +200,7 @@ fi
 #
 #  ###
 #  # Decide whether to set a screen title
-#  if [[ "$TERM" == "screen" ]]; then
+#  if [[ "${TERM}" == "screen" ]]; then
 #    PR_STITLE=$'%{\ekzsh\e\\%}'
 #  else
 #    PR_STITLE=''

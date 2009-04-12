@@ -230,18 +230,18 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 
 
 # aliases
-if [ -f $HOME/.zsh_aliases ]; then
-  source $HOME/.zsh_aliases
+if [ -f ${HOME}/.zsh_aliases ]; then
+  source ${HOME}/.zsh_aliases
 fi
 
 
 # function
-if [ -f $HOME/.zsh_function ]; then
-  source $HOME/.zsh_function
+if [ -f ${HOME}/.zsh_function ]; then
+  source ${HOME}/.zsh_function
 fi
 
 
 # local setting
-if [ -f $HOME/.zshrc.local ]; then
-  source $HOME/.zshrc.local
+if [ -f ${HOME}/.zshrc.local ]; then
+  source ${HOME}/.zshrc.local
 fi

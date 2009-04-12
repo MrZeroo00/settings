@@ -32,8 +32,8 @@ alias -g NUL="> /dev/null 2>&1"
 
 
 ## suffix aliases
-source $HOME/.zsh/function/zsh_commandselector.sh
+source ${HOME}/.zsh/function/zsh_commandselector.sh
 
 
 # directory aliases
-hash -d src="$HOME/src"
+hash -d src="${HOME}/src"
