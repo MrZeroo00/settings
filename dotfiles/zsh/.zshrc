@@ -160,7 +160,7 @@ unsetopt longlistjobs
 unsetopt recexact
 unsetopt rm_star_silent
 
-[[ $EMACS = t ]] && unsetopt zle
+[[ ${EMACS} = t ]] && unsetopt zle
 
 
 ## key bindings

@@ -149,7 +149,7 @@ fi
 ##preexec () {
 ##  if [[ "${TERM}" == "screen" ]]; then
 ##    local CMD=${1[(wr)^(*=*|sudo|-*)]}
-##    echo -n "\ek$CMD\e\\"
+##    echo -n "\ek${CMD}\e\\"
 ##  fi
 ##}
 #
