@@ -12,6 +12,16 @@
 (setq org-directory "~/memo/")
 (setq org-default-notes-file (concat org-directory "agenda.org"))
 (setq org-agenda-files (list "~/memo/todo.org"))
+(setq org-log-done t)
+
+;(setq org-todo-keywords '("TODO" "FEEDBACK" "VERIFY" "DONE")
+;      org-todo-interpretation 'sequence)
+;(setq org-stuck-projects
+;      ("+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") ("@SHOP")))
+
+(setq org-agenda-custom-commands
+      '(("w" todo "WAITING")
+        ("u" tags "+URGENT")))
 
 
 ;; remember
