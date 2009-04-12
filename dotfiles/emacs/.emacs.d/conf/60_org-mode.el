@@ -21,8 +21,7 @@
 (setq org-tag-alist
       '(("@work" . ?w)
         ("@home" . ?h)
-        ("someday" . ?s)
-        ("material" . ?s)))
+        ("by mail" . ?m)))
 
 (setq org-todo-keywords '("TODO" "WAITING" "PROJECT" "MAYBE" "DONE")
       org-todo-interpretation 'sequence)
