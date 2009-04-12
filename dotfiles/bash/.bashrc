@@ -3,12 +3,12 @@
 # for examples
 
 # read bash and zsh common setting
-if [ -f $HOME/.shrc ]; then
-    source $HOME/.shrc
+if [ -f ${HOME}/.shrc ]; then
+    source ${HOME}/.shrc
 fi
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+[ -z "${PS1}" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
@@ -26,7 +26,7 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
+case "${TERM}" in
 xterm-color)
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     ;;
@@ -39,9 +39,9 @@ esac
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
+case "${TERM}" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/${HOME}/~}\007"'
     ;;
 *)
     ;;
