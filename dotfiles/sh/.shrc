@@ -1,33 +1,33 @@
 #!/bin/sh
 
 # aliases
-if [ -f $HOME/.sh_aliases ]; then
-    source $HOME/.sh_aliases
+if [ -f ${HOME}/.sh_aliases ]; then
+    source ${HOME}/.sh_aliases
 fi
 
 # function
-if [ -f $HOME/.sh_function ]; then
-    source $HOME/.sh_function
+if [ -f ${HOME}/.sh_function ]; then
+    source ${HOME}/.sh_function
 fi
 
 ## environmental variables
 # set PATH so it includes user's private bin if it exists
-if [ -d $HOME/bin ] ; then
-    PATH=$HOME/bin:"${PATH}"
+if [ -d ${HOME}/bin ] ; then
+    PATH=${HOME}/bin:"${PATH}"
 fi
-for i in `ls -d $HOME/bin/*`; do
+for i in `ls -d ${HOME}/bin/*`; do
   if [ -d $i ]; then
     PATH=$i:"${PATH}"
   fi
 done
-if [ -d $HOME/local/bin ] ; then
-    PATH=$HOME/local/bin:"${PATH}"
+if [ -d ${HOME}/local/bin ] ; then
+    PATH=${HOME}/local/bin:"${PATH}"
 fi
 export PATH
 
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-#export MAIL=/var/spool/mail/$USERNAME
+#export MAIL=/var/spool/mail/${USERNAME}
 #export LESS=-cex4M
 export EDITOR='emacsclient -a vim -n'
 export PAGER='lv'
@@ -38,7 +38,7 @@ export SVN_EDITOR='vim'
 export GIT_EDITOR='vim'
 
 # for CPAN
-#export PERL5LIB=$HOME/local/lib/perl5/5.8.8:$HOME/local/lib/perl5/site_perl/5.8.8
+#export PERL5LIB=${HOME}/local/lib/perl5/5.8.8:${HOME}/local/lib/perl5/site_perl/5.8.8
 #export PERL_BADLANG=0
 
 # for Global
@@ -49,13 +49,13 @@ case "`uname`" in
   "Linux")
   ;;
   "Darwin")
-  MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:$MANPATH"
+  MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
   INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
   ;;
 esac
 export MANPATH
 export INFOPATH
 
-if [ -f $HOME/.shrc.local ]; then
-    source $HOME/.shrc.local
+if [ -f ${HOME}/.shrc.local ]; then
+    source ${HOME}/.shrc.local
 fi

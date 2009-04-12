@@ -2,7 +2,7 @@
 
 ## aliases
 # enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
+if [ "${TERM}" != "dumb" ]; then
     #eval "`dircolors -b`"
     alias ls='ls -G'
     #alias dir='ls --color=auto --format=vertical'
@@ -47,6 +47,6 @@ case "`uname`" in
   ;;
 esac
 
-if [ -f $HOME/.sh_aliases.local ]; then
-    source $HOME/.sh_aliases.local
+if [ -f ${HOME}/.sh_aliases.local ]; then
+    source ${HOME}/.sh_aliases.local
 fi
