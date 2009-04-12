@@ -24,15 +24,75 @@
         ("someday" . ?s)
         ("material" . ?s)))
 
-(setq org-todo-keywords '("TODO" "Wait" "DONE")
+(setq org-todo-keywords '("TODO" "WAITING" "PROJECT" "MAYBE" "DONE")
       org-todo-interpretation 'sequence)
 
 ;(setq org-stuck-projects
 ;      ("+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") ("@SHOP")))
 
 (setq org-agenda-custom-commands
-      '(("w" todo "WAITING")
-        ("u" tags "+URGENT")))
+      '(
+        ;; Weekly Review
+        ("W" "Weekly Review"
+         ((agenda "" ((org-agenda-ndays 7)))
+          (stuck "")
+          (todo "PROJECT")
+          (todo "MAYBE")
+          (todo "WAITING")))
+        ;; GTD contexts
+        ("g" . "GTD contexts")
+        ("go" "Office" tags-todo "office")
+        ("gc" "Computer" tags-todo "computer")
+        ("gp" "Phone" tags-todo "phone")
+        ("gh" "Home" tags-todo "home")
+        ("ge" "Errands" tags-todo "errands")
+        ("G" "GTD Block Agenda"
+         ((tags-todo "office")
+          (tags-todo "computer")
+          (tags-todo "phone")
+          (tags-todo "home")
+          (tags-todo "errands"))
+         nil
+         ("~/memo/next-actions.html"))
+        ;; Upcoming deadlines
+        ("d" "Upcoming deadlines" agenda ""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-ndays 1)
+          (org-deadline-warning-days 60)
+          (org-agenda-time-grid nil)))
+        ;; Printed agenda
+        ("P" "Printed agenda"
+         ((agenda "" ((org-agenda-ndays 7)
+                      (org-agenda-start-on-weekday nil)
+                      (org-agenda-repeating-timestamp-show-all t)
+                      (org-agenda-skip-function '(org-agenda-skip-entry-if 'deadline 'scheduled))))
+          (agenda "" ((org-agenda-ndays 1)
+                      (org-deadline-warning-days 7)
+                      (org-agenda-todo-keyword-format "[ ]")
+                      (org-agenda-scheduled-leaders '("" ""))
+                      (org-agenda-prefix-format "%t%s")))
+          (todo "TODO"
+                ((org-agenda-prefix-format "[ ] %T: ")
+                 (org-agenda-sorting-strategy '(tag-up priority-down))
+                 (org-agenda-todo-keyword-format "")
+                 (org-agenda-overriding-header "\nTasks by Context\n------------------\n"))))
+         ((org-agenda-with-colors nil)
+          (org-agenda-compact-blocks t)
+          (org-agenda-remove-tags t)
+          (ps-number-of-columns 2)
+          (ps-landscape-mode t))
+         ("~/memo/agenda.ps"))
+        ;; Custom queries
+        ("Q" . "Custom queries")
+        ("Qa" "Archive search" search ""
+         ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
+        ("Qw" "Website search" search ""
+         ((org-agenda-files (file-expand-wildcards "~/website/*.org"))))
+        ("Qb" "Projects and Archive" search ""
+         ((org-agenda-text-search-extra-files (file-expand-wildcards "~/memo/archive/*.org"))))
+        ("QA" "Archive tags search" org-tags-view ""
+         ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
+        ))
 
 
 ;; remember
@@ -55,3 +115,8 @@
 (load "_org-next-prev-visible-link")
 (define-key org-mode-map "\M-n" 'org-next-visible-link)
 (define-key org-mode-map "\M-p" 'org-previous-visible-link)
+(load "wicked_org-update-checkbox-count")
+(defadvice org-update-checkbox-count (around wicked activate)
+  "Fix the built-in checkbox count to understand headlines."
+  (setq ad-return-value
+	(wicked/org-update-checkbox-count (ad-get-arg 1))))
