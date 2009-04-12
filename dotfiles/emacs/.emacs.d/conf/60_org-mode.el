@@ -18,8 +18,15 @@
 (setq org-hide-leading-stars t)
 (setq org-deadline-warning-days 7)
 
+(setq org-tag-alist
+      '(("@work" . ?w)
+        ("@home" . ?h)
+        ("someday" . ?s)
+        ("material" . ?s)))
+
 (setq org-todo-keywords '("TODO" "Wait" "DONE")
       org-todo-interpretation 'sequence)
+
 ;(setq org-stuck-projects
 ;      ("+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") ("@SHOP")))
 
