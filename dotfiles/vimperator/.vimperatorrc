@@ -148,7 +148,7 @@ set previouspattern+='prev, 前(の)?ページ,\b前.*,\b←'
 
 
 "" colorscheme --------------------
-colorscheme sweets
+colorscheme my
 
 
 "" set preferences --------------------
