@@ -32,6 +32,7 @@
 
 
 ;; cedet
+;; http://cedet.sourceforge.net/
 ;(load "~/local/share/emacs/site-lisp/cedet/common/cedet.el")
 ;(global-ede-mode 1)
 ;;(ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
@@ -40,6 +41,12 @@
 ;;(semantic-load-enable-gaudy-code-helpers)
 ;;(semantic-load-enable-all-exuberent-ctags-support)
 ;;(global-srecode-minor-mode 1)
+
+
+;; textmate
+;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
+;(require 'textmate)
+;(textmate-mode)
 
 
 ;; ctags
@@ -281,6 +288,15 @@
             (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
             ;(outline-minor-mode t)
             (turn-on-orgstruct)))
+
+
+;; pov-mode
+;; http://www.acc.umu.se/~woormie/povray/
+;(autoload 'pov-mode "pov-mode.el" "PoVray scene file mode" t)
+;(setq auto-mode-alist
+;      (append '(("\\.pov$" . pov-mode)
+;                ("\\.inc$" . pov-mode)
+;                ) auto-mode-alist))
 
 
 ;; macros

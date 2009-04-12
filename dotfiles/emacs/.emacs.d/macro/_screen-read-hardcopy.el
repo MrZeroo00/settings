@@ -14,3 +14,11 @@
             (buffer-disable-undo)
             (erase-buffer)
             (insert-file-contents file))))))
+
+;(defadvice try-expand-dabbrev-all-buffers (before try-expand-dabbrev-screen-hardcopy activate)
+;  (screen-read-hardcopy))
+;
+;(setq hippie-expand-try-functions-list
+;      '(...
+;        try-expand-dabbrev-all-buffers # これがあるのを確認
+;        ...))

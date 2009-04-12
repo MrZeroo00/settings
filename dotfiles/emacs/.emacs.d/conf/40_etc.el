@@ -35,6 +35,11 @@
 ;(global-set-key "\C-c\C-p" 'pdicv-mode)
 
 
+;; cheat
+;(install-elisp "http://sami.samhuri.net/assets/2007/8/10/cheat.el")
+;(require 'cheat)
+
+
 ;; bm
 ;; http://www.nongnu.org/bm/
 (require 'bm)
@@ -132,16 +137,6 @@
 ;(require 'edit-list)
 
 
-;; install-elisp
-;(install-elisp-from-emacswiki "install-elisp.el")
-(require 'install-elisp)
-(setq install-elisp-repository-directory "~/.emacs.d/elisp/")
-;(install-elisp-from-emacswiki "oddmuse.el")
-;(require 'oddmuse)
-;;(setq url-proxy-services '(("http" . "your.proxy.host:portnumber"))
-;(oddmuse-mode-initialize)
-
-
 ;; color-selection
 ;(install-elisp "http://www.bookshelf.jp/elc/color-selection.el")
 (autoload 'list-hexadecimal-colors-display "color-selection"
@@ -178,7 +173,7 @@
 ;(define-key calendar-mode-map "n" 'calendar-forward-day)
 ;(define-key calendar-mode-map "b" 'calendar-backward-day)
 ;(setq mark-holidays-in-calendar t)
-;;(install-elisp "http://www.meadowy.org/meadow/netinstall/export/799/branches/3.00/pkginfo/japanese-holidays/japanese-holidays.el")
+;(install-elisp "http://www.meadowy.org/meadow/netinstall/export/799/branches/3.00/pkginfo/japanese-holidays/japanese-holidays.el")
 ;(require 'japanese-holidays)
 ;(setq calendar-holidays
 ;      (append japanese-holidays local-holidays other-holidays))
@@ -199,3 +194,5 @@
 (load "_scroll-speedup")
 ;(load "_my-memo")
 ;(global-set-key "\C-c\C-w" 'my-memo)
+;(load "_byte-compile-directory")
+(load "_screen-read-hardcopy")

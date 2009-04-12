@@ -80,7 +80,7 @@
 
 
 ;; cpp-complt
-;;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
+;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
 ;(add-hook 'c-mode-common-hook
 ;          (function (lambda ()
 ;                      (require 'cpp-complt)

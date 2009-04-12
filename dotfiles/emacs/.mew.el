@@ -51,3 +51,23 @@
          (smtp-user         "mitsuhiro.tanda")
          )))
 (setq mew-case "gmail")
+
+
+;; xcite
+;(install-elisp "http://www.gentei.org/~yuuji/software/xcite.el")
+(autoload 'xcite "xcite" "Exciting cite" t)
+(autoload 'xcite-yank-cur-msg "xcite" "Exciting cite" t)
+
+(global-set-key "\C-c\C-x" 'xcite)
+(global-set-key "\C-c\C-y" 'xcite-yank-cur-msg)
+(setq mew-draft-mode-hook
+      '(lambda ()
+         (define-key mew-draft-mode-map "\C-c\C-y"
+           'xcite-yank-cur-msg))
+      mew-init-hook
+      '(lambda ()
+         (define-key mew-summary-mode-map "A"
+           '(lambda () (interactive)
+              (mew-summary-reply)
+              (xcite-yank-cur-msg)))))
+(setq mew-header-alist '(("X-cite-me:" . "tan")))

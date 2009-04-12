@@ -118,7 +118,7 @@
 (load "_org-next-prev-visible-link")
 (define-key org-mode-map "\M-n" 'org-next-visible-link)
 (define-key org-mode-map "\M-p" 'org-previous-visible-link)
-(load "wicked_org-update-checkbox-count")
+(load "_wicked_org-update-checkbox-count")
 (defadvice org-update-checkbox-count (around wicked activate)
   "Fix the built-in checkbox count to understand headlines."
   (setq ad-return-value

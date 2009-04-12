@@ -37,6 +37,29 @@
 (setq ange-ftp-try-passive-mode t)
 
 
+;; riece
+;; http://www.nongnu.org/riece/index.html.ja
+(autoload 'riece "riece" "Start Riece" t)
+
+
+;; MozRepl
+;; http://hyperstruct.net/projects/mozlab
+(add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
+(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
+(add-hook 'java-mode-hook 'java-custom-setup)
+(defun java-custom-setup ()
+  (moz-minor-mode 1))
+
+
+;; moz-plus
+;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
+(autoload 'run-mozilla "moz" "run inferior moz" t)
+(add-hook 'inferior-moz-mode-hook (lambda ()
+                                    (require 'moz-plus)
+                                    (moz-plus 1)
+                                    ))
+
+
 ;; google2
 ;(install-elisp "http://www.bookshelf.jp/elc/google2.el")
 ;(load "google2")

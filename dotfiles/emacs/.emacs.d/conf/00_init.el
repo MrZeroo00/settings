@@ -61,6 +61,20 @@
 ;(pc-selection-mode)
 ;(delete-selection-mode t)
 
+;; clipboard
+;; http://d.hatena.ne.jp/pakepion/20081209/1228828521
+(when (or run-linux run-bsd run-unix run-system-v)
+  (progn
+    (setq interprogram-paste-function
+          (lambda ()
+            (shell-command-to-string "xsel -b -o")))
+    (setq interprogram-cut-function
+          (lambda (text &optional rest)
+            (let* ((process-connection-type nil)
+                   (proc (start-process "xsel" "*Messages*" "xsel" "-b" "-i")))
+              (process-send-string proc text)
+              (process-send-eof proc))))))
+
 ;; scroll
 (setq scroll-conservatively 35)
 (setq scroll-margin 0)
@@ -77,6 +91,20 @@
 ;; Timestamp
 (setq time-stamp-start "Time-stamp:[ \t]*<")
 (setq time-stamp-end ">")
+
+
+;; install-elisp
+;(install-elisp-from-emacswiki "install-elisp.el")
+;(require 'install-elisp)
+;(setq install-elisp-repository-directory "~/.emacs.d/elisp/")
+
+
+;; auto-install
+;(install-elisp-from-emacswiki "auto-install.el")
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.d/elisp/")
+(auto-install-update-emacswiki-package-name t)
+(auto-install-compatibility-setup)
 
 
 ;; instamp

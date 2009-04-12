@@ -1,3 +1,4 @@
+;; wicked/org-update-checkbox-count
 ;; http://sachachua.com/wp/2008/01/18/outlining-your-notes-with-org/
 (defun wicked/org-update-checkbox-count (&optional all)
   "Update the checkbox statistics in the current section.
@@ -54,7 +55,7 @@ do this for the whole buffer."
 	(message "Checkbox statistics updated %s (%d places)"
 		 (if all "in entire file" "in current outline entry")
 		 cstat)))))
-(defadvice org-update-checkbox-count (around wicked activate)
-  "Fix the built-in checkbox count to understand headlines."
-  (setq ad-return-value
-	(wicked/org-update-checkbox-count (ad-get-arg 1))))
+;(defadvice org-update-checkbox-count (around wicked activate)
+;  "Fix the built-in checkbox count to understand headlines."
+;  (setq ad-return-value
+;	(wicked/org-update-checkbox-count (ad-get-arg 1))))
