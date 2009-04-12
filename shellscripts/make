@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Cwd;
+use File::Basename;
+
+my $make_program = '/usr/bin/make';
+
+my $makefile;
+my @args = @ARGV;
+
+for (@args) {
+    if (/^-f (.+)$|^--file=(.+)$|^--makefile=(.+)$/) {
+        $makefile = $1;
+        last;
+    }
+}
+
+if (!defined $makefile) {
+    my $dir = getcwd;
+    while (!defined $makefile) {
+        for my $name (qw/Makefile makefile GNUmakefile/) {
+            if (-f "$dir/$name") {
+                $makefile = "$dir/$name";
+                unshift @args, "--file=$makefile";
+                chdir $dir;
+                last;
+            }
+        }
+
+        if (!defined $makefile) {
+            my $newdir = dirname($dir);
+            last if $dir eq $newdir;
+            $dir = $newdir;
+        }
+    }
+}
+
+if (defined $makefile) {
+    my $pragma_args = 0;
+    if (open my $fh, '<', $makefile) {
+        while (<$fh>) {
+            last unless /^#/;
+            chomp;
+            $pragma_args = 1 if $_ eq '#pragma args';
+        }
+        close $fh;
+    }
+
+    if ($pragma_args && @args > 0) {
+        my $target;
+        my $args = '';
+        for (my $i = 0, my $j = 1; $i < @args; $i++) {
+            my $arg = $args[$i];
+            if ($arg !~ /^-/) {
+                if (defined $target) {
+                    $args[$i] = "ARG$j=$arg";
+                    $j++;
+                    $args .= ' ' if $args;
+                    $args .= "$arg";
+                } else {
+                    $target = $arg;
+                }
+            }
+        }
+        push @args, "ARGS=$args";
+    }
+}
+
+exec($make_program, @args);
