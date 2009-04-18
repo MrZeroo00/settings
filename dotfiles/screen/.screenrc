@@ -110,10 +110,10 @@ bind -c resize j eval 'resize +1' 'command -c resize'
 bind -c resize k eval 'resize -1' 'command -c resize'
 
 # copy to X clipboard
-bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! xclip /tmp/screen-exchange' 'msgwait 2'
-bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! xclip /tmp/screen-exchange' 'msgwait 2'
-bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! xclip /tmp/screen-exchange' 'msgwait 2'
-bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! xclip /tmp/screen-exchange' 'msgwait 2'
+bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
+bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
+bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
+bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
 
 # launcher
 bind -c LAUNCHER w screen w3m http://www.google.co.jp/
