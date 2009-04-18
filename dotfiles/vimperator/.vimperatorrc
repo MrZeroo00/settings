@@ -55,7 +55,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'mouseinspect',
     'migemized_find',
     'migemo_completion',
-//   'migemo_hint',
+    'migemo_hint',
 //   'migratestatusbar',
     'multi_requester',
     'nextlink',
@@ -189,6 +189,11 @@ set! ui.key.generalAccessKey=0
 " spell check
 set! layout.spellcheckDefault=2
 set! spellchecker.dictionary=en-US
+
+
+"" QuickMarks --------------------
+qmark g https://mail.google.com/
+qmark l http://reader.livedoor.com/reader/
 
 
 "" plugin settings --------------------
