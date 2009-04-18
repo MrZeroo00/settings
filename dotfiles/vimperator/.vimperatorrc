@@ -48,17 +48,20 @@ liberator.globalVariables.plugin_loader_plugins = [
 "    'relatedBlogSearch',
     'relative_move',
 "    'sbmcommentsviewer',
+    'scenario-actor',
     'scroll_div',
 "    'speeddial',
 "    'spellchecker',
     'splitBrowser',
 "    'stella',
+    'tinymenu',
     'toggler',
     'tombloo',
 "    'twitter',
 "    'uaSwitch',
     'ubiquity',
     'walk-input',
+    'xpath_hint',
     'xpathBlink',
     'yetmappings',
 "    'youtubeamp'
@@ -86,6 +89,7 @@ map <C-{> :tabmove! -1<CR>
 "noremap <Space> :forward<CR>
 "noremap b :back<CR>
 noremap U :open<Space>
+noremap B :buffer<Space>
 
 noremap <C-G> <Esc>
 
@@ -97,8 +101,8 @@ noremap <C-G> <Esc>
 "map! :set invusermode<CR>
 
 " change guioptions
-map <A-b> :set guioptions+=b<CR>
-map <A-B> :set guioptions-=b<CR>
+"map <A-b> :set guioptions+=b<CR>
+"map <A-B> :set guioptions-=b<CR>
 " Unhidden and hidden the menubar and the toolbar
 map <A-Up> :set guioptions+=mT<CR>
 map <A-Down> :set guioptions-=mT<CR>
