@@ -155,7 +155,7 @@ cnoremap <C-r>* <S-Insert>
 
 "" options --------------------
 "set complete=bSl
-set complete=bhs
+set complete=bl
 "set defsearch=g
 set editor='gvim -f'
 set focuscontent
