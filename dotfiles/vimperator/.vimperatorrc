@@ -157,7 +157,7 @@ cnoremap <C-r>* <S-Insert>
 "set complete=bSl
 set complete=bl
 "set defsearch=g
-set editor='gvim -f'
+set editor='emacsclient -a emacs -n'
 set focuscontent
 set guioptions+=Brn
 set hintmatching=custom

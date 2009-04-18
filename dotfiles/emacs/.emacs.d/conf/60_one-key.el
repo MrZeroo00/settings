@@ -42,5 +42,5 @@
 
 ;; one-key-default
 ;(install-elisp-from-emacswiki "one-key-default.el")
-(require 'one-key-default)
-(one-key-default-setup-keys)
+;(require 'one-key-default)
+;(one-key-default-setup-keys)
