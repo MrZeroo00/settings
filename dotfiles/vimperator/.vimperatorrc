@@ -125,8 +125,8 @@ noremap <C-G> <Esc>
 "map! :set invusermode<CR>
 
 " change guioptions
-"map <A-b> :set guioptions+=b<CR>
-"map <A-B> :set guioptions-=b<CR>
+map <A-b> :set guioptions+=b<CR>
+map <A-B> :set guioptions-=b<CR>
 " Unhidden and hidden the menubar and the toolbar
 map <A-Up> :set guioptions+=mT<CR>
 map <A-Down> :set guioptions-=mT<CR>
@@ -154,11 +154,12 @@ cnoremap <C-r>* <S-Insert>
 
 
 "" options --------------------
-set complete=bSl
+"set complete=bSl
+set complete=bhs
 "set defsearch=g
 set editor='gvim -f'
 set focuscontent
-set guioptions+=Brbn
+set guioptions+=Brn
 set hintmatching=custom
 set history=1000
 set hlsearch
