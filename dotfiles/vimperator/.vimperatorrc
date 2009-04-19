@@ -19,7 +19,7 @@ liberator.globalVariables.plugin_loader_plugins = [
 //   'cookie',
     'copy',
 //   'cpan-search',
-//   'delicious_search',
+    'delicious_search',
     'direct_bookmark',
     'encodingSwitcherCommand',
 //   'every',
