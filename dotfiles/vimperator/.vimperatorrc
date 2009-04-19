@@ -200,6 +200,9 @@ qmark l http://reader.livedoor.com/reader/
 " browser_object.js
 let g:browser_object_prefix = ','
 
+" char-hints-mod2.js
+let g:hintchars="ASDFGHJKL"
+
 " copy.js
 javascript <<EOM
 liberator.globalVariables.copy_templates = [
