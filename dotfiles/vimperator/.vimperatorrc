@@ -13,7 +13,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'browser_object',
 //   'bufferecho',
     'caret-hint',
-//   'char-hints-mod2',
+    'char-hints-mod2',
     'commandBookmarklet',
     'command_menu',
 //   'cookie',
