@@ -113,7 +113,6 @@ map <C-{> :tabmove! -1<CR>
 "noremap <Space> :forward<CR>
 "noremap b :back<CR>
 noremap U :open<Space>
-noremap B :buffers<CR>
 
 noremap <C-G> <Esc>
 
@@ -134,7 +133,7 @@ map <A-Down> :set guioptions-=mT<CR>
 noremap ,t :mb tumblr.reblog<CR>
 noremap ,rlater :bmlreadlater<CR>
 noremap ,bmark :sbm [archive]<CR>
-noremap ,dic :menu 表示-サイドバー-Mouseover_Dictionary<CR>
+noremap ,dic :sidebar Mouseover Dictionary<CR>
 noremap ,ever :menu ツール-Add_to_Evernote<CR>
 noremap ,love :menu ツール-Fire.fm-Love<CR>
 noremap ,block :menu ツール-Fire.fm-禁止<CR>
@@ -155,7 +154,7 @@ cnoremap <C-r>* <S-Insert>
 
 "" options --------------------
 "set complete=bSl
-set complete=bl
+set complete=l
 "set defsearch=g
 set editor='emacsclient -a emacs -n'
 set focuscontent
@@ -168,7 +167,7 @@ set suggestengines='g,w'
 "set titlestring=Vimperator
 "set verbose=9
 set visualbell
-"set wildoptions=auto
+set wildoptions=auto
 "]]
 set nextpattern+='next, 次(の)?ページ,\b次.*,→\b,下一頁,Следующая,다음'
 "[[
