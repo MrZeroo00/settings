@@ -1,5 +1,5 @@
 "" plugin_loader
-let g:plugin_loader_roots = '/Users/tanda/.vimperator/_plugin/coderepos';
+let g:plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/other';
 javascript <<EOM
 liberator.globalVariables.plugin_loader_plugins = [
     '_libly',
@@ -80,6 +80,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'tinymenu',
     'toggler',
     'tombloo',
+    'treeStyleTab',
 //   'twitter',
 //   'uaSwitch',
     'ubiquity',
