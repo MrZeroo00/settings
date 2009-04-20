@@ -1,1 +1,0 @@
-../_plugin/coderepos/proxy.js

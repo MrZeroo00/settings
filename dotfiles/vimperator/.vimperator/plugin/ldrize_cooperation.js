@@ -1,1 +1,0 @@
-../_plugin/coderepos/ldrize_cooperation.js

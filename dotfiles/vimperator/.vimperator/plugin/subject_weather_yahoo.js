@@ -1,1 +1,0 @@
-../_plugin/coderepos/notifier/subject_weather_yahoo.js
