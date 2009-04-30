@@ -15,6 +15,6 @@ emacs-byte-compile:
 
 submit-memo:
 	cd ~/memo && \
-	git commit -m "`date '+%Y/%m/%d'`"
+	git commit -a -m "`date '+%Y/%m/%d'`"
 
 -include ~/Makefile.local
