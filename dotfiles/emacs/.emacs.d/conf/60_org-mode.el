@@ -20,8 +20,25 @@
 (setq org-deadline-warning-days 7)
 
 
-(setq org-todo-keywords '("TODO" "NEXT" "WAITING" "PROJECT" "MAYBE" "DONE" "REFERENCE")
-      org-todo-interpretation 'sequence)
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "PROJECT(p)" "MAYBE(m@)" "REFERENCE(r)" "|" "DONE(d!)" "DELEGATED")
+	(sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
+	(sequence "|" "CANCELED")))
+(setq org-todo-keyword-faces
+      '(("TODO"       . (:foreground "pink"))
+	("NEXT"       . (:foreground "yellow" :weight bold))
+	("WAITING"    . (:foreground "red" :weight bold))
+	("PROJECT"    . (:foreground "purple"))
+	("MAYBE"      . shadow)
+	("REFERENCE"  . shadow)
+	("DONE"       . shadow)
+	("DELEGATED"  . shadow)
+	("REPORT"     . (:foreground "pink"))
+	("BUG"        . (:foreground "yellow" :weight bold))
+	("KNOWNCAUSE" . shadow)
+	("FIXED"      . shadow)
+	("CANCELED"   . shadow)
+	))
 
 (setq org-tag-alist
       '(("@office" . ?o)
@@ -124,3 +141,5 @@
   "Fix the built-in checkbox count to understand headlines."
   (setq ad-return-value
 	(wicked/org-update-checkbox-count (ad-get-arg 1))))
+(load "_org-summary-todo")
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
