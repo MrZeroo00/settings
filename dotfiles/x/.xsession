@@ -17,4 +17,8 @@ xscreensaver -no-splash &
 
 gnome-do &
 
+gnome-terminal &
+/usr/bin/emacs &
+firefox &
+
 awesome || xterm
