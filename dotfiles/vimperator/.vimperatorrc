@@ -132,6 +132,7 @@ map <A-Up> :set guioptions+=mT<CR>
 map <A-Down> :set guioptions-=mT<CR>
 
 noremap ,t :mb tumblr.reblog<CR>
+noremap ,re :tombloo ReBlog\ -\ Tumblr<CR> d
 noremap ,rlater :bmlreadlater<CR>
 noremap ,bmark :sbm [archive]<CR>
 noremap ,dic :sidebar Mouseover Dictionary<CR>

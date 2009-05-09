@@ -2,7 +2,7 @@
 ;; http://d.hatena.ne.jp/rubikitch/20090121/1232468026
 (defvar org-code-reading-software-name nil)
 ;; ~/memo/code-reading.org に記録する
-(defvar org-code-reading-file "code-reading.org")
+(defvar org-code-reading-file (concat org-directory "code-reading.org"))
 (defun org-code-reading-read-software-name ()
   (set (make-local-variable 'org-code-reading-software-name)
        (read-string "Code Reading Software: "
