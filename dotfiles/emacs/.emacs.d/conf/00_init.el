@@ -93,6 +93,10 @@
 (setq time-stamp-end ">")
 
 
+;; Locale
+(setenv "LC_TIME" "C")
+
+
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
 ;(require 'install-elisp)
