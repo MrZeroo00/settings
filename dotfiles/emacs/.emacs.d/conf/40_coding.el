@@ -230,7 +230,7 @@
 
 ;; gud
 ;(require 'gud)
-(setq gud-gdb-command-name "gdb --annotate=3")
+(setq gud-gdb-command-name "gdb -annotate=3")
 
 
 ;; ipa (in place annotations)

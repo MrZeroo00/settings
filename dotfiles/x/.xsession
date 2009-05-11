@@ -12,8 +12,8 @@ synergys -f --config $HOME/.synergy.conf &
 #synergyc --name alp-tanda_right --display :0.1 K070323-19
 #cairo-clock &
 #stardict &
-#xautolock -secure -locker /usr/bin/xlock -mode dilemma -time 30 &
-xscreensaver -no-splash &
+xautolock -secure -locker /usr/bin/xlock -time 3 &
+#xscreensaver -no-splash &
 
 gnome-do &
 

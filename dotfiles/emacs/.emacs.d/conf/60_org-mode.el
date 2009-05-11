@@ -61,6 +61,13 @@
           (todo "WAITING")
           (todo "MAYBE")
 	  ))
+        ;; Today's Action
+        ("D" "Today's Action"
+         ((agenda "" ((org-agenda-ndays 1)))
+          (stuck "")
+          (todo "NEXT")
+          (todo "TODO")
+	  ))
         ;; GTD contexts
         ("g" . "GTD contexts")
         ("go" "Office" tags-todo "@office")
@@ -93,7 +100,7 @@
                       (org-agenda-todo-keyword-format "[ ]")
                       (org-agenda-scheduled-leaders '("" ""))
                       (org-agenda-prefix-format "%t%s")))
-          (todo "TODO"
+          (todo "NEXT"
                 ((org-agenda-prefix-format "[ ] %T: ")
                  (org-agenda-sorting-strategy '(tag-up priority-down))
                  (org-agenda-todo-keyword-format "")
