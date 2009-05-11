@@ -23,3 +23,7 @@ end
 define hook-quit
   save-breakpoints .gdb_breakpoints
 end
+
+define timestamp
+  shell date "+%H:%M:%S"
+end
