@@ -27,6 +27,8 @@
 ;; gdb
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)
+(add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t)))
+(setq gud-tooltip-echo-area nil)
 
 
 ;; generic (coloring generic files)
