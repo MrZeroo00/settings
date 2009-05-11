@@ -12,3 +12,14 @@ set print demangle
 set print static-members off
 set print vtbl off
 set charset ASCII
+
+define hookpost-run
+  source .gdb_breakpoints
+end
+define hookpost-continue
+  source .gdb_breakpoints
+end
+
+define hook-quit
+  save-breakpoints .gdb_breakpoints
+end
