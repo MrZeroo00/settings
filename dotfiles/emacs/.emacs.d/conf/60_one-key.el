@@ -2,7 +2,7 @@
 (require 'one-key)
 (require 'one-key-config)
 (setq max-lisp-eval-depth 10000)
-(setq max-specpdl-size 20000)
+(setq max-specpdl-size 50000)
 
 
 ;; Gtags menu
