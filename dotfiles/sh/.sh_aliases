@@ -29,6 +29,7 @@ alias grep='egrep'
 alias psgrep='ps aux | egrep'
 alias w3m='LANG="" w3m'
 alias web='w3m http://www.google.co.jp/'
+alias gdb='gdb -silent'
 alias gvim-remote='gvim --remote-silent'
 
 # OS specific aliases
