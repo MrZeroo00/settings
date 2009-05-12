@@ -186,7 +186,8 @@ set cinoptions=t0
 
 " backup setting
 set backupdir=$HOME/etc/backup/vim/,/tmp
-set nowritebackup
+set backup
+set writebackup
 set directory=.,/tmp
 
 " other setting
