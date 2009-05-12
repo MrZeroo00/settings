@@ -195,6 +195,7 @@ set! spellchecker.dictionary=en-US
 "" QuickMarks --------------------
 qmark g https://mail.google.com/
 qmark l http://reader.livedoor.com/reader/
+qmark b http://del.icio.us/tanda/
 
 
 "" plugin settings --------------------
@@ -335,5 +336,8 @@ EOM
 "source! $HOME/.vimperatorrc.local
 
 echo "Get ready!!"
+
+" cache sbm tags
+btags
 
 " vim: set ft=vimperator:
