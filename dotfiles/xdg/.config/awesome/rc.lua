@@ -67,6 +67,19 @@ apptags =
     -- ["mocp"] = { screen = 2, tag = 4 },
 }
 
+-- Utility function
+function xrandr_screens ()
+    local screens = {}
+    local counter = 1
+    local handle = io.popen("xrandr -q")
+    for display in handle:read("*all"):gmatch("([%a%d-]+) connected") do
+        screens[display] = counter
+        counter = counter + 1
+    end
+    handle:close()
+    return screens
+end
+
 -- Define if we want to use titlebar on all applications.
 use_titlebar = false
 -- }}}
