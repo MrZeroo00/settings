@@ -64,6 +64,8 @@ apptags =
 {
     ["Firefox"] = { screen = 1, tag = 2 },
     ["Thunderbird"] = { screen = 1, tag = 3 },
+    ["p4v"] = { screen = 1, tag = 4 },
+    ["alp-sim"] = { screen = 2, tag = 5 },
     -- ["mocp"] = { screen = 2, tag = 4 },
 }
 
