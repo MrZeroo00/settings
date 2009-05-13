@@ -491,6 +491,7 @@ keybinding({ modkey }, "d", function ()
 end):add()
 -- }}}
 
+
 -- rotate clients and focus master...
 keybinding({ modkey }, "Tab", function ()
     local allclients = awful.client.visible(client.focus.screen)
@@ -512,3 +513,107 @@ keybinding({ modkey, "Shift" }, "Tab", function ()
     end
     awful.client.focus.byidx(1)
 end):add()
+
+
+-- set the desired pixel coordinates:
+--  if your screen is 1024x768 the this line sets the bottom right.
+local safeCoords = {x=1024, y=768}
+--  this line sets top middle(ish).
+local safeCoords = {x=512, y=0}
+-- Flag to tell Awesome whether to do this at startup.
+local moveMouseOnStartup = true
+
+-- Simple function to move the mouse to the coordinates set above.
+local function moveMouse(x_co, y_co)
+    mouse.coords({ x=x_co, y=y_co })
+end
+
+-- Bind ''Meta4+Ctrl+m'' to move the mouse to the coordinates set above.
+--   this is useful if you needed the mouse for something and now want it out of the way
+keybinding({ modkey, "Control" }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end):add()
+
+-- Optionally move the mouse when rc.lua is read (startup)
+if moveMouseOnStartup then
+    moveMouse(safeCoords.x, safeCoords.y)
+end
+
+
+-- Drop-down terminal
+dropdown = {}
+
+function dropdown_toggle(prog, height, screen)
+    if screen == nil then screen = mouse.screen end
+    if height == nil then height = 0.2 end
+
+    if not dropdown[prog] then
+        -- Create table
+        dropdown[prog] = {}
+
+        -- Add unmanage hook for dropdown programs
+        awful.hooks.unmanage.register(function (c)
+            for scr, cl in pairs(dropdown[prog]) do
+                if cl == c then
+                    dropdown[prog][scr] = nil
+                end
+            end
+        end)
+    end
+
+    if not dropdown[prog][screen] then
+        spawnw = function (c)
+            -- Store client
+            dropdown[prog][screen] = c
+
+            -- Float client
+            awful.client.floating.set(c, true)
+
+            -- Get screen geometry
+            screengeom = screen[screen].workarea
+
+            -- Calculate height
+            if height < 1 then
+                height = screengeom.height*height
+            end
+
+            -- Resize client
+            c:geometry({
+                x = screengeom.x,
+                y = screengeom.y,
+                width = screengeom.width,
+                height = height
+            })
+
+            -- Mark terminal as ontop
+            c.ontop = true
+            c.above = true
+
+            -- Focus and raise client
+            c:raise()
+            client.focus = c
+
+            -- Remove hook
+            awful.hooks.manage.unregister(spawnw)
+        end
+
+        -- Add hook
+        awful.hooks.manage.register(spawnw)
+
+        -- Spawn program
+        awful.util.spawn(prog)
+    else
+        -- Get client
+        c = dropdown[prog][screen]
+
+        -- Switch the client to the current workspace
+        awful.client.movetotag(awful.tag.selected(screen), c)
+
+        -- Focus and raise if not hidden
+        if c.hide then
+            c.hide = false
+            c:raise()
+            client.focus = c
+        else
+            c.hide = true
+        end
+    end
+end
