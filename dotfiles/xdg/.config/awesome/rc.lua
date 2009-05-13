@@ -490,3 +490,25 @@ keybinding({ modkey }, "d", function ()
     nil, awful.util.getdir("cache") .. "/dict")
 end):add()
 -- }}}
+
+-- rotate clients and focus master...
+keybinding({ modkey }, "Tab", function ()
+    local allclients = awful.client.visible(client.focus.screen)
+
+    for i,v in ipairs(allclients) do
+        if allclients[i+1] then
+            allclients[i+1]:swap(v)
+        end
+    end
+    awful.client.focus.byidx(-1)
+end):add()
+
+-- ... the other way 'round!
+keybinding({ modkey, "Shift" }, "Tab", function ()
+    local allclients = awful.client.visible(client.focus.screen)
+
+    for i,v in ipairs(allclients) do
+        allclients[1]:swap(allclients[i])
+    end
+    awful.client.focus.byidx(1)
+end):add()
