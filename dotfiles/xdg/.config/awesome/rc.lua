@@ -55,7 +55,7 @@ floatapps =
     ["pinentry"] = true,
     ["gimp"] = true,
     -- by instance
-    ["mocp"] = true
+    ["mocp"] = true,
 }
 
 -- Applications to be moved to a pre-defined tag by class or instance.
@@ -347,6 +347,7 @@ end
 awful.hooks.focus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_focus
+        c.opacity = beautiful.client_opacity_focus
     end
 end)
 
@@ -354,17 +355,20 @@ end)
 awful.hooks.unfocus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_normal
+        c.opacity = beautiful.client_opacity_normal
     end
 end)
 
 -- Hook function to execute when marking a client
 awful.hooks.marked.register(function (c)
     c.border_color = beautiful.border_marked
+    c.opacity = beautiful.client_opacity_marked
 end)
 
 -- Hook function to execute when unmarking a client.
 awful.hooks.unmarked.register(function (c)
     c.border_color = beautiful.border_focus
+    c.opacity = beautiful.client_opacity_focus
 end)
 
 -- Hook function to execute when the mouse enters a client.

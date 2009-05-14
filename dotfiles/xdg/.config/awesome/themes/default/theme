@@ -17,6 +17,10 @@ border_normal = #000000
 border_focus  = #535d6c
 border_marked = #91231c
 
+client_opacity_normal = 0.5
+client_opacity_focus = 1.0
+client_opacity_marked = 1.0
+
 # There are another variables sets
 # overriding the default one when
 # defined, the sets are:
