@@ -20,6 +20,7 @@ noremap <C-{> :tabmove! -1<CR>
 noremap U :open<Space>
 
 noremap <C-G> <Esc>
+map U :undo<Space>
 "noremap p <Nop>
 "noremap P <Nop>
 "noremap gP <Nop>
@@ -62,7 +63,7 @@ cnoremap <C-r>* <S-Insert>
 
 
 "" commands --------------------
-command -nargs=* mr alc <args>
+command -nargs=+ mr alc <args>
 
 
 "" options --------------------
@@ -94,6 +95,7 @@ colorscheme my
 "" set preferences --------------------
 set! accessibility.typeaheadfind.casesensitive=1
 set! browser.enabel_automatic_image_resizing=false
+set! browser.sessionstore.max_tabs_undo=20
 "set! browser.tabs.tabMinWidth=50
 set! browser.urlbar.maxRichResults=20
 set! layout.word_select.eat_space_to_next_word=false
