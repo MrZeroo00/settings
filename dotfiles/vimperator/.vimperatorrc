@@ -12,37 +12,39 @@ noremap <C-q> :tabclose<CR>
 noremap } gt
 noremap { gT
 " move current tab left/right
-map <C-}> :tabmove! +1<CR>
-map <C-{> :tabmove! -1<CR>
+noremap <C-}> :tabmove! +1<CR>
+noremap <C-{> :tabmove! -1<CR>
 
 "noremap <Space> :forward<CR>
 "noremap b :back<CR>
 noremap U :open<Space>
 
 noremap <C-G> <Esc>
+"noremap p <Nop>
+"noremap P <Nop>
 
 " set/jump mark-a
 "noremap _ ma
 "noremap } `a
 
 " disable css
-"map! :set invusermode<CR>
+"noremap! :set invusermode<CR>
 
 " change guioptions
-map <A-b> :set guioptions+=b<CR>
-map <A-B> :set guioptions-=b<CR>
+noremap <A-b> :set guioptions+=b<CR>
+noremap <A-B> :set guioptions-=b<CR>
 " Unhidden and hidden the menubar and the toolbar
-map <A-Up> :set guioptions+=mT<CR>
-map <A-Down> :set guioptions-=mT<CR>
+noremap <A-Up> :set guioptions+=mT<CR>
+noremap <A-Down> :set guioptions-=mT<CR>
 
-noremap ,t :mb tumblr.reblog<CR>
-noremap ,re :tombloo ReBlog\ -\ Tumblr<CR> d
-noremap ,rlater :bmlreadlater<CR>
-noremap ,bmark :sbm [archive]<CR>
-noremap ,dic :sidebar Mouseover Dictionary<CR>
-noremap ,ever :menu ツール-Add_to_Evernote<CR>
-noremap ,love :menu ツール-Fire.fm-Love<CR>
-noremap ,block :menu ツール-Fire.fm-禁止<CR>
+let mapleader = ","
+noremap <Leader>re :tombloo ReBlog\ -\ Tumblr<CR> d
+noremap <Leader>rlater :bmlreadlater<CR>
+noremap <Leader>bmark :sbm [archive]<CR>
+noremap <Leader>mdic :sidebar Mouseover Dictionary<CR>
+noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
+noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
+noremap <Leader>block :menu ツール-Fire.fm-禁止<CR>
 
 " command line
 "cnoremap <C-A> <Home>
@@ -56,6 +58,10 @@ cnoremap <Esc>b <S-Left>
 "cnoremap <C-p> <S-Tab>
 " compatibility with vim
 cnoremap <C-r>* <S-Insert>
+
+
+"" commands --------------------
+command -nargs=* mr alc <args>
 
 
 "" options --------------------
