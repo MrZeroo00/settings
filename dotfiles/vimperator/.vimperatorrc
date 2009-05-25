@@ -22,6 +22,7 @@ noremap U :open<Space>
 noremap <C-G> <Esc>
 "noremap p <Nop>
 "noremap P <Nop>
+"noremap gP <Nop>
 
 " set/jump mark-a
 "noremap _ ma
