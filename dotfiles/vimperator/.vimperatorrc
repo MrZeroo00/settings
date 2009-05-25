@@ -101,6 +101,9 @@ set! spellchecker.dictionary=en-US
 command -nargs=+ mr alc <args>
 
 
+"" abbreviations --------------------
+
+
 "" colorscheme --------------------
 colorscheme my
 
@@ -244,13 +247,12 @@ var feedButton = document.getElementById('feed-button');
 EOM
 
 
-"" abbreviations --------------------
-
-" cache sbm tags
-btags
-
 "source! $HOME/.vimperatorrc.local
 
 echo "Get ready!!"
+
+loadplugins
+" cache sbm tags
+btags
 
 " vim: set ft=vimperator:
