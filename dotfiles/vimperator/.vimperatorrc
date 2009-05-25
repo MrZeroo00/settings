@@ -20,7 +20,7 @@ noremap <C-{> :tabmove! -1<CR>
 noremap U :open<Space>
 
 noremap <C-G> <Esc>
-map U :undo<Space>
+noremap U :undo<Space>
 "noremap p <Nop>
 "noremap P <Nop>
 "noremap gP <Nop>
@@ -62,10 +62,6 @@ cnoremap <Esc>b <S-Left>
 cnoremap <C-r>* <S-Insert>
 
 
-"" commands --------------------
-command -nargs=+ mr alc <args>
-
-
 "" options --------------------
 "set complete=bSl
 set complete=l
@@ -88,10 +84,6 @@ set nextpattern+='next, 次(の)?ページ,\b次.*,→\b,下一頁,Следую�
 set previouspattern+='prev, 前(の)?ページ,\b前.*,\b←'
 
 
-"" colorscheme --------------------
-colorscheme my
-
-
 "" set preferences --------------------
 set! accessibility.typeaheadfind.casesensitive=1
 set! browser.enabel_automatic_image_resizing=false
@@ -103,6 +95,14 @@ set! ui.key.generalAccessKey=0
 " spell check
 set! layout.spellcheckDefault=2
 set! spellchecker.dictionary=en-US
+
+
+"" commands --------------------
+command -nargs=+ mr alc <args>
+
+
+"" colorscheme --------------------
+colorscheme my
 
 
 "" QuickMarks --------------------
