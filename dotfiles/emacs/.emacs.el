@@ -105,6 +105,7 @@
 (load "50_spell")
 (load "50_vcs")
 (load "50_window")
+(load "60_change-mode")
 (load "60_dmacro")
 (load "60_doc-view")
 (load "60_hatena")

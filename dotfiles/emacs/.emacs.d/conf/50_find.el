@@ -107,3 +107,5 @@
 ;(define-key isearch-mode-map "\C-d" 'isearch-yank-char)
 (load "_isearch-real-delete-char")
 ;(define-key isearch-mode-map "\C-o" 'isearch-real-delete-char)
+;(load "_isearch-forward-comment-only")
+(load "_my-igrep")

@@ -35,6 +35,12 @@
 ;(shell-command-completion-mode)
 
 
+;; background
+;; http://www.jgk.org/src/background.el
+;(global-set-key "\M-!" 'background)
+;(autoload 'background "background" nil t)
+
+
 ;; pcomplete
 ;(add-hook 'shell-mode-hook 'pcomplete-shell-setup)
 

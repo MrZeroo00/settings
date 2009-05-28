@@ -91,7 +91,6 @@
                                  ))
 
 
-;; find-tag
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=tagsfile%20maker
 ;(defadvice find-tag (before c-tag-file activate)
 ;  "Automatically create tags file."
