@@ -318,6 +318,11 @@
 ;(ad-activate 'font-lock-mode)
 
 
+;; face-list
+;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
+(require 'face-list)
+
+
 (add-hook 'change-log-mode-hook
           (lambda ()
             (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
