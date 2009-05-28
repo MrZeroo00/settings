@@ -320,7 +320,7 @@
 
 ;; face-list
 ;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
-(require 'face-list)
+;(require 'face-list)
 
 
 (add-hook 'change-log-mode-hook
