@@ -79,6 +79,7 @@
 (setq scroll-conservatively 35)
 (setq scroll-margin 0)
 (setq scroll-step 1)
+(setq scroll-preserve-screen-position t)
 
 ;; Language
 ;;(require 'un-define)
@@ -166,3 +167,4 @@
 ;(load "_visible-mark-mode")
 ;(load "_egoge-wash-out-colour")
 (load "_elisp-font-lock-top-quote")
+(load "_line-to-top-of-window")

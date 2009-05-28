@@ -110,5 +110,6 @@
 (load "_delete-file-if-no-contents")
 (if (not (memq 'delete-file-if-no-contents after-save-hook))
     (add-hook 'after-save-hook 'delete-file-if-no-contents))
-;(load "_file_cache_read_save_cache")
+;(load "_file-cache-read-save-cache")
 ;(file-cache-read-cache-from-file "~/.emacs.d/.file_cache")
+;(load "_Yama-binary-file-view")
