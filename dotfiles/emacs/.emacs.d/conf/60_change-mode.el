@@ -1,3 +1,5 @@
+;; change-mode
+;; http://groups.google.com/group/gnu.emacs.sources/browse_thread/thread/1d0959df36561739/a322fe45d233d964?#a322fe45d233d964
 (autoload 'change-mode "change-mode"
   "Show changes in a distincive face" t)
 

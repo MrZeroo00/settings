@@ -52,6 +52,14 @@
 (setq ffap-kpathsea-depth 5)
 
 
+;; highlight-completion
+;(install-elisp "http://www.math.washington.edu/~palmieri/Emacs/Hlc/highlight-completion.el")
+(setq hc-ctrl-x-c-is-completion t)
+(require 'highlight-completion)
+(highlight-completion-mode t)
+(global-set-key "\C-\\" 'toggle-input-method)
+
+
 ;; saveplace (save cursor position in last edit session)
 ;(load "saveplace")
 ;(setq-default save-place t)

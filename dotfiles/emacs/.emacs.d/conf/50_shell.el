@@ -36,7 +36,7 @@
 
 
 ;; background
-;; http://www.jgk.org/src/background.el
+;(install-elisp "http://www.jgk.org/src/background.el")
 ;(global-set-key "\M-!" 'background)
 ;(autoload 'background "background" nil t)
 
