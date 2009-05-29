@@ -1,5 +1,6 @@
 ;(install-elisp-from-emacswiki "anything.el")
 ;(install-elisp-from-emacswiki "anything-config.el")
+;(install-elisp-from-emacswiki "anything-show-completion.el")
 (require 'anything)
 (require 'anything-config)
 
