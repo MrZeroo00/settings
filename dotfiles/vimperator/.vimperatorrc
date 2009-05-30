@@ -40,7 +40,8 @@ noremap <A-Up> :set guioptions+=mT<CR>
 noremap <A-Down> :set guioptions-=mT<CR>
 
 let mapleader = ","
-noremap <Leader>re :tombloo ReBlog\ -\ Tumblr<CR> d
+noremap <Leader>re :mb reblog<CR>
+"noremap <Leader>re :tombloo ReBlog\ -\ Tumblr<CR> d
 noremap <Leader>rlater :bmlreadlater<CR>
 noremap <Leader>bmark :sbm [archive]<CR>
 noremap <Leader>mdic :sidebar Mouseover Dictionary<CR>
