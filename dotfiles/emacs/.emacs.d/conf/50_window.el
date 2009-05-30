@@ -28,7 +28,7 @@
 (global-widen-window-mode t)
 (setq ww-ratio 0.625)
 (diminish 'widen-window-mode " WW")
-;(define-key ctl-x-map "ww" 'global-widen-window-mode)
+(define-key ctl-x-map "ww" 'global-widen-window-mode)
 
 (setq ww-advised-functions
       (append '(windmove-up
