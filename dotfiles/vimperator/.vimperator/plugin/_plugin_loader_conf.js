@@ -88,4 +88,6 @@ liberator.globalVariables.plugin_loader_plugins = [
 //   'xpcom_inspector',
 //   'yetmappings',
 //   'youtubeamp',
+    'logintumblr',
+    'set_tumblr_channel_id',
 ].join(',');
