@@ -99,7 +99,7 @@ set! spellchecker.dictionary=en-US
 
 
 "" commands --------------------
-command -nargs=+ mr alc <args>
+command -nargs=+ alc mr alc <args>
 
 
 "" abbreviations --------------------
@@ -113,6 +113,23 @@ colorscheme my
 qmark g https://mail.google.com/
 qmark l http://reader.livedoor.com/reader/
 qmark b http://del.icio.us/tanda/
+
+
+"" Hints --------------------
+hints.addMode("m", "Open movie",
+  function(elem, uri) {
+    if (/^http:\/\/\w+\.youtube\.com\/watch/.test(uri) && !/&fmt=22/.test(uri)) {
+      uri += "&fmt=22";
+    }
+    liberator.open(uri, liberator.NEW_TAB);
+  },
+  function() "//a[contains(@href,'youtube.com') or contains(@href,'nicovideo.jp')]"
+);
+
+hints.addMode("i", "Focus to textbox",
+  function(elem) elem.focus(),
+  function() "//input[not(@type='hidden')] | //textarea | //xhtml:input[not(@type='hidden')] | //xhtml:textarea"
+);
 
 
 "" plugin settings --------------------

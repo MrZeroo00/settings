@@ -100,3 +100,5 @@
   (add-to-list 'default-frame-alist
                `(ime-font
                  w32-logfont "£Í£Ó ¥´¥·¥Ã¥¯" 0 0 400 0 nil nil nil 128 1 3 49)))
+
+(require 'outlookedit)
