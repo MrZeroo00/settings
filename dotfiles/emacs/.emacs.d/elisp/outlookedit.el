@@ -3,10 +3,14 @@
 ;; related actions on Outlook to get and replace text in the
 ;; reply/compose boxes allowing it to be edited in Emacs
 ;;
+;(defvar mno-get-outlook-body
+;  "tclsh C:\\Userdata\\Tcl\\grabOutlookMessage.tcl")
+;(defvar mno-put-outlook-body
+;  "tclsh C:\\Userdata\\Tcl\\putMessageInOutlook.tcl")
 (defvar mno-get-outlook-body
-  "tclsh C:\\Userdata\\Tcl\\grabOutlookMessage.tcl")
+  "cscript //B //U //Job:getMessage ~/bin/outlook_emacs.wsf")
 (defvar mno-put-outlook-body
-  "tclsh C:\\Userdata\\Tcl\\putMessageInOutlook.tcl")
+  "cscript //B //U //Job:putMessage ~/bin/outlook_emacs.wsf")
 (defvar mno-outlook-default-justification 'full)
 
 (global-set-key "\C-coe" 'mno-edit-outlook-message)
