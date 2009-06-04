@@ -116,6 +116,7 @@ qmark b http://del.icio.us/tanda/
 
 
 "" Hints --------------------
+javascript <<EOM
 hints.addMode("m", "Open movie",
   function(elem, uri) {
     if (/^http:\/\/\w+\.youtube\.com\/watch/.test(uri) && !/&fmt=22/.test(uri)) {
@@ -130,6 +131,7 @@ hints.addMode("i", "Focus to textbox",
   function(elem) elem.focus(),
   function() "//input[not(@type='hidden')] | //textarea | //xhtml:input[not(@type='hidden')] | //xhtml:textarea"
 );
+EOM
 
 
 "" plugin settings --------------------
@@ -192,6 +194,18 @@ EOM
 
 " nextlink.js
 "let g:nextlink_followlink = "true"
+
+" observer_growl.js
+javascript <<EOM
+liberator.globalVariables.observer_growl_settings = {
+    'Hatelabo bottle': { hide: true },
+    'Hatena::Message': { hide: true },
+    'liberator.echomsg': { hide: true },
+    'Twitter': { hide: true },
+    'Wassr': { hide: true },
+    'Weather forecast by Yahoo!': { sticky: true }
+};
+EOM
 
 " proxy.js
 javascript <<EOM
