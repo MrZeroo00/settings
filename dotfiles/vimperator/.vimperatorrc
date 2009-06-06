@@ -200,10 +200,10 @@ javascript <<EOM
 liberator.globalVariables.observer_growl_settings = {
     'Hatelabo bottle': { hide: true },
     'Hatena::Message': { hide: true },
-    'liberator.echomsg': { hide: true },
-    'Twitter': { hide: true },
+    'liberator.echomsg': { life: 1 },
+    'Twitter': { life: 3 },
     'Wassr': { hide: true },
-    'Weather forecast by Yahoo!': { sticky: true }
+    'Weather forecast by Yahoo!': { life: 3 }
 };
 
 liberator.globalVariables.subject_liberator_echomsg_filter = [
