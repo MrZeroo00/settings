@@ -210,6 +210,11 @@ liberator.globalVariables.subject_liberator_echomsg_filter = [
     'Auto commands for',
     '^autocommand'
 ];
+
+liberator.globalVariables.subject_weather_yahoo_urls = [
+    'http://weather.yahoo.co.jp/weather/jp/13/4410/13117/1150053.html',
+    'http://weather.yahoo.co.jp/weather/jp/13/4410/13101/1010064.html'
+];
 EOM
 
 " proxy.js
