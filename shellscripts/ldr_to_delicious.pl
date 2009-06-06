@@ -40,7 +40,7 @@ sub sbm_pins {
   my $res;
   my $real_uri;
   my $mech = WWW::Mechanize->new();
-  my $del = Net::Delicious->new( user => $id, pswd => $pass );
+  my $del = Net::Delicious->new( { user => $id, pswd => $pass } );
 
   my @pins = @{$pin_output};
   foreach my $pin (@pins) {
@@ -59,5 +59,5 @@ sub sbm_pins {
 }
 
 my $config = LoadFile($ARGV[0]) || die $!;
-my $pin_output = get_pins($config->{'ldr_id'}, $config->{'ldr_pass'});
-sbm_pins($config->{'del_id'}, $config->{'del_pass'}, $pin_output);
+my $pin_output = get_pins($config->{'ldr_id'}, $config->{'ldr_password'});
+sbm_pins($config->{'del_id'}, $config->{'del_password'}, $pin_output);
