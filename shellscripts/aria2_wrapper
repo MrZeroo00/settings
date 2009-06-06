@@ -1,0 +1,15 @@
+#!/bin/sh
+
+export LC_ALL=C
+
+opt=""
+
+if [ -n "$2" ]; then
+  opt="--referer='$2'"
+fi
+
+if [ -n "$3" ]; then
+  opt="${opt} --load-cookies='$3'"
+fi
+
+aria2c $opt "$1"
