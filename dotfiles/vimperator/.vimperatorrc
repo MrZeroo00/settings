@@ -195,7 +195,7 @@ EOM
 " nextlink.js
 "let g:nextlink_followlink = "true"
 
-" observer_growl.js
+" notifier.js
 javascript <<EOM
 liberator.globalVariables.observer_growl_settings = {
     'Hatelabo bottle': { hide: true },
@@ -205,6 +205,11 @@ liberator.globalVariables.observer_growl_settings = {
     'Wassr': { hide: true },
     'Weather forecast by Yahoo!': { sticky: true }
 };
+
+liberator.globalVariables.subject_liberator_echomsg_filter = [
+    'Auto commands for',
+    '^autocommand'
+];
 EOM
 
 " proxy.js
