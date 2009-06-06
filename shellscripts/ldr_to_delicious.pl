@@ -33,8 +33,8 @@ sub sbm_pins {
   my ($id, $pass, $pin_output) = @_;
 
   # log
-  my $now = strftime "%Y%m%d_%H%M%S", localtime;
-  open(OUT, ">$now.log");
+  my $now = strftime("%Y%m%d_%H%M%S", localtime);
+  open(OUT, ">$ENV{'HOME'}/log/del.icio.us_$now.log");
   binmode(OUT, ":utf8");
 
   my $res;
@@ -47,10 +47,11 @@ sub sbm_pins {
     $mech->get($pin->{'link'});
     $real_uri = $mech->uri();
     $res = $del->add_post({ url => $real_uri, description => $pin->{'title'}, tags => 'archive', replace => 0 });
-    print OUT "$pin->{'title'}\n";
-    print OUT "$pin->{'link'}\n";
-    print OUT "$real_uri\n";
+    print (OUT "$pin->{'title'}\n");
+    print (OUT "$pin->{'link'}\n");
+    print (OUT "$real_uri\n");
     unless ($res) {
+      printf(OUT "Error: %s\n", $real_uri);
       printf("Error: %s\n", $real_uri);
     }
     sleep(0.5);
