@@ -4,12 +4,24 @@ export LC_ALL=C
 
 opt=""
 
-if [ -n "$2" ]; then
-  opt="--referer='$2'"
+# set directory
+root_dir=`grep 'dir=' "${HOME}/.aria2/aria2.conf" | perl -pe 's%dir=%%'`
+if [ -z "${root_dir}" ]; then
+  root_dir="${HOME}/Downloads/aria2"
+  mkdir -p "${root_dir}"
 fi
 
+dir="${root_dir}/`echo $1 | perl -pe 's%(http|https|ftp)://(.+:.+@)?%%' | perl -pe 's%[^/]*$%%'`"
+opt="${opt} --dir=${dir}"
+
+# set referer
+if [ -n "$2" ]; then
+  opt="${opt} --referer='$2'"
+fi
+
+# set cookie
 if [ -n "$3" ]; then
   opt="${opt} --load-cookies='$3'"
 fi
 
-echo aria2c $opt "'$1'" >> ~/Downloads/aria2/_lst
+echo aria2c $opt "'$1'" >> "${root_dir}/_lst"

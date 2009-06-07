@@ -289,7 +289,7 @@ var feedButton = document.getElementById('feed-button');
 EOM
 
 
-"source! $HOME/.vimperatorrc.local
+source! $HOME/.vimperatorrc.local
 
 echo "Get ready!!"
 
