@@ -24,4 +24,7 @@ if [ -n "$3" ]; then
   opt="${opt} --load-cookies='$3'"
 fi
 
-echo aria2c $opt "'$1'" >> "${root_dir}/_lst"
+# set url with authentication
+url=`echo $1 | perl -pe 's%(http|https|ftp)://(.+):(.+)@(.+)%--http-user="\2" --http-pass="\3" "\1://\4"%'`
+
+echo aria2c "${opt}" "${url}" >> "${root_dir}/_lst"
