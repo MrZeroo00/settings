@@ -1,4 +1,4 @@
-liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/other';
+liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other';
 liberator.globalVariables.plugin_loader_plugins = [
     '_libly',
     '_smooziee',
