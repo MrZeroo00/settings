@@ -1,6 +1,9 @@
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 (setq ls-lisp-dirs-first t)
+(setq dired-listing-switches "-AFl")
+(setq find-ls-option '("-exec ls -AFGl {} \\;" . "-AFGl"))
+(setq grep-find-command "find . -type f -print0 | xargs -0 -e grep -ns ")
 
 
 ;; find-dired-lisp (filter file list)
