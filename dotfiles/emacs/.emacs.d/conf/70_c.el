@@ -40,12 +40,12 @@
   (cond ((file-exists-p (concat flymake-base-dir "/" "Makefile")) 'flymake-simple-make-init)
         (t 'my-flymake-gcc-init)))
 (setcdr (assoc "\\.c\\'" flymake-allowed-file-name-masks)
-        (my-flymake-cc-conditional-init))
+        (list (my-flymake-cc-conditional-init)))
 
-;(add-hook 'c-mode-common-hook
-;          '(lambda ()
-;             (flymake-mode)))
 
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (flymake-mode)))
 
 ;; eldoc
 ;(install-elisp-from-emacswiki "c-eldoc.el")
