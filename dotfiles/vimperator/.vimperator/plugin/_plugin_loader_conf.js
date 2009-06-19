@@ -51,6 +51,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'pluginManager',
     'relative_move',
     'resizable_textarea',
+    'sbmcommentsviewer',
     'scenario-actor',
     'scroll_div',
     'splitBrowser',
