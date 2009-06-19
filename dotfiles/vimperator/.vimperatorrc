@@ -187,27 +187,27 @@ liberator.globalVariables.localKeyMappings =
 [
   [/[a-z]+\.youtube\.com\/watch/,
     [
-      ['p s v m i > <'],
-      ['p', ':ytpause'],
-      ['s', ':ytseek'],
-      ['v', ':ytsize'],
-      ['m', ':ytmute'],
+      ['p s l m i > <'],
+      ['p', ':stplay'],
+      ['s', ':stseek'],
+      ['l', ':stlarge'],
+      ['m', ':stmute'],
       ['i', ':ytinfo'],
-      ['>', ':ytseek! 10'],
-      ['<', ':ytseek! -10']
+      ['>', ':stseek! 10'],
+      ['<', ':stseek! -10']
     ]
   ],
   [/www\.nicovideo\.jp\/watch\//,
     [
-      ['p s v m i c > <'],
-      ['p', ':nicopause'],
-      ['s', ':nicoseek'],
-      ['v', ':nicosize'],
-      ['m', ':nicomute'],
+      ['p s l m i c > <'],
+      ['p', ':stplay'],
+      ['s', ':stseek'],
+      ['l', ':stlarge'],
+      ['m', ':stmute'],
       ['i', ':nicoinfo'],
-      ['c', ':nicommentvisible'],
-      ['>', ':nicoseek! 10'],
-      ['<', ':nicoseek! -10']
+      ['c', ':stcomment'],
+      ['>', ':stseek! 10'],
+      ['<', ':stseek! -10']
     ]
   ]
 ];
