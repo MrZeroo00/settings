@@ -181,15 +181,15 @@ liberator.globalVariables.localKeyMappings =
 [
   [/www\.nicovideo\.jp\/watch\//,
     [
-      ['p s f m i c > <'],
-      ['p', ':nicopause', {noremap:true}],
-      ['s', ':nicoseek', {noremap:true}],
-      ['f', ':nicosize', {noremap:true}],
-      ['m', ':nicomute', {noremap:true}],
-      ['i', ':nicoinfo', {noremap:true}],
-      ['c', ':nicommentvisible', {noremap:true}],
-      ['>', ':nicoseek! 10', {noremap:true}],
-      ['<', ':nicoseek! -10', {noremap:true}]
+      ['p s v m i c > <'],
+      ['p', ':nicopause'],
+      ['s', ':nicoseek'],
+      ['v', ':nicosize'],
+      ['m', ':nicomute'],
+      ['i', ':nicoinfo'],
+      ['c', ':nicommentvisible'],
+      ['>', ':nicoseek! 10'],
+      ['<', ':nicoseek! -10']
     ]
   ]
 ];

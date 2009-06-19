@@ -13,6 +13,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'delicious_search',
     'direct_bookmark',
     'encodingSwitcherCommand',
+    'feeder',
     'feedSomeKeys_2',
     'fetchyoutube',
     'gmperator',
