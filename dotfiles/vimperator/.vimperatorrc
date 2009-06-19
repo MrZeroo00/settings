@@ -113,6 +113,7 @@ colorscheme my
 qmark g https://mail.google.com/
 qmark l http://reader.livedoor.com/reader/
 qmark b http://del.icio.us/tanda/
+qmark r http://localhost:10010/
 
 
 "" Hints --------------------
@@ -163,6 +164,7 @@ let g:direct_sbm_is_use_migemo = "true"
 autocmd LocationChange .* :fmapc
 autocmd LocationChange 'reader\\.livedoor\\.com/reader' :fmap! j k s a p o v c <Space> <S-Space> z b < >
 autocmd LocationChange 'mail\\.google\\.com/mail' :fmap! -depth 4 c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+autocmd LocationChange 'localhost:10010' :fmap! j k h l r o
 
 " ime_control.js
 let g:ex_ime_mode = "inactive"
@@ -171,6 +173,27 @@ let g:ex_ime_mode = "inactive"
 let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']"
 let g:ldrc_intelligence_bind = "true"
 let g:ldrc_skip = "0.25"
+
+" localkeymode.js
+let g:localkeymode_enable = "true"
+javascript <<EOM
+liberator.globalVariables.localKeyMappings =
+[
+  [/www\.nicovideo\.jp\/watch\//,
+    [
+      ['p s f m i c > <'],
+      ['p', ':nicopause', {noremap:true}],
+      ['s', ':nicoseek', {noremap:true}],
+      ['f', ':nicosize', {noremap:true}],
+      ['m', ':nicomute', {noremap:true}],
+      ['i', ':nicoinfo', {noremap:true}],
+      ['c', ':nicommentvisible', {noremap:true}],
+      ['>', ':nicoseek! 10', {noremap:true}],
+      ['<', ':nicoseek! -10', {noremap:true}]
+    ]
+  ]
+];
+EOM
 
 " multi_requester.js
 javascript <<EOM

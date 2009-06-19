@@ -25,6 +25,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'ldrize_cooperation',
     'ldrize_cooperation_fetch_flv',
     'lo',
+    'localkeymode',
     'loginManager',
     'maine_coon',
     'moreqmarks',
