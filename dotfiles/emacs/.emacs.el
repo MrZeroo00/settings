@@ -136,6 +136,7 @@
 (load "70_python")
 (load "70_ruby")
 (load "70_scheme")
+(load "70_shell")
 (load "70_systemtap")
 (load "70_text")
 (load "70_xml")

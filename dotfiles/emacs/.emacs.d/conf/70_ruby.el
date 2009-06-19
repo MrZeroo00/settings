@@ -10,9 +10,15 @@
 
 
 ;; flymake
-(setq flymake-allowed-file-name-masks
-      (cons '(".+\\.rb$" flymake-ruby-init)
-            flymake-allowed-file-name-masks))
+(defun flymake-ruby-init ()
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+	 (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list "ruby" (list "-c" local-file))))
+(add-to-list 'flymake-allowed-file-name-masks
+             '(".+\\.rb$" flymake-ruby-init))
 
 (add-hook 'ruby-mode-hook
           (lambda ()

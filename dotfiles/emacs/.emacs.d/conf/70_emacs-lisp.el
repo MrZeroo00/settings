@@ -20,6 +20,22 @@
             ))
 
 
+;; flymake
+(defun flymake-elisp-init ()
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+         (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list "elisplint" (list local-file))))
+(add-to-list 'flymake-allowed-file-name-masks
+             '("\\.el$" flymake-elisp-init))
+
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (flymake-mode t)))
+
+
 ;; eldoc
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
