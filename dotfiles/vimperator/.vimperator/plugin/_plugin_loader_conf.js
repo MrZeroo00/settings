@@ -44,7 +44,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'mouseinspect',
     'multi_requester',
     'nextlink',
-    'nicontroller',
+//  'nicontroller',
     'nnp_cooperation',
     'notifier',
     'observer_growl',
@@ -63,7 +63,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'ubiquity',
     'walk-input',
     'xpathBlink',
-    'youtubeamp',
+//  'youtubeamp',
     'logintumblr',
     'set_tumblr_channel_id',
 ].join(',');

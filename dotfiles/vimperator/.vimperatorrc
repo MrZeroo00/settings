@@ -44,7 +44,8 @@ noremap <Leader>re :mb reblog<CR>
 "noremap <Leader>re :tombloo ReBlog\ -\ Tumblr<CR> d
 noremap <Leader>rlater :bmlreadlater<CR>
 noremap <Leader>bmark :sbm [archive]<CR>
-noremap <Leader>mdic :sidebar Mouseover Dictionary<CR>
+noremap <Leader>sc :viewSBMComments<CR>
+noremap <Leader>dic :sidebar Mouseover Dictionary<CR>
 noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
 noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
 noremap <Leader>block :menu ツール-Fire.fm-禁止<CR>
@@ -143,7 +144,8 @@ EOM
 
 "" plugin settings --------------------
 " browser_object.js
-let g:browser_object_prefix = ','
+"let g:browser_object_prefix = ','
+let g:browser_object_prefix = ''
 
 " char-hints-mod2.js
 let g:hintchars="ASDFGHJKL"
@@ -192,7 +194,7 @@ liberator.globalVariables.localKeyMappings =
       ['s', ':stseek'],
       ['l', ':stlarge'],
       ['m', ':stmute'],
-      ['i', ':ytinfo'],
+//    ['i', ':ytinfo'],
       ['>', ':stseek! 10'],
       ['<', ':stseek! -10']
     ]
@@ -204,7 +206,7 @@ liberator.globalVariables.localKeyMappings =
       ['s', ':stseek'],
       ['l', ':stlarge'],
       ['m', ':stmute'],
-      ['i', ':nicoinfo'],
+//    ['i', ':nicoinfo'],
       ['c', ':stcomment'],
       ['>', ':stseek! 10'],
       ['<', ':stseek! -10']
