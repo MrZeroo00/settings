@@ -20,15 +20,16 @@ alias .......='cd ../../../../../..'
 
 # global aliases
 alias -g L='|lv'
+alias -g V='|vim -R -'
 alias -g H='|head'
 alias -g T='|tail'
 alias -g G='|grep'
-alias -g B="&|"
-alias -g HL="--help"
-alias -g LL="2>&1 | lv"
-alias -g TE="2>&1 | tee"
-alias -g NE="2> /dev/null"
-alias -g NUL="> /dev/null 2>&1"
+alias -g B='&|'
+alias -g HL='--help'
+alias -g LL='2>&1 | lv'
+alias -g TE='2>&1 | tee'
+alias -g NE='2> /dev/null'
+alias -g NUL='> /dev/null 2>&1'
 
 
 ## suffix aliases
