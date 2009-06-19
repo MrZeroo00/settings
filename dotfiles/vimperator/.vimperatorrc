@@ -75,6 +75,7 @@ set history=1000
 set hlsearch
 set maxitems=20
 set newtab=all
+"set pageinfo+=c
 set runtimepath='~/.vimperator'
 set smartcase
 set suggestengines='google,wikipedia'
@@ -184,7 +185,7 @@ let g:localkeymode_enable = "true"
 javascript <<EOM
 liberator.globalVariables.localKeyMappings =
 [
-  [/^[a-z]+\.youtube\.com\/watch/,
+  [/[a-z]+\.youtube\.com\/watch/,
     [
       ['p s v m i > <'],
       ['p', ':ytpause'],
@@ -196,7 +197,7 @@ liberator.globalVariables.localKeyMappings =
       ['<', ':ytseek! -10']
     ]
   ],
-  [/^www\.nicovideo\.jp\/watch\//,
+  [/www\.nicovideo\.jp\/watch\//,
     [
       ['p s v m i c > <'],
       ['p', ':nicopause'],
@@ -210,6 +211,30 @@ liberator.globalVariables.localKeyMappings =
     ]
   ]
 ];
+EOM
+
+" migratestatusbar
+javascript <<EOM
+    liberator.globalVariables.migrate_elements = [
+        {
+            // star button of awesome bar
+            id:    'star-button',
+            dest:  'security-button',
+            after: true,
+        },
+        {
+            // icon that show the existence of RSS and Atom on current page
+            id:    'feed-button',
+            dest:  'security-button',
+            after: true,
+        },
+        {
+            // favicon of awesome bar
+            id:    'page-proxy-stack',
+            dest:  'liberator-statusline',
+            after: false,
+        },
+    ];
 EOM
 
 " multi_requester.js
@@ -293,6 +318,21 @@ EOM
 
 " refcontrol.js
 
+
+" scenario-actor
+javascript <<EOM
+liberator.globalVariables.userScenario = {
+    DOMContentLoaded: [
+    { // good by hatena keyword
+        pattern: 'http://d.hatena.ne.jp/keyword/',
+        action: [
+            {sleep: 1000},
+            {follow: '//a[contains(@href,"http://ja.wikipedia.org/wiki")]'},
+        ],
+    },
+    ]
+};
+EOM
 
 " toggler.js
 
