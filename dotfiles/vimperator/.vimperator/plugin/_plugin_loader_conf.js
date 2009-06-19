@@ -51,6 +51,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'ubiquity',
     'walk-input',
     'xpathBlink',
+    'youtubeamp',
     'logintumblr',
     'set_tumblr_channel_id',
 ].join(',');
