@@ -1,9 +1,14 @@
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
-(setq ls-lisp-dirs-first t)
-(setq dired-listing-switches "-AFl")
+;(setq dired-listing-switches "-AFl")
+(setq dired-listing-switches "-Alph")
 (setq find-ls-option '("-exec ls -AFGl {} \\;" . "-AFGl"))
 (setq grep-find-command "find . -type f -print0 | xargs -0 -e grep -ns ")
+
+
+;; ls-lisp
+(require 'ls-lisp)
+(setq ls-lisp-dirs-first t)
 
 
 ;; find-dired-lisp (filter file list)
@@ -83,6 +88,14 @@
 ;  (after kill-up-dired-buffer-after activate)
 ;  (if (eq major-mode 'dired-mode)
 ;      (kill-buffer my-dired-before-buffer)))
+
+
+;; http://d.hatena.ne.jp/higepon/20061230/1167447340
+;(defadvice dired-sort-other
+;  (around dired-sort-other-h activate)
+;  (ad-set-arg 0 (concat (ad-get-arg 0) "h"))
+;  ad-do-it
+;  (setq dired-actual-switches (dired-replace-in-string "h" "" dired-actual-switches)))
 
 
 ;; macros
