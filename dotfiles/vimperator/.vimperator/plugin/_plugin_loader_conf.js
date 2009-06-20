@@ -24,7 +24,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'fetchyoutube',
     'forcefocuscontent',
     'gmperator',
-    'hatebuCounter',
+//  'hatebuCounter',
     'hatena-bookmark-search',
     'hd-youkai-youtube',
     'hints-yank-paste',
