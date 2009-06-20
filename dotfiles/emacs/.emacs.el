@@ -41,15 +41,18 @@
 
 
 ;; add argument to load-path
+(defun add-to-load-path-recompile (dir)
+  (add-to-list 'load-path dir)
+  (let (save-abbrevs) (byte-recompile-directory dir)))
 (defun add-to-load-path (&rest paths)
   (mapc '(lambda (path)
-           (add-to-list 'load-path path))
+           (add-to-load-path-recompile path))
         (mapcar 'expand-file-name paths)))
 
 ;; add conf and elisp to load-path
 (add-to-load-path "~/.emacs.d/elisp"
 		  "~/.emacs.d/macro"
-                  "~/.emacs.d/conf")
+		  "~/.emacs.d/conf")
 
 ;; add additional load-path
 (if (file-exists-p "~/local/share/emacs/site-lisp/subdirs.el")
@@ -108,6 +111,7 @@
 (load "60_change-mode")
 (load "60_dmacro")
 (load "60_doc-view")
+(load "60_emms")
 (load "60_hatena")
 ;(load "60_howm")
 ;(load "60_iswitchb")

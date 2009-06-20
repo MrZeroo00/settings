@@ -106,6 +106,16 @@
 ;(require 'anything-delicious)
 
 
+;; anything-emms
+;(install-elisp-from-emacswiki "anything-emms.el")
+;(require 'anything-emms)
+
+
+;; anything-extension
+;(install-elisp-from-emacswiki "anything-extension.el")
+;(require 'anything-extension)
+
+
 ;; anything-grep
 ;(install-elisp-from-emacswiki "anything-grep.el")
 (require 'anything-grep)
