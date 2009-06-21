@@ -9,11 +9,11 @@ noremap K <C-u>
 noremap T :tabopen<CR>
 noremap <C-q> :tabclose<CR>
 " select next/previous tab
-noremap } gt
-noremap { gT
+noremap <S-]> gt
+noremap <S-[> gT
 " move current tab left/right
-noremap <C-}> :tabmove! +1<CR>
-noremap <C-{> :tabmove! -1<CR>
+noremap <C-S-]> :tabmove! +1<CR>
+noremap <C-S-[> :tabmove! -1<CR>
 
 "noremap <Space> :forward<CR>
 "noremap b :back<CR>
@@ -143,6 +143,14 @@ EOM
 
 
 "" plugin settings --------------------
+" applauncher
+js <<EOM
+liberator.globalVariables.applauncher_list = [
+  [ 'Safari', '/Applications/Safari.app/Contents/MacOS/Safari', '%URL%'],
+];
+liberator.globalVariables.applauncher_charset = 'Shift_JIS';
+EOM
+
 " browser_object.js
 "let g:browser_object_prefix = ','
 let g:browser_object_prefix = ''

@@ -1,3 +1,9 @@
 #!/bin/sh
 
-tail -n 10000 -f $1 | while read cmd; do eval ${cmd}; done
+if [ -n "$1" ]; then
+  opt="$1"
+else
+  opt=""
+fi
+
+tail -n 10000 -f ${opt} | while read cmd; do eval ${cmd}; done
