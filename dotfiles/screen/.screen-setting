@@ -6,7 +6,7 @@ shell -$SHELL # make the shell in every window a login shell
 #password ODSJQf.4IJN7E    # password setting
 #zombie "^[" # don't kill window after the process died
 #maxwin 5
-logfile "/home/$USER/log/screen-%Y%m%d-%n.log"
+logfile "$HOME/log/screen-%Y%m%d-%n.log"
 
 # screen blanker
 idle 3600
@@ -54,13 +54,10 @@ bind '$' escape ^\^\ # change prefix key at inner screen
 bind 'T' escape ^t^t # revert prefix key to C-t
 
 # remove some stupid / dangerous key bindings
-bind k
-bind ^k
-bind .
-bind ^\
-bind \\
-bind ^h
-bind h
+bind k # kill
+bind \\ # quit
+bind . # dumptermcap
+bind h # hardcopy
 # screen lock
 bind x
 bind ^x
