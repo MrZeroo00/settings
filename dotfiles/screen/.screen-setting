@@ -106,7 +106,10 @@ bind P colon "^p"
 #bind ^E encoding euc
 
 # additional key bindings
-bind '-' exec screensplit.rb telnet
+#bind '-' exec screensplit.rb telnet
+bind '-' exec $HOME/bin/screen-split.sh --toggle w3m 8
+bind ^w exec $HOME/bin/screen-copy-word.sh -e
+bind ^j exec $HOME/bin/screen-copy-word.sh -j
 bind ^k exec $HOME/bin/screen-copy-line.sh
 
 # window management by Emacs key bindings

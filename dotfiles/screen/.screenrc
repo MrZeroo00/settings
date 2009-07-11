@@ -2,11 +2,12 @@ bind . source $HOME/.screen-setting
 source $HOME/.screen-setting
 source $HOME/.screen-prefix
 
-## default screen
-#screen 0
-#screen -t w3m 9 w3m http://www.google.co.jp/
-#screen -t top 10 nice top
-#select 0
+screen -t top 0 nice top
+screen -t emacs 1 emacs -nw
+screen
+screen -t w3m 9 w3m $HOME/bin/screen-w3m-server.sh
+select 1
+select 2
 
 # backtick
 backtick 0 0 0 tail -F /home/$USER/.screen_notify.dat
