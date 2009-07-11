@@ -140,7 +140,3 @@ bind P colon "^p"
 # change character encoding
 #bind ^U encoding utf8
 #bind ^E encoding euc
-
-# backtick
-backtick 0 0 0 tail -F /home/$USER/.screen_notify.dat
-backtick 2 0 0 /home/$USER/bin/screen_uptime.rb
