@@ -58,13 +58,6 @@ defhstatus "^En:^Et"
 #termcapinfo xterm* OL=10000
 
 ## key bindings
-bind w windowlist -b
-#bind ^] paste [.]
-bind 'a' other
-bind '^a' other
-# bind F10 to Screen's quit command
-bindkey -k k; quit
-
 # prefix key setting
 escape ^t^t # prefix key
 bind '$' escape ^\^\ # change prefix key at inner screen
@@ -81,6 +74,13 @@ bind 'K' kill
 bind 'I' login on
 bind 'O' login off
 bind '}' history
+
+bind w windowlist -b
+#bind ^] paste [.]
+bind 'a' other
+bind '^a' other
+# bind F10 to Screen's quit command
+bindkey -k k; quit
 
 # Yet another hack:
 # Prepend/append register [/] to the paste if ^a^] is pressed.
