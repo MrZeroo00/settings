@@ -81,7 +81,7 @@ bind '-' exec screensplit.rb telnet
 #bind -c REGION 0 remove
 #bind -c REGION o focus
 #bind -c REGION ^ resize
-#bind x command -c REGION
+#bind ^w command -c REGION
 
 # window management by Vim key bindings
 bind -c REGION s split
@@ -99,10 +99,10 @@ bind -c REGION f fit
 bind ^w command -c REGION
 
 # resize window
-bind r eval 'echo "Resize window"' 'command -c resize'
-bind -c resize ^] command
-bind -c resize j eval 'resize +1' 'command -c resize'
-bind -c resize k eval 'resize -1' 'command -c resize'
+bind r eval 'echo "Resize window"' 'command -c RESIZE'
+bind -c RESIZE j eval 'resize +1' 'command -c RESIZE'
+bind -c RESIZE k eval 'resize -1' 'command -c RESIZE'
+bind ^] command -c RESIZE
 
 # copy to X clipboard
 bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
