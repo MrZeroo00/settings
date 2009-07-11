@@ -82,8 +82,18 @@ bind '}' history
 
 bind w windowlist -b
 #bind ^] paste [.]
-bind 'a' other
-bind '^a' other
+bind o focus
+bind ^a eval 'focus top' 'other'
+bind 1 eval 'focus top' 'select 1'
+bind 2 eval 'focus top' 'select 2'
+bind 3 eval 'focus top' 'select 3'
+bind 4 eval 'focus top' 'select 4'
+bind 5 eval 'focus top' 'select 5'
+bind 6 eval 'focus top' 'select 6'
+bind 7 eval 'focus top' 'select 7'
+bind 8 eval 'focus top' 'select 8'
+bind 9 eval 'focus top' 'select 9'
+bind 0 eval 'focus top' 'select 0'
 # bind F10 to Screen's quit command
 bindkey -k k; quit
 
