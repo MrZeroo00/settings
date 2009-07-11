@@ -1,2 +1,8 @@
 bind . source $HOME/.screen-setting
 source $HOME/.screen-setting
+
+## default screen
+#screen 0
+#screen -t w3m 9 w3m http://www.google.co.jp/
+#screen -t top 10 nice top
+#select 0
