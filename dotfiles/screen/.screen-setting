@@ -68,7 +68,10 @@ bind 'T' escape ^t^t # revert prefix key to C-t
 # remove some stupid / dangerous key bindings
 bind k # kill
 bind \\ # quit
+bind z # suspend
+bind ^z # suspend
 bind x # lockscreen
+bind ^g # vbell
 bind . # dumptermcap
 bind h # hardcopy
 # make them better
@@ -93,6 +96,7 @@ bindkey -k k; quit
 
 # additional key bindings
 bind '-' exec screensplit.rb telnet
+bind ^k exec $HOME/bin/screen-copy-line.sh
 
 # window management by Emacs key bindings
 #bind ^w command -c REGION
