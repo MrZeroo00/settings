@@ -1,5 +1,6 @@
 bind . source $HOME/.screen-setting
 source $HOME/.screen-setting
+source $HOME/.screen-prefix
 
 ## default screen
 #screen 0
