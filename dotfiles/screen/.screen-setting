@@ -117,11 +117,24 @@ bind -c REGION _ resize max
 bind -c REGION f fit
 bind ^w command -c REGION
 
+# switch window
+bind ^n eval "next" "echo 'Next window'" "command -c SWITCH"
+bind ^p eval "prev" "echo 'Previous window'" "command -c SWITCH"
+bind -c SWITCH ^n eval "next" "echo 'Next window'" "command -c SWITCH"
+bind -c SWITCH ^p eval "prev" "echo 'Previous window'" "command -c SWITCH"
+bind ! command -c SWITCH
+
+# move window
+bind m eval 'echo "Move window"' 'command -c MOVE'
+bind -c MOVE ^f eval "exec $HOME/bin/screen-move-window.sh forward " "command -c MOVE"
+bind -c MOVE ^b eval "exec $HOME/bin/screen-move-window.sh backward" "command -c MOVE"
+bind ! command -c MOVE
+
 # resize window
 bind r eval 'echo "Resize window"' 'command -c RESIZE'
 bind -c RESIZE j eval 'resize +1' 'command -c RESIZE'
 bind -c RESIZE k eval 'resize -1' 'command -c RESIZE'
-bind ^] command -c RESIZE
+bind ! command -c RESIZE
 
 # copy to X clipboard
 bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
@@ -130,10 +143,13 @@ bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy /tmp/screen-ex
 bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
 
 # launcher
-bind -c LAUNCHER w screen w3m http://www.google.co.jp/
-bind -c LAUNCHER c screen -t CPAN perl -MCPAN -e shell
-bind -c LAUNCHER t screen telnet 192.168.3.101
-bind ^x command -c LAUNCHER
+bind ^x	eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
+bind x eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
+bind -c LANUCHER f exec $HOME/bin/screen-exec-x.sh -bg firefox
+bind -c LANUCHER w screen -t w3m $HOME/bin/screen-exec.sh w3m http://www.google.co.jp/
+bind -c LANUCHER p screen -t cpan $HOME/bin/screen-exec.sh perl -MCPAN -e shell
+bind -c LANUCHER t screen -t top $HOME/bin/screen-exec.sh top
+bind ! command -c LANUCHER
 
 # command line launcher (colon)
 bind R colon "screen ssh ^b^b"
