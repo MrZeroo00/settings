@@ -87,12 +87,13 @@ bind '^a' other
 # bind F10 to Screen's quit command
 bindkey -k k; quit
 
-# Yet another hack:
-# Prepend/append register [/] to the paste if ^a^] is pressed.
-# This lets me have autoindent mode in vi.
-#register [ "\033:se noai\015a"
-#register ] "\033:se ai\015a"
-#bind ^] paste [.]
+# command line launcher (colon)
+bind R colon "screen ssh ^b^b"
+bind P colon "^p"
+
+# change character encoding
+#bind ^U encoding utf8
+#bind ^E encoding euc
 
 # additional key bindings
 bind '-' exec screensplit.rb telnet
@@ -140,12 +141,6 @@ bind -c RESIZE j eval 'resize +1' 'command -c RESIZE'
 bind -c RESIZE k eval 'resize -1' 'command -c RESIZE'
 bind ^a command -c RESIZE
 
-# copy to X clipboard
-bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
-bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
-bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
-bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
-
 # launcher
 bind ^x	eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
 bind x eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
@@ -155,10 +150,15 @@ bind -c LANUCHER p screen -t cpan $HOME/bin/screen-exec.sh perl -MCPAN -e shell
 bind -c LANUCHER t screen -t top $HOME/bin/screen-exec.sh top
 bind ^a command -c LANUCHER
 
-# command line launcher (colon)
-bind R colon "screen ssh ^b^b"
-bind P colon "^p"
+# copy to X clipboard
+bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
+bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
+bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
+bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
 
-# change character encoding
-#bind ^U encoding utf8
-#bind ^E encoding euc
+# Yet another hack:
+# Prepend/append register [/] to the paste if ^a^] is pressed.
+# This lets me have autoindent mode in vi.
+#register [ "\033:se noai\015a"
+#register ] "\033:se ai\015a"
+#bind ^] paste [.]
