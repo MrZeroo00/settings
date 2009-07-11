@@ -56,11 +56,9 @@ bind 'T' escape ^t^t # revert prefix key to C-t
 # remove some stupid / dangerous key bindings
 bind k # kill
 bind \\ # quit
+bind x # lockscreen
 bind . # dumptermcap
 bind h # hardcopy
-# screen lock
-bind x
-bind ^x
 # make them better
 bind 'K' kill
 bind 'I' login on
