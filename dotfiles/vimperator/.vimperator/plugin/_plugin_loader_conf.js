@@ -5,6 +5,8 @@ liberator.globalVariables.plugin_loader_plugins = [
     'alert',
     'appendAnchor',
     'applauncher',
+    'auto_reload',
+    'auto_source',
     'auto_word_select_mode',
     'browser_object',
     'caret-hint',
