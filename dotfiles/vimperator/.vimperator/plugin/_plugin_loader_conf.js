@@ -1,5 +1,7 @@
-liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other';
+liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/coderepos/notifier,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other';
 liberator.globalVariables.plugin_loader_plugins = [
+    'observer_growl',
+    'subject_weather_yahoo',
     '_libly',
     '_smooziee',
     'alert',
@@ -49,7 +51,6 @@ liberator.globalVariables.plugin_loader_plugins = [
 //  'nicontroller',
     'nnp_cooperation',
     'notifier',
-    'observer_growl',
     'pluginManager',
     'relative_move',
     'resizable_textarea',
