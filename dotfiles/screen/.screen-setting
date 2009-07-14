@@ -5,7 +5,7 @@ defflow off
 defscrollback 10000
 shell -$SHELL # make the shell in every window a login shell
 #password ODSJQf.4IJN7E    # password setting
-defzombie q^m
+zombie q^m
 #maxwin 5
 msgminwait 0
 logfile "$HOME/log/screen-%Y%m%d-%n.log"
@@ -83,7 +83,7 @@ bind '}' history
 bind w windowlist -b
 #bind ^] paste [.]
 bind o focus
-bind ^a eval 'focus top' 'other'
+bind ^t eval 'focus top' 'other'
 bind 1 eval 'focus top' 'select 1'
 bind 2 eval 'focus top' 'select 2'
 bind 3 eval 'focus top' 'select 3'
