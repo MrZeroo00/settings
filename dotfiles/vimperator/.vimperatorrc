@@ -9,8 +9,8 @@ noremap K <C-u>
 noremap T :tabopen<CR>
 noremap <C-q> :tabclose<CR>
 " select next/previous tab
-noremap <S-]> gt
-noremap <S-[> gT
+noremap } gt
+noremap { gT
 " move current tab left/right
 noremap <C-S-]> :tabmove! +1<CR>
 noremap <C-S-[> :tabmove! -1<CR>
@@ -149,6 +149,29 @@ liberator.globalVariables.applauncher_list = [
   [ 'Safari', '/Applications/Safari.app/Contents/MacOS/Safari', '%URL%'],
 ];
 liberator.globalVariables.applauncher_charset = 'Shift_JIS';
+EOM
+
+" auto_word_select_mode
+js <<EOM
+liberator.registerObserver("enter", function() {
+  mappings.addUserMap(
+    [modes.AUTO_WORD_SELECT],
+    ["s"],
+    "Translate selected word by multi_requester.js.",
+    function() {
+      // FIXME:
+      // A present mode is preserved in the stack beforehand by the push() method
+      // because it doesn't return to AUTO_WORD_SELECT mode before that when
+      // returning from the OUTPUT_MULTILINE mode.
+      modes.push(modes.AUTO_WORD_SELECT, null, true);
+
+      var selText = content.getSelection().toString();
+      var pattern = /[a-zA-Z]+/;
+      selText = pattern.test(selText) ? pattern.exec(selText) : selText;
+      events.feedkeys(":mr alc " + selText + "<CR>", true, true);
+    }
+  );
+});
 EOM
 
 " browser_object.js
