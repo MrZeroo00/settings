@@ -9,3 +9,17 @@ function singleton() {
     eval "$@"
   fi
 }
+
+function ehist() {
+  if [ -n "${_HISTFILE}" ]; then
+    HISTFILE=${_HISTFILE}
+    _HISTFILE=''
+  fi
+}
+
+function dhist() {
+  if [ -z "${_HISTFILE}" ]; then
+    _HISTFILE=${HISTFILE}
+    HISTFILE=''
+  fi
+}
