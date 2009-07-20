@@ -27,4 +27,4 @@ fi
 # set url with authentication
 url=`echo $1 | perl -pe 's%(http|https|ftp)://(.+):(.+)@(.+)%--http-user="\2" --http-pass="\3" "\1://\4"%'`
 
-echo aria2c "${opt}" "${url}" >> "${root_dir}/_lst"
+aria2_add_uri "${opt}" "${url}"
