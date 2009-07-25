@@ -19,7 +19,7 @@ options = Hash.new()
 
 ARGV.each do |arg|
   if /=/ =~ arg then
-    opt, value = arg.split(/=/)
+    opt, value = arg.sub(/^--/, "").split(/=/)
     options[opt] = value
   else
     urls.push(arg)
