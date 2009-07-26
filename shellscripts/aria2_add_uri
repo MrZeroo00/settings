@@ -8,7 +8,7 @@ pass = 'foobarbaz'
 
 if %x{ pgrep aria2 }.length == 0 then
   printf "launch aria2\n"
-  system("aria2c", "-D", "--enable-xml-rpc=true", "--xml-rpc-user=#{user}", "--xml-rpc-pass=#{pass}")
+  system("aria2c", "-D", "--log=#{ENV['HOME']}/log/aria2.log", "--enable-xml-rpc=true", "--xml-rpc-user=#{user}", "--xml-rpc-pass=#{pass}")
   sleep(3)
 end
 
