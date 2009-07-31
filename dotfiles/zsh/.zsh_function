@@ -110,7 +110,7 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
   add-zsh-hook precmd _update_screen_title
 
   #chpwd
-  _update_screen_title_by_cd
+  #_update_screen_title_by_cd
 fi
 
 
