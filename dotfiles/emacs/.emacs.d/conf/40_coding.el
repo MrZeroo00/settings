@@ -24,6 +24,10 @@
       ))
 
 
+;; status bar
+(which-function-mode t)
+
+
 ;; gdb
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)

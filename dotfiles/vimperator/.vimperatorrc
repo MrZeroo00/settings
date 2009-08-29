@@ -41,6 +41,8 @@ noremap <A-Down> :set guioptions-=mT<CR>
 
 let mapleader = ","
 noremap <Leader>re :mb reblog<CR>
+noremap <Leader>pre :mb pinned-link | reblog<CR>
+noremap <Leader>cp :mb pinned-link | clear-pin<CR>
 "noremap <Leader>re :tombloo ReBlog\ -\ Tumblr<CR> d
 noremap <Leader>rlater :bmlreadlater<CR>
 noremap <Leader>bmark :sbm [archive]<CR>
@@ -49,17 +51,18 @@ noremap <Leader>dic :sidebar Mouseover Dictionary<CR>
 noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
 noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
 noremap <Leader>block :menu ツール-Fire.fm-禁止<CR>
+noremap <Leader>nico :menu View-NicoFox_Download_Manager<CR>
 
 " command line
-"cnoremap <C-A> <Home>
-"cnoremap <C-E> <End>
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
 cnoremap <C-F> <Right>
-"cnoremap <C-B> <Left>
+cnoremap <C-B> <Left>
 cnoremap <Esc>f <S-Right>
 cnoremap <Esc>b <S-Left>
 " compatibility with w3m
-"cnoremap <C-n> <Tab>
-"cnoremap <C-p> <S-Tab>
+cnoremap <C-n> <Tab>
+cnoremap <C-p> <S-Tab>
 " compatibility with vim
 cnoremap <C-r>* <S-Insert>
 
@@ -94,10 +97,12 @@ set previouspattern+='prev, 前(の)?ページ,\b前.*,\b←'
 
 "" set preferences --------------------
 set! accessibility.typeaheadfind.casesensitive=1
+set! browser.cache.memory.capacity=24576
 set! browser.enabel_automatic_image_resizing=false
 set! browser.sessionstore.max_tabs_undo=20
 "set! browser.tabs.tabMinWidth=50
 set! browser.urlbar.maxRichResults=20
+set! config.trim_on_minimize=true
 set! layout.word_select.eat_space_to_next_word=false
 set! ui.key.generalAccessKey=0
 " spell check
@@ -179,7 +184,7 @@ EOM
 let g:browser_object_prefix = ''
 
 " char-hints-mod2.js
-let g:hintchars="ASDFGHJKL"
+let g:hintchars="asdfghjklrtyu"
 
 " copy.js
 javascript <<EOM

@@ -11,8 +11,3 @@
 
 ;; show current directory
 (add-to-list 'global-mode-string '("" default-directory "-"))
-
-
-;; diminish
-;(install-elisp "http://www.eskimo.com/~seldon/diminish.el")
-(require 'diminish)
