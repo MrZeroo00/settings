@@ -1,0 +1,4 @@
+set guioptions=mTfr
+set editor="gvim -f"
+
+source! $HOME/.muttatorrc.local
