@@ -44,6 +44,9 @@ case "`uname`" in
   ;;
   "Darwin")
   alias addr2line='gaddr2line'
+  alias nm='gnm'
+  alias objdump='gobjdump'
+  alias readelf='greadelf'
   alias ldd='otool -L'
   alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
   alias ql='qlmanage -p "$@" >& /dev/null'
