@@ -43,10 +43,16 @@ case "`uname`" in
   alias ack='ack-grep'
   ;;
   "Darwin")
+  alias addr2line='gaddr2line'
+  alias ldd='otool -L'
   alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
   alias ql='qlmanage -p "$@" >& /dev/null'
   ;;
 esac
+
+if [ -x `which tscreen` ]; then
+  alias screen='tscreen'
+fi
 
 if [ -f ${HOME}/.sh_aliases.local ]; then
     source ${HOME}/.sh_aliases.local
