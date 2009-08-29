@@ -20,7 +20,9 @@ attrcolor b ".I" # allow bold colors - necessary for some reason
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' # tell screen how to set colors. AB = background, AF=foreground
 defbce "on" # erase background with current bg color
 #term xterm-256color
-term screen-bce
+#term screen-bce
+#term vt100
+term xterm
 #term screen-256color-bce
 
 ## notification settings
