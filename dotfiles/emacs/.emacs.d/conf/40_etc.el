@@ -15,6 +15,13 @@
 ;(remove-hook 'after-save-hook 'outputz)
 
 
+;; typing-outputz
+;; http://github.com/hayamiz/typing-outputz/tree/master
+(require 'typing-outputz)
+(global-typing-outputz-mode t)
+(setq typing-outputz-key "bWAROb-quUbf")
+
+
 ;; pdicv-mode
 ;; http://pdicviewer.naochan.com/el/
 ;(require 'pdicv-search)
