@@ -3,9 +3,10 @@
 ;(install-elisp-from-emacswiki "anything-show-completion.el")
 (require 'anything)
 (require 'anything-config)
+;(load "_anything-rubikitch")
 
 (setq anything-idle-delay 0.3)
-(setq anything-input-idle-delay 0.2)
+(setq anything-input-idle-delay 0)
 (setq anything-candidate-number-limit 100)
 ;(setq anything-c-locate-db-file "~/home.locatedb")
 ;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
@@ -17,6 +18,7 @@
 ; key setting
 (define-key global-map (kbd "C-;") 'anything)
 (define-key global-map (kbd "C-:") 'anything-resume)
+(define-key global-map (kbd "C-'") 'anything-call-source)
 ;(define-key anything-map "\M-N" 'anything-next-source)
 ;(define-key anything-map "\M-P" 'anything-previous-source)
 (define-key anything-map "\C-\M-n" 'anything-next-source)
@@ -35,8 +37,8 @@
 
 ;; ac-anything
 ;(install-elisp-from-emacswiki "ac-anything.el")
-;(require 'ac-anything)
-;(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything)
+(require 'ac-anything)
+(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything)
 
 
 ;; anything-c-imenu
@@ -61,8 +63,10 @@
 ;; anything-c-moccur
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
 (require 'anything-c-moccur)
-(setq anything-c-moccur-enable-initial-pattern t)
 (setq anything-c-moccur-anything-idle-delay 0.1)
+(setq anything-c-moccur-enable-initial-pattern t)
+(setq anything-c-moccur-higligt-info-line-flag t)
+(setq anything-c-moccur-enable-auto-look-flag t)
 ;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
 (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
@@ -169,10 +173,6 @@
 (descbinds-anything-install)
 
 
-;; anything-c-bm
-(load "_anything-c-bm")
-
-
 ;; anything-c-key-chord-describe
 (load "_anything-c-key-chord-describe")
 
@@ -188,10 +188,6 @@
     (requires-pattern . 5)
     (candidate-number-limit . 20)
     (type . file)))
-
-
-;; anything-select-source
-(load "_anything-select-source")
 
 
 ;; anything-kyr
@@ -212,9 +208,11 @@
 
 
 (setq anything-sources (list anything-c-source-kyr
+                             anything-c-source-imenu
                              anything-c-source-buffers
                              anything-c-source-bm
                              ;anything-c-source-bookmarks
+                             anything-c-source-yasnippet
                              ;anything-c-source-man-pages
                              ;anything-c-source-info-pages
                              anything-c-source-file-name-history
