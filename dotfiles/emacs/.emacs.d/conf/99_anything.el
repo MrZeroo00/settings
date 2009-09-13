@@ -208,9 +208,9 @@
 
 
 (setq anything-sources (list anything-c-source-kyr
-                             anything-c-source-imenu
                              anything-c-source-buffers
                              anything-c-source-bm
+                             anything-c-source-imenu
                              ;anything-c-source-bookmarks
                              anything-c-source-yasnippet
                              ;anything-c-source-man-pages
