@@ -219,10 +219,10 @@
                              ;anything-c-source-info-pages
                              anything-c-source-file-name-history
                              anything-c-source-file-cache
-                             (if run-darwin
-                                 anything-c-source-mac-spotlight
-                               anything-c-source-locate)
-                             ;anything-c-source-calculation-result
+                             ;(if run-darwin
+                             ;    anything-c-source-mac-spotlight
+                             ;  anything-c-source-locate)
+                             anything-c-source-calculation-result
                              anything-c-source-complex-command-history
                              ))
 
