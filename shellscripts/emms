@@ -1,0 +1,80 @@
+#!/usr/local/bin/ruby
+require 'optparse'
+
+def lisp(src)
+  client = ENV['EMMS_CLIENT'] || 'gnuclient --batch'
+  system %Q!#{client} --eval "#{src}"!
+end
+
+def play(file, enqueue)
+  if enqueue and file
+    lisp %Q((progn
+                (let ((current-prefix-arg nil))
+                           (emms-add-file #{file.dump}))
+                (emms-stop)
+                (save-excursion
+                  (set-buffer " *EMMS Playlist*")
+                  (emms-playlist-mode-last)
+                  (forward-line -1)
+                  (emms-playlist-mode-play-smart))))
+  elsif file
+    lisp %Q((let (current-prefix-arg)
+             (emms-play-file #{file.dump})))
+  else
+    lisp %((emms-start))
+  end
+end
+
+def stop(*args)         lisp %((emms-stop))          end
+def fwd(*args)          lisp %((emms-next))          end
+def rew(*args)          lisp %((emms-previous))      end
+def seek_forward(*args) lisp %((emms-seek-forward))  end
+def seek_back(*args)    lisp %((emms-seek-backward)) end
+def pause(*args)        lisp %((emms-pause))         end
+def info(*args)         lisp %((princ (emms-info-track-description (emms-playlist-current-selected-track)))) end
+def info_ratpoison(*args) lisp %((ratpoison-echo (emms-info-track-description (emms-playlist-current-selected-track)))) end
+
+def play_pause(*args)
+  lisp %((if emms-player-playing-p
+             (emms-pause)
+             (emms-start)))
+end
+def play_stop(*args)
+  lisp %((if emms-player-playing-p
+             (emms-stop)
+             (emms-start)))
+end
+def remove(*args)
+  lisp %Q((progn
+              (save-excursion
+                (set-buffer " *EMMS Playlist*")
+                (goto-char emms-playlist-selected-marker)
+                (emms-playlist-delete-track)
+                (ignore-errors (emms-next))
+                )))
+end
+
+
+conf = Struct.new(:enqueue, :operation).new
+ARGV.options {|o|
+  o.on("-e", "Enqueue") {|x| conf.enqueue = true }
+  o.on("-p", "Play") {|x| conf.operation = :play }
+  o.on("-s", "Stop") {|x| conf.operation = :stop }
+  o.on("-u", "Pause") {|x| conf.operation = :pause }
+  o.on("-t", "Play/Pause") {|x| conf.operation = :play_pause }
+  o.on("--play-stop", "Play/Stop"){|x| conf.operation = :play_stop }
+  o.on("-f", "--fwd", "Next track") {|x| conf.operation = :fwd }
+  o.on("-r", "--rew", "Previous track") {|x| conf.operation = :rew }
+  o.on("--remove", "Remove") {|x| conf.operation = :remove }
+  o.on("--forward", "Seek forward") {|f| conf.operation = :seek_forward }
+  o.on("--back", "Seek back") {|f| conf.operation = :seek_back }
+  o.on("--info-ratpoison") {|f| conf.operation = :info_ratpoison }
+  if ARGV.empty?
+    print o
+    exit 1
+  end
+  o.parse!
+}
+
+file = ARGV.first ? File.expand_path(ARGV.first) : nil
+__send__ conf.operation, file, conf.enqueue
