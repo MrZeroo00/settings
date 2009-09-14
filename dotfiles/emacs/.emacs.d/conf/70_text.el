@@ -35,6 +35,11 @@
 ;(add-hook 'before-save-hook 'text-adjust-space-before-save-if-needed)
 
 
+;; manued
+;; http://www.mpi-inf.mpg.de/~hitoshi/otherprojects/manued/index.shtml
+;(autoload 'manued-minor-mode "manued" "manuscript editing mode" t)
+
+
 ;; macros
 ;(add-hook 'text-mode-hook
 ;          (lambda ()

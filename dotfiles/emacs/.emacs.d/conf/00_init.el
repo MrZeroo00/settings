@@ -123,6 +123,7 @@
 (setq frame-title-format "%b")
 (tool-bar-mode nil)
 ;(menu-bar-mode nil)
+;(msb-mode t)
 (set-scroll-bar-mode 'right)
 (setq visible-bell t)
 ;(fset 'yes-or-no-p 'y-or-n-p)
@@ -140,6 +141,11 @@
 (setq diff-switches "-u")
 ;(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 (setq x-select-enable-clipboard t)
+
+
+;; a-menu
+;; http://homepage.mac.com/zenitani/comp-e.html
+;(require 'a-menu)
 
 
 ;; redo
