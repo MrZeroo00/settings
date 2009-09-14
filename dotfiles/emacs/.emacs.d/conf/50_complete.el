@@ -72,17 +72,17 @@
 
 
 ;; expand
-(require 'expand)
-(expand-add-abbrevs c-mode-abbrev-table
-                    expand-c-sample-expand-list)
-(expand-add-abbrevs lisp-interaction-mode-abbrev-table
-                    expand-sample-lisp-mode-expand-list)
-(expand-add-abbrevs emacs-lisp-mode-abbrev-table
-                    expand-sample-lisp-mode-expand-list)
-(expand-add-abbrevs lisp-mode-abbrev-table
-                    expand-sample-lisp-mode-expand-list)
-(expand-add-abbrevs cperl-mode-abbrev-table
-                    expand-sample-perl-mode-expand-list)
+;(require 'expand)
+;(expand-add-abbrevs c-mode-abbrev-table
+;                    expand-c-sample-expand-list)
+;(expand-add-abbrevs lisp-interaction-mode-abbrev-table
+;                    expand-sample-lisp-mode-expand-list)
+;(expand-add-abbrevs emacs-lisp-mode-abbrev-table
+;                    expand-sample-lisp-mode-expand-list)
+;(expand-add-abbrevs lisp-mode-abbrev-table
+;                    expand-sample-lisp-mode-expand-list)
+;(expand-add-abbrevs cperl-mode-abbrev-table
+;                    expand-sample-perl-mode-expand-list)
 
 
 ;; hippie-exp
