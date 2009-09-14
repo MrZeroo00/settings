@@ -105,7 +105,7 @@
 
 
 ;; imenu
-;(require 'imenu)
+(require 'imenu)
 
 
 ;; xcscope

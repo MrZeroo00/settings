@@ -1,13 +1,27 @@
 ; mode hook
 (add-hook 'text-mode-hook
           (lambda ()
-            ;(ruler-mode)
-            (flyspell-mode)
-            ;(refill-mode t)
-            ))
+            (progn
+              ;(ruler-mode)
+              (flyspell-mode)
+              ;(refill-mode t)
+              )))
 
 ; common setting
 (setq paragraph-start '"^\\([ ¡¡¡¦¡û<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
+
+
+;; imenu
+(add-hook 'text-mode
+          (lambda ()
+            (progn
+              (setq imenu-create-index-function
+                  (lambda ()
+                    (let (index)
+                      (goto-char (point-min))
+                      (while (re-search-forward "^\*\s*\\(.+\\)" (point-max) t)
+                        (push (cons (match-string 1) (match-beginning 1)) index))
+    (nreverse index)))))))
 
 
 ;; word-count
