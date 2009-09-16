@@ -122,6 +122,11 @@
         ))
 
 
+;; imenu
+(add-hook 'org-mode-hook
+	  (lambda () (imenu-add-to-menubar "Imenu")))
+
+
 ;; remember
 ;; https://gna.org/p/remember-el
 ;(org-remember-insinuate)
