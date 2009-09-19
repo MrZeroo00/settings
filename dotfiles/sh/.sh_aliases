@@ -48,6 +48,7 @@ case "`uname`" in
   alias objdump='gobjdump'
   alias readelf='greadelf'
   alias ldd='otool -L'
+  alias strace='sudo dtruss sudo -u ${USER}'
   alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
   alias ql='qlmanage -p "$@" >& /dev/null'
   ;;

@@ -23,3 +23,9 @@ function dhist() {
     HISTFILE=''
   fi
 }
+
+case "`uname`" in
+  "Darwin")
+  growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
+  ;;
+esac

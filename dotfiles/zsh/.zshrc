@@ -228,6 +228,13 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 # use color
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
+case "`uname`" in
+  "Darwin")
+  compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open
+  alias run='open -a'
+  ;;
+esac
+
 
 # aliases
 if [ -f ${HOME}/.zsh_aliases ]; then
