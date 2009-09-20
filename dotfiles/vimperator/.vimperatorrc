@@ -68,19 +68,34 @@ cnoremap <C-r>* <S-Insert>
 
 
 "" options --------------------
+set cdpath=$HOME,$HOME/Desktop
 "set complete=lS
 set complete=l
 set defsearch=google
 set editor='emacsclient -a emacs -n'
 set focuscontent
+"set followhints=0
 set guioptions+=Bbrn
 set hintmatching=custom
 set history=1000
 set hlsearch
-set maxitems=20
+set ignorecase
+set incsearch
+set insertmode
+"set laststatus=2
+set loadplugins
+set maxitems=10
+set messages=100
+set more
 set newtab=all
 "set pageinfo+=c
+"set popups=1
 set runtimepath='~/.vimperator'
+"set scroll=0
+set shell=$SHELL
+set showmode
+"set showstatuslinks=1
+"set showtabline=2
 set smartcase
 set suggestengines='google,wikipedia'
 "set titlestring=Vimperator
@@ -88,6 +103,7 @@ set suggestengines='google,wikipedia'
 set visualbell
 set wildcase=smart
 "set wildignore=".\.o,\..\.s[a-z]{2}"
+"set wildmode="list:full"
 set wildoptions=auto
 "]]
 set nextpattern+='next, 次(の)?ページ,\b次.*,→\b,下一頁,Следующая,다음'
@@ -144,6 +160,13 @@ hints.addMode("i", "Focus to textbox",
   function(elem) elem.focus(),
   function() "//input[not(@type='hidden')] | //textarea | //xhtml:input[not(@type='hidden')] | //xhtml:textarea"
 );
+EOM
+
+
+"" other --------------------
+javascript <<EOM
+  document.getElementById("liberator-multiline-output").parentNode.maxHeight="400px"
+  //document.getElementById("liberator-completions").parentNode.maxHeight="400px"
 EOM
 
 
