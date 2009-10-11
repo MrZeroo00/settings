@@ -52,6 +52,7 @@ noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
 noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
 noremap <Leader>block :menu ツール-Fire.fm-禁止<CR>
 noremap <Leader>nico :menu View-NicoFox_Download_Manager<CR>
+noremap <Leader>video :set! browser.sessionstore.interval=300000<CR>
 
 " command line
 cnoremap <C-A> <Home>
@@ -124,6 +125,8 @@ set! ui.key.generalAccessKey=0
 " spell check
 set! layout.spellcheckDefault=2
 set! spellchecker.dictionary=en-US
+set! extensions.treestyletab.tabbar.shrunkenWidth=40
+set! extensions.treestyletab.tabbar.width=200
 
 
 "" commands --------------------
@@ -229,13 +232,16 @@ let g:direct_sbm_is_use_migemo = "true"
 
 " feedSomeKeys_2
 autocmd LocationChange .* :fmapc
+autocmd LocationChange .* :set! browser.sessionstore.interval=120000
 autocmd LocationChange 'mail\.google\.com/mail' :fmap! -depth 4 c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
 autocmd LocationChange 'www\.google\.com/calendar/' :fmap! -vkey -event keydown t a d w m x c e <Del> / + q s ?
 autocmd LocationChange 'www\.rememberthemilk\.com/home' :fmap! t c p d f g s u l y r z 1 2 3 4 <Del> a n k j i h m <Tab> <Esc>
-autocmd LocationChange 'www\.google\.co\.jp/reader' :fmap! -vkey j k <Space> n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ?
+autocmd LocationChange 'www\.google\.co\.jp/reader' :fmap! -vkey j k <Space> n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ? z
 autocmd LocationChange 'reader\.livedoor\.com/reader' :fmap! j k s a p o v c <Space> <S-Space> z b < >
 autocmd LocationChange 'friendfeed\.com/' :fmap! -vkey -event keydown p P q / gh gd gm gb
 autocmd LocationChange 'localhost:10010' :fmap! j k h l r o
+autocmd LocationChange 'www\.youtube\.com' :set! browser.sessionstore.interval=300000
+autocmd LocationChange 'www\.nicovideo\.jp' :set! browser.sessionstore.interval=300000
 
 " ime_control.js
 let g:ex_ime_mode = "inactive"
