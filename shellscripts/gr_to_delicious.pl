@@ -27,7 +27,8 @@ sub get_urls {
     #form_id => 'gaia_loginform',
     fields => { Email => $id, Passwd => $pass }
   );
-  $mech->get('http://www.google.com/reader/atom/user/-/state/com.google/starred');
+  my $start_time = time() - 60 * 60 * 24 * 31;
+  $mech->get("http://www.google.com/reader/atom/user/-/state/com.google/starred?n=500&r=o&ot=$start_time");
   return &$parse($mech->content());
 }
 
