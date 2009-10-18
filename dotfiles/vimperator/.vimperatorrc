@@ -42,10 +42,10 @@ noremap <A-Down> :set guioptions-=mT<CR>
 let mapleader = ","
 noremap <Leader>re :mb reblog<CR>
 noremap <Leader>pre :mb pinned-link | reblog<CR>
-noremap <Leader>cp :mb pinned-link | clear-pin<CR>
+noremap <Leader>pclr :mb pinned-link | clear-pin<CR>
 "noremap <Leader>re :tombloo ReBlog\ -\ Tumblr<CR> d
-noremap <Leader>rlater :bmlreadlater<CR>
-noremap <Leader>bmark :sbm [archive]<CR>
+noremap <Leader>rlr :bmlreadlater<CR>
+noremap <Leader>bmk :sbm [archive]<CR>
 noremap <Leader>sc :viewSBMComments<CR>
 noremap <Leader>dic :sidebar Mouseover Dictionary<CR>
 noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
@@ -115,6 +115,7 @@ set previouspattern+='prev, 前(の)?ページ,\b前.*,\b←'
 "" set preferences --------------------
 set! accessibility.typeaheadfind.casesensitive=1
 set! browser.cache.memory.capacity=24576
+set! browser.tabs.closeButtons=2
 set! browser.enabel_automatic_image_resizing=false
 set! browser.sessionstore.max_tabs_undo=20
 "set! browser.tabs.tabMinWidth=50
@@ -236,7 +237,7 @@ autocmd LocationChange .* :set! browser.sessionstore.interval=120000
 autocmd LocationChange 'mail\.google\.com/mail' :fmap! -depth 4 c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
 autocmd LocationChange 'www\.google\.com/calendar/' :fmap! -vkey -event keydown t a d w m x c e <Del> / + q s ?
 autocmd LocationChange 'www\.rememberthemilk\.com/home' :fmap! t c p d f g s u l y r z 1 2 3 4 <Del> a n k j i h m <Tab> <Esc>
-autocmd LocationChange 'www\.google\.co\.jp/reader' :fmap! -vkey j k <Space> n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ? z
+autocmd LocationChange 'www\.google\.com/reader' :fmap! -vkey j k <Space> n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ? z
 autocmd LocationChange 'reader\.livedoor\.com/reader' :fmap! j k s a p o v c <Space> <S-Space> z b < >
 autocmd LocationChange 'friendfeed\.com/' :fmap! -vkey -event keydown p P q / gh gd gm gb
 autocmd LocationChange 'localhost:10010' :fmap! j k h l r o
