@@ -7,3 +7,7 @@ fortune
 #from 2>/dev/null
 #cat notes
 #msgs -fp
+
+if [ -x "`which uname`" ]; then
+  export OS="`uname`"
+fi

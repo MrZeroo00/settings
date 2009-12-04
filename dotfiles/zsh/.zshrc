@@ -2,10 +2,12 @@
 #cdpath=(.. ~ ~/src ~/zsh)
 
 # Use hard limits, except for a smaller stack and no core dumps
-unlimit
-limit stack 8192
-limit core 0
-limit -s
+if [ "${OS}" != "Cygwin" ]; then
+  unlimit
+  limit stack 8192
+  limit core 0
+  limit -s
+fi
 
 umask 022
 
@@ -183,7 +185,11 @@ bindkey '^I' complete-word # complete on tab, leave expansion to _expand
 # based) programmable completion, check Misc/compctl-examples in the zsh
 # distribution.
 autoload -U compinit
-compinit
+if [ "${OS}" != "Cygwin" ]; then
+  compinit
+else
+  compinit -u
+fi
 
 # Completion Styles
 
@@ -228,7 +234,7 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 # use color
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
-case "`uname`" in
+case "${OS}" in
   "Darwin")
   compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open
   alias run='open -a'

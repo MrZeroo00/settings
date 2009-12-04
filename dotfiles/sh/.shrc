@@ -54,12 +54,17 @@ export GIT_EDITOR='vim'
 source gtags_load_libpath
 
 # OS specific environmental variables
-case "`uname`" in
+case "${OS}" in
   "Linux")
   ;;
   "Darwin")
   MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
   INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
+  ;;
+  "Cygwin")
+  export LANG='ja_JP.SJIS'
+  export TZ='JST-9'
+  export JLESSCHARSET='japanese-sjis'
   ;;
 esac
 export MANPATH

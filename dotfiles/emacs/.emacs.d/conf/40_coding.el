@@ -24,7 +24,12 @@
       ))
 
 
-;; status bar
+;; comment
+(global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
+(setq comment-style 'multi-line)
+
+
+;; ;; status bar
 (which-function-mode t)
 
 
@@ -92,7 +97,7 @@
 
 (add-hook 'c-mode-common-hook '(lambda ()
                                  (gtags-mode t)
-                                 (gtags-make-complete-list)
+                                 ;(gtags-make-complete-list)
                                  ))
 
 

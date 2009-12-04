@@ -5,8 +5,8 @@
 (setq default-frame-alist
       (append (list '(top . 20)         ; 起動時の表示位置(右から)
                     '(left . 100)       ; 起動時の表示位置(左から)
-                    '(width . 80)       ; 起動時のサイズ(幅)
-                    '(height . 45)      ; 起動時のサイズ(縦)
+                    '(width . 160)       ; 起動時のサイズ(幅)
+                    '(height . 64)      ; 起動時のサイズ(縦)
                     ;'(foreground-color . "green")       ; 文字の色
                     ;'(background-color . "black")       ; 背景の色
                     ;'(alpha . (nil 70 50 30))           ; 透過

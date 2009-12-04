@@ -33,7 +33,7 @@ alias gdb='gdb -silent'
 alias gvim-remote='gvim --remote-silent'
 
 # OS specific aliases
-case "`uname`" in
+case "${OS}" in
   "Linux")
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
@@ -51,6 +51,17 @@ case "`uname`" in
   alias strace='sudo dtruss sudo -u ${USER}'
   alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
   alias ql='qlmanage -p "$@" >& /dev/null'
+  ;;
+  "Cygwin")
+  alias ls='ls --show-control-chars --color'
+  alias less='lv -Os'
+  alias lv='lv -Os'
+  alias lgrep='lgrep -Os -Ks'
+  alias vim='/cygdrive/c/Vim/bin/vim.exe'
+  alias emacs='/cygdrive/c/meadow/bin/Meadow.exe'
+  alias open='fiber'
+  alias pbcopy='putclip'
+  alias pbpaste='getclip'
   ;;
 esac
 
