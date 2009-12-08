@@ -2,6 +2,7 @@
 (setq org-startup-truncated nil)
 (setq org-return-follows-link t)
 (require 'org)
+;(require 'org-install)
 (require 'org-mouse)
 
 ; association setting
