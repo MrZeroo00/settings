@@ -14,14 +14,16 @@ osd-duration=500
 osdlevel=0
 alang=en
 slang=ja
+fontconfig=yes
 subfont-autoscale=0
-subfont-outline=2
+subfont-osd-scale=12
+subfont-outline=1
 utf8=yes
 
 # UI
 border=yes
 gui=yes
-menu=no
+menu=yes
 ontop=yes
 msgcolor=yes
 msglevel:all=-1
