@@ -15,9 +15,11 @@ osdlevel=0
 alang=en
 slang=ja
 fontconfig=yes
+sub-bg-alpha=128
 subfont-autoscale=0
 subfont-osd-scale=12
 subfont-outline=1
+subfont-text-scale=5
 utf8=yes
 
 # UI
