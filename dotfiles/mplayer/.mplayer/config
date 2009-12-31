@@ -1,0 +1,32 @@
+# video output
+double=yes
+dr=yes
+framedrop=yes
+vm=no
+xy=2
+zoom=yes
+
+# streaming
+cache=8192
+
+# osd / subtitle
+osd-duration=500
+osdlevel=0
+alang=en
+slang=ja
+subfont-autoscale=0
+subfont-outline=2
+utf8=yes
+
+# UI
+border=yes
+gui=yes
+menu=no
+ontop=yes
+msgcolor=yes
+msglevel:all=-1
+#msglevel:global=5
+#msglevel:cplayer=5
+msglevel:demux=5
+#msglevel:header=5
+msglevel:statusline=5
