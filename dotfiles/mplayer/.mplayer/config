@@ -6,6 +6,9 @@ vm=no
 xy=2
 zoom=yes
 
+# sound output
+softvol=yes
+
 # streaming
 cache=8192
 
