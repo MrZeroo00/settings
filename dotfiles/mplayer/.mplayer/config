@@ -1,16 +1,10 @@
 # video output
 double=yes
 dr=yes
-framedrop=yes
 vm=no
-xy=2
-zoom=yes
 
 # sound output
 softvol=yes
-
-# streaming
-cache=8192
 
 # osd / subtitle
 osd-duration=500
@@ -37,3 +31,13 @@ msglevel:all=-1
 msglevel:demux=5
 #msglevel:header=5
 msglevel:statusline=5
+
+[streaming]
+profile-desc="profile for streaming"
+# video output
+framedrop=yes
+xy=2
+zoom=yes
+
+# streaming
+cache=8192
