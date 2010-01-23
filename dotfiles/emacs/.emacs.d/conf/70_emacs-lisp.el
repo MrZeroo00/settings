@@ -1,4 +1,4 @@
-(require 'lisp-mode)
+(require 'lisp-mode nil t)
 
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.el$" . emacs-lisp-mode))
@@ -43,9 +43,9 @@
 ;; checkdoc
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (require 'checkdoc)))
+            (require 'checkdoc nil t)))
 
 
 ;; lispxmp
 ;(install-elisp-from-emacswiki "lispxmp.el")
-;(require 'lispxmp)
+;(require 'lispxmp nil t)

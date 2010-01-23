@@ -1,8 +1,8 @@
 ;; w3m
 (if (= emacs-major-version 23)
-    (require 'w3m-ems)
-  (require 'w3m))
-;(require 'mime-w3m)
+    (require 'w3m-ems nil t)
+  (require 'w3m nil t))
+;(require 'mime-w3m nil t)
 
 (eval-after-load "w3m"
   '(progn
@@ -32,7 +32,7 @@
 
 
 ;; octet
-;(require 'octet)
+;(require 'octet nil t)
 ;(octet-mime-setup)
 
 

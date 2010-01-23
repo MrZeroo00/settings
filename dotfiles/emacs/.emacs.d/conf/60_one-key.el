@@ -1,6 +1,6 @@
 ;(install-elisp-from-emacswiki "one-key.el")
-(require 'one-key)
-(require 'one-key-config)
+(require 'one-key nil t)
+(require 'one-key-config nil t)
 (setq max-lisp-eval-depth 10000)
 (setq max-specpdl-size 50000)
 
@@ -42,5 +42,5 @@
 
 ;; one-key-default
 ;(install-elisp-from-emacswiki "one-key-default.el")
-;(require 'one-key-default)
+;(require 'one-key-default nil t)
 ;(one-key-default-setup-keys)

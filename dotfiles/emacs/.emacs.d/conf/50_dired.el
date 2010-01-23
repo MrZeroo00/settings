@@ -7,7 +7,7 @@
 
 
 ;; ls-lisp
-(require 'ls-lisp)
+(require 'ls-lisp nil t)
 (setq ls-lisp-dirs-first t)
 
 
@@ -23,7 +23,7 @@
 ;(install-elisp "http://www.bookshelf.jp/elc/sorter.el")
 (add-hook 'dired-load-hook
           (lambda ()
-            (require 'sorter)))
+            (require 'sorter nil t)))
 
 
 ;; dired-x
@@ -52,13 +52,13 @@
 
 ;; wdired (rename file name from dired buffer)
 ;(install-elisp-from-emacswiki "wdired.el")
-(require 'wdired)
+(require 'wdired nil t)
 ;(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
 
 ;; bf-mode (show file content)
 ;(install-elisp "http://www.bookshelf.jp/elc/bf-mode.el")
-(require 'bf-mode)
+(require 'bf-mode nil t)
 (setq bf-mode-browsing-size 10)
 ;(setq bf-mode-except-ext '("\\.exe$" "\\.com$"))
 ;(setq bf-mode-force-browse-exts
@@ -109,7 +109,7 @@
   '(progn
      ;; w32-symlinks
      ;(install-elisp "http://centaur.maths.qmw.ac.uk/Emacs/files/w32-symlinks.el")
-     (require 'w32-symlinks)
+     (require 'w32-symlinks nil t)
      (load "_dired-make-symbolic-link")
      ;(add-hook 'dired-mode-hook
      ;          '(lambda ()

@@ -1,19 +1,19 @@
 ;; uniquify (add directory name)
-(require 'uniquify)
+(require 'uniquify nil t)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
 
 ;; tempbuf
 ;(install-elisp-from-emacswiki "tempbuf.el")
-;(require 'tempbuf)
+;(require 'tempbuf nil t)
 ;(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
 ;(add-hook 'Man-mode-hook 'turn-on-tempbuf-mode)
 
 
 ;; contentswitch
 ;(install-elisp-from-emacswiki "contentswitch.el")
-;(require 'contentswitch)
+;(require 'contentswitch nil t)
 
 
 ;; macros

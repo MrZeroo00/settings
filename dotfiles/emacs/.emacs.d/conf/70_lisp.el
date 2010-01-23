@@ -1,4 +1,4 @@
-(require 'lisp-mode)
+(require 'lisp-mode nil t)
 
 ; mode hook
 (add-hook 'lisp-mode-hook
@@ -20,14 +20,14 @@
 ;; slime
 ;; http://common-lisp.net/project/slime/
 (setq load-path (cons "/opt/local/share/emacs/site-lisp/slime" load-path))
-(require 'slime-autoloads)
+(require 'slime-autoloads nil t)
 (setq slime-lisp-implementations
       `((sbcl ("/opt/local/bin/sbcl"))
         (clisp ("/opt/local/bin/clisp"))))
 (add-hook 'lisp-mode-hook
           (lambda ()
             (cond ((not (featurep 'slime))
-                   (require 'slime) 
+                   (require 'slime nil t) 
                    (normal-mode)))))
 
 (add-hook 'lisp-interaction-mode-hook

@@ -1,5 +1,5 @@
 ;(install-elisp-from-emacswiki "key-chord.el")
-(require 'key-chord)
+(require 'key-chord nil t)
 
 (setq key-chord-two-keys-delay 0.04)
 (key-chord-mode t)
@@ -11,5 +11,5 @@
 
 ;; space-chord
 ;(install-elisp-from-emacswiki "space-chord.el")
-(require 'space-chord)
+(require 'space-chord nil t)
 ;(space-chord-define-global "f" 'find-file)

@@ -4,14 +4,14 @@
 
 ;; color-grep
 ;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
-(require 'color-grep)
+(require 'color-grep nil t)
 (setq color-grep-sync-kill-buffer t)
 
 
 ;; grep-edit
-(require 'grep)
+(require 'grep nil t)
 ;(install-elisp "http://www.bookshelf.jp/elc/grep-edit.el")
-(require 'grep-edit)
+(require 'grep-edit nil t)
 
 ;; http://d.hatena.ne.jp/rubikitch/20081025/1224869598
 (defadvice grep-edit-change-file (around inhibit-read-only activate)
@@ -36,20 +36,20 @@
 
 ;; qsearch
 ;(install-elisp-from-emacswiki "qsearch.el")
-;(require 'qsearch)
+;(require 'qsearch nil t)
 
 
 ;; ireplace
 ;(install-elisp "http://www.bookshelf.jp/elc/ireplace.el")
-;(require 'ireplace)
+;(require 'ireplace nil t)
 
 
 ;; approx-search
 ;; http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/
-;(require 'approx-search)
+;(require 'approx-search nil t)
 ;(if (boundp 'isearch-search-fun-function)
-;    (require 'approx-isearch)
-;  (require 'approx-old-isearch))
+;    (require 'approx-isearch nil t)
+;  (require 'approx-old-isearch nil t))
 ;
 ;(if migemo-isearch-enable-p
 ;    (approx-isearch-set-disable)

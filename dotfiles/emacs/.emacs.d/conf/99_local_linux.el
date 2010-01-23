@@ -1,9 +1,5 @@
 (menu-bar-mode nil)
 
-(eval-after-load "anything-config"
-  '(progn
-     (setq anything-c-locate-options `("mlocate" "-q" "-i" "-n" "50" "-r"))
-     ))
 
 (when window-system
   (progn
@@ -20,3 +16,7 @@
 ;;(anthy-change-hiragana-map "," "、")
 ;;(anthy-load-hiragana-map anthy-alt-char-map)
 ;(setq anthy-wide-space " ")
+
+
+;; anything
+(setq anything-c-locate-options `("mlocate" "-q" "-i" "-n" "50" "-r"))

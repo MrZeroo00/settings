@@ -1,5 +1,5 @@
-(require 'emms-setup)
-(require 'emms-i18n)
+(require 'emms-setup nil t)
+(require 'emms-i18n nil t)
 (emms-standard)
 (emms-default-players)
 (setq emms-repeat-playlist t)

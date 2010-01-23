@@ -1,9 +1,9 @@
 ;; http://orgmode.org/
 (setq org-startup-truncated nil)
 (setq org-return-follows-link t)
-(require 'org)
-;(require 'org-install)
-(require 'org-mouse)
+(require 'org nil t)
+;(require 'org-install nil t)
+(require 'org-mouse nil t)
 
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -131,7 +131,7 @@
 ;; remember
 ;; https://gna.org/p/remember-el
 ;(org-remember-insinuate)
-(require 'remember)
+(require 'remember nil t)
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
@@ -145,7 +145,7 @@
 
 ;; freemind
 ;(install-elisp-from-emacswiki "freemind.el")
-(require 'freemind)
+(require 'freemind nil t)
 
 
 ;; macros

@@ -12,7 +12,7 @@
 
 ;; auto-complete
 ;(install-elisp-from-emacswiki "auto-complete.el")
-(require 'auto-complete)
+(require 'auto-complete nil t)
 (global-auto-complete-mode t)
 (setq ac-candidate-max 15)
 (setq ac-sources '(ac-source-abbrev
@@ -44,7 +44,7 @@
 
 ;; dabbrev-highlight
 ;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
-(require 'dabbrev-highlight)
+(require 'dabbrev-highlight nil t)
 
 
 ;; dabbrev-ja
@@ -54,7 +54,7 @@
 
 ;; abbrev-sort
 ;(install-elisp "http://www.eskimo.com/~seldon/abbrev-sort.el")
-;(require 'abbrev-sort)
+;(require 'abbrev-sort nil t)
 
 
 ;; ac-mode
@@ -64,15 +64,15 @@
 
 ;; mcomplete
 ;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el")
-;(require 'mcomplete)
-;(require 'cl)
+;(require 'mcomplete nil t)
+;(require 'cl nil t)
 ;(install-elisp "http://www.bookshelf.jp/elc/mcomplete-history.el")
 ;(load "mcomplete-history")
 ;(turn-on-mcomplete-mode)
 
 
 ;; expand
-;(require 'expand)
+;(require 'expand nil t)
 ;(expand-add-abbrevs c-mode-abbrev-table
 ;                    expand-c-sample-expand-list)
 ;(expand-add-abbrevs lisp-interaction-mode-abbrev-table
@@ -86,12 +86,12 @@
 
 
 ;; hippie-exp
-;(require 'hippie-exp)
+;(require 'hippie-exp nil t)
 
 
 ;; icicles
 ;(install-elisp-from-emacswiki "icicles.el")
-;(require 'icicles)
+;(require 'icicles nil t)
 
 
 ;; macros

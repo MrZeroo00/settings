@@ -1,6 +1,6 @@
 ;; assuming confluence.el and xml-rpc.el are in your load path
 ;; http://code.google.com/p/confluence-el/
-(require 'confluence)
+(require 'confluence nil t)
 
 ;; note, all customization must be in *one* custom-set-variables block
 ;(custom-set-variables
@@ -17,7 +17,7 @@
 
 (eval-after-load "confluence"
   '(progn
-     (require 'longlines)
+     (require 'longlines nil t)
      (progn
        (add-hook 'confluence-mode-hook 'longlines-mode)
        (add-hook 'confluence-before-save-hook 'longlines-before-revert-hook)

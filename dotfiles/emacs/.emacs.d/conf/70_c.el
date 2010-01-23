@@ -1,4 +1,4 @@
-(require 'cc-mode)
+(require 'cc-mode nil t)
 
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
@@ -73,7 +73,7 @@
 ;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
 ;(add-hook 'c-mode-common-hook
 ;          (function (lambda ()
-;                      (require 'cpp-complt)
+;                      (require 'cpp-complt nil t)
 ;                      (define-key c-mode-map [mouse-2]
 ;                        'cpp-complt-include-mouse-select)
 ;                      (define-key c-mode-map "#"
@@ -92,7 +92,7 @@
 ;(install-elisp "http://www.bookshelf.jp/elc/pbf-mode.el")
 ;(add-hook 'c-mode-hook
 ;          (lambda ()
-;            (require 'pbf-mode)
+;            (require 'pbf-mode nil t)
 ;            (pbf-setup)
 ;            (pbf-mode t)
 ;            (pbf-project HOME nil
@@ -103,5 +103,5 @@
 ;; cwarn
 (add-hook 'c-mode-hook
           (lambda ()
-            (require 'cwarn)
+            (require 'cwarn nil t)
             (turn-on-cwarn-mode)))

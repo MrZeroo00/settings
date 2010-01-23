@@ -31,7 +31,7 @@
 
 ;; shell-command
 ;(install-elisp "http://namazu.org/~tsuchiya/elisp/shell-command.el")
-;(require 'shell-command) ; replaced by anything
+;(require 'shell-command nil t) ; replaced by anything
 ;(shell-command-completion-mode)
 
 
@@ -52,6 +52,12 @@
   t)
 (autoload 'shell-toggle-cd "shell-toggle"
   "Pops up a shell-buffer and insert a \"cd \" command." t)
+
+
+;; shell-history
+;(install-elisp-from-emacswiki "shell-history.el")
+(require 'shell-history nil t)
+(define-key shell-mode-map "\M-m" 'shell-add-to-history)
 
 
 ;; eshell
