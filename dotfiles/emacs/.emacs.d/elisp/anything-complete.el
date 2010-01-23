@@ -1,5 +1,5 @@
 ;;; anything-complete.el --- completion with anything
-;; $Id: anything-complete.el,v 1.56 2009/07/26 21:25:04 rubikitch Exp rubikitch $
+;; $Id: anything-complete.el,v 1.74 2010/01/23 04:18:18 rubikitch Exp rubikitch $
 
 ;; Copyright (C) 2008  rubikitch
 
@@ -45,6 +45,9 @@
 ;;
 ;; Below are customizable option list:
 ;;
+;;  `anything-complete-sort-candidates'
+;;    *Whether to sort completion candidates.
+;;    default = nil
 
 ;; * `anything-lisp-complete-symbol', `anything-lisp-complete-symbol-partial-match':
 ;;     `lisp-complete-symbol' with `anything'
@@ -93,6 +96,66 @@
 ;;; History:
 
 ;; $Log: anything-complete.el,v $
+;; Revision 1.74  2010/01/23 04:18:18  rubikitch
+;; `ac-new-input-source': temporarily disable shortcuts
+;;
+;; Revision 1.73  2009/12/25 01:35:59  rubikitch
+;; Adjust `anything-noresume' to latest version of `anything'
+;;
+;; Revision 1.72  2009/12/14 00:13:28  rubikitch
+;; New command: `alcs-update-restart'
+;;
+;; Pressing `C-c C-u' in `anything-lisp-complete-symbol' and `anything-lisp-complete-symbol-partial-match' recollects symbols and reexecutes this command.
+;;
+;; Revision 1.71  2009/12/13 23:34:19  rubikitch
+;; Show timestamp of lisp symbols
+;;
+;; Revision 1.70  2009/12/13 23:17:18  rubikitch
+;; Make alcs-make-candidates timer singleton
+;;
+;; Revision 1.69  2009/12/13 23:06:34  rubikitch
+;; New variable `anything-lisp-complete-symbol-add-space-on-startup':
+;;
+;; If non-nil, `anything-lisp-complete-symbol' and `anything-lisp-complete-symbol-partial-match' adds space on startup.
+;; It utilizes anything-match-plugin's feature.
+;;
+;; Revision 1.68  2009/11/11 19:01:09  rubikitch
+;; Bug fix when completing at right side
+;;
+;; Revision 1.67  2009/11/11 18:03:49  rubikitch
+;; New implementation of `alcs-current-physical-column'
+;;
+;; Revision 1.66  2009/10/26 09:38:39  rubikitch
+;; `anything-completing-read': Show default source first when require-match and default is specified.
+;;
+;; Revision 1.65  2009/10/22 08:54:58  rubikitch
+;; `anything-complete-shell-history-setup-key': Use `minibuffer-local-shell-command-map' if any
+;;
+;; Revision 1.64  2009/10/13 05:40:51  rubikitch
+;; `anything-completing-read': Show completions first when require-match == t
+;;
+;; Revision 1.63  2009/10/11 20:27:22  rubikitch
+;; `alcs-transformer-prepend-spacer': use physical column instead of logical column
+;;
+;; Revision 1.62  2009/10/10 03:27:33  rubikitch
+;; New variable: `anything-complete-sort-candidates'
+;;
+;; Revision 1.61  2009/10/08 17:06:35  rubikitch
+;; `anything-complete-shell-history': taller window
+;;
+;; Revision 1.60  2009/10/08 05:12:27  rubikitch
+;; If anything-show-completion.el is available, candidates are shown near the point.
+;;
+;; Revision 1.59  2009/10/07 10:29:34  rubikitch
+;; `anything-find-file': use `anything-other-buffer' instead of `anything-complete'
+;;
+;; Revision 1.58  2009/10/01 03:07:44  rubikitch
+;; Fix an error in `anything-find-file'. Thanks to troter.
+;; http://d.hatena.ne.jp/troter/20090929/1254199115
+;;
+;; Revision 1.57  2009/08/02 04:19:52  rubikitch
+;; New variable: `anything-complete-persistent-action'
+;;
 ;; Revision 1.56  2009/07/26 21:25:04  rubikitch
 ;; New variable: `anything-completing-read-use-default'
 ;; New variable: `anything-completing-read-history-first'
@@ -273,53 +336,9 @@
 ;; Initial revision
 ;;
 
-;;; History of anything-lisp-complete-symbol.el
-
-;; Revision 1.13  2008/09/04 08:07:18  rubikitch
-;; use `anything-complete-target' rather than `alcs-target'.
-;;
-;; Revision 1.12  2008/09/04 07:50:34  rubikitch
-;; add docstrings
-;;
-;; Revision 1.11  2008/09/04 07:35:02  rubikitch
-;; use `add-to-list' to add `anything-type-attributes' entry.
-;;
-;; Revision 1.10  2008/09/04 01:19:56  rubikitch
-;; New source: `anything-c-source-emacs-function-at-point'
-;; New source: `anything-c-source-emacs-variable-at-point'
-;;
-;; Revision 1.9  2008/09/04 00:48:22  rubikitch
-;; New action: find-function, find-variable
-;;
-;; Revision 1.8  2008/09/03 11:02:51  rubikitch
-;; do `alcs-make-candidates' after load this file.
-;;
-;; Revision 1.7  2008/08/29 09:32:46  rubikitch
-;; make `alcs-make-candidates' faster
-;;
-;; Revision 1.6  2008/08/29 09:22:02  rubikitch
-;; add command sources.
-;; New command: `anything-apropos'
-;;
-;; Revision 1.5  2008/08/29 02:38:42  rubikitch
-;; New command: `anything-lisp-complete-symbol-partial-match'
-;;
-;; Revision 1.4  2008/08/26 10:42:54  rubikitch
-;; integration with `anything-dabbrev-expand'
-;;
-;; Revision 1.3  2008/08/25 20:45:45  rubikitch
-;; export variables
-;;
-;; Revision 1.2  2008/08/25 20:29:48  rubikitch
-;; add requires
-;;
-;; Revision 1.1  2008/08/25 20:26:09  rubikitch
-;; Initial revision
-;;
-
 ;;; Code:
 
-(defvar anything-complete-version "$Id: anything-complete.el,v 1.56 2009/07/26 21:25:04 rubikitch Exp rubikitch $")
+(defvar anything-complete-version "$Id: anything-complete.el,v 1.74 2010/01/23 04:18:18 rubikitch Exp rubikitch $")
 (require 'anything-match-plugin)
 (require 'thingatpt)
 
@@ -329,7 +348,6 @@
                anything-lisp-complete-symbol
                anything-lisp-complete-symbol-partial-match))
     (use-anything-show-completion f '(length anything-complete-target))))
-
 
 ;; (@* "core")
 (defvar anything-complete-target "")
@@ -348,7 +366,7 @@
 ;; Warning: I'll change this function's interface. DON'T USE IN YOUR PROGRAM!
 (defun anything-noresume (&optional any-sources any-input any-prompt any-resume any-preselect any-buffer)
   (let (anything-last-sources anything-compiled-sources anything-last-buffer)
-    (anything any-sources any-input any-prompt any-resume any-preselect any-buffer)))
+    (anything any-sources any-input any-prompt 'noresume any-preselect any-buffer)))
 
 (defun anything-complete (sources target &optional limit idle-delay input-idle-delay)
   "Basic completion interface using `anything'."
@@ -361,11 +379,13 @@
         anything-samewindow)
     (anything-noresume sources target nil nil nil "*anything complete*")))
 
-
 ;; (@* "`lisp-complete-symbol' and `apropos' replacement")
 (defvar anything-lisp-complete-symbol-input-idle-delay 0.1
   "`anything-input-idle-delay' for `anything-lisp-complete-symbol',
 `anything-lisp-complete-symbol-partial-match' and `anything-apropos'.")
+(defvar anything-lisp-complete-symbol-add-space-on-startup t
+  "If non-nil, `anything-lisp-complete-symbol' and `anything-lisp-complete-symbol-partial-match' adds space on startup.
+It utilizes anything-match-plugin's feature.")
 
 (defun alcs-create-buffer (name)
   (let ((b (get-buffer-create name)))
@@ -379,10 +399,14 @@
 (defvar alcs-commands-buffer " *command symbols*")
 (defvar alcs-symbol-buffer " *other symbols*")
 
+(defvar alcs-symbols-time nil
+  "Timestamp of collected symbols")
+
 (defun alcs-make-candidates ()
   (message "Collecting symbols...")
   ;; To ignore read-only property.
   (let ((inhibit-read-only t))
+    (setq alcs-symbols-time (current-time))
     (alcs-create-buffer alcs-variables-buffer)
     (alcs-create-buffer alcs-functions-buffer)
     (alcs-create-buffer alcs-commands-buffer)
@@ -397,13 +421,23 @@
                ((not fbp) (set-buffer alcs-symbol-buffer) (insert name "\n")))))))
   (message "Collecting symbols...done"))
 
+(defun alcs-header-name (name)
+  (format "%s at %s (Press `C-c C-u' to update)"
+          name (format-time-string "%H:%M:%S" alcs-symbols-time)))
+
+(defvar alcs-make-candidates-timer nil)
 (defun anything-lisp-complete-symbol-set-timer (update-period)
   "Update Emacs symbols list when Emacs is idle,
 used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
-  (run-with-idle-timer update-period t 'alcs-make-candidates))
+  (when alcs-make-candidates-timer
+    (cancel-timer alcs-make-candidates-timer))
+  (setq alcs-make-candidates-timer
+        (run-with-idle-timer update-period t 'alcs-make-candidates)))
 
+(defvar alcs-physical-column-at-startup nil)
 (defun alcs-init (bufname)
   (declare (special anything-dabbrev-last-target))
+  (setq alcs-physical-column-at-startup nil)
   (setq anything-complete-target
         (if (loop for src in (anything-get-sources)
                   thereis (string-match "^dabbrev" (assoc-default 'name src)))
@@ -411,8 +445,39 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
           (anything-aif (symbol-at-point) (symbol-name it) "")))
   (anything-candidate-buffer (get-buffer bufname)))
 
-(defun alcs-sort (candidates source)
-  (sort candidates #'string<))
+(defcustom anything-complete-sort-candidates nil
+  "*Whether to sort completion candidates."
+  :type 'boolean  
+  :group 'anything-complete)
+
+(defun alcs-sort-maybe (candidates source)
+  (if anything-complete-sort-candidates
+      (sort candidates #'string<)
+    candidates))
+
+;;; borrowed from pulldown.el
+(defun alcs-current-physical-column ()
+  "Current physical column. (not logical column)"
+  ;; (- (point) (save-excursion (vertical-motion 0) (point)))
+  (car (posn-col-row (posn-at-point))))
+
+(defun alcs-transformer-prepend-spacer (candidates source)
+  "Prepend spaces according to `current-column' for each CANDIDATES."
+  (setq alcs-physical-column-at-startup
+        (or alcs-physical-column-at-startup
+            (with-current-buffer anything-current-buffer
+              (save-excursion
+                (backward-char (string-width anything-complete-target))
+                (alcs-current-physical-column)))))
+  (mapcar (lambda (cand) (cons (concat (make-string alcs-physical-column-at-startup ? ) cand) cand))
+          candidates))
+
+(defun alcs-transformer-prepend-spacer-maybe (candidates source)
+  ;; `anything-show-completion-activate' is defined in anything-show-completion.el
+  (if (and (boundp 'anything-show-completion-activate)
+           anything-show-completion-activate)
+      (alcs-transformer-prepend-spacer candidates source)
+    candidates))
 
 (defun alcs-describe-function (name)
   (describe-function (intern name)))
@@ -442,7 +507,7 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
   '((name . "Other Symbols")
     (init . (lambda () (alcs-init alcs-symbol-buffer)))
     (candidates-in-buffer)
-    (filtered-candidate-transformer . alcs-sort)
+    (filtered-candidate-transformer . alcs-sort-maybe)
     (action . ac-insert)))
 (defvar anything-c-source-apropos-emacs-functions
   '((name . "Apropos Functions")
@@ -490,49 +555,66 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
     anything-c-source-apropos-emacs-variables))
 
 (define-anything-type-attribute 'apropos-function
-  '((filtered-candidate-transformer . alcs-sort)
+  '((filtered-candidate-transformer . alcs-sort-maybe)
+    (header-name . alcs-header-name)
     (persistent-action . alcs-describe-function)
     (action
      ("Describe Function" . alcs-describe-function)
      ("Find Function" . alcs-find-function))))
 (define-anything-type-attribute 'apropos-variable
-  '((filtered-candidate-transformer . alcs-sort)
+  '((filtered-candidate-transformer . alcs-sort-maybe)
+    (header-name . alcs-header-name)
     (persistent-action . alcs-describe-variable)
     (action
      ("Describe Variable" . alcs-describe-variable)
      ("Find Variable" . alcs-find-variable))))
 (define-anything-type-attribute 'complete-function
-  '((filtered-candidate-transformer . alcs-sort)
+  '((filtered-candidate-transformer alcs-sort-maybe alcs-transformer-prepend-spacer-maybe)
+    (header-name . alcs-header-name)
     (action . ac-insert)
     (persistent-action . alcs-describe-function)))
 (define-anything-type-attribute 'complete-variable
-  '((filtered-candidate-transformer . alcs-sort)
+  '((filtered-candidate-transformer alcs-sort-maybe alcs-transformer-prepend-spacer-maybe)
+    (header-name . alcs-header-name)
     (action . ac-insert)
     (persistent-action . alcs-describe-variable)))
 
+(defvar alcs-this-command nil)
 (defun anything-lisp-complete-symbol-1 (update sources input)
+  (setq alcs-this-command this-command)
   (when (or update (null (get-buffer alcs-variables-buffer)))
     (alcs-make-candidates))
   (let (anything-samewindow
         (anything-input-idle-delay
          (or anything-lisp-complete-symbol-input-idle-delay
-             anything-input-idle-delay)))
+             anything-input-idle-delay))
+        (anything-map (copy-keymap anything-map)))
+    (define-key anything-map "\C-c\C-u" 'alcs-update-restart)
     (anything-noresume sources input nil nil nil "*anything complete*")))
+
+(defun alcs-update-restart ()
+  (interactive)
+  (alcs-make-candidates)
+  (anything-run-after-quit 'call-interactively alcs-this-command))
+
+(defun alcs-initial-input (partial-match)
+  (anything-aif (symbol-at-point)
+      (format "%s%s%s"
+              (if partial-match "" "^")
+              it
+              (if anything-lisp-complete-symbol-add-space-on-startup " " ""))
+    ""))
 
 (defun anything-lisp-complete-symbol (update)
   "`lisp-complete-symbol' replacement using `anything'."
   (interactive "P")
   (anything-lisp-complete-symbol-1 update anything-lisp-complete-symbol-sources
-                                   (anything-aif (symbol-at-point)
-                                       (format "^%s" it)
-                                     "")))
+                                   (alcs-initial-input nil)))
 (defun anything-lisp-complete-symbol-partial-match (update)
   "`lisp-complete-symbol' replacement using `anything' (partial match)."
   (interactive "P")
   (anything-lisp-complete-symbol-1 update anything-lisp-complete-symbol-sources
-                                   (anything-aif (symbol-at-point)
-                                       (symbol-name it)
-                                     "")))
+                                   (alcs-initial-input t)))
 (defun anything-apropos (update)
   "`apropos' replacement using `anything'."
   (interactive "P")
@@ -552,7 +634,12 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
 
 (defun ac-new-input-source (prompt require-match &optional additional-attrs)
   (unless require-match
-    `((name . ,prompt) (dummy) ,@additional-attrs)))
+    `((name . ,prompt)
+      (init . (lambda () (setq anything-orig-enable-shortcuts anything-enable-shortcuts
+                               anything-enable-shortcuts nil)))
+      (cleanup . (lambda () (setq anything-enable-shortcuts anything-orig-enable-shortcuts)))
+      (dummy)
+      ,@additional-attrs)))
 (defun* ac-default-source (default &optional accept-empty (additional-attrs '((action . identity))))
   `((name . "Default")
     (default-value . ,(or default (and accept-empty "")))
@@ -586,6 +673,10 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
   "Whether to use default value source.")
 (defvar anything-completing-read-history-first nil
   "Whether to display history source first.")
+(defvar anything-complete-persistent-action nil
+  "Persistent action function used by `anything-completing-read'.
+It accepts one argument, selected candidate.")
+
 (defun* acr-sources (prompt collection predicate require-match initial hist default inherit-input-method &optional (additional-attrs '((action . identity))))
   "`anything' replacement for `completing-read'."
   (let* ((transformer-func
@@ -594,27 +685,34 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
                 . (lambda (cands)
                     (remove-if-not (lambda (c) (,predicate
                                                 (if (listp c) (car c) c))) cands)))))
+         (persistent-action
+          (if anything-complete-persistent-action
+              '(persistent-action
+                . (lambda (cand) (funcall anything-complete-persistent-action cand)))))
          (new-input-source (ac-new-input-source prompt require-match additional-attrs))
          (history-source (unless require-match
                            `((name . "History")
                              (candidates . ,(or hist 'minibuffer-history))
+                             ,persistent-action
                              ,@additional-attrs)))
          (default-source (and anything-completing-read-use-default (ac-default-source default t)))
          (main-source `((name . "Completions")
                         (candidates . ,(mapcar (lambda (x) (or (car-safe x) x)) collection))
                         ,@additional-attrs
+                        ,persistent-action
                         ,transformer-func)))
-    (if anything-completing-read-history-first
-        `(,default-source
-           ,history-source
-           ,main-source
-           ,new-input-source)
-      `(,default-source
-           ,main-source
-           ,history-source
-           ,new-input-source))))
+    (cond ((and require-match default)
+           (list default-source main-source))
+          (require-match
+           (list main-source default-source))
+          (anything-completing-read-history-first
+           (list default-source history-source main-source new-input-source))
+          (t
+           (list default-source main-source history-source new-input-source)))))
 ;; (anything-completing-read "Command: " obarray 'commandp t)
 ;; (anything-completing-read "Test: " '(("hoge")("foo")("bar")) nil t)
+;; (anything-completing-read "Test: " '(("hoge")("foo")("bar")) nil t nil nil "foo")
+;; (let ((anything-complete-persistent-action 'message)) (anything-completing-read "Test: " '(("hoge")("foo")("bar")) nil t))
 ;; (anything-old-completing-read "Test: " '(("hoge")("foo")("bar")) nil t)
 ;; (anything-completing-read "Test: " '(("hoge")("foo")("bar")) nil nil "f" nil)
 ;; (completing-read "Test: " '(("hoge")("foo")("bar")) nil nil "f" nil nil t)
@@ -814,14 +912,21 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
 (defun anything-complete-shell-history ()
   "Select a command from shell history and insert it."
   (interactive)
-  (anything-complete 'anything-c-source-complete-shell-history
-                     (or (word-at-point) "")
-                     20))
+  (let ((anything-show-completion-minimum-window-height (/ (frame-height) 2)))
+    (anything-complete 'anything-c-source-complete-shell-history
+                      (or (word-at-point) "")
+                      20)))
 (defun anything-complete-shell-history-setup-key (key)
-  (when (and (require 'shell-command nil t)
+  ;; for Emacs22
+  (when (and (not (boundp 'minibuffer-local-shell-command-map))
+             (require 'shell-command nil t)
              (boundp 'shell-command-minibuffer-map))
     (shell-command-completion-mode)
     (define-key shell-command-minibuffer-map key 'anything-complete-shell-history))
+  ;; for Emacs23
+  (when (boundp 'minibuffer-local-shell-command-map)
+    (define-key minibuffer-local-shell-command-map key 'anything-complete-shell-history))
+
   (when (require 'background nil t)
     (define-key background-minibuffer-map key 'anything-complete-shell-history))
   (require 'shell)
@@ -907,15 +1012,16 @@ used by `anything-lisp-complete-symbol-set-timer' and `anything-apropos'"
   (interactive)
   (let ((anything-map (anything-read-file-name-map))
         ;; anything-read-file-name-follow-directory uses these variables
+        (prompt "Find File: ")
         default-filename require-match predicate
         (additional-attrs '(;; because anything-c-skip-boring-files cannot
                             ;; handle (display . real) candidates
                             (candidate-transformer)
                             (type . file))))
-    (anything-complete (append (arfn-sources "Find File: " default-directory
-                                             nil nil nil nil additional-attrs)
-                               anything-find-file-additional-sources)
-                       "" )))
+    (anything-other-buffer (append (arfn-sources prompt default-directory
+                                                 nil nil nil nil additional-attrs)
+                                   anything-find-file-additional-sources)
+                           "*anything find-file*")))
 ;;(anything-find-file)
 
 (add-hook 'after-init-hook 'alcs-make-candidates)
