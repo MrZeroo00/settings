@@ -5,7 +5,7 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
 ;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
-(require 'indent-tabs-maybe)
+(when (require 'indent-tabs-maybe nil t))
 
 
 ;; paren
@@ -17,7 +17,7 @@
 ;(install-elisp "http://user.it.uu.se/~mic/mic-paren.el")
 (if window-system
     (progn
-      (require 'mic-paren)
+      (require 'mic-paren nil t)
       (paren-activate)                  ; activating
       (setq paren-match-face 'bold)
       (setq paren-sexp-mode t)
@@ -29,19 +29,17 @@
 (setq comment-style 'multi-line)
 
 
-;; ;; status bar
-(which-function-mode t)
-
-
-;; gdb
+;; debug
+(setq gud-tooltip-echo-area nil)
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)
+;(require 'gud nil t)
+(setq gud-gdb-command-name "gdb -annotate=3")
 (add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t)))
-(setq gud-tooltip-echo-area nil)
 
 
 ;; generic (coloring generic files)
-;(require 'generic-x)
+;(require 'generic-x nil t)
 ;; association setting
 ;(add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
 ;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
@@ -61,12 +59,12 @@
 
 ;; ecb
 ;; http://ecb.sourceforge.net/
-;(require 'ecb-autoloads)
+;(require 'ecb-autoloads nil t)
 
 
 ;; textmate
 ;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
-;(require 'textmate)
+;(require 'textmate nil t)
 ;(textmate-mode)
 
 
@@ -111,12 +109,12 @@
 
 
 ;; imenu
-(require 'imenu)
+(require 'imenu nil t)
 
 
 ;; xcscope
 ;; http://cscope.sourceforge.net/
-;(require 'xcscope)
+;(require 'xcscope nil t)
 
 
 ;; use ack
@@ -128,27 +126,37 @@
 
 
 ;; speedbar
-;(require 'speedbar)
+;(require 'speedbar nil t)
 
 
 ;; which-func
-(require 'which-func)
+(require 'which-func nil t)
 (which-func-mode t)
+
+(delete (assoc 'which-func-mode mode-line-format) mode-line-format)
+(setq which-func-header-line-format
+      '(which-func-mode
+        ("" which-func-format
+         )))
+(defadvice which-func-ff-hook (after header-line activate)
+  (when which-func-mode
+    (delete (assoc 'which-func-mode mode-line-format) mode-line-format)
+    (setq header-line-format which-func-header-line-format)))
 
 
 ;; template (insert template code)
-(require 'autoinsert)
-(setq auto-insert-directory "~/etc/emacs/template/")
-(setq auto-insert-alist
-      (nconc '( ("\\.c$" . "template.c")
-                ("\\.f$" . "template.f")
-                ) auto-insert-alist))
-
-(add-hook 'find-file-not-found-hooks 'auto-insert)
+;(require 'autoinsert nil t)
+;(setq auto-insert-directory "~/etc/emacs/template/")
+;(setq auto-insert-alist
+;      (nconc '( ("\\.c$" . "template.c")
+;                ("\\.f$" . "template.f")
+;                ) auto-insert-alist))
+;
+;(add-hook 'find-file-not-found-hooks 'auto-insert)
 
 
 ;; yasnippet
-(require 'yasnippet)
+(require 'yasnippet nil t)
 (yas/initialize)
 (yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets")
 
@@ -159,7 +167,7 @@
 
 
 ;; align (align code)
-;(require 'align)
+;(require 'align nil t)
 
 
 ;; eldoc
@@ -168,7 +176,7 @@
 
 ;; eldoc-extension
 ;(install-elisp-from-emacswiki "eldoc-extension.el")
-(require 'eldoc-extension)
+(require 'eldoc-extension nil t)
 (setq eldoc-idle-delay 0)
 (setq eldoc-echo-area-use-multiline-p t)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -178,11 +186,11 @@
 
 ;; mode-info
 ;; http://www.namazu.org/~tsuchiya/elisp/mode-info.html
-;(require 'mi-config)
+;(require 'mi-config nil t)
 ;;(define-key global-map "\C-hf" 'mode-info-describe-function)
 ;;(define-key global-map "\C-hv" 'mode-info-describe-variable)
 ;;(define-key global-map "\M-." 'mode-info-find-tag)
-;(require 'mi-fontify)
+;(require 'mi-fontify nil t)
 ;(setq mode-info-index-directory "~/.emacs.d")
 ;(setq mode-info-class-alist
 ;      '((elisp  emacs-lisp-mode lisp-interaction-mode)
@@ -194,7 +202,7 @@
 
 
 ;; info-look
-(require 'info-look)
+(require 'info-look nil t)
 
 
 ;; gtk-look
@@ -211,7 +219,7 @@
 
 
 ;; doxymacs
-(require 'doxymacs)
+(require 'doxymacs nil t)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
 
 (defun my-doxymacs-font-lock-hook ()
@@ -221,14 +229,23 @@
 
 
 ;; ediff
-;(require 'ediff)
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;(require 'ediff nil t)
 (setq-default ediff-auto-refine-limit 10000)
+(setq ediff-split-window-function (lambda (&optional arg)
+				    (if (> (frame-width) 150)
+					(split-window-horizontally arg)
+				      (split-window-vertically arg))))
+
+(defun command-line-diff (switch)
+  (let ((file1 (pop command-line-args-left))
+	(file2 (pop command-line-args-left)))
+    (ediff file1 file2)))
+(add-to-list 'command-switch-alist '("diff" . command-line-diff))
 
 
 ;; flymake
 ;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
-(require 'flymake)
+(require 'flymake nil t)
 
 (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
 
@@ -245,23 +262,18 @@
 ;; auto-compile
 ;; http://d.hatena.ne.jp/higepon/20061107/1162902929
 ;; http://sourceforge.net/project/showfiles.php?group_id=164970&package_id=210662
-;(require 'auto-compile)
+;(require 'auto-compile nil t)
 ;(setq auto-compile-target-path-regexp-list (list "\/src"))
-
-
-;; gud
-;(require 'gud)
-(setq gud-gdb-command-name "gdb -annotate=3")
 
 
 ;; ipa (in place annotations)
 ;(install-elisp-from-emacswiki "ipa.el")
-(require 'ipa)
+(require 'ipa nil t)
 
 
 ;; usage-memo
 ;(install-elisp-from-emacswiki "usage-memo.el")
-(require 'usage-memo)
+(require 'usage-memo nil t)
 (umemo-initialize)
 
 
@@ -279,14 +291,14 @@
 
 
 ;; linum (show line number)
-(require 'linum)
+(require 'linum nil t)
 ;(global-linum-mode t)
 (setq linum-format "%5d ")
 
 
 ;; wrap-region
 ;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
-(require 'wrap-region)
+(require 'wrap-region nil t)
 
 
 ;; flyspell
@@ -301,7 +313,7 @@
 
 ;; jaspace
 ;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
-(require 'jaspace)
+(require 'jaspace nil t)
 (setq jaspace-modes nil)
 
 
@@ -330,7 +342,7 @@
 
 ;; face-list
 ;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
-;(require 'face-list)
+;(require 'face-list nil t)
 
 
 (add-hook 'change-log-mode-hook

@@ -150,6 +150,7 @@
 ;(install-elisp-from-emacswiki "anything-gtags.el")
 (require 'anything-gtags nil t)
 (setq anything-gtags-classify t)
+(setq anything-gtags-enable-goto-location t)
 
 
 ;; anything-match-plugin
@@ -219,6 +220,7 @@
                              ;anything-c-source-man-pages
                              ;anything-c-source-info-pages
                              anything-c-source-imenu
+                             ;anything-c-source-gtags-select
                              anything-c-source-file-name-history
                              anything-c-source-file-cache
                              ;(if run-darwin
