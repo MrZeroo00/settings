@@ -1,8 +1,8 @@
 ;(install-elisp-from-emacswiki "anything.el")
 ;(install-elisp-from-emacswiki "anything-config.el")
 ;(install-elisp-from-emacswiki "anything-show-completion.el")
-(require 'anything)
-(require 'anything-config)
+(require 'anything nil t)
+(require 'anything-config nil t)
 ;(load "_anything-rubikitch")
 
 (setq anything-idle-delay 0.3)
@@ -37,32 +37,32 @@
 
 ;; ac-anything
 ;(install-elisp-from-emacswiki "ac-anything.el")
-(require 'ac-anything)
+(require 'ac-anything nil t)
 (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything)
 
 
 ;; anything-c-imenu
 ;(install-elisp-from-emacswiki "el-expectations.el")
-(require 'el-expectations)
+(require 'el-expectations nil t)
 ;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
-(require 'anything-c-imenu)
+(require 'anything-c-imenu nil t)
 
 
 ;; anything-c-linkd-tags
 ;(install-elisp-from-emacswiki "linkd.el")
-(require 'linkd)
+(require 'linkd nil t)
 ;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
-(require 'anything-c-linkd-tags)
+(require 'anything-c-linkd-tags nil t)
 
 
 ;; anything-c-lisp-complete-symbol
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-lisp-complete-symbol/anything-c-lisp-complete-symbol.el")
-(require 'anything-c-lisp-complete-symbol)
+(require 'anything-c-lisp-complete-symbol nil t)
 
 
 ;; anything-c-moccur
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
-(require 'anything-c-moccur)
+(require 'anything-c-moccur nil t)
 (setq anything-c-moccur-anything-idle-delay 0.1)
 (setq anything-c-moccur-enable-initial-pattern t)
 (setq anything-c-moccur-higligt-info-line-flag t)
@@ -79,17 +79,17 @@
 
 ;; anything-c-source-buffers2
 ;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-source-buffers2.el")
-(require 'anything-c-source-buffers2)
+(require 'anything-c-source-buffers2 nil t)
 
 
 ;; anything-c-yasnippet
-(require 'anything-c-yasnippet)
+(require 'anything-c-yasnippet nil t)
 (setq anything-c-yas-space-match-any-greedy t)
 
 
 ;; anything-complete
 ;(install-elisp-from-emacswiki "anything-complete.el")
-(require 'anything-complete)
+(require 'anything-complete nil t)
 (anything-read-string-mode t)
 (anything-lisp-complete-symbol-set-timer 150)
 (setq anything-lisp-complete-symbol-input-idle-delay 0.0)
@@ -101,7 +101,7 @@
 
 ;; anything-dabbrev-expand
 ;(install-elisp-from-emacswiki "anything-dabbrev-expand.el")
-(require 'anything-dabbrev-expand)
+(require 'anything-dabbrev-expand nil t)
 (setq anything-dabbrev-input-idle-delay 0.0)
 (setq anything-dabbrev-idle-delay 1.0)
 (setq anything-dabbrev-expand-candidate-number-limit 20)
@@ -111,22 +111,22 @@
 
 ;; anything-delicious
 ;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
-;(require 'anything-delicious)
+;(require 'anything-delicious nil t)
 
 
 ;; anything-emms
 ;(install-elisp-from-emacswiki "anything-emms.el")
-;(require 'anything-emms)
+;(require 'anything-emms nil t)
 
 
 ;; anything-extension
 ;(install-elisp-from-emacswiki "anything-extension.el")
-;(require 'anything-extension)
+;(require 'anything-extension nil t)
 
 
 ;; anything-grep
 ;(install-elisp-from-emacswiki "anything-grep.el")
-(require 'anything-grep)
+(require 'anything-grep nil t)
 
 (setq anything-grep-goto-hook
       (lambda ()
@@ -148,32 +148,32 @@
 
 ;; anything-gtags
 ;(install-elisp-from-emacswiki "anything-gtags.el")
-(require 'anything-gtags)
+(require 'anything-gtags nil t)
 (setq anything-gtags-classify t)
 
 
 ;; anything-match-plugin
 ;(install-elisp-from-emacswiki "anything-match-plugin.el")
-(require 'anything-match-plugin)
+(require 'anything-match-plugin nil t)
 (setq anything-mp-space-regexp "[\\ ] ")
 
 
 ;; anything-migemo
 ;(install-elisp-from-emacswiki "anything-migemo.el")
-(require 'anything-migemo)
+(require 'anything-migemo nil t)
 (define-key global-map [(control ?:)] 'anything-migemo)
 
 
 ;; anything-rcodetools
 ;(install-elisp-from-emacswiki "anything-rcodetools.el")
-;(require 'anything-rcodetools)
+;(require 'anything-rcodetools nil t)
 ;(setq rct-get-all-methods-command "PAGER=cat fri -l")
 ;(define-key anything-map "\C-z" 'anything-execute-persistent-action)
 
 
 ;; descbinds-anything
 ;(install-elisp-from-emacswiki "descbinds-anything.el")
-(require 'descbinds-anything)
+(require 'descbinds-anything nil t)
 (descbinds-anything-install)
 
 
@@ -195,7 +195,7 @@
 
 
 ;; anything-kyr
-(require 'anything-kyr-config)
+(require 'anything-kyr-config nil t)
 (when (require 'anything-complete nil t)
   (anything-read-string-mode 1))
 
@@ -214,18 +214,18 @@
 (setq anything-sources (list anything-c-source-kyr
                              anything-c-source-buffers
                              anything-c-source-bm
-                             anything-c-source-imenu
                              ;anything-c-source-bookmarks
                              anything-c-source-yasnippet
                              ;anything-c-source-man-pages
                              ;anything-c-source-info-pages
+                             anything-c-source-imenu
                              anything-c-source-file-name-history
                              anything-c-source-file-cache
                              ;(if run-darwin
                              ;    anything-c-source-mac-spotlight
                              ;  anything-c-source-locate)
-                             anything-c-source-calculation-result
-                             anything-c-source-complex-command-history
+                             ;anything-c-source-calculation-result
+                             ;anything-c-source-complex-command-history
                              ))
 
 

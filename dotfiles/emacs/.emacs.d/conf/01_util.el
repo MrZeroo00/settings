@@ -7,5 +7,11 @@
 (global-set-key "\C-cd" 'my-insert-date)
 
 
+;; instamp
+;(install-elisp "http://www.gentei.org/~yuuji/software/euc/instamp.el")
+(autoload 'instamp "instamp" "Insert TimeStamp on the point" t)
+;(define-key global-map "\C-cs" 'instamp)
+
+
 ;; macros
 (load "_which")

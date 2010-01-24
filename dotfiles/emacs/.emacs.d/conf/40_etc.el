@@ -1,31 +1,30 @@
 ;; Outputz
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
-;(require 'outputz)
-;(setq outputz-key "Your Private Key")      ;; 復活の呪文
-;(setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
-;(global-outputz-mode t)
+;(when (require 'outputz nil t)
+;  (setq outputz-key "Your Private Key") ;; 復活の呪文
+;  (setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
+;  (global-outputz-mode t)
 ;
-;(require 'outputz)
-;(defun outputz-buffers ()
-;  (dolist (buf (buffer-list))
-;    (with-current-buffer buf
-;    (outputz))))
+;  (defun outputz-buffers ()
+;    (dolist (buf (buffer-list))
+;      (with-current-buffer buf
+;        (outputz))))
 ;
-;(run-with-idle-timer 3 t 'outputz-buffers)
-;(remove-hook 'after-save-hook 'outputz)
+;  (run-with-idle-timer 3 t 'outputz-buffers)
+;  (remove-hook 'after-save-hook 'outputz))
 
 
 ;; typing-outputz
 ;; http://github.com/hayamiz/typing-outputz/tree/master
-(require 'typing-outputz)
-(global-typing-outputz-mode t)
-(setq typing-outputz-key "bWAROb-quUbf")
+(when (require 'typing-outputz nil t)
+  (global-typing-outputz-mode t)
+  (setq typing-outputz-key "bWAROb-quUbf"))
 
 
 ;; pdicv-mode
 ;; http://pdicviewer.naochan.com/el/
-;(require 'pdicv-search)
-;(require 'pdicv-mode)
+;(require 'pdicv-search nil t)
+;(require 'pdicv-mode nil t)
 (autoload 'pdicv "pdicviewer" "PDIC辞書検索" t)
 (eval-after-load 'pdic
   '(progn
@@ -44,27 +43,27 @@
 
 ;; cheat
 ;(install-elisp "http://sami.samhuri.net/assets/2007/8/10/cheat.el")
-;(require 'cheat)
+;(when (require 'cheat nil t))
 
 
 ;; bm
 ;; http://www.nongnu.org/bm/
-(require 'bm)
-(global-set-key (kbd "<C-f2>") 'bm-toggle)
-(global-set-key (kbd "<f2>")   'bm-next)
-(global-set-key (kbd "<S-f2>") 'bm-previous)
+(when (require 'bm nil t)
+  (global-set-key (kbd "<C-f2>") 'bm-toggle)
+  (global-set-key (kbd "<f2>")   'bm-next)
+  (global-set-key (kbd "<S-f2>") 'bm-previous))
 
 
 ;; session
 ;; http://emacs-session.sourceforge.net/
-(require 'session)
-(setq session-initialize '(de-saveplace session keys menus places)
-      session-globals-include '((kill-ring 50)
-                                (session-file-alist 500 t)
-                                (file-name-history 10000)))
-(setq session-globals-max-string 100000000)
-;(setq session-undo-check -1)
-(add-hook 'after-init-hook 'session-initialize)
+(when (require 'session nil t)
+  (setq session-initialize '(de-saveplace session keys menus places)
+        session-globals-include '((kill-ring 50)
+                                  (session-file-alist 500 t)
+                                  (file-name-history 10000)))
+  (setq session-globals-max-string 100000000)
+  (setq session-undo-check -1)
+  (add-hook 'after-init-hook 'session-initialize))
 
 
 ;; desktop
@@ -75,21 +74,21 @@
 
 
 ;; remember
-(require 'remember)
+(when (require 'remember nil t))
 
 
 ;; autoarg
-;(require 'autoarg)
+;(when (require 'autoarg nil t))
 
 
 ;; viper
-;(require 'viper)
+;(when (require 'viper nil t))
 
 
 ;; thing-opt
-(require 'thingatpt)
+(when (require 'thingatpt nil t))
 ;(install-elisp-from-emacswiki "thing-opt.el")
-(require 'thing-opt)
+(when (require 'thing-opt nil t))
 
 
 ;; sense-region
@@ -135,13 +134,13 @@
 
 ;; stripes
 ;(install-elisp-from-emacswiki "stripes.el")
-;(require 'stripes)
-;(set-face-background 'stripes-face "yellow")
+;(when (require 'stripes nil t)
+;  (set-face-background 'stripes-face "yellow"))
 
 
 ;; edit-list
 ;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
-;(require 'edit-list)
+;(when (require 'edit-list nil t))
 
 
 ;; color-selection
@@ -158,11 +157,11 @@
 
 
 ;; enriched-mode
-;(require 'enriched)
+;(when (require 'enriched nil t))
 
 
 ;; iimage
-;(require 'iimage)
+;(when (require 'iimage nil t))
 
 
 ;; thumbs
@@ -175,49 +174,49 @@
 
 ;; screenshot
 ;(install-elisp-from-emacswiki "screenshot.el")
-;(require 'screenshot)
-;(setq screenshot-schemes
-;      '(
-;        ;; To local image directory
-;        ("local"
-;         :dir "~/images/")
-;        ;; To current directory
-;        ("current-directory"
-;         :dir default-directory)
-;        ;; To remote ssh host
-;        ("remote-ssh"
-;         :dir "/tmp/"
-;         :ssh-dir "www.example.org:public_html/archive/"
-;         :url "http://www.example.org/archive/")
-;        ;; To EmacsWiki (need yaoddmuse.el)
-;        ("EmacsWiki"
-;         :dir "~/.yaoddmuse/EmacsWiki/"
-;         :yaoddmuse "EmacsWiki")
-;        ;; To local web server
-;        ("local-server"
-;         :dir "~/public_html/"
-;         :url "http://127.0.0.1/")))
-;(setq screenshot-default-scheme "local")
+;(when (require 'screenshot nil t)
+;  (setq screenshot-schemes
+;        '(
+;          ;; To local image directory
+;          ("local"
+;           :dir "~/images/")
+;          ;; To current directory
+;          ("current-directory"
+;           :dir default-directory)
+;          ;; To remote ssh host
+;          ("remote-ssh"
+;           :dir "/tmp/"
+;           :ssh-dir "www.example.org:public_html/archive/"
+;           :url "http://www.example.org/archive/")
+;          ;; To EmacsWiki (need yaoddmuse.el)
+;          ("EmacsWiki"
+;           :dir "~/.yaoddmuse/EmacsWiki/"
+;           :yaoddmuse "EmacsWiki")
+;          ;; To local web server
+;          ("local-server"
+;           :dir "~/public_html/"
+;           :url "http://127.0.0.1/")))
+;  (setq screenshot-default-scheme "local"))
 
 
 ;; japanese-holidays
-;(require 'calendar)
-;(setq number-of-diary-entries 31)
-;(define-key calendar-mode-map "f" 'calendar-forward-day)
-;(define-key calendar-mode-map "n" 'calendar-forward-day)
-;(define-key calendar-mode-map "b" 'calendar-backward-day)
-;(setq mark-holidays-in-calendar t)
+;(when (require 'calendar nil t)
+;  (setq number-of-diary-entries 31)
+;  (define-key calendar-mode-map "f" 'calendar-forward-day)
+;  (define-key calendar-mode-map "n" 'calendar-forward-day)
+;  (define-key calendar-mode-map "b" 'calendar-backward-day)
+;  (setq mark-holidays-in-calendar t))
 ;(install-elisp "http://www.meadowy.org/meadow/netinstall/export/799/branches/3.00/pkginfo/japanese-holidays/japanese-holidays.el")
-;(require 'japanese-holidays)
-;(setq calendar-holidays
-;      (append japanese-holidays local-holidays other-holidays))
-;(setq calendar-weekend-marker 'diary)
-;(add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
-;(add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend)
+;(when (require 'japanese-holidays nil t)
+;  (setq calendar-holidays
+;        (append japanese-holidays local-holidays other-holidays))
+;  (setq calendar-weekend-marker 'diary)
+;  (add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
+;  (add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
 
 
 ;; midnight
-;(require 'midnight)
+;(when (require 'midnight nil t))
 
 
 ;; macros

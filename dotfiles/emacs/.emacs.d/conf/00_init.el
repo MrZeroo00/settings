@@ -1,7 +1,35 @@
-;; base settings
+;; install-elisp
+;(install-elisp-from-emacswiki "install-elisp.el")
+;(when (require 'install-elisp nil t)
+;  (setq install-elisp-repository-directory "~/.emacs.d/elisp/"))
+
+
+;; auto-install
+;(install-elisp-from-emacswiki "auto-install.el")
+;(when (require 'auto-install nil t)
+;  (setq auto-install-directory "~/.emacs.d/elisp/")
+;  (auto-install-update-emacswiki-package-name t)
+;  (auto-install-compatibility-setup))
+
+
+; base settings
 (cd "~/")
-(global-font-lock-mode t)
-;; sample setting
+
+
+; language setting
+;;(when (require 'un-define nil t))
+;;(set-language-environment "Japanese")
+;;(set-terminal-coding-system 'utf-8)
+;;(set-keyboard-coding-system 'utf-8)
+;;(set-buffer-file-coding-system 'utf-8)
+;;(setq default-buffer-file-coding-system 'utf-8)
+
+
+; locale setting
+(setenv "LC_TIME" "C")
+
+
+; position and size setting
 (setq default-frame-alist
       (append (list '(top . 20)         ; 起動時の表示位置(右から)
                     '(left . 100)       ; 起動時の表示位置(左から)
@@ -16,7 +44,8 @@
                     )
               default-frame-alist))
 
-;; source code color setting
+; color setting
+(global-font-lock-mode t)
 ;(if window-system (progn
 ;                    (set-face-foreground 'font-lock-comment-face "MediumSeaGreen")
 ;                    (set-face-foreground 'font-lock-string-face "purple")
@@ -30,38 +59,42 @@
 ;                    (set-face-foreground 'font-lock-warning-face "blue")
 ;                    (set-face-bold-p 'font-lock-warning-face nil)
 ;))
-
-;; other color setting
-(set-face-foreground 'modeline "gray10")
-(set-face-background 'modeline "bisque3")
-(set-face-foreground 'mode-line-inactive "gray30")
-(set-face-background 'mode-line-inactive "gray85")
-(set-face-background 'region "DeepPink1")
+;(set-face-foreground 'modeline "gray10")
+;(set-face-background 'modeline "bisque3")
+;(set-face-foreground 'mode-line-inactive "gray30")
+;(set-face-background 'mode-line-inactive "gray85")
+;(set-face-background 'region "DeepPink1")
 
 ;; color-theme
 ;; https://gna.org/projects/color-theme
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-clarity)
+(when (require 'color-theme nil t)
+  (color-theme-initialize)
+  (color-theme-clarity))
 
 
-;; highlight
+; highlight setting
 (setq search-highlight t)
 (setq query-replace-highlight t)
-(require 'hi-lock)
 ; highlight current line
 (global-hl-line-mode)
 (hl-line-mode t)
 ;(setq hl-line-face 'underline)
 (set-face-background 'hl-line "DarkOliveGreen")
+(when (require 'hi-lock nil t))
 
-;; region
+
+; region setting
 (transient-mark-mode t)
 ;(setq highlight-nonselected-windows t)
 ;(pc-selection-mode)
 ;(delete-selection-mode t)
 
-;; clipboard
+;; visible-mark
+;(install-elisp-from-emacswiki "visible-mark.el")
+(when (require 'visible-mark nil t))
+
+
+; clipboard setting
 ;; http://d.hatena.ne.jp/pakepion/20081209/1228828521
 (when (or run-linux run-bsd run-unix run-system-v)
   (progn
@@ -75,47 +108,17 @@
               (process-send-string proc text)
               (process-send-eof proc))))))
 
-;; scroll
+
+; scroll setting
 (setq scroll-conservatively 35)
 (setq scroll-margin 0)
 (setq scroll-step 1)
 (setq scroll-preserve-screen-position t)
 
-;; Language
-;;(require 'un-define)
-;;(set-language-environment "Japanese")
-;;(set-terminal-coding-system 'utf-8)
-;;(set-keyboard-coding-system 'utf-8)
-;;(set-buffer-file-coding-system 'utf-8)
-;;(setq default-buffer-file-coding-system 'utf-8)
 
-;; Timestamp
+; timestamp setting
 (setq time-stamp-start "Time-stamp:[ \t]*<")
 (setq time-stamp-end ">")
-
-
-;; Locale
-(setenv "LC_TIME" "C")
-
-
-;; install-elisp
-;(install-elisp-from-emacswiki "install-elisp.el")
-;(require 'install-elisp)
-;(setq install-elisp-repository-directory "~/.emacs.d/elisp/")
-
-
-;; auto-install
-;(install-elisp-from-emacswiki "auto-install.el")
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/elisp/")
-(auto-install-update-emacswiki-package-name t)
-(auto-install-compatibility-setup)
-
-
-;; instamp
-;(install-elisp "http://www.gentei.org/~yuuji/software/euc/instamp.el")
-(autoload 'instamp "instamp" "Insert TimeStamp on the point" t)
-;(define-key global-map "\C-cs" 'instamp)
 
 
 ;; Etc
@@ -143,34 +146,36 @@
 (setq x-select-enable-clipboard t)
 
 
-;; a-menu
-;; http://homepage.mac.com/zenitani/comp-e.html
-;(require 'a-menu)
-
-
 ;; redo
 ;(install-elisp "http://www.wonderworks.com/download/redo.el")
-(require 'redo)
+(when (require 'redo nil t))
+
 
 ;; point-undo
 ;(install-elisp-from-emacswiki "point-undo.el")
-(require 'point-undo)
+(when (require 'point-undo nil t))
+
 
 ;; kill-summary
 ;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
 (autoload 'kill-summary "kill-summary" nil t)
 (global-set-key "\M-y" 'kill-summary)
 
+
 ;; list-register
 ;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
-(require 'list-register)
+(when (require 'list-register nil t))
 
 ;; pit
-(require 'pit)
+(when (require 'pit nil t))
+
+
+;; a-menu
+;; http://homepage.mac.com/zenitani/comp-e.html
+;(when (require 'a-menu nil t))
 
 
 ;; macros
-;(load "_visible-mark-mode")
 ;(load "_egoge-wash-out-colour")
 (load "_elisp-font-lock-top-quote")
 (load "_line-to-top-of-window")
