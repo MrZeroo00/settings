@@ -1,6 +1,6 @@
 ;;; thing-opt.el --- Thing at Point optional utilities
 
-;; Copyright (C) 2008  MATSUYAMA Tomohiro
+;; Copyright (C) 2008, 2009  MATSUYAMA Tomohiro
 
 ;; Author: MATSUYAMA Tomohiro <t.matsuyama.pub@gmail.com>
 ;; Keywords: convenience
@@ -24,6 +24,9 @@
 ;; TODO forward-string by syntax (?)
 
 ;;; Code:
+
+(eval-when-compile
+  (require 'cl))
 
 (require 'thingatpt)
 
@@ -64,6 +67,15 @@
         (kill-region (car bounds) (cdr bounds)))))
 
 ;;;###autoload
+(defun copy-thing (thing)
+  (interactive (list (read-thing)))
+  (if (stringp thing)
+      (setq thing (intern thing)))
+  (let ((bounds (bounds-of-thing-at-point thing)))
+    (if bounds
+        (copy-region-as-kill (car bounds) (cdr bounds)))))
+
+;;;###autoload
 (defun mark-thing (thing)
   (interactive (list (read-thing)))
   (if (stringp thing)
@@ -71,7 +83,8 @@
   (let ((bounds (bounds-of-thing-at-point thing)))
     (when bounds
       (goto-char (car bounds))
-      (push-mark (cdr bounds) nil transient-mark-mode))))
+      (push-mark (cdr bounds) nil transient-mark-mode)
+      (setq deactivate-mark nil))))
 
 ;;;###autoload
 (defun upward-mark-thing ()
@@ -108,6 +121,55 @@
       (push-mark (cdr bounds) t 'activate)
       (setq deactivate-mark nil))))
 
+(defun define-thing-commands ()
+  (dolist (thing (list-thing))
+    (dolist (op '(mark kill copy))
+      (let ((symbol (intern (format "%s-%s" op thing))))
+        (if (and (fboundp symbol)
+                 (not (get symbol 'thing-opt)))
+            (setq symbol (intern (format "%s-%s*" op thing))))
+        (put symbol 'thing-opt t)
+        (fset symbol `(lambda () (interactive) (,(intern (format "%s-thing" op)) ',thing)))))))
+
+(defvar kill-thing-map
+  '((?w . word)
+    (?e . sexp)
+    (?s . symbol)
+    (?t . sentence)
+    (?p . paragraph)
+    (?f . defun)
+    (?F . filename)
+    (?l . list)
+    (?L . up-list)
+    (?S . string)
+    (?U . url)
+    (?P . page)))
+
+(defun kill-region-dwim-1 (function)
+  (if (and transient-mark-mode mark-active)
+      (call-interactively function)
+    (let* ((c (read-char))
+           (thing (assoc-default c kill-thing-map))
+           (bounds (if thing (bounds-of-thing-at-point thing))))
+      (cond
+       (bounds
+        (funcall function (car bounds) (cdr bounds))
+        (message "Saved %s." thing))
+       (thing
+        (message "There is no %s here." thing))
+       (t
+        (message "Nothing here."))))))  
+
+;;;###autoload
+(defun kill-region-dwim ()
+  (interactive)
+  (kill-region-dwim-1 'kill-region))
+
+;;;###autoload
+(defun kill-ring-save-dwim ()
+  (interactive)
+  (kill-region-dwim-1 'kill-ring-save))
+
 (defun string-face-p (face)
   (let (result)
     (or (consp face)
@@ -122,36 +184,45 @@
   (interactive "p")
   (if (null arg)
       (setq arg 1))
-  (cond
-   ((> arg 0)
-    (condition-case nil
-        (while (> arg 0)
-          (while (and (re-search-forward "\\s\"")
-                      (string-face-p (get-text-property (point) 'face))))
-          (setq arg (1- arg)))
-      (error . nil)))
-   ((< arg 0)
-    (condition-case nil
-        (while (< arg 0)
-          (while (and (re-search-backward "\\s\"")
-                      (string-face-p (get-text-property (1- (point)) 'face))))
-          (setq arg (1+ arg)))
-      (error . nil)))))
+  (ignore-errors
+    (cond
+     ((> arg 0)
+      (dotimes (i arg)
+        (while (and (re-search-forward "\\s\"")
+                    (string-face-p (get-text-property (point) 'face))))))
+     ((< arg 0)
+      (dotimes (i (- arg))
+        (while (and (re-search-backward "\\s\"")
+                    (string-face-p (get-text-property (1- (point)) 'face)))))))))
 
 (defun backward-string (&optional arg)
   (interactive "p")
   (forward-string (- (or arg 1))))
 
 (defun bounds-of-up-list-at-point ()
-  (condition-case nil
-      (save-excursion
-        (let ((pos (scan-lists (point) -1 1)))
-          (goto-char pos)
-          (forward-list)
-          (cons pos (point))))
-    (error nil)))
+  (ignore-errors
+    (save-excursion
+      (let ((pos (scan-lists (point) -1 1)))
+        (goto-char pos)
+        (forward-list)
+        (cons pos (point))))))
 
 (put 'up-list 'bounds-of-thing-at-point (symbol-function 'bounds-of-up-list-at-point))
+
+(defun forward-defun (&optional arg)
+  (interactive "p")
+  (if (null arg)
+      (setq arg 1))
+  (ignore-errors
+    (cond
+     ((< arg 0)
+      (beginning-of-defun (- arg)))
+     ((> arg 0)
+      (end-of-defun arg)))))
+
+(defun backward-defun (&optional arg)
+  (interactive "p")
+  (forward-defun (- (or arg 1))))
 
 (provide 'thing-opt)
 ;;; thing-opt.el ends here

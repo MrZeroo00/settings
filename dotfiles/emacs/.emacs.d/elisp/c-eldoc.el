@@ -2,6 +2,7 @@
 
 ;; Copyright (C) 2004 Paul Pogonyshev
 ;; Copyright (C) 2004, 2005 Matt Strange
+;; Copyright (C) 2010 Nathaniel Flath
 
 ;; This file is NOT a part of GNU Emacs
 
@@ -22,95 +23,165 @@
 
 ;;; Commentary:
 
+;; To enable: put the following in your .emacs file:
+;; 
+;; (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+
+;; Nathaniel has submitted a caching patch to make this workable on large projects "like the emacs
+;; codebase"
+;; v0.5 01/02/2010
+
 ;; Provides helpful description of the arguments to C functions.
 ;; Uses child process grep and preprocessor commands for speed.
-;; v0.4 01/16/05
+;; v0.4 01/16/2005
 
-;; Comments and suggestions are appreciated
-;; mstrange at wans dot net
+;; Your improvements are appreciated: I am no longer maintaining this code
+;; m_strange at mail dot utexas dot edu.  Instead, direct all requests to
+;; flat0103@gmail.com
 
 ;;; Code:
 
 (require 'eldoc)
+;; without this, you can't compile this file and have it work properly
+;; since the `c-save-buffer-state' macro needs to be known as such
+(require 'cc-defs)
+(require 'cl)
 
 ;; make sure that the opening parenthesis in C will work
 (eldoc-add-command 'c-electric-paren)
 
-;; NOTE: most people with normal GNU systems won't need to mess with
-;; these options.
+;;if cache.el isn't loaded, define the cache functions
+(unless (fboundp 'cache-make-cache)
+  (defun* cache-make-cache (init-fun test-fun cleanup-fun
+                                     &optional &key
+                                     (test #'eql)
+                                     (size 65)
+                                     (rehash-size 1.5)
+                                     (rehash-threshold 0.8)
+                                     (weakness nil))
+    "Creates a cached hash table.  This is a hash table where
+elements expire at some condition, as specified by init-fun and
+test-fun.  The three arguments do as follows:
 
-;; if you aren't using /lib/cpp as your preprocessor, set the
-;; replacement here
-(defvar c-eldoc-cpp-command "/lib/cpp")
+init-fun is a function that is called when a new item is inserted
+into the cache.
+
+test-fun is a function that is called when an item in the cache
+is looked up.  It takes one argument, and will be passed the
+result of init-fun that was generated when the item was inserted
+into the cache.
+
+cleanup-fun is called when an item is removed from the hash
+table.  It takes one argument, the value of the key-value pair
+being deleted.
+
+Note that values are only deleted from the cache when accessed.
+
+This will return a list of 4 elements: a has table and the 3
+arguments.  All hash-table functions will work on the car of this
+list, although if accessed directly the lookups will return a pair
+(value, (init-fun)).
+
+The keyword arguments are the same as for make-hash-table and are applied
+to the created hash table."
+  (list (make-hash-table :test test
+                         :size size
+                         :rehash-size rehash-size
+                         :rehash-threshold rehash-threshold
+                         :weakness weakness) init-fun test-fun cleanup-fun))
+
+  (defun cache-gethash (key cache)
+    "Retrieve the value corresponding to key from cache."
+    (let ((keyval (gethash key (car cache) )))
+      (if keyval
+          (let ((val (car keyval))
+                (info (cdr keyval)))
+            (if (funcall (caddr cache) info)
+                (progn
+                  (remhash key (car cache))
+                  (funcall (cadddr cache) val)
+                  nil)
+              val)))))
+   
+  (defun cache-puthash (key val cache)
+    "Puts the key-val pair into cache."
+    (puthash key
+             (cons val (funcall (cadr cache)))
+             (car cache))))
+         
 
 ;; if you've got a non-GNU preprocessor with funny options, set these
 ;; variables to fix it
 (defvar c-eldoc-cpp-macro-arguments "-dD -w -P")
 (defvar c-eldoc-cpp-normal-arguments "-w -P")
+(defvar c-eldoc-cpp-command "/lib/cpp ")
+(defvar c-eldoc-includes
+  "`pkg-config gtk+-2.0 --cflags` -I./ -I../ "
+  "List of commonly used packages/include directories - For
+  example, SDL or OpenGL.  This shouldn't slow down cpp, even if
+  you've got a lot of them.")
 
-;; if you aren't using a program named grep or it needs a path to
-;; execute, set that here
-(defvar c-eldoc-grep-command "grep")
-
-;; add in your commonly used packages/include directories here, for
-;; example, SDL or OpenGL. this shouldn't slow down cpp, even if
-;; you've got a lot of them
-(defvar c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ ")
-
-;; how expansive is your code? if you've split your declarations into
-;; one variable per line AND write functions w/ a ridiculously large
-;; number of parameters, you might need to up this. it will make the
-;; macro slightly less efficient
-(defvar c-eldoc-context "10")
-
-;; command to pass to `grep'
-;; NOTE: i didn't really want -m 2, but it segfaults sometimes with
-;; -m1 and the -dD option! TODO: why is this?
-(defvar c-eldoc-grep (concat "grep -A " c-eldoc-context " -B "
-                             c-eldoc-context " -m 2 -e "))
-
-;; tell the macro not to check built-in commands
 (defvar c-eldoc-reserved-words
-  (list "if" "else" "switch" "while" "for" "sizeof"))
+  (list "if" "else" "switch" "while" "for" "sizeof")
+  "List of commands that eldoc will not check.")
 
-;; run this to begin
+
+(defvar c-eldoc-buffer-regenerate-time
+  120
+  "Time to keep a preprocessed buffer around.")
+
+(defun c-eldoc-time-diff (t1 t2)
+  "Return the difference between the two times, in seconds.
+T1 and T2 are time values (as returned by `current-time' for example)."
+  ;; Pacify byte-compiler with `symbol-function'.
+  (time-to-seconds (subtract-time t1 t2)))
+
+(defun c-eldoc-time-difference (old-time)
+  (> (c-eldoc-time-diff (current-time) old-time) c-eldoc-buffer-regenerate-time)
+  "Returns whether or not old-time is less than c-eldoc-buffer-regenerate-time seconds ago.")
+
+(defun c-eldoc-cleanup (preprocessed-buffer)
+  (kill-buffer preprocessed-buffer))
+
+(defvar c-eldoc-buffers
+  (cache-make-cache #'current-time #'c-eldoc-time-difference #'c-eldoc-cleanup)
+  "Cache of buffer->preprocessed file used to speed up finding arguments")
+
 (defun c-turn-on-eldoc-mode ()
+  "Enable c-eldoc-mode"
   (interactive)
   (set (make-local-variable 'eldoc-documentation-function)
        'c-eldoc-print-current-symbol-info)
   (turn-on-eldoc-mode))
 
 ;; call the preprocessor on the current file
-;; only left interactive for debugging purposes
 ;;
 ;; run cpp the first time to get macro declarations, the second time
 ;; to get normal function declarations
 (defun c-eldoc-get-buffer (function-name)
-  (interactive)
   "Call the preprocessor on the current file"
-  ;; run the first time for macros
-  (let* ((this-name (concat "*" buffer-file-name "-preprocessed*"))
-         (preprocessor-command (concat c-eldoc-cpp-command " "
-                                       c-eldoc-cpp-macro-arguments " "
-                                       c-eldoc-includes " "
-                                       buffer-file-name " | "
-                                       c-eldoc-grep "'"
-                                       function-name "[ \\t\\n]*('" ))
-         (output-buffer (generate-new-buffer this-name)))
-    (set-buffer output-buffer)
-    (call-process-shell-command preprocessor-command nil output-buffer nil)
-    ;; run the second time for normal functions
-    (setq preprocessor-command (concat c-eldoc-cpp-command " "
-                                       c-eldoc-cpp-normal-arguments " "
-                                       c-eldoc-includes " "
-                                       buffer-file-name " | "
-                                       c-eldoc-grep "'"
-                                       function-name "[ \\t\\n]*('" ))
-    (call-process-shell-command preprocessor-command nil output-buffer nil)
-    output-buffer))
+;; run the first time for macros
+  (let ((output-buffer (cache-gethash (current-buffer) c-eldoc-buffers)))
+    (if output-buffer output-buffer
+      (let* ((this-name (concat "*" buffer-file-name "-preprocessed*"))
+             (preprocessor-command (concat c-eldoc-cpp-command " "
+                                           c-eldoc-cpp-macro-arguments " "
+                                           c-eldoc-includes " "
+                                           buffer-file-name))
+             (cur-buffer (current-buffer))
+             (output-buffer (generate-new-buffer this-name)))
+        (call-process-shell-command preprocessor-command nil output-buffer nil)
+        ;; run the second time for normal functions
+        (setq preprocessor-command (concat c-eldoc-cpp-command " "
+                                           c-eldoc-cpp-normal-arguments " "
+                                           c-eldoc-includes " "
+                                           buffer-file-name))
+        (call-process-shell-command preprocessor-command nil output-buffer nil)
+        (cache-puthash cur-buffer output-buffer c-eldoc-buffers)
+        output-buffer))))
 
-;; finds the current function and position in argument list
 (defun c-eldoc-function-and-argument (&optional limit)
+  "Finds the current function and position in argument list."
   (let* ((literal-limits (c-literal-limits))
          (literal-type (c-literal-type literal-limits)))
     (save-excursion
@@ -136,8 +207,8 @@
                      (match-beginning 0) (match-end 0))
                     argument-index))))))))
 
-;; make this extended parameter set into a single line
 (defun c-eldoc-format-arguments-string (arguments index)
+  "Formats the argument list of a function."
   (let ((paren-pos (string-match "(" arguments))
         (pos 0))
     (when paren-pos
@@ -163,11 +234,12 @@
                              '(face bold) arguments))
       arguments)))
 
-;; master printing function
 (defun c-eldoc-print-current-symbol-info ()
+  "Returns documentation string for the current symbol." 
   (let* ((current-function-cons (c-eldoc-function-and-argument (- (point) 1000)))
          (current-function (car current-function-cons))
          (current-function-regexp (concat "[ \t\n]+[*]*" current-function "[ \t\n]*("))
+         (current-macro-regexp (concat "#define[ \t\n]+[*]*" current-function "[ \t\n]*("))
          (current-buffer (current-buffer))
          (tag-buffer)
          (function-name-point)
@@ -182,7 +254,10 @@
         (prog1
             ;; protected regexp search
             (when (condition-case nil
-                      (re-search-forward current-function-regexp)
+                      (progn
+                        (if (not (re-search-forward current-macro-regexp (point-max) t))
+                            (re-search-forward current-function-regexp))
+                        t)
                     (error (prog1 nil
                              (message "Function doesn't exist..."))))
               ;; move outside arguments list
@@ -222,7 +297,6 @@
                       " "
                       (c-eldoc-format-arguments-string arguments
                                                        (cdr current-function-cons))))
-          (kill-buffer tag-buffer)
           (set-buffer current-buffer))))))
 
 (provide 'c-eldoc)

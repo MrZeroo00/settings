@@ -5,22 +5,24 @@
 ;; Author: David O'Toole <dto@gnu.org>
 ;;   Additional code by Eduardo Ochs <eduardoochs@gmail.com>
 ;; Maintainer: Shaun Johnson <shaun@slugfest.demon.co.uk>
-;; Copyright (C) 2007  David O'Toole
-;; Copyright (C) 2008, Drew Adams.
+;; Copyright (C) 2007, David O'Toole.
+;; Copyright (C) 2008-2009, Drew Adams.
+;; Copyright (C) 2009, Shaun Johnson.
 ;; Created: Fri Mar 14 07:56:32 2008 (Pacific Daylight Time)
 ;; Version: $Id: linkd.el,v 1.64 2008/03/14 $
-;; Last-Updated: Fri Apr 18 08:14:16 2008 ()
-;;           By: dradams
-;;     Update #: 362
+;; Last-Updated: Thu Mar 12 19:33 2009 
+;;           By: sjohnson
+;;     Update #: 618
 ;; Package-Version: 0.8
-;; Website, original version: http://dto.freeshell.org/notebook/Linkd.html
+;; Website, original version: http://dto.github.com/notebook/linkd.html
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/linkd.el
+;; URL: http://www.emacswiki.org/emacs/linkd.tar.gz
 ;; Keywords: hypermedia help
 ;; Compatibility: GNU Emacs 21.x, GNU Emacs 22.x
 ;;
 ;; Features that might be required by this library:
 ;;
-;;   `easy-mmode'.
+;;   `easymenu'.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -28,40 +30,39 @@
 ;;
 ;;  Make hypertext with active links in any buffer
 ;;
-;;(@* "Overview")
 ;;
-;;  Linkd-mode is a system for the automatic recognition and
-;;  processing of certain S-expressions, called ``links'', embedded in
-;;  plain text files.  These links may be activated (or ``followed'')
-;;  by invoking certain interactive functions while point is on the
-;;  link. The links may also be interpreted as marking up the
-;;  surrounding text. Different types of links have different
-;;  behaviors when followed, and may have different interpretations as
-;;  markup.
+;;(@* "Overview") ----------------------------------------------------
 ;;
-;;  With linkd-mode, you can:
-;;  \begin{enumerate}
-;;  \item Embed hyperlinks to files, webpages, or documentation into
-;;  any type of text file in any major mode.
-;;  \item Delimit and name regions of text called ``blocks'' in these text files.
-;;  See (@> "Stars")
-;;  \item Extract and send such blocks to other programs for processing.
-;;  See (@> "Processing blocks")
-;;  \item Identify and mark locations and concepts in source code, via ``tags.''
-;;  See (@> "Tags")
-;;  \item Embed active data objects called ``datablocks''into text files.
-;;  See (@> "Datablocks")
-;;  \item Convert lisp source code listings into LaTeX for publication.
-;;  See (@> "Literate programming")
-;;  \item Define new link behaviors easily and simply.
-;;  \end{enumerate}
-;;  For detailed instructions on using linkd-mode, the reader may refer
-;;  to the online
-;;  manual.\footnote{http://dto.freeshell.org/notebook/Linkd.html}
+;;  Linkd-mode is a major mode that automatically recognizes and
+;;  processes certain S-expressions, called "links", embedded in plain
+;;  text files.  Links may be followed by invoking certain interactive
+;;  functions when point is on the link text.  Links may also be
+;;  interpreted as marking up the surrounding text.  Different types
+;;  of links have different behaviors when followed, and they may have
+;;  different interpretations as markup.
 ;;
-;;(@* "TODO")
+;;  With Linkd mode, you can do the following:
+;;  * Embed hyperlinks to files, webpages, or documentation into
+;;    any type of text file in any major mode.
+;;  * Delimit and name regions of text ("blocks") in these text files.
+;;    See (@> "Stars")
+;;  * Extract and send blocks to other programs for processing.
+;;    See (@> "Processing blocks")
+;;  * Identify and mark locations and concepts in source code.
+;;    See (@> "Tags")
+;;  * Embed active data objects ("datablocks") into text files.
+;;    See (@> "Datablocks")
+;;  * Convert Lisp source-code listings to LaTeX for publication.
+;;    See (@> "Literate programming")
+;;  * Define new link behaviors.
 ;;
-;;  * Should have a proper histor of link navigation, like in Info,
+;;  For detailed information about using linkd-mode, see the online
+;;  manual: http://dto.github.com/notebook/linkd.html.
+;;
+;;
+;;(@* "TODO") --------------------------------------------------------
+;;
+;;  * Should have a proper history of link navigation, like in Info,
 ;;    for forward and backward link following, instead of just saving
 ;;    the previous location.
 ;;
@@ -72,6 +73,33 @@
 ;;
 ;;; Change log:
 ;;
+;; 2009/03/12 sjohnson
+;;     Updated embedded URLs.
+;; 2009/02/17 sjohnson
+;;     Removed test for linkd-mode from menu - un-needed.
+;; 2009/02/16 dadams
+;;     linkd-html-export: Do nothing if htmlize.el is not available.
+;;     Show Linkd menu only in Linkd mode.
+;;     linkd-enable-linkd-mode-in-target: Added :tags
+;;     linkd-use-menu: Changed default value to t.
+;; 2009/02/15 sjohnson
+;;     Added: linkd-use-menu, linkd-enable-linkd-mode-in-target, linkd-maybe-enable-in-target,
+;;            linkd-menu.
+;;     Restored require of easymenu - used now.
+;; 2009/02/10 dadams
+;;     Renamed: linkd-insertion-schemes to linkd-type-keywords-alist,
+;;              linkd-export-formats    to linkd-export-formats-alist.
+;;     Changed defvars to defcustoms: linkd-use-icons, linkd-icons-directory,
+;;       linkd-generic-regexp, linkd-type-keywords-alist, linkd-default-bullet-string,
+;;       linkd-star-search-string, linkd-block-file-name, linkd-shell-buffer-name,
+;;       linkd-export-heading-regexp, linkd-export-commentary-regexp, linkd-export-link-regexp,
+;;       linkd-export-formats-alist, linkd-file-handler-alist, linkd-wiki-extensions,
+;;       linkd-wiki-directory.
+;;     linkd-file-handler-alist:
+;;       Default value no longer nil - now covers .el files, find-library, finder-commentary.
+;;     @file: Treat :to also for the handler case (since handler just opens the file).
+;;            Turn on Linkd mode for the target file.
+;;     Removed: (require 'easymenu) - doesn't seem to be used.
 ;; 2008/04/18 dadams
 ;;     linkd-overlay:
 ;;       Put keymap property back on the overlay (for RET etc.).  Thx to Shaun Johnson.
@@ -124,19 +152,19 @@
 ;;; Code:
 
 (eval-when-compile (require 'cl)) ;; block, case
-(require 'easy-mmode)
+(require 'easymenu) ;; easy-menu-define
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (@* "Faces")
-;;
-;; Default face declarations for the various link styles.
+
+;; (@* "Faces") ------------------------------------------------------
 
 (defgroup linkd nil
   "Hypertext links."
   :prefix "linkd-"
   :group 'convenience :group 'help
   :link '(url-link :tag "Download" "http://www.emacswiki.org/cgi-bin/wiki/linkd.el")
+  :link '(url-link :tag "Download (with icons)" " http://www.emacswiki.org/emacs/linkd.tar.gz")
   :link '(emacs-commentary-link :tag "Doc" "linkd"))
 
 (defface linkd-generic-link '((t (:foreground "blue")))
@@ -167,32 +195,134 @@
   "Face for command links." :group 'linkd :group 'faces)
 
 
-;; (@* "Non-face variables")
+;; (@* "User Options") -----------------------------------------------
 
-(defvar linkd-use-icons nil
-  "Non-nil means icons, instead of text bullets, are displayed for links.")
+(defcustom linkd-use-icons nil
+  "Non-nil means icons, instead of text bullets, are displayed for links."
+  :type 'boolean :group 'linkd)
 
-(defvar linkd-icons-directory "~/.linkd-icons" "Directory where linkd's icons are kept.")
+(defcustom linkd-icons-directory "~/.linkd-icons" "Directory where linkd's icons are kept."
+  :type 'directory :group 'linkd)
 
-(defvar linkd-generic-regexp (concat "\(" "@" "[^)]*\)") "Regexp to find links.")
+(defcustom linkd-use-menu t
+  "Non-nil means show the Linkd menu in the menu bar."
+  :type 'boolean :group 'linkd)
+
+(defcustom linkd-enable-linkd-mode-in-target t
+  "Whether to turn on Linkd mode for the target of a @file link.
+* t - turn linkd mode on unconditionally.
+
+* nil - don't turn linkd mode on.
+
+* A list of major mode symbols, Turn on linkd mode if the target
+  buffer's mode is in this list.
+
+* A function to be called in the context of the target buffer.
+  Turn on linkd mode if it returns a non-nil value."
+  :type '(choice
+          (const :tag "Turn on Linkd mode unconditionally" t)
+          (const :tag "Do not turn on Linkd mode"          nil)
+          (repeat :tag "Modes to use Linkd"
+           (symbol :tag "Major mode for which to turn on Linkd mode"))
+          (function :tag "Turn on Linkd mode if this function returns non-nil"))
+  :group 'linkd)
+
+(defcustom linkd-generic-regexp (concat "\(" "@" "[^)]*\)")
+  "Regexp to find links."
+  :type 'regexp :group 'linkd)
+
+(defcustom linkd-type-keywords-alist '(("file" :file-name :to :display)
+                                       ("man"  :page :to :display)
+                                       ("info" :file-name :node :to :display)
+                                       ("url"  :file-name :display))
+  "Alist of possible link types and their associated Linkd keywords.
+Each key is a link type name.  
+Each value is a list of Linkd keywords to use for that type (key)."
+  :type '(alist
+          :key-type   (string :tag "Link type")
+          :value-type (repeat (symbol :tag "Linkd keywords for this type")))
+  :group 'linkd)
+
+(defcustom linkd-default-bullet-string "."
+  "Default string to use to display a bullet."
+  :type 'string :group 'linkd)
+
+(defcustom linkd-star-search-string (concat "\(" "\@\*")
+  "Regexp that matches a Linkd star."
+  :type 'string :group 'linkd)
+
+(defcustom linkd-block-file-name "~/.linkd-block"
+  "File where temporary block text is stored for external processing."
+  :type 'file :group 'linkd)
+
+(defcustom linkd-shell-buffer-name "*Linkd Shell*"
+  "Name of shell buffer used by Linkd."
+  :type 'string :group 'linkd)
+
+;; Used for export to LaTeX and HTML.
+(defcustom linkd-export-heading-regexp (concat "(" "@\\* \"\\([^\"]*\\)\")")
+  "Regexp to match section headings in the buffer."
+  :type 'regexp :group 'linkd)
+
+;; Used for export to LaTeX and HTML.
+(defcustom linkd-export-commentary-regexp "^;;"
+  "Regexp to match commentary lines in a buffer."
+  :type 'string :group 'linkd)
+
+;; Used for export to LaTeX and HTML.
+;; Of course no regexp can correctly recognize matched parentheses.
+;; But our links are always on a single line, so we can sort of make it work.
+(defcustom linkd-export-link-regexp (concat "(" "@" ".*)$")
+  "Regexp to match Linkd links."
+  :type 'string :group 'linkd)
+
+;; Used for export to LaTeX and HTML.
+(defcustom linkd-export-formats-alist '(("html" . linkd-html-export)
+                                        ("tex" . linkd-latex-export))
+  "Alist of file extensions and associated export formats, for Linkd."
+  :type '(alist
+          :key-type   (string :tag "File-name extension")
+          :value-type (symbol :tag "Export function"))
+  :group 'linkd)
+
+(defcustom linkd-file-handler-alist
+  '(("el" . (lambda (file-name)
+              (let ((curr-mode  major-mode))
+                (condition-case nil
+                    (if (eq curr-mode 'finder-mode)
+                        (condition-case nil
+                            (finder-commentary file-name)
+                          (error (find-library file-name)))
+                      (find-library file-name))
+                  (error (find-file file-name)))))))
+  "Alist that maps file extensions to functions that open files.
+Each such function should accept a file name as its argument."
+  :type '(alist
+          :key-type   (string :tag "File extension (no period)")
+          :value-type (symbol :tag "Handler function for such files"))
+  :group 'linkd)
+
+(defcustom linkd-wiki-extensions '("linkd" "org" "el")
+  "List of file-name extensions to try, to look for a given wiki page."
+  :type '(repeat string) :group 'linkd)
+
+(defcustom linkd-wiki-directory "~/linkd-wiki"
+  "Default directory to look for wiki pages in."
+  :type 'directory :group 'linkd)
+
+
+;; (@* "Internal Variables") -----------------------------------------
 
 (defvar linkd-previous-buffer nil "Last buffer being shown.")
 
 (defvar linkd-previous-point nil "Value of point before link following.")
-
-(defvar linkd-insertion-schemes '(("file" :file-name :to :display)
-                                  ("man" :page :to :display)
-                                  ("info" :file-name :node :to :display)
-                                  ("url" :file-name :display)))
-
-(defvar linkd-default-bullet-string "." "Default string representing a bullet.")
 
 ;; We may attach keybindings to an overlay, so that the keybindings
 ;; are in effect whenever point is within the overlay.  For rapid
 ;; navigation, we will eventually attach some quick single-character
 ;; commands to the links, using the following keymap:
 (defvar linkd-overlay-map nil "Keymap for Linkd overlays.")
-(when (null linkd-overlay-map)
+(unless linkd-overlay-map
   (setq linkd-overlay-map (make-sparse-keymap))
   (define-key linkd-overlay-map (kbd "RET") 'linkd-follow-at-point)
   ;; $$$$(define-key linkd-overlay-map [down-mouse-2] 'ignore)
@@ -203,18 +333,11 @@
   (define-key linkd-overlay-map (kbd "[") 'linkd-previous-link)
   (define-key linkd-overlay-map (kbd "]") 'linkd-next-link))
 
-(defvar linkd-star-search-string (concat "\(" "\@\*") "Regexp matching a Linkd star.")
-
-(defvar linkd-block-file-name "~/.linkd-block"
-  "File where temporary block text is stored for external processing.")
-
 (defvar linkd-process-block-function nil
   "Function called by `linkd-process-block'.
 Argument is the contents of the block around point as a string.
-You can set this in the Local Variables section of a file.")
+You can set this in the `Local Variables' section of a file.")
 (make-variable-buffer-local 'linkd-process-block-function)
-
-(defvar linkd-shell-buffer-name "*linkd shell*" "Name of shell buffer used by linkd.")
 
 (defvar linkd-use-datablocks nil "When non-nil, Linkd uses datablocks in the current buffer.")
 (make-variable-buffer-local 'linkd-use-datablocks)
@@ -222,36 +345,8 @@ You can set this in the Local Variables section of a file.")
 (defvar linkd-datablocks-activated nil "When non-nil, Linkd activates datablocks.")
 (make-variable-buffer-local 'linkd-datablocks-activated)
 
-;; Used for export to LaTeX and HTML.
-(defvar linkd-export-heading-regexp (concat "(" "@\\* \"\\([^\"]*\\)\")")
-  "Regexp to match section headings in the buffer.")
-
-;; Used for export to LaTeX and HTML.
-(defvar linkd-export-commentary-regexp "^;;" "Regexp to match commentary lines in a buffer.")
-
-;; Used for export to LaTeX and HTML.
-(defvar linkd-export-link-regexp (concat "(" "@" ".*)$")
-  "Regexp to match Linkd links.
-Of course no regexp can correctly regcognize matched parentheses.
-But our links are always on a single line, so we can sort of make it
-work.")
-
-;; Used for export to LaTeX and HTML.
-(defvar linkd-export-formats '(("html" . linkd-html-export)
-                               ("tex" . linkd-latex-export))
-  "List of export formats used by Linkd.")
-
 ;; Used for export to LaTeX.
 (defvar linkd-latex-in-verbatim nil "Non-nil means we are inside a LaTeX verbatim section.")
-
-(defvar linkd-file-handler-alist nil
-  "Alist that maps file extensions to functions that open files.
-Each value should be a function of one argument, the file name.")
-
-(defvar linkd-wiki-extensions (list "linkd" "org" "el")
-  "List of string extensions to try when looking for a given wiki page.")
-
-(defvar linkd-wiki-directory "~/linkd-wiki" "Default directory to look for wiki pages in.")
 
 (defvar linkd-map nil "Keymap used by Linkd mode.")
 (when (null linkd-map)
@@ -270,8 +365,22 @@ Each value should be a function of one argument, the file name.")
   (define-key linkd-map (kbd "C-c , e") 'linkd-edit-link-at-point)
   (define-key linkd-map (kbd "C-c , x") 'linkd-escape-datablock))
 
+;; Linkd menu for menu bar.
+(easy-menu-define linkd-menu linkd-map "Linkd"
+  '("Linkd"
+	:visible linkd-use-menu
+	["Follow" linkd-follow-at-point :active (get-char-property (point) 'linkd)]
+	["Back" linkd-back :active (get-char-property (point) 'linkd)]
+	["Previous link" linkd-previous-link :active (get-char-property (point) 'linkd)]
+	["Next link" linkd-next-link :active (get-char-property (point) 'linkd)]
+	("Insert"
+	 ["Tag" linkd-insert-tag]
+	 ["Star" linkd-insert-star]
+	 ["Link" linkd-insert-link])
+	["Edit" 	linkd-edit-link-at-point :active (get-char-property (point) 'linkd)]))
 
-;; (@* "Versioning")
+
+;; (@* "Versioning") -------------------------------------------------
 
 (defun linkd-version ()
   "Display Linkd version."
@@ -279,7 +388,8 @@ Each value should be a function of one argument, the file name.")
   ;; (message "$Id: linkd.el,v 1.63 2007/05/19 00:16:17 dto Exp dto $"))
   (message "$Id: linkd.el,v 1.64 2008/03/14 $"))
 
-;; (@* "Recognizing links")
+
+;; (@* "Recognizing Links") ------------------------------------------
 ;;
 ;; In working with Emacs' font-lock code to obtain automatic
 ;; recognition of a construct, one typically uses a regular expression
@@ -308,15 +418,14 @@ Return non-nil if a link is found.  Set match-data appropriately."
           (set-match-data (list begin-marker end-marker)))
         t))))
 
-;; Next we have a function to extract link data from plain
-;; text. Notice that it determines the presence of a link by searching
-;; for a text property called {\it linkd}, instead of using the
-;; regular expression given above. This is because of the way link
-;; rendering works.  When the activation of linkd-mode triggers
-;; fontification of a buffer containing links, the links are matched
-;; by the font-locking code, and marked with the {\it linkd} text
-;; property at that time.  Then all the other functions that deal with
-;; links can use the {\it linkd} text property, which is simpler than
+;; Function to extract link data from plain text.  It determines the
+;; presence of a link by searching for the `linkd' text property,
+;; instead of using the regular expression given above. This is
+;; because of the way link rendering works.  When the activation of
+;; Linkd mode triggers fontification of a buffer containing links, the
+;; links are matched by the font-locking code, and marked with the
+;; `linkd' text property.  All the other functions that deal with
+;; links can then use the `linkd' text property, which is simpler than
 ;; using regexps throughout.  See (@> "Rendering links with overlays")
 ;; and (@> "Fontlocking").
 
@@ -325,19 +434,19 @@ Return non-nil if a link is found.  Set match-data appropriately."
   (when (get-char-property (point) 'linkd)
     (save-excursion (read (current-buffer)))))
 
-;; (@* "Following links")
+
+;; (@* "Following Links") --------------------------------------------
 ;;
-;; Recall that each link is an S-expression. When this S-expression is
-;; evaluated, the result is a property list whose keys represent
-;; possible user actions, whereas the values are functions to be
-;; invoked when the corresponding key is chosen. So to follow a link,
-;; we evaluate the link S-expression and invoke the function
-;; corresponding to the property {\tt :follow} in the resulting
-;; property list.
+;; Each link is an S-expression.  When this S-expression is evaluated,
+;; the result is a property list whose keys represent possible user
+;; actions, and whose values are functions to be invoked when the
+;; corresponding key is chosen.  To follow a link, we evaluate the
+;; link's S-expression and invoke the function corresponding to the
+;; `:follow' property in the resulting property list.
 ;;
-;; As the results of following a link will often change the currently
-;; displayed buffer, we remember which is the current buffer before
-;; switching, and provide a function {\tt linkd-back} to return to the
+;; The results of following a link will often change the currently
+;; displayed buffer, so we remember which is the current buffer before
+;; switching, and provide a function, `linkd-back', to return to the
 ;; old buffer.
 
 (defun linkd-follow (sexp)
@@ -374,7 +483,17 @@ Return non-nil if a link is found.  Set match-data appropriately."
     ;;; $$$$ (beginning-of-line)
     (linkd-follow (linkd-link-at-point))))
 
-;; (@* "Navigating links")
+(defun linkd-maybe-enable-in-target ()
+  "Conditionally enable linkd mode in the target of an @file link."
+  (when (or (and (booleanp linkd-enable-linkd-mode-in-target) 
+                 linkd-enable-linkd-mode-in-target)
+            (and (functionp linkd-enable-linkd-mode-in-target)
+                 (funcall linkd-enable-linkd-mode-in-target))
+            (and (listp linkd-enable-linkd-mode-in-target)
+                 (memq major-mode linkd-enable-linkd-mode-in-target)))
+    (linkd-mode 1)))
+
+;; (@* "Navigating Links") -------------------------------------------
 ;;
 ;; Instead of manually positioning point on each link, we can navigate
 ;; directly between links. The following interactive functions jump
@@ -409,7 +528,8 @@ Return non-nil if a link is found.  Set match-data appropriately."
       (goto-char (max (previous-overlay-change (point))
                       (previous-single-char-property-change (point) 'linkd))))))
 
-;; (@* "Inserting and editing links interactively")
+
+;; (@* "Inserting and Editing Links Interactively") ------------------
 ;;
 ;; It is not necessary to type the links manually. With these
 ;; functions, the user may create and edit links interactively.
@@ -445,8 +565,8 @@ Return non-nil if a link is found.  Set match-data appropriately."
 Optional arg TYPE is the link type.
 Optional arg CURRENT-VALUES is a property list of current values."
   (interactive)
-  (let* ((type (or type (completing-read "Link type: " linkd-insertion-schemes)))
-         (keys (cdr (assoc type linkd-insertion-schemes)))
+  (let* ((type (or type (completing-read "Link type: " linkd-type-keywords-alist)))
+         (keys (cdr (assoc type linkd-type-keywords-alist)))
          (key (car keys))
          (link-args nil))
     (while key
@@ -476,7 +596,8 @@ Optional arg CURRENT-VALUES is a property list of current values."
       (re-search-backward linkd-generic-regexp)
       (delete-region (match-beginning 0) (match-end 0)))))
 
-;; (@* "Rendering links with overlays")
+
+;; (@* "Rendering Links with Overlays") ------------------------------
 ;;
 ;; Emacs' overlays allow us to render a link onscreen in ways that make
 ;; the meaning of the link clearer. We can do this by hiding the somewhat
@@ -525,13 +646,15 @@ $$$$$ FIXME: document args."
                                                        'linkd-fontified nil
                                                        'linkd nil)))))))
 
-;; (@* "Decorating links with graphical icons")
+
+;; (@* "Decorating Links with Graphical Icons") ----------------------
 ;;
 ;; I have drawn a set of 16x16 icons for use with linkd-mode. When the
 ;; icon feature is enabled, an appropriate icon is displayed to the
 ;; left of the link.
 ;;
-;; The icons may be downloaded from http://dto.freeshell.org/packages/linkd-icons.tar.gz
+;; The icons are included in the linkd download at:
+;;   http://www.emacswiki.org/emacs/linkd.tar.gz
 
 (defun linkd-icon (icon-name)
   "Returns the name of the icon file for ICON-NAME."
@@ -546,7 +669,8 @@ Returns the file-name to the icon image file."
         icon
       (concat dir "linkd-file-generic.xpm"))))
 
-;; (@* "Stars")
+
+;; (@* "Stars") ------------------------------------------------------
 ;;
 ;; Stars delimit (and optionally name) blocks of text. A block of text
 ;; is the region between one star and the next. We may think of blocks
@@ -564,18 +688,18 @@ Returns the file-name to the icon image file."
        ',(if star-name 'linkd-star-name 'default)
        "*" 'linkd-star ,(linkd-icon "star")))))
 
-;; (@* "Tags")
+
+;; (@* "Tags") -------------------------------------------------------
 ;;
-;; Tags may be used to navigate within source code. As the concepts
-;; expressed in a program naturally relate to one another, one may
-;; mark those parts of a program that relate to a given concept with a
-;; special link called a {\it tag} which names the concept.
+;; Tags can be used to navigate within source code.  You can mark
+;; those parts of a program that relate to a given concept with a
+;; `tag' link that names the concept.
 ;;
-;; Following a tag link navigates to the next tag (or star) with the
+;; Following a `tag' link navigates to the next tag (or star) with the
 ;; same name, cycling to the beginning of the buffer when the end is
-;; reached. So one may think of following tag links as tracing a
-;; concept through different parts of a program by jumping between
-;; related pieces of code.
+;; reached.  You can think of following tag links as tracing a concept
+;; through different parts of a program by jumping between related
+;; pieces of code.
 
 (defun linkd-find-next-tag-or-star (name)
   "Find next Linkd tag or star."
@@ -597,18 +721,19 @@ Returns the file-name to the icon image file."
     (lambda (beg end) (linkd-overlay beg end ,tag-name 'linkd-tag-name
                                      ">" 'linkd-tag ,(linkd-icon "tag")))))
 
-;; (@* "Processing blocks")
+
+;; (@* "Processing Blocks") ------------------------------------------
 ;;
-;; Sometimes we wish to divide a text file into sections using stars,
-;; and then selectively process certain of those blocks of
-;; text---perhaps with an external program. We can use this facility
-;; to experiment with such external programs or to develop interactive
-;; scripts. For example, we can send a block of shell-script commands
-;; to a shell window for immediate execution.
+;; You can divide a text file into sections using stars, and then
+;; selectively process certain of those blocks of text, perhaps with
+;; an external program.  You can use this facility to experiment with
+;; such external programs or to develop interactive scripts.  For
+;; example, you can send a block of shell-script commands to a shell
+;; window for immediate execution.
 ;;
 ;; The operation to be performed is determined by the value of the
-;; buffer-local variable ``linkd-process-block-function.'' This may
-;; be set to an appropriate value in a file's Local Variables section.
+;; buffer-local variable `linkd-process-block-function'.  You can set
+;; this to an appropriate value in a file's `Local Variables' section.
 
 (defun linkd-block-around-point ()
   "Return the block around point as a string."
@@ -644,31 +769,31 @@ Returns the file-name to the icon image file."
     (insert (concat ". " linkd-block-file-name)) ; make the shell source the temp file
     (call-interactively (key-binding "\r"))))
 
-;; (@* "Datablocks")
+
+;; (@* "Datablocks") -------------------------------------------------
 ;;
-;; ``Datablocks'' are embedded objects of a user-defined type.  A
-;; datablock consists of a {\it type symbol} followed by a printed
-;; representation of a lisp object called the {\it embedded object.}
-;; The type symbol is a symbol whose function-value determines the
-;; appearance and behavior of the region of the buffer containing the
-;; embedded object. By convention, a type symbol's name begins with a
-;; caret.
+;; A datablock is an embedded object of a user-defined type.  It
+;; consists of a "type symbol" followed by a printed representation of
+;; a Lisp object called the "embedded object".  The type symbol is a
+;; symbol whose `symbol-function' determines the appearance and
+;; behavior of the region of the buffer that contains the embedded
+;; object.  By convention, a type symbol's name begins with a caret
+;; (`^').
 ;;
-;; When a datablock is {\it activated}, the embedded object is read
-;; from the buffer and fed to the type symbol's function. This
-;; function may temporarily replace the region with an interactive
-;; representation of the embedded object, which may then be
-;; manipulated by the user. The behavior of this representation may be
-;; effected by various uses of Emacs' text properties.
+;; When a datablock is "activated", the embedded object is read from
+;; the buffer and fed to the type symbol's function.  This function
+;; can temporarily replace the region with an interactive
+;; representation of the embedded object, which can then be
+;; manipulated by the user.  The behavior of this representation may
+;; be effected by various uses of Emacs' text properties.
 ;;
-;; When a datablock is {\it deactivated}, the interface is replaced
-;; with a plain-text representation of the new embedded object. One
-;; can arrange for the automatic activation and deactivation of
-;; datablocks, particularly upon saving and loading files that contain
-;; them.
+;; When a datablock is "deactivated", the interface is replaced with a
+;; plain-text representation of the new embedded object.  You can
+;; arrange for the automatic activation and deactivation of datablocks
+;; - for example, upon saving and loading files that contain them.
 ;;
-;; Datablocks must be activated on a per-file basis via a Local
-;; Variables section in the file.
+;; Datablocks must be activated on a per-file basis via a `Local
+;; Variables' section in the file.
 
 ;; Function to extract the embedded object at point.
 (defun linkd-datablock-object-at-point ()
@@ -765,7 +890,8 @@ ACTION is :end, deactivate the datablock."
         (forward-line))
       (setq linkd-datablocks-activated nil))))
 
-;; (@* "Exporting to other formats")
+
+;; (@* "Exporting to Other Formats") ---------------------------------
 ;;
 ;; Linkd supports export to LaTeX and HTML. What follows are some
 ;; functions basic to the export process.
@@ -781,37 +907,42 @@ ACTION is :end, deactivate the datablock."
 (defun linkd-export-default ()
   "Export the current buffer with default settings to all available formats."
   (interactive)
-  (dolist (format linkd-export-formats)
+  (dolist (format linkd-export-formats-alist)
     (let* ((extension (car format))
            (output-file (concat (buffer-file-name) "." extension))
            (export-function (cdr format)))
       (linkd-export export-function output-file))))
 
-;; (@* "Exporting to LaTeX")
+
+;; (@* "Exporting to LaTeX") -----------------------------------------
 ;;
-;; This section contains routines to transform our Lisp source code
-;; files into beautiful LaTeX documents in (roughly) the style of
-;; Donald Knuth's "Literate Programming." To take advantage of this
-;; feature, the source code to be transformed should contain
-;; alternating regions of commentary and code, with appropriate star
-;; headings to group these regions into document sections. The
-;; interactive function {\tt linkd-latex-render} transforms the source
+;; This section contains routines to transform Lisp source code files
+;; into beautiful LaTeX documents in (roughly) the style of Donald
+;; Knuth's "Literate Programming".  To take advantage of this feature,
+;; the source code to be transformed should contain alternating
+;; regions of commentary and code, with appropriate star headings to
+;; group these regions into document sections.
+;;
+;; FIXME: There is no such function: `linkd-latex-render'
+;;
+;; The interactive function `linkd-latex-render' transforms the source
 ;; code in a temporary buffer and writes the result to a corresponding
-;; LaTeX file. Where tags appear in commentary, they are prettified in
-;; the LaTeX output.
+;; LaTeX file.  Where tags appear in Commentary, they are prettified
+;; in the LaTeX output.
 ;;
-;; The purist may object that ``true'' literate programming requires a
-;; tool capable of re-sequencing code fragments and performing macro
-;; expansion, neither of which are implemented here. In response to
-;; this objection I would point out the following: {\it (i)} there is
-;; little need for re-sequencing in a language like Lisp, where
-;; declarations may be ordered more or less as one pleases; {\it (ii)}
-;; Lisp already has a powerful macro expansion facility; and {\it
-;; (iii)} there is no reason why a system that deviates somewhat from
-;; the traditionally accepted definition of ``literate programming''
-;; should not still contribute to the writing of better programs.
+;; The purist might object that true literate programming requires a
+;; tool capable of resequencing code fragments and performing macro
+;; expansion, neither of which are implemented here.  In response to
+;; this objection I (David O'Toole) point out the following: (i) there
+;; is little need for resequencing in a language like Lisp, where
+;; declarations can be ordered more or less as you please; (ii) Lisp
+;; already has a powerful macro expansion facility; and (iii) there is
+;; no reason why a system that deviates somewhat from the
+;; traditionally accepted definition of literate programming should
+;; not still contribute to the writing of better programs.
 ;;
-;;  The {\tt fancyvrb} package is required.
+;; FIXME: No such `require' in this file: The `fancyvrb' package is
+;; required.
 
 (defun linkd-latex-begin-verbatim ()
   "Insert LaTeX `Verbatim' start tag."
@@ -874,66 +1005,70 @@ ACTION is :end, deactivate the datablock."
             (replace-match (format "$\\\\Rightarrow ${\\\\bf %s}" (match-string 1)))))
         (current-buffer)))))
 
-;; (@* "Exporting to HTML")
+
+;; (@* "Exporting to HTML") ------------------------------------------
 ;;
-;; This functionality is built on top of Hrvoje Niksic's
-;; htmlizer. {http://fly.srk.fer.hr/~hniksic/emacs/htmlize.el}
+;; This functionality is built on top of Hrvoje Niksic's htmlize.el:
+;; http://fly.srk.fer.hr/~hniksic/emacs/htmlize.el
 
 (defun linkd-html-export ()
   "Convert the current buffer to HTML using htmlize.el and some
 extra rules. Return the buffer."
-  (require 'htmlize)
-  (let* ((source-buffer (current-buffer))
-         (output-buffer (htmlize-buffer source-buffer)))
-    ;; now postprocess it
-    (with-current-buffer output-buffer
-      (goto-char (point-min))
-      (let ((star-regexp
-             (concat "<span class=\"linkd-generic\">(" "@" "\\* \"\\(.*\\)\")</span>"))
-            (sexp-regexp
-             (concat "<span class=\"linkd-generic\">(" "@" "[^ ].* \"\\(.*\\)\")</span>")))
-        (while (re-search-forward star-regexp nil t)
-          (replace-match
-           (concat "<img src=\"/images/linkd-star.xpm.png\"> "
-                   "<span style=\"color: #ffff00; background-color: #698b22;\">\\1</span>")))))
-    ;; return the buffer
-    output-buffer))
+  (when (require 'htmlize nil t)
+    (let* ((source-buffer (current-buffer))
+           (output-buffer (htmlize-buffer source-buffer)))
+      ;; now postprocess it
+      (with-current-buffer output-buffer
+        (goto-char (point-min))
+        (let ((star-regexp
+               (concat "<span class=\"linkd-generic\">(" "@" "\\* \"\\(.*\\)\")</span>"))
+              (sexp-regexp
+               (concat "<span class=\"linkd-generic\">(" "@" "[^ ].* \"\\(.*\\)\")</span>")))
+          (while (re-search-forward star-regexp nil t)
+            (replace-match
+             (concat "<img src=\"/images/linkd-star.xpm.png\"> "
+                     "<span style=\"color: #ffff00; background-color: #698b22;\">\\1</span>")))))
+      ;; return the buffer
+      output-buffer)))
 
-;; (@* "Links to files")
+
+;; (@* "Links to Files") ---------------------------------------------
 ;;
-;; As Emacs deals in text files, one of the most common uses for a
-;; link is in navigating from one file to another. The following
-;; declarations define such ``file links''. (Note how the function
-;; {\tt @file} returns the type of property list discussed in (@>
-;; "Following links")
+;; Since Emacs works mainly with in text files, one of the most common
+;; uses for a link is in navigating from one text file to another.
+;; The following declarations define such file links.  (Note how the
+;; function `@file' returns the type of property list discussed in
+;; section (@> "Following links").
 ;;
-;; One may also associate a Lisp function with each type of file, and
-;; arrange that the function be used to open the file (instead of
-;; visiting it within Emacs with the ordinary {\tt find-file.})
+;; You can also associate a Lisp function with each type of file, and
+;; then arrange for the function to be used to open the file (instead
+;; of visiting it within Emacs using `find-file'.)
 
 (defun @file (&rest p)
   "$$$$$$$ FIXME"
-  (let ((file-name (plist-get p :file-name))
-        (to (plist-get p :to))
-        (display (plist-get p :display)))
+  (let ((file-name  (plist-get p :file-name))
+        (to         (plist-get p :to))
+        (display    (plist-get p :display)))
     `(:follow
       (lambda ()
-        (let ((handler (cdr (assoc (file-name-extension ,file-name)
-                                   linkd-file-handler-alist))))
+        (let ((handler    (cdr (assoc (file-name-extension ,file-name)
+                                      linkd-file-handler-alist))))
           (if handler
               (funcall handler ,file-name)
             ;; default action is find-file
-            (find-file ,file-name)
-            (when ,to
-              (beginning-of-buffer)
-              (search-forward ,to)))))
+            (find-file ,file-name))
+          (when ,to
+            (beginning-of-buffer)
+            (search-forward ,to)))
+        (linkd-maybe-enable-in-target))
       :render
       (lambda (beg end)
         (linkd-overlay beg end ,(or display (concat file-name (if to (concat " : " to) "")))
                        nil linkd-default-bullet-string nil
                        ,(linkd-file-icon file-name))))))
 
-;; (@* "Other link types")
+
+;; (@* "Other Link Types") -------------------------------------------
 ;;
 ;; Here are more examples of link type definitions. These link types
 ;; navigate to UNIX manual pages, GNU Info documentation, and to
@@ -986,7 +1121,8 @@ extra rules. Return the buffer."
         (linkd-overlay beg end ,(or display file-name) 'linkd-generic-link-name
                        linkd-default-bullet-string nil ,(linkd-icon "url"))))))
 
-;; (@* "Lisp links")
+
+;; (@* "Lisp Links") -------------------------------------------------
 
 (defun @L (sexp)
   "$$$$$$$$$$ FIXME"
@@ -998,11 +1134,12 @@ extra rules. Return the buffer."
       (linkd-overlay beg end ,(format "%S" sexp) 'linkd-command
                      linkd-default-bullet-string nil ,(linkd-icon "url")))))
 
-;; (@* "Wiki features")
+
+;; (@* "Wiki Features") ----------------------------------------------
 ;;
-;; When using emacs, one builds up a library of text files. You can
-;; turn this collection into a hypertext wiki by inserting ``wiki
-;; links'' from one file to another. Wiki names {\tt LookLikeThis.}
+;; When using Emacs, you typically build up a library of text files.
+;; You can turn this collection into a hypertext wiki by inserting
+;; wiki links from one file to another.  Wiki names LookLikeThis.
 
 (defun linkd-wiki-find-page (page-name)
   "Find Linkd wiki page named PAGE-NAME."
@@ -1029,13 +1166,13 @@ extra rules. Return the buffer."
     :render
     (lambda (beg end) (linkd-overlay beg end ,page 'linkd-wiki))))
 
-;; (@* "Minor mode for linkd")
+
+;; (@* "Minor Mode for Linkd") ---------------------------------------
 ;;
-;; When linkd minor mode is active, links are displayed using
-;; overlays, and keybindings are available for common linkd
-;; functions. The keybindings are in accord with the convention for
-;; minor-modes: a Control-C followed by one of a set of reserved
-;; punctuation characters.
+;; When Linkd minor mode is active, links are displayed using
+;; overlays, and keybindings are available for common Linkd functions.
+;; The keybindings are in accord with the convention for minor-modes:
+;; `C-c' followed by one of a set of reserved punctuation characters.
 
 (define-minor-mode linkd-mode
     "Create or follow hypertext links.
@@ -1077,11 +1214,13 @@ These key bindings are in effect on a link:\n
     (font-lock-fontify-buffer)
     (set-buffer-modified-p modified-p)))
 
-;; (@* "Fontlocking")
+
+;; (@* "Font-Locking") -----------------------------------------------
 ;;
-;; Each link type may execute arbitrary code to render itself. In the
-;; typical case, we use {\tt (linkd-overlay)} to render the link using
-;; overlays and possibly icons. See also (@> "Rendering links with overlays").
+;; Each link type can execute arbitrary code to render itself.  In the
+;; typical case, we use `(linkd-overlay)' to render the link using
+;; overlays and possibly icons.
+;; See also (@> "Rendering links with overlays").
 ;;
 ;; The following function invokes a link's rendering code.
 
@@ -1097,9 +1236,9 @@ These key bindings are in effect on a link:\n
         (unless renderer (error "No renderer for link."))
         (funcall renderer beg end)))))
 
-;; Interface with the Emacs font-locking system. `linkd-do-font-lock'
-;; can be configured to add or remove font-locking rules that cause
-;; linkd's links to be fontified.
+;; Interface with the Emacs font-locking system.  You can configure
+;; `linkd-do-font-lock' to add or remove font-locking rules that cause
+;; Linkd's links to be fontified.
 
 (defun linkd-do-font-lock (add-or-remove)
   "Add or remove font-lock rules for Linkd."

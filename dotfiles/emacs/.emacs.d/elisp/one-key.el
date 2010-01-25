@@ -8,9 +8,9 @@
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
 ;; Copyright (C) 2009, rubikitch, all rights reserved.
 ;; Created: 2008-12-22 21:54:30
-;; Version: 0.6.6
-;; Last-Updated: 2009-02-10 02:17:39
-;;           By: rubikitch
+;; Version: 0.7.0
+;; Last-Updated: 2009-05-23 00:52:06
+;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/one-key.el
 ;; Keywords: one-key
 ;; Compatibility: GNU Emacs 22 ~ 23
@@ -217,14 +217,31 @@
 ;; `one-key-items-per-line' Number of items in one line,
 ;; if this option is `nil', will calculated by `window-width'.
 ;; `one-key-help-window-max-height' The maximal height use in popup window.
-;; `one-key-show-quit-message' Whether quit message is shown,
-;; this option should be `nil', because message from command is overwritten.
 ;;
 ;; All above can customize easy through:
 ;;      M-x customize-group RET one-key RET
 ;;
 
 ;;; Change log:
+;;
+;; 2009/05/23
+;;   * Andy Stewart:
+;;      * Fix bug of option `one-key-popup-window'.
+;;
+;; 2009/03/09
+;;   * Andy Stewart:
+;;      * Add `char-valid-p' for compatibility Emacs 22.
+;;
+;; 2009/02/25
+;;   * Andy Stewart:
+;;      * Fix a bug of `one-key-menu'.
+;;
+;; 2009/02/19
+;;   * Andy Stewart:
+;;      * Just show help message when first call function `one-key-menu',
+;;        don't overwritten message from command.
+;;      * Remove function `one-key-menu-quit' and
+;;        option `one-key-show-quit-message', unnecessary now.
 ;;
 ;; 2009/02/10
 ;;   * rubikitch
@@ -333,11 +350,6 @@ If nil, it is calculated by `window-width'."
            (set symbol (/ (frame-height) 2))))
   :group 'one-key)
 
-(defcustom one-key-show-quit-message nil
-  "Whether quit message is shown."
-  :type 'boolean
-  :group 'one-key)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defface one-key-title
   '((t (:foreground "Gold")))
@@ -442,7 +454,7 @@ when keystroke can't match in menu.
 when keystroke can't match in menu.
 `PROTECT-FUNCTION' the protect function
 that call in `unwind-protect'.
-`ALTERNATE-FUNCTION' the alternate-function execute at last.
+`ALTERNATE-FUNCTION' the alternate function execute at last.
 `EXECUTE-LAST-COMMAND-WHEN-MISS-MATCH' whether execute
 last command when it miss match in key alist."
   (let ((self (function
@@ -456,16 +468,26 @@ last command when it miss match in key alist."
         last-key)
     ;; Popup help window when first time call
     ;; and option `one-key-popup-window' is `non-nil'.
-    (when one-key-menu-call-first-time
-      (setq one-key-menu-call-first-time nil)
-      (if one-key-popup-window
-          (one-key-help-window-toggle title info-alist)))
+    (when (and one-key-menu-call-first-time
+               one-key-popup-window)
+      (one-key-help-window-toggle title info-alist))
     ;; Execute.
     (unwind-protect
-        (let* (;; Use `read-event' instead of `read-key-sequence',
-               ;; because prefix key must not be interpreted in this case.
-               (event (read-event (one-key-highlight-prompt title)))
-               (key (if (integerp event) (char-to-string event)
+        (let* ((event (read-event
+                       ;; Just show help message when first call,
+                       ;; don't overwritten message from command.
+                       (if one-key-menu-call-first-time
+                           (progn
+                             (one-key-highlight-prompt title)
+                             (setq one-key-menu-call-first-time nil))
+                         "")))
+               (key (if (if (<= emacs-major-version 22)
+                            (with-no-warnings
+                              (char-valid-p event)) ;for compatibility Emacs 22
+                          (characterp event))
+                        ;; Transform to string when event is char.
+                        (char-to-string event)
+                      ;; Otherwise return vector.
                       (make-vector 1 event)))
                match-key)
           (cond
@@ -529,8 +551,8 @@ last command when it miss match in key alist."
             (one-key-handle-last alternate-function self recursion-p))))
       ;; Restore value of `one-key-call-first-time'.
       (setq one-key-menu-call-first-time t)
-      ;; Quit `one-key' menu.
-      (one-key-menu-quit)
+      ;; Close help window.
+      (one-key-help-window-close)
       ;; Run protect function
       ;; when `protect-function' is valid function.
       (if (and protect-function
@@ -585,12 +607,6 @@ when option RECURSION-P is non-nil."
   ;; `recursion-p' is `non-nil'.
   (if recursion-p
       (funcall recursion-function)))
-
-(defun one-key-menu-quit ()
-  "Quit `one-key' menu."
-  (one-key-help-window-close)
-  (when one-key-show-quit-message
-    (message "Quit `one-key' menu.")))
 
 (defun one-key-help-window-exist-p ()
   "Return `non-nil' if `one-key' help window exist.
@@ -758,4 +774,4 @@ TITLE is title name that any string you like."
 
 ;;; LocalWords:  emms specpdl minish DarkRed msg FUNCITN num str decf elt args
 ;;; LocalWords:  rubikitch's desc SPC bmenu sKeymap nsTitle fontify funcname
-;;; LocalWords:  bol eol destructuring cmd
+;;; LocalWords:  bol eol destructuring cmd PageUp PageDown

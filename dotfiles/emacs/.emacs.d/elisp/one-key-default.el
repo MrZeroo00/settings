@@ -1,5 +1,5 @@
 ;;; one-key-default.el --- one-key-ize default key bindings
-;; $Id: one-key-default.el,v 1.3 2009/02/09 22:43:43 rubikitch Exp $
+;; $Id: one-key-default.el,v 1.4 2009/02/17 00:01:19 rubikitch Exp $
 
 ;; Copyright (C) 2009  rubikitch
 
@@ -49,6 +49,9 @@
 ;;; History:
 
 ;; $Log: one-key-default.el,v $
+;; Revision 1.4  2009/02/17 00:01:19  rubikitch
+;; Replace global prefix maps with one-key-menu-* only when the key is prefix-map.
+;;
 ;; Revision 1.3  2009/02/09 22:43:43  rubikitch
 ;; added (require 'one-key)
 ;;
@@ -61,7 +64,7 @@
 
 ;;; Code:
 
-(defvar one-key-default-version "$Id: one-key-default.el,v 1.3 2009/02/09 22:43:43 rubikitch Exp $")
+(defvar one-key-default-version "$Id: one-key-default.el,v 1.4 2009/02/17 00:01:19 rubikitch Exp $")
 (require 'one-key)
 
 (defun one-key-default-create-menu (key &rest depends)
@@ -69,10 +72,15 @@
     (dolist (key depends)
       (let ((sym (intern (format "one-key-menu-%s"
                                  (replace-regexp-in-string " " "-" key)))))
-        (global-set-key (read-kbd-macro key) sym)))
+        (one-key-default-set-key key sym)))
     (with-temp-buffer
       (one-key-insert-template key key)
       (eval-buffer))))
+
+(defun one-key-default-set-key (keystroke command)
+  (let ((kb (read-kbd-macro keystroke)))
+    (when (keymapp (key-binding kb))
+      (global-set-key kb command))))
 
 (defun one-key-default-setup-keys ()
   (one-key-default-create-menu "ESC ESC")
@@ -97,8 +105,8 @@
                                "C-x RET" "C-x ESC" "C-x 4" "C-x 5" "C-x a"
                                "C-x n" "C-x r" "C-x v")
 
-  (global-set-key (kbd "<f1>") 'one-key-menu-<f1>)
-  (global-set-key (kbd "M-g") 'one-key-menu-M-g)
+  (one-key-default-set-key "<f1>" 'one-key-menu-<f1>)
+  (one-key-default-set-key "M-g" 'one-key-menu-M-g)
   (global-set-key (kbd "C-x ?") 'one-key-menu-C-x)
   (setq one-key-help-window-max-height nil))
 ;; (one-key-default-setup-keys)

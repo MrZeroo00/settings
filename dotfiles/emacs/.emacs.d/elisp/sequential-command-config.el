@@ -1,5 +1,5 @@
 ;;; sequential-command-config.el --- Examples of sequential-command.el 
-;; $Id: sequential-comand-config.el,v 1.2 2009/02/17 12:56:26 rubikitch Exp $
+;; $Id: sequential-command-config.el,v 1.3 2009/03/22 09:09:58 rubikitch Exp $
 
 ;; Copyright (C) 2009  rubikitch
 
@@ -26,9 +26,24 @@
 
 ;; Examples of sequential-command.el .
 
+;;; Commands:
+;;
+;; Below are complete command list:
+;;
+;;  `sequential-command-setup-keys'
+;;    Rebind C-a, C-e, M-u, M-c, and M-l to seq-* commands.
+;;
+;;; Customizable Options:
+;;
+;; Below are customizable option list:
+;;
+
 ;;; History:
 
-;; $Log: sequential-comand-config.el,v $
+;; $Log: sequential-command-config.el,v $
+;; Revision 1.3  2009/03/22 09:09:58  rubikitch
+;; New command: `sequential-command-setup-keys'
+;;
 ;; Revision 1.2  2009/02/17 12:56:26  rubikitch
 ;; fixed typo
 ;;
@@ -38,7 +53,7 @@
 
 ;;; Code:
 
-(defvar sequential-command-config-version "$Id: sequential-comand-config.el,v 1.2 2009/02/17 12:56:26 rubikitch Exp $")
+(defvar sequential-command-config-version "$Id: sequential-command-config.el,v 1.3 2009/03/22 09:09:58 rubikitch Exp $")
 (require 'sequential-command)
 
 (define-sequential-command seq-home
@@ -61,6 +76,19 @@
     org-beginning-of-line beginning-of-buffer seq-return)
   (define-sequential-command org-seq-end
     org-end-of-line end-of-buffer seq-return))
+
+(defun sequential-command-setup-keys ()
+  "Rebind C-a, C-e, M-u, M-c, and M-l to seq-* commands.
+If you use `org-mode', rebind C-a and C-e."
+  (interactive)
+  (global-set-key "\C-a" 'seq-home)
+  (global-set-key "\C-e" 'seq-end)
+  (global-set-key "\M-u" 'seq-upcase-backward-word)
+  (global-set-key "\M-c" 'seq-capitalize-backward-word)
+  (global-set-key "\M-l" 'seq-downcase-backward-word)
+  (when (require 'org nil t)
+    (define-key org-mode-map "\C-a" 'org-seq-home)
+    (define-key org-mode-map "\C-e" 'org-seq-end)))
 
 (provide 'sequential-command-config)
 

@@ -1,5 +1,5 @@
 ;;; install-elisp.el --- Simple Emacs Lisp installer
-;; $Id: install-elisp.el,v 1.15 2008/12/27 10:56:25 rubikitch Exp $
+;; $Id: install-elisp.el,v 1.18 2009/01/25 17:47:20 rubikitch Exp $
 
 ;; Copyright (C) 2007  rubikitch
 
@@ -45,6 +45,7 @@
 
 ;; M-x install-elisp
 ;; M-x install-elisp-from-emacswiki
+;; M-x install-elisp-from-gist
 ;; M-x dired-install-elisp-from-emacswiki
 ;;
 ;; It is convenient to add to your Emacs Lisp programs:
@@ -67,6 +68,15 @@
 ;;; History:
 
 ;; $Log: install-elisp.el,v $
+;; Revision 1.18  2009/01/25 17:47:20  rubikitch
+;; New command: `install-elisp-from-gist'
+;;
+;; Revision 1.17  2009/01/24 18:54:54  rubikitch
+;; Fixed unbound `find-function-source-path'.
+;;
+;; Revision 1.16  2009/01/21 10:19:57  rubikitch
+;; Restore `mode-line-format' when installation is done.
+;;
 ;; Revision 1.15  2008/12/27 10:56:25  rubikitch
 ;; Use font-lock.
 ;;
@@ -120,6 +130,8 @@
 ;;
 
 ;;; Code:
+
+(require 'find-func)
 
 (defgroup install-elisp nil
   "Simple Emacs Lisp installer."
@@ -180,7 +192,8 @@ If you use curl, set it to \"curl --silent '%s'\"."
 (defun install-elisp-proceed ()
   (interactive)
   (write-file install-elisp-filename)
-  (byte-compile-file buffer-file-name t))
+  (byte-compile-file buffer-file-name t)
+  (install-elisp-confirmation-minor-mode -1))
 
 ;;;###autoload
 (defun install-elisp (url &optional filename)
@@ -199,7 +212,7 @@ For example: (setq install-elisp-repository-directory \"~/emacs/lisp/\")"))
           (%install-elisp-get-filename (or filename (file-name-nondirectory url))))
     (if (not install-elisp-confirm-flag)
         (install-elisp-proceed)
-      (install-elisp-confirmation-minor-mode)
+      (install-elisp-confirmation-minor-mode 1)
       (message "Type C-c C-c to do installation!"))))
 
 ;; (%install-elisp-find-library-name "vc.el")
@@ -241,6 +254,14 @@ For example: (setq install-elisp-repository-directory \"~/emacs/lisp/\")"))
   (funcall (install-elisp-from "http://www.emacswiki.org/cgi-bin/wiki/download/") filename))
 
 ;;;###autoload
+(defun install-elisp-from-gist (gistid &optional filename)
+  "Install Emacs Lisp program from gist."
+  (interactive "sInstall Emacs Lisp from gist ID: ")
+  (install-elisp (concat "http://gist.github.com/" (format "%s" gistid) ".txt")
+                 (or filename
+                     (format "gist-%s.el" gistid))))
+
+;;;###autoload
 (defun dired-install-elisp-from-emacswiki (&optional filename)
   "Upgrade the current Emacs Lisp program from the EmacsWiki."
   (interactive (list (dired-get-filename t)))
@@ -251,9 +272,11 @@ For example: (setq install-elisp-repository-directory \"~/emacs/lisp/\")"))
 (define-minor-mode install-elisp-confirmation-minor-mode
   "Emacs Lisp install confirmation."
   nil "" install-elisp-confirmation-minor-mode-map
-  (setq mode-line-format
-        (format "%s: Type C-c C-c to install!"
-                (file-name-nondirectory install-elisp-filename))))
+  (if install-elisp-confirmation-minor-mode
+      (setq mode-line-format
+            (format "%s: Type C-c C-c to install!"
+                    (file-name-nondirectory install-elisp-filename)))
+    (setq mode-line-format default-mode-line-format)))
 
 
 (provide 'install-elisp)
