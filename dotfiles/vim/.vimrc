@@ -103,6 +103,8 @@ endif
 
 " charcode setting
 if has("gui_win32")
+  set encoding=utf-8
+  set termencoding=cp932
 else
   set encoding=utf-8
 endif
