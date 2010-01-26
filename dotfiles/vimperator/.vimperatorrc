@@ -47,6 +47,7 @@ noremap <Leader>pclr :mb pinned-link | clear-pin<CR>
 noremap <Leader>rlr :bmlreadlater<CR>
 noremap <Leader>bmk :sbm [archive]<CR>
 noremap <Leader>sc :viewSBMComments<CR>
+noremap <Leader>gc :applaunch Google\ Chrome<CR>
 noremap <Leader>dic :sidebar Mouseover Dictionary<CR>
 noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
 noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
@@ -178,6 +179,7 @@ EOM
 " applauncher
 js <<EOM
 liberator.globalVariables.applauncher_list = [
+  [ 'Google Chrome', 'google-chrome', '%URL%'],
   [ 'Safari', '/Applications/Safari.app/Contents/MacOS/Safari', '%URL%'],
 ];
 liberator.globalVariables.applauncher_charset = 'Shift_JIS';

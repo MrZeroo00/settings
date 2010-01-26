@@ -32,6 +32,15 @@ alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
 
 
+# relate file extensions to open command
+extensions=("txt" "htm" "html" "pdf" "png" "jpg" "jpeg" "bmp" "gif" "mpg" "mpeg" "mng" "wmv" "rm" "mov" "c" "cpp" "h" "hpp")
+for i in ${extensions}; do
+  alias -s $i=open
+done
+unset extensions
+#preexec() { file=$1; if [ -f $file ]; then open $file; fi; }
+
+
 ## suffix aliases
 source ${HOME}/.zsh/function/zsh_commandselector.sh
 

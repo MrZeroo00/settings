@@ -5,6 +5,7 @@ vm=no
 
 # sound output
 softvol=yes
+softvol-max=200
 
 # osd / subtitle
 osd-duration=500

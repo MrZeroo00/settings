@@ -11,3 +11,6 @@ fortune
 if [ -x "`which uname`" ]; then
   export OS="`uname`"
 fi
+if [ -n "`echo ${OS} | grep CYGWIN`" ]; then
+  OS='Cygwin'
+fi

@@ -59,6 +59,7 @@ case "${OS}" in
   alias lgrep='lgrep -Os -Ks'
   alias vim='/cygdrive/c/Vim/bin/vim.exe'
   alias emacs='/cygdrive/c/meadow/bin/Meadow.exe'
+  alias svn='/c/Program\ Files/Subversion/bin/svn.exe'
   alias open='fiber'
   alias pbcopy='putclip'
   alias pbpaste='getclip'

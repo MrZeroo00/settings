@@ -62,11 +62,14 @@ case "${OS}" in
   INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
   ;;
   "Cygwin")
-  export LANG='ja_JP.SJIS'
+  LANG=ja_JP.UTF-8
+  TERM=cygwin
   export TZ='JST-9'
   export JLESSCHARSET='japanese-sjis'
   ;;
 esac
+export LANG
+export TERM
 export MANPATH
 export INFOPATH
 
