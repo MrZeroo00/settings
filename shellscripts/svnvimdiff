@@ -41,8 +41,13 @@ fi
 args=$*
 shift $shift_args
 files="$1"
-patch=`tempfile -p $suffix`
-orig=`tempfile -p $suffix`
+if [ -f "`which tempfile`" ]; then
+    patch=`tempfile -p $suffix`
+    orig=`tempfile -p $suffix`
+else
+    patch=`mktemp -t $suffix`
+    orig=`mktemp -t $suffix`
+fi
 trap "rm -f $patch $orig" EXIT
 if [ -z $files ] || ! [ -f $files ] ; then
     # No file given, so loop over all files svn st says have changed
