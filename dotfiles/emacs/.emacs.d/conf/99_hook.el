@@ -1,10 +1,10 @@
 ;; dirvars (set directory local variables)
 ;(install-elisp "http://www.bookshelf.jp/elc/dirvars.el")
-(require 'dirvars nil t)
+(my-require-and-when 'dirvars)
 
 ;; diminish
 ;(install-elisp "http://www.eskimo.com/~seldon/diminish.el")
-(require 'diminish nil t)
+(my-require-and-when 'diminish)
 (diminish 'widen-window-mode " WW")
 (diminish 'auto-complete-mode)
 (diminish 'doxymacs-mode)
