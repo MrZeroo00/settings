@@ -17,7 +17,7 @@
 ;; font-setup
 ;(install-elisp "http://www.bookshelf.jp/elc/font-setup.el")
 ;; フォント設定
-(when (require 'font-setup nil t)
+(my-require-and-when 'font-setup
   (setq font-setup-bdf-dir
         (expand-file-name "../../fonts/intlfonts" data-directory))
   (defun font-setup-small (&optional font num unuse set)
@@ -134,4 +134,4 @@
       (error "ファイルが存在しません")))))
 
 
-(when (require 'outlookedit nil t))
+(my-require-and-when 'outlookedit)
