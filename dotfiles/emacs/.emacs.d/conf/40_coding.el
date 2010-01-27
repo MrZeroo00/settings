@@ -30,11 +30,11 @@
 
 
 ;; debug
-(setq gud-tooltip-echo-area nil)
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)
 ;(require 'gud nil t)
 (setq gud-gdb-command-name "gdb -annotate=3")
+(setq gud-tooltip-echo-area nil)
 (add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t)))
 
 
@@ -69,10 +69,10 @@
 
 
 ;; ctags
-(global-set-key "\M-t" 'find-tag)
-(global-set-key "\C-t" 'pop-tag-mark)
-(setq tags-table-list
-      '("~/src"))
+;(global-set-key "\M-t" 'find-tag)
+;(global-set-key "\C-t" 'pop-tag-mark)
+;(setq tags-table-list
+;      '("~/src"))
 
 
 ;; gtags
@@ -163,11 +163,11 @@
 
 ;; brackets
 ;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
-(load "brackets")
+;(load "brackets")
 
 
 ;; align (align code)
-;(require 'align nil t)
+(require 'align nil t)
 
 
 ;; eldoc
