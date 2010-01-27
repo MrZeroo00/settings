@@ -1,15 +1,15 @@
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
-;(my-require-and-when 'install-elisp
-;  (setq install-elisp-repository-directory "~/.emacs.d/elisp/"))
+'(my-require-and-when 'install-elisp
+   (setq install-elisp-repository-directory "~/.emacs.d/elisp/"))
 
 
 ;; auto-install
 ;(install-elisp-from-emacswiki "auto-install.el")
-;(my-require-and-when 'auto-install
-;  (setq auto-install-directory "~/.emacs.d/elisp/")
-;  (auto-install-update-emacswiki-package-name t)
-;  (auto-install-compatibility-setup))
+'(my-require-and-when 'auto-install
+   (setq auto-install-directory "~/.emacs.d/elisp/")
+   (auto-install-update-emacswiki-package-name t)
+   (auto-install-compatibility-setup))
 
 
 ; base settings
@@ -46,19 +46,19 @@
 
 ; color setting
 (global-font-lock-mode t)
-;(if window-system (progn
-;                    (set-face-foreground 'font-lock-comment-face "MediumSeaGreen")
-;                    (set-face-foreground 'font-lock-string-face "purple")
-;                    (set-face-foreground 'font-lock-keyword-face "blue")
-;                    (set-face-foreground 'font-lock-function-name-face "blue")
-;                    (set-face-bold-p 'font-lock-function-name-face t)
-;                    (set-face-foreground 'font-lock-variable-name-face "black")
-;                    (set-face-foreground 'font-lock-type-face "LightSeaGreen")
-;                    (set-face-foreground 'font-lock-builtin-face "purple")
-;                    (set-face-foreground 'font-lock-constant-face "black")
-;                    (set-face-foreground 'font-lock-warning-face "blue")
-;                    (set-face-bold-p 'font-lock-warning-face nil)
-;))
+'(if window-system (progn
+                    (set-face-foreground 'font-lock-comment-face "MediumSeaGreen")
+                    (set-face-foreground 'font-lock-string-face "purple")
+                    (set-face-foreground 'font-lock-keyword-face "blue")
+                    (set-face-foreground 'font-lock-function-name-face "blue")
+                    (set-face-bold-p 'font-lock-function-name-face t)
+                    (set-face-foreground 'font-lock-variable-name-face "black")
+                    (set-face-foreground 'font-lock-type-face "LightSeaGreen")
+                    (set-face-foreground 'font-lock-builtin-face "purple")
+                    (set-face-foreground 'font-lock-constant-face "black")
+                    (set-face-foreground 'font-lock-warning-face "blue")
+                    (set-face-bold-p 'font-lock-warning-face nil)
+                    ))
 ;(set-face-foreground 'modeline "gray10")
 ;(set-face-background 'modeline "bisque3")
 ;(set-face-foreground 'mode-line-inactive "gray30")
@@ -176,6 +176,6 @@
 
 
 ;; macros
-;(load "_egoge-wash-out-colour")
-(load "_elisp-font-lock-top-quote")
-(load "_line-to-top-of-window")
+;(my-load-and-when "_egoge-wash-out-colour")
+(my-load-and-when "_elisp-font-lock-top-quote")
+(my-load-and-when "_line-to-top-of-window")
