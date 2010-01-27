@@ -158,8 +158,8 @@
 
 ;; kill-summary
 ;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
-(autoload 'kill-summary "kill-summary" nil t)
-(global-set-key "\M-y" 'kill-summary)
+(my-autoload-and-when 'kill-summary "kill-summary"
+                      (global-set-key "\M-y" 'kill-summary))
 
 
 ;; list-register

@@ -78,26 +78,25 @@
 
 ;; gtags
 ;; http://tamacom.com/global-j.html
-(autoload 'gtags-mode "gtags" "" t)
+(my-autoload-and-when 'gtags-mode "gtags"
+		      (defun my-find-tag ()
+			(interactive)
+			(or (gtags-find-tag-from-here)
+			    (find-tag)))
 
-(defun my-find-tag ()
-  (interactive)
-  (or (gtags-find-tag-from-here)
-      (find-tag)))
+		      (setq gtags-mode-hook
+			    '(lambda ()
+			       (my-load-and-when "_gtags-hack.el")
+			       (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
+			       (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
+			       (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
+			       (define-key gtags-mode-map "\C-t" 'gtags-pop-stack)
+			       ))
 
-(setq gtags-mode-hook
-      '(lambda ()
-         (my-load-and-when "_gtags-hack.el")
-         (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
-         (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
-         (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
-         (define-key gtags-mode-map "\C-t" 'gtags-pop-stack)
-         ))
-
-(add-hook 'c-mode-common-hook '(lambda ()
-                                 (gtags-mode t)
-                                 ;(gtags-make-complete-list)
-                                 ))
+		      (add-hook 'c-mode-common-hook '(lambda ()
+						       (gtags-mode t)
+						       ;;(gtags-make-complete-list)
+						       )))
 
 
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=tagsfile%20maker
@@ -172,7 +171,7 @@
 
 
 ;; eldoc
-(autoload 'turn-on-eldoc-mode "eldoc" nil t)
+(my-autoload-and-when 'turn-on-eldoc-mode "eldoc")
 
 
 ;; eldoc-extension
@@ -208,15 +207,15 @@
 
 ;; gtk-look
 ;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
-(autoload 'gtk-lookup-symbol "gtk-look" nil t)
-(when run-linux
-  (setq gtk-lookup-devhelp-indices
-        '("/usr/share/doc/lib*-doc/*.devhelp*"
-          "/usr/share/doc/lib*-doc/*/*.devhelp*"
-          "/usr/share/doc/lib*-doc/*/*/*.devhelp*")))
-(when run-darwin
-  (setq gtk-lookup-devhelp-indices
-        '("/opt/local/share/gtk-doc/html/*/*.devhelp")))
+(my-autoload-and-when 'gtk-lookup-symbol "gtk-look"
+		      (when run-linux
+			(setq gtk-lookup-devhelp-indices
+			      '("/usr/share/doc/lib*-doc/*.devhelp*"
+				"/usr/share/doc/lib*-doc/*/*.devhelp*"
+				"/usr/share/doc/lib*-doc/*/*/*.devhelp*")))
+		      (when run-darwin
+			(setq gtk-lookup-devhelp-indices
+			      '("/opt/local/share/gtk-doc/html/*/*.devhelp"))))
 
 
 ;; doxymacs
@@ -353,11 +352,11 @@
 
 ;; pov-mode
 ;; http://www.acc.umu.se/~woormie/povray/
-;(autoload 'pov-mode "pov-mode.el" "PoVray scene file mode" t)
-;(setq auto-mode-alist
-;      (append '(("\\.pov$" . pov-mode)
-;                ("\\.inc$" . pov-mode)
-;                ) auto-mode-alist))
+'(my-autoload-and-when 'pov-mode "pov-mode.el"
+		      (setq auto-mode-alist
+			    (append '(("\\.pov$" . pov-mode)
+				      ("\\.inc$" . pov-mode)
+				      ) auto-mode-alist)))
 
 
 ;; macros

@@ -25,20 +25,19 @@
 ;; http://pdicviewer.naochan.com/el/
 ;(my-require-and-when 'pdicv-search)
 ;(my-require-and-when 'pdicv-mode)
-(autoload 'pdicv "pdicviewer" "PDIC辞書検索" t)
-(eval-after-load 'pdic
-  '(progn
+'(my-autoload-and-when 'pdicv "pdicviewer"
      (setq pdicv-dictionary-list
            '((eijiro "~/etc/dictionary/EIJIRO95.DIC" (nil nil sjis sjis))
              (waeijiro "~/etc/dictionary/WAEIJI52.DIC" (sjis nil sjis sjis) t)
                                         ;(ej (eijiro waeijiro))
-        ))))
-;(global-set-key "\C-c\C-e" 'pdicv-eijiro-search-interactive)
-;(global-set-key "\C-c\C-r" 'pdicv-eijiro-search-region)
-;(global-set-key "\C-c\C-d" 'pdicv-set-current-dictionary)
-;(global-set-key "\C-c\C-i" 'pdicv-search-interactive)
-;(global-set-key "\C-c\C-j" 'pdicv-search-region)
-;(global-set-key "\C-c\C-p" 'pdicv-mode)
+             ))
+     ;;(global-set-key "\C-c\C-e" 'pdicv-eijiro-search-interactive)
+     ;;(global-set-key "\C-c\C-r" 'pdicv-eijiro-search-region)
+     ;;(global-set-key "\C-c\C-d" 'pdicv-set-current-dictionary)
+     ;;(global-set-key "\C-c\C-i" 'pdicv-search-interactive)
+     ;;(global-set-key "\C-c\C-j" 'pdicv-search-region)
+     ;;(global-set-key "\C-c\C-p" 'pdicv-mode)
+     )
 
 
 ;; cheat
@@ -67,10 +66,10 @@
 
 
 ;; desktop
-;(autoload 'desktop-save "desktop" nil t)
-;(autoload 'desktop-clear "desktop" nil t)
-;(autoload 'desktop-load-default "desktop" nil t)
-;(autoload 'desktop-remove "desktop" nil t)
+;(my-autoload-and-when 'desktop-save "desktop")
+;(my-autoload-and-when 'desktop-clear "desktop")
+;(my-autoload-and-when 'desktop-load-default "desktop")
+;(my-autoload-and-when 'desktop-remove "desktop")
 
 
 ;; remember
@@ -93,49 +92,48 @@
 
 ;; sense-region
 ;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
-(autoload 'sense-region-on "sense-region"
-  "System to toggle region and rectangle." t nil)
+(my-autoload-and-when 'sense-region-on "sense-region")
 
 
 ;; alpaca
 ;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
-(autoload 'alpaca-after-find-file "alpaca" nil t)
-(add-hook 'find-file-hooks 'alpaca-after-find-file)
-(setq alpaca-cache-passphrase t)
+'(my-autoload-and-when 'alpaca-after-find-file "alpaca"
+                      (add-hook 'find-file-hooks 'alpaca-after-find-file)
+                      (setq alpaca-cache-passphrase t))
 
 
 ;; clwiki
 ;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
 ;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")
-;(autoload 'clwiki "clwiki" "ChangeLog wiki-modoki." t)
-;(define-key ctl-x-map "M" 'clwiki)
-;(autoload 'clgrep "clgrep" "ChangeLog grep." t)
-;(autoload 'clgrep-item "clgrep" "ChangeLog grep." t)
-;(autoload 'clgrep-item-header "clgrep" "ChangeLog grep for item header" t)
-;(autoload 'clgrep-item-tag "clgrep" "ChangeLog grep for tag" t)
-;(autoload 'clgrep-item-notag "clgrep" "ChangeLog grep for item except for tag" t)
-;(autoload 'clgrep-item-nourl "clgrep" "ChangeLog grep item except for url" t)
-;(autoload 'clgrep-entry "clgrep" "ChangeLog grep for entry" t)
-;(autoload 'clgrep-entry-header "clgrep" "ChangeLog grep for entry header" t)
-;(autoload 'clgrep-entry-no-entry-header "clgrep" "ChangeLog grep for entry except entry header" t)
-;(autoload 'clgrep-entry-tag "clgrep" "ChangeLog grep for tag" t)
-;(autoload 'clgrep-entry-notag "clgrep" "ChangeLog grep for tag" t)
-;(autoload 'clgrep-entry-nourl "clgrep" "ChangeLog grep entry except for url" t)
-;(add-hook 'clmemo-mode-hook
-;          '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
+(my-autoload-and-when 'clwiki "clwiki"
+                      (define-key ctl-x-map "M" 'clwiki)
+                      (my-autoload-and-when 'clgrep "clgrep")
+                      (my-autoload-and-when 'clgrep-item "clgrep")
+                      (my-autoload-and-when 'clgrep-item-header "clgrep")
+                      (my-autoload-and-when 'clgrep-item-tag "clgrep")
+                      (my-autoload-and-when 'clgrep-item-notag "clgrep")
+                      (my-autoload-and-when 'clgrep-item-nourl "clgrep")
+                      (my-autoload-and-when 'clgrep-entry "clgrep")
+                      (my-autoload-and-when 'clgrep-entry-header "clgrep")
+                      (my-autoload-and-when 'clgrep-entry-no-entry-header "clgrep")
+                      (my-autoload-and-when 'clgrep-entry-tag "clgrep")
+                      (my-autoload-and-when 'clgrep-entry-notag "clgrep")
+                      (my-autoload-and-when 'clgrep-entry-nourl "clgrep")
+                      (add-hook 'clmemo-mode-hook
+                                '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep))))
 
 
 ;; postit
 ;(install-elisp "http://www.bookshelf.jp/elc/postit.el")
-;(autoload 'postit "postit" nil t)
-;(setq postit-colorize 'dark)
-;(setq postit-compress-commands nil)
+'(my-autoload-and-when 'postit "postit"
+                      (setq postit-colorize 'dark)
+                      (setq postit-compress-commands nil))
 
 
 ;; stripes
 ;(install-elisp-from-emacswiki "stripes.el")
-;(my-require-and-when 'stripes
-;  (set-face-background 'stripes-face "yellow"))
+'(my-require-and-when 'stripes
+  (set-face-background 'stripes-face "yellow"))
 
 
 ;; edit-list
@@ -145,15 +143,14 @@
 
 ;; color-selection
 ;(install-elisp "http://www.bookshelf.jp/elc/color-selection.el")
-(autoload 'list-hexadecimal-colors-display "color-selection"
-  "Display hexadecimal color codes, and show what they look like." t)
+;(my-autoload-and-when 'list-hexadecimal-colors-display "color-selection")
 
 
 ;; keisen-mule
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=keisen
-(if window-system
-    (autoload 'keisen-mode "keisen-mouse" "MULE 版罫線モード + マウス" t)
-  (autoload 'keisen-mode "keisen-mule" "MULE 版罫線モード" t))
+'(if window-system
+    (my-autoload-and-when 'keisen-mode "keisen-mouse")
+  (my-autoload-and-when 'keisen-mode "keisen-mule"))
 
 
 ;; enriched-mode
@@ -165,54 +162,54 @@
 
 
 ;; thumbs
-(setq thumbs-thumbsdir
-      (expand-file-name "~/.emacs-thumbs"))
-(setq thumbs-temp-dir (expand-file-name "~/tmp"))
-(setq image-file-name-extensions
-      '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
+;(setq thumbs-thumbsdir
+;      (expand-file-name "~/.emacs-thumbs"))
+;(setq thumbs-temp-dir (expand-file-name "~/tmp"))
+;(setq image-file-name-extensions
+;      '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
 
 
 ;; screenshot
 ;(install-elisp-from-emacswiki "screenshot.el")
-;(my-require-and-when 'screenshot
-;  (setq screenshot-schemes
-;        '(
-;          ;; To local image directory
-;          ("local"
-;           :dir "~/images/")
-;          ;; To current directory
-;          ("current-directory"
-;           :dir default-directory)
-;          ;; To remote ssh host
-;          ("remote-ssh"
-;           :dir "/tmp/"
-;           :ssh-dir "www.example.org:public_html/archive/"
-;           :url "http://www.example.org/archive/")
-;          ;; To EmacsWiki (need yaoddmuse.el)
-;          ("EmacsWiki"
-;           :dir "~/.yaoddmuse/EmacsWiki/"
-;           :yaoddmuse "EmacsWiki")
-;          ;; To local web server
-;          ("local-server"
-;           :dir "~/public_html/"
-;           :url "http://127.0.0.1/")))
-;  (setq screenshot-default-scheme "local"))
+'(my-require-and-when 'screenshot
+  (setq screenshot-schemes
+        '(
+          ;; To local image directory
+          ("local"
+           :dir "~/images/")
+          ;; To current directory
+          ("current-directory"
+           :dir default-directory)
+          ;; To remote ssh host
+          ("remote-ssh"
+           :dir "/tmp/"
+           :ssh-dir "www.example.org:public_html/archive/"
+           :url "http://www.example.org/archive/")
+          ;; To EmacsWiki (need yaoddmuse.el)
+          ("EmacsWiki"
+           :dir "~/.yaoddmuse/EmacsWiki/"
+           :yaoddmuse "EmacsWiki")
+          ;; To local web server
+          ("local-server"
+           :dir "~/public_html/"
+           :url "http://127.0.0.1/")))
+  (setq screenshot-default-scheme "local"))
 
 
 ;; japanese-holidays
-;(my-require-and-when 'calendar
-;  (setq number-of-diary-entries 31)
-;  (define-key calendar-mode-map "f" 'calendar-forward-day)
-;  (define-key calendar-mode-map "n" 'calendar-forward-day)
-;  (define-key calendar-mode-map "b" 'calendar-backward-day)
-;  (setq mark-holidays-in-calendar t))
+'(my-require-and-when 'calendar
+  (setq number-of-diary-entries 31)
+  (define-key calendar-mode-map "f" 'calendar-forward-day)
+  (define-key calendar-mode-map "n" 'calendar-forward-day)
+  (define-key calendar-mode-map "b" 'calendar-backward-day)
+  (setq mark-holidays-in-calendar t))
 ;(install-elisp "http://www.meadowy.org/meadow/netinstall/export/799/branches/3.00/pkginfo/japanese-holidays/japanese-holidays.el")
-;(my-require-and-when 'japanese-holidays
-;  (setq calendar-holidays
-;        (append japanese-holidays local-holidays other-holidays))
-;  (setq calendar-weekend-marker 'diary)
-;  (add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
-;  (add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
+'(my-require-and-when 'japanese-holidays
+  (setq calendar-holidays
+        (append japanese-holidays local-holidays other-holidays))
+  (setq calendar-weekend-marker 'diary)
+  (add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
+  (add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
 
 
 ;; midnight
