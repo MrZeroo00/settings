@@ -5,7 +5,7 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
 ;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
-(when (require 'indent-tabs-maybe nil t))
+(my-require-and-when 'indent-tabs-maybe)
 
 
 ;; paren

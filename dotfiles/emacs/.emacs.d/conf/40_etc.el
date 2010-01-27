@@ -1,6 +1,6 @@
 ;; Outputz
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
-;(when (require 'outputz nil t)
+;(my-require-and-when 'outputz
 ;  (setq outputz-key "Your Private Key") ;; 復活の呪文
 ;  (setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
 ;  (global-outputz-mode t)
@@ -16,7 +16,7 @@
 
 ;; typing-outputz
 ;; http://github.com/hayamiz/typing-outputz/tree/master
-(when (require 'typing-outputz nil t)
+(my-require-and-when 'typing-outputz
   (global-typing-outputz-mode t)
   (setq typing-outputz-key "bWAROb-quUbf"))
 
@@ -43,12 +43,12 @@
 
 ;; cheat
 ;(install-elisp "http://sami.samhuri.net/assets/2007/8/10/cheat.el")
-;(when (require 'cheat nil t))
+;(my-require-and-when 'cheat)
 
 
 ;; bm
 ;; http://www.nongnu.org/bm/
-(when (require 'bm nil t)
+(my-require-and-when 'bm
   (global-set-key (kbd "<C-f2>") 'bm-toggle)
   (global-set-key (kbd "<f2>")   'bm-next)
   (global-set-key (kbd "<S-f2>") 'bm-previous))
@@ -56,7 +56,7 @@
 
 ;; session
 ;; http://emacs-session.sourceforge.net/
-(when (require 'session nil t)
+(my-require-and-when 'session
   (setq session-initialize '(de-saveplace session keys menus places)
         session-globals-include '((kill-ring 50)
                                   (session-file-alist 500 t)
@@ -74,21 +74,21 @@
 
 
 ;; remember
-(when (require 'remember nil t))
+(my-require-and-when 'remember)
 
 
 ;; autoarg
-;(when (require 'autoarg nil t))
+;(my-require-and-when 'autoarg)
 
 
 ;; viper
-;(when (require 'viper nil t))
+;(my-require-and-when 'viper)
 
 
 ;; thing-opt
-(when (require 'thingatpt nil t))
+(my-require-and-when 'thingatpt)
 ;(install-elisp-from-emacswiki "thing-opt.el")
-(when (require 'thing-opt nil t))
+(my-require-and-when 'thing-opt)
 
 
 ;; sense-region
@@ -134,13 +134,13 @@
 
 ;; stripes
 ;(install-elisp-from-emacswiki "stripes.el")
-;(when (require 'stripes nil t)
+;(my-require-and-when 'stripes
 ;  (set-face-background 'stripes-face "yellow"))
 
 
 ;; edit-list
 ;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
-;(when (require 'edit-list nil t))
+;(my-require-and-when 'edit-list)
 
 
 ;; color-selection
@@ -157,11 +157,11 @@
 
 
 ;; enriched-mode
-;(when (require 'enriched nil t))
+;(my-require-and-when 'enriched)
 
 
 ;; iimage
-;(when (require 'iimage nil t))
+;(my-require-and-when 'iimage)
 
 
 ;; thumbs
@@ -174,7 +174,7 @@
 
 ;; screenshot
 ;(install-elisp-from-emacswiki "screenshot.el")
-;(when (require 'screenshot nil t)
+;(my-require-and-when 'screenshot
 ;  (setq screenshot-schemes
 ;        '(
 ;          ;; To local image directory
@@ -200,14 +200,14 @@
 
 
 ;; japanese-holidays
-;(when (require 'calendar nil t)
+;(my-require-and-when 'calendar
 ;  (setq number-of-diary-entries 31)
 ;  (define-key calendar-mode-map "f" 'calendar-forward-day)
 ;  (define-key calendar-mode-map "n" 'calendar-forward-day)
 ;  (define-key calendar-mode-map "b" 'calendar-backward-day)
 ;  (setq mark-holidays-in-calendar t))
 ;(install-elisp "http://www.meadowy.org/meadow/netinstall/export/799/branches/3.00/pkginfo/japanese-holidays/japanese-holidays.el")
-;(when (require 'japanese-holidays nil t)
+;(my-require-and-when 'japanese-holidays
 ;  (setq calendar-holidays
 ;        (append japanese-holidays local-holidays other-holidays))
 ;  (setq calendar-weekend-marker 'diary)
@@ -216,7 +216,7 @@
 
 
 ;; midnight
-;(when (require 'midnight nil t))
+;(my-require-and-when 'midnight)
 
 
 ;; macros

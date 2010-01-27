@@ -2,7 +2,7 @@
 ;(install-elisp "http://www.bookshelf.jp/elc/moccur-edit.el")
 ;(install-elisp "http://www.bookshelf.jp/elc/color-moccur.el")
 (setq moccur-split-word t)
-(when (require 'migemo nil t)
+(my-require-and-when 'migemo
   (setq moccur-use-migemo t))
 (setq color-moccur-default-ime-status nil)
 (autoload 'moccur-grep "color-moccur" nil t)

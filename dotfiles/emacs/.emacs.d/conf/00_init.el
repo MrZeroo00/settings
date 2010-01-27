@@ -1,12 +1,12 @@
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
-;(when (require 'install-elisp nil t)
+;(my-require-and-when 'install-elisp
 ;  (setq install-elisp-repository-directory "~/.emacs.d/elisp/"))
 
 
 ;; auto-install
 ;(install-elisp-from-emacswiki "auto-install.el")
-;(when (require 'auto-install nil t)
+;(my-require-and-when 'auto-install
 ;  (setq auto-install-directory "~/.emacs.d/elisp/")
 ;  (auto-install-update-emacswiki-package-name t)
 ;  (auto-install-compatibility-setup))
@@ -17,7 +17,7 @@
 
 
 ; language setting
-;;(when (require 'un-define nil t))
+;;(my-require-and-when 'un-define)
 ;;(set-language-environment "Japanese")
 ;;(set-terminal-coding-system 'utf-8)
 ;;(set-keyboard-coding-system 'utf-8)
@@ -67,7 +67,7 @@
 
 ;; color-theme
 ;; https://gna.org/projects/color-theme
-(when (require 'color-theme nil t)
+(my-require-and-when 'color-theme
   (color-theme-initialize)
   (color-theme-clarity))
 
@@ -80,7 +80,7 @@
 (hl-line-mode t)
 ;(setq hl-line-face 'underline)
 (set-face-background 'hl-line "DarkOliveGreen")
-(when (require 'hi-lock nil t))
+(my-require-and-when 'hi-lock)
 
 
 ; region setting
@@ -91,7 +91,7 @@
 
 ;; visible-mark
 ;(install-elisp-from-emacswiki "visible-mark.el")
-(when (require 'visible-mark nil t))
+(my-require-and-when 'visible-mark)
 
 
 ; clipboard setting
@@ -148,12 +148,12 @@
 
 ;; redo
 ;(install-elisp "http://www.wonderworks.com/download/redo.el")
-(when (require 'redo nil t))
+(my-require-and-when 'redo)
 
 
 ;; point-undo
 ;(install-elisp-from-emacswiki "point-undo.el")
-(when (require 'point-undo nil t))
+(my-require-and-when 'point-undo)
 
 
 ;; kill-summary
@@ -164,15 +164,15 @@
 
 ;; list-register
 ;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
-(when (require 'list-register nil t))
+(my-require-and-when 'list-register)
 
 ;; pit
-(when (require 'pit nil t))
+(my-require-and-when 'pit)
 
 
 ;; a-menu
 ;; http://homepage.mac.com/zenitani/comp-e.html
-;(when (require 'a-menu nil t))
+;(my-require-and-when 'a-menu)
 
 
 ;; macros
