@@ -106,6 +106,14 @@ With a numeric argument, turn mode on iff ARG is positive."
          ,@body)
      (message "Require error: %s" ,feature)))
 
+(defmacro my-autoload-and-when (function file &rest body)
+  (declare (indent 1))
+  `(if (autoload-if-found ,function ,file nil t)
+       (progn
+         (message "Autoload success: %s %s" ,function ,file)
+         ,@body)
+     (message "Autoload error: %s %s" ,function ,file)))
+
 (defmacro my-load-and-when (name &rest body)
   (declare (indent 1))
   `(if (load ,name t)
