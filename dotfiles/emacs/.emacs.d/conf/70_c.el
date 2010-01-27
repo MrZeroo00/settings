@@ -42,7 +42,7 @@
 (add-hook 'c-mode-common-hook
           (lambda ()
             (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
-            (load "c-eldoc")
+            (my-load-and-when "c-eldoc")
             (c-turn-on-eldoc-mode)
             (when run-darwin
               (setq c-eldoc-cpp-command "/usr/bin/cpp"))))

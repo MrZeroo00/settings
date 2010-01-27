@@ -1,5 +1,5 @@
 ;; http://www.thaiopensource.com/nxml-mode/
-(load "rng-auto.el")                    ; autoload
+(my-load-and-when "rng-auto.el")                    ; autoload
 
 ; association setting
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))

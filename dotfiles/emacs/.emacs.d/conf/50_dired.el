@@ -27,7 +27,7 @@
 
 
 ;; dired-x
-(load "dired-x")
+(my-load-and-when "dired-x")
 
 ;(setq dired-guess-shell-alist-user
 ;      '(("\\.tar\\.gz\\'" "tar ztvf")
@@ -47,7 +47,7 @@
 
 ;; my-dired-mode
 ;(install-elisp "http://www.bookshelf.jp/elc/my-dired-mode.el")
-;(load "my-dired-mode")
+;(my-load-and-when "my-dired-mode")
 
 
 ;; wdired (rename file name from dired buffer)
@@ -99,23 +99,23 @@
 
 
 ;; macros
-(load "_dired-toggle-mark")
+(my-load-and-when "_dired-toggle-mark")
 (define-key dired-mode-map " " 'dired-toggle-mark)
-(load "_dired-convert-coding-system")
-(load "_dired-ps-print-files")
-;(load "_ls-lisp-handle-switches")
-;(load "_dired-face-file-edited-today")
+(my-load-and-when "_dired-convert-coding-system")
+(my-load-and-when "_dired-ps-print-files")
+;(my-load-and-when "_ls-lisp-handle-switches")
+;(my-load-and-when "_dired-face-file-edited-today")
 (when (and run-w32 run-meadow)
   '(progn
      ;; w32-symlinks
      ;(install-elisp "http://centaur.maths.qmw.ac.uk/Emacs/files/w32-symlinks.el")
      (my-require-and-when 'w32-symlinks)
-     (load "_dired-make-symbolic-link")
+     (my-load-and-when "_dired-make-symbolic-link")
      ;(add-hook 'dired-mode-hook
      ;          '(lambda ()
      ;             (define-key dired-mode-map "S" (function dired-make-symbolic-link))
      ;             ))
-     (load "_dired-winstart")
+     (my-load-and-when "_dired-winstart")
      ;(add-hook 'dired-mode-hook
      ;          (lambda ()
      ;            (define-key dired-mode-map "z" 'uenox-dired-winstart)))

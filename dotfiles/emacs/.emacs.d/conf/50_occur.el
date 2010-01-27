@@ -60,4 +60,4 @@
 
 
 ;; macros
-;(load "_flush-keep-line")
+;(my-load-and-when "_flush-keep-line")

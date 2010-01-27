@@ -18,5 +18,5 @@
 
 
 ;; macros
-;(load "_minibuffer-delete-duplicate")
-;(load "_minibuf-shrink")
+;(my-load-and-when "_minibuffer-delete-duplicate")
+;(my-load-and-when "_minibuf-shrink")

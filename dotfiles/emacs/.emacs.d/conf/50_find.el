@@ -31,7 +31,7 @@
 
 ;; isearch-all
 ;(install-elisp "http://www.bookshelf.jp/elc/isearch-all.el")
-;(load "isearch-all")
+;(my-load-and-when "isearch-all")
 
 
 ;; qsearch
@@ -73,7 +73,7 @@
 ;      '(("doc" . "~/etc/namazu/index")
 ;        ))
 ;(install-elisp "http://www.bookshelf.jp/elc/color-namazu.el")
-;(load "color-namazu")
+;(my-load-and-when "color-namazu")
 
 
 ;; http://dev.ariel-networks.com/Members/matsuyama/isearch-selected-text
@@ -103,9 +103,9 @@
 
 
 ;; macros
-(load "_isearch-yank-char")
+(my-load-and-when "_isearch-yank-char")
 ;(define-key isearch-mode-map "\C-d" 'isearch-yank-char)
-(load "_isearch-real-delete-char")
+(my-load-and-when "_isearch-real-delete-char")
 ;(define-key isearch-mode-map "\C-o" 'isearch-real-delete-char)
-;(load "_isearch-forward-comment-only")
-(load "_my-igrep")
+;(my-load-and-when "_isearch-forward-comment-only")
+(my-load-and-when "_my-igrep")

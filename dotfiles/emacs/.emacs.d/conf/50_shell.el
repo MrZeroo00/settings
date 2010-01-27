@@ -26,7 +26,7 @@
 
 ;; shell-ex
 ;; http://www.bookshelf.jp/elc/shell-ex.lzh
-;(load "shell-ex")
+;(my-load-and-when "shell-ex")
 
 
 ;; shell-command

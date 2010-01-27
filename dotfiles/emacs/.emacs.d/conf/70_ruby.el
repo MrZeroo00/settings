@@ -33,7 +33,7 @@
 ;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
 (add-hook 'ruby-mode-hook
           (lambda ()
-            (load "_refe2")))
+            (my-load-and-when "_refe2")))
 
 
 ;; autotest
@@ -69,5 +69,5 @@
 ;; macros
 (add-hook 'ruby-mode-hook
           (lambda ()
-            (load "_ruby-insert-magic-comment-if-needed")
+            (my-load-and-when "_ruby-insert-magic-comment-if-needed")
             (add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)))

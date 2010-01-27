@@ -47,6 +47,6 @@
 ;; macros
 (add-hook 'cperl-mode-hook
           (lambda ()
-            (load "_perl-insert-use-statement")
+            (my-load-and-when "_perl-insert-use-statement")
             (local-set-key (kbd "\C-c \C-m") 'perl-insert-use-statement)
-            (load "_perltidy")))
+            (my-load-and-when "_perltidy")))

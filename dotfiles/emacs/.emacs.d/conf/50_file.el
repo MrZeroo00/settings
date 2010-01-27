@@ -61,7 +61,7 @@
 
 
 ;; saveplace (save cursor position in last edit session)
-;(load "saveplace")
+;(my-load-and-when "saveplace")
 ;(setq-default save-place t)
 
 
@@ -91,7 +91,7 @@
 
 ;; auto-save-buffers (save buffers automatically)
 ;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
-;(load "auto-save-buffers")
+;(my-load-and-when "auto-save-buffers")
 ;(run-with-idle-timer 0.5 t 'auto-save-buffers)
 
 
@@ -132,13 +132,13 @@
 
 
 ;; macros
-(load "_reopen-file")
+(my-load-and-when "_reopen-file")
 (define-key ctl-x-map "\C-r" 'reopen-file)
-;(load "_save-buffer-wrapper")
+;(my-load-and-when "_save-buffer-wrapper")
 ;(global-set-key "\C-x\C-s" 'save-buffer-wrapper)
-(load "_delete-file-if-no-contents")
+(my-load-and-when "_delete-file-if-no-contents")
 (if (not (memq 'delete-file-if-no-contents after-save-hook))
     (add-hook 'after-save-hook 'delete-file-if-no-contents))
-;(load "_file-cache-read-save-cache")
+;(my-load-and-when "_file-cache-read-save-cache")
 ;(file-cache-read-cache-from-file "~/.emacs.d/.file_cache")
-;(load "_Yama-binary-file-view")
+;(my-load-and-when "_Yama-binary-file-view")

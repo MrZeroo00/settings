@@ -41,7 +41,7 @@
 ;; http://www.geocities.com/kensanata/elisp/master.el.txt
 (my-require-and-when 'master)
 ;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
-(load "dired-master")
+(my-load-and-when "dired-master")
 
 
 ;; winhist
@@ -50,9 +50,9 @@
 
 
 ;; macros
-(load "_window-toggle-division")
-(load "_swap-screen")
+(my-load-and-when "_window-toggle-division")
+(my-load-and-when "_swap-screen")
 ;(global-set-key [f2] 'swap-screen)
 ;(global-set-key [S-f2] 'swap-screen-with-cursor)
-;(load "_my-window-ctrl")
+;(my-load-and-when "_my-window-ctrl")
 ;(global-set-key "\C-z" 'my-window-ctrl)

@@ -220,12 +220,12 @@
 
 
 ;; macros
-(load "_window-line")
-(load "_copy-region-with-info")
-(load "_duplicate-line")
+(my-load-and-when "_window-line")
+(my-load-and-when "_copy-region-with-info")
+(my-load-and-when "_duplicate-line")
 (define-key esc-map "Y" 'duplicate-line)
-(load "_scroll-speedup")
-;(load "_my-memo")
+(my-load-and-when "_scroll-speedup")
+;(my-load-and-when "_my-memo")
 ;(global-set-key "\C-c\C-w" 'my-memo)
-;(load "_byte-compile-directory")
-(load "_screen-read-hardcopy")
+;(my-load-and-when "_byte-compile-directory")
+(my-load-and-when "_screen-read-hardcopy")

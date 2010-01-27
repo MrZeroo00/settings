@@ -6,4 +6,4 @@
 ; mode hook
 (add-hook 'actionscript-mode-hook
           (lambda ()
-            (load "as-config")))
+            (my-load-and-when "as-config")))

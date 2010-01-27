@@ -149,14 +149,14 @@
 
 
 ;; macros
-(load "_org-remember-code-reading")
-(load "_org-next-prev-visible-link")
+(my-load-and-when "_org-remember-code-reading")
+(my-load-and-when "_org-next-prev-visible-link")
 (define-key org-mode-map "\M-n" 'org-next-visible-link)
 (define-key org-mode-map "\M-p" 'org-previous-visible-link)
-(load "_wicked_org-update-checkbox-count")
+(my-load-and-when "_wicked_org-update-checkbox-count")
 (defadvice org-update-checkbox-count (around wicked activate)
   "Fix the built-in checkbox count to understand headlines."
   (setq ad-return-value
 	(wicked/org-update-checkbox-count (ad-get-arg 1))))
-(load "_org-summary-todo")
+(my-load-and-when "_org-summary-todo")
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)

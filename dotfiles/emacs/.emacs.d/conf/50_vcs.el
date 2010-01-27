@@ -11,7 +11,7 @@
 ;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg.el")
 (my-require-and-when 'egg)
 ;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg-grep.el")
-(load "egg-grep")
+(my-load-and-when "egg-grep")
 (define-key egg-file-cmd-map "z" 'egg-buffer-stash-wip)
 (define-key egg-file-cmd-map "Z" 'egg-stash-buffer-pop)
 
@@ -35,4 +35,4 @@
 
 ;; p4
 ;; http://p4el.sourceforge.net/
-;(load "p4")
+;(my-load-and-when "p4")

@@ -14,7 +14,7 @@
 (eval-after-load
     "wget"
   '(progn
-     (load "w3m-wget")
+     (my-load-and-when "w3m-wget")
      (setq wget-basic-options (cons "-equiet=off" wget-basic-options))
      (setq wget-basic-options (cons "-P." wget-basic-options))
      (setq wget-process-buffer nil)))
@@ -69,7 +69,7 @@
 
 ;; google2
 ;(install-elisp "http://www.bookshelf.jp/elc/google2.el")
-;(load "google2")
+;(my-load-and-when "google2")
 
 
 ;; autoinfo
@@ -78,5 +78,5 @@
 
 
 ;; macros
-(load "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
-;(load "_url-regexp") ; convert url "ttp:// to "http://"
+(my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
+;(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"

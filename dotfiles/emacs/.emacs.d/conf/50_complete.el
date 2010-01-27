@@ -49,7 +49,7 @@
 
 ;; dabbrev-ja
 ;(install-elisp "http://namazu.org/%7Etsuchiya/elisp/dabbrev-ja.el")
-;(load "dabbrev-ja")
+;(my-load-and-when "dabbrev-ja")
 
 
 ;; abbrev-sort
@@ -67,7 +67,7 @@
 ;(my-require-and-when 'mcomplete)
 ;(my-require-and-when 'cl)
 ;(install-elisp "http://www.bookshelf.jp/elc/mcomplete-history.el")
-;(load "mcomplete-history")
+;(my-load-and-when "mcomplete-history")
 ;(turn-on-mcomplete-mode)
 
 
@@ -95,4 +95,4 @@
 
 
 ;; macros
-;(load "_maybe-capitalize-bos")
+;(my-load-and-when "_maybe-capitalize-bos")

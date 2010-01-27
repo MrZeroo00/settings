@@ -35,7 +35,7 @@
 ;(install-elisp "http://taiyaki.org/elisp/text-adjust/src/text-adjust.el")
 (add-hook 'text-mode-hook
           (lambda ()
-            (load "text-adjust")
+            (my-load-and-when "text-adjust")
             (setq adaptive-fill-regexp "[ \t]*")
             (setq adaptive-fill-mode t)
             (setq text-adjust-touten-from nil)
@@ -57,4 +57,4 @@
 ;; macros
 ;(add-hook 'text-mode-hook
 ;          (lambda ()
-;            (load "text-adjust-space-before-save-if-needed")))
+;            (my-load-and-when "text-adjust-space-before-save-if-needed")))

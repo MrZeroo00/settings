@@ -47,7 +47,7 @@
 
 ;; cedet
 ;; http://cedet.sourceforge.net/
-;(load "~/local/share/emacs/site-lisp/cedet/common/cedet.el")
+;(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el")
 ;(global-ede-mode 1)
 ;;(ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
 ;(semantic-load-enable-minimum-features)
@@ -86,7 +86,7 @@
 
 (setq gtags-mode-hook
       '(lambda ()
-         (load "_gtags-hack.el")
+         (my-load-and-when "_gtags-hack.el")
          (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
          (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
          (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
@@ -163,7 +163,7 @@
 
 ;; brackets
 ;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
-;(load "brackets")
+;(my-load-and-when "brackets")
 
 
 ;; align (align code)
@@ -278,7 +278,7 @@
 
 
 ;; hs-minor-mode (fold code block)
-(load "hideshow")
+(my-load-and-when "hideshow")
 
 (setq hs-hide-comments nil)
 (setq hs-isearch-open 't)
@@ -287,7 +287,7 @@
 (add-hook 'perl-mode-hook 'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 
-(load "_hs-hide-all-comments")
+(my-load-and-when "_hs-hide-all-comments")
 
 
 ;; linum (show line number)
@@ -307,7 +307,7 @@
 
 ;; develock (emphasize bad coding convention)
 ;; http://www.jpl.org/elips/develock.el.gz
-(load "develock")
+(my-load-and-when "develock")
 (setq develock-auto-enable nil)
 
 
@@ -362,8 +362,8 @@
 
 
 ;; macros
-(load "_paren-match")
-(load "_tdd-bgcolor-rotate")
+(my-load-and-when "_paren-match")
+(my-load-and-when "_tdd-bgcolor-rotate")
 (global-set-key "\C-cm" 'tdd-bgcolor-rotate)
-(load "_google-code-search")
-(load "_open-junk-file")
+(my-load-and-when "_google-code-search")
+(my-load-and-when "_open-junk-file")

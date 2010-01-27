@@ -1,4 +1,4 @@
-(load "haskell-site-file")              ; autoload
+(my-load-and-when "haskell-site-file")              ; autoload
 
 ; mode-hook
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
