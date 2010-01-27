@@ -18,4 +18,5 @@
   ;;(diminish 'emacs-lisp-mode "Elisp")
   ;(eval-after-load "cwarn" '(diminish 'cwarn-mode))
   ;(eval-after-load "flymake" '(diminish 'flymake-mode))
-  ;(eval-after-load "gtags" '(diminish 'gtags-mode)))
+  ;(eval-after-load "gtags" '(diminish 'gtags-mode))
+  )
