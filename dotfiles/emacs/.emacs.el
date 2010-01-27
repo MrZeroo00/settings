@@ -86,7 +86,12 @@ With a numeric argument, turn mode on iff ARG is positive."
        (progn ,@body)
      (error (message "[eval-safe] %s" err))))
 
-;; define require and load
+;; define require and autoload, load
+(defun autoload-if-found (function file &optional docstring interactive type)
+  "set autoload iff. FILE has found."
+  (and (locate-library file)
+       (autoload function file docstring interactive type)))
+
 (defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
   `(if (require ,feature nil t)
