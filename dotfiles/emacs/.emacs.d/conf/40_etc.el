@@ -1,17 +1,17 @@
 ;; Outputz
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
-;(my-require-and-when 'outputz
-;  (setq outputz-key "Your Private Key") ;; 復活の呪文
-;  (setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
-;  (global-outputz-mode t)
-;
-;  (defun outputz-buffers ()
-;    (dolist (buf (buffer-list))
-;      (with-current-buffer buf
-;        (outputz))))
-;
-;  (run-with-idle-timer 3 t 'outputz-buffers)
-;  (remove-hook 'after-save-hook 'outputz))
+'(my-require-and-when 'outputz
+  (setq outputz-key "Your Private Key") ;; 復活の呪文
+  (setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
+  (global-outputz-mode t)
+
+  (defun outputz-buffers ()
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (outputz))))
+
+  (run-with-idle-timer 3 t 'outputz-buffers)
+  (remove-hook 'after-save-hook 'outputz))
 
 
 ;; typing-outputz
@@ -222,10 +222,10 @@
 ;; macros
 (my-load-and-when "_window-line")
 (my-load-and-when "_copy-region-with-info")
-(my-load-and-when "_duplicate-line")
-(define-key esc-map "Y" 'duplicate-line)
+'(my-load-and-when "_duplicate-line"
+  (define-key esc-map "Y" 'duplicate-line))
 (my-load-and-when "_scroll-speedup")
-;(my-load-and-when "_my-memo")
-;(global-set-key "\C-c\C-w" 'my-memo)
+'(my-load-and-when "_my-memo"
+  (global-set-key "\C-c\C-w" 'my-memo))
 ;(my-load-and-when "_byte-compile-directory")
 (my-load-and-when "_screen-read-hardcopy")
