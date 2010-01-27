@@ -1,4 +1,4 @@
-(require 'cperl-mode nil t)
+(my-require-and-when 'cperl-mode)
 (defalias 'perl-mode 'cperl-mode)
 
 ; association setting
@@ -12,7 +12,7 @@
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/perl-completion/trunk/perl-completion.el")
 (add-hook 'cperl-mode-hook
            (lambda ()
-             (require 'perl-completion nil t)
+             (my-require-and-when 'perl-completion)
              (add-to-list 'ac-sources 'ac-source-perl-completion)))
 
 

@@ -12,7 +12,7 @@
 (setq migemo-use-frequent-pattern-alist t)
 (setq migemo-pattern-alist-length 1024)
 
-(require 'migemo nil t)
+(my-require-and-when 'migemo)
 (migemo-init)
 
 

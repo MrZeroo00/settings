@@ -17,7 +17,7 @@
 ;(install-elisp "http://user.it.uu.se/~mic/mic-paren.el")
 (if window-system
     (progn
-      (require 'mic-paren nil t)
+      (my-require-and-when 'mic-paren)
       (paren-activate)                  ; activating
       (setq paren-match-face 'bold)
       (setq paren-sexp-mode t)
@@ -32,14 +32,14 @@
 ;; debug
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)
-;(require 'gud nil t)
+;(my-require-and-when 'gud)
 (setq gud-gdb-command-name "gdb -annotate=3")
 (setq gud-tooltip-echo-area nil)
 (add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t)))
 
 
 ;; generic (coloring generic files)
-;(require 'generic-x nil t)
+;(my-require-and-when 'generic-x)
 ;; association setting
 ;(add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
 ;(add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode))
@@ -59,12 +59,12 @@
 
 ;; ecb
 ;; http://ecb.sourceforge.net/
-;(require 'ecb-autoloads nil t)
+;(my-require-and-when 'ecb-autoloads)
 
 
 ;; textmate
 ;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
-;(require 'textmate nil t)
+;(my-require-and-when 'textmate)
 ;(textmate-mode)
 
 
@@ -109,12 +109,12 @@
 
 
 ;; imenu
-(require 'imenu nil t)
+(my-require-and-when 'imenu)
 
 
 ;; xcscope
 ;; http://cscope.sourceforge.net/
-;(require 'xcscope nil t)
+;(my-require-and-when 'xcscope)
 
 
 ;; use ack
@@ -126,11 +126,11 @@
 
 
 ;; speedbar
-;(require 'speedbar nil t)
+;(my-require-and-when 'speedbar)
 
 
 ;; which-func
-(require 'which-func nil t)
+(my-require-and-when 'which-func)
 (which-func-mode t)
 
 (delete (assoc 'which-func-mode mode-line-format) mode-line-format)
@@ -145,7 +145,7 @@
 
 
 ;; template (insert template code)
-;(require 'autoinsert nil t)
+;(my-require-and-when 'autoinsert)
 ;(setq auto-insert-directory "~/etc/emacs/template/")
 ;(setq auto-insert-alist
 ;      (nconc '( ("\\.c$" . "template.c")
@@ -156,7 +156,7 @@
 
 
 ;; yasnippet
-(require 'yasnippet nil t)
+(my-require-and-when 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets")
 
@@ -167,7 +167,7 @@
 
 
 ;; align (align code)
-(require 'align nil t)
+(my-require-and-when 'align)
 
 
 ;; eldoc
@@ -176,7 +176,7 @@
 
 ;; eldoc-extension
 ;(install-elisp-from-emacswiki "eldoc-extension.el")
-(require 'eldoc-extension nil t)
+(my-require-and-when 'eldoc-extension)
 (setq eldoc-idle-delay 0)
 (setq eldoc-echo-area-use-multiline-p t)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -186,11 +186,11 @@
 
 ;; mode-info
 ;; http://www.namazu.org/~tsuchiya/elisp/mode-info.html
-;(require 'mi-config nil t)
+;(my-require-and-when 'mi-config)
 ;;(define-key global-map "\C-hf" 'mode-info-describe-function)
 ;;(define-key global-map "\C-hv" 'mode-info-describe-variable)
 ;;(define-key global-map "\M-." 'mode-info-find-tag)
-;(require 'mi-fontify nil t)
+;(my-require-and-when 'mi-fontify)
 ;(setq mode-info-index-directory "~/.emacs.d")
 ;(setq mode-info-class-alist
 ;      '((elisp  emacs-lisp-mode lisp-interaction-mode)
@@ -202,7 +202,7 @@
 
 
 ;; info-look
-(require 'info-look nil t)
+(my-require-and-when 'info-look)
 
 
 ;; gtk-look
@@ -219,7 +219,7 @@
 
 
 ;; doxymacs
-(require 'doxymacs nil t)
+(my-require-and-when 'doxymacs)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
 
 (defun my-doxymacs-font-lock-hook ()
@@ -229,7 +229,7 @@
 
 
 ;; ediff
-;(require 'ediff nil t)
+;(my-require-and-when 'ediff)
 (setq-default ediff-auto-refine-limit 10000)
 (setq ediff-split-window-function (lambda (&optional arg)
 				    (if (> (frame-width) 150)
@@ -245,7 +245,7 @@
 
 ;; flymake
 ;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
-(require 'flymake nil t)
+(my-require-and-when 'flymake)
 
 (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
 
@@ -262,18 +262,18 @@
 ;; auto-compile
 ;; http://d.hatena.ne.jp/higepon/20061107/1162902929
 ;; http://sourceforge.net/project/showfiles.php?group_id=164970&package_id=210662
-;(require 'auto-compile nil t)
+;(my-require-and-when 'auto-compile)
 ;(setq auto-compile-target-path-regexp-list (list "\/src"))
 
 
 ;; ipa (in place annotations)
 ;(install-elisp-from-emacswiki "ipa.el")
-(require 'ipa nil t)
+(my-require-and-when 'ipa)
 
 
 ;; usage-memo
 ;(install-elisp-from-emacswiki "usage-memo.el")
-(require 'usage-memo nil t)
+(my-require-and-when 'usage-memo)
 (umemo-initialize)
 
 
@@ -291,14 +291,14 @@
 
 
 ;; linum (show line number)
-(require 'linum nil t)
+(my-require-and-when 'linum)
 ;(global-linum-mode t)
 (setq linum-format "%5d ")
 
 
 ;; wrap-region
 ;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
-(require 'wrap-region nil t)
+(my-require-and-when 'wrap-region)
 
 
 ;; flyspell
@@ -313,7 +313,7 @@
 
 ;; jaspace
 ;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
-(require 'jaspace nil t)
+(my-require-and-when 'jaspace)
 (setq jaspace-modes nil)
 
 
@@ -342,7 +342,7 @@
 
 ;; face-list
 ;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
-;(require 'face-list nil t)
+;(my-require-and-when 'face-list)
 
 
 (add-hook 'change-log-mode-hook

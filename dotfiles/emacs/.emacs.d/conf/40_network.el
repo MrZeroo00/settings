@@ -4,7 +4,7 @@
 
 
 ;; tramp
-(require 'tramp nil t)
+(my-require-and-when 'tramp)
 
 
 ;; emacs-wget
@@ -44,7 +44,7 @@
 
 ;; twit
 ;(install-elisp-from-emacswiki "twit.el")
-;(require 'twit nil t)
+;(my-require-and-when 'twit)
 ;(setq twit-user "¡Á"
 ;      twit-pass "¡Á")
 
@@ -62,7 +62,7 @@
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
 (autoload 'run-mozilla "moz" "run inferior moz" t)
 (add-hook 'inferior-moz-mode-hook (lambda ()
-                                    (require 'moz-plus nil t)
+                                    (my-require-and-when 'moz-plus)
                                     (moz-plus 1)
                                     ))
 
@@ -74,7 +74,7 @@
 
 ;; autoinfo
 ;(install-elisp-from-emacswiki "autoinfo.el")
-;(require 'autoinfo nil t)
+;(my-require-and-when 'autoinfo)
 
 
 ;; macros

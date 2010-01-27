@@ -19,9 +19,9 @@
 (autoload 'search-buffers "color-moccur" nil t)
 (autoload 'gresreg "gresreg" nil t)
 (eval-after-load "color-moccur"
-  '(require 'moccur-edit nil t))
+  '(my-require-and-when 'moccur-edit))
 (eval-after-load "ibuffer"
-  '(require 'color-moccur nil t))
+  '(my-require-and-when 'color-moccur))
 (setq *moccur-buffer-name-exclusion-list*
       '(".+TAGS.+" "*Completions*" "*Messages*"
         "newsrc.eld"

@@ -28,7 +28,7 @@
 
 ;; refe
 ;(install-elisp "http://ns103.net/~arai/ruby/refe.el")
-;(require 'refe nil t)
+;(my-require-and-when 'refe)
 ;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
 ;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
 (add-hook 'ruby-mode-hook
@@ -40,7 +40,7 @@
 ;(install-elisp-from-emacswiki "autotest.el")
 (add-hook 'ruby-mode-hook
           (lambda ()
-            (require 'autotest nil t)))
+            (my-require-and-when 'autotest)))
 
 
 ;; align

@@ -21,11 +21,11 @@
 
 ;; dircolors (coloring file names)
 ;(install-elisp "http://lfs.irisa.fr/~pad/rawaccess.query/hacks/dircolors.el")
-;(require 'dircolors nil t)
+;(my-require-and-when 'dircolors)
 
 
 ;; filecache (open long filename easily)
-(require 'filecache nil t)
+(my-require-and-when 'filecache)
 ;(file-cache-add-directory-list
 ; (list "~"))
 (eval-after-load
@@ -55,7 +55,7 @@
 ;; highlight-completion
 ;(install-elisp "http://www.math.washington.edu/~palmieri/Emacs/Hlc/highlight-completion.el")
 ;(setq hc-ctrl-x-c-is-completion t)
-;(require 'highlight-completion nil t)
+;(my-require-and-when 'highlight-completion)
 ;(highlight-completion-mode t)
 ;(global-set-key "\C-\\" 'toggle-input-method)
 
@@ -68,7 +68,7 @@
 ;; multiverse
 ;; http://d.hatena.ne.jp/rubikitch/20081218/multiverse
 ;(install-elisp-from-emacswiki "multiverse.el")
-(require 'multiverse nil t)
+(my-require-and-when 'multiverse)
 
 (defun my-save-buffer (arg)
   (interactive "P")
@@ -81,7 +81,7 @@
 
 ;; auto-save-buffers-enhanced
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/auto-save-buffers-enhanced/trunk/auto-save-buffers-enhanced.el")
-;(require 'auto-save-buffers-enhanced nil t)
+;(my-require-and-when 'auto-save-buffers-enhanced)
 ;(auto-save-buffers-enhanced-include-only-checkout-path t)
 ;(auto-save-buffers-enhanced t)
 ;(global-set-key "\C-xas" 'auto-save-buffers-enhanced-toggle-activity)

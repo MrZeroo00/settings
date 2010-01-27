@@ -23,8 +23,8 @@
 
 ;; pdicv-mode
 ;; http://pdicviewer.naochan.com/el/
-;(require 'pdicv-search nil t)
-;(require 'pdicv-mode nil t)
+;(my-require-and-when 'pdicv-search)
+;(my-require-and-when 'pdicv-mode)
 (autoload 'pdicv "pdicviewer" "PDIC¼­½ñ¸¡º÷" t)
 (eval-after-load 'pdic
   '(progn

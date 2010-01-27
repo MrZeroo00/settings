@@ -31,7 +31,7 @@
 
 ;; shell-command
 ;(install-elisp "http://namazu.org/~tsuchiya/elisp/shell-command.el")
-;(require 'shell-command nil t) ; replaced by anything
+;(my-require-and-when 'shell-command) ; replaced by anything
 ;(shell-command-completion-mode)
 
 
@@ -56,7 +56,7 @@
 
 ;; shell-history
 ;(install-elisp-from-emacswiki "shell-history.el")
-(require 'shell-history nil t)
+(my-require-and-when 'shell-history)
 (define-key shell-mode-map "\M-m" 'shell-add-to-history)
 
 

@@ -3,17 +3,17 @@
 
 ;; minibuf-isearch
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/minibuf-isearch/minibuf-isearch.el")
-(require 'minibuf-isearch nil t)
+(my-require-and-when 'minibuf-isearch)
 
 
 ;; cycle-mini
 ;(install-elisp "http://joereiss.net/misc/cycle-mini.el")
-;(require 'cycle-mini nil t)
+;(my-require-and-when 'cycle-mini)
 
 
 ;; completing-help
 ;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/completing-help.el")
-;(require 'completing-help nil t)
+;(my-require-and-when 'completing-help)
 ;(turn-on-completing-help-mode)
 
 

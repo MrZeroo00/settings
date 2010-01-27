@@ -14,7 +14,7 @@
 (setq win:max-configs 27) ;; ` 〜 z は 27 文字
 (setq win:quick-selection nil) ;; C-c 英字 に割り当てない
 
-(require 'windows nil t)
+(my-require-and-when 'windows)
 (setq win:use-frame nil)
 (win:startup-with-window)
 (define-key ctl-x-map "C" 'see-you-again)
@@ -24,7 +24,7 @@
 
 ;; widen-window
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/widen-window-mode/trunk/widen-window.el")
-(require 'widen-window nil t)
+(my-require-and-when 'widen-window)
 (global-widen-window-mode t)
 (setq ww-ratio 0.625)
 (define-key ctl-x-map "ww" 'global-widen-window-mode)
@@ -39,13 +39,13 @@
 
 ;; master
 ;; http://www.geocities.com/kensanata/elisp/master.el.txt
-(require 'master nil t)
+(my-require-and-when 'master)
 ;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
 (load "dired-master")
 
 
 ;; winhist
-;(require 'winhist nil t)
+;(my-require-and-when 'winhist)
 ;(winhist-mode t)
 
 

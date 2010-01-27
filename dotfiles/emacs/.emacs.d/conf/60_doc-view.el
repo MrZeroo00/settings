@@ -1,2 +1,2 @@
 ;; http://www.tsdh.de/cgi-bin/wiki.pl/doc-view.el
-(require 'doc-view nil t)
+(my-require-and-when 'doc-view)

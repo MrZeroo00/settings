@@ -33,7 +33,7 @@
 ;; sequential-command
 ;(install-elisp-from-emacswiki "sequential-command.el")
 ;(install-elisp-from-emacswiki "sequential-command-config.el")
-(require 'sequential-command-config nil t)
+(my-require-and-when 'sequential-command-config)
 (global-set-key "\C-a" 'seq-home)
 (global-set-key "\C-e" 'seq-end)
 (add-hook 'org-mode-hook
@@ -47,4 +47,4 @@
 
 ;; unbound
 ;(install-elisp-from-emacswiki "unbound.el")
-;(require 'unbound nil t)
+;(my-require-and-when 'unbound)
