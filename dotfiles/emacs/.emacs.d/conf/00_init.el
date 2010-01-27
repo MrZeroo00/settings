@@ -1,15 +1,15 @@
 ;; install-elisp
 ;(install-elisp-from-emacswiki "install-elisp.el")
 '(my-require-and-when 'install-elisp
-   (setq install-elisp-repository-directory "~/.emacs.d/elisp/"))
+  (setq install-elisp-repository-directory "~/.emacs.d/elisp/"))
 
 
 ;; auto-install
 ;(install-elisp-from-emacswiki "auto-install.el")
 '(my-require-and-when 'auto-install
-   (setq auto-install-directory "~/.emacs.d/elisp/")
-   (auto-install-update-emacswiki-package-name t)
-   (auto-install-compatibility-setup))
+  (setq auto-install-directory "~/.emacs.d/elisp/")
+  (auto-install-update-emacswiki-package-name t)
+  (auto-install-compatibility-setup))
 
 
 ; base settings
