@@ -9,15 +9,12 @@
 
 ;; emacs-wget
 ;; http://pop-club.hp.infoseek.co.jp/emacs/emacs-wget/
-(autoload 'wget "wget" "wget interface for Emacs." t)
-(autoload 'wget-web-page "wget" "wget interface to download whole web page." t)
-(eval-after-load
-    "wget"
-  '(progn
-     (my-load-and-when "w3m-wget")
-     (setq wget-basic-options (cons "-equiet=off" wget-basic-options))
-     (setq wget-basic-options (cons "-P." wget-basic-options))
-     (setq wget-process-buffer nil)))
+(my-autoload-and-when 'wget "wget"
+                      (my-autoload-and-when 'wget-web-page "wget")
+                      (my-load-and-when "w3m-wget")
+                      (setq wget-basic-options (cons "-equiet=off" wget-basic-options))
+                      (setq wget-basic-options (cons "-P." wget-basic-options))
+                      (setq wget-process-buffer nil))
 
 
 ;; browser
@@ -39,32 +36,32 @@
 
 ;; riece
 ;; http://www.nongnu.org/riece/index.html.ja
-(autoload 'riece "riece" "Start Riece" t)
+(my-autoload-and-when 'riece "riece")
 
 
 ;; twit
 ;(install-elisp-from-emacswiki "twit.el")
-;(my-require-and-when 'twit)
-;(setq twit-user "¡Á"
-;      twit-pass "¡Á")
+'(my-require-and-when 'twit
+  (setq twit-user "¡Á"
+        twit-pass "¡Á"))
 
 
 ;; MozRepl
 ;; http://hyperstruct.net/projects/mozlab
 (add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
-(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
-(add-hook 'java-mode-hook 'java-custom-setup)
-(defun java-custom-setup ()
-  (moz-minor-mode 1))
+(my-autoload-and-when 'moz-minor-mode "moz"
+                      (add-hook 'java-mode-hook 'java-custom-setup)
+                      (defun java-custom-setup ()
+                        (moz-minor-mode 1)))
 
 
 ;; moz-plus
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
-(autoload 'run-mozilla "moz" "run inferior moz" t)
-(add-hook 'inferior-moz-mode-hook (lambda ()
-                                    (my-require-and-when 'moz-plus)
-                                    (moz-plus 1)
-                                    ))
+(my-autoload-and-when 'run-mozilla "moz"
+                      (add-hook 'inferior-moz-mode-hook (lambda ()
+                                                          (my-require-and-when 'moz-plus)
+                                                          (moz-plus 1)
+                                                          )))
 
 
 ;; google2
