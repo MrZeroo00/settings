@@ -186,9 +186,9 @@ bindkey '^I' complete-word # complete on tab, leave expansion to _expand
 # distribution.
 autoload -U compinit
 if [ "${OS}" != "Cygwin" ]; then
-  compinit
-else
   compinit -u
+else
+  compinit
 fi
 
 # Completion Styles
@@ -236,7 +236,7 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 
 case "${OS}" in
   "Darwin")
-  compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open
+  #compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open
   alias run='open -a'
   ;;
 esac
