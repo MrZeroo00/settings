@@ -86,6 +86,12 @@ With a numeric argument, turn mode on iff ARG is positive."
        (progn ,@body)
      (error (message "[eval-safe] %s" err))))
 
+;; define my-eval-after-load
+(defmacro my-eval-after-load (file &rest args)
+  `(eval-after-load ,file
+     (quote (progn ,@args))))
+(put 'my-eval-after-load 'lisp-indent-function 1)
+
 ;; define require and autoload, load
 (defun autoload-if-found (function file &optional docstring interactive type)
   "set autoload iff. FILE has found."
