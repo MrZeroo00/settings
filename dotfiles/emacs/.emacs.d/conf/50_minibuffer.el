@@ -13,8 +13,8 @@
 
 ;; completing-help
 ;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/completing-help.el")
-;(my-require-and-when 'completing-help)
-;(turn-on-completing-help-mode)
+'(my-require-and-when 'completing-help
+  (turn-on-completing-help-mode))
 
 
 ;; macros

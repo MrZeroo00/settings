@@ -4,29 +4,28 @@
 
 ;; color-grep
 ;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
-(my-require-and-when 'color-grep)
-(setq color-grep-sync-kill-buffer t)
+(my-require-and-when 'color-grep
+  (setq color-grep-sync-kill-buffer t))
 
 
 ;; grep-edit
 (my-require-and-when 'grep)
 ;(install-elisp "http://www.bookshelf.jp/elc/grep-edit.el")
-(my-require-and-when 'grep-edit)
+(my-require-and-when 'grep-edit
+  ;; http://d.hatena.ne.jp/rubikitch/20081025/1224869598
+  (defadvice grep-edit-change-file (around inhibit-read-only activate)
+    ""
+    (let ((inhibit-read-only t))
+      ad-do-it))
+  ;; (progn (ad-disable-advice 'grep-edit-change-file 'around 'inhibit-read-only) (ad-update 'grep-edit-change-file))
 
-;; http://d.hatena.ne.jp/rubikitch/20081025/1224869598
-(defadvice grep-edit-change-file (around inhibit-read-only activate)
-  ""
-  (let ((inhibit-read-only t))
-    ad-do-it))
-;; (progn (ad-disable-advice 'grep-edit-change-file 'around 'inhibit-read-only) (ad-update 'grep-edit-change-file))
-
-(defun my-grep-edit-setup ()
-  (define-key grep-mode-map '[up] nil)
-  (define-key grep-mode-map "\C-c\C-c" 'grep-edit-finish-edit)
-  (message (substitute-command-keys "\\[grep-edit-finish-edit] to apply changes."))
-  (set (make-local-variable 'inhibit-read-only) t)
-  )
-(add-hook 'grep-setup-hook 'my-grep-edit-setup t)
+  (defun my-grep-edit-setup ()
+    (define-key grep-mode-map '[up] nil)
+    (define-key grep-mode-map "\C-c\C-c" 'grep-edit-finish-edit)
+    (message (substitute-command-keys "\\[grep-edit-finish-edit] to apply changes."))
+    (set (make-local-variable 'inhibit-read-only) t)
+    )
+  (add-hook 'grep-setup-hook 'my-grep-edit-setup t))
 
 
 ;; isearch-all
@@ -46,32 +45,32 @@
 
 ;; approx-search
 ;; http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/
-;(my-require-and-when 'approx-search)
-;(if (boundp 'isearch-search-fun-function)
-;    (my-require-and-when 'approx-isearch)
-;  (my-require-and-when 'approx-old-isearch))
-;
-;(if migemo-isearch-enable-p
-;    (approx-isearch-set-disable)
-;  (approx-isearch-set-enable))
-;
-;(defadvice migemo-toggle-isearch-enable (before approx-ad-migemo-toggle-i
-;                                                arch-enable activate)
-;  "migemo を使う時は approx-search を使わない."
-;  (if migemo-isearch-enable-p
-;      (approx-isearch-set-enable) ; NOT disable!!! before advice なので
-;    (approx-isearch-set-disable)))
+'(my-require-and-when 'approx-search
+  (if (boundp 'isearch-search-fun-function)
+      (my-require-and-when 'approx-isearch)
+    (my-require-and-when 'approx-old-isearch))
+
+  (if migemo-isearch-enable-p
+      (approx-isearch-set-disable)
+    (approx-isearch-set-enable))
+
+  (defadvice migemo-toggle-isearch-enable (before approx-ad-migemo-toggle-i
+                                                  arch-enable activate)
+    "migemo を使う時は approx-search を使わない."
+    (if migemo-isearch-enable-p
+        (approx-isearch-set-enable) ; NOT disable!!! before advice なので
+      (approx-isearch-set-disable))))
 
 
 ;; namazu
 ;(install-elisp "http://www.bookshelf.jp/elc/namazu.el")
-;(setq namazu-search-num 100)
-;(setq namazu-auto-turn-page t)
-;(autoload 'namazu "namazu" nil t)
-;(setq namazu-default-dir "~/etc/namazu/")
-;(setq namazu-dir-alist
-;      '(("doc" . "~/etc/namazu/index")
-;        ))
+'(my-autoload-and-when 'namazu "namazu"
+                      (setq namazu-search-num 100)
+                      (setq namazu-auto-turn-page t)
+                      (setq namazu-default-dir "~/etc/namazu/")
+                      (setq namazu-dir-alist
+                            '(("doc" . "~/etc/namazu/index")
+                              )))
 ;(install-elisp "http://www.bookshelf.jp/elc/color-namazu.el")
 ;(my-load-and-when "color-namazu")
 
@@ -103,9 +102,9 @@
 
 
 ;; macros
-(my-load-and-when "_isearch-yank-char")
-;(define-key isearch-mode-map "\C-d" 'isearch-yank-char)
-(my-load-and-when "_isearch-real-delete-char")
-;(define-key isearch-mode-map "\C-o" 'isearch-real-delete-char)
+'(my-load-and-when "_isearch-yank-char"
+  (define-key isearch-mode-map "\C-d" 'isearch-yank-char))
+'(my-load-and-when "_isearch-real-delete-char"
+  (define-key isearch-mode-map "\C-o" 'isearch-real-delete-char))
 ;(my-load-and-when "_isearch-forward-comment-only")
 (my-load-and-when "_my-igrep")

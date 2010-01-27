@@ -1,14 +1,14 @@
 ;; uniquify (add directory name)
-(my-require-and-when 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-(setq uniquify-ignore-buffers-re "*[^*]+*")
+(my-require-and-when 'uniquify
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+  (setq uniquify-ignore-buffers-re "*[^*]+*"))
 
 
 ;; tempbuf
 ;(install-elisp-from-emacswiki "tempbuf.el")
-;(my-require-and-when 'tempbuf)
-;(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
-;(add-hook 'Man-mode-hook 'turn-on-tempbuf-mode)
+'(my-require-and-when 'tempbuf
+  (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
+  (add-hook 'Man-mode-hook 'turn-on-tempbuf-mode))
 
 
 ;; contentswitch
@@ -17,9 +17,9 @@
 
 
 ;; macros
-(my-load-and-when "_my-make-scratch")
-(add-hook 'after-save-hook
-          ;; when save *scratch* buffer, create new *scratch* buffer
-          (function (lambda ()
-                      (unless (member "*scratch*" (my-buffer-name-list))
-                        (my-make-scratch t)))))
+(my-load-and-when "_my-make-scratch"
+  (add-hook 'after-save-hook
+            ;; when save *scratch* buffer, create new *scratch* buffer
+            (function (lambda ()
+                        (unless (member "*scratch*" (my-buffer-name-list))
+                          (my-make-scratch t))))))
