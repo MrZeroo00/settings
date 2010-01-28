@@ -91,12 +91,12 @@
 			       (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
 			       (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
 			       (define-key gtags-mode-map "\C-t" 'gtags-pop-stack)
-			       ))
+			       )))
 
-		      (add-hook 'c-mode-common-hook '(lambda ()
-						       (gtags-mode t)
-						       ;;(gtags-make-complete-list)
-						       )))
+(add-hook 'c-mode-common-hook '(lambda ()
+				 (gtags-mode t)
+				 ;;(gtags-make-complete-list)
+				 ))
 
 
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=tagsfile%20maker
@@ -352,11 +352,11 @@
 
 ;; pov-mode
 ;; http://www.acc.umu.se/~woormie/povray/
-'(my-autoload-and-when 'pov-mode "pov-mode.el"
-		      (setq auto-mode-alist
-			    (append '(("\\.pov$" . pov-mode)
-				      ("\\.inc$" . pov-mode)
-				      ) auto-mode-alist)))
+;(my-autoload-and-when 'pov-mode "pov-mode.el")
+'(setq auto-mode-alist
+      (append '(("\\.pov$" . pov-mode)
+		("\\.inc$" . pov-mode)
+		) auto-mode-alist))
 
 
 ;; macros

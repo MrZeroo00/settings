@@ -9,12 +9,13 @@
 
 ;; emacs-wget
 ;; http://pop-club.hp.infoseek.co.jp/emacs/emacs-wget/
-(my-autoload-and-when 'wget "wget"
-                      (my-autoload-and-when 'wget-web-page "wget")
-                      (my-load-and-when "w3m-wget")
-                      (setq wget-basic-options (cons "-equiet=off" wget-basic-options))
-                      (setq wget-basic-options (cons "-P." wget-basic-options))
-                      (setq wget-process-buffer nil))
+(my-autoload-and-when 'wget "wget")
+(my-autoload-and-when 'wget-web-page "wget")
+(my-eval-after-load "wget"
+  (my-load-and-when "w3m-wget")
+  (setq wget-basic-options (cons "-equiet=off" wget-basic-options))
+  (setq wget-basic-options (cons "-P." wget-basic-options))
+  (setq wget-process-buffer nil))
 
 
 ;; browser
@@ -49,19 +50,19 @@
 ;; MozRepl
 ;; http://hyperstruct.net/projects/mozlab
 (add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
-(my-autoload-and-when 'moz-minor-mode "moz"
-                      (add-hook 'java-mode-hook 'java-custom-setup)
-                      (defun java-custom-setup ()
-                        (moz-minor-mode 1)))
+(my-autoload-and-when 'moz-minor-mode "moz")
+(defun java-custom-setup ()
+  (moz-minor-mode 1))
+(add-hook 'java-mode-hook 'java-custom-setup)
 
 
 ;; moz-plus
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
-(my-autoload-and-when 'run-mozilla "moz"
-                      (add-hook 'inferior-moz-mode-hook (lambda ()
-                                                          (my-require-and-when 'moz-plus)
-                                                          (moz-plus 1)
-                                                          )))
+(my-autoload-and-when 'run-mozilla "moz")
+(add-hook 'inferior-moz-mode-hook (lambda ()
+                                    (my-require-and-when 'moz-plus)
+                                    (moz-plus 1)
+                                    ))
 
 
 ;; google2

@@ -1,5 +1,4 @@
-(autoload 'ansi-color-for-comint-mode-on "ansi-color"
-  "Set `ansi-color-for-comint-mode' to t." t)
+(my-autoload-and-when 'ansi-color-for-comint-mode-on "ansi-color")
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (add-hook 'comint-output-filter-functions
@@ -31,14 +30,14 @@
 
 ;; shell-command
 ;(install-elisp "http://namazu.org/~tsuchiya/elisp/shell-command.el")
-;(my-require-and-when 'shell-command) ; replaced by anything
-;(shell-command-completion-mode)
+'(my-require-and-when 'shell-command ; replaced by anything
+  (shell-command-completion-mode))
 
 
 ;; background
 ;(install-elisp "http://www.jgk.org/src/background.el")
-;(global-set-key "\M-!" 'background)
-;(autoload 'background "background" nil t)
+'(my-autoload-and-when 'background "background"
+                      (global-set-key "\M-!" 'background))
 
 
 ;; pcomplete
@@ -47,11 +46,8 @@
 
 ;; shell-toggle (switch shell buffer easily)
 ;(install-elisp "http://user.it.uu.se/~mic/shell-toggle.el")
-(autoload 'shell-toggle "shell-toggle"
-  "Toggles between the *shell* buffer and whatever buffer you are editing."
-  t)
-(autoload 'shell-toggle-cd "shell-toggle"
-  "Pops up a shell-buffer and insert a \"cd \" command." t)
+(my-autoload-and-when 'shell-toggle "shell-toggle")
+(my-autoload-and-when 'shell-toggle-cd "shell-toggle")
 
 
 ;; shell-history
@@ -61,25 +57,25 @@
 
 
 ;; eshell
-(autoload 'eshell "eshell" "Create an interactive Eshell buffer." t)
-(custom-set-variables
- '(eshell-ask-to-save-history (quote always))
- '(eshell-history-size 1000)
- '(eshell-ls-dired-initial-args (quote ("-h")))
- '(eshell-ls-exclude-regexp "~\\'")
- '(eshell-ls-initial-args "-h")
- ;'(eshell-ls-use-in-dired t nil (em-ls))
- '(eshell-modules-list (quote (eshell-alias eshell-basic
-                                            eshell-cmpl eshell-dirs eshell-glob
-                                            eshell-hist eshell-ls eshell-pred
-                                            eshell-prompt eshell-rebind
-                                            eshell-script eshell-smart
-                                            eshell-term eshell-unix eshell-xtra)))
- '(eshell-prefer-to-shell t nil (eshell))
- '(eshell-stringify-t nil)
- '(eshell-term-name "ansi")
- '(eshell-visual-commands (quote ("vi" "top" "screen" "less" "lynx"
-                                  "ssh" "rlogin" "telnet"))))
+(my-autoload-and-when 'eshell "eshell"
+                      (custom-set-variables
+                       '(eshell-ask-to-save-history (quote always))
+                       '(eshell-history-size 1000)
+                       '(eshell-ls-dired-initial-args (quote ("-h")))
+                       '(eshell-ls-exclude-regexp "~\\'")
+                       '(eshell-ls-initial-args "-h")
+                                        ;'(eshell-ls-use-in-dired t nil (em-ls))
+                       '(eshell-modules-list (quote (eshell-alias eshell-basic
+                                                                  eshell-cmpl eshell-dirs eshell-glob
+                                                                  eshell-hist eshell-ls eshell-pred
+                                                                  eshell-prompt eshell-rebind
+                                                                  eshell-script eshell-smart
+                                                                  eshell-term eshell-unix eshell-xtra)))
+                       '(eshell-prefer-to-shell t nil (eshell))
+                       '(eshell-stringify-t nil)
+                       '(eshell-term-name "ansi")
+                       '(eshell-visual-commands (quote ("vi" "top" "screen" "less" "lynx"
+                                                        "ssh" "rlogin" "telnet")))))
 
 
 (add-hook 'shell-mode-hook

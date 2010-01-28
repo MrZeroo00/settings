@@ -1,5 +1,6 @@
-(autoload 'lookup "lookup" nil t)
-(autoload 'lookup-region "lookup" nil t)
-(autoload 'lookup-pattern "lookup" nil t)
+(my-autoload-and-when 'lookup "lookup")
+(my-autoload-and-when 'lookup-region "lookup")
+(my-autoload-and-when 'lookup-pattern "lookup")
 
-(setq lookup-search-agents '((ndtp "dserver") (ndspell)))
+(my-eval-after-load "lookup"
+  (setq lookup-search-agents '((ndtp "dserver") (ndspell))))

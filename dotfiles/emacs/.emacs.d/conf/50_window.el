@@ -8,51 +8,51 @@
 ;; windows (window manager for Emacs)
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=windows%20screen
 ;(install-elisp "http://www.gentei.org/~yuuji/software/windows.el")
-(setq win:switch-prefix "\C-z")
-(define-key global-map win:switch-prefix nil)
-(setq win:base-key ?`) ;; ` は「直前の状態」
-(setq win:max-configs 27) ;; ` 〜 z は 27 文字
-(setq win:quick-selection nil) ;; C-c 英字 に割り当てない
+(my-require-and-when 'windows
+  (setq win:switch-prefix "\C-z")
+  (define-key global-map win:switch-prefix nil)
+  (setq win:base-key ?`)       ;; ` は「直前の状態」
+  (setq win:max-configs 27)    ;; ` 〜 z は 27 文字
+  (setq win:quick-selection nil) ;; C-c 英字 に割り当てない
 
-(my-require-and-when 'windows)
-(setq win:use-frame nil)
-(win:startup-with-window)
-(define-key ctl-x-map "C" 'see-you-again)
+  (setq win:use-frame nil)
+  (win:startup-with-window)
+  (define-key ctl-x-map "C" 'see-you-again)
 
-(setq win-save-timer (run-with-idle-timer 3600 t 'win-save-all-configurations))
+  (setq win-save-timer (run-with-idle-timer 3600 t 'win-save-all-configurations)))
 
 
 ;; widen-window
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/widen-window-mode/trunk/widen-window.el")
-(my-require-and-when 'widen-window)
-(global-widen-window-mode t)
-(setq ww-ratio 0.625)
-(define-key ctl-x-map "ww" 'global-widen-window-mode)
+(my-require-and-when 'widen-window
+  (global-widen-window-mode t)
+  (setq ww-ratio 0.625)
+  (define-key ctl-x-map "ww" 'global-widen-window-mode)
 
-(setq ww-advised-functions
-      (append '(windmove-up
-		windmove-down
-		windmove-right
-		windmove-left)
-              ww-advised-functions))
+  (setq ww-advised-functions
+	(append '(windmove-up
+		  windmove-down
+		  windmove-right
+		  windmove-left)
+		ww-advised-functions)))
 
 
 ;; master
 ;; http://www.geocities.com/kensanata/elisp/master.el.txt
-(my-require-and-when 'master)
 ;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
-(my-load-and-when "dired-master")
+(my-autoload-and-when 'master-mode "master"
+		      (my-load-and-when "dired-master"))
 
 
 ;; winhist
-;(my-require-and-when 'winhist)
-;(winhist-mode t)
+'(my-require-and-when 'winhist
+  (winhist-mode t))
 
 
 ;; macros
 (my-load-and-when "_window-toggle-division")
-(my-load-and-when "_swap-screen")
-;(global-set-key [f2] 'swap-screen)
-;(global-set-key [S-f2] 'swap-screen-with-cursor)
-;(my-load-and-when "_my-window-ctrl")
-;(global-set-key "\C-z" 'my-window-ctrl)
+'(my-load-and-when "_swap-screen"
+  (global-set-key [f2] 'swap-screen)
+  (global-set-key [S-f2] 'swap-screen-with-cursor))
+'(my-load-and-when "_my-window-ctrl"
+  (global-set-key "\C-z" 'my-window-ctrl))

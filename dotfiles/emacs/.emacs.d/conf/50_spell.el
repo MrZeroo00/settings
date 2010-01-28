@@ -10,8 +10,9 @@
 
 
 ;; flyspell
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
-(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
-(setq flyspell-issue-message-flag nil)
-(setq flyspell-auto-correct-binding [(control ?\')])
+(my-autoload-and-when 'flyspell-mode "flyspell")
+(my-autoload-and-when 'flyspell-delay-command "flyspell")
+(my-autoload-and-when 'tex-mode-flyspell-verify "flyspell")
+(my-eval-after-load "flyspell"
+  (setq flyspell-issue-message-flag nil)
+  (setq flyspell-auto-correct-binding [(control ?\')]))

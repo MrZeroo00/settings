@@ -1,40 +1,23 @@
 ;; change-mode
 ;; http://groups.google.com/group/gnu.emacs.sources/browse_thread/thread/1d0959df36561739/a322fe45d233d964?#a322fe45d233d964
-(autoload 'change-mode "change-mode"
-  "Show changes in a distincive face" t)
+(my-autoload-and-when 'change-mode "change-mode")
+(my-autoload-and-when 'change-mode-next-change "change-mode")
+(my-autoload-and-when 'change-mode-previous-change "change-mode")
+(my-autoload-and-when 'compare-with-file "change-mode")
+(my-autoload-and-when 'change-mode-remove-change-face "change-mode")
+(my-autoload-and-when (quote global-change-mode) "change-mode")
+(my-eval-after-load "change-mode"
+  (global-set-key '[C-right] 'change-mode-next-change)
+  (global-set-key '[C-left] 'change-mode-previous-change)
 
-(autoload 'change-mode-next-change "change-mode" "\
-Move to the beginning of the next change, if minor-mode
-change-mode is in effect." t)
-
-(autoload 'change-mode-previous-change "change-mode" "\
-Move to the beginning of the previous change, if minor-mode
-change-mode is in effect." t)
-
-(autoload 'compare-with-file "change-mode"
-  "Compare this saved buffer with a file, showing differences
-in a distinctive face" t)
-
-(autoload 'change-mode-remove-change-face "change-mode" "\
-Remove the change face from the region. This allows you to
-manually remove highlighting from uninteresting changes." t)
-
-(autoload (quote global-change-mode) "change-mode" "\
-Turn on or off global Change mode.\"
-`change-mode-global-modes'." t nil)
-
-;;(global-set-key '[C-right] 'change-mode-next-change)
-;;(global-set-key '[C-left] 'change-mode-previous-change)
-
-
-(setq change-mode-colours '("SkyBlue"
-                            "LightPink1"
-                            "CadetBlue2"
-                            "plum1"
-                            "dark orange"
-                            "dark turquoise"))
-(setq change-delete-face-foreground "pink")
-(setq change-face-foreground "pink")
+  (setq change-mode-colours '("SkyBlue"
+                              "LightPink1"
+                              "CadetBlue2"
+                              "plum1"
+                              "dark orange"
+                              "dark turquoise"))
+  (setq change-delete-face-foreground "pink")
+  (setq change-face-foreground "pink"))
 
 (add-hook 'texinfo-mode-hook
           (lambda ()
