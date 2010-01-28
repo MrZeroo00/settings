@@ -26,16 +26,15 @@
 
 ;; word-count
 ;(install-elisp "http://taiyaki.org/elisp/word-count/src/word-count.el")
-(autoload 'word-count-mode "word-count"
-  "Minor mode to count words." t nil)
-;(global-set-key "\M-+" 'word-count-mode)
+(my-autoload-and-when 'word-count-mode "word-count"
+                      ;;(global-set-key "\M-+" 'word-count-mode)
+                      )
 
 
 ;; text-adjust
 ;(install-elisp "http://taiyaki.org/elisp/text-adjust/src/text-adjust.el")
 (add-hook 'text-mode-hook
-          (lambda ()
-            (my-load-and-when "text-adjust")
+          (my-load-and-when "text-adjust"
             (setq adaptive-fill-regexp "[ \t]*")
             (setq adaptive-fill-mode t)
             (setq text-adjust-touten-from nil)
@@ -51,7 +50,7 @@
 
 ;; manued
 ;; http://www.mpi-inf.mpg.de/~hitoshi/otherprojects/manued/index.shtml
-;(autoload 'manued-minor-mode "manued" "manuscript editing mode" t)
+;(my-autoload-and-when 'manued-minor-mode "manued")
 
 
 ;; macros
