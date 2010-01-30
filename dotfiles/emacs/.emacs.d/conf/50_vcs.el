@@ -1,10 +1,16 @@
 (setq vc-follow-symlinks t)
 
 
+;; psvn
+;(install-elisp "http://www.xsteve.at/prg/emacs/psvn.el")
+(my-autoload-and-when 'svn-status "psvn")
+(my-autoload-and-when 'svn-update "psvn")
+
+
 ;; dsvn
 ;(install-elisp "http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/dsvn.el")
-(my-autoload-and-when 'svn-status "dsvn")
-(my-autoload-and-when 'svn-update "dsvn")
+;(my-autoload-and-when 'svn-status "dsvn")
+;(my-autoload-and-when 'svn-update "dsvn")
 
 
 ;; egg
