@@ -20,7 +20,7 @@
 
 ;; tails-comint-history
 ;(install-elisp "http://www.bookshelf.jp/elc/tails-comint-history.el")
-;(load-library "tails-comint-history")
+;(my-load-and-when "tails-comint-history")
 
 
 ;; shell-ex
