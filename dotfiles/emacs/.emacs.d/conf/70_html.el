@@ -1,6 +1,6 @@
 ;; http://www.emacswiki.org/cgi-bin/wiki/NxhtmlMode
 (my-load-and-when "nxhtml-mode/autostart.el")
-;(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
+;(my-autoload-and-when 'html-helper-mode "html-helper-mode")
 
 ; association setting
 ;(add-to-list 'auto-mode-alist '("\\.html$" . html-helper-mode))
