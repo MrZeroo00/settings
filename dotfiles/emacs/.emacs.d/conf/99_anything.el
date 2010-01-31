@@ -3,7 +3,7 @@
 ;(install-elisp-from-emacswiki "anything-show-completion.el")
 (my-require-and-when 'anything)
 (my-require-and-when 'anything-config)
-;(load "_anything-rubikitch")
+;(my-load-and-when "_anything-rubikitch")
 
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0)
@@ -179,7 +179,7 @@
 
 
 ;; anything-c-key-chord-describe
-(load "_anything-c-key-chord-describe")
+(my-load-and-when "_anything-c-key-chord-describe")
 
 
 ;; anything-call-source
@@ -237,3 +237,7 @@
   (unwind-protect
       ad-do-it
     (ad-activate-regexp "widen-window")))
+
+;; patches
+(setq fit-frame-inhibit-fitting-flag t)
+(setq anything-save-configuration-functions '(set-window-configuration . current-window-configuration))
