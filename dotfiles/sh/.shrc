@@ -51,7 +51,9 @@ export GIT_EDITOR='vim'
 #export PERL_BADLANG=0
 
 # for Global
-source gtags_load_libpath
+if [ -f ${HOME}/bin/gtags_load_libpath ]; then
+    source ${HOME}/bin/gtags_load_libpath
+fi
 
 # OS specific environmental variables
 case "${OS}" in

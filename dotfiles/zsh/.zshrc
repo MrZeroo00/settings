@@ -186,9 +186,9 @@ bindkey '^I' complete-word # complete on tab, leave expansion to _expand
 # distribution.
 autoload -U compinit
 if [ "${OS}" != "Cygwin" ]; then
-  compinit -u
-else
   compinit
+else
+  compinit -u
 fi
 
 # Completion Styles
