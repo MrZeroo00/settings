@@ -1,5 +1,5 @@
 if [ -f ${HOME}/.sh_logout ]; then
-    source ${HOME}/.sh_logout
+  source ${HOME}/.sh_logout
 fi
 
 # local setting
