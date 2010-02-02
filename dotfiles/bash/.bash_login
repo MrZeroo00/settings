@@ -1,3 +1,8 @@
 if [ -f ${HOME}/.sh_login ]; then
     source ${HOME}/.sh_login
 fi
+
+# local setting
+if [ -f ${HOME}/.bash_login.local ]; then
+  source ${HOME}/.bash_login.local
+fi

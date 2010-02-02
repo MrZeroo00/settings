@@ -29,3 +29,8 @@ case "${OS}" in
   growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
   ;;
 esac
+
+# local setting
+if [ -f ${HOME}/.sh_function.local ]; then
+  source ${HOME}/.sh_function.local
+fi

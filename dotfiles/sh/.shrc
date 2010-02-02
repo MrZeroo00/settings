@@ -1,15 +1,5 @@
 #!/bin/sh
 
-# aliases
-if [ -f ${HOME}/.sh_aliases ]; then
-    source ${HOME}/.sh_aliases
-fi
-
-# function
-if [ -f ${HOME}/.sh_function ]; then
-    source ${HOME}/.sh_function
-fi
-
 ## environmental variables
 # set PATH so it includes user's private bin if it exists
 if [ -d ${HOME}/bin ] ; then
@@ -75,6 +65,17 @@ export TERM
 export MANPATH
 export INFOPATH
 
+# aliases
+if [ -f ${HOME}/.sh_aliases ]; then
+    source ${HOME}/.sh_aliases
+fi
+
+# function
+if [ -f ${HOME}/.sh_function ]; then
+    source ${HOME}/.sh_function
+fi
+
+# local setting
 if [ -f ${HOME}/.shrc.local ]; then
     source ${HOME}/.shrc.local
 fi

@@ -242,3 +242,8 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 }
 
 #setprompt
+
+# local setting
+if [ -f ${HOME}/.zsh_function.local ]; then
+  source ${HOME}/.zsh_function.local
+fi

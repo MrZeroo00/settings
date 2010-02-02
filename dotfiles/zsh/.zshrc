@@ -1,3 +1,8 @@
+# read common setting
+if [ -f ${HOME}/.shrc ]; then
+  source ${HOME}/.shrc
+fi
+
 # Search path for the cd command
 #cdpath=(.. ~ ~/src ~/zsh)
 
@@ -247,12 +252,10 @@ if [ -f ${HOME}/.zsh_aliases ]; then
   source ${HOME}/.zsh_aliases
 fi
 
-
 # function
 if [ -f ${HOME}/.zsh_function ]; then
   source ${HOME}/.zsh_function
 fi
-
 
 # local setting
 if [ -f ${HOME}/.zshrc.local ]; then

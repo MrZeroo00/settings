@@ -1,6 +1,5 @@
 #!/bin/sh
 
-## aliases
 # enable color support of ls and also add handy aliases
 if [ "${TERM}" != "dumb" ]; then
     #eval "`dircolors -b`"
@@ -70,6 +69,7 @@ if [ -x "`which tscreen`" ]; then
   alias screen='tscreen'
 fi
 
+# local setting
 if [ -f ${HOME}/.sh_aliases.local ]; then
-    source ${HOME}/.sh_aliases.local
+  source ${HOME}/.sh_aliases.local
 fi

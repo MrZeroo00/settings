@@ -47,3 +47,8 @@ source ${HOME}/.zsh/function/zsh_commandselector.sh
 
 # directory aliases
 hash -d src="${HOME}/src"
+
+# local setting
+if [ -f ${HOME}/.zsh_aliases.local ]; then
+  source ${HOME}/.zsh_aliases.local
+fi

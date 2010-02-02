@@ -30,9 +30,9 @@
 #    source ${HOME}/.zpath
 #fi
 
-# read bash and zsh common setting
-if [ -f ${HOME}/.shrc ]; then
-  source ${HOME}/.shrc
+# read common environment
+if [ -f ${HOME}/.shenv ]; then
+  source ${HOME}/.shenv
 fi
 
 # environmental variables
@@ -50,3 +50,8 @@ setopt share_history
 
 # functions
 function history-all { history -E 1 }
+
+# local setting
+if [ -f ${HOME}/.zshenv.local ]; then
+  source ${HOME}/.zshenv.local
+fi

@@ -1,8 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# read bash and zsh common setting
+# read common setting
 if [ -f ${HOME}/.shrc ]; then
     source ${HOME}/.shrc
 fi
@@ -52,4 +48,9 @@ esac
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
+fi
+
+# local setting
+if [ -f ${HOME}/.bashrc.local ]; then
+  source ${HOME}/.bashrc.local
 fi

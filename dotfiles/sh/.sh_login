@@ -1,3 +1,5 @@
+#!/bin/sh
+
 clear
 #stty dec new cr0 -tabs
 #mesg y
@@ -10,9 +12,7 @@ fi
 #cat notes
 #msgs -fp
 
-if [ -x "`which uname`" ]; then
-  export OS="`uname`"
-fi
-if [ -n "`echo ${OS} | grep CYGWIN`" ]; then
-  OS='Cygwin'
+# local setting
+if [ -f ${HOME}/.sh_login.local ]; then
+  source ${HOME}/.sh_login.local
 fi
