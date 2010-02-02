@@ -65,6 +65,7 @@ export TERM
 export MANPATH
 export INFOPATH
 
+
 # aliases
 if [ -f ${HOME}/.sh_aliases ]; then
     source ${HOME}/.sh_aliases
