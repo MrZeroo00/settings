@@ -1,6 +1,6 @@
 # include .zshrc if it exists
 if [ -f ${HOME}/.zshrc ]; then
-    source ${HOME}/.zshrc
+  source ${HOME}/.zshrc
 fi
 
 # local setting
