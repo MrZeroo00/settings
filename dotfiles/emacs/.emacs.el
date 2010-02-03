@@ -196,6 +196,11 @@ With a numeric argument, turn mode on iff ARG is positive."
     (if (file-exists-p "~/.emacs.d/conf/99_local_darwin.el")
 	(load "99_local_darwin"))))
 
+(when (and run-w32)
+  (progn
+    (if (file-exists-p "~/.emacs.d/conf/99_local_windows.el")
+	(load "99_local_windows"))))
+
 (when (and run-w32 run-meadow)
   (progn
     (if (file-exists-p "~/.emacs.d/conf/99_local_meadow.el")
