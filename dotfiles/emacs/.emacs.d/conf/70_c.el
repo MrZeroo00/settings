@@ -15,6 +15,7 @@
                                  (setq tab-width 2)
                                  (setq c-basic-offset tab-width)
                                  (setq indent-tabs-mode nil)
+                                 (setq show-trailing-whitespace t)
                                  ))
 
 

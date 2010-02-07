@@ -16,4 +16,6 @@
 (my-autoload-and-when 'tex-mode-flyspell-verify "flyspell")
 (my-eval-after-load "flyspell"
   (setq flyspell-issue-message-flag nil)
-  (setq ispell-parser 'tex))
+  (setq ispell-parser 'tex)
+  (setq flyspell-delay 10)
+  )

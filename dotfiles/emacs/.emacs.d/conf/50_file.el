@@ -5,6 +5,9 @@
                           (setq foo baz))
                       )))
 
+;; before-save-hook
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 
 (auto-compression-mode t)
 (setq completion-ignored-extensions
