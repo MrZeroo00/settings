@@ -1,0 +1,4 @@
+cd $HOME/.vimperator/conf
+
+source! "common.d/00_init.vimp"
+source! "common.d/00_plugin.js"
