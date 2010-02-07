@@ -94,6 +94,11 @@
   (run-with-idle-timer 0.5 t 'auto-save-buffers))
 
 
+;; disk
+;(install-elisp-from-emacswiki "disk.el")
+(my-autoload-and-when 'disk "disk")
+
+
 ;; make executable if script file
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
