@@ -1,0 +1,89 @@
+" move cursor
+"noremap j 5j
+"noremap k 5k
+noremap J <C-d>
+noremap K <C-u>
+
+" open/close tab
+noremap T :tabopen<CR>
+noremap <C-q> :tabclose<CR>
+" select next/previous tab
+noremap } gt
+noremap { gT
+" move current tab left/right
+noremap <C-S-]> :tabmove! +1<CR>
+noremap <C-S-[> :tabmove! -1<CR>
+
+"noremap <Space> :forward<CR>
+"noremap b :back<CR>
+noremap U :open<Space>
+
+noremap <C-g> <Esc>
+noremap U :undo<Space>
+"noremap p <Nop>
+"noremap P <Nop>
+"noremap gP <Nop>
+
+" set/jump mark-a
+"noremap _ ma
+"noremap } `a
+
+" disable css
+"noremap! :set invusermode<CR>
+
+" change guioptions
+noremap <A-b> :set guioptions+=b<CR>
+noremap <A-B> :set guioptions-=b<CR>
+" Unhidden and hidden the menubar and the toolbar
+noremap <A-Up> :set guioptions+=mT<CR>
+noremap <A-Down> :set guioptions-=mT<CR>
+
+let mapleader = ","
+noremap <Leader>re :mb reblog<CR>
+noremap <Leader>pre :mb pinned-link | reblog<CR>
+noremap <Leader>pclr :mb pinned-link | clear-pin<CR>
+"noremap <Leader>re :tombloo ReBlog\ -\ Tumblr<CR> d
+noremap <Leader>rlr :bmlreadlater<CR>
+noremap <Leader>bmk :sbm [archive]<CR>
+noremap <Leader>sc :viewSBMComments<CR>
+noremap <Leader>gc :applaunch Google\ Chrome<CR>
+noremap <Leader>dic :sidebar Mouseover Dictionary<CR>
+noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
+noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
+noremap <Leader>block :menu ツール-Fire.fm-禁止<CR>
+noremap <Leader>nico :menu View-NicoFox_Download_Manager<CR>
+noremap <Leader>video :set! browser.sessionstore.interval=300000<CR>
+
+" command line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>f <S-Right>
+cnoremap <Esc>b <S-Left>
+" compatibility with w3m
+cnoremap <C-n> <Tab>
+cnoremap <C-p> <S-Tab>
+" compatibility with vim
+cnoremap <C-r>* <S-Insert>
+
+
+" add Mapping `C-c' copy or stop loading
+javascript <<EOM
+modules.mappings.addUserMap([modes.NORMAL], ['<C-c>'],
+  'Copy selected text or ',
+  function () {
+    var sel = liberator.buffer.getCurrentWord();
+    if (sel) {
+      liberator.copyToClipboard(sel, true);
+      echo('Yanked: ' + liberator.util.escapeHTML(sel) );
+    } else {
+      BrowserStop();
+      liberator.echo('Stopped loading !');
+    }
+  } , {}
+);
+EOM
+
+
+" vim: set ft=vimperator:

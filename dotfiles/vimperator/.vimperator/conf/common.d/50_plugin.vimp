@@ -1,0 +1,236 @@
+" applauncher
+js <<EOM
+liberator.globalVariables.applauncher_list = [
+  [ 'Google Chrome', 'google-chrome', '%URL%'],
+  [ 'Safari', '/Applications/Safari.app/Contents/MacOS/Safari', '%URL%'],
+];
+liberator.globalVariables.applauncher_charset = 'Shift_JIS';
+EOM
+
+" auto_word_select_mode
+js <<EOM
+liberator.registerObserver("enter", function() {
+  mappings.addUserMap(
+    [modes.AUTO_WORD_SELECT],
+    ["s"],
+    "Translate selected word by multi_requester.js.",
+    function() {
+      // FIXME:
+      // A present mode is preserved in the stack beforehand by the push() method
+      // because it doesn't return to AUTO_WORD_SELECT mode before that when
+      // returning from the OUTPUT_MULTILINE mode.
+      modes.push(modes.AUTO_WORD_SELECT, null, true);
+
+      var selText = content.getSelection().toString();
+      var pattern = /[a-zA-Z]+/;
+      selText = pattern.test(selText) ? pattern.exec(selText) : selText;
+      events.feedkeys(":mr alc " + selText + "<CR>", true, true);
+    }
+  );
+});
+EOM
+
+" browser_object.js
+"let g:browser_object_prefix = ','
+let g:browser_object_prefix = ''
+
+" char-hints-mod2.js
+let g:hintchars="asdfghjklrtyu"
+
+" copy.js
+javascript <<EOM
+liberator.globalVariables.copy_templates = [
+  { label: 'titleAndURL',    value: '%TITLE% %URL%' },
+  { label: 'title',          value: '%TITLE%' },
+  { label: 'hatena',         value: '[%URL%:title=%TITLE%]' },
+  { label: 'hatenacite',     value: '>%URL%:title=%TITLE%>\n%SEL%\n<<' },
+  { label: 'markdown',       value: '[%SEL%](%URL% "%TITLE%")' },
+  { label: 'htmlblockquote', value: '<blockquote cite="%URL%" title="%TITLE%">%HTMLSEL%</blockquote>' }
+];
+EOM
+
+" direct_bookmark.js
+let g:direct_sbm_use_services_by_tag = "d"
+let g:direct_sbm_use_services_by_post = "d"
+let g:direct_sbm_is_normalize = "false"
+let g:direct_sbm_is_use_migemo = "true"
+
+" feedSomeKeys_2
+autocmd LocationChange .* :fmapc
+autocmd LocationChange .* :set! browser.sessionstore.interval=120000
+autocmd LocationChange 'mail\.google\.com/mail' :fmap! -depth 4 c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+autocmd LocationChange 'www\.google\.com/calendar/' :fmap! -vkey -event keydown t a d w m x c e <Del> / + q s ?
+autocmd LocationChange 'www\.rememberthemilk\.com/home' :fmap! t c p d f g s u l y r z 1 2 3 4 <Del> a n k j i h m <Tab> <Esc>
+autocmd LocationChange 'www\.google\.(com|co\.jp)/reader' :fmap! -vkey j k <Space> n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ? z
+autocmd LocationChange 'reader\.livedoor\.com/reader' :fmap! j k s a p o v c <Space> <S-Space> z b < >
+autocmd LocationChange 'friendfeed\.com/' :fmap! -vkey -event keydown p P q / gh gd gm gb
+autocmd LocationChange 'localhost:10010' :fmap! j k h l r o
+autocmd LocationChange 'www\.youtube\.(com|co\.jp)' :set! browser.sessionstore.interval=300000
+autocmd LocationChange 'www\.nicovideo\.jp' :set! browser.sessionstore.interval=300000
+
+" ime_control.js
+let g:ex_ime_mode = "inactive"
+
+" ldrize_cooperation.js
+let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']"
+let g:ldrc_intelligence_bind = "true"
+let g:ldrc_skip = "0.25"
+
+" localkeymode.js
+let g:localkeymode_enable = "true"
+javascript <<EOM
+liberator.globalVariables.localKeyMappings =
+[
+  [/[a-z]+\.youtube\.com\/watch/,
+    [
+      ['p s l m i > <'],
+      ['p', ':stplay'],
+      ['s', ':stseek'],
+      ['l', ':stlarge'],
+      ['m', ':stmute'],
+//    ['i', ':ytinfo'],
+      ['>', ':stseek! 10'],
+      ['<', ':stseek! -10']
+    ]
+  ],
+  [/www\.nicovideo\.jp\/watch\//,
+    [
+      ['p s l m i c > <'],
+      ['p', ':stplay'],
+      ['s', ':stseek'],
+      ['l', ':stlarge'],
+      ['m', ':stmute'],
+//    ['i', ':nicoinfo'],
+      ['c', ':stcomment'],
+      ['>', ':stseek! 10'],
+      ['<', ':stseek! -10']
+    ]
+  ]
+];
+EOM
+
+" migratestatusbar
+javascript <<EOM
+    liberator.globalVariables.migrate_elements = [
+        {
+            // star button of awesome bar
+            id:    'star-button',
+            dest:  'security-button',
+            after: true,
+        },
+        {
+            // icon that show the existence of RSS and Atom on current page
+            id:    'feed-button',
+            dest:  'security-button',
+            after: true,
+        },
+        {
+            // favicon of awesome bar
+            id:    'page-proxy-stack',
+            dest:  'liberator-statusline',
+            after: false,
+        },
+    ];
+EOM
+
+" multi_requester.js
+javascript <<EOM
+liberator.globalVariables.multi_requester_mappings = [
+  [',ma', 'alc',  , 'args'],
+];
+EOM
+
+javascript <<EOM
+liberator.globalVariables.multi_requester_siteinfo = [
+  {
+    name:           'weather-yahoo',
+    description:    'Yahoo!天気情報',
+    url:            'http://search.weather.yahoo.co.jp/bin/search?pref=all&p=%s',
+    xpath:          'id("cat-pass") | id("yjw_pinpoint_today") | id("yjw_pinpoint_tomorrow") | id("yjw_week")',
+    srcEncode:      'EUC-JP',
+    extractLink:    '//table[@class="yjw_table3"]/descendant::a[1]'
+  },
+];
+EOM
+
+" nextlink.js
+"let g:nextlink_followlink = "true"
+
+" notifier.js
+javascript <<EOM
+liberator.globalVariables.observer_growl_settings = {
+    'Hatelabo bottle': { hide: true },
+    'Hatena::Message': { hide: true },
+    'liberator.echomsg': { life: 1 },
+    'Twitter': { life: 3 },
+    'Wassr': { hide: true },
+    'Weather forecast by Yahoo!': { life: 3 }
+};
+
+liberator.globalVariables.subject_liberator_echomsg_filter = [
+    'Auto commands for',
+    '^autocommand'
+];
+
+liberator.globalVariables.subject_weather_yahoo_urls = [
+    "http://weather.yahoo.co.jp/weather/jp/13/4410/13117/1150053.html",
+    "http://weather.yahoo.co.jp/weather/jp/13/4410/13101/1010064.html"
+];
+EOM
+
+" proxy.js
+javascript <<EOM
+liberator.globalVariables.proxy_settings = [
+  {
+    conf_name: 'disable',
+    conf_usage: 'direct connection',
+    settings: [
+    {
+      label: 'type',
+      param: 0
+    }
+    ]
+  },
+  {
+    conf_name: 'polipo',
+    conf_usage: 'use polipo cache proxy',
+    settings: [
+    {
+      label: 'type',
+      param: 1
+    },
+    {
+      label: 'http',
+      param: 'localhost'
+    },
+    {
+      label: 'http_port',
+      param: 8123
+    }
+    ]
+  }
+];
+EOM
+
+" refcontrol.js
+
+
+" scenario-actor
+javascript <<EOM
+liberator.globalVariables.userScenario = {
+    DOMContentLoaded: [
+    { // good by hatena keyword
+        pattern: 'http://d.hatena.ne.jp/keyword/',
+        action: [
+            {sleep: 1000},
+            {follow: '//a[contains(@href,"http://ja.wikipedia.org/wiki")]'},
+        ],
+    },
+    ]
+};
+EOM
+
+" toggler.js
+
+
+" vim: set ft=vimperator:
