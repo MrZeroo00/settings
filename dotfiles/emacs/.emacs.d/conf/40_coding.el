@@ -6,6 +6,11 @@
 (setq indent-line-function 'indent-relative-maybe)
 ;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
 (my-require-and-when 'indent-tabs-maybe)
+;; http://d.hatena.ne.jp/mzp/20090620/indent
+'(my-require-and-when 'ky-indent
+  (ky-indent-init)
+  (setq ky-indent-regexp "external-code/")
+  )
 
 
 ;; paren
