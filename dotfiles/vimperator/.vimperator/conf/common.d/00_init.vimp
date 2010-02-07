@@ -7,7 +7,7 @@ set editor='emacsclient -a emacs -n'
 set focuscontent
 "set followhints=0
 set guioptions+=Bbrn
-set hintmatching=custom
+"set hintmatching=custom
 set history=1000
 set hlsearch
 set ignorecase

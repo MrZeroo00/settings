@@ -35,6 +35,7 @@ EOM
 let g:browser_object_prefix = ''
 
 " char-hints-mod2.js
+let g:hintsio="iO"
 let g:hintchars="asdfghjklrtyu"
 
 " copy.js
