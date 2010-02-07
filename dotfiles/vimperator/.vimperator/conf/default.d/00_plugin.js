@@ -43,7 +43,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'maine_coon',
     'migemized_find',
     'migemo_completion',
-    'migemo_hint',
+//  'migemo_hint',
     'migratestatusbar',
     'moreqmarks',
     'mouseinspect',
