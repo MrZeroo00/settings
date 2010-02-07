@@ -23,14 +23,14 @@ utf8=yes
 
 # UI
 border=yes
-gui=yes
+#gui=yes
 menu=yes
 ontop=yes
 msgcolor=yes
 msglevel:all=-1
 #msglevel:global=5
-#msglevel:cplayer=5
-msglevel:demux=5
+msglevel:cplayer=5
+#msglevel:demux=5
 #msglevel:header=5
 msglevel:statusline=5
 
