@@ -5,11 +5,10 @@ javascript <<EOM
   if (profile_path.match(/.*\/[^\/]+\.([^\/]+)$/)) {
     var profile = RegExp.$1;
     io.source("$HOME/.vimperator/conf/" + profile + ".vimp");
+    liberator.echo("Configurations of " + profile + " is loaded!!");
   } else {
     liberator.echo("Error: loading configuration is failed!!");
   }
 EOM
-
-echo "Get ready!!"
 
 " vim: set ft=vimperator:
