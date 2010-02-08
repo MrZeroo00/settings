@@ -8,6 +8,7 @@
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0)
 (setq anything-candidate-number-limit 100)
+(setq anything-show-completion-activate nil)
 ;(setq anything-c-locate-db-file "~/home.locatedb")
 ;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
 (setq anything-candidate-separator
