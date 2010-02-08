@@ -148,7 +148,7 @@ With a numeric argument, turn mode on iff ARG is positive."
 (load "60_doc-view")
 (load "60_emms")
 (load "60_hatena")
-;(load "60_howm")
+(load "60_howm")
 ;(load "60_iswitchb")
 (load "60_key-chord")
 (load "60_lookup")

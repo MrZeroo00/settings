@@ -17,6 +17,7 @@
 
 
 ;; macros
+(my-load-and-when "_my-save-and-kill-buffer")
 (my-load-and-when "_my-make-scratch"
   (add-hook 'after-save-hook
             ;; when save *scratch* buffer, create new *scratch* buffer

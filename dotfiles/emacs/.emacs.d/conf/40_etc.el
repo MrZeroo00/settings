@@ -16,7 +16,7 @@
 
 ;; typing-outputz
 ;; http://github.com/hayamiz/typing-outputz/tree/master
-(my-require-and-when 'typing-outputz
+'(my-require-and-when 'typing-outputz
   (global-typing-outputz-mode t)
   (setq typing-outputz-key "bWAROb-quUbf"))
 
