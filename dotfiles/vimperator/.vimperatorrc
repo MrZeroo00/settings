@@ -2,7 +2,7 @@ cd $HOME
 
 javascript <<EOM
   var profile_path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path;
-  if (profile_path.match(/.*\/[^\/]+\.([^\/]+)$/)) {
+  if (profile_path.match(/.*[\/\\][^\/\\]+\.([^\/\\]+)$/)) {
     var profile = RegExp.$1;
     io.source("$HOME/.vimperator/conf/" + profile + ".vimp");
     liberator.echo("Configurations of " + profile + " is loaded!!");
