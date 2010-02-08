@@ -1,4 +1,4 @@
-liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/coderepos/notifier,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other';
+liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/coderepos/notifier,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other,~/.vimperator/_plugin/my,~/.vimperator/_plugin/local';
 liberator.globalVariables.plugin_loader_plugins = [
     'observer_growl',
     'subject_weather_yahoo',
