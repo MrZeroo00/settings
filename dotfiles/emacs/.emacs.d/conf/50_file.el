@@ -27,6 +27,11 @@
 ;(my-require-and-when 'dircolors)
 
 
+;; recentf-ext
+;(install-elisp-from-emacswiki "recentf-ext.el")
+(my-require-and-when 'recentf-ext)
+
+
 ;; filecache (open long filename easily)
 (my-require-and-when 'filecache
   ;;(file-cache-add-directory-list
