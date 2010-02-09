@@ -11,9 +11,12 @@
 
 
 ;; auto-complete
+; http://github.com/m2ym/auto-complete
 ;(install-elisp-from-emacswiki "auto-complete.el")
-(my-require-and-when 'auto-complete
+(my-require-and-when 'auto-complete-config
   (global-auto-complete-mode t)
+  (ac-set-trigger-key "TAB")
+  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
   (setq ac-candidate-max 15)
   (setq ac-sources '(ac-source-abbrev
                      ac-source-words-in-buffer
