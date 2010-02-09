@@ -13,6 +13,9 @@
 ;; auto-complete
 ; http://github.com/m2ym/auto-complete
 ;(install-elisp-from-emacswiki "auto-complete.el")
+;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
+;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")
+;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
 (my-require-and-when 'auto-complete-config
   (global-auto-complete-mode t)
   (ac-set-trigger-key "TAB")
