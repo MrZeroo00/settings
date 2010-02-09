@@ -35,11 +35,11 @@
 
 
 ;; ifdef
-'(setq hide-ifdef-define-alist
-      '((list-name
-	 DEFINE1
-	 DEFINE2
-	 ))
+;(setq hide-ifdef-define-alist
+;      '((list-name
+;	 DEFINE1
+;	 DEFINE2
+;	 ))
 
 
 ;; debug
@@ -172,6 +172,13 @@
 '(my-require-and-when 'yasnippet
   (yas/initialize)
   (yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets"))
+
+
+;; smartchr
+;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
+(my-require-and-when 'smartchr
+  (global-set-key (kbd "=") (smartchr '(" = " " == "  "=")))
+  )
 
 
 ;; brackets
