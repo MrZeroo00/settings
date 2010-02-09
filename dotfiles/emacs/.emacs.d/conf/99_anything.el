@@ -6,48 +6,6 @@
 (my-require-and-when 'anything-config)
 ;(my-load-and-when "_anything-rubikitch")
 
-(setq anything-idle-delay 0.3)
-(setq anything-input-idle-delay 0)
-(setq anything-candidate-number-limit 100)
-;(setq anything-c-locate-db-file "~/home.locatedb")
-;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
-(setq anything-candidate-separator
-      "------------------------------------------------------------------------------------")
-
-;(anything-iswitchb-setup)
-
-; key setting
-(define-key global-map (kbd "C-;") 'anything)
-(define-key global-map (kbd "C-:") 'anything-resume)
-(define-key global-map (kbd "C-'") 'anything-call-source)
-;(define-key anything-map "\M-N" 'anything-next-source)
-;(define-key anything-map "\M-P" 'anything-previous-source)
-(define-key anything-map "\C-\M-n" 'anything-next-source)
-(define-key anything-map "\C-\M-p" 'anything-previous-source)
-(define-key anything-map "\C-n" 'anything-next-line)
-(define-key anything-map "\C-p" 'anything-previous-line)
-(define-key anything-map "\C-v" 'anything-next-page)
-(define-key anything-map "\M-v" 'anything-previous-page)
-(define-key anything-map "\C-s" 'anything-isearch)
-(define-key anything-map "\C-z" 'anything-execute-persistent-action)
-(define-key anything-map "\C-i" 'anything-select-action)
-(define-key anything-map "\C-\M-v" 'anything-scroll-other-window)
-(define-key anything-map "\C-\M-y" 'anything-scroll-other-window-down)
-(define-key anything-map "\C-r" 'anything-select-source)
-
-
-; anything-display-function
-(my-require-and-when 'split-root
-  (defvar anything-compilation-window-height-percent 50.0)
-  (defun anything-compilation-window-root (buf)
-    (setq anything-compilation-window
-          (split-root-window (truncate (* (window-height)
-                                          (/ anything-compilation-window-height-percent
-                                             100.0)))))
-    (set-window-buffer anything-compilation-window buf))
-  (setq anything-display-function 'anything-compilation-window-root)
-  )
-
 
 ;; ac-anything
 ;(install-elisp-from-emacswiki "ac-anything.el")
@@ -237,6 +195,27 @@
       anything-kyr-commands-by-major-mode)
 
 
+; basic setting
+;(anything-iswitchb-setup)
+(setq anything-idle-delay 0.3)
+(setq anything-input-idle-delay 0)
+(setq anything-candidate-number-limit 100)
+;(setq anything-c-locate-db-file "~/home.locatedb")
+;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
+(setq anything-candidate-separator
+      "------------------------------------------------------------------------------------")
+
+
+; key setting
+(define-key global-map (kbd "C-;") 'anything)
+(define-key global-map (kbd "C-:") 'anything-resume)
+(define-key global-map (kbd "C-'") 'anything-call-source)
+(define-key anything-map "\C-\M-n" 'anything-next-source)
+(define-key anything-map "\C-\M-p" 'anything-previous-source)
+(define-key anything-map "\C-r" 'anything-select-source)
+
+
+; source
 (setq anything-sources (list anything-c-source-kyr
                              anything-c-source-buffers
                              anything-c-source-bm
@@ -254,6 +233,19 @@
                              ;anything-c-source-calculation-result
                              ;anything-c-source-complex-command-history
                              ))
+
+
+; anything-display-function
+(my-require-and-when 'split-root
+  (defvar anything-compilation-window-height-percent 50.0)
+  (defun anything-compilation-window-root (buf)
+    (setq anything-compilation-window
+          (split-root-window (truncate (* (window-height)
+                                          (/ anything-compilation-window-height-percent
+                                             100.0)))))
+    (set-window-buffer anything-compilation-window buf))
+  (setq anything-display-function 'anything-compilation-window-root)
+  )
 
 
 ;; advice
