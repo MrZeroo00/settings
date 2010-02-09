@@ -14,10 +14,17 @@
 (setq w32-hide-mouse-timeout 1000)
 (setq w32-hide-mouse-on-key t)
 
+
+;; ttfont-setup
+;(install-elisp "http://www.fan.gr.jp/~ring/doc/misc/ttfont-setup.el")
+(my-require-and-when 'ttfont-setup
+  (ttfont-setup))
+
+
 ;; font-setup
 ;(install-elisp "http://www.bookshelf.jp/elc/font-setup.el")
 ;; フォント設定
-(my-require-and-when 'font-setup
+'(my-require-and-when 'font-setup
   (setq font-setup-bdf-dir
         (expand-file-name "../../fonts/intlfonts" data-directory))
   (defun font-setup-small (&optional font num unuse set)
