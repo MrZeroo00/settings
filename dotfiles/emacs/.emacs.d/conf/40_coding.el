@@ -34,6 +34,14 @@
 (setq comment-style 'multi-line)
 
 
+;; ifdef
+'(setq hide-ifdef-define-alist
+      '((list-name
+	 DEFINE1
+	 DEFINE2
+	 ))
+
+
 ;; debug
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)
@@ -362,6 +370,40 @@
       (append '(("\\.pov$" . pov-mode)
 		("\\.inc$" . pov-mode)
 		) auto-mode-alist))
+
+
+;; to pop up compilation buffers at the bottom
+(my-eval-after-load "split-root"
+  (require 'compile)
+  (defvar compilation-window nil
+    "The window opened for displaying a compilation buffer.")
+
+  (setq compilation-window-height 14)
+
+  (defun my-display-buffer (buffer &optional not-this-window)
+    (if (or (compilation-buffer-p buffer)
+	    (equal (buffer-name buffer) "*Shell Command Output*"))
+	(progn
+	  (unless (and my-compilation-window (window-live-p my-compilation-window))
+	    (setq my-compilation-window (split-root-window compilation-window-height))
+	    (set-window-buffer my-compilation-window buffer))
+	  my-compilation-window)
+      (let ((display-buffer-function nil))
+	(display-buffer buffer not-this-window))))
+
+  (setq display-buffer-function 'my-display-buffer)
+
+  ;; on success, delete compilation window right away!
+  (add-hook 'compilation-finish-functions
+	    '(lambda(buf res)
+	       (unless (or (eq last-command 'grep)
+			   (eq last-command 'grep-find))
+		 (when (equal res "finished\n")
+		   (when compilation-window
+		     (delete-window compilation-window)
+		     (setq compilation-window nil))
+		   (message "compilation successful")))))
+  )
 
 
 ;; macros
