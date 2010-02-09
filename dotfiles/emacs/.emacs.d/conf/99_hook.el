@@ -13,7 +13,7 @@
   (diminish 'font-lock-mode)
   (diminish 'hs-minor-mode)
   (diminish 'my-keyjack-mode)
-  (diminish 'typing-outputz-mode)
+  ;(diminish 'typing-outputz-mode)
   (diminish 'yas/minor-mode)
   ;;(diminish 'emacs-lisp-mode "Elisp")
   ;;(eval-after-load "cwarn" '(diminish 'cwarn-mode))

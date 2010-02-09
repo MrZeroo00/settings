@@ -38,3 +38,19 @@
   (setq vsn-open-type "VS6")
   (setq vsn-open-exec "C:/home/Mitsuhiro.Tanda/bin/vsn-open.vbs")
   (add-hook 'c-mode-hook 'turn-on-auto-revert-mode))
+
+
+; compile command
+(setq my-project-directory "C:/src")
+(setq my-project-file "foo.dsw")
+(setq my-project-name "Foo")
+(setq compile-command (format "cd %s && msdev %s /make \"%s - Win32 Debug\" | nkf -s -Lu" my-project-directory my-project-file my-project-name))
+
+
+;; cdb-gud
+;(install-elisp-from-emacswiki "cdb-gud.el")
+(my-load-and-when "cdb-gud"
+  ;(setenv "PATH" (concat (getenv "PATH") ";" my-project-directory))
+  ;(setenv "_NT_SYMBOL_PATH" (concat (getenv "_NT_SYMBOL_PATH") ";" my-project-directory))
+  ;(setenv "_NT_SOURCE_PATH" (concat (getenv "_NT_SOURCE_PATH") ";" my-project-directory))
+  )
