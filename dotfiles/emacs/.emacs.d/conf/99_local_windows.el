@@ -54,3 +54,25 @@
   ;(setenv "_NT_SYMBOL_PATH" (concat (getenv "_NT_SYMBOL_PATH") ";" my-project-directory))
   ;(setenv "_NT_SOURCE_PATH" (concat (getenv "_NT_SOURCE_PATH") ";" my-project-directory))
   )
+
+
+;; flymake
+; http://d.hatena.ne.jp/kei10in/20091023/1256295420
+(defun flymake-vc-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name))))
+    (list "cl" (list "/nologo" "/TC" "/W4" "/Wp64" "/Zs" local-file))))
+(defun flymake-vc++-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name))))
+    (list "cl" (list "/nologo" "/TP" "/W4" "/Wp64" "/Zs" local-file))))
+(push '("\\.c\\'" flymake-vc-init) flymake-allowed-file-name-masks)
+(push '("\\.h\\'" flymake-vc-init) flymake-allowed-file-name-masks)
+(push '("\\.cpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
+(push '("\\.hpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
