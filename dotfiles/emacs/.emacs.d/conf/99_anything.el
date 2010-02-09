@@ -1,6 +1,7 @@
 ;(install-elisp-from-emacswiki "anything.el")
 ;(install-elisp-from-emacswiki "anything-config.el")
-;(install-elisp-from-emacswiki "anything-show-completion.el")
+;(install-elisp-from-emacswiki "anything-rubikitch.el")
+;(install-elisp-from-emacswiki "anything-goodies.el")
 (my-require-and-when 'anything)
 (my-require-and-when 'anything-config)
 ;(my-load-and-when "_anything-rubikitch")
@@ -8,7 +9,6 @@
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0)
 (setq anything-candidate-number-limit 100)
-(setq anything-show-completion-activate nil)
 ;(setq anything-c-locate-db-file "~/home.locatedb")
 ;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
 (setq anything-candidate-separator
@@ -40,6 +40,10 @@
 ;(install-elisp-from-emacswiki "ac-anything.el")
 (my-require-and-when 'ac-anything)
 (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything)
+
+
+;; anything-c-dabbrev
+;(install-elisp-from-emacswiki "anything-c-dabbrev.el")
 
 
 ;; anything-c-imenu
@@ -173,6 +177,11 @@
 ;(define-key anything-map "\C-z" 'anything-execute-persistent-action)
 
 
+;; anything-show-completion
+;(install-elisp-from-emacswiki "anything-show-completion.el")
+(setq anything-show-completion-activate nil)
+
+
 ;; descbinds-anything
 ;(install-elisp-from-emacswiki "descbinds-anything.el")
 (my-require-and-when 'descbinds-anything)
@@ -197,6 +206,8 @@
 
 
 ;; anything-kyr
+;(install-elisp-from-emacswiki "anything-kyr.el")
+;(install-elisp-from-emacswiki "anything-kyr-config.el")
 (my-require-and-when 'anything-kyr-config)
 (my-require-and-when 'anything-complete
   (anything-read-string-mode 1))
