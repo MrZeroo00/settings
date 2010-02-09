@@ -69,7 +69,7 @@
 (anything-read-string-mode t)
 (anything-lisp-complete-symbol-set-timer 150)
 (setq anything-lisp-complete-symbol-input-idle-delay 0.0)
-(setq anything-find-file-additional-sources (list anything-find-file-additional-sources
+'(setq anything-find-file-additional-sources (list anything-find-file-additional-sources
                                                   (if run-darwin
                                                       anything-c-source-mac-spotlight
                                                     anything-c-source-locate)))
@@ -225,11 +225,13 @@
                              ;anything-c-source-info-pages
                              anything-c-source-imenu
                              ;anything-c-source-gtags-select
-                             anything-c-source-file-name-history
+                             anything-c-source-recentf
+                             ;anything-c-source-file-name-history
                              anything-c-source-file-cache
                              ;(if run-darwin
                              ;    anything-c-source-mac-spotlight
                              ;  anything-c-source-locate)
+                             anything-c-source-emacs-commands
                              ;anything-c-source-calculation-result
                              ;anything-c-source-complex-command-history
                              ))
