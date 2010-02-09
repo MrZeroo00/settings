@@ -181,7 +181,7 @@
 ;(install-elisp-from-emacswiki "anything-kyr-config.el")
 (my-require-and-when 'anything-kyr-config)
 (my-require-and-when 'anything-complete
-  (anything-read-string-mode 1))
+  (anything-read-string-mode t))
 
 (setq anything-kyr-commands-by-major-mode
       '((c-mode "recompile" "compile"
@@ -221,8 +221,6 @@
                              anything-c-source-bm
                              ;anything-c-source-bookmarks
                              anything-c-source-yasnippet
-                             ;anything-c-source-man-pages
-                             ;anything-c-source-info-pages
                              anything-c-source-imenu
                              ;anything-c-source-gtags-select
                              anything-c-source-recentf
@@ -231,9 +229,13 @@
                              ;(if run-darwin
                              ;    anything-c-source-mac-spotlight
                              ;  anything-c-source-locate)
+                             anything-c-source-call-source
+                             anything-c-source-extended-command-history
                              anything-c-source-emacs-commands
-                             ;anything-c-source-calculation-result
                              ;anything-c-source-complex-command-history
+                             ;anything-c-source-man-pages
+                             ;anything-c-source-info-pages
+                             ;anything-c-source-calculation-result
                              ))
 
 
