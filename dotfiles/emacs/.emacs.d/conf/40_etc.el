@@ -213,7 +213,7 @@
 
 
 ;; midnight
-;(my-require-and-when 'midnight)
+(my-require-and-when 'midnight)
 
 
 ;; macros
