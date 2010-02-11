@@ -34,21 +34,21 @@ alias gvim-remote='gvim --remote-silent'
 # OS specific aliases
 case "${OS}" in
   "Linux")
-  alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboard -o'
-  alias open='gnome-open'
+  alias ack='ack-grep'
   #alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
   alias emacs='emacsclient -a emacs -n'
-  alias ack='ack-grep'
+  alias open='gnome-open'
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
   ;;
   "Darwin")
+  alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
   alias addr2line='gaddr2line'
   alias nm='gnm'
   alias objdump='gobjdump'
   alias readelf='greadelf'
   alias ldd='otool -L'
   alias strace='sudo dtruss sudo -u ${USER}'
-  alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
   alias ql='qlmanage -p "$@" >& /dev/null'
   ;;
   "Cygwin")
@@ -56,8 +56,8 @@ case "${OS}" in
   alias less='lv'
   #alias lv='lv -Os'
   #alias grep='lgrep -Os -Ks'
-  alias vim='/cygdrive/c/Vim/bin/vim.exe'
-  alias emacs='/cygdrive/c/meadow/bin/Meadow.exe'
+  alias vim='/c/Vim/bin/vim.exe'
+  alias emacs='/c/meadow/bin/emacsclient.exe -a /c/meadow/bin/RunMW32.exe -n'
   alias svn='/c/Program\ Files/Subversion/bin/svn.exe'
   alias open='fiber'
   alias pbcopy='putclip'
