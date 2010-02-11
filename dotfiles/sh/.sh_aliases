@@ -42,7 +42,7 @@ case "${OS}" in
   alias pbpaste='xclip -selection clipboard -o'
   ;;
   "Darwin")
-  alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
+  alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -a /Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -n'
   alias addr2line='gaddr2line'
   alias nm='gnm'
   alias objdump='gobjdump'
