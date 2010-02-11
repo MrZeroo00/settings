@@ -17,6 +17,12 @@
   (turn-on-completing-help-mode))
 
 
+;; advice
+(defadvice abort-recursive-edit (before minibuffer-save activate)
+  (when (eq (selected-window) (active-minibuffer-window))
+    (add-to-history minibuffer-history-variable (minibuffer-contents))))
+
+
 ;; macros
 ;(my-load-and-when "_minibuffer-delete-duplicate")
 ;(my-load-and-when "_minibuf-shrink")
