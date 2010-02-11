@@ -45,6 +45,18 @@
 ;; debug
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)
+
+(when gdb-many-windows
+  (defvar my-gud-window-configuration nil)
+  (add-hook 'gud-mode-hook '(lambda ()
+                              (setq my-gud-window-configuration (current-window-configuration))))
+  (add-hook 'kill-buffer-hook (lambda ()
+                                (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
+                                  ;; gud-関係の場合
+                                  (when (window-configuration-p my-gud-window-configuration)
+				    (set-window-configuration my-gud-window-configuration)
+				    (setq my-gud-window-configuration nil)))))
+
 (my-require-and-when 'gud
   (setq gud-gdb-command-name "gdb -annotate=3")
   (setq gud-tooltip-echo-area nil)
@@ -350,7 +362,7 @@
 ;  (font-lock-add-keywords
 ;   major-mode
 ;   '(("\t" 0 my-face-b-2 append)
-;     ("��" 0 my-face-b-1 append)
+;     ("¡¡" 0 my-face-b-1 append)
 ;     ("[ \t]+$" 0 my-face-u-1 append)
 ;     ;;("[\r]*\n" 0 my-face-r-1 append)
 ;     )))
