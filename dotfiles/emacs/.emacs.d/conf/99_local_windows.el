@@ -37,7 +37,8 @@
   (setq vsn-open-key "^g")
   (setq vsn-open-type "VS6")
   (setq vsn-open-exec "C:/home/Mitsuhiro.Tanda/bin/vsn-open.vbs")
-  (add-hook 'c-mode-hook 'turn-on-auto-revert-mode))
+  ;(add-hook 'c-mode-hook 'turn-on-auto-revert-mode)
+  )
 
 
 ; compile command
