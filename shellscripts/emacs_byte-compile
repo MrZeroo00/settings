@@ -1,4 +1,4 @@
-#!/usr/local/bin/ruby191
+#!/usr/bin/env ruby1.9
 # byte-compile from command line
 # Needs Ruby 1.9.x
 EMACS = "emacs-snapshot"
