@@ -77,10 +77,10 @@
 (setq query-replace-highlight t)
 (my-require-and-when 'hi-lock)
 ; highlight current line
-;(global-hl-line-mode)
-;(hl-line-mode t)
+(global-hl-line-mode)
+(hl-line-mode t)
 ;(setq hl-line-face 'underline)
-;(set-face-background 'hl-line "DarkOliveGreen")
+(set-face-background 'hl-line "DarkOliveGreen")
 ;(install-elisp-from-emacswiki "col-highlight.el")
 ;(install-elisp-from-emacswiki "vline.el")
 (my-require-and-when 'col-highlight
@@ -88,7 +88,7 @@
   ;(toggle-highlight-column-when-idle t)
   ;(col-highlight-set-interval 3)
   (custom-set-faces
-   '(col-highlight ((t (:background "gray13"))))))
+   '(col-highlight ((t (:background "DarkOliveGreen"))))))
 
 
 ; region setting
