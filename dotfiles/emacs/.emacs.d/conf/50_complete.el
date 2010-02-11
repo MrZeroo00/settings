@@ -10,6 +10,10 @@
 (setq dabbrev-case-replace nil)
 
 
+;; ac-company
+;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
+
+
 ;; auto-complete
 ; http://github.com/m2ym/auto-complete
 ;(install-elisp-from-emacswiki "auto-complete.el")
