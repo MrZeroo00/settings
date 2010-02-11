@@ -41,10 +41,10 @@
 
 
 ; compile command
-(setq my-project-directory "C:/src")
-(setq my-project-file "foo.dsw")
-(setq my-project-name "Foo")
-(setq compile-command (format "cd %s && msdev %s /make \"%s - Win32 Debug\" | nkf -s -Lu" my-project-directory my-project-file my-project-name))
+;(setq my-project-directory "C:/src")
+;(setq my-project-file "foo.dsw")
+;(setq my-project-name "Foo")
+;(setq compile-command (format "cd %s && msdev %s /make \"%s - Win32 Debug\" | nkf -s -Lu" my-project-directory my-project-file my-project-name))
 
 
 ;; cdb-gud
