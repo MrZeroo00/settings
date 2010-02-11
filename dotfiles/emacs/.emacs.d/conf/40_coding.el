@@ -55,7 +55,7 @@
                                   ;; gud-関係の場合
                                   (when (window-configuration-p my-gud-window-configuration)
 				    (set-window-configuration my-gud-window-configuration)
-				    (setq my-gud-window-configuration nil)))))
+				    (setq my-gud-window-configuration nil))))))
 
 (my-require-and-when 'gud
   (setq gud-gdb-command-name "gdb -annotate=3")

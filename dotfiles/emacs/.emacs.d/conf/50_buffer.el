@@ -17,6 +17,7 @@
 
 
 ;; macros
+(my-load-and-when "_my-kill-buffers")
 (my-load-and-when "_my-save-and-kill-buffer")
 (my-load-and-when "_my-make-scratch"
   (add-hook 'after-save-hook
