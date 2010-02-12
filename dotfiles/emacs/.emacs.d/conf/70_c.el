@@ -103,7 +103,7 @@
 
 
 ;; cwarn
-(add-hook 'c-mode-hook
+'(add-hook 'c-mode-hook
           (lambda ()
             (my-require-and-when 'cwarn)
             (turn-on-cwarn-mode)))

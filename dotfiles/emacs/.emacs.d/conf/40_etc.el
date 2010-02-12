@@ -53,6 +53,11 @@
   (global-set-key (kbd "<S-f2>") 'bm-previous))
 
 
+;; goto-chg
+;(install-elisp-from-emacswiki "goto-chg.el")
+;(my-require-and-when 'goto-chg)
+
+
 ;; session
 ;; http://emacs-session.sourceforge.net/
 (my-require-and-when 'session
@@ -221,7 +226,8 @@
 (my-load-and-when "_copy-region-with-info")
 '(my-load-and-when "_duplicate-line"
   (define-key esc-map "Y" 'duplicate-line))
-(my-load-and-when "_scroll-speedup")
+(when (not run-w32)
+  (my-load-and-when "_scroll-speedup")) ; in windows, I use kbdacc.
 '(my-load-and-when "_my-memo"
   (global-set-key "\C-c\C-w" 'my-memo))
 ;(my-load-and-when "_byte-compile-directory")
