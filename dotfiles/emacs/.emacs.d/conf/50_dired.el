@@ -50,7 +50,7 @@
 ;; wdired (rename file name from dired buffer)
 ;(install-elisp-from-emacswiki "wdired.el")
 (my-require-and-when 'wdired
-  ;;(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+;;;  (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
   )
 
 
@@ -58,8 +58,8 @@
 ;(install-elisp "http://www.bookshelf.jp/elc/bf-mode.el")
 '(my-require-and-when 'bf-mode
   (setq bf-mode-browsing-size 10)
-  ;;(setq bf-mode-except-ext '("\\.exe$" "\\.com$"))
-  ;;(setq bf-mode-force-browse-exts
+;;;  (setq bf-mode-except-ext '("\\.exe$" "\\.com$"))
+;;;  (setq bf-mode-force-browse-exts
   ;;      (append '("\\.texi$" "\\.el$")
   ;;              bf-mode-force-browse-exts))
   (setq bf-mode-html-with-w3m t)
@@ -106,7 +106,7 @@
 (when (and run-w32 run-meadow)
   '(progn
      ;; w32-symlinks
-     ;(install-elisp "http://centaur.maths.qmw.ac.uk/Emacs/files/w32-symlinks.el")
+;;;     (install-elisp "http://centaur.maths.qmw.ac.uk/Emacs/files/w32-symlinks.el")
      (my-require-and-when 'w32-symlinks)
      (my-load-and-when "_dired-make-symbolic-link"
        (add-hook 'dired-mode-hook

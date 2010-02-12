@@ -43,7 +43,7 @@
   (setq anything-c-moccur-enable-initial-pattern t)
   (setq anything-c-moccur-higligt-info-line-flag t)
   (setq anything-c-moccur-enable-auto-look-flag t)
-  ;;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
+;;;  (defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
   (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
   (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
   (add-hook 'dired-mode-hook
@@ -239,23 +239,23 @@
 (setq anything-sources (list anything-c-source-kyr
                              anything-c-source-buffers
                              anything-c-source-bm
-                             ;anything-c-source-bookmarks
+;;;                             anything-c-source-bookmarks
                              anything-c-source-yasnippet
                              anything-c-source-imenu
-                             ;anything-c-source-gtags-select
+;;;                             anything-c-source-gtags-select
                              anything-c-source-recentf
-                             ;anything-c-source-file-name-history
+;;;                             anything-c-source-file-name-history
                              anything-c-source-file-cache
-                             ;(if run-darwin
-                             ;    anything-c-source-mac-spotlight
-                             ;  anything-c-source-locate)
+;;;                             (if run-darwin
+;;;                                 anything-c-source-mac-spotlight
+;;;                               anything-c-source-locate)
                              anything-c-source-call-source
                              anything-c-source-extended-command-history
                              anything-c-source-emacs-commands
-                             ;anything-c-source-complex-command-history
-                             ;anything-c-source-man-pages
-                             ;anything-c-source-info-pages
-                             ;anything-c-source-calculation-result
+;;;                             anything-c-source-complex-command-history
+;;;                             anything-c-source-man-pages
+;;;                             anything-c-source-info-pages
+;;;                             anything-c-source-calculation-result
                              ))
 
 

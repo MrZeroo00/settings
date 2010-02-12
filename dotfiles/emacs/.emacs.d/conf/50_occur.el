@@ -25,16 +25,16 @@
           "newsrc.eld"
           " *migemo*" ".bbdb"))
   (define-key Buffer-menu-mode-map "O" 'Buffer-menu-moccur)
-  ;;(global-set-key "\M-f" 'grep-buffers)
+;;;  (global-set-key "\M-f" 'grep-buffers)
   (global-set-key "\M-o" 'occur-by-moccur)
   (global-set-key "\C-c\C-x\C-o" 'moccur)
-  ;;(global-set-key "\C-c\C-o" 'search-buffers)
+;;;  (global-set-key "\C-c\C-o" 'search-buffers)
 
   (setq *moccur-buffer-name-exclusion-list*
         '("\.svn" "*Completions*" "*Messages*"))
 
   (setq moccur-grep-default-word-near-point t)
-  ;;(setq moccur-grep-following-mode-toggle t)
+;;;  (setq moccur-grep-following-mode-toggle t)
   )
 
 (my-eval-after-load "ibuffer"

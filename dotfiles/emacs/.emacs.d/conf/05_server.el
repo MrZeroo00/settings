@@ -6,7 +6,7 @@
   (gnuserv-start)
   (setq gnuserv-frame (selected-frame))
 
-  ; http://www.rubyist.net/~rubikitch/computer/myruby/gnuclient-wrapper/
+;;;   http://www.rubyist.net/~rubikitch/computer/myruby/gnuclient-wrapper/
   (setq screen-command "/usr/bin/screen")
   (setq gnuserv-winconf nil)
   (defun gnuserv-edit-finish ()

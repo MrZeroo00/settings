@@ -29,14 +29,14 @@
      (setq pdicv-dictionary-list
            '((eijiro "~/etc/dictionary/EIJIRO95.DIC" (nil nil sjis sjis))
              (waeijiro "~/etc/dictionary/WAEIJI52.DIC" (sjis nil sjis sjis) t)
-                                        ;(ej (eijiro waeijiro))
+;;;                                        (ej (eijiro waeijiro))
              ))
-     ;;(global-set-key "\C-c\C-e" 'pdicv-eijiro-search-interactive)
-     ;;(global-set-key "\C-c\C-r" 'pdicv-eijiro-search-region)
-     ;;(global-set-key "\C-c\C-d" 'pdicv-set-current-dictionary)
-     ;;(global-set-key "\C-c\C-i" 'pdicv-search-interactive)
-     ;;(global-set-key "\C-c\C-j" 'pdicv-search-region)
-     ;;(global-set-key "\C-c\C-p" 'pdicv-mode)
+;;;     (global-set-key "\C-c\C-e" 'pdicv-eijiro-search-interactive)
+;;;     (global-set-key "\C-c\C-r" 'pdicv-eijiro-search-region)
+;;;     (global-set-key "\C-c\C-d" 'pdicv-set-current-dictionary)
+;;;     (global-set-key "\C-c\C-i" 'pdicv-search-interactive)
+;;;     (global-set-key "\C-c\C-j" 'pdicv-search-region)
+;;;     (global-set-key "\C-c\C-p" 'pdicv-mode)
      )
 
 

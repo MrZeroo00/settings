@@ -39,6 +39,6 @@
   (global-set-key (kbd "C-c p") 'one-key-menu-root)
 
   ;; one-key-default
-  ;;(my-require-and-when 'one-key-default)
-  ;;(one-key-default-setup-keys)
+;;;  (my-require-and-when 'one-key-default)
+;;;  (one-key-default-setup-keys)
   )

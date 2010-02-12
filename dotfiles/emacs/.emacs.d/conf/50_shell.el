@@ -74,7 +74,7 @@
                        '(eshell-ls-dired-initial-args (quote ("-h")))
                        '(eshell-ls-exclude-regexp "~\\'")
                        '(eshell-ls-initial-args "-h")
-                                        ;'(eshell-ls-use-in-dired t nil (em-ls))
+;;;                                        '(eshell-ls-use-in-dired t nil (em-ls))
                        '(eshell-modules-list (quote (eshell-alias eshell-basic
                                                                   eshell-cmpl eshell-dirs eshell-glob
                                                                   eshell-hist eshell-ls eshell-pred
@@ -91,5 +91,5 @@
 (add-hook 'shell-mode-hook
           (lambda ()
             (setq outline-regexp "[^ ]*[>%#]")
-            ;(outline-minor-mode t)
+;;;            (outline-minor-mode t)
             (turn-on-orgstruct)))

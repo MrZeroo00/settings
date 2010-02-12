@@ -1,6 +1,6 @@
 ;; http://orgmode.org/
 (my-require-and-when 'org
-  ;;(my-require-and-when 'org-install)
+;;;  (my-require-and-when 'org-install)
   (my-require-and-when 'org-mouse)
   (setq org-startup-truncated nil)
   (setq org-return-follows-link t)
@@ -16,7 +16,7 @@
   (setq org-agenda-files (list "~/memo/todo.org"))
   (setq org-archive-location "::* Archived")
   (setq org-log-done t)
-  ;;(setq org-startup-folded t)
+;;;  (setq org-startup-folded t)
   (setq org-hide-leading-stars t)
   (setq org-deadline-warning-days 7)
 

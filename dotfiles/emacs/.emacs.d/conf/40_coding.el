@@ -74,12 +74,12 @@
 ;; http://cedet.sourceforge.net/
 '(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el"
   (global-ede-mode 1)
-  ;;(ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
+;;;  (ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
   (semantic-load-enable-minimum-features)
   (semantic-load-enable-code-helpers)
-  ;;(semantic-load-enable-gaudy-code-helpers)
-  ;;(semantic-load-enable-all-exuberent-ctags-support)
-  ;;(global-srecode-minor-mode 1)
+;;;  (semantic-load-enable-gaudy-code-helpers)
+;;;  (semantic-load-enable-all-exuberent-ctags-support)
+;;;  (global-srecode-minor-mode 1)
   )
 
 
@@ -190,9 +190,9 @@
 ;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
 (my-require-and-when 'smartchr
   (global-set-key (kbd "=") (smartchr '(" = " " == " "=")))
-  ;(global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
-  ;(global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
-  ;(global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
+;;;  (global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
+;;;  (global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
+;;;  (global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
   )
 
 
@@ -222,9 +222,9 @@
 ;; mode-info
 ;; http://www.namazu.org/~tsuchiya/elisp/mode-info.html
 '(my-require-and-when 'mi-config
-  ;;(define-key global-map "\C-hf" 'mode-info-describe-function)
-  ;;(define-key global-map "\C-hv" 'mode-info-describe-variable)
-  ;;(define-key global-map "\M-." 'mode-info-find-tag)
+;;;  (define-key global-map "\C-hf" 'mode-info-describe-function)
+;;;  (define-key global-map "\C-hv" 'mode-info-describe-variable)
+;;;  (define-key global-map "\M-." 'mode-info-find-tag)
   (my-require-and-when 'mi-fontify)
   (setq mode-info-index-directory "~/.emacs.d")
   (setq mode-info-class-alist
@@ -325,7 +325,7 @@
 
 ;; linum (show line number)
 (my-require-and-when 'linum
-  ;;(global-linum-mode t)
+;;;  (global-linum-mode t)
   (setq linum-format "%5d "))
 
 
@@ -381,7 +381,7 @@
 (add-hook 'change-log-mode-hook
           (lambda ()
             (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
-            ;(outline-minor-mode t)
+;;;            (outline-minor-mode t)
             (turn-on-orgstruct)))
 
 

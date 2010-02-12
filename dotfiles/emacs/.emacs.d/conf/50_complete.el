@@ -33,9 +33,9 @@
   (setq ac-candidate-max 15)
   (setq ac-dwim t)
   (setq-default ac-sources '(ac-source-words-in-buffer
-                             ;;ac-source-words-in-same-mode-buffers
+;;;                             ac-source-words-in-same-mode-buffers
                              ac-source-abbrev
-                             ;;ac-source-files-in-current-dir
+;;;                             ac-source-files-in-current-dir
                              ))
   (add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
   (add-hook 'c-mode-common-hook
@@ -44,20 +44,20 @@
               (add-to-list 'ac-sources 'ac-source-yasnippet)))
 
   ;; http://d.hatena.ne.jp/kiwanami/20081124/1227543508
-  ;(defun ac-next-or-next-line (arg)
-  ;  (interactive "p")
-  ;  (if (= (length ac-candidates) 1)
-  ;      (progn (ac-abort)
-  ;             (next-line arg))
-  ;    (ac-next)))
-  ;(defun ac-previous-or-previous-line (arg)
-  ;  (interactive "p")
-  ;  (if (= (length ac-candidates) 1)
-  ;      (progn (ac-abort)
-  ;             (previous-line arg))
-  ;    (ac-previous)))
-  ;(define-key ac-complete-mode-map "\C-n" 'ac-next-or-next-line)
-  ;(define-key ac-complete-mode-map "\C-p" 'ac-previous-or-previous-line)
+;;;  (defun ac-next-or-next-line (arg)
+;;;    (interactive "p")
+;;;    (if (= (length ac-candidates) 1)
+;;;        (progn (ac-abort)
+;;;               (next-line arg))
+;;;      (ac-next)))
+;;;  (defun ac-previous-or-previous-line (arg)
+;;;    (interactive "p")
+;;;    (if (= (length ac-candidates) 1)
+;;;        (progn (ac-abort)
+;;;               (previous-line arg))
+;;;      (ac-previous)))
+;;;  (define-key ac-complete-mode-map "\C-n" 'ac-next-or-next-line)
+;;;  (define-key ac-complete-mode-map "\C-p" 'ac-previous-or-previous-line)
   )
 
 

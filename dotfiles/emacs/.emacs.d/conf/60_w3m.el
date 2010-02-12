@@ -10,7 +10,7 @@
   (setq w3m-content-type-alist
         (cons
          '("text/html" "\\.s?html?$" browse-url-firefox) w3m-content-type-alist))
-  ;;(setq w3m-content-type-alist
+;;;  (setq w3m-content-type-alist
   ;;      '(("text/plain" "\\.\\(txt\\|tex\\|diary\\|el\\)" nil)
   ;;        ("text/html" "\\.s?html?$" w3m-w32-browser-with-fiber)
   ;;        ("text/html" "[0-9]+$" w3m-w32-browser-with-fiber)

@@ -2,9 +2,9 @@
 (add-hook 'text-mode-hook
           (lambda ()
             (progn
-              ;(ruler-mode)
+;;;              (ruler-mode)
               (flyspell-mode)
-              ;(refill-mode t)
+;;;              (refill-mode t)
               )))
 
 ; common setting
@@ -27,7 +27,7 @@
 ;; word-count
 ;(install-elisp "http://taiyaki.org/elisp/word-count/src/word-count.el")
 (my-autoload-and-when 'word-count-mode "word-count"
-                      ;;(global-set-key "\M-+" 'word-count-mode)
+;;;                      (global-set-key "\M-+" 'word-count-mode)
                       )
 
 

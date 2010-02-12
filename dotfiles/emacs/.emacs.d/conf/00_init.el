@@ -35,12 +35,12 @@
                     '(left . 100)       ; 起動時の表示位置(左から)
                     '(width . 160)      ; 起動時のサイズ(幅)
                     '(height . 64)      ; 起動時のサイズ(縦)
-                    ;'(foreground-color . "green")       ; 文字の色
-                    ;'(background-color . "black")       ; 背景の色
-                    ;'(alpha . (nil 70 50 30))           ; 透過
-                    ;'(cursor-color . "DarkOliveGreen1") ; カーソルの色
-                    ;'(mouse-color . "DarkOliveGreen1")  ; マウスポインタの色
-                    ;'(font . "fontset-tt14") ; 使うフォントセット
+;;;                    '(foreground-color . "green")       ; 文字の色
+;;;                    '(background-color . "black")       ; 背景の色
+;;;                    '(alpha . (nil 70 50 30))           ; 透過
+;;;                    '(cursor-color . "DarkOliveGreen1") ; カーソルの色
+;;;                    '(mouse-color . "DarkOliveGreen1")  ; マウスポインタの色
+;;;                    '(font . "fontset-tt14") ; 使うフォントセット
                     )
               default-frame-alist))
 
@@ -85,8 +85,8 @@
 ;(install-elisp-from-emacswiki "vline.el")
 (my-require-and-when 'col-highlight
   (column-highlight-mode t)
-  ;(toggle-highlight-column-when-idle t)
-  ;(col-highlight-set-interval 3)
+;;;  (toggle-highlight-column-when-idle t)
+;;;  (col-highlight-set-interval 3)
   (custom-set-faces
    '(col-highlight ((t (:background "DarkOliveGreen"))))))
 

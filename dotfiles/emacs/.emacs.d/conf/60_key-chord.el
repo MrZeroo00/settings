@@ -11,5 +11,5 @@
 ;; space-chord
 ;(install-elisp-from-emacswiki "space-chord.el")
 (my-require-and-when 'space-chord
-  ;;(space-chord-define-global "f" 'find-file)
+;;;  (space-chord-define-global "f" 'find-file)
   )
