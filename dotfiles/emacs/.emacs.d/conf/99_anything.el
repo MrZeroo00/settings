@@ -9,8 +9,8 @@
 
 ;; ac-anything
 ;(install-elisp-from-emacswiki "ac-anything.el")
-(my-require-and-when 'ac-anything)
-(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything)
+(my-require-and-when 'ac-anything
+  (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything))
 
 
 ;; anything-c-dabbrev
@@ -38,19 +38,20 @@
 
 ;; anything-c-moccur
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
-(my-require-and-when 'anything-c-moccur)
-(setq anything-c-moccur-anything-idle-delay 0.1)
-(setq anything-c-moccur-enable-initial-pattern t)
-(setq anything-c-moccur-higligt-info-line-flag t)
-(setq anything-c-moccur-enable-auto-look-flag t)
-;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
-(global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
-(global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
-(add-hook 'dired-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)))
-(global-set-key (kbd "C-M-s") 'anything-c-moccur-isearch-forward)
-(global-set-key (kbd "C-M-r") 'anything-c-moccur-isearch-backward)
+(my-require-and-when 'anything-c-moccur
+  (setq anything-c-moccur-anything-idle-delay 0.1)
+  (setq anything-c-moccur-enable-initial-pattern t)
+  (setq anything-c-moccur-higligt-info-line-flag t)
+  (setq anything-c-moccur-enable-auto-look-flag t)
+  ;;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
+  (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
+  (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
+  (add-hook 'dired-mode-hook
+            '(lambda ()
+               (local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)))
+  (global-set-key (kbd "C-M-s") 'anything-c-moccur-isearch-forward)
+  (global-set-key (kbd "C-M-r") 'anything-c-moccur-isearch-backward)
+  )
 
 
 ;; anything-c-source-buffers2
@@ -59,30 +60,32 @@
 
 
 ;; anything-c-yasnippet
-(my-require-and-when 'anything-c-yasnippet)
-(setq anything-c-yas-space-match-any-greedy t)
+(my-require-and-when 'anything-c-yasnippet
+  (setq anything-c-yas-space-match-any-greedy t))
 
 
 ;; anything-complete
 ;(install-elisp-from-emacswiki "anything-complete.el")
-(my-require-and-when 'anything-complete)
-(anything-read-string-mode t)
-(anything-lisp-complete-symbol-set-timer 150)
-(setq anything-lisp-complete-symbol-input-idle-delay 0.0)
-'(setq anything-find-file-additional-sources (list anything-find-file-additional-sources
-                                                  (if run-darwin
-                                                      anything-c-source-mac-spotlight
-                                                    anything-c-source-locate)))
+(my-require-and-when 'anything-complete
+  (anything-read-string-mode t)
+  (anything-lisp-complete-symbol-set-timer 150)
+  (setq anything-lisp-complete-symbol-input-idle-delay 0.0)
+  '(setq anything-find-file-additional-sources (list anything-find-file-additional-sources
+                                                    (if run-darwin
+                                                        anything-c-source-mac-spotlight
+                                                      anything-c-source-locate)))
+  )
 
 
 ;; anything-dabbrev-expand
 ;(install-elisp-from-emacswiki "anything-dabbrev-expand.el")
-(my-require-and-when 'anything-dabbrev-expand)
-(setq anything-dabbrev-input-idle-delay 0.0)
-(setq anything-dabbrev-idle-delay 1.0)
-(setq anything-dabbrev-expand-candidate-number-limit 20)
-(global-set-key "\M-/" 'anything-dabbrev-expand)
-(define-key anything-dabbrev-map "\M-/" 'anything-dabbrev-find-all-buffers)
+'(my-require-and-when 'anything-dabbrev-expand
+  (setq anything-dabbrev-input-idle-delay 0.0)
+  (setq anything-dabbrev-idle-delay 1.0)
+  (setq anything-dabbrev-expand-candidate-number-limit 20)
+  (global-set-key "\M-/" 'anything-dabbrev-expand)
+  (define-key anything-dabbrev-map "\M-/" 'anything-dabbrev-find-all-buffers)
+  )
 
 
 ;; anything-delicious
@@ -102,31 +105,30 @@
 
 ;; anything-grep
 ;(install-elisp-from-emacswiki "anything-grep.el")
-(my-require-and-when 'anything-grep)
-
-(setq anything-grep-goto-hook
-      (lambda ()
-        (when anything-in-persistent-action
-          (anything-persistent-highlight-point (point-at-bol) (point-at-eol)))))
-
-(setq anything-grep-alist
-      ;; 全バッファのファイル名においてegrepをかける。moccurの代わり。
-      '(("buffers" ("egrep -Hin %s $buffers" "/"))
-        ;; ~/memo 以下から再帰的にegrepをかける。不要なファイルは除かれる。
-        ("memo" ("ack-grep -af | xargs egrep -Hin %s" "~/memo"))
-        ;; grep current directory (now testing)
-        ("current directory" ("ack-grep -af | xargs egrep -Hin %s" "."))
-        ;; ~/ruby以下の全Rubyスクリプトと~/bin以下のファイルをまとめて検索する。
-        ("~/bin and ~/ruby"
-         ("ack-grep -afG 'rb$' | xargs egrep -Hin %s" "~/ruby")
-         ("ack-grep -af | xargs egrep -Hin %s" "~/bin"))))
+(my-require-and-when 'anything-grep
+  (setq anything-grep-goto-hook
+        (lambda ()
+          (when anything-in-persistent-action
+            (anything-persistent-highlight-point (point-at-bol) (point-at-eol)))))
+  (setq anything-grep-alist
+        ;; 全バッファのファイル名においてegrepをかける。moccurの代わり。
+        '(("buffers" ("egrep -Hin %s $buffers" "/"))
+          ;; ~/memo 以下から再帰的にegrepをかける。不要なファイルは除かれる。
+          ("memo" ("ack-grep -af | xargs egrep -Hin %s" "~/memo"))
+          ;; grep current directory (now testing)
+          ("current directory" ("ack-grep -af | xargs egrep -Hin %s" "."))
+          ;; ~/ruby以下の全Rubyスクリプトと~/bin以下のファイルをまとめて検索する。
+          ("~/bin and ~/ruby"
+           ("ack-grep -afG 'rb$' | xargs egrep -Hin %s" "~/ruby")
+           ("ack-grep -af | xargs egrep -Hin %s" "~/bin"))))
+  )
 
 
 ;; anything-gtags
 ;(install-elisp-from-emacswiki "anything-gtags.el")
-(my-require-and-when 'anything-gtags)
-(setq anything-gtags-classify t)
-(setq anything-gtags-enable-goto-location t)
+(my-require-and-when 'anything-gtags
+  (setq anything-gtags-classify t)
+  (setq anything-gtags-enable-goto-location t))
 
 
 ;; anything-ipa
@@ -136,27 +138,27 @@
 
 ;; anything-match-plugin
 ;(install-elisp-from-emacswiki "anything-match-plugin.el")
-(my-require-and-when 'anything-match-plugin)
-(setq anything-mp-space-regexp "[\\ ] ")
+(my-require-and-when 'anything-match-plugin
+  (setq anything-mp-space-regexp "[\\ ] "))
 
 
 ;; anything-migemo
 ;(install-elisp-from-emacswiki "anything-migemo.el")
-(my-require-and-when 'anything-migemo)
-(define-key global-map [(control ?:)] 'anything-migemo)
+(my-require-and-when 'anything-migemo
+  (define-key global-map [(control ?:)] 'anything-migemo))
 
 
 ;; anything-rurima
 ;(install-elisp-from-emacswiki "anything-rurima.el")
 '(my-require-and-when 'anything-rurima
-  (setq anything-rurima-index-file "~/foo/rurima.e")
+  (setq anything-rurima-index-file "~/foo/rurima.e"))
 
 
 ;; anything-rcodetools
 ;(install-elisp-from-emacswiki "anything-rcodetools.el")
-;(my-require-and-when 'anything-rcodetools)
-;(setq rct-get-all-methods-command "PAGER=cat fri -l")
-;(define-key anything-map "\C-z" 'anything-execute-persistent-action)
+'(my-require-and-when 'anything-rcodetools
+  (setq rct-get-all-methods-command "PAGER=cat fri -l")
+  (define-key anything-map "\C-z" 'anything-execute-persistent-action))
 
 
 ;; anything-show-completion
@@ -166,14 +168,14 @@
 
 ;; anything-project
 ; http://github.com/imakado/anything-project
-;(my-require-and-when 'anything-project)
-;(global-set-key (kbd "C-c C-f") 'anything-project)
+'(my-require-and-when 'anything-project
+  (global-set-key (kbd "C-c C-f") 'anything-project))
 
 
 ;; descbinds-anything
 ;(install-elisp-from-emacswiki "descbinds-anything.el")
-(my-require-and-when 'descbinds-anything)
-(descbinds-anything-install)
+(my-require-and-when 'descbinds-anything
+  (descbinds-anything-install))
 
 
 ;; anything-c-key-chord-describe
