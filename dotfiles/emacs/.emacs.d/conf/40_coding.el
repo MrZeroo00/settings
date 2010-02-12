@@ -365,7 +365,7 @@
 ;  (font-lock-add-keywords
 ;   major-mode
 ;   '(("\t" 0 my-face-b-2 append)
-;     ("¡¡" 0 my-face-b-1 append)
+;     ("　" 0 my-face-b-1 append)
 ;     ("[ \t]+$" 0 my-face-u-1 append)
 ;     ;;("[\r]*\n" 0 my-face-r-1 append)
 ;     )))
