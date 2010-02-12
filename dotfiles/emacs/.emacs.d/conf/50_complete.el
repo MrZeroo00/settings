@@ -5,7 +5,7 @@
           (lambda ()
             (setq abbrev-mode nil)))
 
-; for coding
+;; for coding
 (setq dabbrev-case-fold-search nil)
 (setq dabbrev-case-replace nil)
 
@@ -15,7 +15,7 @@
 
 
 ;; auto-complete
-; http://github.com/m2ym/auto-complete
+;; http://github.com/m2ym/auto-complete
 ;(install-elisp-from-emacswiki "auto-complete.el")
 ;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
 ;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")

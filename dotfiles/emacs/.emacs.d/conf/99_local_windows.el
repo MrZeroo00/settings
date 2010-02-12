@@ -1,4 +1,4 @@
-; language setting
+;; language setting
 (set-language-environment "Japanese")
 ;(set-default-coding-systems 'euc-jp-unix)
 (set-default-coding-systems 'japanese-shift-jis-dos)
@@ -13,13 +13,13 @@
 (set-clipboard-coding-system 'cp932)
 (setq default-process-coding-system '(euc-jp-unix . euc-jp-unix))
 
-; Cygwin
+;; Cygwin
 (setenv "CYGWIN" "")
 (setq explicit-shell-file-name "c:\\cygwin\\bin\\zsh.exe")
 (setq shell-file-name "sh.exe")
 (setq shell-command-switch "-c")
 
-; other setting
+;; other setting
 (global-set-key [M-kanji] 'ignore)
 
 
@@ -41,7 +41,7 @@
   )
 
 
-; compile command
+;; compile command
 ;(setq my-project-directory "C:/src")
 ;(setq my-project-file "foo.dsw")
 ;(setq my-project-name "Foo")
@@ -58,7 +58,7 @@
 
 
 ;; flymake
-; http://d.hatena.ne.jp/kei10in/20091023/1256295420
+;; http://d.hatena.ne.jp/kei10in/20091023/1256295420
 (defun flymake-vc-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
                      'flymake-create-temp-inplace))

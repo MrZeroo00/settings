@@ -1,9 +1,9 @@
 (my-autoload-and-when 'actionscript-mode "actionscript-mode")
 
-; association setting
+;; association setting
 (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))
 
-; mode hook
+;; mode hook
 (my-eval-after-load "actionscript-mode"
   (add-hook 'actionscript-mode-hook
             (lambda ()

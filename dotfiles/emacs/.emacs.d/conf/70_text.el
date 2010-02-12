@@ -1,4 +1,4 @@
-; mode hook
+;; mode hook
 (add-hook 'text-mode-hook
           (lambda ()
             (progn
@@ -7,7 +7,7 @@
 ;;;              (refill-mode t)
               )))
 
-; common setting
+;; common setting
 (setq paragraph-start '"^\\([ ¡¡¡¦¡û<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
 
 

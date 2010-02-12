@@ -12,11 +12,11 @@
   (auto-install-compatibility-setup))
 
 
-; base settings
+;; base settings
 (cd "~/")
 
 
-; language setting
+;; language setting
 ;;;(my-require-and-when 'un-define)
 ;;;(set-language-environment "Japanese")
 ;;;(set-terminal-coding-system 'utf-8)
@@ -25,11 +25,11 @@
 ;;;(setq default-buffer-file-coding-system 'utf-8)
 
 
-; locale setting
+;; locale setting
 (setenv "LC_TIME" "C")
 
 
-; position and size setting
+;; position and size setting
 (setq default-frame-alist
       (append (list '(top . 20)         ; 起動時の表示位置(右から)
                     '(left . 100)       ; 起動時の表示位置(左から)
@@ -44,7 +44,7 @@
                     )
               default-frame-alist))
 
-; color setting
+;; color setting
 (global-font-lock-mode t)
 '(if window-system (progn
                     (set-face-foreground 'font-lock-comment-face "MediumSeaGreen")
@@ -72,11 +72,11 @@
   (color-theme-clarity))
 
 
-; highlight setting
+;; highlight setting
 (setq search-highlight t)
 (setq query-replace-highlight t)
 (my-require-and-when 'hi-lock)
-; highlight current line
+;; highlight current line
 (global-hl-line-mode)
 (hl-line-mode t)
 ;(setq hl-line-face 'underline)
@@ -91,7 +91,7 @@
    '(col-highlight ((t (:background "DarkOliveGreen"))))))
 
 
-; region setting
+;; region setting
 (transient-mark-mode t)
 ;(setq highlight-nonselected-windows t)
 ;(pc-selection-mode)
@@ -102,7 +102,7 @@
 (my-require-and-when 'visible-mark)
 
 
-; clipboard setting
+;; clipboard setting
 ;; http://d.hatena.ne.jp/pakepion/20081209/1228828521
 (when (or run-linux run-bsd run-unix run-system-v)
   (progn
@@ -117,14 +117,14 @@
               (process-send-eof proc))))))
 
 
-; scroll setting
+;; scroll setting
 (setq scroll-conservatively 35)
 (setq scroll-margin 0)
 (setq scroll-step 1)
 (setq scroll-preserve-screen-position t)
 
 
-; timestamp setting
+;; timestamp setting
 (setq time-stamp-start "Time-stamp:[ \t]*<")
 (setq time-stamp-end ">")
 

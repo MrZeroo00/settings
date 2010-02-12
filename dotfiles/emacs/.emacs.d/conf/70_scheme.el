@@ -1,7 +1,7 @@
 (my-autoload-and-when 'scheme-mode "cmuscheme")
 (my-autoload-and-when 'run-scheme "cmuscheme")
 
-; mode hook
+;; mode hook
 (my-eval-after-load "cmuscheme"
   (add-hook 'scheme-mode-hook
             (lambda ()

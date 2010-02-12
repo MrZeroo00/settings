@@ -1,9 +1,9 @@
 (my-require-and-when 'cc-mode)
 
-; association setting
+;; association setting
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 
-; mode hook
+;; mode hook
 (add-hook 'c-mode-common-hook '(lambda ()
                                  (c-set-style "k&r")
 ;;;                                 (c-set-offset 'substatement-open 0)

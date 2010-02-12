@@ -1,6 +1,6 @@
 (my-require-and-when 'lisp-mode)
 
-; mode hook
+;; mode hook
 (add-hook 'lisp-mode-hook
           (lambda ()
             (define-key lisp-mode-map "\C-m" 'newline-and-indent)))

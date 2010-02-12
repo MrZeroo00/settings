@@ -1,9 +1,9 @@
 (my-require-and-when 'lisp-mode)
 
-; association setting
+;; association setting
 (add-to-list 'auto-mode-alist '("\\.el$" . emacs-lisp-mode))
 
-; mode hook
+;; mode hook
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (define-key emacs-lisp-mode-map "\C-m" 'newline-and-indent)))
@@ -31,7 +31,7 @@
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.el$" flymake-elisp-init))
 
-; tentative patch
+;; tentative patch
 (when (not run-w32)
   (add-hook 'emacs-lisp-mode-hook
             (lambda ()

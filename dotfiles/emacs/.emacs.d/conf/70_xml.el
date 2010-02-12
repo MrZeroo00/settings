@@ -8,5 +8,5 @@
               (setq indent-tabs-mode t)
               (setq tab-width 2))))
 
-; association setting
+;; association setting
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))

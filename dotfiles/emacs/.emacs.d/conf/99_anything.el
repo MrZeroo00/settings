@@ -167,7 +167,7 @@
 
 
 ;; anything-project
-; http://github.com/imakado/anything-project
+;; http://github.com/imakado/anything-project
 '(my-require-and-when 'anything-project
   (global-set-key (kbd "C-c C-f") 'anything-project))
 
@@ -214,7 +214,7 @@
       anything-kyr-commands-by-major-mode)
 
 
-; basic setting
+;; basic setting
 ;(anything-iswitchb-setup)
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0)
@@ -226,7 +226,7 @@
 ;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
 
 
-; key setting
+;; key setting
 (define-key global-map (kbd "C-;") 'anything)
 (define-key global-map (kbd "C-:") 'anything-resume)
 (define-key global-map (kbd "C-'") 'anything-call-source)
@@ -235,7 +235,7 @@
 (define-key anything-map "\C-r" 'anything-select-source)
 
 
-; source
+;; source
 (setq anything-sources (list anything-c-source-kyr
                              anything-c-source-buffers
                              anything-c-source-bm
@@ -259,7 +259,7 @@
                              ))
 
 
-; anything-display-function
+;; anything-display-function
 (my-require-and-when 'split-root
   (defvar anything-compilation-window-height-percent 50.0)
   (defun anything-compilation-window-root (buf)

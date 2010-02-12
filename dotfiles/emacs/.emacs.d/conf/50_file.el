@@ -17,7 +17,7 @@
 (recentf-mode t)
 ;(filesets-init)
 ;(file-name-shadow-mode t)
-; complete
+;; complete
 ;(partial-completion-mode t)
 (setq read-file-name-completion-ignore-case t)
 
