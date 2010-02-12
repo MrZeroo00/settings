@@ -1,5 +1,5 @@
-(my-require-and-when 'cperl-mode)
-(defalias 'perl-mode 'cperl-mode)
+(my-require-and-when 'cperl-mode
+  (defalias 'perl-mode 'cperl-mode))
 
 ;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . cperl-mode))

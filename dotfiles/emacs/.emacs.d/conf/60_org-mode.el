@@ -121,12 +121,12 @@
     ("QA" "Archive tags search" org-tags-view ""
      ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
     ))
-  )
 
 
 ;;;; imenu
-(add-hook 'org-mode-hook
-    (lambda () (imenu-add-to-menubar "Imenu")))
+  (add-hook 'org-mode-hook
+            (lambda () (imenu-add-to-menubar "Imenu")))
+  )
 
 
 ;;;; remember

@@ -20,18 +20,19 @@
 ;;;; slime
 ;;;; http://common-lisp.net/project/slime/
 (setq load-path (cons "/opt/local/share/emacs/site-lisp/slime" load-path))
-(my-require-and-when 'slime-autoloads)
-(setq slime-lisp-implementations
-      `((sbcl ("/opt/local/bin/sbcl"))
-        (clisp ("/opt/local/bin/clisp"))))
-(add-hook 'lisp-mode-hook
-          (lambda ()
-            (cond ((not (featurep 'slime))
-                   (my-require-and-when 'slime) 
-                   (normal-mode)))))
+(my-require-and-when 'slime-autoloads
+  (setq slime-lisp-implementations
+        `((sbcl ("/opt/local/bin/sbcl"))
+          (clisp ("/opt/local/bin/clisp"))))
+  (add-hook 'lisp-mode-hook
+            (lambda ()
+              (cond ((not (featurep 'slime))
+                     (my-require-and-when 'slime)
+                     (normal-mode)))))
 
-(add-hook 'lisp-interaction-mode-hook
-          'turn-on-eldoc-mode)
+  (add-hook 'lisp-interaction-mode-hook
+            'turn-on-eldoc-mode)
 
-(eval-after-load "slime"
-  '(slime-setup '(slime-fancy slime-banner)))
+  (eval-after-load "slime"
+    '(slime-setup '(slime-fancy slime-banner)))
+  )
