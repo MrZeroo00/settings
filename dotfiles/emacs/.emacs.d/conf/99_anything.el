@@ -7,36 +7,36 @@
 ;;;(my-load-and-when "_anything-rubikitch")
 
 
-;; ac-anything
+;;;; ac-anything
 ;;;(install-elisp-from-emacswiki "ac-anything.el")
 (my-require-and-when 'ac-anything
   (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything))
 
 
-;; anything-c-dabbrev
+;;;; anything-c-dabbrev
 ;;;(install-elisp-from-emacswiki "anything-c-dabbrev.el")
 
 
-;; anything-c-imenu
+;;;; anything-c-imenu
 ;;;(install-elisp-from-emacswiki "el-expectations.el")
 (my-require-and-when 'el-expectations)
 ;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
 (my-require-and-when 'anything-c-imenu)
 
 
-;; anything-c-linkd-tags
+;;;; anything-c-linkd-tags
 ;;;(install-elisp-from-emacswiki "linkd.el")
 (my-require-and-when 'linkd)
 ;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
 (my-require-and-when 'anything-c-linkd-tags)
 
 
-;; anything-c-lisp-complete-symbol
+;;;; anything-c-lisp-complete-symbol
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-lisp-complete-symbol/anything-c-lisp-complete-symbol.el")
 (my-require-and-when 'anything-c-lisp-complete-symbol)
 
 
-;; anything-c-moccur
+;;;; anything-c-moccur
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
 (my-require-and-when 'anything-c-moccur
   (setq anything-c-moccur-anything-idle-delay 0.1)
@@ -54,17 +54,17 @@
   )
 
 
-;; anything-c-source-buffers2
+;;;; anything-c-source-buffers2
 ;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-source-buffers2.el")
 (my-require-and-when 'anything-c-source-buffers2)
 
 
-;; anything-c-yasnippet
+;;;; anything-c-yasnippet
 (my-require-and-when 'anything-c-yasnippet
   (setq anything-c-yas-space-match-any-greedy t))
 
 
-;; anything-complete
+;;;; anything-complete
 ;;;(install-elisp-from-emacswiki "anything-complete.el")
 (my-require-and-when 'anything-complete
   (anything-read-string-mode t)
@@ -77,7 +77,7 @@
   )
 
 
-;; anything-dabbrev-expand
+;;;; anything-dabbrev-expand
 ;;;(install-elisp-from-emacswiki "anything-dabbrev-expand.el")
 '(my-require-and-when 'anything-dabbrev-expand
   (setq anything-dabbrev-input-idle-delay 0.0)
@@ -88,22 +88,22 @@
   )
 
 
-;; anything-delicious
+;;;; anything-delicious
 ;;;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
 ;;;(my-require-and-when 'anything-delicious)
 
 
-;; anything-emms
+;;;; anything-emms
 ;;;(install-elisp-from-emacswiki "anything-emms.el")
 ;;;(my-require-and-when 'anything-emms)
 
 
-;; anything-extension
+;;;; anything-extension
 ;;;(install-elisp-from-emacswiki "anything-extension.el")
 ;;;(my-require-and-when 'anything-extension)
 
 
-;; anything-grep
+;;;; anything-grep
 ;;;(install-elisp-from-emacswiki "anything-grep.el")
 (my-require-and-when 'anything-grep
   (setq anything-grep-goto-hook
@@ -124,68 +124,68 @@
   )
 
 
-;; anything-gtags
+;;;; anything-gtags
 ;;;(install-elisp-from-emacswiki "anything-gtags.el")
 (my-require-and-when 'anything-gtags
   (setq anything-gtags-classify t)
   (setq anything-gtags-enable-goto-location t))
 
 
-;; anything-ipa
+;;;; anything-ipa
 ;;;(install-elisp-from-emacswiki "anything-ipa.el")
 (my-require-and-when 'anything-ipa)
 
 
-;; anything-match-plugin
+;;;; anything-match-plugin
 ;;;(install-elisp-from-emacswiki "anything-match-plugin.el")
 (my-require-and-when 'anything-match-plugin
   (setq anything-mp-space-regexp "[\\ ] "))
 
 
-;; anything-migemo
+;;;; anything-migemo
 ;;;(install-elisp-from-emacswiki "anything-migemo.el")
 (my-require-and-when 'anything-migemo
   (define-key global-map [(control ?:)] 'anything-migemo))
 
 
-;; anything-rurima
+;;;; anything-rurima
 ;;;(install-elisp-from-emacswiki "anything-rurima.el")
 '(my-require-and-when 'anything-rurima
   (setq anything-rurima-index-file "~/foo/rurima.e"))
 
 
-;; anything-rcodetools
+;;;; anything-rcodetools
 ;;;(install-elisp-from-emacswiki "anything-rcodetools.el")
 '(my-require-and-when 'anything-rcodetools
   (setq rct-get-all-methods-command "PAGER=cat fri -l")
   (define-key anything-map "\C-z" 'anything-execute-persistent-action))
 
 
-;; anything-show-completion
+;;;; anything-show-completion
 ;;;(install-elisp-from-emacswiki "anything-show-completion.el")
 (setq anything-show-completion-activate nil)
 
 
-;; anything-project
-;; http://github.com/imakado/anything-project
+;;;; anything-project
+;;;; http://github.com/imakado/anything-project
 '(my-require-and-when 'anything-project
   (global-set-key (kbd "C-c C-f") 'anything-project))
 
 
-;; descbinds-anything
+;;;; descbinds-anything
 ;;;(install-elisp-from-emacswiki "descbinds-anything.el")
 (my-require-and-when 'descbinds-anything
   (descbinds-anything-install))
 
 
-;; anything-c-key-chord-describe
+;;;; anything-c-key-chord-describe
 (my-load-and-when "_anything-c-key-chord-describe")
 
 
-;; anything-call-source
+;;;; anything-call-source
 
 
-;; anything-compile-source--candidates-file
+;;;; anything-compile-source--candidates-file
 (defvar anything-c-source-home-directory
   '((name . "Home directory")
     ;; /log/home.filelist にホームディレクトリのファイル名が1行につきひとつ格納されている
@@ -195,7 +195,7 @@
     (type . file)))
 
 
-;; anything-kyr
+;;;; anything-kyr
 ;;;(install-elisp-from-emacswiki "anything-kyr.el")
 ;;;(install-elisp-from-emacswiki "anything-kyr-config.el")
 (my-require-and-when 'anything-kyr-config)
@@ -214,7 +214,7 @@
       anything-kyr-commands-by-major-mode)
 
 
-;; basic setting
+;;;; basic setting
 ;;;(anything-iswitchb-setup)
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0)
@@ -226,7 +226,7 @@
 ;;;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
 
 
-;; key setting
+;;;; key setting
 (define-key global-map (kbd "C-;") 'anything)
 (define-key global-map (kbd "C-:") 'anything-resume)
 (define-key global-map (kbd "C-'") 'anything-call-source)
@@ -235,7 +235,7 @@
 (define-key anything-map "\C-r" 'anything-select-source)
 
 
-;; source
+;;;; source
 (setq anything-sources (list anything-c-source-kyr
                              anything-c-source-buffers
                              anything-c-source-bm
@@ -259,7 +259,7 @@
                              ))
 
 
-;; anything-display-function
+;;;; anything-display-function
 (my-require-and-when 'split-root
   (defvar anything-compilation-window-height-percent 50.0)
   (defun anything-compilation-window-root (buf)
@@ -272,13 +272,13 @@
   )
 
 
-;; advice
+;;;; advice
 (defadvice anything (around disable-ww-mode activate)
   (ad-deactivate-regexp "widen-window")
   (unwind-protect
       ad-do-it
     (ad-activate-regexp "widen-window")))
 
-;; patches
+;;;; patches
 (setq fit-frame-inhibit-fitting-flag t)
 (setq anything-save-configuration-functions '(set-window-configuration . current-window-configuration))

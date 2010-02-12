@@ -1,14 +1,14 @@
-;; proxy
+;;;; proxy
 (setq http-proxy-server "localhost")
 (setq http-proxy-port 8080)
 
 
-;; tramp
+;;;; tramp
 (my-require-and-when 'tramp)
 
 
-;; emacs-wget
-;; http://pop-club.hp.infoseek.co.jp/emacs/emacs-wget/
+;;;; emacs-wget
+;;;; http://pop-club.hp.infoseek.co.jp/emacs/emacs-wget/
 (my-autoload-and-when 'wget "wget")
 (my-autoload-and-when 'wget-web-page "wget")
 (my-eval-after-load "wget"
@@ -18,37 +18,37 @@
   (setq wget-process-buffer nil))
 
 
-;; browser
+;;;; browser
 ;;;(setq browse-url-browser-function 'w3m-browse-firefox)
 (setq browse-url-browser-function 'w3m-browse-url)
 
 
-;; telnet
+;;;; telnet
 (setq telnet-program "telnet")
 (add-hook 'telnet-mode-hook '_telnet-mode)
 (defun _telnet-mode ()
   (set-buffer-process-coding-system 'euc-japan 'sjis-unix))
 
 
-;; ange-ftp
+;;;; ange-ftp
 (setq ange-ftp-ftp-program-name "lftp")
 (setq ange-ftp-try-passive-mode t)
 
 
-;; riece
-;; http://www.nongnu.org/riece/index.html.ja
+;;;; riece
+;;;; http://www.nongnu.org/riece/index.html.ja
 (my-autoload-and-when 'riece "riece")
 
 
-;; twit
+;;;; twit
 ;;;(install-elisp-from-emacswiki "twit.el")
 '(my-require-and-when 'twit
   (setq twit-user "¡Á"
         twit-pass "¡Á"))
 
 
-;; MozRepl
-;; http://hyperstruct.net/projects/mozlab
+;;;; MozRepl
+;;;; http://hyperstruct.net/projects/mozlab
 (add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
 (my-autoload-and-when 'moz-minor-mode "moz")
 (defun java-custom-setup ()
@@ -56,7 +56,7 @@
 (add-hook 'java-mode-hook 'java-custom-setup)
 
 
-;; moz-plus
+;;;; moz-plus
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
 (my-autoload-and-when 'run-mozilla "moz")
 (add-hook 'inferior-moz-mode-hook (lambda ()
@@ -65,16 +65,16 @@
                                     ))
 
 
-;; google2
+;;;; google2
 ;;;(install-elisp "http://www.bookshelf.jp/elc/google2.el")
 ;;;(my-load-and-when "google2")
 
 
-;; autoinfo
+;;;; autoinfo
 ;;;(install-elisp-from-emacswiki "autoinfo.el")
 ;;;(my-require-and-when 'autoinfo)
 
 
-;; macros
+;;;; macros
 (my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
 ;;;(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"

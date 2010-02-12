@@ -1,10 +1,10 @@
-;; http://yaml-mode.clouder.jp/
+;;;; http://yaml-mode.clouder.jp/
 (my-autoload-and-when 'yaml-mode "yaml-mode")
 
-;; association setting
+;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
-;; mode hook
+;;;; mode hook
 (my-eval-after-load "yaml-mode"
   (add-hook 'yaml-mode-hook
             (lambda ()

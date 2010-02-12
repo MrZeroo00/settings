@@ -1,4 +1,4 @@
-;; w3m
+;;;; w3m
 (if (= emacs-major-version 23)
     (my-require-and-when 'w3m-ems)
   (my-require-and-when 'w3m))
@@ -30,12 +30,12 @@
   )
 
 
-;; octet
+;;;; octet
 '(my-require-and-when 'octet
   (octet-mime-setup))
 
 
-;; w3m-type-ahead
+;;;; w3m-type-ahead
 ;;;(install-elisp-from-emacswiki "w3m-type-ahead.el")
 (my-eval-after-load "w3m"
   (my-load-and-when "w3m-type-ahead")

@@ -6,8 +6,8 @@
 (global-set-key [mouse-3] 'yank)
 
 
-;; my-keyjack-mode
-;; http://www.pqrs.org/tekezo/emacs/doc/keyjack-mode/index.html
+;;;; my-keyjack-mode
+;;;; http://www.pqrs.org/tekezo/emacs/doc/keyjack-mode/index.html
 (setq my-keyjack-mode-map (make-sparse-keymap))
 
 (mapcar (lambda (x)
@@ -30,7 +30,7 @@
                               t " Keyjack" my-keyjack-mode-map)
 
 
-;; sequential-command
+;;;; sequential-command
 ;;;(install-elisp-from-emacswiki "sequential-command.el")
 ;;;(install-elisp-from-emacswiki "sequential-command-config.el")
 (my-require-and-when 'sequential-command-config
@@ -45,6 +45,6 @@
   (define-key esc-map "l" 'seq-downcase-backward-word))
 
 
-;; unbound
+;;;; unbound
 ;;;(install-elisp-from-emacswiki "unbound.el")
 ;;;(my-require-and-when 'unbound)

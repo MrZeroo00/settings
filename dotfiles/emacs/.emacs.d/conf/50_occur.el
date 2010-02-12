@@ -1,4 +1,4 @@
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=exampleelisp%20color-moccur
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=exampleelisp%20color-moccur
 ;;;(install-elisp "http://www.bookshelf.jp/elc/moccur-edit.el")
 ;;;(install-elisp "http://www.bookshelf.jp/elc/color-moccur.el")
 (setq moccur-split-word t)
@@ -49,7 +49,7 @@
   (save-buffer))
 
 
-;; dmoccur
+;;;; dmoccur
 (setq dmoccur-use-list t)
 (setq dmoccur-list
       '(
@@ -59,5 +59,5 @@
   (add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*")))
 
 
-;; macros
+;;;; macros
 ;;;(my-load-and-when "_flush-keep-line")

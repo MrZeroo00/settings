@@ -1,4 +1,4 @@
-;; Outputz
+;;;; Outputz
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
 '(my-require-and-when 'outputz
   (setq outputz-key "Your Private Key") ;; 復活の呪文
@@ -14,15 +14,15 @@
   (remove-hook 'after-save-hook 'outputz))
 
 
-;; typing-outputz
-;; http://github.com/hayamiz/typing-outputz/tree/master
+;;;; typing-outputz
+;;;; http://github.com/hayamiz/typing-outputz/tree/master
 '(my-require-and-when 'typing-outputz
   (global-typing-outputz-mode t)
   (setq typing-outputz-key "bWAROb-quUbf"))
 
 
-;; pdicv-mode
-;; http://pdicviewer.naochan.com/el/
+;;;; pdicv-mode
+;;;; http://pdicviewer.naochan.com/el/
 ;;;(my-require-and-when 'pdicv-search)
 ;;;(my-require-and-when 'pdicv-mode)
 '(my-autoload-and-when 'pdicv "pdicviewer"
@@ -40,28 +40,28 @@
      )
 
 
-;; cheat
+;;;; cheat
 ;;;(install-elisp "http://sami.samhuri.net/assets/2007/8/10/cheat.el")
 ;;;(my-require-and-when 'cheat)
 
 
-;; bm
-;; http://www.nongnu.org/bm/
+;;;; bm
+;;;; http://www.nongnu.org/bm/
 (my-require-and-when 'bm
   (global-set-key (kbd "<C-f2>") 'bm-toggle)
   (global-set-key (kbd "<f2>")   'bm-next)
   (global-set-key (kbd "<S-f2>") 'bm-previous))
 
 
-;; goto-chg
+;;;; goto-chg
 ;;;(install-elisp-from-emacswiki "goto-chg.el")
 '(my-require-and-when 'goto-chg
   (global-set-key [(control ?.)] 'goto-last-change)
   (global-set-key [(control ?,)] 'goto-last-change-reverse))
 
 
-;; session
-;; http://emacs-session.sourceforge.net/
+;;;; session
+;;;; http://emacs-session.sourceforge.net/
 (my-require-and-when 'session
   (setq session-initialize '(de-saveplace session keys menus places)
         session-globals-include '((kill-ring 50)
@@ -72,45 +72,45 @@
   (add-hook 'after-init-hook 'session-initialize))
 
 
-;; desktop
+;;;; desktop
 ;;;(my-autoload-and-when 'desktop-save "desktop")
 ;;;(my-autoload-and-when 'desktop-clear "desktop")
 ;;;(my-autoload-and-when 'desktop-load-default "desktop")
 ;;;(my-autoload-and-when 'desktop-remove "desktop")
 
 
-;; remember
+;;;; remember
 (my-require-and-when 'remember)
 
 
-;; autoarg
+;;;; autoarg
 ;;;(my-require-and-when 'autoarg)
 
 
-;; viper
+;;;; viper
 ;;;(my-require-and-when 'viper)
 
 
-;; thing-opt
+;;;; thing-opt
 (my-require-and-when 'thingatpt)
 ;;;(install-elisp-from-emacswiki "thing-opt.el")
 (my-require-and-when 'thing-opt)
 
 
-;; sense-region
+;;;; sense-region
 ;;;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
 (my-autoload-and-when 'sense-region-on "sense-region")
 
 
-;; alpaca
+;;;; alpaca
 ;;;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
 '(my-autoload-and-when 'alpaca-after-find-file "alpaca"
                       (setq alpaca-cache-passphrase t))
 ;;;(add-hook 'find-file-hooks 'alpaca-after-find-file)
 
 
-;; clwiki
-;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
+;;;; clwiki
+;;;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
 ;;;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")
 (my-autoload-and-when 'clwiki "clwiki"
                       (define-key ctl-x-map "M" 'clwiki))
@@ -130,45 +130,45 @@
           '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
 
 
-;; postit
+;;;; postit
 ;;;(install-elisp "http://www.bookshelf.jp/elc/postit.el")
 '(my-autoload-and-when 'postit "postit"
                       (setq postit-colorize 'dark)
                       (setq postit-compress-commands nil))
 
 
-;; stripes
+;;;; stripes
 ;;;(install-elisp-from-emacswiki "stripes.el")
 '(my-require-and-when 'stripes
   (set-face-background 'stripes-face "yellow"))
 
 
-;; edit-list
+;;;; edit-list
 ;;;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
 ;;;(my-require-and-when 'edit-list)
 
 
-;; color-selection
+;;;; color-selection
 ;;;(install-elisp "http://www.bookshelf.jp/elc/color-selection.el")
 ;;;(my-autoload-and-when 'list-hexadecimal-colors-display "color-selection")
 
 
-;; keisen-mule
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=keisen
+;;;; keisen-mule
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=keisen
 '(if window-system
     (my-autoload-and-when 'keisen-mode "keisen-mouse")
   (my-autoload-and-when 'keisen-mode "keisen-mule"))
 
 
-;; enriched-mode
+;;;; enriched-mode
 ;;;(my-require-and-when 'enriched)
 
 
-;; iimage
+;;;; iimage
 ;;;(my-require-and-when 'iimage)
 
 
-;; thumbs
+;;;; thumbs
 ;;;(setq thumbs-thumbsdir
 ;;;      (expand-file-name "~/.emacs-thumbs"))
 ;;;(setq thumbs-temp-dir (expand-file-name "~/tmp"))
@@ -176,7 +176,7 @@
 ;;;      '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
 
 
-;; screenshot
+;;;; screenshot
 ;;;(install-elisp-from-emacswiki "screenshot.el")
 '(my-require-and-when 'screenshot
   (setq screenshot-schemes
@@ -203,7 +203,7 @@
   (setq screenshot-default-scheme "local"))
 
 
-;; japanese-holidays
+;;;; japanese-holidays
 '(my-require-and-when 'calendar
   (setq number-of-diary-entries 31)
   (define-key calendar-mode-map "f" 'calendar-forward-day)
@@ -219,11 +219,11 @@
   (add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
 
 
-;; midnight
+;;;; midnight
 (my-require-and-when 'midnight)
 
 
-;; advice
+;;;; advice
 (defadvice bookmark-set (around bookmark-set-ad activate)
   (bookmark-load bookmark-default-file t t) ;; reload latest bookmark before register
   ad-do-it
@@ -233,7 +233,7 @@
   (bookmark-load bookmark-default-file t t))
 
 
-;; macros
+;;;; macros
 (my-load-and-when "_window-line")
 (my-load-and-when "_copy-region-with-info")
 '(my-load-and-when "_duplicate-line"

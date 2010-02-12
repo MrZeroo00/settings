@@ -1,4 +1,4 @@
-;; http://d.hatena.ne.jp/rubikitch/20081104/1225745862
+;;;; http://d.hatena.ne.jp/rubikitch/20081104/1225745862
 (setq view-read-only t)
 (defvar pager-keybind
   `( ;; vi-like
@@ -41,14 +41,14 @@
   (define-key view-mode-map " " 'scroll-up))
 (add-hook 'view-mode-hook 'view-mode-hook0)
 
-;; 書き込み不能なファイルはview-modeで開くように
+;;;; 書き込み不能なファイルはview-modeで開くように
 (defadvice find-file
   (around find-file-switch-to-view-file (file &optional wild) activate)
   (if (and (not (file-writable-p file))
            (not (file-directory-p file)))
       (view-file file)
     ad-do-it))
-;; 書き込み不能な場合はview-modeを抜けないように
+;;;; 書き込み不能な場合はview-modeを抜けないように
 (defvar view-mode-force-exit nil)
 (defmacro do-not-exit-view-mode-unless-writable-advice (f)
   `(defadvice ,f (around do-not-exit-view-mode-unless-writable activate)

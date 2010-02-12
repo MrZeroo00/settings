@@ -5,8 +5,8 @@
 ;;;(global-set-key (quote [kp-4]) (quote windmove-left))
 
 
-;; windows (window manager for Emacs)
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=windows%20screen
+;;;; windows (window manager for Emacs)
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=windows%20screen
 ;;;(install-elisp "http://www.gentei.org/~yuuji/software/windows.el")
 (my-require-and-when 'windows
   (setq win:switch-prefix "\C-z")
@@ -22,7 +22,7 @@
   (setq win-save-timer (run-with-idle-timer 3600 t 'win-save-all-configurations)))
 
 
-;; widen-window
+;;;; widen-window
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/widen-window-mode/trunk/widen-window.el")
 (my-require-and-when 'widen-window
   (global-widen-window-mode t)
@@ -37,24 +37,24 @@
   	ww-advised-functions)))
 
 
-;; master
-;; http://www.geocities.com/kensanata/elisp/master.el.txt
+;;;; master
+;;;; http://www.geocities.com/kensanata/elisp/master.el.txt
 ;;;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
 (my-autoload-and-when 'master-mode "master"
   	      (my-load-and-when "dired-master"))
 
 
-;; split-root
+;;;; split-root
 ;;;(install-elisp "http://nschum.de/src/emacs/split-root/split-root.el")
 (my-require-and-when 'split-root)
 
 
-;; winhist
+;;;; winhist
 '(my-require-and-when 'winhist
   (winhist-mode t))
 
 
-;; other-window-or-split
+;;;; other-window-or-split
 (defun other-window-or-split ()
   (interactive)
   (when (one-window-p)
@@ -63,7 +63,7 @@
 (global-set-key (kbd "C-o") 'other-window-or-split)
 
 
-;; macros
+;;;; macros
 (my-load-and-when "_window-toggle-division")
 '(my-load-and-when "_swap-screen"
   (global-set-key [f2] 'swap-screen)

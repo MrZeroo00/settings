@@ -1,7 +1,7 @@
 (line-number-mode t)
 (column-number-mode t)
 
-;; display time
+;;;; display time
 (setq display-time-string-forms
       '(month "/" day " " dayname " " 
               24-hours ":" minutes " "
@@ -9,5 +9,5 @@
 
 (display-time-mode t)
 
-;; show current directory
+;;;; show current directory
 (add-to-list 'global-mode-string '("" default-directory "-"))

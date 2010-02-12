@@ -1,4 +1,4 @@
-;; http://howm.sourceforge.jp/
+;;;; http://howm.sourceforge.jp/
 (my-autoload-and-when 'howm-menu "howm"
                       (setq howm-menu-lang 'ja)
                       (setq howm-directory "~/howm")

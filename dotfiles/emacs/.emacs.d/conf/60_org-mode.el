@@ -1,4 +1,4 @@
-;; http://orgmode.org/
+;;;; http://orgmode.org/
 (my-require-and-when 'org
 ;;;  (my-require-and-when 'org-install)
   (my-require-and-when 'org-mouse)
@@ -124,13 +124,13 @@
   )
 
 
-;; imenu
+;;;; imenu
 (add-hook 'org-mode-hook
     (lambda () (imenu-add-to-menubar "Imenu")))
 
 
-;; remember
-;; https://gna.org/p/remember-el
+;;;; remember
+;;;; https://gna.org/p/remember-el
 ;;;(org-remember-insinuate)
 (my-require-and-when 'remember
   (setq remember-annotation-functions '(org-remember-annotation))
@@ -144,12 +144,12 @@
     )))
 
 
-;; freemind
+;;;; freemind
 ;;;(install-elisp-from-emacswiki "freemind.el")
 (my-require-and-when 'freemind)
 
 
-;; macros
+;;;; macros
 (my-load-and-when "_org-remember-code-reading")
 (my-load-and-when "_org-next-prev-visible-link"
   (define-key org-mode-map "\M-n" 'org-next-visible-link)

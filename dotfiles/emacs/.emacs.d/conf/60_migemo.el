@@ -3,11 +3,11 @@
           (my-which "migemo")))
 (setq migemo-options '("-q" "--emacs"))
 
-;; dictionary
+;;;; dictionary
 (setq migemo-user-dictionary nil)
 (setq migemo-regex-dictionary nil)
 
-;; cache
+;;;; cache
 (setq migemo-use-pattern-alist t)
 (setq migemo-use-frequent-pattern-alist t)
 (setq migemo-pattern-alist-length 1024)
@@ -16,9 +16,9 @@
 (migemo-init)
 
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=migemo%20onlyjapanese
-;; buffer-file-coding-system から言語判別
-;; unicode も入れた方がいいのかも。
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=migemo%20onlyjapanese
+;;;; buffer-file-coding-system から言語判別
+;;;; unicode も入れた方がいいのかも。
 (defun my-language-check (lang)
   (let ((coding
          (coding-system-base buffer-file-coding-system)))
@@ -27,7 +27,7 @@
      (cdr (assoc 'coding-system
                  (assoc lang language-info-alist))))))
 
-;; 日本語じゃないときは migemo を使わない
+;;;; 日本語じゃないときは migemo を使わない
 (eval-after-load "migemo"
   '(progn
      (defadvice isearch-mode
@@ -41,7 +41,7 @@
                    (setq migemo-isearch-enable-p t))))))
 
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=auto%20renmigemo
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=auto%20renmigemo
 ;;;(defun my-ren-cap (str) ; 次単語の先頭を大文字化
 ;;;  (string-match
 ;;;   ".*[aiueo]\\(?:nn\\)*\\(.+\\)" str) ; 最後の母音 OR nn 直後
@@ -77,9 +77,9 @@
 ;;;    (isearch-search)))
 
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=no%20migemo
-;; 文字をバッファからコピーするときには
-;; migemo をオフにする
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=no%20migemo
+;;;; 文字をバッファからコピーするときには
+;;;; migemo をオフにする
 ;;;(defadvice isearch-yank-string
 ;;;  (before migemo-off activate)
 ;;;  (setq migemo-isearch-enable-p nil))

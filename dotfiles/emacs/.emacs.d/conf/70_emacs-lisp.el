@@ -1,15 +1,15 @@
 (my-require-and-when 'lisp-mode)
 
-;; association setting
+;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.el$" . emacs-lisp-mode))
 
-;; mode hook
+;;;; mode hook
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (define-key emacs-lisp-mode-map "\C-m" 'newline-and-indent)))
 
 
-;; anything
+;;;; anything
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (make-local-variable 'anything-sources)
@@ -20,7 +20,7 @@
             ))
 
 
-;; flymake
+;;;; flymake
 (defun flymake-elisp-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
                        'flymake-create-temp-inplace))
@@ -31,23 +31,23 @@
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.el$" flymake-elisp-init))
 
-;; tentative patch
+;;;; tentative patch
 (when (not run-w32)
   (add-hook 'emacs-lisp-mode-hook
             (lambda ()
               (flymake-mode t))))
 
 
-;; eldoc
+;;;; eldoc
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 
-;; checkdoc
+;;;; checkdoc
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (my-require-and-when 'checkdoc)))
 
 
-;; lispxmp
+;;;; lispxmp
 ;;;(install-elisp-from-emacswiki "lispxmp.el")
 ;;;(my-require-and-when 'lispxmp)

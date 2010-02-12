@@ -9,7 +9,7 @@
                       '("VL ゴシック" . "unicode-bmp"))))
 
 
-;; anthy
+;;;; anthy
 ;;;(my-load-and-when "anthy")
 ;;;(setq default-input-method "japanese-anthy")
 ;;;(global-set-key "\C-o" 'anthy-mode)
@@ -18,5 +18,5 @@
 ;;;(setq anthy-wide-space " ")
 
 
-;; anything
+;;;; anything
 (setq anything-c-locate-options `("mlocate" "-q" "-i" "-n" "50" "-r"))

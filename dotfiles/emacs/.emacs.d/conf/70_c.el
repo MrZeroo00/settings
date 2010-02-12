@@ -1,9 +1,9 @@
 (my-require-and-when 'cc-mode)
 
-;; association setting
+;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 
-;; mode hook
+;;;; mode hook
 (add-hook 'c-mode-common-hook '(lambda ()
                                  (c-set-style "k&r")
 ;;;                                 (c-set-offset 'substatement-open 0)
@@ -20,7 +20,7 @@
                                  ))
 
 
-;; flymake
+;;;; flymake
 (defun my-flymake-gcc-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
                        'flymake-create-temp-inplace))
@@ -39,7 +39,7 @@
           '(lambda ()
              (flymake-mode)))
 
-;; eldoc
+;;;; eldoc
 ;;;(install-elisp-from-emacswiki "c-eldoc.el")
 (add-hook 'c-mode-common-hook
           (lambda ()
@@ -50,7 +50,7 @@
               (setq c-eldoc-cpp-command "/usr/bin/cpp"))))
 
 
-;; ff-find-other-file
+;;;; ff-find-other-file
 ;;;(setq cc-search-directories
 ;;;      (append '("/opt/local/include")
 ;;;              cc-search-directories))
@@ -60,18 +60,18 @@
             ))
 
 
-;; moccur
+;;;; moccur
 (add-hook 'c-mode-common-hook
           '(lambda ()
              (setq moccur-grep-default-mask "\\.\[HhCc\]$")))
 
 
-;; summarye
+;;;; summarye
 ;;;(install-elisp "http://www.bookshelf.jp/elc/summarye.el")
 ;;;(autoload 'se/make-summary-buffer "summarye" nil t)
 
 
-;; cpp-complt
+;;;; cpp-complt
 ;;;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
 ;;;(add-hook 'c-mode-common-hook
 ;;;          (function (lambda ()
@@ -90,7 +90,7 @@
 ;;;        ))
 
 
-;; pbf-mode
+;;;; pbf-mode
 ;;;(install-elisp "http://www.bookshelf.jp/elc/pbf-mode.el")
 ;;;(add-hook 'c-mode-hook
 ;;;          (lambda ()
@@ -102,7 +102,7 @@
 ;;;             :directory (expand-file-name "~/"))))
 
 
-;; cwarn
+;;;; cwarn
 '(add-hook 'c-mode-hook
           (lambda ()
             (my-require-and-when 'cwarn)

@@ -1,14 +1,14 @@
-;; for coding
+;;;; for coding
 (setq grep-find-command "find . -type f ! -name '*,v' ! -name '*~' ! -name '*.o' ! -name '*.a' ! -name '*.so' ! -name '*.class' ! -name '*.jar' ! -name 'semantic.cache' ! -path '*.deps*' ! -path '*/obsolete/*' ! -path '*/.svn/*' ! -path '*/CVS/*' -print0 | xargs -0 -e grep -n -e ")
 
 
-;; color-grep
+;;;; color-grep
 ;;;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
 (my-require-and-when 'color-grep
   (setq color-grep-sync-kill-buffer t))
 
 
-;; grep-edit
+;;;; grep-edit
 (my-require-and-when 'grep)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/grep-edit.el")
 (my-require-and-when 'grep-edit
@@ -28,23 +28,23 @@
   (add-hook 'grep-setup-hook 'my-grep-edit-setup t))
 
 
-;; isearch-all
+;;;; isearch-all
 ;;;(install-elisp "http://www.bookshelf.jp/elc/isearch-all.el")
 ;;;(my-load-and-when "isearch-all")
 
 
-;; qsearch
+;;;; qsearch
 ;;;(install-elisp-from-emacswiki "qsearch.el")
 ;;;(my-require-and-when 'qsearch)
 
 
-;; ireplace
+;;;; ireplace
 ;;;(install-elisp "http://www.bookshelf.jp/elc/ireplace.el")
 ;;;(my-require-and-when 'ireplace)
 
 
-;; approx-search
-;; http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/
+;;;; approx-search
+;;;; http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/
 '(my-require-and-when 'approx-search
   (if (boundp 'isearch-search-fun-function)
       (my-require-and-when 'approx-isearch)
@@ -62,7 +62,7 @@
       (approx-isearch-set-disable))))
 
 
-;; namazu
+;;;; namazu
 ;;;(install-elisp "http://www.bookshelf.jp/elc/namazu.el")
 '(my-autoload-and-when 'namazu "namazu"
                       (setq namazu-search-num 100)
@@ -75,7 +75,7 @@
 ;;;(my-load-and-when "color-namazu")
 
 
-;; http://dev.ariel-networks.com/Members/matsuyama/isearch-selected-text
+;;;; http://dev.ariel-networks.com/Members/matsuyama/isearch-selected-text
 (defadvice isearch-mode (around isearch-mode-default-string (forward &optional regexp op-fun recursive-edit word-p) activate)
   (if (and transient-mark-mode mark-active)
       (progn
@@ -89,8 +89,8 @@
     ad-do-it))
 
 
-;; isearch-exit
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=isearch-exit
+;;;; isearch-exit
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=isearch-exit
 ;;;(define-key isearch-mode-map "\M-m" 'isearch-exit)
 ;;;(add-hook 'isearch-mode-end-hook
 ;;;          (lambda ()
@@ -101,7 +101,7 @@
 ;;;              (goto-char (match-beginning 0))))))
 
 
-;; macros
+;;;; macros
 '(my-load-and-when "_isearch-yank-char"
   (define-key isearch-mode-map "\C-d" 'isearch-yank-char))
 '(my-load-and-when "_isearch-real-delete-char"

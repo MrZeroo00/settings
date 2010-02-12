@@ -1,4 +1,4 @@
-;; simple-hatena-mode
+;;;; simple-hatena-mode
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/simple-hatena-mode/trunk/simple-hatena-mode.el")
 (my-require-and-when 'simple-hatena-mode
   (setq simple-hatena-bin "~/local/bin/hw.pl")
@@ -8,8 +8,8 @@
   )
 
 
-;; hatenahelper-mode
-;; http://d.hatena.ne.jp/amt/20060115/HatenaHelperMode
+;;;; hatenahelper-mode
+;;;; http://d.hatena.ne.jp/amt/20060115/HatenaHelperMode
 (my-require-and-when 'hatenahelper-mode
   (global-set-key "\C-xH" 'hatenahelper-mode))
 ;;;(add-hook 'hatena-mode-hook 'hatenahelper-mode)  ; –{“–‚Í‚±‚¤

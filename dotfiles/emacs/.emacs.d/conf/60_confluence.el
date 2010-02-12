@@ -1,8 +1,8 @@
-;; assuming confluence.el and xml-rpc.el are in your load path
-;; http://code.google.com/p/confluence-el/
+;;;; assuming confluence.el and xml-rpc.el are in your load path
+;;;; http://code.google.com/p/confluence-el/
 (my-require-and-when 'confluence)
 
-;; note, all customization must be in *one* custom-set-variables block
+;;;; note, all customization must be in *one* custom-set-variables block
 ;;;(custom-set-variables
 ;;; ;; ... other custimization
 ;;;
@@ -11,7 +11,7 @@
 ;;; '(confluence-default-space-alist (list (cons confluence-url "your-default-space-name"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; confluence editing support (with longlines mode)
+;;;; confluence editing support (with longlines mode)
 
 (my-autoload-and-when 'confluence-get-page "confluence")
 
@@ -23,7 +23,7 @@
   (add-hook 'confluence-mode-hook '(lambda () (local-set-key "\C-j" 'confluence-newline-and-indent)))
   (global-set-key "\C-xwf" 'confluence-get-page))
 
-;; LongLines mode: http://www.emacswiki.org/emacs-en/LongLines
+;;;; LongLines mode: http://www.emacswiki.org/emacs-en/LongLines
 (my-autoload-and-when 'longlines-mode "longlines")
 
 (my-eval-after-load "longlines"
@@ -59,7 +59,7 @@
                      (with-current-buffer tmp-buf
                        (longlines-restore)))))))
 
-;; setup confluence mode
+;;;; setup confluence mode
 (add-hook 'confluence-mode-hook
           '(lambda ()
              (local-set-key "\C-xw" confluence-prefix-map)))

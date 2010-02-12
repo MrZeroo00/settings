@@ -1,6 +1,6 @@
 (my-require-and-when 'lisp-mode)
 
-;; mode hook
+;;;; mode hook
 (add-hook 'lisp-mode-hook
           (lambda ()
             (define-key lisp-mode-map "\C-m" 'newline-and-indent)))
@@ -8,7 +8,7 @@
 (setq inferior-lisp-program "clisp")
 
 
-;; anything
+;;;; anything
 (add-hook 'lisp-mode-hook
           (lambda ()
             (make-local-variable 'anything-sources)
@@ -17,8 +17,8 @@
                          'anything-c-source-linkd-tag)))
 
 
-;; slime
-;; http://common-lisp.net/project/slime/
+;;;; slime
+;;;; http://common-lisp.net/project/slime/
 (setq load-path (cons "/opt/local/share/emacs/site-lisp/slime" load-path))
 (my-require-and-when 'slime-autoloads)
 (setq slime-lisp-implementations

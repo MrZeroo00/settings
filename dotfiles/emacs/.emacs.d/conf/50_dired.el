@@ -6,25 +6,25 @@
 (setq grep-find-command "find . -type f -print0 | xargs -0 -e grep -ns ")
 
 
-;; ls-lisp
+;;;; ls-lisp
 (my-require-and-when 'ls-lisp
   (setq ls-lisp-dirs-first t))
 
 
-;; find-dired-lisp (filter file list)
+;;;; find-dired-lisp (filter file list)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/find-dired-lisp.el")
 (my-autoload-and-when 'find-dired-lisp "find-dired-lisp")
 (my-autoload-and-when 'find-grep-dired-lisp "find-dired-lisp")
 
 
-;; sorter (sort file list)
+;;;; sorter (sort file list)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/sorter.el")
 (add-hook 'dired-load-hook
           (lambda ()
             (my-require-and-when 'sorter)))
 
 
-;; dired-x
+;;;; dired-x
 (my-load-and-when "dired-x")
 
 '(setq dired-guess-shell-alist-user
@@ -42,19 +42,19 @@
         ))
 
 
-;; my-dired-mode
+;;;; my-dired-mode
 ;;;(install-elisp "http://www.bookshelf.jp/elc/my-dired-mode.el")
 ;;;(my-load-and-when "my-dired-mode")
 
 
-;; wdired (rename file name from dired buffer)
+;;;; wdired (rename file name from dired buffer)
 ;;;(install-elisp-from-emacswiki "wdired.el")
 (my-require-and-when 'wdired
 ;;;  (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
   )
 
 
-;; bf-mode (show file content)
+;;;; bf-mode (show file content)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/bf-mode.el")
 '(my-require-and-when 'bf-mode
   (setq bf-mode-browsing-size 10)
@@ -67,7 +67,7 @@
   (setq bf-mode-directory-list-verbose t))
 
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=dired%20single
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=dired%20single
 ;;;(defvar my-dired-before-buffer nil)
 ;;;(defadvice dired-advertised-find-file
 ;;;  (before kill-dired-buffer activate)
@@ -88,7 +88,7 @@
 ;;;      (kill-buffer my-dired-before-buffer)))
 
 
-;; http://d.hatena.ne.jp/higepon/20061230/1167447340
+;;;; http://d.hatena.ne.jp/higepon/20061230/1167447340
 ;;;(defadvice dired-sort-other
 ;;;  (around dired-sort-other-h activate)
 ;;;  (ad-set-arg 0 (concat (ad-get-arg 0) "h"))
@@ -96,7 +96,7 @@
 ;;;  (setq dired-actual-switches (dired-replace-in-string "h" "" dired-actual-switches)))
 
 
-;; macros
+;;;; macros
 (my-load-and-when "_dired-toggle-mark"
   (define-key dired-mode-map " " 'dired-toggle-mark))
 (my-load-and-when "_dired-convert-coding-system")

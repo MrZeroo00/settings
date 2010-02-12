@@ -1,6 +1,6 @@
 (iswitchb-mode t)
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb
 (add-hook 'iswitchb-define-mode-map-hook
           'iswitchb-my-keys)
 
@@ -37,7 +37,7 @@ For details of keybindings, do `\\[describe-function] iswitchb'."
     (iswitchb)))
 
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb-exhibit
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb-exhibit
 (defadvice iswitchb-exhibit
   (after
    iswitchb-exhibit-with-display-buffer
@@ -54,7 +54,7 @@ For details of keybindings, do `\\[describe-function] iswitchb'."
     (select-window (minibuffer-window))))
 
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb-migemo
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb-migemo
 (setq iswitchb-regexp t)
 (setq iswitchb-use-migemo-p t)
 (defadvice iswitchb-get-matched-buffers

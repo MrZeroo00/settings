@@ -1,7 +1,7 @@
 (my-autoload-and-when 'scheme-mode "cmuscheme")
 (my-autoload-and-when 'run-scheme "cmuscheme")
 
-;; mode hook
+;;;; mode hook
 (my-eval-after-load "cmuscheme"
   (add-hook 'scheme-mode-hook
             (lambda ()
@@ -17,7 +17,7 @@
   (setq scheme-program-name "gosh -i"))
 
 
-;; scheme-complete
+;;;; scheme-complete
 (my-autoload-and-when 'scheme-smart-complete "scheme-complete")
 (my-autoload-and-when 'scheme-get-current-symbol-info "scheme-complete")
 (add-hook 'scheme-mode-hook

@@ -1,4 +1,4 @@
-;; indent
+;;;; indent
 (setq tab-width 2)
 ;;;(setq tab-stop-list
 ;;;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
@@ -6,19 +6,19 @@
 (setq indent-line-function 'indent-relative-maybe)
 ;;;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
 (my-require-and-when 'indent-tabs-maybe)
-;; http://d.hatena.ne.jp/mzp/20090620/indent
+;;;; http://d.hatena.ne.jp/mzp/20090620/indent
 '(my-require-and-when 'ky-indent
   (ky-indent-init)
   (setq ky-indent-regexp "external-code/")
   )
 
 
-;; paren
+;;;; paren
 (show-paren-mode t)
 ;;;(setq show-paren-style 'mixed)
 ;;;(set-face-background 'show-paren-match-face "gray10")
 ;;;(set-face-foreground 'show-paren-match-face "SkyBlue")
-;; mic-paren (highlight matching parenthesises)
+;;;; mic-paren (highlight matching parenthesises)
 ;;;(install-elisp "http://user.it.uu.se/~mic/mic-paren.el")
 (if window-system
     (progn
@@ -29,12 +29,12 @@
       ))
 
 
-;; comment
+;;;; comment
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
 (setq comment-style 'multi-line)
 
 
-;; ifdef
+;;;; ifdef
 ;;;(setq hide-ifdef-define-alist
 ;;;      '((list-name
 ;;;   DEFINE1
@@ -42,7 +42,7 @@
 ;;;   ))
 
 
-;; debug
+;;;; debug
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t)
 
@@ -63,15 +63,15 @@
   (add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t))))
 
 
-;; generic (coloring generic files)
+;;;; generic (coloring generic files)
 '(my-require-and-when 'generic-x
   ;; association setting
   (add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
   (add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode)))
 
 
-;; cedet
-;; http://cedet.sourceforge.net/
+;;;; cedet
+;;;; http://cedet.sourceforge.net/
 '(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el"
   (global-ede-mode 1)
 ;;;  (ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
@@ -83,26 +83,26 @@
   )
 
 
-;; ecb
-;; http://ecb.sourceforge.net/
+;;;; ecb
+;;;; http://ecb.sourceforge.net/
 ;;;(my-require-and-when 'ecb-autoloads)
 
 
-;; textmate
+;;;; textmate
 ;;;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
 '(my-require-and-when 'textmate
   (textmate-mode))
 
 
-;; ctags
+;;;; ctags
 ;;;(global-set-key "\M-t" 'find-tag)
 ;;;(global-set-key "\C-t" 'pop-tag-mark)
 ;;;(setq tags-table-list
 ;;;      '("~/src"))
 
 
-;; gtags
-;; http://tamacom.com/global-j.html
+;;;; gtags
+;;;; http://tamacom.com/global-j.html
 (my-autoload-and-when 'gtags-mode "gtags"
   	      (defun my-find-tag ()
   		(interactive)
@@ -124,7 +124,7 @@
   			 ))
 
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=tagsfile%20maker
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=tagsfile%20maker
 '(defadvice find-tag (before c-tag-file activate)
   "Automatically create tags file."
   (let ((tag-file (concat default-directory "TAGS")))
@@ -133,16 +133,16 @@
     (visit-tags-table tag-file)))
 
 
-;; imenu
+;;;; imenu
 (my-require-and-when 'imenu)
 
 
-;; xcscope
-;; http://cscope.sourceforge.net/
+;;;; xcscope
+;;;; http://cscope.sourceforge.net/
 ;;;(my-require-and-when 'xcscope)
 
 
-;; use ack
+;;;; use ack
 (setq grep-command "ack -a --nocolor ")
 (defun ack ()
   (interactive)
@@ -150,11 +150,11 @@
     (call-interactively 'grep-find)))
 
 
-;; speedbar
+;;;; speedbar
 ;;;(my-require-and-when 'speedbar)
 
 
-;; which-func
+;;;; which-func
 (my-require-and-when 'which-func
   (which-func-mode t)
 
@@ -169,7 +169,7 @@
       (setq header-line-format which-func-header-line-format))))
 
 
-;; template (insert template code)
+;;;; template (insert template code)
 '(my-require-and-when 'autoinsert
   (setq auto-insert-directory "~/etc/emacs/template/")
   (setq auto-insert-alist
@@ -180,13 +180,13 @@
   (add-hook 'find-file-not-found-hooks 'auto-insert))
 
 
-;; yasnippet
+;;;; yasnippet
 '(my-require-and-when 'yasnippet
   (yas/initialize)
   (yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets"))
 
 
-;; smartchr
+;;;; smartchr
 ;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
 (my-require-and-when 'smartchr
   (global-set-key (kbd "=") (smartchr '(" = " " == " "=")))
@@ -196,20 +196,20 @@
   )
 
 
-;; brackets
+;;;; brackets
 ;;;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
 ;;;(my-load-and-when "brackets")
 
 
-;; align (align code)
+;;;; align (align code)
 (my-require-and-when 'align)
 
 
-;; eldoc
+;;;; eldoc
 (my-autoload-and-when 'turn-on-eldoc-mode "eldoc")
 
 
-;; eldoc-extension
+;;;; eldoc-extension
 ;;;(install-elisp-from-emacswiki "eldoc-extension.el")
 (my-require-and-when 'eldoc-extension
   (setq eldoc-idle-delay 0)
@@ -219,8 +219,8 @@
   (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode))
 
 
-;; mode-info
-;; http://www.namazu.org/~tsuchiya/elisp/mode-info.html
+;;;; mode-info
+;;;; http://www.namazu.org/~tsuchiya/elisp/mode-info.html
 '(my-require-and-when 'mi-config
 ;;;  (define-key global-map "\C-hf" 'mode-info-describe-function)
 ;;;  (define-key global-map "\C-hv" 'mode-info-describe-variable)
@@ -236,11 +236,11 @@
     (gauche scheme-mode scheme-interaction-mode inferior-scheme-mode))))
 
 
-;; info-look
+;;;; info-look
 (my-require-and-when 'info-look)
 
 
-;; gtk-look
+;;;; gtk-look
 ;;;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
 (my-autoload-and-when 'gtk-lookup-symbol "gtk-look"
   	      (when run-linux
@@ -253,7 +253,7 @@
   		      '("/opt/local/share/gtk-doc/html/*/*.devhelp"))))
 
 
-;; doxymacs
+;;;; doxymacs
 (my-require-and-when 'doxymacs
   (add-hook 'c-mode-common-hook 'doxymacs-mode)
 
@@ -263,7 +263,7 @@
   (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook))
 
 
-;; ediff
+;;;; ediff
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
   (setq ediff-split-window-function (lambda (&optional arg)
@@ -278,7 +278,7 @@
   (add-to-list 'command-switch-alist '("diff" . command-line-diff)))
 
 
-;; flymake
+;;;; flymake
 ;;;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
 (my-require-and-when 'flymake
   (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
@@ -293,25 +293,25 @@
   	"SYNTAX_CHECK_MODE=1"))))
 
 
-;; auto-compile
-;; http://d.hatena.ne.jp/higepon/20061107/1162902929
-;; http://sourceforge.net/project/showfiles.php?group_id=164970&package_id=210662
+;;;; auto-compile
+;;;; http://d.hatena.ne.jp/higepon/20061107/1162902929
+;;;; http://sourceforge.net/project/showfiles.php?group_id=164970&package_id=210662
 '(my-require-and-when 'auto-compile
   (setq auto-compile-target-path-regexp-list (list "\/src")))
 
 
-;; ipa (in place annotations)
+;;;; ipa (in place annotations)
 ;;;(install-elisp-from-emacswiki "ipa.el")
 (my-require-and-when 'ipa)
 
 
-;; usage-memo
+;;;; usage-memo
 ;;;(install-elisp-from-emacswiki "usage-memo.el")
 '(my-require-and-when 'usage-memo
   (umemo-initialize))
 
 
-;; hs-minor-mode (fold code block)
+;;;; hs-minor-mode (fold code block)
 (my-load-and-when "hideshow"
   (setq hs-hide-comments nil)
   (setq hs-isearch-open 't)
@@ -323,35 +323,35 @@
   (my-load-and-when "_hs-hide-all-comments"))
 
 
-;; linum (show line number)
+;;;; linum (show line number)
 (my-require-and-when 'linum
 ;;;  (global-linum-mode t)
   (setq linum-format "%5d "))
 
 
-;; wrap-region
+;;;; wrap-region
 ;;;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
 (my-require-and-when 'wrap-region)
 
 
-;; flyspell
+;;;; flyspell
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 
 
-;; develock (emphasize bad coding convention)
-;; http://www.jpl.org/elips/develock.el.gz
+;;;; develock (emphasize bad coding convention)
+;;;; http://www.jpl.org/elips/develock.el.gz
 (my-load-and-when "develock"
   (setq develock-auto-enable nil))
 
 
-;; jaspace
+;;;; jaspace
 ;;;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
 (my-require-and-when 'jaspace
   (setq jaspace-modes nil))
 
 
-;; emphasize Space/Tab/Newline
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=visualize%20tab
+;;;; emphasize Space/Tab/Newline
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=visualize%20tab
 ;;;(defface my-face-r-1 '((t (:background "gray15"))) nil)
 ;;;(defface my-face-b-1 '((t (:background "gray"))) nil)
 ;;;(defface my-face-b-2 '((t (:background "gray26"))) nil)
@@ -373,8 +373,8 @@
 ;;;(ad-activate 'font-lock-mode)
 
 
-;; face-list
-;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
+;;;; face-list
+;;;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
 ;;;(my-require-and-when 'face-list)
 
 
@@ -385,8 +385,8 @@
             (turn-on-orgstruct)))
 
 
-;; pov-mode
-;; http://www.acc.umu.se/~woormie/povray/
+;;;; pov-mode
+;;;; http://www.acc.umu.se/~woormie/povray/
 ;;;(my-autoload-and-when 'pov-mode "pov-mode.el")
 '(setq auto-mode-alist
       (append '(("\\.pov$" . pov-mode)
@@ -394,7 +394,7 @@
   	) auto-mode-alist))
 
 
-;; to pop up compilation buffers at the bottom
+;;;; to pop up compilation buffers at the bottom
 (my-eval-after-load "split-root"
   (require 'compile)
   (defvar compilation-window nil
@@ -428,7 +428,7 @@
   )
 
 
-;; macros
+;;;; macros
 (my-load-and-when "_paren-match")
 '(my-load-and-when "_tdd-bgcolor-rotate"
   (global-set-key "\C-cm" 'tdd-bgcolor-rotate))

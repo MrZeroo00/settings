@@ -1,12 +1,12 @@
-;; js2-mode
-;; http://code.google.com/p/js2-mode/
+;;;; js2-mode
+;;;; http://code.google.com/p/js2-mode/
 (autoload 'js2-mode "js2" nil t)
 
-;; association setting
+;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 
-;; flymake
+;;;; flymake
 (defconst flymake-allowed-js-file-name-masks '(("\\.json$" flymake-js-init)
                                                ("\\.js$" flymake-js-init)))
 (defcustom flymake-js-detect-trailing-comma t nil :type 'boolean)

@@ -1,4 +1,4 @@
-;; http://www.thaiopensource.com/nxml-mode/
+;;;; http://www.thaiopensource.com/nxml-mode/
 (my-load-and-when "rng-auto.el"                    ; autoload
   (add-hook 'nxml-mode-hook
             (lambda ()
@@ -8,5 +8,5 @@
               (setq indent-tabs-mode t)
               (setq tab-width 2))))
 
-;; association setting
+;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))

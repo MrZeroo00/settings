@@ -1,4 +1,4 @@
-;; mode hook
+;;;; mode hook
 (add-hook 'text-mode-hook
           (lambda ()
             (progn
@@ -7,11 +7,11 @@
 ;;;              (refill-mode t)
               )))
 
-;; common setting
+;;;; common setting
 (setq paragraph-start '"^\\([ ¡¡¡¦¡û<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
 
 
-;; imenu
+;;;; imenu
 (add-hook 'text-mode
           (lambda ()
             (progn
@@ -24,14 +24,14 @@
     (nreverse index)))))))
 
 
-;; word-count
+;;;; word-count
 ;;;(install-elisp "http://taiyaki.org/elisp/word-count/src/word-count.el")
 (my-autoload-and-when 'word-count-mode "word-count"
 ;;;                      (global-set-key "\M-+" 'word-count-mode)
                       )
 
 
-;; text-adjust
+;;;; text-adjust
 ;;;(install-elisp "http://taiyaki.org/elisp/text-adjust/src/text-adjust.el")
 (add-hook 'text-mode-hook
           (my-load-and-when "text-adjust"
@@ -48,12 +48,12 @@
 ;;;(add-hook 'before-save-hook 'text-adjust-space-before-save-if-needed)
 
 
-;; manued
-;; http://www.mpi-inf.mpg.de/~hitoshi/otherprojects/manued/index.shtml
+;;;; manued
+;;;; http://www.mpi-inf.mpg.de/~hitoshi/otherprojects/manued/index.shtml
 ;;;(my-autoload-and-when 'manued-minor-mode "manued")
 
 
-;; macros
+;;;; macros
 ;;;(add-hook 'text-mode-hook
 ;;;          (lambda ()
 ;;;            (my-load-and-when "text-adjust-space-before-save-if-needed")))

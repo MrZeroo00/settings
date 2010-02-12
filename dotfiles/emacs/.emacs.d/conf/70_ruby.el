@@ -2,14 +2,14 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 
-;; association setting
+;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 (setq ruby-deep-indent-paren-style nil)
 
 
-;; flymake
+;;;; flymake
 (defun flymake-ruby-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
                        'flymake-create-temp-inplace))
@@ -26,24 +26,24 @@
             (flymake-mode t)))
 
 
-;; refe
+;;;; refe
 ;;;(install-elisp "http://ns103.net/~arai/ruby/refe.el")
 ;;;(my-require-and-when 'refe)
-;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
+;;;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
 ;;;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
 (add-hook 'ruby-mode-hook
           (lambda ()
             (my-load-and-when "_refe2")))
 
 
-;; autotest
+;;;; autotest
 ;;;(install-elisp-from-emacswiki "autotest.el")
 (add-hook 'ruby-mode-hook
           (lambda ()
             (my-require-and-when 'autotest)))
 
 
-;; align
+;;;; align
 ;;;(add-to-list 'align-rules-list
 ;;;             '(ruby-comma-delimiter
 ;;;               (regexp . ",\\(\\s-*\\)[^# \t\n]")
@@ -66,7 +66,7 @@
 ;;;               (modes  . '(ruby-mode))))
 
 
-;; macros
+;;;; macros
 (add-hook 'ruby-mode-hook
           (lambda ()
             (my-load-and-when "_ruby-insert-magic-comment-if-needed")

@@ -1,7 +1,7 @@
-;; emacsclient
+;;;; emacsclient
 (server-start)
 
-;; gnuserv
+;;;; gnuserv
 '(my-load-and-when "gnuserv"
   (gnuserv-start)
   (setq gnuserv-frame (selected-frame))

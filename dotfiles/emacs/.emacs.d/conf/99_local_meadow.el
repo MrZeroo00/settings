@@ -1,6 +1,6 @@
 (set-language-environment "Japanese")
 
-;; IME
+;;;; IME
 (setq default-input-method "MW32-IME")
 (add-hook 'mw32-ime-on-hook
           (function (lambda () (set-cursor-color "SkyBlue"))))
@@ -10,20 +10,20 @@
 (setq mw32-ime-mode-line-state-indicator-list '("[--]" "[J]" "[--]"))
 (mw32-ime-initialize)
 
-;; mouse cursor
+;;;; mouse cursor
 (setq w32-hide-mouse-timeout 1000)
 (setq w32-hide-mouse-on-key t)
 
 
-;; ttfont-setup
+;;;; ttfont-setup
 ;;;(install-elisp "http://www.fan.gr.jp/~ring/doc/misc/ttfont-setup.el")
 (my-require-and-when 'ttfont-setup
   (ttfont-setup))
 
 
-;; font-setup
+;;;; font-setup
 ;;;(install-elisp "http://www.bookshelf.jp/elc/font-setup.el")
-;; フォント設定
+;;;; フォント設定
 '(my-require-and-when 'font-setup
   (setq font-setup-bdf-dir
         (expand-file-name "../../fonts/intlfonts" data-directory))
@@ -109,8 +109,8 @@
                  w32-logfont "ＭＳ ゴシック" 0 0 400 0 nil nil nil 128 1 3 49)))
 
 
-;; buffer-fiber-exe
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=fiberfile
+;;;; buffer-fiber-exe
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=fiberfile
 (defun buffer-fiber-exe ()
   (interactive)
   (let ((file (buffer-file-name)))

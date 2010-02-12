@@ -1,6 +1,6 @@
 (setq-default ispell-program-name "aspell")
 
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=ispell
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=ispell
 (setq ispell-grep-command "grep")
 ;;;(setq ispell-alternate-dictionary "~/etc/dictionary/words")
 
@@ -9,7 +9,7 @@
                                         ispell-skip-region-alist)))
 
 
-;; flyspell
+;;;; flyspell
 (setq flyspell-auto-correct-binding [(control ?\')]) ; avoid key binding conflict with anything
 (my-autoload-and-when 'flyspell-mode "flyspell")
 (my-autoload-and-when 'flyspell-delay-command "flyspell")

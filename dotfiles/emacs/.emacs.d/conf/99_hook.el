@@ -1,8 +1,8 @@
-;; dirvars (set directory local variables)
+;;;; dirvars (set directory local variables)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/dirvars.el")
 (my-require-and-when 'dirvars)
 
-;; diminish
+;;;; diminish
 ;;;(install-elisp "http://www.eskimo.com/~seldon/diminish.el")
 (my-require-and-when 'diminish
   (diminish 'widen-window-mode " WW")

@@ -1,14 +1,14 @@
 (my-require-and-when 'cperl-mode)
 (defalias 'perl-mode 'cperl-mode)
 
-;; association setting
+;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
 
 
-;; perl-completion
+;;;; perl-completion
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/perl-completion/trunk/perl-completion.el")
 (add-hook 'cperl-mode-hook
            (lambda ()
@@ -16,7 +16,7 @@
              (add-to-list 'ac-sources 'ac-source-perl-completion)))
 
 
-;; eldoc
+;;;; eldoc
 (defun my-cperl-eldoc-documentation-function ()
   "Return meaningful doc string for `eldoc-mode'."
   (car
@@ -29,7 +29,7 @@
                  'my-cperl-eldoc-documentation-function)))
 
 
-;; brackets
+;;;; brackets
 (add-hook 'cperl-mode-hook
           (lambda()
             (progn
@@ -44,7 +44,7 @@
               )))
 
 
-;; macros
+;;;; macros
 (add-hook 'cperl-mode-hook
           (lambda ()
             (my-load-and-when "_perl-insert-use-statement")

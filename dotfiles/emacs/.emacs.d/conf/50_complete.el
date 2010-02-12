@@ -5,17 +5,17 @@
           (lambda ()
             (setq abbrev-mode nil)))
 
-;; for coding
+;;;; for coding
 (setq dabbrev-case-fold-search nil)
 (setq dabbrev-case-replace nil)
 
 
-;; ac-company
+;;;; ac-company
 ;;;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
 
 
-;; auto-complete
-;; http://github.com/m2ym/auto-complete
+;;;; auto-complete
+;;;; http://github.com/m2ym/auto-complete
 ;;;(install-elisp-from-emacswiki "auto-complete.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")
@@ -61,27 +61,27 @@
   )
 
 
-;; dabbrev-highlight
+;;;; dabbrev-highlight
 ;;;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
 (my-require-and-when 'dabbrev-highlight)
 
 
-;; dabbrev-ja
+;;;; dabbrev-ja
 ;;;(install-elisp "http://namazu.org/%7Etsuchiya/elisp/dabbrev-ja.el")
 ;;;(my-load-and-when "dabbrev-ja")
 
 
-;; abbrev-sort
+;;;; abbrev-sort
 ;;;(install-elisp "http://www.eskimo.com/~seldon/abbrev-sort.el")
 ;;;(my-require-and-when 'abbrev-sort)
 
 
-;; ac-mode
+;;;; ac-mode
 ;;;(install-elisp "http://taiyaki.org/elisp/ac-mode/src/ac-mode.el")
 ;;;(my-autoload-and-when 'ac-mode "ac-mode")
 
 
-;; mcomplete
+;;;; mcomplete
 ;;;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el")
 ;;;(my-require-and-when 'mcomplete)
 ;;;(my-require-and-when 'cl)
@@ -90,7 +90,7 @@
   (turn-on-mcomplete-mode))
 
 
-;; expand
+;;;; expand
 '(my-require-and-when 'expand
   (expand-add-abbrevs c-mode-abbrev-table
                       expand-c-sample-expand-list)
@@ -104,14 +104,14 @@
                       expand-sample-perl-mode-expand-list))
 
 
-;; hippie-exp
+;;;; hippie-exp
 ;;;(my-require-and-when 'hippie-exp)
 
 
-;; icicles
+;;;; icicles
 ;;;(install-elisp-from-emacswiki "icicles.el")
 ;;;(my-require-and-when 'icicles)
 
 
-;; macros
+;;;; macros
 ;;;(my-load-and-when "_maybe-capitalize-bos")

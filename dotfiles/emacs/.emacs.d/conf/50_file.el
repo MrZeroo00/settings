@@ -1,11 +1,11 @@
-;; find-file-hooks
+;;;; find-file-hooks
 '(add-hook 'find-file-hooks
           (function (lambda ()
                       (if (string-match "/foo/bar/baz" buffer-file-name)
                           (setq foo baz))
                       )))
 
-;; before-save-hook
+;;;; before-save-hook
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
@@ -17,22 +17,22 @@
 (recentf-mode t)
 ;;;(filesets-init)
 ;;;(file-name-shadow-mode t)
-;; complete
+;;;; complete
 ;;;(partial-completion-mode t)
 (setq read-file-name-completion-ignore-case t)
 
 
-;; dircolors (coloring file names)
+;;;; dircolors (coloring file names)
 ;;;(install-elisp "http://lfs.irisa.fr/~pad/rawaccess.query/hacks/dircolors.el")
 ;;;(my-require-and-when 'dircolors)
 
 
-;; recentf-ext
+;;;; recentf-ext
 ;;;(install-elisp-from-emacswiki "recentf-ext.el")
 (my-require-and-when 'recentf-ext)
 
 
-;; filecache (open long filename easily)
+;;;; filecache (open long filename easily)
 (my-require-and-when 'filecache
 ;;;  (file-cache-add-directory-list
   ;; (list "~"))
@@ -47,7 +47,7 @@
     "\C-c\C-i" 'file-cache-minibuffer-complete))
 
 
-;; ffap (open cursor position file)
+;;;; ffap (open cursor position file)
 ;;;(ffap-bindings)
 ;;;(setq ffap-newfile-prompt t)
 ;;;(setq ffap-rfc-path "http://www.ring.gr.jp/archives/doc/RFC/rfc%s.txt")
@@ -56,7 +56,7 @@
 ;;;(setq ffap-kpathsea-depth 5)
 
 
-;; highlight-completion
+;;;; highlight-completion
 ;;;(install-elisp "http://www.math.washington.edu/~palmieri/Emacs/Hlc/highlight-completion.el")
 ;;;(setq hc-ctrl-x-c-is-completion t)
 '(my-require-and-when 'highlight-completion
@@ -64,13 +64,13 @@
   (global-set-key "\C-\\" 'toggle-input-method))
 
 
-;; saveplace (save cursor position in last edit session)
+;;;; saveplace (save cursor position in last edit session)
 '(my-load-and-when "saveplace"
   (setq-default save-place t))
 
 
-;; multiverse
-;; http://d.hatena.ne.jp/rubikitch/20081218/multiverse
+;;;; multiverse
+;;;; http://d.hatena.ne.jp/rubikitch/20081218/multiverse
 ;;;(install-elisp-from-emacswiki "multiverse.el")
 (my-require-and-when 'multiverse
   (defun my-save-buffer (arg)
@@ -82,7 +82,7 @@
   (global-set-key "\C-x\C-s" 'my-save-buffer))
 
 
-;; auto-save-buffers-enhanced
+;;;; auto-save-buffers-enhanced
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/auto-save-buffers-enhanced/trunk/auto-save-buffers-enhanced.el")
 '(my-require-and-when 'auto-save-buffers-enhanced
   (auto-save-buffers-enhanced-include-only-checkout-path t)
@@ -93,24 +93,24 @@
   )
 
 
-;; auto-save-buffers (save buffers automatically)
+;;;; auto-save-buffers (save buffers automatically)
 ;;;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
 '(my-load-and-when "auto-save-buffers"
   (run-with-idle-timer 0.5 t 'auto-save-buffers))
 
 
-;; disk
+;;;; disk
 ;;;(install-elisp-from-emacswiki "disk.el")
 (my-autoload-and-when 'disk "disk")
 
 
-;; make executable if script file
+;;;; make executable if script file
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
 
-;; auto byte-compile when saving ".emacs"
-;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=byte-compile%20after%20save
+;;;; auto byte-compile when saving ".emacs"
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=byte-compile%20after%20save
 '(add-hook 'after-save-hook
           (function (lambda ()
                       (if (string= (expand-file-name "~/.emacs.el")
@@ -140,7 +140,7 @@
              (insert (ls-lisp-parse-symlink file))))))))
 
 
-;; macros
+;;;; macros
 '(my-load-and-when "_reopen-file"
   (define-key ctl-x-map "\C-r" 'reopen-file))
 '(my-load-and-when "_save-buffer-wrapper"
