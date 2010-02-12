@@ -18,6 +18,16 @@
             (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
 
 
+;; shell-pop
+;(install-elisp-from-emacswiki "shell-pop.el")
+'(my-require-and-when 'shell-pop
+  (shell-pop-set-internal-mode "ansi-term")
+  (shell-pop-set-internal-mode-shell "/bin/zsh")
+  (shell-pop-set-window-height 60) ; the number for the percentage of the selected window.
+  )
+;(global-set-key [f8] 'shell-pop)
+
+
 ;; tails-comint-history
 ;(install-elisp "http://www.bookshelf.jp/elc/tails-comint-history.el")
 ;(my-load-and-when "tails-comint-history")

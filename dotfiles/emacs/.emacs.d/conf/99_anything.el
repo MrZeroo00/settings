@@ -129,6 +129,11 @@
 (setq anything-gtags-enable-goto-location t)
 
 
+;; anything-ipa
+;(install-elisp-from-emacswiki "anything-ipa.el")
+(my-require-and-when 'anything-ipa)
+
+
 ;; anything-match-plugin
 ;(install-elisp-from-emacswiki "anything-match-plugin.el")
 (my-require-and-when 'anything-match-plugin)
@@ -141,6 +146,12 @@
 (define-key global-map [(control ?:)] 'anything-migemo)
 
 
+;; anything-rurima
+;(install-elisp-from-emacswiki "anything-rurima.el")
+'(my-require-and-when 'anything-rurima
+  (setq anything-rurima-index-file "~/foo/rurima.e")
+
+
 ;; anything-rcodetools
 ;(install-elisp-from-emacswiki "anything-rcodetools.el")
 ;(my-require-and-when 'anything-rcodetools)
@@ -151,6 +162,12 @@
 ;; anything-show-completion
 ;(install-elisp-from-emacswiki "anything-show-completion.el")
 (setq anything-show-completion-activate nil)
+
+
+;; anything-project
+; http://github.com/imakado/anything-project
+;(my-require-and-when 'anything-project)
+;(global-set-key (kbd "C-c C-f") 'anything-project)
 
 
 ;; descbinds-anything

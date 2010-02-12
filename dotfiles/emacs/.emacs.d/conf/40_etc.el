@@ -56,6 +56,8 @@
 ;; goto-chg
 ;(install-elisp-from-emacswiki "goto-chg.el")
 ;(my-require-and-when 'goto-chg)
+;(global-set-key [(control ?.)] 'goto-last-change)
+;(global-set-key [(control ?,)] 'goto-last-change-reverse)
 
 
 ;; session

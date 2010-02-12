@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ "$1" = "-l" ]; then
+  wdsgrep "$2"
+else
+  for i in `wdsgrep "$1"`; do
+    echo $i
+    grep -B 2 -A 2 "$1" "$i"
+  done
+fi

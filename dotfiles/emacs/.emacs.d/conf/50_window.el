@@ -60,7 +60,7 @@
   (when (one-window-p)
     (split-window-horizontally))
   (other-window 1))
-(global-set-key (kbd "C-t") 'other-window-or-split)
+(global-set-key (kbd "C-o") 'other-window-or-split)
 
 
 ;; macros
