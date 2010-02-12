@@ -28,7 +28,7 @@
                  (assoc lang language-info-alist))))))
 
 ;;;; 日本語じゃないときは migemo を使わない
-(eval-after-load "migemo"
+(my-eval-after-load "migemo"
   '(progn
      (defadvice isearch-mode
        (before my-migemo-off activate)
