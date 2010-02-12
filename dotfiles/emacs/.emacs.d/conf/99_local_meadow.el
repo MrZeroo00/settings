@@ -23,7 +23,7 @@
 
 ;;;; font-setup
 ;;;(install-elisp "http://www.bookshelf.jp/elc/font-setup.el")
-;;;; ¥Õ¥©¥ó¥ÈÀßÄê
+;;;; ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š
 '(my-require-and-when 'font-setup
   (setq font-setup-bdf-dir
         (expand-file-name "../../fonts/intlfonts" data-directory))
@@ -35,7 +35,7 @@
           fs min
           (num 2) (size -14))
       (setq min (or font-setup-bdf-hangul-mincho
-                    (string-match "ÌÀÄ«\\|mincho" fn)))
+                    (string-match "æ˜æœ\\|mincho" fn)))
 
       (while (not (= num 0))
         (if (= num 1)
@@ -96,17 +96,17 @@
              strict
              (w32-logfont ,fn 0 ,size 700 0 t nil nil 128 1 3 ,n)
              ((spacing . -1))))))
-        ;; ¤½¤ÎÂ¾
+        ;; ãã®ä»–
         (setq scalable-fonts-allowed t)
         (setq num (- num 1)))))
-  (font-setup "£Í£Ó ¥´¥·¥Ã¥¯" 49 t)
-  (font-setup "£Í£Ó ÌÀÄ«" 17 t)
-  (font-setup-small "£Í£Ó ¥´¥·¥Ã¥¯" 49 t)
-  (font-setup-small "£Í£Ó ÌÀÄ«" 17 t)
-  ;; IME ¤Î Font
+  (font-setup "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯" 49 t)
+  (font-setup "ï¼­ï¼³ æ˜æœ" 17 t)
+  (font-setup-small "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯" 49 t)
+  (font-setup-small "ï¼­ï¼³ æ˜æœ" 17 t)
+  ;; IME ã® Font
   (add-to-list 'default-frame-alist
                `(ime-font
-                 w32-logfont "£Í£Ó ¥´¥·¥Ã¥¯" 0 0 400 0 nil nil nil 128 1 3 49)))
+                 w32-logfont "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯" 0 0 400 0 nil nil nil 128 1 3 49)))
 
 
 ;;;; buffer-fiber-exe
@@ -129,7 +129,7 @@
                      mmemo-buffer-file-name))
      ((not file)
       (error
-       "¸½ºß¤Î¥Ğ¥Ã¥Õ¥¡¤Ï¥Õ¥¡¥¤¥ë¤Ç¤Ï¤¢¤ê¤Ş¤»¤ó"))
+       "ç¾åœ¨ã®ãƒãƒƒãƒ•ã‚¡ã¯ãƒ•ã‚¡ã‚¤ãƒ«ã§ã¯ã‚ã‚Šã¾ã›ã‚“"))
      ((file-directory-p file)
       (start-process
        "explorer" "diredfiber" "explorer.exe"
@@ -138,7 +138,7 @@
       (start-process
        "fiber" "diredfiber" "fiber.exe" file))
      ((not (file-exists-p file))
-      (error "¥Õ¥¡¥¤¥ë¤¬Â¸ºß¤·¤Ş¤»¤ó")))))
+      (error "ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã›ã‚“")))))
 
 
 (my-require-and-when 'outlookedit)

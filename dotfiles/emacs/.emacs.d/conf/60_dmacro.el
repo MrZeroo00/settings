@@ -1,4 +1,4 @@
 ;;;(install-elisp "http://www.pitecan.com/papers/JSSSTDmacro/dmacro.el")
 (my-autoload-and-when 'dmacro-exec "dmacro"
-                      (defconst *dmacro-key* "\C-t" "ŒJ•Ô‚µw’èƒL[")
+                      (defconst *dmacro-key* "\C-t" "ç¹°è¿”ã—æŒ‡å®šã‚­ãƒ¼")
                       (global-set-key *dmacro-key* 'dmacro-exec))

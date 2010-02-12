@@ -56,9 +56,9 @@
 
   (defadvice migemo-toggle-isearch-enable (before approx-ad-migemo-toggle-i
                                                   arch-enable activate)
-    "migemo ¤ò»È¤¦»ş¤Ï approx-search ¤ò»È¤ï¤Ê¤¤."
+    "migemo ã‚’ä½¿ã†æ™‚ã¯ approx-search ã‚’ä½¿ã‚ãªã„."
     (if migemo-isearch-enable-p
-        (approx-isearch-set-enable) ; NOT disable!!! before advice ¤Ê¤Î¤Ç
+        (approx-isearch-set-enable) ; NOT disable!!! before advice ãªã®ã§
       (approx-isearch-set-disable))))
 
 

@@ -12,7 +12,7 @@
 ;;;; http://d.hatena.ne.jp/amt/20060115/HatenaHelperMode
 (my-require-and-when 'hatenahelper-mode
   (global-set-key "\C-xH" 'hatenahelper-mode))
-;;;(add-hook 'hatena-mode-hook 'hatenahelper-mode)  ; –{“–‚Í‚±‚¤
+;;;(add-hook 'hatena-mode-hook 'hatenahelper-mode)  ; æœ¬å½“ã¯ã“ã†
 ;;;(add-hook 'hatena-mode-hook
 (add-hook 'simple-hatena-mode-hook
           '(lambda ()

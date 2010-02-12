@@ -111,13 +111,13 @@
           (when anything-in-persistent-action
             (anything-persistent-highlight-point (point-at-bol) (point-at-eol)))))
   (setq anything-grep-alist
-        ;; Á´¥Ğ¥Ã¥Õ¥¡¤Î¥Õ¥¡¥¤¥ëÌ¾¤Ë¤ª¤¤¤Æegrep¤ò¤«¤±¤ë¡£moccur¤ÎÂå¤ï¤ê¡£
+        ;; å…¨ãƒãƒƒãƒ•ã‚¡ã®ãƒ•ã‚¡ã‚¤ãƒ«åã«ãŠã„ã¦egrepã‚’ã‹ã‘ã‚‹ã€‚moccurã®ä»£ã‚ã‚Šã€‚
         '(("buffers" ("egrep -Hin %s $buffers" "/"))
-          ;; ~/memo °Ê²¼¤«¤éºÆµ¢Åª¤Ëegrep¤ò¤«¤±¤ë¡£ÉÔÍ×¤Ê¥Õ¥¡¥¤¥ë¤Ï½ü¤«¤ì¤ë¡£
+          ;; ~/memo ä»¥ä¸‹ã‹ã‚‰å†å¸°çš„ã«egrepã‚’ã‹ã‘ã‚‹ã€‚ä¸è¦ãªãƒ•ã‚¡ã‚¤ãƒ«ã¯é™¤ã‹ã‚Œã‚‹ã€‚
           ("memo" ("ack-grep -af | xargs egrep -Hin %s" "~/memo"))
           ;; grep current directory (now testing)
           ("current directory" ("ack-grep -af | xargs egrep -Hin %s" "."))
-          ;; ~/ruby°Ê²¼¤ÎÁ´Ruby¥¹¥¯¥ê¥×¥È¤È~/bin°Ê²¼¤Î¥Õ¥¡¥¤¥ë¤ò¤Ş¤È¤á¤Æ¸¡º÷¤¹¤ë¡£
+          ;; ~/rubyä»¥ä¸‹ã®å…¨Rubyã‚¹ã‚¯ãƒªãƒ—ãƒˆã¨~/binä»¥ä¸‹ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã¾ã¨ã‚ã¦æ¤œç´¢ã™ã‚‹ã€‚
           ("~/bin and ~/ruby"
            ("ack-grep -afG 'rb$' | xargs egrep -Hin %s" "~/ruby")
            ("ack-grep -af | xargs egrep -Hin %s" "~/bin"))))
@@ -188,7 +188,7 @@
 ;;;; anything-compile-source--candidates-file
 (defvar anything-c-source-home-directory
   '((name . "Home directory")
-    ;; /log/home.filelist ¤Ë¥Û¡¼¥à¥Ç¥£¥ì¥¯¥È¥ê¤Î¥Õ¥¡¥¤¥ëÌ¾¤¬1¹Ô¤Ë¤Ä¤­¤Ò¤È¤Ä³ÊÇ¼¤µ¤ì¤Æ¤¤¤ë
+    ;; /log/home.filelist ã«ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ•ã‚¡ã‚¤ãƒ«åãŒ1è¡Œã«ã¤ãã²ã¨ã¤æ ¼ç´ã•ã‚Œã¦ã„ã‚‹
     (candidates-file "/log/home.filelist" updating)
     (requires-pattern . 5)
     (candidate-number-limit . 20)

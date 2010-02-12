@@ -17,8 +17,8 @@
 
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=migemo%20onlyjapanese
-;;;; buffer-file-coding-system ¤«¤é¸À¸ìÈ½ÊÌ
-;;;; unicode ¤âÆş¤ì¤¿Êı¤¬¤¤¤¤¤Î¤«¤â¡£
+;;;; buffer-file-coding-system ã‹ã‚‰è¨€èªåˆ¤åˆ¥
+;;;; unicode ã‚‚å…¥ã‚ŒãŸæ–¹ãŒã„ã„ã®ã‹ã‚‚ã€‚
 (defun my-language-check (lang)
   (let ((coding
          (coding-system-base buffer-file-coding-system)))
@@ -27,7 +27,7 @@
      (cdr (assoc 'coding-system
                  (assoc lang language-info-alist))))))
 
-;;;; ÆüËÜ¸ì¤¸¤ã¤Ê¤¤¤È¤­¤Ï migemo ¤ò»È¤ï¤Ê¤¤
+;;;; æ—¥æœ¬èªã˜ã‚ƒãªã„ã¨ãã¯ migemo ã‚’ä½¿ã‚ãªã„
 (eval-after-load "migemo"
   '(progn
      (defadvice isearch-mode
@@ -42,50 +42,50 @@
 
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=auto%20renmigemo
-;;;(defun my-ren-cap (str) ; ¼¡Ã±¸ì¤ÎÀèÆ¬¤òÂçÊ¸»ú²½
+;;;(defun my-ren-cap (str) ; æ¬¡å˜èªã®å…ˆé ­ã‚’å¤§æ–‡å­—åŒ–
 ;;;  (string-match
-;;;   ".*[aiueo]\\(?:nn\\)*\\(.+\\)" str) ; ºÇ¸å¤ÎÊì²» OR nn Ä¾¸å
+;;;   ".*[aiueo]\\(?:nn\\)*\\(.+\\)" str) ; æœ€å¾Œã®æ¯éŸ³ OR nn ç›´å¾Œ
 ;;;  (let ((start (match-beginning 1)))
 ;;;    (cond
-;;;     ((string-match "n\\([^aiueon]\\)" str start); n ¤Î¸å¤Î»Ò²»
+;;;     ((string-match "n\\([^aiueon]\\)" str start); n ã®å¾Œã®å­éŸ³
 ;;;      (replace-match (upcase (match-string 1 str)) nil nil str 1))
-;;;     ((string-match "[ ,.]*\\(.\\)" str start); Êì²» OR nn ¤ÎÄ¾¸å
+;;;     ((string-match "[ ,.]*\\(.\\)" str start); æ¯éŸ³ OR nn ã®ç›´å¾Œ
 ;;;      (replace-match (upcase (match-string 1 str)) nil nil str 1))
 ;;;     (t str))))
 ;;;
 ;;;(defadvice isearch-update (after my-migemo-auto-cap activate)
 ;;;  (when (and (featurep 'migemo)
-;;;             migemo-isearch-enable-p ; migemo ¤¬ on ¤Ç¡¤
-;;;             (not isearch-success) ; isearch ¤Ë¼ºÇÔ¤·¡¤
-;;;             ;; ¸¡º÷Ê¸»úÎó¤¬ÆóÊ¸»ú°Ê¾å¤ÇÊì²»½ª¤ï¤ê¡¤
+;;;             migemo-isearch-enable-p ; migemo ãŒ on ã§ï¼Œ
+;;;             (not isearch-success) ; isearch ã«å¤±æ•—ã—ï¼Œ
+;;;             ;; æ¤œç´¢æ–‡å­—åˆ—ãŒäºŒæ–‡å­—ä»¥ä¸Šã§æ¯éŸ³çµ‚ã‚ã‚Šï¼Œ
 ;;;             (string-match ".[aiueo]$" isearch-string)
 ;;;             (eq this-command
-;;;                 'isearch-printing-char) ; ¸¡º÷Ê¸»úÎó¤ò¿­¤Ğ¤·¤¿
+;;;                 'isearch-printing-char) ; æ¤œç´¢æ–‡å­—åˆ—ã‚’ä¼¸ã°ã—ãŸ
 ;;;             (save-excursion
-;;;               ;; »Ä¤ê¤Î¥Ğ¥Ã¥Õ¥¡¤ò¸¡º÷¤·¤Æ¤â¸¡º÷Ê¸»úÎó¤¬¤Ê¤¤¾ì¹ç
+;;;               ;; æ®‹ã‚Šã®ãƒãƒƒãƒ•ã‚¡ã‚’æ¤œç´¢ã—ã¦ã‚‚æ¤œç´¢æ–‡å­—åˆ—ãŒãªã„å ´åˆ
 ;;;               (goto-char (point-min))
 ;;;               (not (funcall
 ;;;                     (if isearch-forward
 ;;;                         're-search-forward 're-search-backward)
 ;;;                     (migemo-get-pattern isearch-string) nil t))))
-;;;    ;; migemo ¤Ç isearch ¤Ë¼ºÇÔ¤·¤¿¤é¤½¤³¤«¤é¼¡Ã±¸ì¤È¤¹¤ë
+;;;    ;; migemo ã§ isearch ã«å¤±æ•—ã—ãŸã‚‰ãã“ã‹ã‚‰æ¬¡å˜èªã¨ã™ã‚‹
 ;;;    (dolist (var (list 'isearch-string 'isearch-message))
 ;;;      (let ((str (symbol-value var)))
 ;;;        (set var (my-ren-cap str))));; (length str)))))
-;;;    ;; ºÆ¸¡º÷ -- isearch-barrier ¤«¤é¤Ç¤¤¤¤¤Î¤«¤Ê¡©
+;;;    ;; å†æ¤œç´¢ -- isearch-barrier ã‹ã‚‰ã§ã„ã„ã®ã‹ãªï¼Ÿ
 ;;;    (goto-char isearch-opoint)
 ;;;    (isearch-search)))
 
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=no%20migemo
-;;;; Ê¸»ú¤ò¥Ğ¥Ã¥Õ¥¡¤«¤é¥³¥Ô¡¼¤¹¤ë¤È¤­¤Ë¤Ï
-;;;; migemo ¤ò¥ª¥Õ¤Ë¤¹¤ë
+;;;; æ–‡å­—ã‚’ãƒãƒƒãƒ•ã‚¡ã‹ã‚‰ã‚³ãƒ”ãƒ¼ã™ã‚‹ã¨ãã«ã¯
+;;;; migemo ã‚’ã‚ªãƒ•ã«ã™ã‚‹
 ;;;(defadvice isearch-yank-string
 ;;;  (before migemo-off activate)
 ;;;  (setq migemo-isearch-enable-p nil))
 ;;;
-;;; isearch ¤Ç¸¡º÷¤¹¤ë»ş¤Ë¤Ï
-;;; migemo ¤ò¥ª¥ó¤Ë¤¹¤ë
+;;; isearch ã§æ¤œç´¢ã™ã‚‹æ™‚ã«ã¯
+;;; migemo ã‚’ã‚ªãƒ³ã«ã™ã‚‹
 ;;;(defadvice isearch-mode
 ;;;  (before migemo-on activate)
 ;;;  (setq migemo-isearch-enable-p t))

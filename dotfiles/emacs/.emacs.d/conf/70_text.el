@@ -8,7 +8,7 @@
               )))
 
 ;;;; common setting
-(setq paragraph-start '"^\\([ ¡¡¡¦¡û<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
+(setq paragraph-start '"^\\([ ã€€ãƒ»â—‹<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
 
 
 ;;;; imenu

@@ -31,16 +31,16 @@
 
 ;;;; position and size setting
 (setq default-frame-alist
-      (append (list '(top . 20)         ; $B5/F0;~$NI=<(0LCV(B($B1&$+$i(B)
-                    '(left . 100)       ; $B5/F0;~$NI=<(0LCV(B($B:8$+$i(B)
-                    '(width . 160)      ; $B5/F0;~$N%5%$%:(B($BI}(B)
-                    '(height . 64)      ; $B5/F0;~$N%5%$%:(B($B=D(B)
-;;;                    '(foreground-color . "green")       ; $BJ8;z$N?'(B
-;;;                    '(background-color . "black")       ; $BGX7J$N?'(B
-;;;                    '(alpha . (nil 70 50 30))           ; $BF)2a(B
-;;;                    '(cursor-color . "DarkOliveGreen1") ; $B%+!<%=%k$N?'(B
-;;;                    '(mouse-color . "DarkOliveGreen1")  ; $B%^%&%9%]%$%s%?$N?'(B
-;;;                    '(font . "fontset-tt14") ; $B;H$&%U%)%s%H%;%C%H(B
+      (append (list '(top . 20)         ; 起動時の表示位置(右から)
+                    '(left . 100)       ; 起動時の表示位置(左から)
+                    '(width . 160)      ; 起動時のサイズ(幅)
+                    '(height . 64)      ; 起動時のサイズ(縦)
+;;;                    '(foreground-color . "green")       ; 文字の色
+;;;                    '(background-color . "black")       ; 背景の色
+;;;                    '(alpha . (nil 70 50 30))           ; 透過
+;;;                    '(cursor-color . "DarkOliveGreen1") ; カーソルの色
+;;;                    '(mouse-color . "DarkOliveGreen1")  ; マウスポインタの色
+;;;                    '(font . "fontset-tt14") ; 使うフォントセット
                     )
               default-frame-alist))
 

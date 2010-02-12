@@ -43,8 +43,8 @@
 ;;;; twit
 ;;;(install-elisp-from-emacswiki "twit.el")
 '(my-require-and-when 'twit
-  (setq twit-user "¡Á"
-        twit-pass "¡Á"))
+  (setq twit-user "ã€œ"
+        twit-pass "ã€œ"))
 
 
 ;;;; MozRepl
