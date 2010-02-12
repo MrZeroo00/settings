@@ -1,8 +1,8 @@
 ;; Outputz
 ;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
 '(my-require-and-when 'outputz
-  (setq outputz-key "Your Private Key") ;; 復活の呪文
-  (setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
+  (setq outputz-key "Your Private Key")
+  (setq outputz-uri "http://example.com/%s")
   (global-outputz-mode t)
 
   (defun outputz-buffers ()
@@ -219,6 +219,16 @@
 
 ;; midnight
 (my-require-and-when 'midnight)
+
+
+;; advice
+(defadvice bookmark-set (around bookmark-set-ad activate)
+  (bookmark-load bookmark-default-file t t) ;; reload latest bookmark before register
+  ad-do-it
+  (bookmark-save))
+
+(defadvice bookmark-jump (before bookmark-set-ad activate)
+  (bookmark-load bookmark-default-file t t))
 
 
 ;; macros
