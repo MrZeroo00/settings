@@ -49,7 +49,7 @@
 
 ;; ffap (open cursor position file)
 ;(ffap-bindings)
-;;(setq ffap-newfile-prompt t)
+;;;(setq ffap-newfile-prompt t)
 ;(setq ffap-rfc-path "http://www.ring.gr.jp/archives/doc/RFC/rfc%s.txt")
 ;(setq ffap-dired-wildcards "*")
 ;(setq ffap-machine-p-known 'accept)

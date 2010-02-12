@@ -13,8 +13,8 @@
 ;(my-load-and-when "anthy")
 ;(setq default-input-method "japanese-anthy")
 ;(global-set-key "\C-o" 'anthy-mode)
-;;(anthy-change-hiragana-map "," "、")
-;;(anthy-load-hiragana-map anthy-alt-char-map)
+;;;(anthy-change-hiragana-map "," "、")
+;;;(anthy-load-hiragana-map anthy-alt-char-map)
 ;(setq anthy-wide-space " ")
 
 
