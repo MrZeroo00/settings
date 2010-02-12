@@ -3,12 +3,12 @@
 (my-require-and-when 'confluence)
 
 ;; note, all customization must be in *one* custom-set-variables block
-;(custom-set-variables
-; ;; ... other custimization
-;
-; ;; confluence customization
-; '(confluence-url "http://intranet/confluence/rpc/xmlrpc")
-; '(confluence-default-space-alist (list (cons confluence-url "your-default-space-name"))))
+;;;(custom-set-variables
+;;; ;; ... other custimization
+;;;
+;;; ;; confluence customization
+;;; '(confluence-url "http://intranet/confluence/rpc/xmlrpc")
+;;; '(confluence-default-space-alist (list (cons confluence-url "your-default-space-name"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; confluence editing support (with longlines mode)
