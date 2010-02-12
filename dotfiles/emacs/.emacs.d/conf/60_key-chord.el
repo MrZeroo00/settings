@@ -1,4 +1,4 @@
-;(install-elisp-from-emacswiki "key-chord.el")
+;;;(install-elisp-from-emacswiki "key-chord.el")
 (my-require-and-when 'key-chord
   (setq key-chord-two-keys-delay 0.04)
   (key-chord-mode t)
@@ -9,7 +9,7 @@
 
 
 ;; space-chord
-;(install-elisp-from-emacswiki "space-chord.el")
+;;;(install-elisp-from-emacswiki "space-chord.el")
 (my-require-and-when 'space-chord
 ;;;  (space-chord-define-global "f" 'find-file)
   )

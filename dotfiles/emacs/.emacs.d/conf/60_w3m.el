@@ -2,7 +2,7 @@
 (if (= emacs-major-version 23)
     (my-require-and-when 'w3m-ems)
   (my-require-and-when 'w3m))
-;(my-require-and-when 'mime-w3m)
+;;;(my-require-and-when 'mime-w3m)
 
 (my-eval-after-load "w3m"
   (setq w3m-fill-column -10)
@@ -36,7 +36,7 @@
 
 
 ;; w3m-type-ahead
-;(install-elisp-from-emacswiki "w3m-type-ahead.el")
+;;;(install-elisp-from-emacswiki "w3m-type-ahead.el")
 (my-eval-after-load "w3m"
   (my-load-and-when "w3m-type-ahead")
   (setq w3m-type-ahead-from-point t)

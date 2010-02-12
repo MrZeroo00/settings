@@ -27,43 +27,43 @@
 
 
 ;; refe
-;(install-elisp "http://ns103.net/~arai/ruby/refe.el")
-;(my-require-and-when 'refe)
+;;;(install-elisp "http://ns103.net/~arai/ruby/refe.el")
+;;;(my-require-and-when 'refe)
 ;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
-;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
+;;;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
 (add-hook 'ruby-mode-hook
           (lambda ()
             (my-load-and-when "_refe2")))
 
 
 ;; autotest
-;(install-elisp-from-emacswiki "autotest.el")
+;;;(install-elisp-from-emacswiki "autotest.el")
 (add-hook 'ruby-mode-hook
           (lambda ()
             (my-require-and-when 'autotest)))
 
 
 ;; align
-;(add-to-list 'align-rules-list
-;             '(ruby-comma-delimiter
-;               (regexp . ",\\(\\s-*\\)[^# \t\n]")
-;               (repeat . t)
-;               (modes  . '(ruby-mode))))
-;(add-to-list 'align-rules-list
-;             '(ruby-hash-literal
-;               (regexp . "\\(\\s-*\\)=>\\s-*[^# \t\n]")
-;               (repeat . t)
-;               (modes  . '(ruby-mode))))
-;(add-to-list 'align-rules-list
-;             '(ruby-assignment-literal
-;               (regexp . "\\(\\s-*\\)=\\s-*[^# \t\n]")
-;               (repeat . t)
-;               (modes  . '(ruby-mode))))
-;(add-to-list 'align-rules-list          ;TODO add to rcodetools.el
-;             '(ruby-xmpfilter-mark
-;               (regexp . "\\(\\s-*\\)# => [^#\t\n]")
-;               (repeat . nil)
-;               (modes  . '(ruby-mode))))
+;;;(add-to-list 'align-rules-list
+;;;             '(ruby-comma-delimiter
+;;;               (regexp . ",\\(\\s-*\\)[^# \t\n]")
+;;;               (repeat . t)
+;;;               (modes  . '(ruby-mode))))
+;;;(add-to-list 'align-rules-list
+;;;             '(ruby-hash-literal
+;;;               (regexp . "\\(\\s-*\\)=>\\s-*[^# \t\n]")
+;;;               (repeat . t)
+;;;               (modes  . '(ruby-mode))))
+;;;(add-to-list 'align-rules-list
+;;;             '(ruby-assignment-literal
+;;;               (regexp . "\\(\\s-*\\)=\\s-*[^# \t\n]")
+;;;               (repeat . t)
+;;;               (modes  . '(ruby-mode))))
+;;;(add-to-list 'align-rules-list          ;TODO add to rcodetools.el
+;;;             '(ruby-xmpfilter-mark
+;;;               (regexp . "\\(\\s-*\\)# => [^#\t\n]")
+;;;               (repeat . nil)
+;;;               (modes  . '(ruby-mode))))
 
 
 ;; macros

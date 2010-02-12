@@ -1,6 +1,6 @@
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=exampleelisp%20color-moccur
-;(install-elisp "http://www.bookshelf.jp/elc/moccur-edit.el")
-;(install-elisp "http://www.bookshelf.jp/elc/color-moccur.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/moccur-edit.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/color-moccur.el")
 (setq moccur-split-word t)
 (my-require-and-when 'migemo
   (setq moccur-use-migemo t))
@@ -60,4 +60,4 @@
 
 
 ;; macros
-;(my-load-and-when "_flush-keep-line")
+;;;(my-load-and-when "_flush-keep-line")

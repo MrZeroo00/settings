@@ -15,20 +15,20 @@
               '(".exe" ".com")))
 (auto-image-file-mode t)
 (recentf-mode t)
-;(filesets-init)
-;(file-name-shadow-mode t)
+;;;(filesets-init)
+;;;(file-name-shadow-mode t)
 ;; complete
-;(partial-completion-mode t)
+;;;(partial-completion-mode t)
 (setq read-file-name-completion-ignore-case t)
 
 
 ;; dircolors (coloring file names)
-;(install-elisp "http://lfs.irisa.fr/~pad/rawaccess.query/hacks/dircolors.el")
-;(my-require-and-when 'dircolors)
+;;;(install-elisp "http://lfs.irisa.fr/~pad/rawaccess.query/hacks/dircolors.el")
+;;;(my-require-and-when 'dircolors)
 
 
 ;; recentf-ext
-;(install-elisp-from-emacswiki "recentf-ext.el")
+;;;(install-elisp-from-emacswiki "recentf-ext.el")
 (my-require-and-when 'recentf-ext)
 
 
@@ -48,17 +48,17 @@
 
 
 ;; ffap (open cursor position file)
-;(ffap-bindings)
+;;;(ffap-bindings)
 ;;;(setq ffap-newfile-prompt t)
-;(setq ffap-rfc-path "http://www.ring.gr.jp/archives/doc/RFC/rfc%s.txt")
-;(setq ffap-dired-wildcards "*")
-;(setq ffap-machine-p-known 'accept)
-;(setq ffap-kpathsea-depth 5)
+;;;(setq ffap-rfc-path "http://www.ring.gr.jp/archives/doc/RFC/rfc%s.txt")
+;;;(setq ffap-dired-wildcards "*")
+;;;(setq ffap-machine-p-known 'accept)
+;;;(setq ffap-kpathsea-depth 5)
 
 
 ;; highlight-completion
-;(install-elisp "http://www.math.washington.edu/~palmieri/Emacs/Hlc/highlight-completion.el")
-;(setq hc-ctrl-x-c-is-completion t)
+;;;(install-elisp "http://www.math.washington.edu/~palmieri/Emacs/Hlc/highlight-completion.el")
+;;;(setq hc-ctrl-x-c-is-completion t)
 '(my-require-and-when 'highlight-completion
   (highlight-completion-mode t)
   (global-set-key "\C-\\" 'toggle-input-method))
@@ -71,7 +71,7 @@
 
 ;; multiverse
 ;; http://d.hatena.ne.jp/rubikitch/20081218/multiverse
-;(install-elisp-from-emacswiki "multiverse.el")
+;;;(install-elisp-from-emacswiki "multiverse.el")
 (my-require-and-when 'multiverse
   (defun my-save-buffer (arg)
     (interactive "P")
@@ -83,7 +83,7 @@
 
 
 ;; auto-save-buffers-enhanced
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/auto-save-buffers-enhanced/trunk/auto-save-buffers-enhanced.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/auto-save-buffers-enhanced/trunk/auto-save-buffers-enhanced.el")
 '(my-require-and-when 'auto-save-buffers-enhanced
   (auto-save-buffers-enhanced-include-only-checkout-path t)
   (auto-save-buffers-enhanced t)
@@ -94,13 +94,13 @@
 
 
 ;; auto-save-buffers (save buffers automatically)
-;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
+;;;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
 '(my-load-and-when "auto-save-buffers"
   (run-with-idle-timer 0.5 t 'auto-save-buffers))
 
 
 ;; disk
-;(install-elisp-from-emacswiki "disk.el")
+;;;(install-elisp-from-emacswiki "disk.el")
 (my-autoload-and-when 'disk "disk")
 
 
@@ -150,4 +150,4 @@
       (add-hook 'after-save-hook 'delete-file-if-no-contents)))
 '(my-load-and-when "_file-cache-read-save-cache"
   (file-cache-read-cache-from-file "~/.emacs.d/.file_cache"))
-;(my-load-and-when "_Yama-binary-file-view")
+;;;(my-load-and-when "_Yama-binary-file-view")

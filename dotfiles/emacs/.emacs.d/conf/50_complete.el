@@ -11,15 +11,15 @@
 
 
 ;; ac-company
-;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
+;;;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
 
 
 ;; auto-complete
 ;; http://github.com/m2ym/auto-complete
-;(install-elisp-from-emacswiki "auto-complete.el")
-;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
-;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")
-;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
+;;;(install-elisp-from-emacswiki "auto-complete.el")
+;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
+;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")
+;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
 (my-require-and-when 'auto-complete-config
   (global-auto-complete-mode t)
   (set-face-background 'ac-candidate-face "lightgray")
@@ -62,30 +62,30 @@
 
 
 ;; dabbrev-highlight
-;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
+;;;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
 (my-require-and-when 'dabbrev-highlight)
 
 
 ;; dabbrev-ja
-;(install-elisp "http://namazu.org/%7Etsuchiya/elisp/dabbrev-ja.el")
-;(my-load-and-when "dabbrev-ja")
+;;;(install-elisp "http://namazu.org/%7Etsuchiya/elisp/dabbrev-ja.el")
+;;;(my-load-and-when "dabbrev-ja")
 
 
 ;; abbrev-sort
-;(install-elisp "http://www.eskimo.com/~seldon/abbrev-sort.el")
-;(my-require-and-when 'abbrev-sort)
+;;;(install-elisp "http://www.eskimo.com/~seldon/abbrev-sort.el")
+;;;(my-require-and-when 'abbrev-sort)
 
 
 ;; ac-mode
-;(install-elisp "http://taiyaki.org/elisp/ac-mode/src/ac-mode.el")
-;(my-autoload-and-when 'ac-mode "ac-mode")
+;;;(install-elisp "http://taiyaki.org/elisp/ac-mode/src/ac-mode.el")
+;;;(my-autoload-and-when 'ac-mode "ac-mode")
 
 
 ;; mcomplete
-;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el")
-;(my-require-and-when 'mcomplete)
-;(my-require-and-when 'cl)
-;(install-elisp "http://www.bookshelf.jp/elc/mcomplete-history.el")
+;;;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el")
+;;;(my-require-and-when 'mcomplete)
+;;;(my-require-and-when 'cl)
+;;;(install-elisp "http://www.bookshelf.jp/elc/mcomplete-history.el")
 '(my-load-and-when "mcomplete-history"
   (turn-on-mcomplete-mode))
 
@@ -105,13 +105,13 @@
 
 
 ;; hippie-exp
-;(my-require-and-when 'hippie-exp)
+;;;(my-require-and-when 'hippie-exp)
 
 
 ;; icicles
-;(install-elisp-from-emacswiki "icicles.el")
-;(my-require-and-when 'icicles)
+;;;(install-elisp-from-emacswiki "icicles.el")
+;;;(my-require-and-when 'icicles)
 
 
 ;; macros
-;(my-load-and-when "_maybe-capitalize-bos")
+;;;(my-load-and-when "_maybe-capitalize-bos")

@@ -2,20 +2,20 @@
 
 
 ;; psvn
-;(install-elisp "http://www.xsteve.at/prg/emacs/psvn.el")
+;;;(install-elisp "http://www.xsteve.at/prg/emacs/psvn.el")
 (my-autoload-and-when 'svn-status "psvn")
 (my-autoload-and-when 'svn-update "psvn")
 
 
 ;; dsvn
-;(install-elisp "http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/dsvn.el")
-;(my-autoload-and-when 'svn-status "dsvn")
-;(my-autoload-and-when 'svn-update "dsvn")
+;;;(install-elisp "http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/dsvn.el")
+;;;(my-autoload-and-when 'svn-status "dsvn")
+;;;(my-autoload-and-when 'svn-update "dsvn")
 
 
 ;; egg
-;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg.el")
-;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg-grep.el")
+;;;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg.el")
+;;;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg-grep.el")
 (my-require-and-when 'egg
   (my-load-and-when "egg-grep")
   (define-key egg-file-cmd-map "z" 'egg-buffer-stash-wip)
@@ -41,4 +41,4 @@
 
 ;; p4
 ;; http://p4el.sourceforge.net/
-;(my-load-and-when "p4")
+;;;(my-load-and-when "p4")

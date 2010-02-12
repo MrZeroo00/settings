@@ -49,5 +49,5 @@
 
 
 ;; lispxmp
-;(install-elisp-from-emacswiki "lispxmp.el")
-;(my-require-and-when 'lispxmp)
+;;;(install-elisp-from-emacswiki "lispxmp.el")
+;;;(my-require-and-when 'lispxmp)

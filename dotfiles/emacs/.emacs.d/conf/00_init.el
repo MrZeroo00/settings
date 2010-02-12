@@ -1,11 +1,11 @@
 ;; install-elisp
-;(install-elisp-from-emacswiki "install-elisp.el")
+;;;(install-elisp-from-emacswiki "install-elisp.el")
 '(my-require-and-when 'install-elisp
   (setq install-elisp-repository-directory "~/.emacs.d/elisp/"))
 
 
 ;; auto-install
-;(install-elisp-from-emacswiki "auto-install.el")
+;;;(install-elisp-from-emacswiki "auto-install.el")
 '(my-require-and-when 'auto-install
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
@@ -59,11 +59,11 @@
                     (set-face-foreground 'font-lock-warning-face "blue")
                     (set-face-bold-p 'font-lock-warning-face nil)
                     ))
-;(set-face-foreground 'modeline "gray10")
-;(set-face-background 'modeline "bisque3")
-;(set-face-foreground 'mode-line-inactive "gray30")
-;(set-face-background 'mode-line-inactive "gray85")
-;(set-face-background 'region "DeepPink1")
+;;;(set-face-foreground 'modeline "gray10")
+;;;(set-face-background 'modeline "bisque3")
+;;;(set-face-foreground 'mode-line-inactive "gray30")
+;;;(set-face-background 'mode-line-inactive "gray85")
+;;;(set-face-background 'region "DeepPink1")
 
 ;; color-theme
 ;; https://gna.org/projects/color-theme
@@ -79,10 +79,10 @@
 ;; highlight current line
 (global-hl-line-mode)
 (hl-line-mode t)
-;(setq hl-line-face 'underline)
+;;;(setq hl-line-face 'underline)
 (set-face-background 'hl-line "DarkOliveGreen")
-;(install-elisp-from-emacswiki "col-highlight.el")
-;(install-elisp-from-emacswiki "vline.el")
+;;;(install-elisp-from-emacswiki "col-highlight.el")
+;;;(install-elisp-from-emacswiki "vline.el")
 (my-require-and-when 'col-highlight
   (column-highlight-mode t)
 ;;;  (toggle-highlight-column-when-idle t)
@@ -93,12 +93,12 @@
 
 ;; region setting
 (transient-mark-mode t)
-;(setq highlight-nonselected-windows t)
-;(pc-selection-mode)
-;(delete-selection-mode t)
+;;;(setq highlight-nonselected-windows t)
+;;;(pc-selection-mode)
+;;;(delete-selection-mode t)
 
 ;; visible-mark
-;(install-elisp-from-emacswiki "visible-mark.el")
+;;;(install-elisp-from-emacswiki "visible-mark.el")
 (my-require-and-when 'visible-mark)
 
 
@@ -133,14 +133,14 @@
 (setq inhibit-startup-message t)
 (setq frame-title-format "%b")
 (tool-bar-mode nil)
-;(menu-bar-mode nil)
-;(msb-mode t)
+;;;(menu-bar-mode nil)
+;;;(msb-mode t)
 (set-scroll-bar-mode 'right)
 (setq visible-bell t)
-;(fset 'yes-or-no-p 'y-or-n-p)
+;;;(fset 'yes-or-no-p 'y-or-n-p)
 (setq debug-on-error nil)
 (auto-insert-mode t)
-;(global-auto-revert-mode)
+;;;(global-auto-revert-mode)
 (setq kill-whole-line t)
 (setq kill-read-only-ok t)
 (setq next-line-add-newlines nil)
@@ -150,28 +150,28 @@
 (setq undo-limit 100000)
 (setq undo-strong-limit 130000)
 (setq diff-switches "-u")
-;(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
+;;;(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 (setq x-select-enable-clipboard t)
 
 
 ;; redo
-;(install-elisp "http://www.wonderworks.com/download/redo.el")
+;;;(install-elisp "http://www.wonderworks.com/download/redo.el")
 (my-require-and-when 'redo)
 
 
 ;; point-undo
-;(install-elisp-from-emacswiki "point-undo.el")
+;;;(install-elisp-from-emacswiki "point-undo.el")
 (my-require-and-when 'point-undo)
 
 
 ;; kill-summary
-;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
+;;;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
 (my-autoload-and-when 'kill-summary "kill-summary"
                       (global-set-key "\M-y" 'kill-summary))
 
 
 ;; list-register
-;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
 (my-require-and-when 'list-register)
 
 ;; pit
@@ -180,10 +180,10 @@
 
 ;; a-menu
 ;; http://homepage.mac.com/zenitani/comp-e.html
-;(my-require-and-when 'a-menu)
+;;;(my-require-and-when 'a-menu)
 
 
 ;; macros
-;(my-load-and-when "_egoge-wash-out-colour")
+;;;(my-load-and-when "_egoge-wash-out-colour")
 (my-load-and-when "_elisp-font-lock-top-quote")
 (my-load-and-when "_line-to-top-of-window")

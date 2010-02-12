@@ -1,43 +1,43 @@
-;(install-elisp-from-emacswiki "anything.el")
-;(install-elisp-from-emacswiki "anything-config.el")
-;(install-elisp-from-emacswiki "anything-rubikitch.el")
-;(install-elisp-from-emacswiki "anything-goodies.el")
+;;;(install-elisp-from-emacswiki "anything.el")
+;;;(install-elisp-from-emacswiki "anything-config.el")
+;;;(install-elisp-from-emacswiki "anything-rubikitch.el")
+;;;(install-elisp-from-emacswiki "anything-goodies.el")
 (my-require-and-when 'anything)
 (my-require-and-when 'anything-config)
-;(my-load-and-when "_anything-rubikitch")
+;;;(my-load-and-when "_anything-rubikitch")
 
 
 ;; ac-anything
-;(install-elisp-from-emacswiki "ac-anything.el")
+;;;(install-elisp-from-emacswiki "ac-anything.el")
 (my-require-and-when 'ac-anything
   (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything))
 
 
 ;; anything-c-dabbrev
-;(install-elisp-from-emacswiki "anything-c-dabbrev.el")
+;;;(install-elisp-from-emacswiki "anything-c-dabbrev.el")
 
 
 ;; anything-c-imenu
-;(install-elisp-from-emacswiki "el-expectations.el")
+;;;(install-elisp-from-emacswiki "el-expectations.el")
 (my-require-and-when 'el-expectations)
-;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
+;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
 (my-require-and-when 'anything-c-imenu)
 
 
 ;; anything-c-linkd-tags
-;(install-elisp-from-emacswiki "linkd.el")
+;;;(install-elisp-from-emacswiki "linkd.el")
 (my-require-and-when 'linkd)
-;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
+;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
 (my-require-and-when 'anything-c-linkd-tags)
 
 
 ;; anything-c-lisp-complete-symbol
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-lisp-complete-symbol/anything-c-lisp-complete-symbol.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-lisp-complete-symbol/anything-c-lisp-complete-symbol.el")
 (my-require-and-when 'anything-c-lisp-complete-symbol)
 
 
 ;; anything-c-moccur
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
 (my-require-and-when 'anything-c-moccur
   (setq anything-c-moccur-anything-idle-delay 0.1)
   (setq anything-c-moccur-enable-initial-pattern t)
@@ -55,7 +55,7 @@
 
 
 ;; anything-c-source-buffers2
-;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-source-buffers2.el")
+;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-source-buffers2.el")
 (my-require-and-when 'anything-c-source-buffers2)
 
 
@@ -65,7 +65,7 @@
 
 
 ;; anything-complete
-;(install-elisp-from-emacswiki "anything-complete.el")
+;;;(install-elisp-from-emacswiki "anything-complete.el")
 (my-require-and-when 'anything-complete
   (anything-read-string-mode t)
   (anything-lisp-complete-symbol-set-timer 150)
@@ -78,7 +78,7 @@
 
 
 ;; anything-dabbrev-expand
-;(install-elisp-from-emacswiki "anything-dabbrev-expand.el")
+;;;(install-elisp-from-emacswiki "anything-dabbrev-expand.el")
 '(my-require-and-when 'anything-dabbrev-expand
   (setq anything-dabbrev-input-idle-delay 0.0)
   (setq anything-dabbrev-idle-delay 1.0)
@@ -89,22 +89,22 @@
 
 
 ;; anything-delicious
-;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
-;(my-require-and-when 'anything-delicious)
+;;;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
+;;;(my-require-and-when 'anything-delicious)
 
 
 ;; anything-emms
-;(install-elisp-from-emacswiki "anything-emms.el")
-;(my-require-and-when 'anything-emms)
+;;;(install-elisp-from-emacswiki "anything-emms.el")
+;;;(my-require-and-when 'anything-emms)
 
 
 ;; anything-extension
-;(install-elisp-from-emacswiki "anything-extension.el")
-;(my-require-and-when 'anything-extension)
+;;;(install-elisp-from-emacswiki "anything-extension.el")
+;;;(my-require-and-when 'anything-extension)
 
 
 ;; anything-grep
-;(install-elisp-from-emacswiki "anything-grep.el")
+;;;(install-elisp-from-emacswiki "anything-grep.el")
 (my-require-and-when 'anything-grep
   (setq anything-grep-goto-hook
         (lambda ()
@@ -125,44 +125,44 @@
 
 
 ;; anything-gtags
-;(install-elisp-from-emacswiki "anything-gtags.el")
+;;;(install-elisp-from-emacswiki "anything-gtags.el")
 (my-require-and-when 'anything-gtags
   (setq anything-gtags-classify t)
   (setq anything-gtags-enable-goto-location t))
 
 
 ;; anything-ipa
-;(install-elisp-from-emacswiki "anything-ipa.el")
+;;;(install-elisp-from-emacswiki "anything-ipa.el")
 (my-require-and-when 'anything-ipa)
 
 
 ;; anything-match-plugin
-;(install-elisp-from-emacswiki "anything-match-plugin.el")
+;;;(install-elisp-from-emacswiki "anything-match-plugin.el")
 (my-require-and-when 'anything-match-plugin
   (setq anything-mp-space-regexp "[\\ ] "))
 
 
 ;; anything-migemo
-;(install-elisp-from-emacswiki "anything-migemo.el")
+;;;(install-elisp-from-emacswiki "anything-migemo.el")
 (my-require-and-when 'anything-migemo
   (define-key global-map [(control ?:)] 'anything-migemo))
 
 
 ;; anything-rurima
-;(install-elisp-from-emacswiki "anything-rurima.el")
+;;;(install-elisp-from-emacswiki "anything-rurima.el")
 '(my-require-and-when 'anything-rurima
   (setq anything-rurima-index-file "~/foo/rurima.e"))
 
 
 ;; anything-rcodetools
-;(install-elisp-from-emacswiki "anything-rcodetools.el")
+;;;(install-elisp-from-emacswiki "anything-rcodetools.el")
 '(my-require-and-when 'anything-rcodetools
   (setq rct-get-all-methods-command "PAGER=cat fri -l")
   (define-key anything-map "\C-z" 'anything-execute-persistent-action))
 
 
 ;; anything-show-completion
-;(install-elisp-from-emacswiki "anything-show-completion.el")
+;;;(install-elisp-from-emacswiki "anything-show-completion.el")
 (setq anything-show-completion-activate nil)
 
 
@@ -173,7 +173,7 @@
 
 
 ;; descbinds-anything
-;(install-elisp-from-emacswiki "descbinds-anything.el")
+;;;(install-elisp-from-emacswiki "descbinds-anything.el")
 (my-require-and-when 'descbinds-anything
   (descbinds-anything-install))
 
@@ -196,8 +196,8 @@
 
 
 ;; anything-kyr
-;(install-elisp-from-emacswiki "anything-kyr.el")
-;(install-elisp-from-emacswiki "anything-kyr-config.el")
+;;;(install-elisp-from-emacswiki "anything-kyr.el")
+;;;(install-elisp-from-emacswiki "anything-kyr-config.el")
 (my-require-and-when 'anything-kyr-config)
 (my-require-and-when 'anything-complete
   (anything-read-string-mode t))
@@ -215,15 +215,15 @@
 
 
 ;; basic setting
-;(anything-iswitchb-setup)
+;;;(anything-iswitchb-setup)
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0)
 (setq anything-candidate-number-limit 100)
 (setq anything-candidate-separator
       "------------------------------------------------------------------------------------")
 (setq anything-enable-shortcuts 'alphabet)
-;(setq anything-c-locate-db-file "~/home.locatedb")
-;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
+;;;(setq anything-c-locate-db-file "~/home.locatedb")
+;;;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
 
 
 ;; key setting

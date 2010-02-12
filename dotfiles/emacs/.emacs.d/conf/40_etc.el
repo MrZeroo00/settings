@@ -1,5 +1,5 @@
 ;; Outputz
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/outputz/outputz.el")
 '(my-require-and-when 'outputz
   (setq outputz-key "Your Private Key") ;; 復活の呪文
   (setq outputz-uri "http://example.com/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
@@ -23,8 +23,8 @@
 
 ;; pdicv-mode
 ;; http://pdicviewer.naochan.com/el/
-;(my-require-and-when 'pdicv-search)
-;(my-require-and-when 'pdicv-mode)
+;;;(my-require-and-when 'pdicv-search)
+;;;(my-require-and-when 'pdicv-mode)
 '(my-autoload-and-when 'pdicv "pdicviewer"
      (setq pdicv-dictionary-list
            '((eijiro "~/etc/dictionary/EIJIRO95.DIC" (nil nil sjis sjis))
@@ -41,8 +41,8 @@
 
 
 ;; cheat
-;(install-elisp "http://sami.samhuri.net/assets/2007/8/10/cheat.el")
-;(my-require-and-when 'cheat)
+;;;(install-elisp "http://sami.samhuri.net/assets/2007/8/10/cheat.el")
+;;;(my-require-and-when 'cheat)
 
 
 ;; bm
@@ -54,7 +54,7 @@
 
 
 ;; goto-chg
-;(install-elisp-from-emacswiki "goto-chg.el")
+;;;(install-elisp-from-emacswiki "goto-chg.el")
 '(my-require-and-when 'goto-chg
   (global-set-key [(control ?.)] 'goto-last-change)
   (global-set-key [(control ?,)] 'goto-last-change-reverse))
@@ -73,10 +73,10 @@
 
 
 ;; desktop
-;(my-autoload-and-when 'desktop-save "desktop")
-;(my-autoload-and-when 'desktop-clear "desktop")
-;(my-autoload-and-when 'desktop-load-default "desktop")
-;(my-autoload-and-when 'desktop-remove "desktop")
+;;;(my-autoload-and-when 'desktop-save "desktop")
+;;;(my-autoload-and-when 'desktop-clear "desktop")
+;;;(my-autoload-and-when 'desktop-load-default "desktop")
+;;;(my-autoload-and-when 'desktop-remove "desktop")
 
 
 ;; remember
@@ -84,34 +84,34 @@
 
 
 ;; autoarg
-;(my-require-and-when 'autoarg)
+;;;(my-require-and-when 'autoarg)
 
 
 ;; viper
-;(my-require-and-when 'viper)
+;;;(my-require-and-when 'viper)
 
 
 ;; thing-opt
 (my-require-and-when 'thingatpt)
-;(install-elisp-from-emacswiki "thing-opt.el")
+;;;(install-elisp-from-emacswiki "thing-opt.el")
 (my-require-and-when 'thing-opt)
 
 
 ;; sense-region
-;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
+;;;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
 (my-autoload-and-when 'sense-region-on "sense-region")
 
 
 ;; alpaca
-;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
+;;;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
 '(my-autoload-and-when 'alpaca-after-find-file "alpaca"
                       (setq alpaca-cache-passphrase t))
-;(add-hook 'find-file-hooks 'alpaca-after-find-file)
+;;;(add-hook 'find-file-hooks 'alpaca-after-find-file)
 
 
 ;; clwiki
 ;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
-;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")
+;;;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")
 (my-autoload-and-when 'clwiki "clwiki"
                       (define-key ctl-x-map "M" 'clwiki))
 (my-autoload-and-when 'clgrep "clgrep")
@@ -131,26 +131,26 @@
 
 
 ;; postit
-;(install-elisp "http://www.bookshelf.jp/elc/postit.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/postit.el")
 '(my-autoload-and-when 'postit "postit"
                       (setq postit-colorize 'dark)
                       (setq postit-compress-commands nil))
 
 
 ;; stripes
-;(install-elisp-from-emacswiki "stripes.el")
+;;;(install-elisp-from-emacswiki "stripes.el")
 '(my-require-and-when 'stripes
   (set-face-background 'stripes-face "yellow"))
 
 
 ;; edit-list
-;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
-;(my-require-and-when 'edit-list)
+;;;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
+;;;(my-require-and-when 'edit-list)
 
 
 ;; color-selection
-;(install-elisp "http://www.bookshelf.jp/elc/color-selection.el")
-;(my-autoload-and-when 'list-hexadecimal-colors-display "color-selection")
+;;;(install-elisp "http://www.bookshelf.jp/elc/color-selection.el")
+;;;(my-autoload-and-when 'list-hexadecimal-colors-display "color-selection")
 
 
 ;; keisen-mule
@@ -161,23 +161,23 @@
 
 
 ;; enriched-mode
-;(my-require-and-when 'enriched)
+;;;(my-require-and-when 'enriched)
 
 
 ;; iimage
-;(my-require-and-when 'iimage)
+;;;(my-require-and-when 'iimage)
 
 
 ;; thumbs
-;(setq thumbs-thumbsdir
-;      (expand-file-name "~/.emacs-thumbs"))
-;(setq thumbs-temp-dir (expand-file-name "~/tmp"))
-;(setq image-file-name-extensions
-;      '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
+;;;(setq thumbs-thumbsdir
+;;;      (expand-file-name "~/.emacs-thumbs"))
+;;;(setq thumbs-temp-dir (expand-file-name "~/tmp"))
+;;;(setq image-file-name-extensions
+;;;      '("xcf" "png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm"))
 
 
 ;; screenshot
-;(install-elisp-from-emacswiki "screenshot.el")
+;;;(install-elisp-from-emacswiki "screenshot.el")
 '(my-require-and-when 'screenshot
   (setq screenshot-schemes
         '(
@@ -210,7 +210,7 @@
   (define-key calendar-mode-map "n" 'calendar-forward-day)
   (define-key calendar-mode-map "b" 'calendar-backward-day)
   (setq mark-holidays-in-calendar t))
-;(install-elisp "http://www.meadowy.org/meadow/netinstall/export/799/branches/3.00/pkginfo/japanese-holidays/japanese-holidays.el")
+;;;(install-elisp "http://www.meadowy.org/meadow/netinstall/export/799/branches/3.00/pkginfo/japanese-holidays/japanese-holidays.el")
 '(my-require-and-when 'japanese-holidays
   (setq calendar-holidays
         (append japanese-holidays local-holidays other-holidays))
@@ -242,5 +242,5 @@
   (my-load-and-when "_scroll-speedup")) ; in windows, I use kbdacc.
 '(my-load-and-when "_my-memo"
   (global-set-key "\C-c\C-w" 'my-memo))
-;(my-load-and-when "_byte-compile-directory")
+;;;(my-load-and-when "_byte-compile-directory")
 (my-load-and-when "_screen-read-hardcopy")

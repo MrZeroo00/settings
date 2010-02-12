@@ -1,4 +1,4 @@
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/systemtap-mode/systemtap-mode.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/systemtap-mode/systemtap-mode.el")
 (my-autoload-and-when 'systemtap-mode "systemtap-mode")
 
 ;; association setting

@@ -5,10 +5,10 @@
           'comint-watch-for-password-prompt)
 
 (setq comint-scroll-show-maximum-output t)
-;(setq explicit-shell-file-name "bash")
-;(setq shell-file-name "bash")
-;(setq shell-command-switch "-c")
-;(setq exec-suffix-list '(".exe" ".sh" ".pl"))
+;;;(setq explicit-shell-file-name "bash")
+;;;(setq shell-file-name "bash")
+;;;(setq shell-command-switch "-c")
+;;;(setq exec-suffix-list '(".exe" ".sh" ".pl"))
 
 
 ;; anything
@@ -19,49 +19,49 @@
 
 
 ;; shell-pop
-;(install-elisp-from-emacswiki "shell-pop.el")
+;;;(install-elisp-from-emacswiki "shell-pop.el")
 '(my-require-and-when 'shell-pop
   (shell-pop-set-internal-mode "ansi-term")
   (shell-pop-set-internal-mode-shell "/bin/zsh")
   (shell-pop-set-window-height 60) ; the number for the percentage of the selected window.
   )
-;(global-set-key [f8] 'shell-pop)
+;;;(global-set-key [f8] 'shell-pop)
 
 
 ;; tails-comint-history
-;(install-elisp "http://www.bookshelf.jp/elc/tails-comint-history.el")
-;(my-load-and-when "tails-comint-history")
+;;;(install-elisp "http://www.bookshelf.jp/elc/tails-comint-history.el")
+;;;(my-load-and-when "tails-comint-history")
 
 
 ;; shell-ex
 ;; http://www.bookshelf.jp/elc/shell-ex.lzh
-;(my-load-and-when "shell-ex")
+;;;(my-load-and-when "shell-ex")
 
 
 ;; shell-command
-;(install-elisp "http://namazu.org/~tsuchiya/elisp/shell-command.el")
+;;;(install-elisp "http://namazu.org/~tsuchiya/elisp/shell-command.el")
 '(my-require-and-when 'shell-command ; replaced by anything
   (shell-command-completion-mode))
 
 
 ;; background
-;(install-elisp "http://www.jgk.org/src/background.el")
+;;;(install-elisp "http://www.jgk.org/src/background.el")
 '(my-autoload-and-when 'background "background"
                       (global-set-key "\M-!" 'background))
 
 
 ;; pcomplete
-;(add-hook 'shell-mode-hook 'pcomplete-shell-setup)
+;;;(add-hook 'shell-mode-hook 'pcomplete-shell-setup)
 
 
 ;; shell-toggle (switch shell buffer easily)
-;(install-elisp "http://user.it.uu.se/~mic/shell-toggle.el")
+;;;(install-elisp "http://user.it.uu.se/~mic/shell-toggle.el")
 (my-autoload-and-when 'shell-toggle "shell-toggle")
 (my-autoload-and-when 'shell-toggle-cd "shell-toggle")
 
 
 ;; shell-history
-;(install-elisp-from-emacswiki "shell-history.el")
+;;;(install-elisp-from-emacswiki "shell-history.el")
 (my-require-and-when 'shell-history)
 (define-key shell-mode-map "\M-m" 'shell-add-to-history)
 

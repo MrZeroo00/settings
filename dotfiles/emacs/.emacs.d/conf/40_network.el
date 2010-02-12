@@ -19,7 +19,7 @@
 
 
 ;; browser
-;(setq browse-url-browser-function 'w3m-browse-firefox)
+;;;(setq browse-url-browser-function 'w3m-browse-firefox)
 (setq browse-url-browser-function 'w3m-browse-url)
 
 
@@ -41,7 +41,7 @@
 
 
 ;; twit
-;(install-elisp-from-emacswiki "twit.el")
+;;;(install-elisp-from-emacswiki "twit.el")
 '(my-require-and-when 'twit
   (setq twit-user "¡Á"
         twit-pass "¡Á"))
@@ -57,7 +57,7 @@
 
 
 ;; moz-plus
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
 (my-autoload-and-when 'run-mozilla "moz")
 (add-hook 'inferior-moz-mode-hook (lambda ()
                                     (my-require-and-when 'moz-plus)
@@ -66,15 +66,15 @@
 
 
 ;; google2
-;(install-elisp "http://www.bookshelf.jp/elc/google2.el")
-;(my-load-and-when "google2")
+;;;(install-elisp "http://www.bookshelf.jp/elc/google2.el")
+;;;(my-load-and-when "google2")
 
 
 ;; autoinfo
-;(install-elisp-from-emacswiki "autoinfo.el")
-;(my-require-and-when 'autoinfo)
+;;;(install-elisp-from-emacswiki "autoinfo.el")
+;;;(my-require-and-when 'autoinfo)
 
 
 ;; macros
 (my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
-;(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"
+;;;(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"

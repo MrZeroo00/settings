@@ -3,14 +3,14 @@
 
 
 ;; color-grep
-;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
 (my-require-and-when 'color-grep
   (setq color-grep-sync-kill-buffer t))
 
 
 ;; grep-edit
 (my-require-and-when 'grep)
-;(install-elisp "http://www.bookshelf.jp/elc/grep-edit.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/grep-edit.el")
 (my-require-and-when 'grep-edit
   ;; http://d.hatena.ne.jp/rubikitch/20081025/1224869598
   (defadvice grep-edit-change-file (around inhibit-read-only activate)
@@ -29,18 +29,18 @@
 
 
 ;; isearch-all
-;(install-elisp "http://www.bookshelf.jp/elc/isearch-all.el")
-;(my-load-and-when "isearch-all")
+;;;(install-elisp "http://www.bookshelf.jp/elc/isearch-all.el")
+;;;(my-load-and-when "isearch-all")
 
 
 ;; qsearch
-;(install-elisp-from-emacswiki "qsearch.el")
-;(my-require-and-when 'qsearch)
+;;;(install-elisp-from-emacswiki "qsearch.el")
+;;;(my-require-and-when 'qsearch)
 
 
 ;; ireplace
-;(install-elisp "http://www.bookshelf.jp/elc/ireplace.el")
-;(my-require-and-when 'ireplace)
+;;;(install-elisp "http://www.bookshelf.jp/elc/ireplace.el")
+;;;(my-require-and-when 'ireplace)
 
 
 ;; approx-search
@@ -63,7 +63,7 @@
 
 
 ;; namazu
-;(install-elisp "http://www.bookshelf.jp/elc/namazu.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/namazu.el")
 '(my-autoload-and-when 'namazu "namazu"
                       (setq namazu-search-num 100)
                       (setq namazu-auto-turn-page t)
@@ -71,8 +71,8 @@
                       (setq namazu-dir-alist
                             '(("doc" . "~/etc/namazu/index")
                               )))
-;(install-elisp "http://www.bookshelf.jp/elc/color-namazu.el")
-;(my-load-and-when "color-namazu")
+;;;(install-elisp "http://www.bookshelf.jp/elc/color-namazu.el")
+;;;(my-load-and-when "color-namazu")
 
 
 ;; http://dev.ariel-networks.com/Members/matsuyama/isearch-selected-text
@@ -91,14 +91,14 @@
 
 ;; isearch-exit
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=isearch-exit
-;(define-key isearch-mode-map "\M-m" 'isearch-exit)
-;(add-hook 'isearch-mode-end-hook
-;          (lambda ()
-;            (cond
-;             ((eq last-input-char ?\C-m)
-;              (goto-char (match-end 0)))
-;             ((eq last-input-char ?\M-m)
-;              (goto-char (match-beginning 0))))))
+;;;(define-key isearch-mode-map "\M-m" 'isearch-exit)
+;;;(add-hook 'isearch-mode-end-hook
+;;;          (lambda ()
+;;;            (cond
+;;;             ((eq last-input-char ?\C-m)
+;;;              (goto-char (match-end 0)))
+;;;             ((eq last-input-char ?\M-m)
+;;;              (goto-char (match-beginning 0))))))
 
 
 ;; macros
@@ -106,5 +106,5 @@
   (define-key isearch-mode-map "\C-d" 'isearch-yank-char))
 '(my-load-and-when "_isearch-real-delete-char"
   (define-key isearch-mode-map "\C-o" 'isearch-real-delete-char))
-;(my-load-and-when "_isearch-forward-comment-only")
+;;;(my-load-and-when "_isearch-forward-comment-only")
 (my-load-and-when "_my-igrep")

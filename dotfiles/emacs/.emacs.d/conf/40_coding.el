@@ -1,10 +1,10 @@
 ;; indent
 (setq tab-width 2)
-;(setq tab-stop-list
-;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
+;;;(setq tab-stop-list
+;;;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
-;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
+;;;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
 (my-require-and-when 'indent-tabs-maybe)
 ;; http://d.hatena.ne.jp/mzp/20090620/indent
 '(my-require-and-when 'ky-indent
@@ -15,11 +15,11 @@
 
 ;; paren
 (show-paren-mode t)
-;(setq show-paren-style 'mixed)
-;(set-face-background 'show-paren-match-face "gray10")
-;(set-face-foreground 'show-paren-match-face "SkyBlue")
+;;;(setq show-paren-style 'mixed)
+;;;(set-face-background 'show-paren-match-face "gray10")
+;;;(set-face-foreground 'show-paren-match-face "SkyBlue")
 ;; mic-paren (highlight matching parenthesises)
-;(install-elisp "http://user.it.uu.se/~mic/mic-paren.el")
+;;;(install-elisp "http://user.it.uu.se/~mic/mic-paren.el")
 (if window-system
     (progn
       (my-require-and-when 'mic-paren
@@ -35,11 +35,11 @@
 
 
 ;; ifdef
-;(setq hide-ifdef-define-alist
-;      '((list-name
-;   DEFINE1
-;   DEFINE2
-;   ))
+;;;(setq hide-ifdef-define-alist
+;;;      '((list-name
+;;;   DEFINE1
+;;;   DEFINE2
+;;;   ))
 
 
 ;; debug
@@ -85,20 +85,20 @@
 
 ;; ecb
 ;; http://ecb.sourceforge.net/
-;(my-require-and-when 'ecb-autoloads)
+;;;(my-require-and-when 'ecb-autoloads)
 
 
 ;; textmate
-;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
+;;;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
 '(my-require-and-when 'textmate
   (textmate-mode))
 
 
 ;; ctags
-;(global-set-key "\M-t" 'find-tag)
-;(global-set-key "\C-t" 'pop-tag-mark)
-;(setq tags-table-list
-;      '("~/src"))
+;;;(global-set-key "\M-t" 'find-tag)
+;;;(global-set-key "\C-t" 'pop-tag-mark)
+;;;(setq tags-table-list
+;;;      '("~/src"))
 
 
 ;; gtags
@@ -139,7 +139,7 @@
 
 ;; xcscope
 ;; http://cscope.sourceforge.net/
-;(my-require-and-when 'xcscope)
+;;;(my-require-and-when 'xcscope)
 
 
 ;; use ack
@@ -151,7 +151,7 @@
 
 
 ;; speedbar
-;(my-require-and-when 'speedbar)
+;;;(my-require-and-when 'speedbar)
 
 
 ;; which-func
@@ -187,7 +187,7 @@
 
 
 ;; smartchr
-;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
+;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
 (my-require-and-when 'smartchr
   (global-set-key (kbd "=") (smartchr '(" = " " == " "=")))
 ;;;  (global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
@@ -197,8 +197,8 @@
 
 
 ;; brackets
-;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
-;(my-load-and-when "brackets")
+;;;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
+;;;(my-load-and-when "brackets")
 
 
 ;; align (align code)
@@ -210,7 +210,7 @@
 
 
 ;; eldoc-extension
-;(install-elisp-from-emacswiki "eldoc-extension.el")
+;;;(install-elisp-from-emacswiki "eldoc-extension.el")
 (my-require-and-when 'eldoc-extension
   (setq eldoc-idle-delay 0)
   (setq eldoc-echo-area-use-multiline-p t)
@@ -241,7 +241,7 @@
 
 
 ;; gtk-look
-;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
+;;;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
 (my-autoload-and-when 'gtk-lookup-symbol "gtk-look"
   	      (when run-linux
   		(setq gtk-lookup-devhelp-indices
@@ -279,7 +279,7 @@
 
 
 ;; flymake
-;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
+;;;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
 (my-require-and-when 'flymake
   (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
 
@@ -301,12 +301,12 @@
 
 
 ;; ipa (in place annotations)
-;(install-elisp-from-emacswiki "ipa.el")
+;;;(install-elisp-from-emacswiki "ipa.el")
 (my-require-and-when 'ipa)
 
 
 ;; usage-memo
-;(install-elisp-from-emacswiki "usage-memo.el")
+;;;(install-elisp-from-emacswiki "usage-memo.el")
 '(my-require-and-when 'usage-memo
   (umemo-initialize))
 
@@ -330,7 +330,7 @@
 
 
 ;; wrap-region
-;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
+;;;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
 (my-require-and-when 'wrap-region)
 
 
@@ -345,7 +345,7 @@
 
 
 ;; jaspace
-;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
+;;;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
 (my-require-and-when 'jaspace
   (setq jaspace-modes nil))
 
@@ -353,29 +353,29 @@
 ;; emphasize Space/Tab/Newline
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=visualize%20tab
 ;;;(defface my-face-r-1 '((t (:background "gray15"))) nil)
-;(defface my-face-b-1 '((t (:background "gray"))) nil)
-;(defface my-face-b-2 '((t (:background "gray26"))) nil)
-;(defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
+;;;(defface my-face-b-1 '((t (:background "gray"))) nil)
+;;;(defface my-face-b-2 '((t (:background "gray26"))) nil)
+;;;(defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
 ;;;(defvar my-face-r-1 'my-face-r-1)
-;(defvar my-face-b-1 'my-face-b-1)
-;(defvar my-face-b-2 'my-face-b-2)
-;(defvar my-face-u-1 'my-face-u-1)
-;
-;(defadvice font-lock-mode (before my-font-lock-mode ())
-;  (font-lock-add-keywords
-;   major-mode
-;   '(("\t" 0 my-face-b-2 append)
-;     ("　" 0 my-face-b-1 append)
-;     ("[ \t]+$" 0 my-face-u-1 append)
-;     ;;("[\r]*\n" 0 my-face-r-1 append)
-;     )))
-;(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
-;(ad-activate 'font-lock-mode)
+;;;(defvar my-face-b-1 'my-face-b-1)
+;;;(defvar my-face-b-2 'my-face-b-2)
+;;;(defvar my-face-u-1 'my-face-u-1)
+;;;
+;;;(defadvice font-lock-mode (before my-font-lock-mode ())
+;;;  (font-lock-add-keywords
+;;;   major-mode
+;;;   '(("\t" 0 my-face-b-2 append)
+;;;     ("　" 0 my-face-b-1 append)
+;;;     ("[ \t]+$" 0 my-face-u-1 append)
+;;;     ;;("[\r]*\n" 0 my-face-r-1 append)
+;;;     )))
+;;;(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
+;;;(ad-activate 'font-lock-mode)
 
 
 ;; face-list
 ;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
-;(my-require-and-when 'face-list)
+;;;(my-require-and-when 'face-list)
 
 
 (add-hook 'change-log-mode-hook
@@ -387,7 +387,7 @@
 
 ;; pov-mode
 ;; http://www.acc.umu.se/~woormie/povray/
-;(my-autoload-and-when 'pov-mode "pov-mode.el")
+;;;(my-autoload-and-when 'pov-mode "pov-mode.el")
 '(setq auto-mode-alist
       (append '(("\\.pov$" . pov-mode)
   	("\\.inc$" . pov-mode)

@@ -131,7 +131,7 @@
 
 ;; remember
 ;; https://gna.org/p/remember-el
-;(org-remember-insinuate)
+;;;(org-remember-insinuate)
 (my-require-and-when 'remember
   (setq remember-annotation-functions '(org-remember-annotation))
   (setq remember-handler-functions '(org-remember-handler))
@@ -145,7 +145,7 @@
 
 
 ;; freemind
-;(install-elisp-from-emacswiki "freemind.el")
+;;;(install-elisp-from-emacswiki "freemind.el")
 (my-require-and-when 'freemind)
 
 

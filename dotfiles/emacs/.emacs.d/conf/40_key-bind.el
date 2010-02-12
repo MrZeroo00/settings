@@ -2,7 +2,7 @@
 (global-set-key "\C-m" 'newline-and-indent)
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-s" 'search-forward-regexp)
-;(global-set-key "\M-m" 'blink-matching-open)
+;;;(global-set-key "\M-m" 'blink-matching-open)
 (global-set-key [mouse-3] 'yank)
 
 
@@ -31,8 +31,8 @@
 
 
 ;; sequential-command
-;(install-elisp-from-emacswiki "sequential-command.el")
-;(install-elisp-from-emacswiki "sequential-command-config.el")
+;;;(install-elisp-from-emacswiki "sequential-command.el")
+;;;(install-elisp-from-emacswiki "sequential-command-config.el")
 (my-require-and-when 'sequential-command-config
   (global-set-key "\C-a" 'seq-home)
   (global-set-key "\C-e" 'seq-end)
@@ -46,5 +46,5 @@
 
 
 ;; unbound
-;(install-elisp-from-emacswiki "unbound.el")
-;(my-require-and-when 'unbound)
+;;;(install-elisp-from-emacswiki "unbound.el")
+;;;(my-require-and-when 'unbound)

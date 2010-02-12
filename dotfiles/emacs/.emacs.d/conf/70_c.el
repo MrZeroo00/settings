@@ -40,7 +40,7 @@
              (flymake-mode)))
 
 ;; eldoc
-;(install-elisp-from-emacswiki "c-eldoc.el")
+;;;(install-elisp-from-emacswiki "c-eldoc.el")
 (add-hook 'c-mode-common-hook
           (lambda ()
             (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
@@ -51,9 +51,9 @@
 
 
 ;; ff-find-other-file
-;(setq cc-search-directories
-;      (append '("/opt/local/include")
-;              cc-search-directories))
+;;;(setq cc-search-directories
+;;;      (append '("/opt/local/include")
+;;;              cc-search-directories))
 (add-hook 'c-mode-common-hook (lambda ()
             (define-key c-mode-map "\M-#" 'ff-find-other-file)
             (define-key c++-mode-map "\M-#" 'ff-find-other-file)
@@ -67,39 +67,39 @@
 
 
 ;; summarye
-;(install-elisp "http://www.bookshelf.jp/elc/summarye.el")
-;(autoload 'se/make-summary-buffer "summarye" nil t)
+;;;(install-elisp "http://www.bookshelf.jp/elc/summarye.el")
+;;;(autoload 'se/make-summary-buffer "summarye" nil t)
 
 
 ;; cpp-complt
-;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
-;(add-hook 'c-mode-common-hook
-;          (function (lambda ()
-;                      (my-require-and-when 'cpp-complt)
-;                      (define-key c-mode-map [mouse-2]
-;                        'cpp-complt-include-mouse-select)
-;                      (define-key c-mode-map "#"
-;                        'cpp-complt-instruction-completing)
-;                      (define-key c-mode-map "\C-c#"
-;                        'cpp-complt-ifdef-region)
-;                      (cpp-complt-init))))
-;
-;(setq cpp-complt-standard-header-path
-;      '(
-;        "/usr/include"
-;        ))
+;;;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
+;;;(add-hook 'c-mode-common-hook
+;;;          (function (lambda ()
+;;;                      (my-require-and-when 'cpp-complt)
+;;;                      (define-key c-mode-map [mouse-2]
+;;;                        'cpp-complt-include-mouse-select)
+;;;                      (define-key c-mode-map "#"
+;;;                        'cpp-complt-instruction-completing)
+;;;                      (define-key c-mode-map "\C-c#"
+;;;                        'cpp-complt-ifdef-region)
+;;;                      (cpp-complt-init))))
+;;;
+;;;(setq cpp-complt-standard-header-path
+;;;      '(
+;;;        "/usr/include"
+;;;        ))
 
 
 ;; pbf-mode
-;(install-elisp "http://www.bookshelf.jp/elc/pbf-mode.el")
-;(add-hook 'c-mode-hook
-;          (lambda ()
-;            (my-require-and-when 'pbf-mode)
-;            (pbf-setup)
-;            (pbf-mode t)
-;            (pbf-project HOME nil
-;                         "My private."
-;             :directory (expand-file-name "~/"))))
+;;;(install-elisp "http://www.bookshelf.jp/elc/pbf-mode.el")
+;;;(add-hook 'c-mode-hook
+;;;          (lambda ()
+;;;            (my-require-and-when 'pbf-mode)
+;;;            (pbf-setup)
+;;;            (pbf-mode t)
+;;;            (pbf-project HOME nil
+;;;                         "My private."
+;;;             :directory (expand-file-name "~/"))))
 
 
 ;; cwarn

@@ -1,5 +1,5 @@
-;(install-elisp-from-emacswiki "one-key.el")
-;(install-elisp-from-emacswiki "one-key-default.el")
+;;;(install-elisp-from-emacswiki "one-key.el")
+;;;(install-elisp-from-emacswiki "one-key-default.el")
 (my-require-and-when 'one-key
   (my-require-and-when 'one-key-config)
   (setq max-lisp-eval-depth 10000)

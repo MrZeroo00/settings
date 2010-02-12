@@ -1,13 +1,13 @@
 (windmove-default-keybindings)
-;(global-set-key (quote [kp-8]) (quote windmove-up))
-;(global-set-key (quote [kp-2]) (quote windmove-down))
-;(global-set-key (quote [kp-6]) (quote windmove-right))
-;(global-set-key (quote [kp-4]) (quote windmove-left))
+;;;(global-set-key (quote [kp-8]) (quote windmove-up))
+;;;(global-set-key (quote [kp-2]) (quote windmove-down))
+;;;(global-set-key (quote [kp-6]) (quote windmove-right))
+;;;(global-set-key (quote [kp-4]) (quote windmove-left))
 
 
 ;; windows (window manager for Emacs)
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=windows%20screen
-;(install-elisp "http://www.gentei.org/~yuuji/software/windows.el")
+;;;(install-elisp "http://www.gentei.org/~yuuji/software/windows.el")
 (my-require-and-when 'windows
   (setq win:switch-prefix "\C-z")
   (define-key global-map win:switch-prefix nil)
@@ -23,7 +23,7 @@
 
 
 ;; widen-window
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/widen-window-mode/trunk/widen-window.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/widen-window-mode/trunk/widen-window.el")
 (my-require-and-when 'widen-window
   (global-widen-window-mode t)
   (setq ww-ratio 0.625)
@@ -39,13 +39,13 @@
 
 ;; master
 ;; http://www.geocities.com/kensanata/elisp/master.el.txt
-;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
+;;;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
 (my-autoload-and-when 'master-mode "master"
   	      (my-load-and-when "dired-master"))
 
 
 ;; split-root
-;(install-elisp "http://nschum.de/src/emacs/split-root/split-root.el")
+;;;(install-elisp "http://nschum.de/src/emacs/split-root/split-root.el")
 (my-require-and-when 'split-root)
 
 

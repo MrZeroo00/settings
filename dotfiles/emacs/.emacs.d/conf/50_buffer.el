@@ -5,15 +5,15 @@
 
 
 ;; tempbuf
-;(install-elisp-from-emacswiki "tempbuf.el")
+;;;(install-elisp-from-emacswiki "tempbuf.el")
 '(my-require-and-when 'tempbuf
   (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
   (add-hook 'Man-mode-hook 'turn-on-tempbuf-mode))
 
 
 ;; contentswitch
-;(install-elisp-from-emacswiki "contentswitch.el")
-;(my-require-and-when 'contentswitch)
+;;;(install-elisp-from-emacswiki "contentswitch.el")
+;;;(my-require-and-when 'contentswitch)
 
 
 ;; macros

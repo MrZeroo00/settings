@@ -1,15 +1,15 @@
 ;; language setting
 (set-language-environment "Japanese")
-;(set-default-coding-systems 'euc-jp-unix)
+;;;(set-default-coding-systems 'euc-jp-unix)
 (set-default-coding-systems 'japanese-shift-jis-dos)
-;(set-w32-system-coding-system 'japanese-shift-jis-dos)
-;(set-buffer-file-coding-system 'euc-jp-unix)
+;;;(set-w32-system-coding-system 'japanese-shift-jis-dos)
+;;;(set-buffer-file-coding-system 'euc-jp-unix)
 (set-buffer-file-coding-system 'japanese-shift-jis-dos)
 (setq default-file-name-coding-system 'japanese-shift-jis)
 (setq file-name-coding-system 'japanese-shift-jis)
 (set-terminal-coding-system 'japanese-shift-jis-dos)
 (set-keyboard-coding-system 'japanese-shift-jis-dos)
-;(set-clipboard-coding-system 'japanese-shift-jis-dos)
+;;;(set-clipboard-coding-system 'japanese-shift-jis-dos)
 (set-clipboard-coding-system 'cp932)
 (setq default-process-coding-system '(euc-jp-unix . euc-jp-unix))
 
@@ -24,7 +24,7 @@
 
 
 ;; cygwin-mount
-;(install-elisp-from-emacswiki "cygwin-mount.el")
+;;;(install-elisp-from-emacswiki "cygwin-mount.el")
 (my-require-and-when 'cygwin-mount
   (setq cygwin-mount-cygwin-bin-directory "C:\\cygwin\\bin")
   (cygwin-mount-activate))
@@ -42,14 +42,14 @@
 
 
 ;; compile command
-;(setq my-project-directory "C:/src")
-;(setq my-project-file "foo.dsw")
-;(setq my-project-name "Foo")
-;(setq compile-command (format "cd %s && msdev %s /make \"%s - Win32 Debug\" | nkf -s -Lu" my-project-directory my-project-file my-project-name))
+;;;(setq my-project-directory "C:/src")
+;;;(setq my-project-file "foo.dsw")
+;;;(setq my-project-name "Foo")
+;;;(setq compile-command (format "cd %s && msdev %s /make \"%s - Win32 Debug\" | nkf -s -Lu" my-project-directory my-project-file my-project-name))
 
 
 ;; cdb-gud
-;(install-elisp-from-emacswiki "cdb-gud.el")
+;;;(install-elisp-from-emacswiki "cdb-gud.el")
 (my-load-and-when "cdb-gud"
 ;;;  (setenv "PATH" (concat (getenv "PATH") ";" my-project-directory))
 ;;;  (setenv "_NT_SYMBOL_PATH" (concat (getenv "_NT_SYMBOL_PATH") ";" my-project-directory))

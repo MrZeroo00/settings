@@ -10,12 +10,12 @@
 
 
 ;; anthy
-;(my-load-and-when "anthy")
-;(setq default-input-method "japanese-anthy")
-;(global-set-key "\C-o" 'anthy-mode)
+;;;(my-load-and-when "anthy")
+;;;(setq default-input-method "japanese-anthy")
+;;;(global-set-key "\C-o" 'anthy-mode)
 ;;;(anthy-change-hiragana-map "," "、")
 ;;;(anthy-load-hiragana-map anthy-alt-char-map)
-;(setq anthy-wide-space " ")
+;;;(setq anthy-wide-space " ")
 
 
 ;; anything

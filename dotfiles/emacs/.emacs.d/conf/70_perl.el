@@ -9,7 +9,7 @@
 
 
 ;; perl-completion
-;(install-elisp "http://svn.coderepos.org/share/lang/elisp/perl-completion/trunk/perl-completion.el")
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/perl-completion/trunk/perl-completion.el")
 (add-hook 'cperl-mode-hook
            (lambda ()
              (my-require-and-when 'perl-completion)
