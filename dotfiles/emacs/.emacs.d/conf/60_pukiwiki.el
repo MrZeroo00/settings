@@ -5,6 +5,6 @@
 
 (my-eval-after-load "pukiwiki-mode"
   (setq pukiwiki-site-list
-	'(("Dummy" "http://www.example.com/" nil euc-jp-dos)
-	  ))
+  '(("Dummy" "http://www.example.com/" nil euc-jp-dos)
+    ))
   (setq pukiwiki-auto-insert t))

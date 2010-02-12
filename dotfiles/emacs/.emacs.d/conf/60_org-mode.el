@@ -22,111 +22,111 @@
 
 
   (setq org-todo-keywords
-	'((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "PROJECT(p)" "MAYBE(m@)" "REFERENCE(r)" "|" "DONE(d!)" "DELEGATED")
-	  (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
-	  (sequence "|" "CANCELED")))
+  '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "PROJECT(p)" "MAYBE(m@)" "REFERENCE(r)" "|" "DONE(d!)" "DELEGATED")
+    (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
+    (sequence "|" "CANCELED")))
   (setq org-todo-keyword-faces
-	'(("TODO"       . (:foreground "pink"))
-	  ("NEXT"       . (:foreground "yellow" :weight bold))
-	  ("WAITING"    . (:foreground "red" :weight bold))
-	  ("PROJECT"    . (:foreground "purple"))
-	  ("MAYBE"      . shadow)
-	  ("REFERENCE"  . shadow)
-	  ("DONE"       . shadow)
-	  ("DELEGATED"  . shadow)
-	  ("REPORT"     . (:foreground "pink"))
-	  ("BUG"        . (:foreground "yellow" :weight bold))
-	  ("KNOWNCAUSE" . shadow)
-	  ("FIXED"      . shadow)
-	  ("CANCELED"   . shadow)
-	  ))
+  '(("TODO"       . (:foreground "pink"))
+    ("NEXT"       . (:foreground "yellow" :weight bold))
+    ("WAITING"    . (:foreground "red" :weight bold))
+    ("PROJECT"    . (:foreground "purple"))
+    ("MAYBE"      . shadow)
+    ("REFERENCE"  . shadow)
+    ("DONE"       . shadow)
+    ("DELEGATED"  . shadow)
+    ("REPORT"     . (:foreground "pink"))
+    ("BUG"        . (:foreground "yellow" :weight bold))
+    ("KNOWNCAUSE" . shadow)
+    ("FIXED"      . shadow)
+    ("CANCELED"   . shadow)
+    ))
 
   (setq org-tag-alist
-	'(("@office" . ?o)
-	  ("@home" . ?h)
-	  ("@computer" . ?c)
-	  ("mail" . ?m)
-	  ("errands" . ?e)
-	  ))
+  '(("@office" . ?o)
+    ("@home" . ?h)
+    ("@computer" . ?c)
+    ("mail" . ?m)
+    ("errands" . ?e)
+    ))
 
   (setq org-stuck-projects
-	'("+PROJECT/-MAYBE-DONE-REFERENCE" ("NEXT" "TODO") ("mail errands")))
+  '("+PROJECT/-MAYBE-DONE-REFERENCE" ("NEXT" "TODO") ("mail errands")))
 
   (setq org-agenda-custom-commands
-	'(
-	  ;; Weekly Review
-	  ("W" "Weekly Review"
-	   ((agenda "" ((org-agenda-ndays 7)))
-	    (stuck "")
-	    (todo "PROJECT")
-	    (todo "WAITING")
-	    (todo "MAYBE")
-	    ))
-	  ;; Today's Action
-	  ("D" "Today's Action"
-	   ((agenda "" ((org-agenda-ndays 1)))
-	    (stuck "")
-	    (todo "NEXT")
-	    (todo "TODO")
-	    ))
-	  ;; GTD contexts
-	  ("g" . "GTD contexts")
-	  ("go" "Office" tags-todo "@office")
-	  ("gh" "Home" tags-todo "@home")
-	  ("gc" "Computer" tags-todo "@computer")
-	  ("gm" "Mail" tags-todo "mail")
-	  ("ge" "Errands" tags-todo "errands")
-	  ("G" "GTD Block Agenda"
-	   ((tags-todo "@office")
-	    (tags-todo "@home")
-	    (tags-todo "@computer")
-	    (tags-todo "mail")
-	    (tags-todo "errands"))
-	   nil
-	   ("~/memo/next-actions.html"))
-	  ;; Upcoming deadlines
-	  ("d" "Upcoming deadlines" agenda ""
-	   ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-	    (org-agenda-ndays 1)
-	    (org-deadline-warning-days 60)
-	    (org-agenda-time-grid nil)))
-	  ;; Printed agenda
-	  ("P" "Printed agenda"
-	   ((agenda "" ((org-agenda-ndays 7)
-			(org-agenda-start-on-weekday nil)
-			(org-agenda-repeating-timestamp-show-all t)
-			(org-agenda-skip-function '(org-agenda-skip-entry-if 'deadline 'scheduled))))
-	    (agenda "" ((org-agenda-ndays 1)
-			(org-deadline-warning-days 7)
-			(org-agenda-todo-keyword-format "[ ]")
-			(org-agenda-scheduled-leaders '("" ""))
-			(org-agenda-prefix-format "%t%s")))
-	    (todo "NEXT"
-		  ((org-agenda-prefix-format "[ ] %T: ")
-		   (org-agenda-sorting-strategy '(tag-up priority-down))
-		   (org-agenda-todo-keyword-format "")
-		   (org-agenda-overriding-header "\nTasks by Context\n------------------\n"))))
-	   ((org-agenda-with-colors nil)
-	    (org-agenda-compact-blocks t)
-	    (org-agenda-remove-tags t)
-	    (ps-number-of-columns 2)
-	    (ps-landscape-mode t))
-	   ("~/memo/agenda.ps"))
-	  ;; Custom queries
-	  ("Q" . "Custom queries")
-	  ("Qa" "Archive search" search ""
-	   ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
-	  ("Qb" "Projects and Archive" search ""
-	   ((org-agenda-text-search-extra-files (file-expand-wildcards "~/memo/archive/*.org"))))
-	  ("QA" "Archive tags search" org-tags-view ""
-	   ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
-	  ))
+  '(
+    ;; Weekly Review
+    ("W" "Weekly Review"
+     ((agenda "" ((org-agenda-ndays 7)))
+      (stuck "")
+      (todo "PROJECT")
+      (todo "WAITING")
+      (todo "MAYBE")
+      ))
+    ;; Today's Action
+    ("D" "Today's Action"
+     ((agenda "" ((org-agenda-ndays 1)))
+      (stuck "")
+      (todo "NEXT")
+      (todo "TODO")
+      ))
+    ;; GTD contexts
+    ("g" . "GTD contexts")
+    ("go" "Office" tags-todo "@office")
+    ("gh" "Home" tags-todo "@home")
+    ("gc" "Computer" tags-todo "@computer")
+    ("gm" "Mail" tags-todo "mail")
+    ("ge" "Errands" tags-todo "errands")
+    ("G" "GTD Block Agenda"
+     ((tags-todo "@office")
+      (tags-todo "@home")
+      (tags-todo "@computer")
+      (tags-todo "mail")
+      (tags-todo "errands"))
+     nil
+     ("~/memo/next-actions.html"))
+    ;; Upcoming deadlines
+    ("d" "Upcoming deadlines" agenda ""
+     ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+      (org-agenda-ndays 1)
+      (org-deadline-warning-days 60)
+      (org-agenda-time-grid nil)))
+    ;; Printed agenda
+    ("P" "Printed agenda"
+     ((agenda "" ((org-agenda-ndays 7)
+  		(org-agenda-start-on-weekday nil)
+  		(org-agenda-repeating-timestamp-show-all t)
+  		(org-agenda-skip-function '(org-agenda-skip-entry-if 'deadline 'scheduled))))
+      (agenda "" ((org-agenda-ndays 1)
+  		(org-deadline-warning-days 7)
+  		(org-agenda-todo-keyword-format "[ ]")
+  		(org-agenda-scheduled-leaders '("" ""))
+  		(org-agenda-prefix-format "%t%s")))
+      (todo "NEXT"
+  	  ((org-agenda-prefix-format "[ ] %T: ")
+  	   (org-agenda-sorting-strategy '(tag-up priority-down))
+  	   (org-agenda-todo-keyword-format "")
+  	   (org-agenda-overriding-header "\nTasks by Context\n------------------\n"))))
+     ((org-agenda-with-colors nil)
+      (org-agenda-compact-blocks t)
+      (org-agenda-remove-tags t)
+      (ps-number-of-columns 2)
+      (ps-landscape-mode t))
+     ("~/memo/agenda.ps"))
+    ;; Custom queries
+    ("Q" . "Custom queries")
+    ("Qa" "Archive search" search ""
+     ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
+    ("Qb" "Projects and Archive" search ""
+     ((org-agenda-text-search-extra-files (file-expand-wildcards "~/memo/archive/*.org"))))
+    ("QA" "Archive tags search" org-tags-view ""
+     ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
+    ))
   )
 
 
 ;; imenu
 (add-hook 'org-mode-hook
-	  (lambda () (imenu-add-to-menubar "Imenu")))
+    (lambda () (imenu-add-to-menubar "Imenu")))
 
 
 ;; remember
@@ -138,10 +138,10 @@
   (add-hook 'remember-mode-hook 'org-remember-apply-template)
 
   (setq org-remember-templates
-	'(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
-	  ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
-	  ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
-	  )))
+  '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
+    ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
+    ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
+    )))
 
 
 ;; freemind
@@ -158,6 +158,6 @@
   (defadvice org-update-checkbox-count (around wicked activate)
     "Fix the built-in checkbox count to understand headlines."
     (setq ad-return-value
-	  (wicked/org-update-checkbox-count (ad-get-arg 1)))))
+    (wicked/org-update-checkbox-count (ad-get-arg 1)))))
 (my-load-and-when "_org-summary-todo")
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)

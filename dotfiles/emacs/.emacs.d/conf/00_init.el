@@ -33,13 +33,13 @@
 (setq default-frame-alist
       (append (list '(top . 20)         ; 起動時の表示位置(右から)
                     '(left . 100)       ; 起動時の表示位置(左から)
-                    '(width . 160)       ; 起動時のサイズ(幅)
+                    '(width . 160)      ; 起動時のサイズ(幅)
                     '(height . 64)      ; 起動時のサイズ(縦)
                     ;'(foreground-color . "green")       ; 文字の色
                     ;'(background-color . "black")       ; 背景の色
                     ;'(alpha . (nil 70 50 30))           ; 透過
                     ;'(cursor-color . "DarkOliveGreen1") ; カーソルの色
-                    ;'(mouse-color . "DarkOliveGreen1") ; マウスポインタの色
+                    ;'(mouse-color . "DarkOliveGreen1")  ; マウスポインタの色
                     ;'(font . "fontset-tt14") ; 使うフォントセット
                     )
               default-frame-alist))

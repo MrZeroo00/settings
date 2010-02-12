@@ -30,18 +30,18 @@
   (define-key ctl-x-map "ww" 'global-widen-window-mode)
 
   (setq ww-advised-functions
-	(append '(windmove-up
-		  windmove-down
-		  windmove-right
-		  windmove-left)
-		ww-advised-functions)))
+  (append '(windmove-up
+  	  windmove-down
+  	  windmove-right
+  	  windmove-left)
+  	ww-advised-functions)))
 
 
 ;; master
 ;; http://www.geocities.com/kensanata/elisp/master.el.txt
 ;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
 (my-autoload-and-when 'master-mode "master"
-		      (my-load-and-when "dired-master"))
+  	      (my-load-and-when "dired-master"))
 
 
 ;; split-root

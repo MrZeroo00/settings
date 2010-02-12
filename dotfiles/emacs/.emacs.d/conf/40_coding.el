@@ -23,9 +23,9 @@
 (if window-system
     (progn
       (my-require-and-when 'mic-paren
-	(paren-activate)                  ; activating
-	(setq paren-match-face 'bold)
-	(setq paren-sexp-mode t))
+  (paren-activate)                  ; activating
+  (setq paren-match-face 'bold)
+  (setq paren-sexp-mode t))
       ))
 
 
@@ -37,9 +37,9 @@
 ;; ifdef
 ;(setq hide-ifdef-define-alist
 ;      '((list-name
-;	 DEFINE1
-;	 DEFINE2
-;	 ))
+;   DEFINE1
+;   DEFINE2
+;   ))
 
 
 ;; debug
@@ -54,8 +54,8 @@
                                 (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
                                   ;; gud-関係の場合
                                   (when (window-configuration-p my-gud-window-configuration)
-				    (set-window-configuration my-gud-window-configuration)
-				    (setq my-gud-window-configuration nil))))))
+  			    (set-window-configuration my-gud-window-configuration)
+  			    (setq my-gud-window-configuration nil))))))
 
 (my-require-and-when 'gud
   (setq gud-gdb-command-name "gdb -annotate=3")
@@ -104,24 +104,24 @@
 ;; gtags
 ;; http://tamacom.com/global-j.html
 (my-autoload-and-when 'gtags-mode "gtags"
-		      (defun my-find-tag ()
-			(interactive)
-			(or (gtags-find-tag-from-here)
-			    (find-tag)))
+  	      (defun my-find-tag ()
+  		(interactive)
+  		(or (gtags-find-tag-from-here)
+  		    (find-tag)))
 
-		      (setq gtags-mode-hook
-			    '(lambda ()
-			       (my-load-and-when "_gtags-hack.el")
-			       (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
-			       (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
-			       (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
-			       (define-key gtags-mode-map "\C-t" 'gtags-pop-stack)
-			       )))
+  	      (setq gtags-mode-hook
+  		    '(lambda ()
+  		       (my-load-and-when "_gtags-hack.el")
+  		       (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
+  		       (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
+  		       (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
+  		       (define-key gtags-mode-map "\C-t" 'gtags-pop-stack)
+  		       )))
 
 (add-hook 'c-mode-common-hook '(lambda ()
-				 (gtags-mode t)
-				 ;;(gtags-make-complete-list)
-				 ))
+  			 (gtags-mode t)
+  			 ;;(gtags-make-complete-list)
+  			 ))
 
 
 ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=tagsfile%20maker
@@ -160,9 +160,9 @@
 
   (delete (assoc 'which-func-mode mode-line-format) mode-line-format)
   (setq which-func-header-line-format
-	'(which-func-mode
-	  ("" which-func-format
-	   )))
+  '(which-func-mode
+    ("" which-func-format
+     )))
   (defadvice which-func-ff-hook (after header-line activate)
     (when which-func-mode
       (delete (assoc 'which-func-mode mode-line-format) mode-line-format)
@@ -173,9 +173,9 @@
 '(my-require-and-when 'autoinsert
   (setq auto-insert-directory "~/etc/emacs/template/")
   (setq auto-insert-alist
-	(nconc '( ("\\.c$" . "template.c")
-		  ("\\.f$" . "template.f")
-		  ) auto-insert-alist))
+  (nconc '( ("\\.c$" . "template.c")
+  	  ("\\.f$" . "template.f")
+  	  ) auto-insert-alist))
 
   (add-hook 'find-file-not-found-hooks 'auto-insert))
 
@@ -228,12 +228,12 @@
   (my-require-and-when 'mi-fontify)
   (setq mode-info-index-directory "~/.emacs.d")
   (setq mode-info-class-alist
-	'((elisp  emacs-lisp-mode lisp-interaction-mode)
-	  (libc   c-mode c++-mode)
-	  (make   makefile-mode)
-	  (perl   perl-mode cperl-mode eperl-mode)
-	  (ruby   ruby-mode)
-	  (gauche scheme-mode scheme-interaction-mode inferior-scheme-mode))))
+  '((elisp  emacs-lisp-mode lisp-interaction-mode)
+    (libc   c-mode c++-mode)
+    (make   makefile-mode)
+    (perl   perl-mode cperl-mode eperl-mode)
+    (ruby   ruby-mode)
+    (gauche scheme-mode scheme-interaction-mode inferior-scheme-mode))))
 
 
 ;; info-look
@@ -243,14 +243,14 @@
 ;; gtk-look
 ;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
 (my-autoload-and-when 'gtk-lookup-symbol "gtk-look"
-		      (when run-linux
-			(setq gtk-lookup-devhelp-indices
-			      '("/usr/share/doc/lib*-doc/*.devhelp*"
-				"/usr/share/doc/lib*-doc/*/*.devhelp*"
-				"/usr/share/doc/lib*-doc/*/*/*.devhelp*")))
-		      (when run-darwin
-			(setq gtk-lookup-devhelp-indices
-			      '("/opt/local/share/gtk-doc/html/*/*.devhelp"))))
+  	      (when run-linux
+  		(setq gtk-lookup-devhelp-indices
+  		      '("/usr/share/doc/lib*-doc/*.devhelp*"
+  			"/usr/share/doc/lib*-doc/*/*.devhelp*"
+  			"/usr/share/doc/lib*-doc/*/*/*.devhelp*")))
+  	      (when run-darwin
+  		(setq gtk-lookup-devhelp-indices
+  		      '("/opt/local/share/gtk-doc/html/*/*.devhelp"))))
 
 
 ;; doxymacs
@@ -259,7 +259,7 @@
 
   (defun my-doxymacs-font-lock-hook ()
     (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
-	(doxymacs-font-lock)))
+  (doxymacs-font-lock)))
   (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook))
 
 
@@ -267,13 +267,13 @@
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
   (setq ediff-split-window-function (lambda (&optional arg)
-				      (if (> (frame-width) 150)
-					  (split-window-horizontally arg)
-					(split-window-vertically arg))))
+  			      (if (> (frame-width) 150)
+  				  (split-window-horizontally arg)
+  				(split-window-vertically arg))))
 
   (defun command-line-diff (switch)
     (let ((file1 (pop command-line-args-left))
-	  (file2 (pop command-line-args-left)))
+    (file2 (pop command-line-args-left)))
       (ediff file1 file2)))
   (add-to-list 'command-switch-alist '("diff" . command-line-diff)))
 
@@ -286,11 +286,11 @@
   ;; redefine to remove "check-syntax" target
   (defun flymake-get-make-cmdline (source base-dir)
     (list "make"
-	  (list "-s"
-		"-C"
-		base-dir
-		(concat "CHK_SOURCES=" source)
-		"SYNTAX_CHECK_MODE=1"))))
+    (list "-s"
+  	"-C"
+  	base-dir
+  	(concat "CHK_SOURCES=" source)
+  	"SYNTAX_CHECK_MODE=1"))))
 
 
 ;; auto-compile
@@ -390,8 +390,8 @@
 ;(my-autoload-and-when 'pov-mode "pov-mode.el")
 '(setq auto-mode-alist
       (append '(("\\.pov$" . pov-mode)
-		("\\.inc$" . pov-mode)
-		) auto-mode-alist))
+  	("\\.inc$" . pov-mode)
+  	) auto-mode-alist))
 
 
 ;; to pop up compilation buffers at the bottom
@@ -404,27 +404,27 @@
 
   (defun my-display-buffer (buffer &optional not-this-window)
     (if (or (compilation-buffer-p buffer)
-	    (equal (buffer-name buffer) "*Shell Command Output*"))
-	(progn
-	  (unless (and my-compilation-window (window-live-p my-compilation-window))
-	    (setq my-compilation-window (split-root-window compilation-window-height))
-	    (set-window-buffer my-compilation-window buffer))
-	  my-compilation-window)
+      (equal (buffer-name buffer) "*Shell Command Output*"))
+  (progn
+    (unless (and my-compilation-window (window-live-p my-compilation-window))
+      (setq my-compilation-window (split-root-window compilation-window-height))
+      (set-window-buffer my-compilation-window buffer))
+    my-compilation-window)
       (let ((display-buffer-function nil))
-	(display-buffer buffer not-this-window))))
+  (display-buffer buffer not-this-window))))
 
   (setq display-buffer-function 'my-display-buffer)
 
   ;; on success, delete compilation window right away!
   (add-hook 'compilation-finish-functions
-	    '(lambda(buf res)
-	       (unless (or (eq last-command 'grep)
-			   (eq last-command 'grep-find))
-		 (when (equal res "finished\n")
-		   (when compilation-window
-		     (delete-window compilation-window)
-		     (setq compilation-window nil))
-		   (message "compilation successful")))))
+      '(lambda(buf res)
+         (unless (or (eq last-command 'grep)
+  		   (eq last-command 'grep-find))
+  	 (when (equal res "finished\n")
+  	   (when compilation-window
+  	     (delete-window compilation-window)
+  	     (setq compilation-window nil))
+  	   (message "compilation successful")))))
   )
 
 

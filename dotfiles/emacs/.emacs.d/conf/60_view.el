@@ -32,7 +32,7 @@
       (setq key (car key-cmd)
             cmd (cdr key-cmd))
       (if (or (not includes) (member key includes))
-	  (define-key keymap key cmd))))
+    (define-key keymap key cmd))))
   keymap)
 
 (defun view-mode-hook0 ()
