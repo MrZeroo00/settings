@@ -40,6 +40,12 @@
 (my-autoload-and-when 'riece "riece")
 
 
+;;;; twittering-mode
+;;;; http://twmode.sourceforge.net/ja/
+'(my-require-and-when 'twittering-mode
+  (setq twittering-username "your twitter ID"))
+
+
 ;;;; twit
 ;;;(install-elisp-from-emacswiki "twit.el")
 '(my-require-and-when 'twit
