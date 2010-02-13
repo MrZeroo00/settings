@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 ;; instamp.el - Insert TimeStamp on the point
-;; $Id: instamp.el,v 1.7 2004/09/08 03:06:43 yuuji Exp yuuji $
+;; $Id: instamp.el,v 1.8 2009/10/04 12:28:26 yuuji Exp $
 ;; Last modified Mon Nov 21 12:57:27 2005 on katana
 ;; Update count: 50
 

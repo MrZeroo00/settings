@@ -1,7 +1,7 @@
 ;;; find-dired-lisp.el ---  "find-dired" by lisp
 ;; -*- Mode: Emacs-Lisp -*-
 
-;; $Id: find-dired-lisp.el,v 2.1 2008/04/03 13:02:19 akihisa Exp $
+;; $Id: find-dired-lisp.el,v 2.2 2009-10-20 12:13:33 akihisa Exp $
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as

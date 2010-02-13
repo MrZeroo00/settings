@@ -53,6 +53,12 @@
 
 (defvar outputz-key nil)
 (defvar outputz-url nil)
+
+;;; customize-variables
+(defgroup outputz nil
+  ""
+  :group 'outputz)
+
 (defcustom outputz-modes
   '(emacs-lisp-mode lisp-interaction-mode
     c-mode c++-mode java-mode
@@ -62,7 +68,8 @@
     xml-mode sgml-mode
     text-mode simple-hatena-mode)
   "A list of major mode in which `outputz-mode' should be enabled."
-  :type '(list symbol))
+  :type '(list symbol)
+  :group 'outputz)
 
 (require 'url)
 
@@ -123,6 +130,7 @@
     (url-retrieve url 'outputz-callback)))
 
 (defun outputz-callback (status)
+  (url-mark-buffer-as-dead (current-buffer))
   (message status))
 
 (provide 'outputz)

@@ -1,6 +1,6 @@
 ;; -*- Mode: Emacs-Lisp -*-
 ;;
-;;  $Id: color-namazu.el,v 2.2 2007/11/04 13:37:15 akihisa Exp $
+;;  $Id: color-namazu.el,v 2.3 2009-10-20 12:13:34 akihisa Exp $
 
 ;; Author: Matsushita Akihisa <akihisa@mail.ne.jp>
 ;; Keywords: namazu highlight

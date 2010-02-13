@@ -4,7 +4,7 @@
 
 ;; Author: Yuto Hayamizu <y.hayamizu@gmail.com>
 ;; Keywords: convenience
-;; Version: 0.1.0
+;; Version: 0.1.1
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -38,12 +38,17 @@
 ;; You can change the window size ratio by customizing `ww-ratio'.
 ;; `ww-ratio' must be greater than 0.0 and less than 1.0 .
 
-;; If you want to avoid widen window mode in a certain
-;; major mode(say `foo-mode'), customize the variable `ww-nonwide-modes'.
+;; If you want to disable widen window mode in a certain
+;; major mode(say `foo-mode'), add `foo-mode' to the variable `ww-nonwide-modes'.
 
-;; Because this is still early release, sometimes window widening
-;; might not work even if it should. If you find some functions to be
-;; advised, add them to `ww-advised-functions'.
+;; If `ww-width' is non-nil, horizontal window widening is done.
+;; You can turn it off by setting `ww-width' nil.
+;; `ww-height' is the same as.
+
+;; Window widening function `widen-current-window' is called after the
+;; invocation of a function listed in `ww-advised-functions'.
+;; By adding functions to or removing from this variable, you can
+;; control the invocation of window widening.
 
 ;;; Code:
 
@@ -88,12 +93,15 @@
     mouse-drag-region
     delete-window
     add-change-log-entry-other-window
+    help-do-xref
     )
   "Functions to be advised. Window widening function `widen-current-window' is fired after advised function was called."
   :type '(list symbol)
   :group 'widen-window)
 
 (defun widen-current-window ()
+  "The very function which resizes the current window."
+
   (interactive)
 
   (unless (minibufferp (current-buffer))
@@ -107,7 +115,7 @@
 	;; Sometimes, you cannot get correctly resized windows
 	;; by calling ww-subtree only once.
 	;; So ww-subtree is called repeatedly until
-	;; you can get what you want.
+	;; www-subtree makes no change.
 	(let ((sizeinfo-history nil)
 	      (last-sizeinfo nil)
 	      (windows (window-list nil nil)))
@@ -126,9 +134,11 @@
 	)))
 
 (defun ww-bw-wid (window-or-tree)
+  "Returns the width of WINDOW-OR-TREE"
   (- (bw-r window-or-tree) (bw-l window-or-tree)))
 
 (defun ww-bw-hei (window-or-tree)
+  "Returns the height of WINDOW-OR-TREE"
   (- (bw-b window-or-tree) (bw-t window-or-tree)))
 
 (defun ww-sign (num)
@@ -248,7 +258,7 @@ If `ww-adjust-window' fails to resize, it tries smaller change than specified."
     nil))
 
 (defun widen-window-mode-maybe ()
-  "Return t if `widen-current-window' can run on current buffer."
+  "Return t and enable widen-window-mode if `widen-current-window' can called on current buffer."
   (if (and (not (minibufferp (current-buffer)))
 	   (not (memq major-mode ww-nonwide-modes)))
       (widen-window-mode t)))

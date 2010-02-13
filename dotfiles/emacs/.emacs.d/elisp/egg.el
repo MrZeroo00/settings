@@ -3,6 +3,7 @@
 
 ;; Copyright (C) 2008  Linh Dang
 ;; Copyright (C) 2008  Marius Vollmer
+;; Copyright (C) 2009  Tim Moore
 ;;
 ;; Egg is free software; you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by
@@ -353,6 +354,11 @@ Many Egg faces inherit from this one by default."
   :group 'egg
   :type 'boolean)
 
+(defcustom egg-confirm-undo t
+  "Always prompt for confirmation before removing delta from workdir."
+  :group 'egg
+  :type 'boolean)
+
 (defcustom egg-status-buffer-sections '(repo unstaged staged untracked)
   "Sections to be listed in the status buffer and their order."
   :group 'egg
@@ -399,6 +405,30 @@ Different versions of git have different names for this subdir."
 	      (const :tag "Diff Buffer"     :diff)
 	      (const :tag "Commit Buffer"   :commit)))
 
+(define-widget 'egg-quit-window-actions-set 'lazy
+  "Custom Type for quit-window actions."
+  :offset 4
+  :format "%v"
+  :type '(set :tag "Actions"
+	      (const :tag "Kill Buffer" kill)
+	      (const :tag "Restore Windows" restore-windows)))
+
+(defcustom egg-quit-window-actions nil  
+  "Actions to perform upon quitting an egg special buffer."
+  :group 'egg
+  :type '(set (cons :format "%v" (const :tag "Status Buffer" egg-status-buffer-mode)
+		    egg-quit-window-actions-set)
+	      (cons :format "%v"  (const :tag "Log (History) Buffer" egg-log-buffer-mode)
+		    egg-quit-window-actions-set)
+	      (cons :format "%v"  (const :tag "Commit Log Buffer" egg-commit-buffer-mode)
+		    egg-quit-window-actions-set)
+	      (cons :format "%v"  (const :tag "RefLog Buffer" egg-reflog-buffer-mode)
+		    egg-quit-window-actions-set)
+	      (cons :format "%v"  (const :tag "Diff Buffer" egg-diff-buffer-mode)
+		    egg-quit-window-actions-set)
+	      (cons :format "%v"  (const :tag "File Log (History) Buffer" egg-file-log-buffer-mode)
+		    egg-quit-window-actions-set)))
+
 (defcustom egg-git-command "git"
   "Name or full-path to the git command.
 Set this to the appropriate string in the case where `git' is not the
@@ -424,10 +454,14 @@ desirable way to invoke gnu patch command."
 ;;;========================================================
 (defmacro egg-text (text face)
   "Format TEXT with face FACE at compile-time or run-time."
-  (if (stringp text)
-      (propertize text 'face (if (symbolp face) face
-			       (nth 1 face))) 
-    `(propertize ,text 'face ,face)))
+  (cond ((stringp text)
+	 (propertize text 'face (if (symbolp face) face
+				  (nth 1 face))))
+	((null text)
+	 `(propertize "<internal-bug>" 'face ,face))
+	(t `(propertize ,text 'face ,face))))
+
+;;(cl-macroexpand '(egg-text blah 'egg-text-3))
 
 (defmacro egg-prop (text &rest prop)
   "Propertize TEXT with properties list PROP at compile-time or run-time."
@@ -783,7 +817,8 @@ REMOTE-REF-PROPERTIES and REMOTE-SITE-PROPERTIES."
 	  (delq nil 
 		(mapcar (lambda (desc)
 			  (if (not (assq 7 desc))
-			      desc ;; not an annotated tag
+			      ;; not an annotated tag
+			      desc
 			    (setq annotated-tags 
 				  (cons (cdr (assq 1 desc)) 
 					annotated-tags))
@@ -812,9 +847,12 @@ REMOTE-REF-PROPERTIES and REMOTE-SITE-PROPERTIES."
 		       ;; remote
 		       (cons full-name
 			     (concat
-			      (apply 'propertize remote
-				     :ref (cons name :remote)
-				     remote-site-properties)
+			       (if (stringp remote)
+				   (apply 'propertize remote
+					  :ref (cons name :remote)
+					  remote-site-properties)
+				 ;; svn has no remote name
+				 "")
 			      (apply 'propertize (substring name (length remote)) 
 				     :ref (cons name :remote)
 				     remote-ref-properties)))))))
@@ -883,7 +921,8 @@ REMOTE-REF-PROPERTIES and REMOTE-SITE-PROPERTIES."
 			  1))
 
 (defsubst egg-get-current-sha1 ()
-  (egg-git-to-string "rev-parse" "--verify" "-q" "HEAD"))
+  (or (egg-git-to-string "rev-parse" "--verify" "-q" "HEAD")
+      "0000000000000000000000000000000000000000"))
 
 (defsubst egg-set-mode-info (state)
   "Set the mode-line string for buffers visiting files in the current repo.
@@ -1233,6 +1272,16 @@ success."
 ;;;========================================================
 ;;; Blame utils
 ;;;========================================================
+
+(defconst egg-blame-map
+  (let ((map (make-sparse-keymap "Egg:Blame")))
+    (define-key map (kbd "l") 'egg-blame-locate-commit)
+    (define-key map (kbd "RET") 'egg-blame-locate-commit)
+    (define-key map (kbd "q") 'egg-file-toggle-blame-mode)
+    map)
+  "Keymap for an annotated section.\\{egg-blame-map}")
+
+
 (defun egg-parse-git-blame (target-buf blame-buf &optional ov-attributes)
   "Parse blame-info in buffer BLAME-BUF and decorate TARGET-BUF buffer.
 OV-ATTRIBUTES are the extra decorations for each blame chunk."
@@ -1306,7 +1355,8 @@ OV-ATTRIBUTES are the extra decorations for each blame chunk."
 		       blank
 		       (egg-text subject 'egg-blame-subject)
 		       blank nl))
-	  (overlay-put ov 'before-string blame))))))
+	  (overlay-put ov 'before-string blame)
+          (overlay-put ov 'local-map egg-blame-map))))))
 
 (defsubst egg-file-buffer-blame-off (buffer)
   (save-excursion
@@ -1329,6 +1379,28 @@ OV-ATTRIBUTES are the extra decorations for each blame chunk."
 			     (buffer-file-name buffer)))
 	    (egg-parse-git-blame buffer (current-buffer)
 				 ov-attributes)))))))
+
+(defun egg-blame-locate-commit (pos &optional all)
+  (interactive "d\nP")
+  "Jump to a commit in the branch history from an annotated blame section.
+
+   With prefix argument, the history of all refs is used."
+  (let ((overlays (overlays-at pos))
+        sha1)
+    (dolist (ov overlays)
+      (if (overlay-get ov :blame)
+          (setq sha1 (plist-get (nth 3 (overlay-get ov :blame)) :sha1))))
+    (if sha1
+        (let (commit-pos)
+          (egg-log all)
+          (setq commit-pos (point-min))
+          (while (and commit-pos
+                      (not (equal (get-text-property commit-pos :commit) sha1)))
+            (setq commit-pos (next-single-property-change commit-pos :commit)))
+          (if commit-pos
+              (progn
+                (egg-log-buffer-goto-pos commit-pos)
+                (recenter)))))))
 
 ;;;========================================================
 ;;; Diff/Hunk
@@ -2019,7 +2091,7 @@ exit code ACCEPTED-CODE is considered a success."
 
 (defconst egg-buffer-mode-map
   (let ((map (make-sparse-keymap "Egg:Buffer")))
-    (define-key map (kbd "q") 'quit-window)
+    (define-key map (kbd "q") 'egg-quit-buffer)
     (define-key map (kbd "g") 'egg-buffer-cmd-refresh)
     (define-key map (kbd "n") 'egg-buffer-cmd-navigate-next)
     (define-key map (kbd "p") 'egg-buffer-cmd-navigate-prev)
@@ -2041,6 +2113,19 @@ creat the buffer. FMT is used to construct the buffer name. The name is built as
       (setq buf (get-buffer-create buf-name)))
     buf))
 
+(defvar egg-orig-window-config nil)
+
+(defun egg-quit-buffer (&optional win)
+  "Leave (and burry) an egg special buffer"
+  (interactive)
+  (let ((orig-win-cfg egg-orig-window-config)
+	(mode major-mode))
+    (quit-window (memq 'kill (cdr (assq mode egg-quit-window-actions))) win)
+    (if (and orig-win-cfg
+	     (window-configuration-p orig-win-cfg)
+	     (memq 'restore-windows (cdr (assq mode egg-quit-window-actions))))
+	(set-window-configuration orig-win-cfg))))
+
 (defmacro define-egg-buffer (type name-fmt &rest body)
   "Define an egg-special-file type."
   (let* ((type-name (symbol-name type))
@@ -2052,6 +2137,9 @@ creat the buffer. FMT is used to construct the buffer name. The name is built as
     `(progn
        (defun ,buffer-mode-sym ()
 	 ,@body
+	 (set (make-local-variable 'egg-orig-window-config) 
+	      (current-window-configuration))
+	 (message "buffer %s win-cfg %s" (buffer-name) egg-orig-window-config)
 	 (set (make-local-variable 'egg-internal-buffer-obarray)
 	      (make-vector 67 0)))
 
@@ -2200,7 +2288,7 @@ rebase session."
 		 (mapconcat 'identity strings "")))
 	(goto-char (point-min))
 	;; key highlighting
-	(while (re-search-forward "\\(\\<[^\n \t:]+\\|[/+.~-]\\):" nil t)
+	(while (re-search-forward "\\(\\<[^\n \t:]+\\|[/+.~*=-]\\):" nil t)
 	  (put-text-property (match-beginning 1) (match-end 1)'face 'egg-help-key)
 	  (if last-found
 	      (put-text-property last-found (1- (match-beginning 0))
@@ -2226,7 +2314,7 @@ rebase session."
     "\\[egg-section-cmd-toggle-hide-show-children]:hide sub-blocks  "
     "\\<egg-buffer-mode-map>"
     "\\[egg-buffer-cmd-refresh]:redisplay  "
-    "\\[quit-window]:quit\n")))
+    "\\[egg-quit-buffer]:quit\n")))
 
 (defconst egg-status-buffer-rebase-help-text
   (concat 
@@ -2256,6 +2344,11 @@ rebase session."
 	 (rebase-step (plist-get state :rebase-step))
 	 (rebase-num (plist-get state :rebase-num))
 	 inv-beg help-beg help-inv-beg rebase-beg)
+
+    (unless (and sha1 state)
+      (error "Invalid repo state: sha1 = %s, state = %S"
+	     sha1 state))
+
     ;; head, sha1 and git-dir
     (insert (egg-text (egg-pretty-head-string state) 'egg-branch) "\n"
 	    (egg-text sha1 'font-lock-string-face) "\n"
@@ -2621,7 +2714,7 @@ If INIT was not nil, then perform 1st-time initializations as well."
   [menu-bar egg-status-buffer-mode] (cons "Egg (Git)" egg-status-buffer-menu))
 
 (let ((menu egg-status-buffer-menu))
-  (define-key menu [quit] '(menu-item "Close Status View" quit-window))
+  (define-key menu [quit] '(menu-item "Close Status View" egg-quit-buffer))
   (define-key menu [refresh] '(menu-item "Refresh Status View" egg-buffer-cmd-refresh))
   (define-key menu [log] '(menu-item "Show Branch History" egg-log))
   (define-key menu [sp3] '("--"))
@@ -2657,16 +2750,16 @@ If INIT was not nil, then perform 1st-time initializations as well."
 				      :enable (egg-navigation-at-point))))
 
 
-(defun egg-status (&optional no-update caller)
+(defun egg-status (&optional select caller)
   (interactive "P")
   (let* ((egg-internal-current-state 
 	  (egg-repo-state (if (interactive-p) :error-if-not-git)))
 	 (buf (egg-get-status-buffer 'create)))
-    (unless no-update
-      (with-current-buffer buf
-	(egg-status-buffer-redisplay buf 'init)))
-    (cond ((interactive-p) (display-buffer buf t))
-	  ((eq caller :sentinel) (pop-to-buffer buf))
+    (with-current-buffer buf
+      (egg-status-buffer-redisplay buf 'init))
+    (cond ((eq caller :sentinel) (pop-to-buffer buf))
+	  (select (pop-to-buffer buf t))
+	  ((interactive-p) (display-buffer buf t))
 	  (t (pop-to-buffer buf t)))))
 
 ;;;========================================================
@@ -2822,6 +2915,9 @@ If INIT was not nil, then perform 1st-time initializations as well."
 
 (defun egg-hunk-section-cmd-undo (pos)
   (interactive (list (point)))
+  (unless (or (not egg-confirm-undo)
+	      (y-or-n-p "irreversibly remove the hunk under cursor? "))
+    (error "Too chicken to proceed with undo operation!"))
   (let ((file (egg-hunk-section-patch-cmd pos egg-patch-command 
 					  "-p1" "--quiet" "--reverse")))
     (if (consp file) (setq file (car file)))
@@ -2837,7 +2933,11 @@ If INIT was not nil, then perform 1st-time initializations as well."
 
 (defun egg-diff-section-cmd-stage (pos)
   (interactive (list (point)))
-  (egg-diff-section-patch-cmd pos nil "add"))
+  (let ((file (car (get-text-property pos :diff))))
+    (egg-diff-section-patch-cmd pos nil
+      (if (file-exists-p file)
+          "add"
+        "rm"))))
 
 (defun egg-diff-section-cmd-unstage (pos)
   (interactive (list (point)))
@@ -2854,6 +2954,10 @@ If INIT was not nil, then perform 1st-time initializations as well."
 
 (defun egg-diff-section-cmd-undo (pos)
   (interactive (list (point)))
+  (unless (or (not egg-confirm-undo)
+	      (y-or-n-p "irreversibly remove the delta under cursor? "))
+    (error "Too chicken to proceed with undo operation!"))
+
   (let ((file (car (or (get-text-property pos :diff)
 		       (error "No diff with file-name here!"))))
 	(src-rev (get-text-property pos :src-revision))
@@ -3100,7 +3204,7 @@ If INIT was not nil, then perform 1st-time initializations as well."
 	(let ((inhibit-read-only t)
 	      (win (get-buffer-window (current-buffer))))
 	  (erase-buffer)
-	  (if (windowp win) (quit-window nil win))))
+	  (if (windowp win) (egg-quit-buffer win))))
     (message "Please enter a log message!")
     (ding)))
 
@@ -3297,7 +3401,7 @@ If INIT was not nil, then perform 1st-time initializations as well."
     "\\[egg-buffer-cmd-navigate-prev]:previous block  "
     "\\[egg-buffer-cmd-navigate-next]:next block  " 
     "\\[egg-buffer-cmd-refresh]:redisplay  "
-    "\\[quit-window]:quit\n")))
+    "\\[egg-quit-buffer]:quit\n")))
 
 (defconst egg-diff-buffer-diff-help-heading
   (egg-text "Extra Bindings for Diff blocks:" 'egg-help-header-2))
@@ -3392,8 +3496,11 @@ If INIT was not nil, then perform 1st-time initializations as well."
 		       :hunk-map egg-wdir-hunk-section-map))))
     (if (memq :diff egg-show-key-help-in-buffers)
 	(egg-diff-info-add-help info))
-    (when (stringp file)
-      (setq file (list file)))
+    (if (stringp file)
+	(setq file (list file))
+      (setq tmp (plist-get info :args))
+      (setq tmp (cons "-M" tmp))
+      (plist-put info :args tmp))
     (when (consp file) 
       (setq tmp (plist-get info :prologue))
       (setq tmp (concat (egg-text (mapconcat 'identity file "\n")
@@ -3448,6 +3555,7 @@ If INIT was not nil, then perform 1st-time initializations as well."
     (define-key map (kbd "a") 'egg-log-buffer-attach-head)
     (define-key map (kbd "m") 'egg-log-buffer-merge)
     (define-key map (kbd "r") 'egg-log-buffer-rebase)
+    (define-key map (kbd "R") 'egg-log-buffer-rebase-interactive)
     map))
 
 (defconst egg-log-commit-map 
@@ -3457,6 +3565,9 @@ If INIT was not nil, then perform 1st-time initializations as well."
     (define-key map (kbd ".") 'egg-log-buffer-mark-squash)
     (define-key map (kbd "~") 'egg-log-buffer-mark-edit)
     (define-key map (kbd "-") 'egg-log-buffer-unmark)
+
+    (define-key map (kbd "*") 'egg-log-buffer-mark)
+    (define-key map (kbd "=") 'egg-log-buffer-diff-revs)
 
     (define-key map [C-down-mouse-2] 'egg-log-popup-commit-line-menu)
     (define-key map [C-mouse-2] 'egg-log-popup-commit-line-menu)
@@ -3570,16 +3681,24 @@ If INIT was not nil, then perform 1st-time initializations as well."
 			    (skip-chars-forward "^)")
 			    (setq refs-end (point))
 			    (+ (point) 2)))
-	(setq full-refs (when refs-start
-			  (save-match-data
-			    (mapcar (lambda (lref)
-				      (if (string-equal (substring lref 0 5) "tag: ")
-					  (substring lref 5)
-					lref))
-				    (split-string 
-				     (buffer-substring-no-properties (+ sha-end 2)
-								     refs-end) 
-				     ", +" t)))))
+	(setq full-refs 
+	      (when refs-start
+		(save-match-data
+		  (delq nil
+			(mapcar (lambda (lref)
+				  (cond ((and (> (length lref) 5)
+					      (string-equal (substring lref 0 5)
+							    "tag: "))
+					 (substring lref 5))
+					((and (> (length lref) 6)
+					      (string-equal (substring lref -5)
+							    "/HEAD"))
+					 nil)
+					(t lref)))
+				(split-string 
+				 (buffer-substring-no-properties (+ sha-end 2)
+								 refs-end)
+				 ", +" t))))))
 	(setq refs (mapcar (lambda (full-ref-name) 
 			     (cdr (assoc full-ref-name ref-alist)))
 			   full-refs))
@@ -3733,12 +3852,28 @@ If INIT was not nil, then perform 1st-time initializations as well."
 	      (egg-describe-rev commit)
 	    commit)))))
 
-(defun egg-log-buffer-do-mark (pos char &optional unmark)
+(defun egg-log-buffer-do-remove-mark (mark-char)
+  (let ((pos (point-min))
+	(inhibit-read-only t))
+      (while (setq pos (next-single-property-change (1+ pos) :mark))
+	(when (= (get-text-property pos :mark) mark-char)
+	  (remove-text-properties pos (1+ pos)
+				  (list :mark nil 'display nil))))))
+
+(defun egg-log-buffer-find-first-mark (mark-char)
+  (let ((pos (point-min)))
+    (while (and (setq pos (next-single-property-change (1+ pos) :mark))
+		(/= (get-text-property pos :mark) mark-char)))
+    pos))
+
+(defun egg-log-buffer-do-mark (pos char &optional unmark remove-first)
   (let ((commit (get-text-property pos :commit))
 	(inhibit-read-only t)
 	(col (- egg-log-buffer-comment-column 10))
-	(step (if unmark -1 1)))
+	(step (if unmark -1 (if remove-first 0 1))))
     (when commit 
+      (when remove-first
+	(egg-log-buffer-do-remove-mark char))
       (move-to-column col)
       (funcall (if unmark
 		       #'remove-text-properties
@@ -3754,6 +3889,10 @@ If INIT was not nil, then perform 1st-time initializations as well."
 		      (eobp) (bobp)))
 	(forward-line step))
       (move-to-column col))))
+
+(defun egg-log-buffer-mark (pos)
+  (interactive "d")
+  (egg-log-buffer-do-mark pos ?* nil t))
 
 (defun egg-log-buffer-mark-pick (pos)
   (interactive "d")
@@ -3970,7 +4109,7 @@ If INIT was not nil, then perform 1st-time initializations as well."
 			     egg-git-rebase-subdir "/"))
 	 (todo-alist (egg-log-buffer-get-marked-alist))
 	 (commits (mapcar 'car todo-alist))
-	 (upstream (egg-log-buffer-get-rev-at pos :symbolic :no-HEAD))
+	 (upstream (egg-commit-at pos))
 	 (all (egg-git-to-lines "rev-list" "--reverse" "--cherry-pick"
 				(concat upstream "..HEAD"))))
     (unless (egg-repo-clean state)
@@ -4016,10 +4155,10 @@ If INIT was not nil, then perform 1st-time initializations as well."
 
 (defun egg-log-buffer-start-new-branch (pos &optional force)
   (interactive "d\nP")
-  (let ((rev (egg-log-buffer-get-rev-at pos)))
+  (let ((rev (egg-log-buffer-get-rev-at pos :symbolic :no-HEAD)))
     (when (egg-do-create-branch
 	   rev 'checkout
-	   (format "start new branch at %s with name: " rev)
+	   (format "start new branch from %s with name: " rev)
 	   force))))
 
 (defun egg-log-buffer-attach-head (pos &optional strict-level)
@@ -4423,6 +4562,9 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     (define-key map [load] (list 'menu-item "(Re)Load Commit Details" 
 				 'egg-log-buffer-insert-commit
 				 :visible '(egg-commit-at-point)))
+    (define-key map [diff] (list 'menu-item "Compare against HEAD (or BASE)" 
+				 'egg-log-buffer-diff-revs
+				 :visible '(egg-commit-at-point)))
     (define-key map [prev] (list 'menu-item "Goto Prev Ref"
 				 'egg-log-buffer-prev-ref
 				 :visible '(egg-navigation-at-point)))
@@ -4473,6 +4615,9 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 				   :visible '(egg-commit-at-point))) 
     (define-key map [pick] (list 'menu-item "Mark to be Picked in upcoming interractive Rebase " 
 				 'egg-log-buffer-mark-pick
+				 :visible '(egg-commit-at-point))) 
+    (define-key map [base] (list 'menu-item "Mark as Base Commit " 
+				 'egg-log-buffer-mark
 				 :visible '(egg-commit-at-point))) 
     (define-key map [sp4] '("--"))
     (define-key map [rebase] (list 'menu-item "Rebase HEAD" 
@@ -4537,11 +4682,12 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 			 ((eq (cdr ref) :tag) "Tag"))
 		   (car ref)))
 	  ((consp references)
-	   (concat "%s Ref: " prefix (car (last references))))
-	  (t 
+	   (concat "Ref: " prefix (car (last references))))
+	  ((stringp commit)
 	   (concat prefix " Commit: "
 		   (file-name-nondirectory 
-		    (egg-name-rev commit)))))))
+		    (egg-name-rev commit))))
+	  (t "No Commit Here"))))
 
 (defun egg-log-commit-mouse-menu-heading (&optional prefix)
   (let* ((event last-command-event)
@@ -4556,8 +4702,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 	 (pos (posn-point (event-end event)))
 	 menu keys cmd)
     (when (bufferp buffer)
-      (save-window-excursion
-	(save-excursion
+      (save-excursion
 	  (with-temp-buffer buffer)
 	  (goto-char pos)
 	  (setq menu 
@@ -4569,7 +4714,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 		       (x-popup-menu event menu)))
 	  (setq cmd (and keys (lookup-key menu (apply 'vector keys))))
 	  (when (and cmd (commandp cmd))
-	    (call-interactively cmd)))))))
+	    (call-interactively cmd))))))
 
 (defun egg-log-popup-local-ref-menu (event)
   (interactive "e")
@@ -4596,7 +4741,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
   [menu-bar egg-log-buffer-mode] (cons "Egg (Git)" egg-log-buffer-menu))
 
 (let ((menu egg-log-buffer-menu))
-  (define-key menu [quit] '(menu-item "Close History View" quit-window))
+  (define-key menu [quit] '(menu-item "Close History View" egg-quit-buffer))
   (define-key menu [refresh] '(menu-item "Refresh History View" egg-buffer-cmd-refresh))
   (define-key menu [pickaxe] '(menu-item "Search History for Changes"
 					 egg-search-changes))
@@ -4607,7 +4752,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
   (define-key menu [commit] (list 'menu-item
 				  '(egg-log-commit-mouse-menu-heading "Operations on ")
 				  egg-log-buffer-mode-commit-menu
-				  :enable '(egg-commit-at-point)))
+				  :visible '(egg-commit-at-point)))
   (define-key menu [sp1] '("--"))
   (define-key menu [hs] '(menu-item "Hide/Show Details"
 				    egg-section-cmd-toggle-hide-show
@@ -4629,7 +4774,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-search-changes]:search history  " 
     "\\[egg-status]:show repo's status  "
     "\\[egg-buffer-cmd-refresh]:redisplay  " 
-    "\\[quit-window]:quit\n")
+    "\\[egg-quit-buffer]:quit\n")
    (egg-text "Extra Key Bindings for a Commit line:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
@@ -4642,13 +4787,18 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-attach-head]:anchor HEAD  " 
     "\\[egg-log-buffer-tag-commit]:new tag  " 
     "\\[egg-log-buffer-atag-commit]:new annotated tag  " 
+    "\\[egg-log-buffer-create-new-branch]:create branch  "
+    "\\[egg-log-buffer-diff-revs]:diff vs HEAD (or BASE)\n"
     "\\[egg-log-buffer-merge]:merge to HEAD  " 
     "\\[egg-log-buffer-rebase]:rebase HEAD  " 
-    "\\[egg-log-buffer-create-new-branch]:create branch\n")
+    "\\[egg-log-buffer-rebase-interactive]:rebase HEAD interactively" 
+    "\n"
+    )
    (egg-text "Extra Key Bindings to prepare a (interactive) rebase:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
+    "\\[egg-log-buffer-mark]:mark as BASE " 
     "\\[egg-log-buffer-mark-pick]:mark as picked  " 
     "\\[egg-log-buffer-mark-squash]:mark as squashed  " 
     "\\[egg-log-buffer-mark-edit]:mark as edited  " 
@@ -4671,8 +4821,23 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
    (egg-text "lightweight-tag" 'egg-tag-mono) " "
    (egg-text "annotated-tag" 'egg-an-tag-mono) " "
    (egg-text "remote/" 'egg-remote-mono)
-   (egg-text "branch" 'egg-branch-mono)
+   (egg-text "branch" 'egg-branch-mono) " "
+   (egg-text "  HEAD  " 'egg-log-HEAD) " "
    "\n"))
+
+(defun egg-log-buffer-diff-revs (pos)
+  "Compare HEAD against the rev at POS."
+  (interactive "d")
+  (let* ((rev (egg-log-buffer-get-rev-at pos :symbolic))
+	 (mark (egg-log-buffer-find-first-mark ?*))
+	 (base (if mark (egg-log-buffer-get-rev-at mark :symbolic) "HEAD"))
+	 buf)
+    (unless (and rev (stringp rev))
+      (error "No commit here to compare against %s!" base))
+    (when (string-equal rev base)
+      (error "It's pointless to compare %s vs %s!" rev base))
+    (setq buf (egg-do-diff (egg-build-diff-info rev base))) 
+    (pop-to-buffer buf t)))
 
 (defun egg-log (&optional all)
   (interactive "P")
@@ -4762,7 +4927,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-prev-ref]:previous thing  " 
     "\\[egg-status]:show repo's status  "
     "\\[egg-buffer-cmd-refresh]:redisplay  " 
-    "\\[quit-window]:quit\n" )
+    "\\[egg-quit-buffer]:quit\n" )
    (egg-text "Extra Key Bindings for a Commit line:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-simple-map>"
@@ -4775,9 +4940,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-start-new-branch]:start new branch  " 
     "\\[egg-log-buffer-create-new-branch]:create branch\n" 
     "\\[egg-log-buffer-tag-commit]:new tag  " 
-    "\\[egg-log-buffer-atag-commit]:new annotated tag  " 
-    "\\[egg-log-buffer-merge]:merge to HEAD  " 
-    "\\[egg-log-buffer-rebase]:rebase HEAD\n" 
+    "\\[egg-log-buffer-atag-commit]:new annotated tag\n" 
     )
    (egg-text "Extra Key Bindings for a Diff Block:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
@@ -4925,7 +5088,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-prev-ref]:previous thing  " 
     "\\[egg-status]:show repo's status  "
     "\\[egg-buffer-cmd-refresh]:redisplay  " 
-    "\\[quit-window]:quit\n" )
+    "\\[egg-quit-buffer]:quit\n" )
    (egg-text "Extra Key Bindings for a Commit line:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-simple-map>"
@@ -4935,12 +5098,8 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-section-cmd-toggle-hide-show-children]:hide sub-blocks\n"
     "\\[egg-log-buffer-attach-head]:anchor HEAD  " 
     "\\[egg-log-buffer-checkout-commit]:checkout  " 
-    "\\[egg-log-buffer-start-new-branch]:start new branch  " 
-    "\\[egg-log-buffer-create-new-branch]:create branch\n" 
     "\\[egg-log-buffer-tag-commit]:new tag  " 
-    "\\[egg-log-buffer-atag-commit]:new annotated tag  " 
-    "\\[egg-log-buffer-merge]:merge to HEAD  " 
-    "\\[egg-log-buffer-rebase]:rebase HEAD\n" 
+    "\\[egg-log-buffer-atag-commit]:new annotated tag\n" 
     )
    (egg-text "Extra Key Bindings for a Diff Block:" egg-help-header-2) "\n"
    (egg-pretty-help-text
@@ -5098,7 +5257,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-stash-buffer-prev-stash]:previous stash  " 
     "\\[egg-status]:show repo's status  "
     "\\[egg-buffer-cmd-refresh]:redisplay  " 
-    "\\[quit-window]:quit\n" )
+    "\\[egg-quit-buffer]:quit\n" )
    (egg-text "Extra Key Bindings for a Stash line:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-stash-map>"
@@ -5777,24 +5936,27 @@ egg in current buffer.\\<egg-minor-mode-map>
     (make-local-variable 'egg-minor-mode)
     (egg-minor-mode 1)))
 
-(or (assq 'egg-minor-mode minor-mode-alist)
-    (setq minor-mode-alist
-	  (cons '(egg-minor-mode egg-minor-mode-name) minor-mode-alist)))
+(when (string-match "\\`git version 1.6."
+		    (shell-command-to-string 
+		     (concat egg-git-command " --version")))
+  (or (assq 'egg-minor-mode minor-mode-alist)
+      (setq minor-mode-alist
+	    (cons '(egg-minor-mode egg-minor-mode-name) minor-mode-alist)))
 
-(setcdr (or (assq 'egg-minor-mode minor-mode-map-alist)
-	    (car (setq minor-mode-map-alist
-		       (cons (list 'egg-minor-mode)
-			     minor-mode-map-alist))))
-	egg-minor-mode-map)
+  (setcdr (or (assq 'egg-minor-mode minor-mode-map-alist)
+	      (car (setq minor-mode-map-alist
+			 (cons (list 'egg-minor-mode)
+			       minor-mode-map-alist))))
+	  egg-minor-mode-map)
 
-(if (and (boundp 'vc-handled-backends)
-	 (listp (symbol-value 'vc-handled-backends)))
-    (set 'vc-handled-backends
-	 (delq 'Git (symbol-value 'vc-handled-backends))))
+  (if (and (boundp 'vc-handled-backends)
+	   (listp (symbol-value 'vc-handled-backends)))
+      (set 'vc-handled-backends
+	   (delq 'Git (symbol-value 'vc-handled-backends))))
 
 
-(add-hook 'find-file-hook 'egg-git-dir)
-(add-hook 'find-file-hook 'egg-minor-mode-find-file-hook)
+  (add-hook 'find-file-hook 'egg-git-dir)
+  (add-hook 'find-file-hook 'egg-minor-mode-find-file-hook))
 
 ;;;========================================================
 ;;; tool-tip
@@ -5844,6 +6006,7 @@ egg in current buffer.\\<egg-minor-mode-map>
     (egg-log-buffer-mark-edit egg-commit-at "mark %s to be edited in upcoming rebase")
     (egg-log-buffer-mark-squash egg-commit-at "mark %s to be squashed in upcoming rebase")
     (egg-log-buffer-mark-pick egg-commit-at "mark %s to be picked in upcoming rebase")
+    (egg-log-buffer-mark egg-commit-at "mark %s as BASE")
     (egg-log-buffer-rebase egg-commit-at "rebase HEAD to %s")
     (egg-log-buffer-attach-head egg-ref-or-commit-at "anchor HEAD at %s")
     (egg-log-buffer-atag-commit egg-commit-at "create new annotated-tag at %s")
@@ -5875,6 +6038,7 @@ egg in current buffer.\\<egg-minor-mode-map>
     (egg-buffer-rebase-abort nil "abort rebase session")
     (egg-buffer-selective-rebase-skip nil "skip rebase session's current commit")
     (egg-buffer-selective-rebase-continue nil "continue rebase session")
+    (egg-log-buffer-diff-revs egg-ref-or-commit-at "diff %s vs HEAD")
     ))
 
 (defun egg-buffer-help-echo (window buffer pos)
@@ -5905,4 +6069,5 @@ egg in current buffer.\\<egg-minor-mode-map>
 	       ""))
 	   keymap "")))))
 
+(run-hooks 'egg-load-hook)
 (provide 'egg)
