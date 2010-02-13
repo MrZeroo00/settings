@@ -38,11 +38,15 @@
   ;; (list "~"))
   (message "Loading file cache...")
   (file-cache-add-directory-using-find "~/.emacs.d/")
-  (defun file-cache-add-this-file ()
-    (and buffer-file-name
-         (file-exists-p buffer-file-name)
-         (file-cache-add-file buffer-file-name)))
-  (add-hook 'kill-buffer-hook 'file-cache-add-this-file)
+  (defvar my-file-cache-directories nil)
+  (if (listp my-file-cache-directories)
+      (dolist (dir my-file-cache-directories)
+        (file-cache-add-directory-using-find dir)))
+;;;  (defun file-cache-add-this-file ()
+;;;    (and buffer-file-name
+;;;         (file-exists-p buffer-file-name)
+;;;         (file-cache-add-file buffer-file-name)))
+;;;  (add-hook 'kill-buffer-hook 'file-cache-add-this-file)
   (define-key minibuffer-local-completion-map
     "\C-c\C-i" 'file-cache-minibuffer-complete))
 

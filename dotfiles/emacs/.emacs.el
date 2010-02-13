@@ -123,6 +123,11 @@ With a numeric argument, turn mode on iff ARG is positive."
      (message "Load error: %s" ,name)))
 
 
+;; local settings
+(if (file-exists-p "~/.emacs.d/conf/00_local.el")
+    (load "00_local"))
+
+
 (load "00_init")
 (load "01_util")
 (load "01_modeline")
