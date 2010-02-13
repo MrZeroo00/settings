@@ -9,5 +9,10 @@ for i in `grep -h "install-elisp-from-emacswiki" ${HOME}/.emacs.d/conf/* | perl 
   sleep 1
 done
 
+for i in `grep -h "install-elisp" ${HOME}/.emacs.d/conf/* | grep -v "from-emacswiki" | perl -pe 's/.*"(.*)".*/\1/'`; do
+  wget -U Mozilla "$i"
+  sleep 1
+done
+
 mv ${DIR}/* ${HOME}/.emacs.d/elisp
 rm -rf ${DIR}
