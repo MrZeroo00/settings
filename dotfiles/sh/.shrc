@@ -61,7 +61,7 @@ export INFOPATH
 
 
 # locales
-export LC_ALL=${LANG}
+#export LC_ALL=${LANG}
 export LC_TIME=${LANG}
 export LC_MONETARY=${LANG}
 export LC_MESSAGES=${LANG}
