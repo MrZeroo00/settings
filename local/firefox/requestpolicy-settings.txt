@@ -49,3 +49,15 @@ yahoo.com|yimg.com
 youtube.com|google.com
 youtube.com|googlevideo.com
 youtube.com|ytimg.com
+google.co.jp|google.com
+google.co.jp|gstatic.com
+shinseibank.com|shinseibank.co.jp
+hatena.ne.jp|st-hatena.com
+hatena.ne.jp|smilevideo.jp
+st-hatena.com|hatena.ne.jp
+hatena.ne.jp|youtube.com
+hatena.ne.jp|wikimedia.org
+twitter.com|twimg.com
+twitter.com|googleapis.com
+nicovideo.jp|nimg.jp
+nicovideo.jp|smilevideo.jp
