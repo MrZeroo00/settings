@@ -16,7 +16,7 @@
                                  (setq c-basic-offset tab-width)
                                  (setq indent-tabs-mode nil)
                                  (setq show-trailing-whitespace t)
-                                 (setq imenu-create-index-function 'imenu-default-create-index-function)
+;;;                                 (setq imenu-create-index-function 'imenu-default-create-index-function)
                                  ))
 
 
