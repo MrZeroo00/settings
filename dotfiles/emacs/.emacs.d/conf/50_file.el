@@ -124,24 +124,23 @@
 
 
 (when (and run-w32 run-meadow)
-  '(progn
-     ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=findfile%20symlink
-     (defadvice minibuffer-complete
-       (before expand-symlinks activate)
-       (let ((file (expand-file-name
-                    (buffer-substring-no-properties
-                     (line-beginning-position)
-                     (line-end-position)))))
-         (when (string-match ".lnk$" file)
-           (delete-region
-            (line-beginning-position)
-            (line-end-position))
-           (if (file-directory-p
-                (ls-lisp-parse-symlink file))
-               (insert
-                (concat
-                 (ls-lisp-parse-symlink file) "/"))
-             (insert (ls-lisp-parse-symlink file))))))))
+  ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=findfile%20symlink
+  (defadvice minibuffer-complete
+    (before expand-symlinks activate)
+    (let ((file (expand-file-name
+                 (buffer-substring-no-properties
+                  (line-beginning-position)
+                  (line-end-position)))))
+      (when (string-match ".lnk$" file)
+        (delete-region
+         (line-beginning-position)
+         (line-end-position))
+        (if (file-directory-p
+             (ls-lisp-parse-symlink file))
+            (insert
+             (concat
+              (ls-lisp-parse-symlink file) "/"))
+          (insert (ls-lisp-parse-symlink file)))))))
 
 
 ;;;; macros

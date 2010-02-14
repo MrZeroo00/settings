@@ -104,17 +104,16 @@
 ;;;(my-load-and-when "_ls-lisp-handle-switches")
 ;;;(my-load-and-when "_dired-face-file-edited-today")
 (when (and run-w32 run-meadow)
-  '(progn
-     ;; w32-symlinks
+  ;; w32-symlinks
 ;;;     (install-elisp "http://centaur.maths.qmw.ac.uk/Emacs/files/w32-symlinks.el")
-     (my-require-and-when 'w32-symlinks)
-     (my-load-and-when "_dired-make-symbolic-link"
-       (add-hook 'dired-mode-hook
-                 '(lambda ()
-                    (define-key dired-mode-map "S" (function dired-make-symbolic-link))
-                    )))
-     (my-load-and-when "_dired-winstart"
-       (add-hook 'dired-mode-hook
-                 (lambda ()
-                   (define-key dired-mode-map "z" 'uenox-dired-winstart))))
-     ))
+  (my-require-and-when 'w32-symlinks)
+  (my-load-and-when "_dired-make-symbolic-link"
+    (add-hook 'dired-mode-hook
+              '(lambda ()
+                 (define-key dired-mode-map "S" (function dired-make-symbolic-link))
+                 )))
+  (my-load-and-when "_dired-winstart"
+    (add-hook 'dired-mode-hook
+              (lambda ()
+                (define-key dired-mode-map "z" 'uenox-dired-winstart))))
+  )
