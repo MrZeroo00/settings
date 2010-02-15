@@ -20,6 +20,7 @@
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
+;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/fuzzy.el")
 (my-require-and-when 'auto-complete-config
   (global-auto-complete-mode t)
   (set-face-background 'ac-candidate-face "lightgray")
