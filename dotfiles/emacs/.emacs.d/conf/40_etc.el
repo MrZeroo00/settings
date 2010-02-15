@@ -45,6 +45,11 @@
 ;;;(my-require-and-when 'cheat)
 
 
+;;;; bookmark-extensions
+;;;; http://mercurial.intuxication.org/hg/emacs-bookmark-extension/
+(my-require-and-when 'bookmark-extensions)
+
+
 ;;;; bm
 ;;;; http://www.nongnu.org/bm/
 (my-require-and-when 'bm
