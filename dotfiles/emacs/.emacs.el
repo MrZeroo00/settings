@@ -1,4 +1,4 @@
-;; check Operating System
+;;;; check Operating System
 (defvar run-unix
   (or (equal system-type 'gnu/linux)
       (or (equal system-type 'usg-unix-v)
@@ -11,7 +11,7 @@
   (equal system-type 'usg-unix-v))
 (defvar run-bsd
   (equal system-type 'berkeley-unix))
-(defvar run-cygwin ;; treat cygwin as unix group
+(defvar run-cygwin ; treat cygwin as unix group
   (equal system-type 'cygwin))
 
 (defvar run-w32
@@ -20,7 +20,7 @@
 	   (equal system-type 'ms-dos))))
 (defvar run-darwin (equal system-type 'darwin))
 
-;; check Emacsen major version
+;;;; check Emacsen major version
 (defvar run-emacs20
   (and (equal emacs-major-version 20)
        (null (featurep 'xemacs))))
@@ -40,7 +40,7 @@
 (defvar run-carbon-emacs(and run-darwin window-system))
 
 
-;; add argument to load-path
+;;;; add argument to load-path
 (defun add-to-load-path-recompile (dir)
   (add-to-list 'load-path dir)
   (let (save-abbrevs) (byte-recompile-directory dir)))
@@ -49,12 +49,12 @@
            (add-to-load-path-recompile path))
         (mapcar 'expand-file-name paths)))
 
-;; add conf and elisp to load-path
+;;;; add conf and elisp to load-path
 (add-to-load-path "~/.emacs.d/elisp"
 		  "~/.emacs.d/macro"
 		  "~/.emacs.d/conf")
 
-;; add additional load-path
+;;;; add additional load-path
 (if (file-exists-p "~/local/share/emacs/site-lisp/subdirs.el")
     (let ((dir (expand-file-name "~/local/share/emacs/site-lisp")))
       (if (member dir load-path) nil
@@ -63,7 +63,7 @@
 	  (load (expand-file-name "subdirs.el") t t t)))))
 
 
-;; byte-compile
+;;;; byte-compile
 (define-minor-mode auto-async-byte-compile-mode
   "With no argument, toggles the mode.
 With a numeric argument, turn mode on iff ARG is positive."
@@ -79,20 +79,20 @@ With a numeric argument, turn mode on iff ARG is positive."
        (executable-interpret (format "emacs_byte-compile %s" buffer-file-name))))
 (add-hook 'emacs-lisp-mode-hook 'auto-async-byte-compile)
 
-;; define eval-safe
-;; http://www.sodan.org/~knagano/emacs/dotemacs.html#eval-safe
+;;;; define eval-safe
+;;;; http://www.sodan.org/~knagano/emacs/dotemacs.html#eval-safe
 (defmacro eval-safe (&rest body)
   `(condition-case err
        (progn ,@body)
      (error (message "[eval-safe] %s" err))))
 
-;; define my-eval-after-load
+;;;; define my-eval-after-load
 (defmacro my-eval-after-load (file &rest args)
   `(eval-after-load ,file
      (quote (progn ,@args))))
 (put 'my-eval-after-load 'lisp-indent-function 1)
 
-;; define require and autoload, load
+;;;; define require and autoload, load
 (defun autoload-if-found (function file &optional docstring interactive type)
   "set autoload iff. FILE has found."
   (and (locate-library file)
@@ -123,95 +123,90 @@ With a numeric argument, turn mode on iff ARG is positive."
      (message "Load error: %s" ,name)))
 
 
-;; local settings
-(if (file-exists-p "~/.emacs.d/conf/00_local.el")
-    (load "00_local"))
+;;;; local settings
+(my-load-and-when "00_local")
 
 
-(load "00_init")
-(load "01_util")
-(load "01_modeline")
-(load "05_server")
-(load "40_coding")
-(load "40_key-bind")
-(load "40_network")
-(load "40_etc")
-(load "50_backup")
-(load "50_buffer")
-(load "50_complete")
-(load "50_dired")
-(load "50_file")
-(load "50_find")
-(load "50_minibuffer")
-(load "50_occur")
-(load "50_shell")
-(load "50_spell")
-(load "50_vcs")
-(load "50_window")
-(load "60_change-mode")
-(load "60_dmacro")
-(load "60_doc-view")
-(load "60_emms")
-(load "60_hatena")
-(load "60_howm")
-;(load "60_iswitchb")
-(load "60_key-chord")
-(load "60_lookup")
-(load "60_woman")
-(load "60_mew")
-(load "60_migemo")
-(load "60_mmm-mode")
-(load "60_one-key")
-(load "60_org-mode")
-(load "60_pukiwiki")
-(load "60_view")
-(load "60_w3m")
-(load "70_actionscript")
-(load "70_c")
-(load "70_cplusplus")
-(load "70_css")
-(load "70_emacs-lisp")
-(load "70_haskell")
-(load "70_html")
-(load "70_javascript")
-(load "70_lisp")
-(load "70_objective-c")
-(load "70_perl")
-(load "70_python")
-(load "70_ruby")
-(load "70_scheme")
-(load "70_shell")
-(load "70_systemtap")
-(load "70_text")
-(load "70_xml")
-(load "70_yaml")
-(load "99_anything")
-(load "99_hook")
+;;;; common settings
+(my-load-and-when "00_init")
+(my-load-and-when "01_util")
+(my-load-and-when "01_modeline")
+(my-load-and-when "05_server")
+(my-load-and-when "40_coding")
+(my-load-and-when "40_key-bind")
+(my-load-and-when "40_network")
+(my-load-and-when "40_etc")
+(my-load-and-when "50_backup")
+(my-load-and-when "50_buffer")
+(my-load-and-when "50_complete")
+(my-load-and-when "50_dired")
+(my-load-and-when "50_file")
+(my-load-and-when "50_find")
+(my-load-and-when "50_minibuffer")
+(my-load-and-when "50_occur")
+(my-load-and-when "50_shell")
+(my-load-and-when "50_spell")
+(my-load-and-when "50_vcs")
+(my-load-and-when "50_window")
+(my-load-and-when "60_change-mode")
+(my-load-and-when "60_dmacro")
+(my-load-and-when "60_doc-view")
+(my-load-and-when "60_emms")
+(my-load-and-when "60_hatena")
+(my-load-and-when "60_howm")
+;(my-load-and-when "60_iswitchb")
+(my-load-and-when "60_key-chord")
+(my-load-and-when "60_lookup")
+(my-load-and-when "60_woman")
+(my-load-and-when "60_mew")
+(my-load-and-when "60_migemo")
+(my-load-and-when "60_mmm-mode")
+(my-load-and-when "60_one-key")
+(my-load-and-when "60_org-mode")
+(my-load-and-when "60_pukiwiki")
+(my-load-and-when "60_view")
+(my-load-and-when "60_w3m")
+(my-load-and-when "70_actionscript")
+(my-load-and-when "70_c")
+(my-load-and-when "70_cplusplus")
+(my-load-and-when "70_css")
+(my-load-and-when "70_emacs-lisp")
+(my-load-and-when "70_haskell")
+(my-load-and-when "70_html")
+(my-load-and-when "70_javascript")
+(my-load-and-when "70_lisp")
+(my-load-and-when "70_objective-c")
+(my-load-and-when "70_perl")
+(my-load-and-when "70_python")
+(my-load-and-when "70_ruby")
+(my-load-and-when "70_scheme")
+(my-load-and-when "70_shell")
+(my-load-and-when "70_systemtap")
+(my-load-and-when "70_text")
+(my-load-and-when "70_xml")
+(my-load-and-when "70_yaml")
+(my-load-and-when "99_anything")
+(my-load-and-when "99_hook")
 
 
-;; local settings
+;;;; local settings
 (when run-linux
-  (if (file-exists-p "~/.emacs.d/conf/99_local_linux.el")
-      (load "99_local_linux")))
+  (my-load-and-when "99_local_linux"))
 
 (when run-darwin
   (add-to-list 'exec-path "/opt/local/bin")
-  (if (file-exists-p "~/.emacs.d/conf/99_local_darwin.el")
-      (load "99_local_darwin")))
+  (my-load-and-when "99_local_darwin"))
 
 (when (and run-w32)
-  (if (file-exists-p "~/.emacs.d/conf/99_local_windows.el")
-      (load "99_local_windows")))
+  (my-load-and-when "99_local_windows"))
 
 (when (and run-w32 run-meadow)
-  (if (file-exists-p "~/.emacs.d/conf/99_local_meadow.el")
-      (load "99_local_meadow")))
+  (my-load-and-when "99_local_meadow"))
 
-(if (file-exists-p "~/.emacs.d/conf/99_local.el")
-    (load "99_local"))
+(my-load-and-when "99_local")
 
 
-;(if (y-or-n-p-with-timeout "Load timeout?" 5 nil)
-;    (load "99_timeout"))
+;;;(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
+;;;    (my-load-and-when "99_timeout"))
 
 (setq debug-on-error nil)
