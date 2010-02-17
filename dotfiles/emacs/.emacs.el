@@ -163,7 +163,7 @@ With a numeric argument, turn mode on iff ARG is positive."
 
 ;;;; local settings
 (my-load-and-when "00_local")
-(my-load-and-when (concat "00_local" "." hostname))
+(my-load-and-when (concat "00_local_" hostname))
 
 
 ;;;; common settings
