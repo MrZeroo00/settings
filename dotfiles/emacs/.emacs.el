@@ -98,29 +98,50 @@ With a numeric argument, turn mode on iff ARG is positive."
   (and (locate-library file)
        (autoload function file docstring interactive type)))
 
-(defmacro my-require-and-when (feature &rest body)
+'(defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
   `(if (require ,feature nil t)
        (progn
          (message "Require success: %s" ,feature)
          ,@body)
      (message "Require error: %s" ,feature)))
+(defmacro my-require-and-when (feature &rest body)
+  (declare (indent 1))
+  `(cond ((require ,feature nil t)
+	  (message "Require success: %s" ,feature)
+	  ,@body)
+	 (t
+	  (message "Require error: %s" ,feature))))
 
-(defmacro my-autoload-and-when (function file &rest body)
+'(defmacro my-autoload-and-when (function file &rest body)
   (declare (indent 1))
   `(if (autoload-if-found ,function ,file nil t)
        (progn
          (message "Autoload success: %s %s" ,function ,file)
          (my-eval-after-load ,file ,@body))
      (message "Autoload error: %s %s" ,function ,file)))
+(defmacro my-autoload-and-when (function file &rest body)
+  (declare (indent 1))
+  `(cond ((autoload-if-found ,function ,file nil t)
+	  (message "Autoload success: %s %s" ,function ,file)
+	  (my-eval-after-load ,file ,@body))
+	 (t
+	  (message "Autoload error: %s %s" ,function ,file))))
 
-(defmacro my-load-and-when (name &rest body)
+'(defmacro my-load-and-when (name &rest body)
   (declare (indent 1))
   `(if (load ,name t)
        (progn
          (message "Load success: %s" ,name)
          ,@body)
      (message "Load error: %s" ,name)))
+(defmacro my-load-and-when (name &rest body)
+  (declare (indent 1))
+  `(cond ((load ,name t)
+	  (message "Load success: %s" ,name)
+	  ,@body)
+	 (t
+	  (message "Load error: %s" ,name))))
 
 
 ;;;; local settings
