@@ -98,6 +98,8 @@ With a numeric argument, turn mode on iff ARG is positive."
   (and (locate-library file)
        (autoload function file docstring interactive type)))
 
+(defcustom my-disabled-feature nil
+  "The list of disabled features")
 '(defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
   `(if (require ,feature nil t)
@@ -107,7 +109,9 @@ With a numeric argument, turn mode on iff ARG is positive."
      (message "Require error: %s" ,feature)))
 (defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
-  `(cond ((require ,feature nil t)
+  `(cond ((member ,feature my-disabled-feature)
+	  (message "Require skip: %s" ,feature))
+	 ((require ,feature nil t)
 	  (message "Require success: %s" ,feature)
 	  ,@body)
 	 (t
@@ -122,7 +126,9 @@ With a numeric argument, turn mode on iff ARG is positive."
      (message "Autoload error: %s %s" ,function ,file)))
 (defmacro my-autoload-and-when (function file &rest body)
   (declare (indent 1))
-  `(cond ((autoload-if-found ,function ,file nil t)
+  `(cond ((member ,file my-disabled-feature)
+	  (message "Autoload skip: %s %s" ,function ,file))
+	 ((autoload-if-found ,function ,file nil t)
 	  (message "Autoload success: %s %s" ,function ,file)
 	  (my-eval-after-load ,file ,@body))
 	 (t
@@ -137,7 +143,9 @@ With a numeric argument, turn mode on iff ARG is positive."
      (message "Load error: %s" ,name)))
 (defmacro my-load-and-when (name &rest body)
   (declare (indent 1))
-  `(cond ((load ,name t)
+  `(cond ((member ,name my-disabled-feature)
+	  (message "Load skip: %s" ,name))
+	 ((load ,name t)
 	  (message "Load success: %s" ,name)
 	  ,@body)
 	 (t
