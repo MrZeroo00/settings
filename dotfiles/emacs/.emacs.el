@@ -39,6 +39,15 @@
   (and run-xemacs (not (featurep 'mule))))
 (defvar run-carbon-emacs(and run-darwin window-system))
 
+;;;; get hostname
+(setq hostname
+      (car (split-string
+	    (downcase
+	     (cond ((getenv "HOSTNAME"))
+		   ((getenv "HOST"))
+		   ((getenv "COMPUTERNAME"))))
+	    "\\.")))
+
 
 ;;;; add argument to load-path
 (defun add-to-load-path-recompile (dir)
