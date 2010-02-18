@@ -64,7 +64,7 @@
 
 
 ;;;; macros
-(my-load-and-when "_window-toggle-division")
+'(my-load-and-when "_window-toggle-division")
 '(my-load-and-when "_swap-screen"
   (global-set-key [f2] 'swap-screen)
   (global-set-key [S-f2] 'swap-screen-with-cursor))

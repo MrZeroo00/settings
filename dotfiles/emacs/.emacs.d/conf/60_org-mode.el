@@ -146,7 +146,7 @@
 
 ;;;; freemind
 ;;;(install-elisp-from-emacswiki "freemind.el")
-(my-require-and-when 'freemind)
+'(my-require-and-when 'freemind)
 
 
 ;;;; macros

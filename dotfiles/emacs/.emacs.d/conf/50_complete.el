@@ -64,7 +64,7 @@
 
 ;;;; dabbrev-highlight
 ;;;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
-(my-require-and-when 'dabbrev-highlight)
+'(my-require-and-when 'dabbrev-highlight)
 
 
 ;;;; dabbrev-ja

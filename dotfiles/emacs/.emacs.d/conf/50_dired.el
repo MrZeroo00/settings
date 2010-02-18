@@ -99,8 +99,8 @@
 ;;;; macros
 (my-load-and-when "_dired-toggle-mark"
   (define-key dired-mode-map " " 'dired-toggle-mark))
-(my-load-and-when "_dired-convert-coding-system")
-(my-load-and-when "_dired-ps-print-files")
+'(my-load-and-when "_dired-convert-coding-system")
+'(my-load-and-when "_dired-ps-print-files")
 ;;;(my-load-and-when "_ls-lisp-handle-switches")
 ;;;(my-load-and-when "_dired-face-file-edited-today")
 (when (and run-w32 run-meadow)

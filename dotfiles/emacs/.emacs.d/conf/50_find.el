@@ -107,4 +107,4 @@
 '(my-load-and-when "_isearch-real-delete-char"
   (define-key isearch-mode-map "\C-o" 'isearch-real-delete-char))
 ;;;(my-load-and-when "_isearch-forward-comment-only")
-(my-load-and-when "_my-igrep")
+'(my-load-and-when "_my-igrep")

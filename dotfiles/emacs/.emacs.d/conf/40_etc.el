@@ -84,10 +84,6 @@
 ;;;(my-autoload-and-when 'desktop-remove "desktop")
 
 
-;;;; remember
-(my-require-and-when 'remember)
-
-
 ;;;; autoarg
 ;;;(my-require-and-when 'autoarg)
 
