@@ -222,6 +222,8 @@
 (setq anything-candidate-separator
       "------------------------------------------------------------------------------------")
 (setq anything-enable-shortcuts 'alphabet)
+(setq anything-persistent-action-use-special-display t)
+(add-hook 'anything-after-persistent-action-hook 'which-func-update)
 ;;;(setq anything-c-locate-db-file "~/home.locatedb")
 ;;;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
 
@@ -282,3 +284,4 @@
 ;;;; patches
 (setq fit-frame-inhibit-fitting-flag t)
 (setq anything-save-configuration-functions '(set-window-configuration . current-window-configuration))
+(remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history) ; adaptive sort file is buggy
