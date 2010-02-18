@@ -37,7 +37,7 @@
 
 ;;;; riece
 ;;;; http://www.nongnu.org/riece/index.html.ja
-(my-autoload-and-when 'riece "riece")
+'(my-autoload-and-when 'riece "riece")
 
 
 ;;;; twittering-mode
@@ -55,17 +55,17 @@
 
 ;;;; MozRepl
 ;;;; http://hyperstruct.net/projects/mozlab
-(add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
-(my-autoload-and-when 'moz-minor-mode "moz")
-(defun java-custom-setup ()
-  (moz-minor-mode 1))
-(add-hook 'java-mode-hook 'java-custom-setup)
+;;;(add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
+;;;(my-autoload-and-when 'moz-minor-mode "moz")
+;;;(defun java-custom-setup ()
+;;;  (moz-minor-mode 1))
+;;;(add-hook 'java-mode-hook 'java-custom-setup)
 
 
 ;;;; moz-plus
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
-(my-autoload-and-when 'run-mozilla "moz")
-(add-hook 'inferior-moz-mode-hook (lambda ()
+;;;(my-autoload-and-when 'run-mozilla "moz")
+'(add-hook 'inferior-moz-mode-hook (lambda ()
                                     (my-require-and-when 'moz-plus)
                                     (moz-plus 1)
                                     ))
@@ -82,5 +82,5 @@
 
 
 ;;;; macros
-(my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
+;;;(my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
 ;;;(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"

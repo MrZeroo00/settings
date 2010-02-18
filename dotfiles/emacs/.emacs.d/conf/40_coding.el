@@ -429,7 +429,8 @@
 
 
 ;;;; macros
-(my-load-and-when "_paren-match")
+(my-load-and-when "_paren-match"
+  (define-key ctl-x-map "%" 'paren-match))
 '(my-load-and-when "_tdd-bgcolor-rotate"
   (global-set-key "\C-cm" 'tdd-bgcolor-rotate))
 (my-load-and-when "_google-code-search")
