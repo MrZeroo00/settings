@@ -59,6 +59,7 @@
 
 (my-require-and-when 'gud
   (setq gud-gdb-command-name "gdb -annotate=3")
+  ;;(setq gud-chdir-before-run nil)
   (setq gud-tooltip-echo-area nil)
   (add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t))))
 
