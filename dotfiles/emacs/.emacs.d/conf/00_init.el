@@ -77,13 +77,13 @@
 (setq query-replace-highlight t)
 (my-require-and-when 'hi-lock)
 ;;;; highlight current line
-(global-hl-line-mode)
-(hl-line-mode t)
-;;;(setq hl-line-face 'underline)
-(set-face-background 'hl-line "DarkOliveGreen")
+;;;(global-hl-line-mode)
+;;;(hl-line-mode t)
+;;;;;;(setq hl-line-face 'underline)
+;;;(set-face-background 'hl-line "DarkOliveGreen")
 ;;;(install-elisp-from-emacswiki "col-highlight.el")
 ;;;(install-elisp-from-emacswiki "vline.el")
-(my-require-and-when 'col-highlight
+'(my-require-and-when 'col-highlight
   (column-highlight-mode t)
 ;;;  (toggle-highlight-column-when-idle t)
 ;;;  (col-highlight-set-interval 3)
@@ -117,10 +117,10 @@
 
 
 ;;;; scroll setting
-(setq scroll-conservatively 35)
-(setq scroll-margin 0)
-(setq scroll-step 1)
-(setq scroll-preserve-screen-position t)
+;;;(setq scroll-conservatively 35)
+;;;(setq scroll-margin 0)
+;;;(setq scroll-step 1)
+;;;(setq scroll-preserve-screen-position t)
 
 
 ;;;; timestamp setting
@@ -137,7 +137,6 @@
 (set-scroll-bar-mode 'right)
 (setq visible-bell t)
 ;;;(fset 'yes-or-no-p 'y-or-n-p)
-(setq debug-on-error nil)
 (auto-insert-mode t)
 ;;;(global-auto-revert-mode)
 (setq kill-whole-line t)
