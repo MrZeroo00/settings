@@ -33,4 +33,5 @@
                (backward-sexp 1)
                (if com (paren-match nil com)))
               (t (error ""))))))
-  (define-key ctl-x-map "%" 'paren-match))
+  ;;(define-key ctl-x-map "%" 'paren-match)
+  )

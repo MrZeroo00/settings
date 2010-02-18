@@ -217,7 +217,7 @@
 ;;;; basic setting
 ;;;(anything-iswitchb-setup)
 (setq anything-idle-delay 0.3)
-(setq anything-input-idle-delay 0)
+(setq anything-input-idle-delay 0.2)
 (setq anything-candidate-number-limit 100)
 (setq anything-candidate-separator
       "------------------------------------------------------------------------------------")
