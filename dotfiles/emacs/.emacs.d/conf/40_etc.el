@@ -158,6 +158,11 @@
 ;;;(my-autoload-and-when 'list-hexadecimal-colors-display "color-selection")
 
 
+;;;; izonmoji-mode
+;;;; http://navi2ch.sourceforge.net/
+'(my-require-and-when 'izonmoji-mode)
+
+
 ;;;; keisen-mule
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=keisen
 '(if window-system
