@@ -397,7 +397,7 @@
 
 ;;;; to pop up compilation buffers at the bottom
 (my-eval-after-load "split-root"
-  (require 'compile)
+  (my-require-and-when 'compile)
   (defvar compilation-window nil
     "The window opened for displaying a compilation buffer.")
 
