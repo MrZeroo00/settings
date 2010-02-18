@@ -1,34 +1,3 @@
-                                                                                                                                                                                                                                                                
-From: Alex Schroeder <a...@bsiag.com>
-Subject: face-list.el
-Date: 2000/06/15
-Message-ID: <ud7lj825b.fsf@bsiag.com>#1/1
-X-Deja-AN: 634895419
-Followup-To: gnu.emacs.help
-Content-Type: text/plain; charset=us-ascii
-X-Complaints-To: news@ip-plus.net
-X-Trace: pollux.ip-plus.net 961078253 9833 164.128.46.210 (15 Jun 2000 14:10:53 GMT)
-Organization: BSI AG, http://www.bsiag.com/
-X-Home-Page: http://www.geocities.com/kensanata/
-Mime-Version: 1.0
-User-Agent: Gnus/5.0803 (Gnus v5.8.3) Emacs/20.6
-NNTP-Posting-Date: 15 Jun 2000 14:10:53 GMT
-Newsgroups: gnu.emacs.sources
-
-The following mode might be very usefull for people developping
-color-themes...  After calling `list-faces-display' you are put in a
-special mode that allows you to call 'customize-face' for the face at
-point with a keystroke.
-
-In order to use this for color-theme.el, customize the faces you want
-without saving them for future sessions, and then use
-color-theme-print to save your settings in a color-theme (setting the
-stuff for future sessions would record the face definitions in your
-~/.emacs file).
-
-Alex.
-
-
 ;;; face-list.el --- convenience functions for face customization
 
 ;; Copyright (C) 2000  Alex Schroeder <a...@gnu.org>
