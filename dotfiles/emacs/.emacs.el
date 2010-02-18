@@ -45,7 +45,8 @@
 	    (downcase
 	     (cond ((getenv "HOSTNAME"))
 		   ((getenv "HOST"))
-		   ((getenv "COMPUTERNAME"))))
+		   ((getenv "COMPUTERNAME"))
+		   (t "default")))
 	    "\\.")))
 
 
