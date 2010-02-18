@@ -104,7 +104,7 @@
 
 ;;;; sense-region
 ;;;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
-(my-autoload-and-when 'sense-region-on "sense-region")
+'(my-autoload-and-when 'sense-region-on "sense-region")
 
 
 ;;;; alpaca
@@ -117,22 +117,22 @@
 ;;;; clwiki
 ;;;; http://pop-club.hp.infoseek.co.jp/emacs/changelog.html
 ;;;(install-elisp "http://www.rubyist.net/~rubikitch/computer/clwiki/clwiki.el")
-(my-autoload-and-when 'clwiki "clwiki"
-                      (define-key ctl-x-map "M" 'clwiki))
-(my-autoload-and-when 'clgrep "clgrep")
-(my-autoload-and-when 'clgrep-item "clgrep")
-(my-autoload-and-when 'clgrep-item-header "clgrep")
-(my-autoload-and-when 'clgrep-item-tag "clgrep")
-(my-autoload-and-when 'clgrep-item-notag "clgrep")
-(my-autoload-and-when 'clgrep-item-nourl "clgrep")
-(my-autoload-and-when 'clgrep-entry "clgrep")
-(my-autoload-and-when 'clgrep-entry-header "clgrep")
-(my-autoload-and-when 'clgrep-entry-no-entry-header "clgrep")
-(my-autoload-and-when 'clgrep-entry-tag "clgrep")
-(my-autoload-and-when 'clgrep-entry-notag "clgrep")
-(my-autoload-and-when 'clgrep-entry-nourl "clgrep")
-(add-hook 'clmemo-mode-hook
-          '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
+;;;(my-autoload-and-when 'clwiki "clwiki"
+;;;                      (define-key ctl-x-map "M" 'clwiki))
+;;;(my-autoload-and-when 'clgrep "clgrep")
+;;;(my-autoload-and-when 'clgrep-item "clgrep")
+;;;(my-autoload-and-when 'clgrep-item-header "clgrep")
+;;;(my-autoload-and-when 'clgrep-item-tag "clgrep")
+;;;(my-autoload-and-when 'clgrep-item-notag "clgrep")
+;;;(my-autoload-and-when 'clgrep-item-nourl "clgrep")
+;;;(my-autoload-and-when 'clgrep-entry "clgrep")
+;;;(my-autoload-and-when 'clgrep-entry-header "clgrep")
+;;;(my-autoload-and-when 'clgrep-entry-no-entry-header "clgrep")
+;;;(my-autoload-and-when 'clgrep-entry-tag "clgrep")
+;;;(my-autoload-and-when 'clgrep-entry-notag "clgrep")
+;;;(my-autoload-and-when 'clgrep-entry-nourl "clgrep")
+;;;(add-hook 'clmemo-mode-hook
+;;;          '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
 
 
 ;;;; postit
@@ -245,12 +245,12 @@
 
 ;;;; macros
 (my-load-and-when "_window-line")
-(my-load-and-when "_copy-region-with-info")
+'(my-load-and-when "_copy-region-with-info")
 '(my-load-and-when "_duplicate-line"
   (define-key esc-map "Y" 'duplicate-line))
 (when (not run-w32)
   (my-load-and-when "_scroll-speedup")) ; in windows, I use kbdacc.
 '(my-load-and-when "_my-memo"
   (global-set-key "\C-c\C-w" 'my-memo))
-;;;(my-load-and-when "_byte-compile-directory")
+(my-load-and-when "_byte-compile-directory")
 (my-load-and-when "_screen-read-hardcopy")
