@@ -43,10 +43,11 @@
 (setq hostname
       (car (split-string
 	    (downcase
-	     (cond ((getenv "HOSTNAME"))
-		   ((getenv "HOST"))
-		   ((getenv "COMPUTERNAME"))
-		   (t "default")))
+	     ;;(cond ((getenv "HOSTNAME"))
+		   ;;((getenv "HOST"))
+		   ;;((getenv "COMPUTERNAME"))
+		   ;;(t "default")))
+       (system-name))
 	    "\\.")))
 
 
@@ -249,4 +250,4 @@ With a numeric argument, turn mode on iff ARG is positive."
 ;;;(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
 ;;;    (my-load-and-when "99_timeout"))
 
-(setq debug-on-error nil)
+(setq debug-on-error t)
