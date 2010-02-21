@@ -14,6 +14,8 @@
 ;;;                                 (c-set-offset 'arglist-close 0)
                                  (setq c-basic-offset tab-width)
                                  (setq show-trailing-whitespace t)
+                                 (c-toggle-auto-hungry-state 1)
+                                 (define-key c-mode-base-map "\C-m" 'newline-and-indent)
                                  (setq imenu-create-index-function 'imenu-default-create-index-function)
                                  ))
 
@@ -42,7 +44,9 @@
 (add-hook 'c-mode-common-hook
           (lambda ()
             (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
-            (my-load-and-when "c-eldoc")
+            ;; http://github.com/nflath/cache
+            (my-require-and-when 'cache)
+            (my-require-and-when 'c-eldoc)
             (c-turn-on-eldoc-mode)
             (when run-darwin
               (setq c-eldoc-cpp-command "/usr/bin/cpp"))))
