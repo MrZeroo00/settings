@@ -14,7 +14,7 @@
 ;;;                                 (c-set-offset 'arglist-close 0)
                                  (setq c-basic-offset tab-width)
                                  (setq show-trailing-whitespace t)
-                                 (c-toggle-auto-hungry-state 1)
+                                 ;;(c-toggle-auto-hungry-state 1)
                                  (define-key c-mode-base-map "\C-m" 'newline-and-indent)
                                  (setq imenu-create-index-function 'imenu-default-create-index-function)
                                  ))

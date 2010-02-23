@@ -112,12 +112,19 @@
 
   	      (setq gtags-mode-hook
   		    '(lambda ()
-  		       (my-load-and-when "_gtags-hack.el")
+  		       ;;(my-load-and-when "_gtags-hack.el")
+  		       (setq gtags-path-style 'root)
+  		       (setq gtags-pop-delete nil)
   		       (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
   		       (define-key gtags-mode-map "\M-r" 'gtags-find-rtag)
   		       (define-key gtags-mode-map "\M-s" 'gtags-find-symbol)
   		       (define-key gtags-mode-map "\C-t" 'gtags-pop-stack)
-  		       )))
+  		       ))
+
+          (setq gtags-select-mode-hook
+                '(lambda ()
+                   (setq hl-line-face 'underline)
+                   (hl-line-mode 1))))
 
 (add-hook 'c-mode-common-hook '(lambda ()
   			 (gtags-mode t)
