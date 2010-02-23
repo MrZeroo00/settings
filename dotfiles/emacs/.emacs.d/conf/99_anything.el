@@ -70,7 +70,7 @@
   (anything-read-string-mode t)
   (anything-lisp-complete-symbol-set-timer 150)
   (setq anything-lisp-complete-symbol-input-idle-delay 0.0)
-  '(setq anything-find-file-additional-sources (list anything-find-file-additional-sources
+  (setq anything-find-file-additional-sources (list anything-find-file-additional-sources
                                                     (if run-darwin
                                                         anything-c-source-mac-spotlight
                                                       anything-c-source-locate)))
@@ -218,7 +218,7 @@
 ;;;(anything-iswitchb-setup)
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0.2)
-(setq anything-candidate-number-limit 100)
+(setq anything-candidate-number-limit 50)
 (setq anything-candidate-separator
       "------------------------------------------------------------------------------------")
 (setq anything-enable-shortcuts 'alphabet)
@@ -244,20 +244,20 @@
                              anything-c-source-bookmarks
                              anything-c-source-yasnippet
                              anything-c-source-imenu
-;;;                             anything-c-source-gtags-select
+                             ;;anything-c-source-gtags-select
                              anything-c-source-recentf
-;;;                             anything-c-source-file-name-history
+                             ;;anything-c-source-file-name-history
                              anything-c-source-file-cache
-;;;                             (if run-darwin
-;;;                                 anything-c-source-mac-spotlight
-;;;                               anything-c-source-locate)
+                             ;;(if run-darwin
+                             ;;    anything-c-source-mac-spotlight
+                             ;;  anything-c-source-locate)
                              anything-c-source-call-source
                              anything-c-source-extended-command-history
                              anything-c-source-emacs-commands
-;;;                             anything-c-source-complex-command-history
-;;;                             anything-c-source-man-pages
-;;;                             anything-c-source-info-pages
-;;;                             anything-c-source-calculation-result
+                             ;;anything-c-source-complex-command-history
+                             ;;anything-c-source-man-pages
+                             ;;anything-c-source-info-pages
+                             ;;anything-c-source-calculation-result
                              ))
 
 
