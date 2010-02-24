@@ -45,6 +45,10 @@
 ;;;(my-require-and-when 'cheat)
 
 
+;;;; bookmark
+(setq bookmark-default-file "~/.emacs.d/.emacs.bmk")
+
+
 ;;;; bookmark-extensions
 ;;;; http://mercurial.intuxication.org/hg/emacs-bookmark-extension/
 (my-require-and-when 'bookmark-extensions)
@@ -53,6 +57,9 @@
 ;;;; bm
 ;;;; http://www.nongnu.org/bm/
 (my-require-and-when 'bm
+  (setq bm-repository-file (expand-file-name "~/.emacs.d/.bm-repository"))
+  (setq bm-repository-size nil)
+  (setq bm-buffer-persistence t)
   (global-set-key (kbd "<C-f2>") 'bm-toggle)
   (global-set-key (kbd "<f2>")   'bm-next)
   (global-set-key (kbd "<S-f2>") 'bm-previous))
