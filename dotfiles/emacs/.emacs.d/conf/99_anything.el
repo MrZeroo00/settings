@@ -39,7 +39,7 @@
 ;;;; anything-c-moccur
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
 (my-require-and-when 'anything-c-moccur
-  (setq anything-c-moccur-anything-idle-delay 0.1)
+  (setq anything-c-moccur-anything-idle-delay 0.2)
   (setq anything-c-moccur-enable-initial-pattern t)
   (setq anything-c-moccur-higligt-info-line-flag t)
   (setq anything-c-moccur-enable-auto-look-flag t)
