@@ -150,6 +150,11 @@
 ;;;(my-require-and-when 'xcscope)
 
 
+;;;; simple-call-tree
+;;;(install-elisp-from-emacswiki "simple-call-tree.el")
+;;;(my-require-and-when 'simple-call-tree)
+
+
 ;;;; use ack
 (setq grep-command "ack -a --nocolor ")
 (defun ack ()
@@ -434,6 +439,29 @@
   	     (setq my-compilation-window nil))
   	   (message "compilation successful")))))
   )
+
+
+;;;; color
+;;; brace
+(defface font-lock-brace-face
+  '((((class color) (background light)) (:foreground "Red2"))
+    (((class color) (background dark)) (:foreground "sienna1"))
+    (t (:bold t :italic t)))
+  "Font Lock mode face used for braces ()[]{} and the comma."
+  :group 'font-lock-highlighting-faces)
+(defvar font-lock-brace-face 'font-lock-brace-face
+  "Face name to use for braces.")
+(defconst bm-brace-keywords
+  (cons
+   "[][(){}]"
+   font-lock-brace-face
+   ))
+
+(font-lock-add-keywords
+ 'c-mode
+ (list
+  bm-brace-keywords
+  ))
 
 
 ;;;; macros
