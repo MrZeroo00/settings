@@ -15,6 +15,12 @@
 (setq w32-hide-mouse-on-key t)
 
 
+;;;; color
+;;;(modify-frame-parameters (selected-frame) '((background-mode . dark)))
+;;;(setq frame-background-mode 'dark)
+;;;(setq font-lock-background-mode 'dark)
+
+
 ;;;; ttfont-setup
 ;;;(install-elisp "http://www.fan.gr.jp/~ring/doc/misc/ttfont-setup.el")
 (my-require-and-when 'ttfont-setup
