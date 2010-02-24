@@ -37,7 +37,7 @@
 
 (add-hook 'c-mode-common-hook
           '(lambda ()
-             (flymake-mode)))
+             (flymake-mode t)))
 
 ;;;; eldoc
 ;;;(install-elisp-from-emacswiki "c-eldoc.el")
