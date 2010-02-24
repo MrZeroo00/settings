@@ -1,6 +1,6 @@
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=exampleelisp%20color-moccur
-;;;(install-elisp "http://www.bookshelf.jp/elc/moccur-edit.el")
-;;;(install-elisp "http://www.bookshelf.jp/elc/color-moccur.el")
+;;;(install-elisp-from-emacswiki "moccur-edit.el")
+;;;(install-elisp-from-emacswiki "color-moccur.el")
 (setq moccur-split-word t)
 (my-require-and-when 'migemo
   (setq moccur-use-migemo t))
@@ -57,6 +57,14 @@
         ))
 (my-eval-after-load "dmoccur"
   (add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*")))
+
+
+;;;; advice
+(defadvice moccur-get-info (after moccur-get-info-which-func-update)
+  "Call which-func-update after moving"
+  (save-selected-window
+    (select-window (get-buffer-window moccur-buffer-name))
+    (which-func-update)))
 
 
 ;;;; macros
