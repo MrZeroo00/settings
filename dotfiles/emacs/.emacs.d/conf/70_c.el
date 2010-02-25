@@ -39,14 +39,18 @@
           '(lambda ()
              (flymake-mode t)))
 
+
+;;;; cache
+;;; http://github.com/nflath/cache
+(my-require-and-when 'cache)
+
+
 ;;;; eldoc
 ;;;(install-elisp-from-emacswiki "c-eldoc.el")
+(my-require-and-when 'c-eldoc)
 (add-hook 'c-mode-common-hook
           (lambda ()
             (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
-            ;; http://github.com/nflath/cache
-            (my-require-and-when 'cache)
-            (my-require-and-when 'c-eldoc)
             (c-turn-on-eldoc-mode)
             (when run-darwin
               (setq c-eldoc-cpp-command "/usr/bin/cpp"))))
