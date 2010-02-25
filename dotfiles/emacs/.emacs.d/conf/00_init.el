@@ -157,6 +157,12 @@
 (my-require-and-when 'redo)
 
 
+;;;; undo-tree
+;;;(install-elisp "http://www.dr-qubit.org/undo-tree/undo-tree.el")
+(my-require-and-when 'undo-tree
+  (global-undo-tree-mode))
+
+
 ;;;; point-undo
 ;;;(install-elisp-from-emacswiki "point-undo.el")
 (my-require-and-when 'point-undo)
