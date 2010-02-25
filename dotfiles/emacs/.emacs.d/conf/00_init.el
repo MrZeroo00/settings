@@ -150,6 +150,7 @@
 (setq diff-switches "-u")
 ;;;(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 (setq x-select-enable-clipboard t)
+(setq gc-cons-threshold 3500000)
 
 
 ;;;; redo
