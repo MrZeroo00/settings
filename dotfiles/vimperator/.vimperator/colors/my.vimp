@@ -65,6 +65,19 @@ style -name tab chrome://* <<EOM
 .tab-image-right {
 	background-image: none !important;
 }
+
+/* Tree Style Tab */
+.tabs-newtab-button {
+	display:none !important;
+}
+/* hide the "shadow" */
+tabbrowser
+	.tabbrowser-strip
+	.tabbrowser-tab
+	.tabs-container
+	.scrollbox-innerbox {
+		background-image: none !important;
+}
 EOM
 
 style -name statusbar chrome://* <<EOM
