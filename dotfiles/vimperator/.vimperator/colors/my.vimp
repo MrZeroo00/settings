@@ -8,7 +8,7 @@ hi HintActive		background-color: hotpink;	color: white;
 
 hi StatusLine 		color: DeepPink;	background: #000;	font-weight: normal; font-size: 10pt;
 
-hi Normal 		color: LightYellow;	background: #333;	font-size: 10pt;
+hi Normal 		color: LightYellow;	background: #333;	font-size: 14pt;
 hi InfoMsg		color: LightYellow;	background: #333;	font-size: 10pt;
 hi ModeMsg		color: LightYellow;	background: #333;	font-size: 10pt;
 hi MoreMsg		color: LimeGreen;	background: #333;
@@ -45,7 +45,7 @@ style -name tab chrome://* <<EOM
 }
 .tabbrowser-tab {
 	-moz-apperance: none !important;
-	margin: 0 !important;
+	// margin: 0 !important;
 	padding: 0 !important;
 	-moz-border-radius-topleft: 0 !important;
 	-moz-border-radius-topright: 0 !important;
@@ -53,9 +53,9 @@ style -name tab chrome://* <<EOM
 	-moz-border-radius-bottomleft: 0 !important;
 	border-bottom: 1px solid #000 !important;
 	background-image: none !important;
-	background-color: #ff69b4 !important;
+	// background-color: #ff69b4 !important;
 	text-align: left !important;
-	height: 20px !important;
+	height: 25px !important;
 }
 .tabbrowser-tab[selected=false] { background: #999 !important; }
 .tabbrowser-tab[selected=true] .tab-text { color: #ddd !important; }
