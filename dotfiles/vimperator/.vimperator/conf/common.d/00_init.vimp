@@ -44,18 +44,33 @@ set previouspattern+='prev, 前(の)?ページ,\b前.*,\b←'
 
 "" set preferences --------------------
 set! accessibility.typeaheadfind.casesensitive=1
+set! browser.bookmarks.autoExportHTML=true
 set! browser.cache.memory.capacity=24576
-set! browser.tabs.closeButtons=2
+set! browser.download.manager.scanWhenDone=false
 set! browser.enabel_automatic_image_resizing=false
+"set! browser.link.open_newwindow.restriction=0
+"set! browser.search.openintab=true
 set! browser.sessionstore.max_tabs_undo=20
+set! browser.tabs.closeButtons=2
 "set! browser.tabs.tabMinWidth=50
+set! browser.urlbar.autoFill=true
 set! browser.urlbar.maxRichResults=20
 set! config.trim_on_minimize=true
+set! middlemouse.paste=true
+"set! network.http.max-connections=96
+"set! network.http.max-connections-per-server=32
+"set! network.http.pipelining=true
+"set! network.http.pipelining.maxrequests=8
+"set! network.http.proxy.pipelining=true
 set! layout.word_select.eat_space_to_next_word=false
+set! security.dialog_enable_delay=0
 set! ui.key.generalAccessKey=0
+"set! view_source.editor.external=true
+"set! view_source.editor.path=/usr/bin/emacsclient
 " spell check
 set! layout.spellcheckDefault=2
 set! spellchecker.dictionary=en-US
+" extensions
 set! extensions.treestyletab.tabbar.shrunkenWidth=40
 set! extensions.treestyletab.tabbar.width=200
 
