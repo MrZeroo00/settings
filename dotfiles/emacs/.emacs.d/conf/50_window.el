@@ -58,7 +58,9 @@
 (defun other-window-or-split ()
   (interactive)
   (when (one-window-p)
-    (split-window-horizontally))
+    (if (> (window-width) (window-height))
+        (split-window-horizontally)
+      (split-window-vertically)))
   (other-window 1))
 (global-set-key (kbd "C-o") 'other-window-or-split)
 
