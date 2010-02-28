@@ -24,6 +24,10 @@ function dhist() {
   fi
 }
 
+function nfind() {
+  find . -name "*$1*"
+}
+
 case "${OS}" in
   "Darwin")
   growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
