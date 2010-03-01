@@ -1,7 +1,7 @@
 (iswitchb-mode t)
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=iswitchb
-(add-hook 'iswitchb-define-mode-map-hook
+(my-add-hook 'iswitchb-define-mode-map-hook
           'iswitchb-my-keys)
 
 (defun iswitchb-my-keys ()

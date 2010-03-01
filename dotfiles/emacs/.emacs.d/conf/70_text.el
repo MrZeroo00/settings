@@ -1,5 +1,5 @@
 ;;;; mode hook
-(add-hook 'text-mode-hook
+(my-add-hook 'text-mode-hook
           (lambda ()
             (progn
 ;;;              (ruler-mode)
@@ -12,7 +12,7 @@
 
 
 ;;;; imenu
-(add-hook 'text-mode
+(my-add-hook 'text-mode
           (lambda ()
             (progn
               (setq imenu-create-index-function
@@ -33,7 +33,7 @@
 
 ;;;; text-adjust
 ;;;(install-elisp "http://taiyaki.org/elisp/text-adjust/src/text-adjust.el")
-(add-hook 'text-mode-hook
+(my-add-hook 'text-mode-hook
           (my-load-and-when "text-adjust"
             (setq adaptive-fill-regexp "[ \t]*")
             (setq adaptive-fill-mode t)
@@ -45,7 +45,7 @@
 ;;;              '(org-mode text-mode mew-draft-mode))
 ;;;    (text-adjust-space-buffer)))
 ;;;(defalias 'spacer 'text-adjust-space-buffer)
-;;;(add-hook 'before-save-hook 'text-adjust-space-before-save-if-needed)
+;;;(my-add-hook 'before-save-hook 'text-adjust-space-before-save-if-needed)
 
 
 ;;;; manued
@@ -54,6 +54,6 @@
 
 
 ;;;; macros
-;;;(add-hook 'text-mode-hook
+;;;(my-add-hook 'text-mode-hook
 ;;;          (lambda ()
 ;;;            (my-load-and-when "text-adjust-space-before-save-if-needed")))

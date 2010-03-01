@@ -20,7 +20,7 @@
 (add-to-list 'flymake-allowed-file-name-masks
              '(".+\\.rb$" flymake-ruby-init))
 
-(add-hook 'ruby-mode-hook
+(my-add-hook 'ruby-mode-hook
           (lambda ()
             (inf-ruby-keys)
             (flymake-mode t)))
@@ -31,14 +31,14 @@
 ;;;(my-require-and-when 'refe)
 ;;;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
 ;;;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
-(add-hook 'ruby-mode-hook
+(my-add-hook 'ruby-mode-hook
           (lambda ()
             (my-load-and-when "_refe2")))
 
 
 ;;;; autotest
 ;;;(install-elisp-from-emacswiki "autotest.el")
-(add-hook 'ruby-mode-hook
+(my-add-hook 'ruby-mode-hook
           (lambda ()
             (my-require-and-when 'autotest)))
 
@@ -67,7 +67,7 @@
 
 
 ;;;; macros
-(add-hook 'ruby-mode-hook
+(my-add-hook 'ruby-mode-hook
           (lambda ()
             (my-load-and-when "_ruby-insert-magic-comment-if-needed")
-            (add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)))
+            (my-add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)))

@@ -17,10 +17,10 @@
 
 (my-eval-after-load "confluence"
   (my-require-and-when 'longlines)
-  (add-hook 'confluence-mode-hook 'longlines-mode)
-  (add-hook 'confluence-before-save-hook 'longlines-before-revert-hook)
-  (add-hook 'confluence-before-revert-hook 'longlines-before-revert-hook)
-  (add-hook 'confluence-mode-hook '(lambda () (local-set-key "\C-j" 'confluence-newline-and-indent)))
+  (my-add-hook 'confluence-mode-hook 'longlines-mode)
+  (my-add-hook 'confluence-before-save-hook 'longlines-before-revert-hook)
+  (my-add-hook 'confluence-before-revert-hook 'longlines-before-revert-hook)
+  (my-add-hook 'confluence-mode-hook '(lambda () (local-set-key "\C-j" 'confluence-newline-and-indent)))
   (global-set-key "\C-xwf" 'confluence-get-page))
 
 ;;;; LongLines mode: http://www.emacswiki.org/emacs-en/LongLines
@@ -50,7 +50,7 @@
       (longlines-suspend)))
 
 
-  (add-hook 'ediff-cleanup-hook
+  (my-add-hook 'ediff-cleanup-hook
             '(lambda ()
                (dolist (tmp-buf (list ediff-buffer-A
                                       ediff-buffer-B
@@ -60,17 +60,17 @@
                        (longlines-restore)))))))
 
 ;;;; setup confluence mode
-(add-hook 'confluence-mode-hook
+(my-add-hook 'confluence-mode-hook
           '(lambda ()
              (local-set-key "\C-xw" confluence-prefix-map)))
 
-(add-hook 'confluence-mode-hook
+(my-add-hook 'confluence-mode-hook
           (lambda ()
             (setq truncate-lines nil)
             (setq truncate-partial-width-windows nil)
             (auto-show-mode)))
 
-(add-hook 'confluence-mode-hook
+(my-add-hook 'confluence-mode-hook
           (lambda ()
             (setq outline-regexp "^h[1-5]\\.")
             (setq outline-heading-end-regexp "\n")

@@ -4,13 +4,13 @@
 (add-to-list 'auto-mode-alist '("\\.el$" . emacs-lisp-mode))
 
 ;;;; mode hook
-(add-hook 'emacs-lisp-mode-hook
+(my-add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (define-key emacs-lisp-mode-map "\C-m" 'newline-and-indent)))
 
 
 ;;;; anything
-(add-hook 'emacs-lisp-mode-hook
+(my-add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (make-local-variable 'anything-sources)
 ;;;            (add-to-list 'anything-sources
@@ -33,17 +33,17 @@
 
 ;;;; tentative patch
 (when (not run-w32)
-  (add-hook 'emacs-lisp-mode-hook
+  (my-add-hook 'emacs-lisp-mode-hook
             (lambda ()
               (flymake-mode t))))
 
 
 ;;;; eldoc
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(my-add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 
 ;;;; checkdoc
-(add-hook 'emacs-lisp-mode-hook
+(my-add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (my-require-and-when 'checkdoc)))
 

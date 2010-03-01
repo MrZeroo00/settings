@@ -48,9 +48,9 @@
 
 (when gdb-many-windows
   (defvar my-gud-window-configuration nil)
-  (add-hook 'gud-mode-hook '(lambda ()
+  (my-add-hook 'gud-mode-hook '(lambda ()
                               (setq my-gud-window-configuration (current-window-configuration))))
-  (add-hook 'kill-buffer-hook (lambda ()
+  (my-add-hook 'kill-buffer-hook (lambda ()
                                 (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
                                   ;; gud-関係の場合
                                   (when (window-configuration-p my-gud-window-configuration)
@@ -61,7 +61,7 @@
   (setq gud-gdb-command-name "gdb -annotate=3")
   ;;(setq gud-chdir-before-run nil)
   (setq gud-tooltip-echo-area nil)
-  (add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t))))
+  (my-add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t))))
 
 
 ;;;; generic (coloring generic files)
@@ -126,7 +126,7 @@
                    (setq hl-line-face 'underline)
                    (hl-line-mode 1))))
 
-(add-hook 'c-mode-common-hook '(lambda ()
+(my-add-hook 'c-mode-common-hook '(lambda ()
   			 (gtags-mode t)
   			 ;;(gtags-make-complete-list)
   			 ))
@@ -190,7 +190,7 @@
   	  ("\\.f$" . "template.f")
   	  ) auto-insert-alist))
 
-  (add-hook 'find-file-not-found-hooks 'auto-insert))
+  (my-add-hook 'find-file-not-found-hooks 'auto-insert))
 
 
 ;;;; yasnippet
@@ -227,9 +227,9 @@
 ;;;; eldoc-extension
 ;;;(install-elisp-from-emacswiki "eldoc-extension.el")
 (my-require-and-when 'eldoc-extension
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode))
+  (my-add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+  (my-add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+  (my-add-hook 'ielm-mode-hook 'turn-on-eldoc-mode))
 
 
 ;;;; mode-info
@@ -268,12 +268,12 @@
 
 ;;;; doxymacs
 (my-require-and-when 'doxymacs
-  (add-hook 'c-mode-common-hook 'doxymacs-mode)
+  (my-add-hook 'c-mode-common-hook 'doxymacs-mode)
 
   (defun my-doxymacs-font-lock-hook ()
     (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
   (doxymacs-font-lock)))
-  (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook))
+  (my-add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook))
 
 
 ;;;; ediff
@@ -329,9 +329,9 @@
   (setq hs-hide-comments nil)
   (setq hs-isearch-open 't)
 
-  (add-hook 'c-mode-hook 'hs-minor-mode)
-  (add-hook 'perl-mode-hook 'hs-minor-mode)
-  (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+  (my-add-hook 'c-mode-hook 'hs-minor-mode)
+  (my-add-hook 'perl-mode-hook 'hs-minor-mode)
+  (my-add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 
   (my-load-and-when "_hs-hide-all-comments"))
 
@@ -348,7 +348,7 @@
 
 
 ;;;; flyspell
-(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+(my-add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 
 
 ;;;; develock (emphasize bad coding convention)
@@ -391,7 +391,7 @@
 ;;;(my-require-and-when 'face-list)
 
 
-(add-hook 'change-log-mode-hook
+(my-add-hook 'change-log-mode-hook
           (lambda ()
             (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
 ;;;            (outline-minor-mode t)
@@ -429,7 +429,7 @@
   (setq display-buffer-function 'my-display-buffer)
 
   ;; on success, delete compilation window right away!
-  (add-hook 'compilation-finish-functions
+  (my-add-hook 'compilation-finish-functions
       '(lambda(buf res)
          (unless (or (eq last-command 'grep)
   		   (eq last-command 'grep-find))

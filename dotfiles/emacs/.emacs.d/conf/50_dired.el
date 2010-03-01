@@ -19,7 +19,7 @@
 
 ;;;; sorter (sort file list)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/sorter.el")
-(add-hook 'dired-load-hook
+(my-add-hook 'dired-load-hook
           (lambda ()
             (my-require-and-when 'sorter)))
 
@@ -108,12 +108,12 @@
 ;;;     (install-elisp "http://centaur.maths.qmw.ac.uk/Emacs/files/w32-symlinks.el")
   (my-require-and-when 'w32-symlinks)
   (my-load-and-when "_dired-make-symbolic-link"
-    (add-hook 'dired-mode-hook
+    (my-add-hook 'dired-mode-hook
               '(lambda ()
                  (define-key dired-mode-map "S" (function dired-make-symbolic-link))
                  )))
   (my-load-and-when "_dired-winstart"
-    (add-hook 'dired-mode-hook
+    (my-add-hook 'dired-mode-hook
               (lambda ()
                 (define-key dired-mode-map "z" 'uenox-dired-winstart))))
   )

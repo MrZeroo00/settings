@@ -25,7 +25,7 @@
 
 ;;;; telnet
 (setq telnet-program "telnet")
-(add-hook 'telnet-mode-hook '_telnet-mode)
+(my-add-hook 'telnet-mode-hook '_telnet-mode)
 (defun _telnet-mode ()
   (set-buffer-process-coding-system 'euc-japan 'sjis-unix))
 
@@ -59,13 +59,13 @@
 ;;;(my-autoload-and-when 'moz-minor-mode "moz")
 ;;;(defun java-custom-setup ()
 ;;;  (moz-minor-mode 1))
-;;;(add-hook 'java-mode-hook 'java-custom-setup)
+;;;(my-add-hook 'java-mode-hook 'java-custom-setup)
 
 
 ;;;; moz-plus
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
 ;;;(my-autoload-and-when 'run-mozilla "moz")
-'(add-hook 'inferior-moz-mode-hook (lambda ()
+'(my-add-hook 'inferior-moz-mode-hook (lambda ()
                                     (my-require-and-when 'moz-plus)
                                     (moz-plus 1)
                                     ))

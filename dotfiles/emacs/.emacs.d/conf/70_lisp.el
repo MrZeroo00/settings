@@ -1,7 +1,7 @@
 (my-require-and-when 'lisp-mode)
 
 ;;;; mode hook
-(add-hook 'lisp-mode-hook
+(my-add-hook 'lisp-mode-hook
           (lambda ()
             (define-key lisp-mode-map "\C-m" 'newline-and-indent)))
 
@@ -9,7 +9,7 @@
 
 
 ;;;; anything
-(add-hook 'lisp-mode-hook
+(my-add-hook 'lisp-mode-hook
           (lambda ()
             (make-local-variable 'anything-sources)
             (add-to-list 'anything-sources
@@ -24,13 +24,13 @@
   (setq slime-lisp-implementations
         `((sbcl ("/opt/local/bin/sbcl"))
           (clisp ("/opt/local/bin/clisp"))))
-  (add-hook 'lisp-mode-hook
+  (my-add-hook 'lisp-mode-hook
             (lambda ()
               (cond ((not (featurep 'slime))
                      (my-require-and-when 'slime)
                      (normal-mode)))))
 
-  (add-hook 'lisp-interaction-mode-hook
+  (my-add-hook 'lisp-interaction-mode-hook
             'turn-on-eldoc-mode)
 
   (my-eval-after-load "slime"

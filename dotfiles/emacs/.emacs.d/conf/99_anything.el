@@ -46,7 +46,7 @@
 ;;;  (defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
   (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
   (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
-  (add-hook 'dired-mode-hook
+  (my-add-hook 'dired-mode-hook
             '(lambda ()
                (local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)))
   (global-set-key (kbd "C-M-s") 'anything-c-moccur-isearch-forward)
@@ -223,7 +223,7 @@
       "------------------------------------------------------------------------------------")
 (setq anything-enable-shortcuts 'alphabet)
 (setq anything-persistent-action-use-special-display t)
-(add-hook 'anything-after-persistent-action-hook 'which-func-update)
+(my-add-hook 'anything-after-persistent-action-hook 'which-func-update)
 ;;;(setq anything-c-locate-db-file "~/home.locatedb")
 ;;;(setq anything-c-locate-options `("locate" "-d" ,anything-c-locate-db-file "-i" "-r" "--"))
 
