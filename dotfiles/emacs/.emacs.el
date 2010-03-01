@@ -173,12 +173,17 @@ With a numeric argument, turn mode on iff ARG is positive."
         (setq e-time (current-time))
         (message "%s secs" (timediff s-time e-time))))))
 
+(defcustom my-profiling nil
+  "The flag to enable profiling")
 (defmacro my-add-hook (hook function)
   (declare (indent 1))
-  `(add-hook ,hook (lambda ()
-                     (let ((func ,function))
-                       (message "%s" func)
-                       (profile func)))))
+  `(add-hook ,hook
+             (let ((func ,function))
+               (if my-profiling
+                   (lambda ()
+                     (message "%s" func)
+                     (profile func))
+                 func))))
 
 
 ;;;; local settings
