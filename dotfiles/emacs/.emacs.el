@@ -162,6 +162,24 @@ With a numeric argument, turn mode on iff ARG is positive."
 	 (t
 	  (message "Load error: %s" ,name))))
 
+(my-require-and-when 'cl
+  (defun profile (block)
+    (labels ((timediff (s e)
+                       (destructuring-bind (h1 l1 m1) s
+                         (destructuring-bind (h2 l2 m2) e
+                           (+ (* 65536 (- h2 h1)) (- l2 l1) (* 0.000001 (- m2 m1)))))))
+      (let ((s-time (current-time)) e-time)
+        (funcall block)
+        (setq e-time (current-time))
+        (message "%s secs" (timediff s-time e-time))))))
+
+(defmacro my-add-hook (hook function)
+  (declare (indent 1))
+  `(add-hook ,hook (lambda ()
+                     (let ((func ,function))
+                       (message "%s" func)
+                       (profile func)))))
+
 
 ;;;; local settings
 (my-load-and-when "00_local")
