@@ -4,7 +4,7 @@
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 
 ;;;; mode hook
-(my-add-hook 'c-mode-common-hook '(lambda ()
+(my-add-hook 'c-mode-common-hook (lambda ()
                                  (c-set-style "k&r")
 ;;;                                 (c-set-offset 'substatement-open 0)
 ;;;                                 (c-set-offset 'case-label '+)
@@ -36,7 +36,7 @@
 
 
 (my-add-hook 'c-mode-common-hook
-          '(lambda ()
+          (lambda ()
              (flymake-mode t)))
 
 
@@ -68,7 +68,7 @@
 
 ;;;; moccur
 (my-add-hook 'c-mode-common-hook
-          '(lambda ()
+          (lambda ()
              (setq moccur-grep-default-mask "\\.\[HhCc\]$")))
 
 

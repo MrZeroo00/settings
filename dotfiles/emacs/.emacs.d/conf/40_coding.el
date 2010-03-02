@@ -48,7 +48,7 @@
 
 (when gdb-many-windows
   (defvar my-gud-window-configuration nil)
-  (my-add-hook 'gud-mode-hook '(lambda ()
+  (my-add-hook 'gud-mode-hook (lambda ()
                               (setq my-gud-window-configuration (current-window-configuration))))
   (my-add-hook 'kill-buffer-hook (lambda ()
                                 (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
@@ -61,7 +61,7 @@
   (setq gud-gdb-command-name "gdb -annotate=3")
   ;;(setq gud-chdir-before-run nil)
   (setq gud-tooltip-echo-area nil)
-  (my-add-hook 'gdb-mode-hook '(lambda () (gud-tooltip-mode t))))
+  (my-add-hook 'gdb-mode-hook (lambda () (gud-tooltip-mode t))))
 
 
 ;;;; generic (coloring generic files)
@@ -126,7 +126,7 @@
                    (setq hl-line-face 'underline)
                    (hl-line-mode 1))))
 
-(my-add-hook 'c-mode-common-hook '(lambda ()
+(my-add-hook 'c-mode-common-hook (lambda ()
   			 (gtags-mode t)
   			 ;;(gtags-make-complete-list)
   			 ))
@@ -430,7 +430,7 @@
 
   ;; on success, delete compilation window right away!
   (my-add-hook 'compilation-finish-functions
-      '(lambda(buf res)
+      (lambda(buf res)
          (unless (or (eq last-command 'grep)
   		   (eq last-command 'grep-find))
   	 (when (equal res "finished\n")

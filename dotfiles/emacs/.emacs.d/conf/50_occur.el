@@ -41,7 +41,7 @@
   (my-require-and-when 'color-moccur))
 
 (my-add-hook 'dired-mode-hook
-          '(lambda ()
+          (lambda ()
              (local-set-key "O" 'dired-do-moccur)))
 
 (defadvice moccur-edit-change-file

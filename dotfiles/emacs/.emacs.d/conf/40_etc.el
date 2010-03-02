@@ -135,7 +135,7 @@
 ;;;(my-autoload-and-when 'clgrep-entry-notag "clgrep")
 ;;;(my-autoload-and-when 'clgrep-entry-nourl "clgrep")
 ;;;(my-add-hook 'clmemo-mode-hook
-;;;          '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
+;;;          (lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
 
 
 ;;;; postit

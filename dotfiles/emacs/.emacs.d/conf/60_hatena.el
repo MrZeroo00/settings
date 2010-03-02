@@ -15,6 +15,6 @@
 ;;;(my-add-hook 'hatena-mode-hook 'hatenahelper-mode)  ; 本当はこう
 ;;;(my-add-hook 'hatena-mode-hook
 (my-add-hook 'simple-hatena-mode-hook
-          '(lambda ()
+          (lambda ()
 ;;;              other hooks must be wrote here!
              (hatenahelper-mode t)))

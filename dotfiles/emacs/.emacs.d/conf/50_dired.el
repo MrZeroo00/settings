@@ -109,7 +109,7 @@
   (my-require-and-when 'w32-symlinks)
   (my-load-and-when "_dired-make-symbolic-link"
     (my-add-hook 'dired-mode-hook
-              '(lambda ()
+              (lambda ()
                  (define-key dired-mode-map "S" (function dired-make-symbolic-link))
                  )))
   (my-load-and-when "_dired-winstart"

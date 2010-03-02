@@ -20,7 +20,7 @@
   (my-add-hook 'confluence-mode-hook 'longlines-mode)
   (my-add-hook 'confluence-before-save-hook 'longlines-before-revert-hook)
   (my-add-hook 'confluence-before-revert-hook 'longlines-before-revert-hook)
-  (my-add-hook 'confluence-mode-hook '(lambda () (local-set-key "\C-j" 'confluence-newline-and-indent)))
+  (my-add-hook 'confluence-mode-hook (lambda () (local-set-key "\C-j" 'confluence-newline-and-indent)))
   (global-set-key "\C-xwf" 'confluence-get-page))
 
 ;;;; LongLines mode: http://www.emacswiki.org/emacs-en/LongLines
@@ -51,7 +51,7 @@
 
 
   (my-add-hook 'ediff-cleanup-hook
-            '(lambda ()
+            (lambda ()
                (dolist (tmp-buf (list ediff-buffer-A
                                       ediff-buffer-B
                                       ediff-buffer-C))
@@ -61,7 +61,7 @@
 
 ;;;; setup confluence mode
 (my-add-hook 'confluence-mode-hook
-          '(lambda ()
+          (lambda ()
              (local-set-key "\C-xw" confluence-prefix-map)))
 
 (my-add-hook 'confluence-mode-hook
