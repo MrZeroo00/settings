@@ -129,14 +129,14 @@ With a numeric argument, turn mode on iff ARG is positive."
 	  (message "Require error: %s" ,feature))))
 
 '(defmacro my-autoload-and-when (function file &rest body)
-  (declare (indent 1))
+  (declare (indent 2))
   `(if (autoload-if-found ,function ,file nil t)
        (progn
          (message "Autoload success: %s %s" ,function ,file)
          (my-eval-after-load ,file ,@body))
      (message "Autoload error: %s %s" ,function ,file)))
 (defmacro my-autoload-and-when (function file &rest body)
-  (declare (indent 1))
+  (declare (indent 2))
   `(cond ((member ,file my-disabled-features)
 	  (message "Autoload skip: %s %s" ,function ,file))
 	 ((autoload-if-found ,function ,file nil t)
@@ -175,8 +175,8 @@ With a numeric argument, turn mode on iff ARG is positive."
 
 (defcustom my-profiling nil
   "The flag to enable profiling")
-(defmacro my-add-hook (hook function)
-  (declare (indent 1))
+(defmacro my-add-hook (hook function &optional append local)
+  (declare (indent 4))
   `(add-hook ,hook
              (let ((func ,function))
                (if my-profiling
