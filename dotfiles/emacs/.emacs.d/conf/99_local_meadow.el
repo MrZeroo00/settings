@@ -2,9 +2,9 @@
 
 ;;;; IME
 (setq default-input-method "MW32-IME")
-(my-add-hook 'mw32-ime-on-hook
+(add-hook 'mw32-ime-on-hook
           (function (lambda () (set-cursor-color "SkyBlue"))))
-(my-add-hook 'mw32-ime-off-hook
+(add-hook 'mw32-ime-off-hook
           (function (lambda () (set-cursor-color "LemonChiffon"))))
 (setq-default mw32-ime-mode-line-state-indicator "[--]")
 (setq mw32-ime-mode-line-state-indicator-list '("[--]" "[J]" "[--]"))
