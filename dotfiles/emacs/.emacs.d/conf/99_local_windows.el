@@ -18,6 +18,7 @@
 (setq explicit-shell-file-name "c:\\cygwin\\bin\\zsh.exe")
 (setq shell-file-name "sh.exe")
 (setq shell-command-switch "-c")
+(setenv "PATH" (concat (getenv "PATH") ";C:/cygwin/bin;C:/cygwin/sbin;C:/cygwin/usr/bin"))
 
 ;;;; other setting
 (global-set-key [M-kanji] 'ignore)
