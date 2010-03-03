@@ -11,6 +11,7 @@ set print union on
 set print demangle
 set print static-members off
 set print vtbl off
+set height 0
 set charset ASCII
 
 define hookpost-run
