@@ -5,7 +5,7 @@
 ;;;; association setting
 ;;;(add-to-list 'auto-mode-alist '("\\.html$" . html-helper-mode))
 
-(my-add-hook 'html-mode-hook
+(add-hook 'html-mode-hook
           (lambda ()
             (setq outline-regexp "^.*<[Hh][1-6]\\>")
             (setq outline-heading-end-regexp "</[Hh][1-6]\\>")

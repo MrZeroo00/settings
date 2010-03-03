@@ -19,9 +19,9 @@
   (setq change-delete-face-foreground "pink")
   (setq change-face-foreground "pink"))
 
-(my-add-hook 'texinfo-mode-hook
+(add-hook 'texinfo-mode-hook
           (lambda ()
-            (my-add-hook 'local-write-file-hooks 'change-mode-rotate-colours)
+            (add-hook 'local-write-file-hooks 'change-mode-rotate-colours)
             (change-mode)
             (local-set-key "\C-^" 'change-mode-next-change)
             ))

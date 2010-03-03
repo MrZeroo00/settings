@@ -1,7 +1,7 @@
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 (quietly-read-abbrev-file)
 (setq save-abbrevs t)
-(my-add-hook 'pre-command-hook
+(add-hook 'pre-command-hook
           (lambda ()
             (setq abbrev-mode nil)))
 
@@ -38,8 +38,8 @@
                              ac-source-abbrev
 ;;;                             ac-source-files-in-current-dir
                              ))
-  (my-add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
-  (my-add-hook 'c-mode-common-hook
+  (add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
+  (add-hook 'c-mode-common-hook
             (lambda ()
               (make-local-variable 'ac-sources)
               (add-to-list 'ac-sources 'ac-source-yasnippet)))

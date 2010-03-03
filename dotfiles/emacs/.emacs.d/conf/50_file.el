@@ -1,12 +1,12 @@
 ;;;; find-file-hooks
-'(my-add-hook 'find-file-hooks
+'(add-hook 'find-file-hooks
           (function (lambda ()
                       (if (string-match "/foo/bar/baz" buffer-file-name)
                           (setq foo baz))
                       )))
 
 ;;;; before-save-hook
-(my-add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
 (auto-compression-mode t)
@@ -46,7 +46,7 @@
 ;;;    (and buffer-file-name
 ;;;         (file-exists-p buffer-file-name)
 ;;;         (file-cache-add-file buffer-file-name)))
-;;;  (my-add-hook 'kill-buffer-hook 'file-cache-add-this-file)
+;;;  (add-hook 'kill-buffer-hook 'file-cache-add-this-file)
   (define-key minibuffer-local-completion-map
     "\C-c\C-i" 'file-cache-minibuffer-complete))
 
@@ -109,13 +109,13 @@
 
 
 ;;;; make executable if script file
-(my-add-hook 'after-save-hook
+(add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
 
 ;;;; auto byte-compile when saving ".emacs"
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=byte-compile%20after%20save
-'(my-add-hook 'after-save-hook
+'(add-hook 'after-save-hook
           (function (lambda ()
                       (if (string= (expand-file-name "~/.emacs.el")
                                    (buffer-file-name))
@@ -150,7 +150,7 @@
   (global-set-key "\C-x\C-s" 'save-buffer-wrapper))
 '(my-load-and-when "_delete-file-if-no-contents"
   (if (not (memq 'delete-file-if-no-contents after-save-hook))
-      (my-add-hook 'after-save-hook 'delete-file-if-no-contents)))
+      (add-hook 'after-save-hook 'delete-file-if-no-contents)))
 '(my-load-and-when "_file-cache-read-save-cache"
   (file-cache-read-cache-from-file "~/.emacs.d/.file_cache"))
 ;;;(my-load-and-when "_Yama-binary-file-view")

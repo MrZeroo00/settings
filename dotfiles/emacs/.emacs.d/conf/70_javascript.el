@@ -31,5 +31,5 @@
   (setq flymake-err-line-patterns flymake-js-err-line-patterns)
   (flymake-mode t))
 
-(my-add-hook 'javascript-mode-hook
+(add-hook 'javascript-mode-hook
           (lambda () (flymake-js-load)))

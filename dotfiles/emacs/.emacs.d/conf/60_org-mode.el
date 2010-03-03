@@ -124,7 +124,7 @@
 
 
 ;;;; imenu
-  (my-add-hook 'org-mode-hook
+  (add-hook 'org-mode-hook
             (lambda () (imenu-add-to-menubar "Imenu")))
   )
 
@@ -135,7 +135,7 @@
 (my-require-and-when 'remember
   (setq remember-annotation-functions '(org-remember-annotation))
   (setq remember-handler-functions '(org-remember-handler))
-  (my-add-hook 'remember-mode-hook 'org-remember-apply-template)
+  (add-hook 'remember-mode-hook 'org-remember-apply-template)
 
   (setq org-remember-templates
   '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
@@ -160,4 +160,4 @@
     (setq ad-return-value
     (wicked/org-update-checkbox-count (ad-get-arg 1)))))
 (my-load-and-when "_org-summary-todo")
-(my-add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)

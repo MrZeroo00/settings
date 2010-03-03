@@ -5,6 +5,6 @@
 
 ;;;; mode hook
 (my-eval-after-load "actionscript-mode"
-  (my-add-hook 'actionscript-mode-hook
+  (add-hook 'actionscript-mode-hook
             (lambda ()
               (my-load-and-when "as-config"))))

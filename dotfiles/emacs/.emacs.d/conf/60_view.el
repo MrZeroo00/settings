@@ -39,7 +39,7 @@
   (define-many-keys view-mode-map pager-keybind)
   (hl-line-mode 1)
   (define-key view-mode-map " " 'scroll-up))
-(my-add-hook 'view-mode-hook 'view-mode-hook0)
+(add-hook 'view-mode-hook 'view-mode-hook0)
 
 ;;;; 書き込み不能なファイルはview-modeで開くように
 (defadvice find-file

@@ -1,6 +1,6 @@
 (my-load-and-when "haskell-site-file")              ; autoload
 
 ;;;; mode-hook
-(my-add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-(my-add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-;;;(my-add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+;;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)

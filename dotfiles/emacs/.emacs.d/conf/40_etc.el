@@ -81,7 +81,7 @@
                                   (file-name-history 10000)))
   (setq session-globals-max-string 100000000)
   (setq session-undo-check -1)
-  (my-add-hook 'after-init-hook 'session-initialize))
+  (add-hook 'after-init-hook 'session-initialize))
 
 
 ;;;; desktop
@@ -114,7 +114,7 @@
 ;;;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
 '(my-autoload-and-when 'alpaca-after-find-file "alpaca"
                       (setq alpaca-cache-passphrase t))
-;;;(my-add-hook 'find-file-hooks 'alpaca-after-find-file)
+;;;(add-hook 'find-file-hooks 'alpaca-after-find-file)
 
 
 ;;;; clwiki
@@ -134,7 +134,7 @@
 ;;;(my-autoload-and-when 'clgrep-entry-tag "clgrep")
 ;;;(my-autoload-and-when 'clgrep-entry-notag "clgrep")
 ;;;(my-autoload-and-when 'clgrep-entry-nourl "clgrep")
-;;;(my-add-hook 'clmemo-mode-hook
+;;;(add-hook 'clmemo-mode-hook
 ;;;          (lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
 
 
@@ -228,8 +228,8 @@
   (setq calendar-holidays
         (append japanese-holidays local-holidays other-holidays))
   (setq calendar-weekend-marker 'diary)
-  (my-add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
-  (my-add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
+  (add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
+  (add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
 
 
 ;;;; midnight

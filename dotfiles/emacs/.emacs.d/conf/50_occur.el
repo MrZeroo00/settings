@@ -40,7 +40,7 @@
 (my-eval-after-load "ibuffer"
   (my-require-and-when 'color-moccur))
 
-(my-add-hook 'dired-mode-hook
+(add-hook 'dired-mode-hook
           (lambda ()
              (local-set-key "O" 'dired-do-moccur)))
 

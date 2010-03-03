@@ -1,6 +1,6 @@
 ;;;; http://www.thaiopensource.com/nxml-mode/
 (my-load-and-when "rng-auto.el"                    ; autoload
-  (my-add-hook 'nxml-mode-hook
+  (add-hook 'nxml-mode-hook
             (lambda ()
               (setq nxml-slash-auto-complete-flag t)
               (setq nxml-child-indent 2)

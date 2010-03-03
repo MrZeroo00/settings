@@ -3,7 +3,7 @@
 
 ;;;; mode hook
 (my-eval-after-load "cmuscheme"
-  (my-add-hook 'scheme-mode-hook
+  (add-hook 'scheme-mode-hook
             (lambda ()
               (setq default-scheme-implementation 'gauche)
               (setq *current-scheme-implementation* 'gauche)
@@ -20,7 +20,7 @@
 ;;;; scheme-complete
 (my-autoload-and-when 'scheme-smart-complete "scheme-complete")
 (my-autoload-and-when 'scheme-get-current-symbol-info "scheme-complete")
-(my-add-hook 'scheme-mode-hook
+(add-hook 'scheme-mode-hook
           (lambda ()
             (define-key scheme-mode-map "\e\t" 'scheme-smart-complete)
             (define-key scheme-mode-map "\t" 'scheme-complete-or-indent)))

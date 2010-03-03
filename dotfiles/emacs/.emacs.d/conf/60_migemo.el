@@ -35,7 +35,7 @@
        (unless (my-language-check "Japanese")
          (make-local-variable 'migemo-isearch-enable-p)
          (setq migemo-isearch-enable-p nil)))
-     (my-add-hook 'isearch-mode-end-hook
+     (add-hook 'isearch-mode-end-hook
                (lambda ()
                  (unless (my-language-check "Japanese")
                    (setq migemo-isearch-enable-p t))))))

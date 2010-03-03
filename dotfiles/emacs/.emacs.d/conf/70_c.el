@@ -4,7 +4,7 @@
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 
 ;;;; mode hook
-(my-add-hook 'c-mode-common-hook (lambda ()
+(add-hook 'c-mode-common-hook (lambda ()
                                  (c-set-style "k&r")
 ;;;                                 (c-set-offset 'substatement-open 0)
 ;;;                                 (c-set-offset 'case-label '+)
@@ -35,7 +35,7 @@
         (list (my-flymake-cc-conditional-init)))
 
 
-(my-add-hook 'c-mode-common-hook
+(add-hook 'c-mode-common-hook
           (lambda ()
              (flymake-mode t)))
 
@@ -48,7 +48,7 @@
 ;;;; eldoc
 ;;;(install-elisp-from-emacswiki "c-eldoc.el")
 (my-require-and-when 'c-eldoc)
-(my-add-hook 'c-mode-common-hook
+(add-hook 'c-mode-common-hook
           (lambda ()
             (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
             (c-turn-on-eldoc-mode)
@@ -60,14 +60,14 @@
 ;;;(setq cc-search-directories
 ;;;      (append '("/opt/local/include")
 ;;;              cc-search-directories))
-(my-add-hook 'c-mode-common-hook (lambda ()
+(add-hook 'c-mode-common-hook (lambda ()
             (define-key c-mode-map "\M-#" 'ff-find-other-file)
             (define-key c++-mode-map "\M-#" 'ff-find-other-file)
             ))
 
 
 ;;;; moccur
-(my-add-hook 'c-mode-common-hook
+(add-hook 'c-mode-common-hook
           (lambda ()
              (setq moccur-grep-default-mask "\\.\[HhCc\]$")))
 
@@ -79,7 +79,7 @@
 
 ;;;; cpp-complt
 ;;;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
-;;;(my-add-hook 'c-mode-common-hook
+;;;(add-hook 'c-mode-common-hook
 ;;;          (function (lambda ()
 ;;;                      (my-require-and-when 'cpp-complt)
 ;;;                      (define-key c-mode-map [mouse-2]
@@ -98,7 +98,7 @@
 
 ;;;; pbf-mode
 ;;;(install-elisp "http://www.bookshelf.jp/elc/pbf-mode.el")
-;;;(my-add-hook 'c-mode-hook
+;;;(add-hook 'c-mode-hook
 ;;;          (lambda ()
 ;;;            (my-require-and-when 'pbf-mode)
 ;;;            (pbf-setup)
@@ -109,7 +109,7 @@
 
 
 ;;;; cwarn
-'(my-add-hook 'c-mode-hook
+'(add-hook 'c-mode-hook
           (lambda ()
             (my-require-and-when 'cwarn)
             (turn-on-cwarn-mode)))

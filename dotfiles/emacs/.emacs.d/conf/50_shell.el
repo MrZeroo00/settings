@@ -1,7 +1,7 @@
 (my-autoload-and-when 'ansi-color-for-comint-mode-on "ansi-color")
-(my-add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-(my-add-hook 'comint-output-filter-functions
+(add-hook 'comint-output-filter-functions
           'comint-watch-for-password-prompt)
 
 (setq comint-scroll-show-maximum-output t)
@@ -12,7 +12,7 @@
 
 
 ;;;; anything
-(my-add-hook 'shell-mode-hook
+(add-hook 'shell-mode-hook
           (lambda ()
             (make-local-variable 'anything-sources)
             (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
@@ -51,7 +51,7 @@
 
 
 ;;;; pcomplete
-;;;(my-add-hook 'shell-mode-hook 'pcomplete-shell-setup)
+;;;(add-hook 'shell-mode-hook 'pcomplete-shell-setup)
 
 
 ;;;; shell-toggle (switch shell buffer easily)
@@ -88,7 +88,7 @@
                                                         "ssh" "rlogin" "telnet")))))
 
 
-(my-add-hook 'shell-mode-hook
+(add-hook 'shell-mode-hook
           (lambda ()
             (setq outline-regexp "[^ ]*[>%#]")
 ;;;            (outline-minor-mode t)

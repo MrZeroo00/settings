@@ -10,7 +10,7 @@
 
 ;;;; perl-completion
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/perl-completion/trunk/perl-completion.el")
-(my-add-hook 'cperl-mode-hook
+(add-hook 'cperl-mode-hook
            (lambda ()
              (my-require-and-when 'perl-completion)
              (add-to-list 'ac-sources 'ac-source-perl-completion)))
@@ -23,14 +23,14 @@
    (let ((cperl-message-on-help-error nil))
      (cperl-get-help))))
 
-(my-add-hook 'cperl-mode-hook
+(add-hook 'cperl-mode-hook
           (lambda ()
             (set (make-local-variable 'eldoc-documentation-function)
                  'my-cperl-eldoc-documentation-function)))
 
 
 ;;;; brackets
-(my-add-hook 'cperl-mode-hook
+(add-hook 'cperl-mode-hook
           (lambda()
             (progn
               (define-key cperl-mode-map "{" 'insert-braces)
@@ -45,7 +45,7 @@
 
 
 ;;;; macros
-(my-add-hook 'cperl-mode-hook
+(add-hook 'cperl-mode-hook
           (lambda ()
             (my-load-and-when "_perl-insert-use-statement")
             (local-set-key (kbd "\C-c \C-m") 'perl-insert-use-statement)

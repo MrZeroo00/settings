@@ -175,6 +175,7 @@ With a numeric argument, turn mode on iff ARG is positive."
 
 (defcustom my-profiling nil
   "The flag to enable profiling")
+;;;; hook profiling macro (still unstable)
 (defmacro my-add-hook (hook function &optional append local)
   (declare (indent 4))
   `(add-hook ,hook

@@ -36,7 +36,7 @@
 (my-require-and-when 'sequential-command-config
   (global-set-key "\C-a" 'seq-home)
   (global-set-key "\C-e" 'seq-end)
-  (my-add-hook 'org-mode-hook
+  (add-hook 'org-mode-hook
             (lambda ()
               (define-key org-mode-map "\C-a" 'org-seq-home)
               (define-key org-mode-map "\C-e" 'org-seq-end)))
