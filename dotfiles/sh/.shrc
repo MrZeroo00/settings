@@ -52,6 +52,7 @@ case "${OS}" in
   TERM=cygwin
   export TZ='JST-9'
   export JLESSCHARSET='japanese-sjis'
+  mintty_color.sh
   ;;
 esac
 export LANG
