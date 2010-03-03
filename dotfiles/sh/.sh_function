@@ -39,6 +39,19 @@ case "${OS}" in
   "Darwin")
   growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
   ;;
+  "Cygwin")
+  function updatedb_cygwin() {
+    updatedb --prunepaths='/proc
+                           /c/Program.Files
+                           /c/Documents.and.Settings/[^/]*/Local.Settings/Temp
+                           /c/Documents.and.Settings/[^/]*/Local.Settings/Temporary.Internet.Files
+                           /c/Documents.and.Settings/[^/]*/Local.Settings/Application.Data/Mozilla/Firefox/Profiles/[^/]*/Cache
+                           /[^/]*/System.Volume.Information
+                           /c/WINDOWS' \
+             --localpaths='/c/home
+                           /c/work'
+  }
+  ;;
 esac
 
 # local setting
