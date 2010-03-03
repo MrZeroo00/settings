@@ -43,23 +43,25 @@ case "${OS}" in
   "Linux")
   ;;
   "Darwin")
-  LANG=ja_JP.UTF-8
   add_path "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin"
-  MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
-  INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
+  export PATH
+  export MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
+  export INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
+  export LANG=ja_JP.UTF-8
   ;;
   "Cygwin")
-  LANG=ja_JP.UTF-8
-  TERM=cygwin
+  add_path '/c/meadow/bin'
+  add_path '/c/Vim'
+  add_path '/c/Program\ Files/Subversion/bin'
+  add_path '/c/Program\ Files/StraceNT'
+  export PATH
+  export TERM=cygwin
+  export LANG=ja_JP.UTF-8
   export TZ='JST-9'
   export JLESSCHARSET='japanese-sjis'
   mintty_color.sh
   ;;
 esac
-export LANG
-export TERM
-export MANPATH
-export INFOPATH
 
 
 # locales
