@@ -183,7 +183,8 @@ With a numeric argument, turn mode on iff ARG is positive."
                    (lambda ()
                      (message "%s" func)
                      (profile func))
-                 func))))
+                 func))
+             ,append ,local))
 
 
 ;;;; local settings
