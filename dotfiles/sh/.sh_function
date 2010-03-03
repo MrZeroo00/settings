@@ -28,13 +28,6 @@ function nfind() {
   find . -name "*$1*"
 }
 
-function add_path() {
-  dir="$1"
-  if [ -d "${dir}" ]; then
-    PATH="${dir}:${PATH}"
-  fi
-}
-
 case "${OS}" in
   "Darwin")
   growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
