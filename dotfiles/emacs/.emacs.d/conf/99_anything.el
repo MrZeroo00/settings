@@ -244,7 +244,10 @@
                              anything-c-source-bookmarks
                              anything-c-source-yasnippet
                              anything-c-source-imenu
+                             ;;anything-c-source-org-headline
                              ;;anything-c-source-gtags-select
+                             anything-c-source-files-in-current-dir+
+                             anything-c-source-bookmark-files&dirs
                              anything-c-source-recentf
                              ;;anything-c-source-file-name-history
                              anything-c-source-file-cache
