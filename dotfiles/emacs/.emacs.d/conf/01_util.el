@@ -12,5 +12,11 @@
   (define-key global-map "\C-cs" 'instamp))
 
 
+;;;; copy current file name
+(defun copy-current-filename ()
+  (interactive)
+  (kill-new (buffer-file-name)))
+
+
 ;;;; macros
 (my-load-and-when "_which")
