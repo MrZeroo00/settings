@@ -329,7 +329,7 @@
 
 
 ;;;; hs-minor-mode (fold code block)
-(my-load-and-when "hideshow"
+(my-require-and-when 'hideshow
   (setq hs-hide-comments nil)
   (setq hs-isearch-open 't)
 
@@ -357,7 +357,7 @@
 
 ;;;; develock (emphasize bad coding convention)
 ;;;; http://www.jpl.org/elips/develock.el.gz
-(my-load-and-when "develock"
+(my-require-and-when 'develock
   (setq develock-auto-enable nil))
 
 

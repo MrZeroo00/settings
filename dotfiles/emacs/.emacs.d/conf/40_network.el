@@ -12,7 +12,7 @@
 (my-autoload-and-when 'wget "wget")
 (my-autoload-and-when 'wget-web-page "wget")
 (my-eval-after-load "wget"
-  (my-load-and-when "w3m-wget")
+  (my-require-and-when 'w3m-wget)
   (setq wget-basic-options (cons "-equiet=off" wget-basic-options))
   (setq wget-basic-options (cons "-P." wget-basic-options))
   (setq wget-process-buffer nil))

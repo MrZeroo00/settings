@@ -51,7 +51,7 @@
 
 ;;;; cdb-gud
 ;;;(install-elisp-from-emacswiki "cdb-gud.el")
-(my-load-and-when "cdb-gud"
+(my-require-and-when 'cdb-gud
 ;;;  (setenv "PATH" (concat (getenv "PATH") ";" my-project-directory))
 ;;;  (setenv "_NT_SYMBOL_PATH" (concat (getenv "_NT_SYMBOL_PATH") ";" my-project-directory))
 ;;;  (setenv "_NT_SOURCE_PATH" (concat (getenv "_NT_SOURCE_PATH") ";" my-project-directory))

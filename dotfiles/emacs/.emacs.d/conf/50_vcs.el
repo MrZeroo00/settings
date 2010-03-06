@@ -41,4 +41,4 @@
 
 ;;;; p4
 ;;;; http://p4el.sourceforge.net/
-;;;(my-load-and-when "p4")
+;;;(my-require-and-when 'p4)

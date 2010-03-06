@@ -9,7 +9,7 @@
 
 
 ;;;; anthy
-;;;(my-load-and-when "anthy")
+;;;(my-require-and-when 'anthy)
 ;;;(setq default-input-method "japanese-anthy")
 ;;;(global-set-key "\C-o" 'anthy-mode)
 ;;;(anthy-change-hiragana-map "," "、")

@@ -38,7 +38,7 @@
 ;;;; w3m-type-ahead
 ;;;(install-elisp-from-emacswiki "w3m-type-ahead.el")
 (my-eval-after-load "w3m"
-  (my-load-and-when "w3m-type-ahead")
+  (my-require-and-when 'w3m-type-ahead)
   (setq w3m-type-ahead-from-point t)
   (define-key w3m-mode-map (kbd "/") 'w3m-type-ahead)
   (define-key w3m-mode-map (kbd "M-/") 'w3m-type-ahead-new-session))

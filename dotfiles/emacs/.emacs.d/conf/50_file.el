@@ -69,7 +69,7 @@
 
 
 ;;;; saveplace (save cursor position in last edit session)
-'(my-load-and-when "saveplace"
+'(my-require-and-when 'saveplace
   (setq-default save-place t))
 
 
@@ -99,7 +99,7 @@
 
 ;;;; auto-save-buffers (save buffers automatically)
 ;;;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
-'(my-load-and-when "auto-save-buffers"
+'(my-require-and-when 'auto-save-buffers
   (run-with-idle-timer 0.5 t 'auto-save-buffers))
 
 

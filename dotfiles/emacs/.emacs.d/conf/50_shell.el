@@ -35,7 +35,7 @@
 
 ;;;; shell-ex
 ;;;; http://www.bookshelf.jp/elc/shell-ex.lzh
-;;;(my-load-and-when "shell-ex")
+;;;(my-require-and-when 'shell-ex)
 
 
 ;;;; shell-command

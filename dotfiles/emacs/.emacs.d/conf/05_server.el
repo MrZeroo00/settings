@@ -2,7 +2,7 @@
 (server-start)
 
 ;;;; gnuserv
-'(my-load-and-when "gnuserv"
+'(my-require-and-when 'gnuserv
   (gnuserv-start)
   (setq gnuserv-frame (selected-frame))
 

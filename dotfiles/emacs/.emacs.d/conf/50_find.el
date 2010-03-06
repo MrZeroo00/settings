@@ -30,7 +30,7 @@
 
 ;;;; isearch-all
 ;;;(install-elisp "http://www.bookshelf.jp/elc/isearch-all.el")
-;;;(my-load-and-when "isearch-all")
+;;;(my-require-and-when 'isearch-all)
 
 
 ;;;; qsearch
@@ -72,7 +72,7 @@
                             '(("doc" . "~/etc/namazu/index")
                               )))
 ;;;(install-elisp "http://www.bookshelf.jp/elc/color-namazu.el")
-;;;(my-load-and-when "color-namazu")
+;;;(my-require-and-when 'color-namazu)
 
 
 ;;;; http://dev.ariel-networks.com/Members/matsuyama/isearch-selected-text

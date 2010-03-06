@@ -25,7 +25,7 @@
 
 
 ;;;; dired-x
-(my-load-and-when "dired-x")
+(my-require-and-when 'dired-x)
 
 '(setq dired-guess-shell-alist-user
       '(("\\.tar\\.gz\\'" "tar ztvf")
