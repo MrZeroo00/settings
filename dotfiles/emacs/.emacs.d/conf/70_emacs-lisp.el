@@ -35,7 +35,8 @@
 (when (not run-w32)
   (add-hook 'emacs-lisp-mode-hook
             (lambda ()
-              (flymake-mode t))))
+              (unless (null buffer-file-name)
+                (flymake-mode t)))))
 
 
 ;;;; eldoc
