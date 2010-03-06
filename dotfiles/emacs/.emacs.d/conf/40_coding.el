@@ -63,8 +63,8 @@
   (setq gud-tooltip-echo-area nil)
   (add-hook 'gdb-mode-hook (lambda () (gud-tooltip-mode t)))
 
-  (defadvice gud-display-frame
-    (after raise-after-gud-display-frame activate)
+  (defadvice gud-display-line
+    (after raise-after-gud-display-line activate)
     (raise-frame (selected-frame))))
 
 
