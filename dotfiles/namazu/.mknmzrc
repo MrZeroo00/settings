@@ -236,6 +236,9 @@ package conf;  # Don't remove this line!
 # $FILTERDIR = "@FILTERDIR@";
 # $TEMPLATEDIR = "@TEMPLATEDIR@";
 #
+$LIBDIR = 'C:/namazu/share/namazu/pl';
+$FILTERDIR = 'C:/namazu/share/namazu/filter';
+$TEMPLATEDIR = 'C:/namazu/share/namazu/template';
 
 # 1;
 
