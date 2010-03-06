@@ -12,10 +12,13 @@
   (define-key global-map "\C-cs" 'instamp))
 
 
-;;;; copy current file name
-(defun copy-current-filename ()
+;;;; copy current location
+(defun copy-current-location ()
   (interactive)
-  (kill-new (buffer-file-name)))
+  (let ((location (cond ((symbol-value 'dired-directory))
+                        ((symbol-value 'buffer-file-name)))))
+    (unless (null location)
+      (kill-new location))))
 
 
 ;;;; macros

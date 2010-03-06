@@ -1,9 +1,8 @@
-;;;(install-elisp-from-emacswiki "anything-config.el")
 ;;;(install-elisp-from-emacswiki "anything.el")
+;;;(install-elisp-from-emacswiki "anything-config.el")
 ;;;(install-elisp-from-emacswiki "anything-rubikitch.el")
 ;;;(install-elisp-from-emacswiki "anything-goodies.el")
 (my-require-and-when 'anything-config)
-(my-require-and-when 'anything)
 ;;;(my-load-and-when "_anything-rubikitch")
 
 
