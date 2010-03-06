@@ -1,9 +1,9 @@
-;;;(install-elisp-from-emacswiki "anything.el")
 ;;;(install-elisp-from-emacswiki "anything-config.el")
+;;;(install-elisp-from-emacswiki "anything.el")
 ;;;(install-elisp-from-emacswiki "anything-rubikitch.el")
 ;;;(install-elisp-from-emacswiki "anything-goodies.el")
-(my-require-and-when 'anything)
 (my-require-and-when 'anything-config)
+(my-require-and-when 'anything)
 ;;;(my-load-and-when "_anything-rubikitch")
 
 
@@ -232,6 +232,7 @@
 (define-key global-map (kbd "C-;") 'anything)
 (define-key global-map (kbd "C-:") 'anything-resume)
 (define-key global-map (kbd "C-'") 'anything-call-source)
+;;;(define-key ctl-x-map "\C-f" 'anything-find-files)
 (define-key anything-map "\C-\M-n" 'anything-next-source)
 (define-key anything-map "\C-\M-p" 'anything-previous-source)
 (define-key anything-map "\C-r" 'anything-select-source)
@@ -239,6 +240,7 @@
 
 ;;;; source
 (setq anything-sources (list anything-c-source-kyr
+                             anything-c-source-ffap-guesser
                              anything-c-source-buffers
                              anything-c-source-bm
                              anything-c-source-bookmarks
@@ -262,6 +264,10 @@
                              ;;anything-c-source-info-pages
                              ;;anything-c-source-calculation-result
                              ))
+
+(defun my-anything-null-function (candidate))
+(setcdr (assoc 'persistent-action anything-c-source-find-files) 'my-anything-null-function)
+(nconc (cdr (assoc 'action anything-c-source-find-files)) '(("Copy file name" . kill-new)))
 
 
 ;;;; anything-display-function
