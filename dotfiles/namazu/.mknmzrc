@@ -52,6 +52,7 @@ package conf;  # Don't remove this line!
 #       Case-insensitive.
 #
 # $DENY_FILE = ".*\\.(gif|png|jpg|jpeg)|.*\\.tar\\.gz|core|.*\\.bak|.*~|\\..*|\x23.*";
+$DENY_FILE = ".*\\.(bmp|eps|gif|jpeg|jpg|mng|pbm|pgm|ppm|ps|png|tiff|xbm|xpm|xwd)|.*\\.(3g2|3gp|asf|avi|flv|mov|mpeg|mpg|rm|swf/vob/wmv)|.*\\.(aac|aiff|m4v|mp3|wav|wma)|.*\\.(tar\\.gz|zip)|core|.*\\.bak|.*~|\\..*|\x23.*";
 
 #
 # This pattern specifies DDN(DOS Device Name) which will NOT be targeted.
@@ -66,6 +67,12 @@ package conf;  # Don't remove this line!
 # NOTE: Usually specified by --exclude=regex option.
 #
 # $EXCLUDE_PATH = undef;
+$EXCLUDE_PATH = '\/\.svn\/';
+$EXCLUDE_PATH .= '|\/\.git\/';
+$EXCLUDE_PATH .= '|\/SCCS\/';
+$EXCLUDE_PATH .= '|\/RCS\/';
+$EXCLUDE_PATH .= '|\/CVS\/';
+$EXCLUDE_PATH .= '|\/CVSROOT\/';
 
 #
 # This pattern specifies file names which can be omitted
