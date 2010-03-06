@@ -234,6 +234,9 @@
 (define-key anything-map "\C-\M-n" 'anything-next-source)
 (define-key anything-map "\C-\M-p" 'anything-previous-source)
 (define-key anything-map "\C-r" 'anything-select-source)
+(define-key anything-map "\C-a" 'beginning-of-line)
+(define-key anything-map "\C-h" 'delete-backward-char)
+(define-key anything-map "\C-k" (lambda () (interactive) (delete-minibuffer-contents)))
 
 
 ;;;; source
