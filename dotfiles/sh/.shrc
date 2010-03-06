@@ -9,11 +9,13 @@ function add_path() {
   fi
 }
 
-add_path "${HOME}/bin"
+add_path "/opt/local/sbin"
+add_path "/opt/local/bin"
+add_path "${HOME}/local/bin"
 for i in `ls -d ${HOME}/bin/*`; do
   add_path "$i"
 done
-add_path "${HOME}/local/bin"
+add_path "${HOME}/bin"
 export PATH
 
 
