@@ -27,7 +27,28 @@
          (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
-    (list "elisplint" (list local-file))))
+    ;;(list "elisplint" (list local-file))))
+    ;; http://www.lunaport.net/blog/2010/02/windowsflymake-elisp-1.html
+    (list
+     (car command-line-args)
+     (list
+      "--quick"
+      "--batch"
+      "--eval"
+      (prin1-to-string
+       (quote
+        (dolist (file command-line-args-left)
+          (with-temp-buffer
+            (insert-file-contents file)
+            (condition-case data
+                (scan-sexps (point-min) (point-max))
+              (scan-error (goto-char (nth 2 data))
+                          (princ (format "%s:%s: error: Unmatched bracket or quote\n"
+                                         file
+                                         (line-number-at-pos)))))))
+        ))
+      local-file))))
+
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.el$" flymake-elisp-init))
 
