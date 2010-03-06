@@ -1,3 +1,5 @@
+;;;(setq debug-on-error t)
+
 ;;;; check Operating System
 (defvar run-unix
   (or (equal system-type 'gnu/linux)

@@ -147,6 +147,7 @@
 (setq history-length t)
 (setq undo-limit 100000)
 (setq undo-strong-limit 130000)
+(setq message-log-max 1000)
 (setq diff-switches "-u")
 ;;;(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 (setq x-select-enable-clipboard t)
