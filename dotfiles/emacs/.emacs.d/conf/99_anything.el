@@ -126,8 +126,7 @@
 ;;;; anything-gtags
 ;;;(install-elisp-from-emacswiki "anything-gtags.el")
 (my-require-and-when 'anything-gtags
-  (setq anything-gtags-classify t)
-  (setq anything-gtags-enable-goto-location t))
+  (setq anything-gtags-classify t))
 
 
 ;;;; anything-ipa
