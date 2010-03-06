@@ -55,6 +55,13 @@
 ;;;  (setenv "PATH" (concat (getenv "PATH") ";" my-project-directory))
 ;;;  (setenv "_NT_SYMBOL_PATH" (concat (getenv "_NT_SYMBOL_PATH") ";" my-project-directory))
 ;;;  (setenv "_NT_SOURCE_PATH" (concat (getenv "_NT_SOURCE_PATH") ";" my-project-directory))
+  (setq my-gud-cdb-init-file "$HOME/.cdbinit")
+  (defun my-gud-cdb-setup ()
+    (let (init-file (expand-file-name my-gud-cdb-init-file))
+      (if (file-readable-p init-file)
+          (list (format "-cf %s" init-file))
+        nil)))
+  (setq gud-cdb-options-hook '(my-gud-cdb-setup))
   )
 
 
