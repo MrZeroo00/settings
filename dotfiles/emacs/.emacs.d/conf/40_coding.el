@@ -116,7 +116,7 @@
 
   	      (setq gtags-mode-hook
   		    '(lambda ()
-  		       ;;(my-load-and-when "_gtags-hack.el")
+  		       ;;(my-load-and-when "_gtags-hack")
   		       (setq gtags-path-style 'root)
   		       (setq gtags-pop-delete nil)
   		       (define-key gtags-mode-map "\M-t" 'gtags-find-tag-from-here)
