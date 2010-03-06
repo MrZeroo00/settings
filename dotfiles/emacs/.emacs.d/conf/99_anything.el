@@ -288,6 +288,12 @@
       ad-do-it
     (ad-activate-regexp "widen-window")))
 
+(defadvice anything (around disable-debug-around-anything activate)
+  (setq debug-on-error nil)
+  (unwind-protect
+      ad-do-it
+    (setq debug-on-error t)))
+
 ;;;; patches
 (setq fit-frame-inhibit-fitting-flag t)
 (setq anything-save-configuration-functions '(set-window-configuration . current-window-configuration))
