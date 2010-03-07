@@ -128,7 +128,15 @@
           (setq gtags-select-mode-hook
                 '(lambda ()
                    (setq hl-line-face 'underline)
-                   (hl-line-mode 1))))
+                   (hl-line-mode 1)))
+
+          (defun my-gtags-update-single (file)
+            (interactive
+             (list (symbol-value 'buffer-file-name)))
+            (start-process "my-gtags-update-process" "my-gtags-update-buffer" "gtags_update_single" file))
+          (add-hook 'after-save-hook (lambda ()
+                                       (my-gtags-update-single (symbol-value 'buffer-file-name))))
+          )
 
 (add-hook 'c-mode-common-hook (lambda ()
   			 (gtags-mode t)
