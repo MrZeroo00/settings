@@ -466,7 +466,7 @@
 
 ;; (@* "org-gtd-started-waiting")
 ;(defvar anything-c-org-todo-states "^\\*+ \\<\\(STARTED\\|WAITING\\)\\> ")
-(defvar anything-c-org-todo-states '("STARTED" "WAITING"))
+(defvar anything-c-org-todo-states '("NEXT" "WAITING"))
 (defvar anything-c-source-org-todo-state
   '((name . "Started and Waiting tasks")
     (candidates
