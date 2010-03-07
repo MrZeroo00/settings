@@ -63,7 +63,9 @@
   (setq gud-gdb-command-name "gdb -annotate=3")
   ;;(setq gud-chdir-before-run nil)
   (setq gud-tooltip-echo-area nil)
-  (add-hook 'gdb-mode-hook (lambda () (gud-tooltip-mode t)))
+  (defun turn-on-gud-tooltip-mode ()
+    (gud-tooltip-mode t))
+  (add-hook 'gdb-mode-hook 'turn-on-gud-tooltip-mode)
 
   (defadvice gud-display-line
     (after raise-after-gud-display-line activate)
