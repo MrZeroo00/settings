@@ -91,6 +91,11 @@
 ;;;(my-autoload-and-when 'desktop-remove "desktop")
 
 
+;;;; lacarte
+;;;(install-elisp-from-emacswiki "lacarte.el")
+(my-require-and-when 'lacarte)
+
+
 ;;;; autoarg
 ;;;(my-require-and-when 'autoarg)
 
