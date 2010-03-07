@@ -133,9 +133,10 @@
           (defun my-gtags-update-single (file)
             (interactive
              (list (symbol-value 'buffer-file-name)))
-            (start-process "my-gtags-update-process" "my-gtags-update-buffer" "gtags_update_single" file))
-          (add-hook 'after-save-hook (lambda ()
-                                       (my-gtags-update-single (symbol-value 'buffer-file-name))))
+            (when (memq major-mode '(c-mode c++-mode))
+              (start-process "my-gtags-update-process" "my-gtags-update-buffer" "gtags_update_single" file)))
+          (defun my-gtags-update-single-for-current-file () (my-gtags-update-single (symbol-value 'buffer-file-name)))
+          (add-hook 'after-save-hook 'my-gtags-update-single-for-current-file)
           )
 
 (add-hook 'c-mode-common-hook (lambda ()
