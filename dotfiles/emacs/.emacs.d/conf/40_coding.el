@@ -187,18 +187,20 @@
 
 
 ;;;; template (insert template code)
-'(my-require-and-when 'autoinsert
+(my-require-and-when 'autoinsert
   (setq auto-insert-directory "~/.emacs.d/template/")
+  (setq auto-insert-query nil)
   (setq auto-insert-alist
-  (nconc '( ("\\.c$" . "template.c")
-  	  ("\\.f$" . "template.f")
-  	  ) auto-insert-alist))
-
+        (nconc '(
+                 ;;("\\.c$" . ["template.c"])
+                 ;;("\\.f$" . ["template.f"])
+                 ("bug.*\\.org$" . ["template_bug.org"])
+                 ) auto-insert-alist))
   (add-hook 'find-file-not-found-hooks 'auto-insert))
 
 
 ;;;; yasnippet
-'(my-require-and-when 'yasnippet
+(my-require-and-when 'yasnippet
   (yas/initialize)
   (yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets"))
 
@@ -215,7 +217,7 @@
 
 ;;;; brackets
 ;;;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
-;;;(my-load-and-when "brackets")
+(my-load-and-when "brackets")
 
 
 ;;;; align (align code)
@@ -469,7 +471,7 @@
 
 
 ;;;; macros
-(my-load-and-when "_paren-match"
+'(my-load-and-when "_paren-match"
   (define-key ctl-x-map "%" 'paren-match))
 '(my-load-and-when "_tdd-bgcolor-rotate"
   (global-set-key "\C-cm" 'tdd-bgcolor-rotate))
