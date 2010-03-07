@@ -43,31 +43,31 @@
 
 
 ;;;; debug
-(setq gdb-many-windows t)
-(setq gdb-use-separate-io-buffer t)
-
-(when gdb-many-windows
-  (defvar my-gud-window-configuration nil)
-  (defun my-gud-save-window-configuration ()
-    (setq my-gud-window-configuration (current-window-configuration)))
-  (defun my-gud-restore-window-configuration ()
-    (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
-      ;; gud-関係の場合
-      (when (window-configuration-p my-gud-window-configuration)
-        (set-window-configuration my-gud-window-configuration)
-        (setq my-gud-window-configuration nil))))
-  (add-hook 'gud-mode-hook 'my-gud-save-window-configuration)
-  (add-hook 'kill-buffer-hook 'my-gud-restore-window-configuration)
-
 (my-require-and-when 'gud
   (setq gud-gdb-command-name "gdb -annotate=3")
   ;;(setq gud-chdir-before-run nil)
   (setq gud-tooltip-echo-area nil)
+  (setq gdb-many-windows t)
+  (setq gdb-use-separate-io-buffer t)
+
   (defun my-gdb-mode-hooks ()
     (gud-tooltip-mode t))
   (add-hook 'gdb-mode-hook 'my-gdb-mode-hooks)
 
-  (defadvice gud-display-line
+  (when gdb-many-windows
+    (defvar my-gud-window-configuration nil)
+    (defun my-gud-save-window-configuration ()
+      (setq my-gud-window-configuration (current-window-configuration)))
+    (defun my-gud-restore-window-configuration ()
+      (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
+        ;; gud-関係の場合
+        (when (window-configuration-p my-gud-window-configuration)
+          (set-window-configuration my-gud-window-configuration)
+          (setq my-gud-window-configuration nil))))
+    (add-hook 'gud-mode-hook 'my-gud-save-window-configuration)
+    (add-hook 'kill-buffer-hook 'my-gud-restore-window-configuration)
+
+    (defadvice gud-display-line
     (after raise-after-gud-display-line activate)
     (raise-frame (selected-frame))))
 
