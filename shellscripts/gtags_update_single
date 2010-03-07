@@ -1,0 +1,11 @@
+#!/bin/sh
+
+file="$1" # currently, only absolute path is acceptable...
+
+cd "`dirname ${file}`"
+rootdir="`global -rp 2>/dev/null`"
+
+if [ $? -eq 0 ]; then
+  cd "${rootdir}"
+  gtags --single-update "`echo ${file} | perl -pe \"s|^${rootdir}/||\"`"
+fi
