@@ -188,7 +188,7 @@
 
 ;;;; template (insert template code)
 '(my-require-and-when 'autoinsert
-  (setq auto-insert-directory "~/etc/emacs/template/")
+  (setq auto-insert-directory "~/.emacs.d/template/")
   (setq auto-insert-alist
   (nconc '( ("\\.c$" . "template.c")
   	  ("\\.f$" . "template.f")
