@@ -65,9 +65,9 @@
           (set-window-configuration my-gud-window-configuration)
           (setq my-gud-window-configuration nil))))
     (add-hook 'gud-mode-hook 'my-gud-save-window-configuration)
-    (add-hook 'kill-buffer-hook 'my-gud-restore-window-configuration)
+    (add-hook 'kill-buffer-hook 'my-gud-restore-window-configuration))
 
-    (defadvice gud-display-line
+  (defadvice gud-display-line
     (after raise-after-gud-display-line activate)
     (raise-frame (selected-frame))))
 
