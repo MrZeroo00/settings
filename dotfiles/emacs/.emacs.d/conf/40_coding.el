@@ -192,10 +192,26 @@
   (setq auto-insert-query nil)
   (setq auto-insert-alist
         (nconc '(
-                 ;;("\\.c$" . ["template.c"])
-                 ;;("\\.f$" . ["template.f"])
-                 ("bug.*\\.org$" . ["template_bug.org"])
+                 ;;("\\.c$" . ["template.c" my-template])
+                 ("bug.*\\.org$" . ["template_bug.org" my-template])
                  ) auto-insert-alist))
+
+  (my-require-and-when 'cl
+    (defvar template-replacements-alists
+      '(("%file%"             . (lambda () (file-name-nondirectory (buffer-file-name))))
+        ("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
+        ("%include-guard%"    . (lambda () (format "__SCHEME_%s__" (upcase (file-name-sans-extension (file-name-nondirectory buffer-file-name))))))))
+
+    (defun my-template ()
+      (time-stamp)
+      (mapc #'(lambda(c)
+                (progn
+                  (goto-char (point-min))
+                  (replace-string (car c) (funcall (cdr c)) nil)))
+            template-replacements-alists)
+      (goto-char (point-max))
+      (message "done."))
+
   (add-hook 'find-file-not-found-hooks 'auto-insert))
 
 
