@@ -1,3 +1,77 @@
+;;;
+;; $Id: 99anything.el,v 1.429 2009/02/24 11:20:18 rubikitch Exp $
+
+;; URL: http://www.emacswiki.org/cgi-bin/wiki/download/RubikitchAnythingConfiguration
+;; Site: http://www.emacswiki.org/cgi-bin/emacs/Anything
+
+;; install-elisp.el is in the EmacsWiki.
+;; http://www.emacswiki.org/cgi-bin/wiki/download/install-elisp.el
+
+;; This file is delimited by linkd tags.
+;; http://www.emacswiki.org/cgi-bin/wiki/download/linkd.el
+
+;; The definition of with-new-window is here. It depends on windows.el.
+;; (@* "with-new-window definition")
+;; copy from 29windows.el
+(unless (fboundp 'with-new-window)
+  ;; (install-elisp "http://www.gentei.org/~yuuji/software/windows.el")
+  (require 'windows)
+  (defun win:insert-config (idx)
+    (let (i (vector win:configs))
+      (setq i 1)
+      (while (and (< i (1- (length vector)))
+                  (aref vector i))
+        (setq i (1+ i)))
+      (assert (eq (aref vector i) nil))
+      (while (< idx i)
+        (win:copy-config  (- i 1) i)
+        (setq i (1- i)))
+      (aset win:configs idx nil)
+      (aset win:names idx nil)
+      (aset win:names-prefix idx "")
+      (aset win:sizes idx nil)
+      (aset win:buflists idx (make-vector win:buffer-depth-per-win nil))
+      (aset win:points idx nil)))
+  (defmacro with-new-window (&rest body)
+    `(let ((i (win:find-new-window)))
+       (win:store-config win:current-config)
+       (win:insert-config i)
+       (win:switch-window i nil t)
+       (delete-other-windows)
+       ,@body
+       (win:store-config i)))
+  (defun win:squeeze-config ()
+    (interactive)
+    (let (idxs j k (limit win-rotate-by))
+      (setq j 1)
+      (while (<= j limit)
+        (when (aref win:configs j)
+          (setq  idxs (cons j idxs)))
+        (and (eq j win:current-config) (setq win:current-config (length idxs)))
+        (and (eq j win:last-config) (setq win:last-config (length idxs)))
+        (setq j (1+ j)))
+      (setq idxs (reverse idxs))
+
+      (setq j 1)
+      (mapcar (lambda (k)
+                (win:copy-config k j)
+                (setq j (1+ j)))
+              idxs)
+      (setq k j)
+      (while (<= k limit)
+        (aset win:configs k nil)
+        (aset win:names k nil)
+        (aset win:names-prefix k "")
+        (aset win:sizes k nil)
+        (aset win:buflists k (make-vector win:buffer-depth-per-win nil))
+        (aset win:points k nil)
+        (setq k (1+ k))
+        )
+      (win:store-config win:current-config)
+      ))
+  )
+
+
 (define-key anything-map "Y" 'anything-yank-selection)
 
 ;; [2007/12/25] (@* "action extension")
