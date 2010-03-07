@@ -113,16 +113,6 @@
           'executable-make-buffer-file-executable-if-script-p)
 
 
-;;;; auto byte-compile when saving ".emacs"
-;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=byte-compile%20after%20save
-'(add-hook 'after-save-hook
-          (function (lambda ()
-                      (if (string= (expand-file-name "~/.emacs.el")
-                                   (buffer-file-name))
-                          (save-excursion
-                            (byte-compile-file "~/.emacs.el"))))))
-
-
 (when (and run-w32 run-meadow)
   ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=findfile%20symlink
   (defadvice minibuffer-complete
