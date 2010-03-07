@@ -48,14 +48,16 @@
 
 (when gdb-many-windows
   (defvar my-gud-window-configuration nil)
-  (add-hook 'gud-mode-hook (lambda ()
-                              (setq my-gud-window-configuration (current-window-configuration))))
-  (add-hook 'kill-buffer-hook (lambda ()
-                                (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
-                                  ;; gud-関係の場合
-                                  (when (window-configuration-p my-gud-window-configuration)
-  			    (set-window-configuration my-gud-window-configuration)
-  			    (setq my-gud-window-configuration nil))))))
+  (defun my-gud-save-window-configuration ()
+    (setq my-gud-window-configuration (current-window-configuration)))
+  (defun my-gud-restore-window-configuration ()
+    (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
+      ;; gud-関係の場合
+      (when (window-configuration-p my-gud-window-configuration)
+        (set-window-configuration my-gud-window-configuration)
+        (setq my-gud-window-configuration nil))))
+  (add-hook 'gud-mode-hook 'my-gud-save-window-configuration)
+  (add-hook 'kill-buffer-hook 'my-gud-restore-window-configuration)
 
 (my-require-and-when 'gud
   (setq gud-gdb-command-name "gdb -annotate=3")
