@@ -246,22 +246,23 @@
                              anything-c-source-buffers
                              anything-c-source-bm
                              anything-c-source-bookmarks
-                             anything-c-source-yasnippet
+                             ;;anything-c-source-bookmark-files&dirs
+                             anything-c-source-org-todo-state
+                             anything-c-source-org-headline
                              anything-c-source-imenu
-                             ;;anything-c-source-org-headline
+                             anything-c-source-call-source
+                             ;;anything-c-source-yasnippet
                              ;;anything-c-source-gtags-select
                              anything-c-source-files-in-current-dir+
-                             anything-c-source-bookmark-files&dirs
                              anything-c-source-recentf
                              ;;anything-c-source-file-name-history
                              anything-c-source-file-cache
                              ;;(if run-darwin
                              ;;    anything-c-source-mac-spotlight
                              ;;  anything-c-source-locate)
-                             anything-c-source-call-source
                              anything-c-source-extended-command-history
-                             anything-c-source-emacs-commands
                              ;;anything-c-source-complex-command-history
+                             anything-c-source-emacs-commands
                              ;;anything-c-source-man-pages
                              ;;anything-c-source-info-pages
                              ;;anything-c-source-calculation-result
