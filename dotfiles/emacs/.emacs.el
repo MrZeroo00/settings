@@ -122,14 +122,15 @@ With a numeric argument, turn mode on iff ARG is positive."
      (message "Require error: %s" ,feature)))
 (defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
-  `(unless (featurep ,feature)
-     (cond ((member ,feature my-disabled-features)
-            (message "Require skip: %s" ,feature))
-           ((require ,feature nil t)
-            (message "Require success: %s" ,feature)
-            ,@body)
-           (t
-            (message "Require error: %s" ,feature)))))
+  ;;`(unless (featurep ,feature)
+  ;;   (cond ((member ,feature my-disabled-features)
+  `(cond ((member ,feature my-disabled-features)
+          (message "Require skip: %s" ,feature))
+         ((require ,feature nil t)
+          (message "Require success: %s" ,feature)
+          ,@body)
+         (t
+          (message "Require error: %s" ,feature))))
 
 '(defmacro my-autoload-and-when (function file &rest body)
   (declare (indent 2))
