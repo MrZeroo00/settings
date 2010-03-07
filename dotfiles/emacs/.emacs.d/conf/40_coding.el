@@ -193,6 +193,12 @@
   (setq auto-insert-alist
         (nconc '(
                  ;;("\\.c$" . ["template.c" my-template])
+                 ;;("\\.sh$" . ["template.sh"
+                 ;;             (lambda() (my-template-exec "/bin/sh"))
+                 ;;             my-template])
+                 ;;("\\.rb$" . ["template.sh"
+                 ;;             (lambda() (my-template-exec "/usr/bin/ruby"))
+                 ;;             my-template]))
                  ("bug.*\\.org$" . ["template_bug.org" my-template])
                  ) auto-insert-alist))
 
@@ -202,6 +208,14 @@
         ("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
         ("%include-guard%"    . (lambda () (format "__SCHEME_%s__" (upcase (file-name-sans-extension (file-name-nondirectory buffer-file-name))))))))
 
+    (defmacro defreplace (name replace-string)
+      `(defun ,name (str)
+         (goto-char (point-min))
+         (replace-string ,replace-string str)))
+
+    (defreplace my-template-exec "%exec%")
+    (defreplace my-template-package "%package%")
+
     (defun my-template ()
       (time-stamp)
       (mapc #'(lambda(c)
@@ -210,7 +224,7 @@
                   (replace-string (car c) (funcall (cdr c)) nil)))
             template-replacements-alists)
       (goto-char (point-max))
-      (message "done."))
+      (message "done.")))
 
   (add-hook 'find-file-not-found-hooks 'auto-insert))
 
