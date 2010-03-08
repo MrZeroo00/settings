@@ -52,7 +52,7 @@ package conf;  # Don't remove this line!
 #       Case-insensitive.
 #
 # $DENY_FILE = ".*\\.(gif|png|jpg|jpeg)|.*\\.tar\\.gz|core|.*\\.bak|.*~|\\..*|\x23.*";
-$DENY_FILE = ".*\\.(bmp|eps|gif|ico|jpeg|jpg|mng|pbm|pcx|pgm|png|pnm|ppm|ps|psd|svg|tga|tiff|xbm|xcf|xpm|xwd)|.*\\.(3g2|3gp|asf|avi|flv|mov|mpeg|mpg|ogm|ogv|ogx|ram|rm|rmvb|swf|vob|wmv)|.*\\.(aac|aiff|ape|flac|m4v|mp3|oga|ogg|wav|wma)|.*\\.(7z|cab|gz|lzh|rar|tar|tar\\.bz2|tar\\.gz|tbz|tgz|zip)|.*\\.(exe|dll|aps|bsc|clw|exp|hpj|ilk|lib|map|mdp|ncb|obj|pch|pdb|sbr|rct|res|vcp)|core|.*\\.bak|.*~|\\..*|\x23.*";
+$DENY_FILE = ".*\\.(bmp|eps|gif|ico|jpeg|jpg|mng|pbm|pcx|pgm|png|pnm|ppm|ps|psd|svg|tga|tiff|xbm|xcf|xpm|xwd)|.*\\.(3g2|3gp|asf|avi|flv|mov|mpeg|mpg|ogm|ogv|ogx|ram|rm|rmvb|swf|vob|wmv)|.*\\.(aac|aiff|ape|flac|m4v|mp3|oga|ogg|wav|wma)|.*\\.(7z|cab|gz|lzh|rar|tar|tar\\.bz2|tar\\.gz|tbz|tgz|zip)|.*\\.(o|so|a)|.*\\.(exe|dll|aps|bsc|clw|exp|hpj|ilk|lib|map|mdp|ncb|obj|pch|pdb|sbr|rct|res|vcp)|core|.*\\.bak|.*~|\\..*|\x23.*";
 
 #
 # This pattern specifies DDN(DOS Device Name) which will NOT be targeted.
