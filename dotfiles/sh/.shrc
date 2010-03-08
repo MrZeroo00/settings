@@ -72,10 +72,11 @@ case "${OS}" in
   export LANG=ja_JP.UTF-8
   ;;
   "Cygwin")
-  add_path '/c/meadow/bin'
-  add_path '/c/Vim'
-  add_path '/c/Program\ Files/Subversion/bin'
-  add_path '/c/Program\ Files/StraceNT'
+  add_path -a '/c/meadow/bin'
+  add_path -a '/c/Vim'
+  add_path -a '/c/namazu/bin'
+  add_path -a '/c/Program\ Files/Subversion/bin'
+  add_path -a '/c/Program\ Files/StraceNT'
   export PATH
   export TERM=cygwin
   export LANG=ja_JP.UTF-8
