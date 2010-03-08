@@ -67,12 +67,12 @@ $DENY_FILE = ".*\\.(bmp|eps|gif|ico|jpeg|jpg|mng|pbm|pcx|pgm|png|pnm|ppm|ps|psd|
 # NOTE: Usually specified by --exclude=regex option.
 #
 # $EXCLUDE_PATH = undef;
-$EXCLUDE_PATH = '\/\.svn\/';
-$EXCLUDE_PATH .= '|\/\.git\/';
-$EXCLUDE_PATH .= '|\/SCCS\/';
-$EXCLUDE_PATH .= '|\/RCS\/';
-$EXCLUDE_PATH .= '|\/CVS\/';
-$EXCLUDE_PATH .= '|\/CVSROOT\/';
+$EXCLUDE_PATH = '/\.svn/';
+$EXCLUDE_PATH .= '|/\.git/';
+$EXCLUDE_PATH .= '|/SCCS/';
+$EXCLUDE_PATH .= '|/RCS/';
+$EXCLUDE_PATH .= '|/CVS/';
+$EXCLUDE_PATH .= '|/CVSROOT/';
 
 #
 # This pattern specifies file names which can be omitted
