@@ -22,7 +22,7 @@ function add_path() {
     return
   fi
 
-  if [ ${opt_append} = "true" ]; then
+  if [ "${opt_append}" = "true" ]; then
     PATH="${PATH}:${dir}"
   else
     PATH="${dir}:${PATH}"
