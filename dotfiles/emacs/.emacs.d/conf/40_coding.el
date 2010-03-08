@@ -206,9 +206,9 @@
   (setq auto-insert-alist
         (nconc '(
                  ;;("\\.c$" . ["template.c" my-template])
-                 ;;("\\.sh$" . ["template.sh"
-                 ;;             (lambda() (my-template-exec "/bin/sh"))
-                 ;;             my-template])
+                 ("\\.sh$" . ["template.sh"
+                              (lambda() (my-template-exec "/bin/sh"))
+                              my-template])
                  ;;("\\.rb$" . ["template.sh"
                  ;;             (lambda() (my-template-exec "/usr/bin/ruby"))
                  ;;             my-template]))
