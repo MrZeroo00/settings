@@ -3,8 +3,28 @@
 ## environmental variables
 # set PATH so it includes user's private bin if it exists
 function add_path() {
+  while getopts "a" flag; do
+    case ${flag} in
+      \?) OPT_ERROR=1; break;;
+      a) opt_append=true;;
+    esac
+  done
+
+  shift $(( ${OPTIND} - 1 ))
+
+  if [ ${OPT_ERROR} ]; then
+    echo "Error in parse options."
+    return
+  fi
+
   dir="$1"
-  if [ -d "${dir}" ]; then
+  if [ ! -d "${dir}" ]; then
+    return
+  fi
+
+  if [ ${opt_append} = "true" ]; then
+    PATH="${PATH}:${dir}"
+  else
     PATH="${dir}:${PATH}"
   fi
 }
