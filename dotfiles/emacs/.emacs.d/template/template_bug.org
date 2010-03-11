@@ -1,0 +1,14 @@
+* Description
+* Related stuff
+** File
+** Data
+** Function
+* Investigation
+** Expected Results
+** Specification
+** Actual Results
+
+# Local Variables:
+# mode: gtags
+# coding: utf-8
+# End:
