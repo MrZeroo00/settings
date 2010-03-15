@@ -8,6 +8,7 @@
 ** Specification
 ** Actual Results
 
+* --- footer ---
 # Local Variables:
 # mode: gtags
 # coding: utf-8
