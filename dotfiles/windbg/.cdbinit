@@ -1,1 +1,2 @@
 .expr /s c++
+.logopen /t /u c:/work/log/cdb.log
