@@ -1,5 +1,16 @@
 ;;;(setq debug-on-error t)
 
+(defun my-time-lag ()
+  (let* ((now (current-time))
+         (min (- (car now) (car my-time-zero)))
+         (sec (- (car (cdr now)) (car (cdr my-time-zero))))
+         (msec (/ (- (car (cdr (cdr now)))
+                     (car (cdr (cdr my-time-zero))))
+                  1000))
+         (lag (+ (* 60000 min) (* 1000 sec) msec)))
+    (message "'.emacs.el' loading time: %d msec." lag)))
+(setq my-time-zero (current-time))
+
 ;;;; check Operating System
 (defvar run-unix
   (or (equal system-type 'gnu/linux)
@@ -278,5 +289,7 @@ With a numeric argument, turn mode on iff ARG is positive."
 
 ;;;(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
 ;;;    (my-load-and-when "99_timeout"))
+
+(my-time-lag)
 
 (setq debug-on-error t)
