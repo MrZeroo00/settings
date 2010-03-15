@@ -1,6 +1,7 @@
 ;;;(setq debug-on-error t)
 
 ;;;; measure time for tuning
+;;;; http://www.bookshelf.jp/pukiwiki/pukiwiki.php?Meadow%2F%B5%AF%C6%B0%C2%AE%C5%D9
 (defconst my-time-zero (current-time))
 (defvar my-time-list nil)
 
