@@ -23,7 +23,7 @@
 (defun my-time-lag-print ()
   (message (prin1-to-string
             (sort my-time-list
-                  (lambda  (x y)  (> (cdr x) (cdr y)))))))
+                  (lambda (x y) (> (cdr x) (cdr y)))))))
 (my-time-lag "total")
 (add-hook 'after-init-hook
           (lambda () (my-time-lag "total")
@@ -33,6 +33,15 @@
              (get-buffer "*Messages*"))
             ) t)
 (my-time-lag)
+
+(defadvice require
+  (around require-time activate)
+  (my-time-lag (format "require-%s"
+                       (ad-get-arg 0)))
+  ad-do-it
+  (my-time-lag (format "require-%s"
+                       (ad-get-arg 0)))
+  )
 
 
 ;;;; check Operating System
