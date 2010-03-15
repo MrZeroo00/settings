@@ -34,7 +34,7 @@
             ) t)
 (my-time-lag)
 
-(defadvice require
+'(defadvice require
   (around require-time activate)
   (my-time-lag (format "require-%s"
                        (ad-get-arg 0)))
