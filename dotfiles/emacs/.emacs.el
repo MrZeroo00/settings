@@ -1,5 +1,6 @@
 ;;;(setq debug-on-error t)
 
+
 ;;;; measure time for tuning
 ;;;; http://www.bookshelf.jp/pukiwiki/pukiwiki.php?Meadow%2F%B5%AF%C6%B0%C2%AE%C5%D9
 (defconst my-time-zero (current-time))
@@ -33,7 +34,7 @@
             (switch-to-buffer
              (get-buffer "*Messages*"))
             ) t)
-(my-time-lag)
+(my-time-lag "all")
 
 '(defadvice require
   (around require-time activate)
@@ -324,6 +325,8 @@ With a numeric argument, turn mode on iff ARG is positive."
 ;;;(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
 ;;;    (my-load-and-when "99_timeout"))
 
-(my-time-lag)
+
+(my-time-lag "all")
+
 
 (setq debug-on-error t)
