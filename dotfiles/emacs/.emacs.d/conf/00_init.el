@@ -130,6 +130,7 @@
 
 ;;;; Etc
 (setq inhibit-startup-message t)
+;;;(setq inhibit-default-init t)
 (setq frame-title-format "%b")
 (tool-bar-mode nil)
 ;;;(menu-bar-mode nil)
