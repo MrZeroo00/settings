@@ -74,6 +74,7 @@ case "${OS}" in
   "Cygwin")
   add_path -a '/c/meadow/bin'
   add_path -a '/c/Vim'
+  add_path -a '/c/strawberry/perl/bin'
   add_path -a '/c/namazu/bin'
   add_path -a '/c/Program\ Files/Subversion/bin'
   add_path -a '/c/Program\ Files/StraceNT'
