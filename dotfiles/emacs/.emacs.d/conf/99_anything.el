@@ -10,7 +10,7 @@
 ;;;; ac-anything
 ;;;(install-elisp-from-emacswiki "ac-anything.el")
 (my-require-and-when 'ac-anything
-  (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-anything))
+  (define-key ac-complete-mode-map (kbd "C-'") 'ac-complete-with-anything))
 
 
 ;;;; anything-c-dabbrev
@@ -229,8 +229,8 @@
 
 ;;;; key setting
 (define-key global-map (kbd "C-;") 'anything)
-(define-key global-map (kbd "C-:") 'anything-resume)
-(define-key global-map (kbd "C-'") 'anything-call-source)
+(define-key global-map (kbd "C-'") 'anything-resume)
+(define-key global-map (kbd "C-&") 'anything-call-source)
 ;;;(define-key ctl-x-map "\C-f" 'anything-find-files)
 (define-key anything-map "\C-\M-n" 'anything-next-source)
 (define-key anything-map "\C-\M-p" 'anything-previous-source)
