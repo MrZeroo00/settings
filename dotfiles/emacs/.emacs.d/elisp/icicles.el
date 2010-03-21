@@ -7,9 +7,9 @@
 ;; Copyright (C) 1996-2010, Drew Adams, all rights reserved.
 ;; Created: Tue Aug  1 14:21:16 1995
 ;; Version: 22.0
-;; Last-Updated: Fri Jan 15 13:21:13 2010 (-0800)
+;; Last-Updated: Sun Mar 14 14:15:43 2010 (-0700)
 ;;           By: dradams
-;;     Update #: 22624
+;;     Update #: 22650
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/icicles.el
 ;; Keywords: internal, extensions, help, abbrev, local, minibuffer,
 ;;           keys, apropos, completion, matching, regexp, command
@@ -18,20 +18,20 @@
 ;; Features that might be required by this library:
 ;;
 ;;   `apropos', `apropos+', `apropos-fn+var', `avoid', `cl',
-;;   `color-theme', `cus-edit', `cus-face', `cus-load', `cus-start',
-;;   `custom', `dired', `dired+', `dired-aux', `dired-x', `doremi',
-;;   `easymenu', `ediff-diff', `ediff-help', `ediff-init',
-;;   `ediff-merg', `ediff-mult', `ediff-util', `ediff-wind',
-;;   `el-swank-fuzzy', `ffap', `ffap-', `fit-frame', `frame-cmds',
-;;   `frame-fns', `fuzzy-match', `help+20', `hexrgb', `icicles-cmd1',
+;;   `cus-edit', `cus-face', `cus-load', `cus-start', `custom',
+;;   `dired', `dired+', `dired-aux', `dired-x', `doremi', `easymenu',
+;;   `ediff-diff', `ediff-help', `ediff-init', `ediff-merg',
+;;   `ediff-mult', `ediff-util', `ediff-wind', `el-swank-fuzzy',
+;;   `ffap', `ffap-', `fit-frame', `frame-cmds', `frame-fns',
+;;   `fuzzy-match', `help+20', `hexrgb', `icicles-cmd1',
 ;;   `icicles-cmd2', `icicles-face', `icicles-fn', `icicles-mac',
 ;;   `icicles-mcmd', `icicles-mode', `icicles-opt', `icicles-var',
 ;;   `info', `info+', `kmacro', `levenshtein', `menu-bar',
 ;;   `menu-bar+', `misc-cmds', `misc-fns', `mkhtml',
-;;   `mkhtml-htmlize', `mwheel', `pp', `pp+', `reporter', `ring',
-;;   `ring+', `second-sel', `sendmail', `strings', `thingatpt',
-;;   `thingatpt+', `unaccent', `w32-browser', `w32browser-dlgopen',
-;;   `wid-edit', `wid-edit+', `widget'.
+;;   `mkhtml-htmlize', `mwheel', `pp', `pp+', `ring', `ring+',
+;;   `second-sel', `strings', `thingatpt', `thingatpt+', `unaccent',
+;;   `w32-browser', `w32browser-dlgopen', `wid-edit', `wid-edit+',
+;;   `widget'.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -277,7 +277,8 @@
 ;;    `toggle-icicle-remote-file-testing',
 ;;    `toggle-icicle-search-cleanup',
 ;;    `toggle-icicle-search-replace-whole',
-;;    `toggle-icicle-search-whole-word', `toggle-icicle-sorting',
+;;    `toggle-icicle-search-whole-word',
+;;    `toggle-icicle-show-multi-completion', `toggle-icicle-sorting',
 ;;    `toggle-icicle-transforming',
 ;;    `toggle-icicle-WYSIWYG-Completions', `what-which-how'.
 ;;
@@ -427,7 +428,8 @@
 ;;    `icicle-toggle-search-cleanup',
 ;;    `icicle-toggle-search-replace-common-match',
 ;;    `icicle-toggle-search-replace-whole',
-;;    `icicle-toggle-search-whole-word', `icicle-toggle-sorting',
+;;    `icicle-toggle-search-whole-word',
+;;    `icicle-toggle-show-multi-completion', `icicle-toggle-sorting',
 ;;    `icicle-toggle-transforming', `icicle-transpose-chars',
 ;;    `icicle-transpose-sexps', `icicle-transpose-words',
 ;;    `icicle-universal-argument', `icicle-universal-argument-minus',
@@ -484,10 +486,10 @@
 ;;
 ;;  User options defined in Icicles:
 ;;
-;;    `icicle-act-before-cycle-flag', `icicle-add-buffer-name-flag',
+;;    `icicle-act-before-cycle-flag',
 ;;    `icicle-add-proxy-candidates-flag',
 ;;    `icicle-alternative-actions-alist',
-;;    `icicle-alternative-sort-function',
+;;    `icicle-alternative-sort-comparer',
 ;;    `icicle-anything-transform-candidates-flag',
 ;;    `icicle-apropos-complete-keys',
 ;;    `icicle-apropos-complete-no-display-keys',
@@ -499,7 +501,8 @@
 ;;    `icicle-apropos-cycle-previous-action-keys',
 ;;    `icicle-apropos-cycle-previous-alt-action-keys',
 ;;    `icicle-apropos-cycle-previous-help-keys',
-;;    `icicle-bookmark-name-length-max', `icicle-buffer-configs',
+;;    `icicle-bookmark-name-length-max',
+;;    `icicle-bookmark-refresh-cache-flag', `icicle-buffer-configs',
 ;;    `icicle-buffer-extras',
 ;;    `icicle-buffer-ignore-space-prefix-flag',
 ;;    `icicle-buffer-match-regexp', `icicle-buffer-no-match-regexp',
@@ -546,8 +549,8 @@
 ;;    `icicle-incremental-completion-delay',
 ;;    `icicle-incremental-completion-flag',
 ;;    `icicle-incremental-completion-threshold',
-;;    `icicle-inhibit-ding-flag', `icicle-input-string',
-;;    `icicle-inter-candidates-min-spaces',
+;;    `icicle-inhibit-advice-functions', `icicle-inhibit-ding-flag',
+;;    `icicle-input-string', `icicle-inter-candidates-min-spaces',
 ;;    `icicle-isearch-complete-keys', `icicle-key-complete-keys',
 ;;    `icicle-key-descriptions-use-<>-flag',
 ;;    `icicle-key-descriptions-use-angle-brackets-flag',
@@ -600,8 +603,8 @@
 ;;    `icicle-shell-command-candidates-cache',
 ;;    `icicle-show-Completions-help-flag',
 ;;    `icicle-show-Completions-initially-flag',
-;;    `icicle-sort-function', `icicle-sort-functions-alist',
-;;    `icicle-special-candidate-regexp',
+;;    `icicle-show-multi-completion-flag', `icicle-sort-comparer',
+;;    `icicle-sort-orders-alist', `icicle-special-candidate-regexp',
 ;;    `icicle-S-TAB-completion-methods-alist',
 ;;    `icicle-swank-prefix-length', `icicle-swank-timeout',
 ;;    `icicle-TAB-completion-methods',
@@ -626,10 +629,11 @@
 ;;    `custom-variable-p', `icicle-2nd-part-string-less-p',
 ;;    `icicle-abbreviate-or-expand-file-name', `icicle-activate-mark',
 ;;    `icicle-add-key+cmd', `icicle-add-menu-item-to-cmd-history',
-;;    `icicle-all-candidates-action-1', `icicle-alt-act-fn-for-type',
-;;    `icicle-any-candidates-p', `icicle-anychar-regexp',
-;;    `icicle-anything-candidate-value', `icicle-apply-action',
-;;    `icicle-apply-list-action', `icicle-apply-to-saved-candidate',
+;;    `icicle-all-candidates-action-1', `icicle-alpha-p',
+;;    `icicle-alt-act-fn-for-type', `icicle-any-candidates-p',
+;;    `icicle-anychar-regexp', `icicle-anything-candidate-value',
+;;    `icicle-apply-action', `icicle-apply-list-action',
+;;    `icicle-apply-to-saved-candidate',
 ;;    `icicle-apropos-any-candidates-p',
 ;;    `icicle-apropos-any-file-name-candidates-p',
 ;;    `icicle-apropos-candidates', `icicle-apropos-complete-1',
@@ -788,8 +792,9 @@
 ;;    `icicle-looking-back-at-anychar-regexp-p',
 ;;    `icicle-major-mode-name-less-p', `icicle-make-color-candidate',
 ;;    `icicle-make-face-candidate', `icicle-make-frame-alist',
-;;    `icicle-make-window-alist', `icicle-markers',
-;;    `icicle-markers-to-readable', `icicle-marker+text',
+;;    `icicle-make-plain-predicate', `icicle-make-window-alist',
+;;    `icicle-markers', `icicle-markers-to-readable',
+;;    `icicle-marker+text',
 ;;    `icicle-maybe-multi-completion-completing-p',
 ;;    `icicle-maybe-sort-and-strip-candidates',`icicle-mctize-all',
 ;;    `icicle-mctized-display-candidate',
@@ -801,7 +806,7 @@
 ;;    `icicle-mode-line-name-less-p', `icicle-most-recent-first-p',
 ;;    `icicle-mouse-candidate-action-1',
 ;;    `icicle-msg-maybe-in-minibuffer', `icicle-ms-windows-NET-USE',
-;;    `icicle-nb-Completions-cols',
+;;    `icicle-multi-sort', `icicle-nb-Completions-cols',
 ;;    `icicle-nb-of-candidate-in-Completions',
 ;;    `icicle-next-candidate',
 ;;    `icicle-next-single-char-property-change',
@@ -921,7 +926,7 @@
 ;;  Internal variables and constants defined in Icicles:
 ;;
 ;;    `icicle-abs-file-candidates', `icicle-acting-on-next/prev',
-;;    `icicle-all-candidates-action-p',
+;;    `icicle-advice-info-list', `icicle-all-candidates-action-p',
 ;;    `icicle-all-candidates-list-action-fn',
 ;;    `icicle-all-candidates-list-alt-action-fn',
 ;;    `icicle-anychar-regexp', `icicle-apply-nomsg',
@@ -978,7 +983,7 @@
 ;;    `icicle-last-apropos-complete-match-fn',
 ;;    `icicle-last-completion-candidate',
 ;;    `icicle-last-completion-command', `icicle-last-input',
-;;    `icicle-last-sort-function', `icicle-last-top-level-command',
+;;    `icicle-last-sort-comparer', `icicle-last-top-level-command',
 ;;    `icicle-last-transform-function', `icicle-list-use-nth-parts',
 ;;    `icicle-menu-map', `icicle-minibuffer-message-ok-p',
 ;;    `icicle-minor-mode-map-entry', `icicle-mode-map',
@@ -996,8 +1001,8 @@
 ;;    `icicle-progressive-completing-p',
 ;;    `icicle-proxy-candidate-regexp', `icicle-proxy-candidates',
 ;;    `icicle-read-expression-map', `icicle-re-no-dot',
-;;    `icicle-require-match-p', `icicle-reverse-sort-p',
-;;    `icicle-saved-candidate-overlays',
+;;    `icicle-require-match-p', `icicle-reverse-multi-sort-p',
+;;    `icicle-reverse-sort-p', `icicle-saved-candidate-overlays',
 ;;    `icicle-saved-candidates-variables-obarray',
 ;;    `icicle-saved-completion-candidate',
 ;;    `icicle-saved-completion-candidates',
@@ -1019,6 +1024,7 @@
 ;;    `icicle-successive-grab-count',
 ;;    `icicle-text-property-value-history',
 ;;    `icicle-thing-at-pt-fns-pointer',
+;;    `icicle-transform-before-sort-p',
 ;;    `icicle-universal-argument-map',
 ;;    `icicle-vardoc-last-initial-cand-set',
 ;;    `icicle-vardoc-last-initial-option-cand-set',
@@ -1115,14 +1121,14 @@
 
 (require 'icicles-opt)
 (require 'icicles-var)
-(require 'icicles-face) ;; Requires opt
+(require 'icicles-face)
 
 (require 'icicles-fn) ;; Requires opt, var
 (require 'icicles-mac) ;; Requires var
 (require 'icicles-mcmd) ;; Requires opt, var, fn, mac
 (require 'icicles-cmd1) ;; Requires mac, opt, var, fn, mcmd
 (require 'icicles-cmd2) ;; Requires mac, opt, var, fn, mcmd, cmd1
-(require 'icicles-mode) ;; Requires opt, cmd
+(require 'icicles-mode) ;; Requires face, opt, cmd
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 

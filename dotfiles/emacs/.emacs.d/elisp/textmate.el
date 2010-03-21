@@ -79,6 +79,10 @@
   "The library `textmade-goto-symbol' and `textmate-goto-file' should use for
 completing filenames and symbols (`ido' by default)")
 
+(defvar textmate-find-files-command "find %s -type f"
+  "The command `textmate-project-root' uses to find files. %s will be replaced
+the project root.")
+
 (defvar *textmate-completing-function-alist* '((ido ido-completing-read)
                                                (icicles  icicle-completing-read)
                                                (none completing-read))
@@ -165,7 +169,8 @@ function."
 (defmacro allow-line-as-region-for-function (orig-function)
 `(defun ,(intern (concat (symbol-name orig-function) "-or-line"))
    ()
-   ,(format "Like `%s', but acts on the current line if mark is not active." orig-function)
+   ,(format "Like `%s', but acts on the current line if mark is not active."
+            orig-function)
    (interactive)
    (if mark-active
        (call-interactively (function ,orig-function))
@@ -238,22 +243,30 @@ Symbols matching the text at point are put first in the completion list."
 
                               ((stringp symbol)
                                (setq name symbol)
-                               (setq position (get-text-property 1 'org-imenu-marker symbol))))
+                               (setq position
+                                     (get-text-property 1 'org-imenu-marker
+                                                        symbol))))
 
                              (unless (or (null position) (null name))
                                (add-to-list 'symbol-names name)
                                (add-to-list 'name-and-pos (cons name position))))))))
       (addsymbols imenu--index-alist))
-    ;; If there are matching symbols at point, put them at the beginning of `symbol-names'.
+    ;; If there are matching symbols at point, put them at the beginning
+    ;; of `symbol-names'.
     (let ((symbol-at-point (thing-at-point 'symbol)))
       (when symbol-at-point
         (let* ((regexp (concat (regexp-quote symbol-at-point) "$"))
-               (matching-symbols (delq nil (mapcar (lambda (symbol)
-                                                     (if (string-match regexp symbol) symbol))
-                                                   symbol-names))))
+               (matching-symbols (delq nil
+                                       (mapcar
+                                        (lambda (symbol)
+                                          (if (string-match regexp symbol)
+                                              symbol))
+                                        symbol-names))))
           (when matching-symbols
             (sort matching-symbols (lambda (a b) (> (length a) (length b))))
-            (mapc (lambda (symbol) (setq symbol-names (cons symbol (delete symbol symbol-names))))
+            (mapc (lambda (symbol)
+                    (setq symbol-names (cons symbol
+                                             (delete symbol symbol-names))))
                   matching-symbols)))))
     (let* ((selected-symbol (ido-completing-read "Symbol? " symbol-names))
            (position (cdr (assoc selected-symbol name-and-pos))))
@@ -290,13 +303,22 @@ Symbols matching the text at point are put first in the completion list."
   (split-string
     (shell-command-to-string
      (concat
-      "find "
-      root
-      " -type f  | grep -vE '"
+      (textmate-string-replace "%s" root textmate-find-files-command)
+      "  | grep -vE '"
       *textmate-gf-exclude*
       "' | sed 's:"
       *textmate-project-root*
       "/::'")) "\n" t))
+
+;; http://snipplr.com/view/18683/stringreplace/
+(defun textmate-string-replace (this withthat in)
+  "replace THIS with WITHTHAT' in the string IN"
+  (with-temp-buffer
+    (insert in)
+    (goto-char (point-min))
+    (while (search-forward this nil t)
+      (replace-match withthat nil t))
+    (buffer-substring (point-min) (point-max))))
 
 (defun textmate-cached-project-files (&optional root)
   "Finds and caches all files in a given project."

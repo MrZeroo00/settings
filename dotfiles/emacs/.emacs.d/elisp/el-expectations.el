@@ -1,7 +1,7 @@
 ;;; el-expectations.el --- minimalist unit testing framework
-;; $Id: el-expectations.el,v 1.49 2009/10/10 09:19:40 rubikitch Exp rubikitch $
+;; $Id: el-expectations.el,v 1.51 2010/03/20 21:42:54 rubikitch Exp rubikitch $
 
-;; Copyright (C) 2008  rubikitch
+;; Copyright (C) 2008, 2009, 2010  rubikitch
 
 ;; Author: rubikitch <rubikitch@ruby-lang.org>
 ;; Keywords: lisp, testing, unittest
@@ -118,6 +118,15 @@
 ;;; History:
 
 ;; $Log: el-expectations.el,v $
+;; Revision 1.51  2010/03/20 21:42:54  rubikitch
+;; Apply patch by DanielHackney:
+;; Allow (error) expectation to accept an optional second argument,
+;; the symbol `*', to ignore an error message.
+;; It would be used as (error error *), and would pass for the body (error "some string").
+;;
+;; Revision 1.50  2010/02/13 20:20:53  rubikitch
+;; font-lock support for lisp-interaction-mode
+;;
 ;; Revision 1.49  2009/10/10 09:19:40  rubikitch
 ;; Fixed a displabug of `exps-display'
 ;;
@@ -355,11 +364,16 @@ Synopsis of EXPECTED-VALUE:
       (/ 1 0))
 * (error ERROR-SYMBOL ERROR-DATA)
   Body should raise ERROR-SYMBOL error with ERROR-DATA.
-  ERROR-DATA is 2nd argument of `signal' function.
+  ERROR-DATA is 2nd argument of `signal' function. If ERROR-DATA
+  is the special symbol `*', then it will match any error data.
 
   Example:
     (expect (error wrong-number-of-arguments '(= 3))
       (= 1 2 3 ))
+
+    (expect (error error *)
+      (error \"message\"))
+
 * (error-message ERROR-MESSAGE)
   Body should raise any error with ERROR-MESSAGE.
 
@@ -390,7 +404,7 @@ Synopsis of EXPECTED-VALUE:
   Example:
     (expect (not-called hoge)
       1)
- 
+
 * any other SEXP
   Body should equal (eval SEXP).
 
@@ -543,10 +557,11 @@ With prefix argument, do `batch-expectations-in-emacs'."
            (progn (exps-eval-sexps a) nil)
          (error
           (setq actual-error err)
-          (cond ((consp (cadr e))
+          (cond ((cadr e)
                  (and (eq (car e) (car err))
-                      (equal (setq actual-errdata (eval (cadr e)))
-                             (cdr err))))
+                      (or (eq (cadr e) '*)
+                          (equal (setq actual-errdata (eval (cadr e)))
+                                 (cdr err)))))
                 (e
                  (equal e err))
                 (t
@@ -675,7 +690,7 @@ With prefix argument, do `batch-expectations-in-emacs'."
                      (pass "OK")
                      (fail (cdr result))
                      (error (format "ERROR: %s" (cdr result)))
-                     (desc (exps-desc (cdr result)))                    
+                     (desc (exps-desc (cdr result)))
                      (t "not happened!"))
                  result))))
     (insert "\n")
@@ -749,18 +764,19 @@ Compatibility function for \\[next-error] invocations."
 (put 'expectations 'lisp-indent-function 0)
 
 ;; (edit-list (quote font-lock-keywords-alist))
-(font-lock-add-keywords
- 'emacs-lisp-mode
- '(("\\<\\(expectations\\|expect\\)\\>" 0 font-lock-keyword-face)
-   (exps-font-lock-desc 0 font-lock-warning-face prepend)
-   (exps-font-lock-expected-value 0 font-lock-function-name-face prepend)))
+(dolist (mode '(emacs-lisp-mode lisp-interaction-mode))
+  (font-lock-add-keywords
+   mode
+   '(("\\<\\(expectations\\|expect\\)\\>" 0 font-lock-keyword-face)
+     (exps-font-lock-desc 0 font-lock-warning-face prepend)
+     (exps-font-lock-expected-value 0 font-lock-function-name-face prepend))))
 
 (defun exps-font-lock-desc (limit)
   (when (re-search-forward "(desc\\s " limit t)
     (backward-up-list 1)
     (set-match-data (list (point) (progn (forward-sexp 1) (point))))
     t))
-        
+
 ;; I think expected value is so-called function name of `expect'.
 (defun exps-font-lock-expected-value (limit)
   (when (re-search-forward "(expect\\s " limit t)
@@ -769,7 +785,7 @@ Compatibility function for \\[next-error] invocations."
       (forward-sexp -1)
       (set-match-data (list (point) e))
         t)))
-    
+
 (defun expectations-eval-defun (arg)
   "Do `eval-defun'.
 If `expectations-execute-at-once' is non-nil, execute expectations if it is an expectations form."

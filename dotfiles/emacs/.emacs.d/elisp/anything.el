@@ -1,8 +1,8 @@
 ;;;; anything.el --- open anything / QuickSilver-like candidate-selection framework
-;; $Id: anything.el,v 1.241 2010/01/29 18:53:17 rubikitch Exp $
+;; $Id: anything.el,v 1.252 2010/03/21 06:08:44 rubikitch Exp $
 
-;; Copyright (C) 2007        Tamas Patrovics
-;;               2008, 2009  rubikitch <rubikitch@ruby-lang.org>
+;; Copyright (C) 2007              Tamas Patrovics
+;;               2008, 2009, 2010  rubikitch <rubikitch@ruby-lang.org>
 
 ;; Author: Tamas Patrovics
 ;; Maintainer: rubikitch <rubikitch@ruby-lang.org>
@@ -327,6 +327,44 @@
 
 ;; (@* "HISTORY")
 ;; $Log: anything.el,v $
+;; Revision 1.252  2010/03/21 06:08:44  rubikitch
+;; Mark bug fix. thx hchbaw!
+;; http://d.hatena.ne.jp/hchbaw/20100226/1267200447
+;;
+;; Revision 1.251  2010/03/21 02:39:34  rubikitch
+;; Fix a wrong usage of `delq'. thx hchbaw.
+;; http://d.hatena.ne.jp/hchbaw/20100226/1267200447
+;;
+;; Revision 1.250  2010/03/21 02:32:29  rubikitch
+;; Fix `select deleted buffer' error message when calling `anything-resume'.
+;;
+;; It was occurred when killing `anything-current-buffer' and calling `anything-resume'.
+;;
+;; Revision 1.249  2010/02/23 20:43:35  rubikitch
+;; `anything-update': Ensure to call `anything-next-line'
+;;
+;; Revision 1.248  2010/02/20 12:34:38  rubikitch
+;; Mode-line help!! `anything-mode-line-string' is help string.
+;;
+;; Revision 1.247  2010/02/20 10:41:39  rubikitch
+;; Automatically update `anything-version' when upgrading
+;;
+;; Revision 1.246  2010/02/20 10:38:58  rubikitch
+;; update copyright
+;;
+;; Revision 1.245  2010/02/20 10:36:01  rubikitch
+;; New API: `anything-require-at-least-version'
+;;
+;; Revision 1.244  2010/02/20 10:06:54  rubikitch
+;; * New plug-in: `disable-shortcuts'
+;; * `dummy' plug-in implies `disable-shortcuts' because it enables us to input capital letters.
+;;
+;; Revision 1.243  2010/02/20 09:54:16  rubikitch
+;; `anything-compile-source--dummy': swap arguments of `append'
+;;
+;; Revision 1.242  2010/02/19 17:37:12  rubikitch
+;; error check in `anything-set-source-filter'
+;;
 ;; Revision 1.241  2010/01/29 18:53:17  rubikitch
 ;; Fix a bug of `candidate-number-limit' in process sources.
 ;;
@@ -1108,7 +1146,9 @@
 ;; New maintainer.
 ;;
 
-(defvar anything-version "$Id: anything.el,v 1.241 2010/01/29 18:53:17 rubikitch Exp $")
+;; ugly hack to auto-update version
+(defvar anything-version nil)
+(setq anything-version "$Id: anything.el,v 1.252 2010/03/21 06:08:44 rubikitch Exp $")
 (require 'cl)
 
 ;; (@* "User Configuration")
@@ -1483,12 +1523,19 @@ Attributes:
 
   Pass empty string \"\" to action function.
 
+- disable-shortcuts (optional)
+
+  Disable `anything-enable-shortcuts' in current `anything' session.
+
+  This attribute is implemented by plug-in.
+  
 - dummy (optional)
 
   Set `anything-pattern' to candidate. If this attribute is
   specified, The candidates attribute is ignored.
 
   This attribute is implemented by plug-in.
+  This plug-in implies disable-shortcuts plug-in.
 
 - multiline (optional)
 
@@ -1827,6 +1874,10 @@ It is `anything-default-display-buffer' by default, which affects `anything-same
 
 (defvar anything-delayed-init-executed nil)
 
+(defvar anything-mode-line-string "(C-c?:help TAB:act C-m/C-e/C-j:nthact C-o:nextsrc C-z:pers-act C-SPC:mark M-[/M-]:movemark C-t:splt C-cC-f:follow)"
+  "Help string displayed in mode-line in `anything'.
+If nil, use default `mode-line-format'.")
+
 (put 'anything 'timid-completion 'disabled)
 
 ;; (@* "Internal Variables")
@@ -1941,6 +1992,9 @@ It is useful to write your sources."
 ;;  
 (defun anything-set-source-filter (sources)
   "Sets the value of `anything-source-filter' and updates the list of results."
+  (unless (and (listp sources)
+               (loop for name in sources always (stringp name)))
+    (error "invalid data in `anything-set-source-filter': %S" sources))
   (setq anything-source-filter sources)
   (anything-update))
 
@@ -1954,7 +2008,10 @@ If NO-UPDATE is non-nil, skip executing `anything-update'."
   (unless no-update (anything-update)))
 
 (defvar anything-compile-source-functions
-  '(anything-compile-source--type anything-compile-source--dummy anything-compile-source--candidates-in-buffer)
+  '(anything-compile-source--type
+    anything-compile-source--dummy
+    anything-compile-source--disable-shortcuts
+    anything-compile-source--candidates-in-buffer)
   "Functions to compile elements of `anything-sources' (plug-in).")
 
 (defun anything-get-sources ()
@@ -2074,6 +2131,19 @@ LONG-DOC is displayed below attribute name and short documentation."
   (put attribute 'anything-attrdoc
        (concat "- " (symbol-name attribute) " " short-doc "\n\n" long-doc "\n")))
 (put 'anything-document-attribute 'lisp-indent-function 2)
+
+(defun anything-require-at-least-version (version)
+  "Output error message unless anything.el is older than VERSION.
+This is suitable for anything applications."
+  (when (and (string= "1." (substring version 0 2))
+             (string-match "1\.\\([0-9]+\\)" anything-version)
+             (< (string-to-number (match-string 1 anything-version))
+                (string-to-number (substring version 2))))
+    (error "Please update anything.el!!
+
+http://www.emacswiki.org/cgi-bin/wiki/download/anything.el
+
+or  M-x install-elisp-from-emacswiki anything.el")))
 
 ;; (@* "Core: tools")
 (defun anything-current-frame/window-configuration ()
@@ -2340,6 +2410,11 @@ If TEST-MODE is non-nil, clear `anything-candidate-cache'."
     (erase-buffer)
     (set (make-local-variable  'inhibit-read-only) t)
     (set (make-local-variable 'anything-last-sources-local) anything-sources)
+    (if anything-mode-line-string
+        (setq mode-line-format
+              '(" " mode-line-buffer-identification " "
+                (line-number-mode "%l") " " anything-mode-line-string "-%-"))
+      (kill-local-variable 'mode-line-format))
     (setq cursor-type nil)
     (setq mode-name "Anything"))
   (anything-initialize-overlays anything-buffer)
@@ -2377,10 +2452,9 @@ If TEST-MODE is non-nil, clear `anything-candidate-cache'."
   (let ((hooks '((post-command-hook anything-check-minibuffer-input)
                  (minibuffer-setup-hook anything-print-error-messages)
                  (minibuffer-exit-hook (lambda () (anything-window-configuration 'store))))))
-    (with-current-buffer anything-current-buffer
-      (if (eq setup-or-cleanup 'setup)
-          (dolist (args hooks) (apply 'add-hook args))
-        (dolist (args (reverse hooks)) (apply 'remove-hook args))))))
+    (if (eq setup-or-cleanup 'setup)
+        (dolist (args hooks) (apply 'add-hook args))
+      (dolist (args (reverse hooks)) (apply 'remove-hook args)))))
 
 ;; (@* "Core: clean up")
 (defun anything-cleanup ()
@@ -2665,35 +2739,36 @@ the current pattern."
           (delete-overlay overlay)))
 
     (let (delayed-sources)
-      (dolist (source (anything-get-sources))
-        (when (and (or (not anything-source-filter)
-                       (member (assoc-default 'name source) anything-source-filter))
-                   (>= (length anything-pattern)
-                       (anything-aif (assoc 'requires-pattern source)
-                           (or (cdr it) 1)
-                         0)))
-          (if (or (assoc 'delayed source)
-                  (and anything-quick-update
-                       (< (window-height (get-buffer-window (current-buffer)))
-                          (line-number-at-pos (point-max)))))
-              (push source delayed-sources)
-            (anything-process-source source))))
+      (unwind-protect
+          (dolist (source (anything-get-sources))
+            (when (and (or (not anything-source-filter)
+                           (member (assoc-default 'name source) anything-source-filter))
+                       (>= (length anything-pattern)
+                           (anything-aif (assoc 'requires-pattern source)
+                               (or (cdr it) 1)
+                             0)))
+              (if (or (assoc 'delayed source)
+                      (and anything-quick-update
+                           (< (window-height (get-buffer-window (current-buffer)))
+                              (line-number-at-pos (point-max)))))
+                  (push source delayed-sources)
+                (anything-process-source source))))
 
-      (goto-char (point-min))
-      (save-excursion (run-hooks 'anything-update-hook))
-      (anything-next-line)
-      (setq delayed-sources (nreverse delayed-sources))
-      (if anything-test-mode
-          (dolist (source delayed-sources)
-            (anything-process-source source))
-        (anything-maybe-fit-frame)
-        (when delayed-sources
-          (run-with-idle-timer (if (featurep 'xemacs)
-                                   0.1
-                                 0)
-                               nil
-                               'anything-process-delayed-sources
-                               delayed-sources))))))
+        (goto-char (point-min))
+        (save-excursion (run-hooks 'anything-update-hook))
+        (anything-next-line)
+        (setq delayed-sources (nreverse delayed-sources))
+        (if anything-test-mode
+            (dolist (source delayed-sources)
+              (anything-process-source source))
+          (anything-maybe-fit-frame)
+          (when delayed-sources
+            (run-with-idle-timer (if (featurep 'xemacs)
+                                     0.1
+                                   0)
+                                 nil
+                                 'anything-process-delayed-sources
+                                 delayed-sources)))))))
 
 (defun anything-insert-match (match insert-function &optional ignored)
   "Insert MATCH into the anything buffer. If MATCH is a list then
@@ -3193,12 +3268,23 @@ UNIT and DIRECTION."
 
 (defun anything-compile-source--dummy (source)
   (if (assoc 'dummy source)
-      (append '((candidates "dummy")
+      (append source
+              '((candidates "dummy")
                 (accept-empty)
                 (match identity)
                 (filtered-candidate-transformer . anything-dummy-candidate)
-                (volatile))
-              source)
+                (disable-shortcuts)
+                (volatile)))
+    source))
+
+;; (@* "Built-in plug-in: disable-shortcuts")
+(defvar anything-orig-enable-shortcuts nil)
+(defun anything-compile-source--disable-shortcuts (source)
+  (if (assoc 'disable-shortcuts source)
+      (append source
+              '((init . (lambda () (setq anything-orig-enable-shortcuts anything-enable-shortcuts
+                                         anything-enable-shortcuts nil)))
+                (cleanup . (lambda () (setq anything-enable-shortcuts anything-orig-enable-shortcuts)))))
     source))
 
 ;; (@* "Built-in plug-in: candidates-in-buffer")
@@ -3542,7 +3628,7 @@ Otherwise ignores `special-display-buffer-names' and `special-display-regexps'."
                    (cons source selection)
                    anything-marked-candidates))
             (delete-overlay it)
-            (delq it anything-visible-mark-overlays))
+            (setq anything-visible-mark-overlays (delq it anything-visible-mark-overlays)))
         (let ((o (make-overlay (line-beginning-position) (1+ (line-end-position)))))
           (overlay-put o 'face anything-visible-mark-face)
           (overlay-put o 'source (assoc-default 'name source))
@@ -3571,13 +3657,20 @@ Otherwise ignores `special-display-buffer-names' and `special-display-regexps'."
   (with-current-buffer anything-buffer
     (loop for o in anything-visible-mark-overlays do
           (goto-char (point-min))
-          (when (search-forward (overlay-get o 'string) nil t)
-            (forward-line -1)
-            (when (save-excursion
-                    (goto-char (anything-get-previous-header-pos))
-                    (equal (overlay-get o 'source)
-                           (buffer-substring (line-beginning-position) (line-end-position))))
-              (move-overlay o (line-beginning-position) (1+ (line-end-position))))))))
+          (let (moved)
+            (while (and (not moved)
+                        (search-forward (overlay-get o 'string) nil t))
+              (forward-line -1)
+              (when (and (save-excursion
+                           (goto-char (anything-get-previous-header-pos))
+                           (equal (overlay-get o 'source)
+                                  (buffer-substring (line-beginning-position) (line-end-position))))
+                         (not (find-if (lambda (x)
+                                         (memq x anything-visible-mark-overlays))
+                                       (overlays-at (point)))))
+                (move-overlay o (line-beginning-position) (1+ (line-end-position)))
+                (setq moved t))
+              (forward-line 1))))))
 (add-hook 'anything-update-hook 'anything-revive-visible-mark)
 
 (defun anything-next-visible-mark (&optional prev)
@@ -5587,6 +5680,19 @@ Given pseudo `anything-sources' and `anything-pattern', returns list like
       (expect '("foo" "bar" "baz")
         (let ((lst '("bar" "foo" "baz")))
           (anything-recent-push "foo" 'lst)))
+      (desc "anything-require-at-least-version")
+      (expect nil
+        (anything-require-at-least-version "1.1"))
+      (expect nil
+        (anything-require-at-least-version "1.200"))
+      (expect nil
+        (anything-require-at-least-version
+         (and (string-match "1\.\\([0-9]+\\)" anything-version)
+              (match-string 0 anything-version))))
+      (expect (error)
+        (anything-require-at-least-version "1.999"))
+      (expect (error)
+        (anything-require-at-least-version "1.2000"))
       )))
 
 
