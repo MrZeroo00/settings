@@ -4,15 +4,12 @@ export LC_ALL=C
 
 opt=""
 
-# set directory
+# prepare root directory
 root_dir=`grep 'dir=' "${HOME}/.aria2/aria2.conf" | perl -pe 's%dir=%%'`
 if [ -z "${root_dir}" ]; then
   root_dir="${HOME}/Downloads/aria2"
 fi
 mkdir -p "${root_dir}"
-
-dir="${root_dir}/`echo $1 | perl -pe 's%(http|https|ftp)://(.+:.+@)?%%' | perl -pe 's%[^/]*$%%'`"
-opt="${opt} --dir=${dir}"
 
 # set referer
 if [ -n "$2" ]; then
@@ -24,7 +21,20 @@ if [ -n "$3" ]; then
   opt="${opt} --load-cookies='$3'"
 fi
 
+# set username/password
+if [ -n "$3" ]; then
+  opt="${opt} --http-user='$3'"
+fi
+if [ -n "$4" ]; then
+  opt="${opt} --http-pass='$4'"
+fi
+
 # set url with authentication
-url=`echo $1 | perl -pe 's%(http|https|ftp)://(.+):(.+)@(.+)%--http-user="\2" --http-pass="\3" "\1://\4"%'`
+url="`echo $1 | perl -pe 's%(\w+)://(.*@)?(.+)%\1://\3%'`"
+
+# set directory
+dir="${root_dir}/`echo $url | perl -pe 's%\w+://(.*)/[^/]*%\1%'`"
+opt="${opt} --dir='${dir}'"
+
 
 aria2_add_uri "${opt}" "${url}"
