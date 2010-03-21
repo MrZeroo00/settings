@@ -18,7 +18,7 @@
 
 
 ;;;; sorter (sort file list)
-;;;(install-elisp "http://www.bookshelf.jp/elc/sorter.el")
+;;;(install-elisp "http://www.meadowy.org/~shirai/elips/sorter.el")
 (add-hook 'dired-load-hook
           (lambda ()
             (my-require-and-when 'sorter)))
