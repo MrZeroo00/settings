@@ -37,4 +37,4 @@ dir="${root_dir}/`echo $url | perl -pe 's%\w+://(.*)/[^/]*%\1%'`"
 opt="${opt} --dir='${dir}'"
 
 
-aria2_add_uri "${opt}" "${url}"
+aria2_add_uri ${opt} "${url}"
