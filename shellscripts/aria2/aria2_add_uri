@@ -2,9 +2,11 @@
 
 require 'xmlrpc/client'
 require 'pp'
+require 'yaml'
 
-user = 'aria2'
-pass = 'foobarbaz'
+config_file = open("#ENV['HOME']/.aria2/config.yaml")
+config = YAML::load(config_file.read())
+config_file.close()
 
 if %x{ pgrep aria2 }.length == 0 then
   printf "launch aria2\n"
@@ -12,7 +14,7 @@ if %x{ pgrep aria2 }.length == 0 then
   sleep(3)
 end
 
-client = XMLRPC::Client.new2("http://#{user}:#{pass}@localhost:6800/rpc")
+client = XMLRPC::Client.new2("http://#{config['user']}:#{config['pass']}@localhost:6800/rpc")
 
 urls = Array.new()
 options = Hash.new()
