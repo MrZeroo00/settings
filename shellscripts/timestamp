@@ -1,0 +1,21 @@
+#!/usr/local/bin/ruby191
+require 'term/ansicolor'
+class String
+  include Term::ANSIColor
+end
+
+start_time = Time.now
+cmdline = ARGV.join ' '
+$stderr.puts ("=" * 60).green
+$stderr.puts "#{Time.now} start: #{cmdline.red}"
+$stderr.puts `free`
+$stderr.puts "-" * 60
+
+system *ARGV
+
+secs = Time.now - start_time
+$stderr.puts "+" * 60
+$stderr.puts "#{Time.now} end: #{cmdline.red}"
+$stderr.puts ("%.2f seconds" % secs).yellow
+$stderr.puts "exitstatus = #{$?.exitstatus}"
+$stderr.puts ("-" * 60).green
