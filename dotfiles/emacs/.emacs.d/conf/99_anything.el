@@ -144,7 +144,7 @@
 ;;;; anything-migemo
 ;;;(install-elisp-from-emacswiki "anything-migemo.el")
 (my-require-and-when 'anything-migemo
-  (define-key global-map [(control ?:)] 'anything-migemo))
+  (define-key global-map (kbd "C-:") 'anything-migemo))
 
 
 ;;;; anything-rurima
