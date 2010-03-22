@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'xmlrpc/client'
+require 'pp'
+require 'yaml'
+
+config_file = open("#{ENV['HOME']}/.aria2/config.yaml")
+config = YAML::load(config_file.read())
+config_file.close()
+
+gid = ARGV[0]
+
+client = XMLRPC::Client.new2("http://#{config['user']}:#{config['pass']}@localhost:6800/rpc")
+result = client.call("aria2.getFiles", gid)
+
+for file in result.collect {|x| x['path']}
+  system("echo #{file}")
+end
