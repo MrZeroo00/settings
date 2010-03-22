@@ -13,7 +13,7 @@ LimitDiskSize=84
 # 指定サイズまで切り詰める。
 CacheSize="1200M"
 # polipo_trimcach の指定。
-polipo_trimcache="/home/$USER/bin/polipo_trimcache"
+polipo_trimcache="$HOME/bin/polipo/polipo_trimcache"
 #---------------------------------------------------
 
 #echo "初期値は、" $LimitDiskSize "%です。"
