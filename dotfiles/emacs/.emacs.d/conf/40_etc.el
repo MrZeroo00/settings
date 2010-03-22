@@ -110,6 +110,11 @@
 (my-require-and-when 'thing-opt)
 
 
+;;;; pos-tip
+;;;(install-elisp-from-emacswiki "pos-tip.el")
+(my-require-and-when 'pos-tip)
+
+
 ;;;; sense-region
 ;;;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
 '(my-autoload-and-when 'sense-region-on "sense-region")
