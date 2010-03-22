@@ -1,0 +1,43 @@
+#!/bin/sh
+
+while getopts "do" flag; do
+  case ${flag} in
+    \?) OPT_ERROR=1; break;;
+    d) opt_d=true;;
+    o) opt_o=true;;
+  esac
+done
+
+shift $(( $OPTIND - 1 ))
+
+if [ $OPT_ERROR ]; then
+  echo >&2 "Error."
+  exit 1
+fi
+
+file="$1"
+
+function extract_zip() {
+  option=""
+
+  if [ ${opt_d} ]; then
+    option="${option} -d `dirname $1`"
+  fi
+  if [ ${opt_o} ]; then
+    option="${option} -o"
+  fi
+
+  unzip ${option} "$1" > /dev/null 2>&1
+}
+
+case "$file" in
+  *.zip) extract_zip "$file";;
+  *) exit 1;;
+esac
+
+if [ $? = 0 ]; then
+  echo "$file is extracted."
+  rm -f "$file"
+else
+  echo >&2 "Error: $file is broken."
+fi
