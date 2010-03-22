@@ -10,9 +10,9 @@ if [ -n "$2" ]; then
 fi
 
 # set cookie
-if [ -n "$3" ]; then
-  opt="${opt} --load-cookies='$3'"
-fi
+#if [ -n "$3" ]; then
+#  opt="${opt} --load-cookies='$3'"
+#fi
 
 # set username/password
 if [ -n "$3" ]; then
@@ -35,4 +35,4 @@ opt="${opt} --dir='${dir}'"
 mkdir -p "${dir}"
 
 
-aria2_add_uri ${opt} "${url}"
+eval aria2_add_uri ${opt} "${url}"
