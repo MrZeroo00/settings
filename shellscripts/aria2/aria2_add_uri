@@ -4,7 +4,7 @@ require 'xmlrpc/client'
 require 'pp'
 require 'yaml'
 
-config_file = open("#ENV['HOME']/.aria2/config.yaml")
+config_file = open("#{ENV['HOME']}/.aria2/config.yaml")
 config = YAML::load(config_file.read())
 config_file.close()
 
