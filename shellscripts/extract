@@ -21,13 +21,13 @@ function extract_zip() {
   option=""
 
   if [ ${opt_d} ]; then
-    option="${option} -d `dirname $1`"
+    option="${option} -d '`dirname $1`'"
   fi
   if [ ${opt_o} ]; then
     option="${option} -o"
   fi
 
-  unzip ${option} "$1" > /dev/null 2>&1
+  eval unzip ${option} $1
 }
 
 case "$file" in
