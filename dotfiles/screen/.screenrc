@@ -6,7 +6,7 @@ source $HOME/.screen-tscreen
 screen -t top 0 nice top
 #screen -t emacs 1 emacs -nw
 screen
-screen -t w3m 9 $HOME/bin/screen/screen-w3m-server
+screen -t w3m 9 $HOME/bin/screen/screen_w3m_server
 select 1
 select 2
 

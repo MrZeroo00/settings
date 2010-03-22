@@ -83,7 +83,7 @@ case "${OS}" in
   export LANG=ja_JP.UTF-8
   export TZ='JST-9'
   export JLESSCHARSET='japanese-sjis'
-  mintty_color.sh
+  mintty_color
   ;;
 esac
 
