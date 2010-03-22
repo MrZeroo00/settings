@@ -303,3 +303,10 @@
 (setq fit-frame-inhibit-fitting-flag t)
 (setq anything-save-configuration-functions '(set-window-configuration . current-window-configuration))
 (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history) ; adaptive sort file is buggy
+
+
+;;;; macros
+;;; http://www.emacswiki.org/emacs/AnythingSources
+(my-load-and-when "_anything-c-source-other-windows")
+;;; http://gist.github.com/315995
+(my-load-and-when "_any-source-visible-mark")
