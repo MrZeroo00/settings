@@ -107,11 +107,11 @@ bind P colon "^p"
 #bind ^E encoding euc
 
 # additional key bindings
-#bind '-' exec screensplit.rb telnet
-bind '-' exec $HOME/bin/screen/screen-split.sh --toggle w3m 8
-bind ^w exec $HOME/bin/screen/screen-copy-word.sh -e
-bind ^j exec $HOME/bin/screen/screen-copy-word.sh -j
-bind ^k exec $HOME/bin/screen/screen-copy-line.sh
+#bind '-' exec screensplit telnet
+bind '-' exec $HOME/bin/screen/screen-split --toggle w3m 8
+bind ^w exec $HOME/bin/screen/screen-copy-word -e
+bind ^j exec $HOME/bin/screen/screen-copy-word -j
+bind ^k exec $HOME/bin/screen/screen-copy-line
 
 # window management by Emacs key bindings
 #bind ^w command -c REGION
@@ -145,8 +145,8 @@ bind ^a command -c SWITCH
 
 # move window
 bind m eval 'echo "Move window"' 'command -c MOVE'
-bind -c MOVE ^f eval "exec $HOME/bin/screen/screen-move-window.sh forward " "command -c MOVE"
-bind -c MOVE ^b eval "exec $HOME/bin/screen/screen-move-window.sh backward" "command -c MOVE"
+bind -c MOVE ^f eval "exec $HOME/bin/screen/screen-move-window forward " "command -c MOVE"
+bind -c MOVE ^b eval "exec $HOME/bin/screen/screen-move-window backward" "command -c MOVE"
 bind ^a command -c MOVE
 
 # resize window
@@ -158,10 +158,10 @@ bind ^a command -c RESIZE
 # launcher
 bind ^x	eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
 bind x eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
-bind -c LANUCHER f exec $HOME/bin/screen/screen-exec-x.sh -bg firefox
-bind -c LANUCHER w screen -t w3m $HOME/bin/screen/screen-exec.sh w3m http://www.google.co.jp/
-bind -c LANUCHER p screen -t cpan $HOME/bin/screen/screen-exec.sh perl -MCPAN -e shell
-bind -c LANUCHER t screen -t top $HOME/bin/screen/screen-exec.sh top
+bind -c LANUCHER f exec $HOME/bin/screen/screen-exec-x -bg firefox
+bind -c LANUCHER w screen -t w3m $HOME/bin/screen/screen-exec w3m http://www.google.co.jp/
+bind -c LANUCHER p screen -t cpan $HOME/bin/screen/screen-exec perl -MCPAN -e shell
+bind -c LANUCHER t screen -t top $HOME/bin/screen/screen-exec top
 bind ^a command -c LANUCHER
 
 # copy to X clipboard
