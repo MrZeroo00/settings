@@ -84,6 +84,13 @@ command -nargs=+ alc mr alc <args>
 
 "" colorscheme --------------------
 colorscheme my
+style -name personas chrome://* <<EOM
+#main-window { background-repeat: repeat-y !important; }
+#browser-bottombox { background-image: none !important; }
+#liberator-multiline-output, #liberator-completions { background: transparent !important; }
+#content tabpanels { background-color: transparent !important; }
+EOM
+autocmd LocationChange .* :js getBrowser().mCurrentBrowser.collapsed = buffer.URL == "about:blank" ? true : false
 
 
 "" QuickMarks --------------------
