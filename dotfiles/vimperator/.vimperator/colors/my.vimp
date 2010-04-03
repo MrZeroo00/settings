@@ -35,7 +35,7 @@ hi URL			color: LightGreen;
 hi TabNumber		color: black; font-weight: bold; font-size: 10pt;
 
 style -name tab chrome://* <<EOM
-#content { background-color: #ccc; } /* tabbar */
+//#content { background-color: #ccc; } /* tabbar */
 .tabs-alltabs-button { padding: 0 !important; }
 .tabs-container > stack { display: none; } /* remove tab selection menu */
 /*.tabs-container .box-inherit.scrollbox-innerbox { border-bottom: 1px solid #404040; } /* tab bar position: top */
