@@ -59,7 +59,7 @@
 
 ;; $Log: ac-anything.el,v $
 ;; Revision 1.6  2009/11/11 17:13:11  rubikitch
-;; Use pulldown.el if available
+;; Use popup.el if available
 ;;
 ;; Revision 1.5  2009/11/11 17:08:16  rubikitch
 ;; Replace ac-prefix with (anything-attr 'ac-prefix)
@@ -84,7 +84,7 @@
 (require 'anything)
 (require 'anything-match-plugin nil t)
 (require 'auto-complete)
-(require 'pulldown nil t)               ;for latest version of auto-complete
+(require 'popup nil t)               ;for latest version of auto-complete
 
 (when (require 'anything-show-completion nil t)
   (use-anything-show-completion 'ac-complete-with-anything
@@ -101,8 +101,8 @@ It is useful to narrow candidates."
 (defun anything-c-auto-complete-init ()
   (anything-attrset 'ac-candidates ac-candidates)
   (anything-attrset 'menu-width
-                    (if (fboundp 'pulldown-width)
-                        (pulldown-width ac-menu)
+                    (if (fboundp 'popup-width)
+                        (popup-width ac-menu)
                       (ac-menu-width ac-menu)))
   (anything-attrset 'ac-prefix ac-prefix)
   (ac-abort))
