@@ -62,7 +62,7 @@
 (defun other-window-or-split ()
   (interactive)
   (when (one-window-p)
-    (if (> (window-width) (window-height))
+    (if (> (* (window-width) 0.5) (window-height))
         (split-window-horizontally)
       (split-window-vertically)))
   (other-window 1))
