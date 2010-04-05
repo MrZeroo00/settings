@@ -13,6 +13,11 @@
   (define-key ac-complete-mode-map (kbd "C-'") 'ac-complete-with-anything))
 
 
+;;;; anything-auto-install
+;;;(install-elisp-from-emacswiki "anything-auto-install.el")
+(my-require-and-when 'anything-auto-install)
+
+
 ;;;; anything-c-dabbrev
 ;;;(install-elisp-from-emacswiki "anything-c-dabbrev.el")
 
@@ -139,6 +144,11 @@
 ;;;(install-elisp-from-emacswiki "anything-match-plugin.el")
 (my-require-and-when 'anything-match-plugin
   (setq anything-mp-space-regexp "[\\ ] "))
+
+
+;;;; anything-menu
+;;;(install-elisp-from-emacswiki "anything-menu.el")
+(my-require-and-when 'anything-menu)
 
 
 ;;;; anything-migemo
