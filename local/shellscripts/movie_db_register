@@ -1,0 +1,73 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use File::Find;
+#use File::Spec;
+use File::stat;
+use POSIX 'strftime';
+use DBI;
+
+
+# settings
+my $table_name = "movies";
+my $db_file = "movies.db";
+
+
+my $dbh = DBI->connect("dbi:SQLite:dbname=${db_file}");
+
+sub entry_exist {
+  my $sql = $_[0];
+  my $sth = $dbh->prepare($sql);
+  $sth->execute;
+
+  if ($sth->fetchrow_array) {
+    return 1;
+  }
+  return 0;
+}
+
+sub db_exist {
+  my $table_name = $_[0];
+  return entry_exist("select name FROM sqlite_master WHERE type='table' and name='$table_name'");
+}
+
+unless (db_exist($table_name)) {
+  my $create_table = "create table ${table_name} (" .
+                         "path varchar," .
+                         "name varchar," .
+                         "mdate text," .
+                         "mtime text," .
+                         "cdate text," .
+                         "ctime text" .
+                     ");";
+  $dbh->do($create_table);
+  print "Create DB table!\n";
+}
+
+find(\&wanted, ('./'));
+sub wanted {
+  my $name = $_;
+  return unless ($name =~ /(\.wmv$|\.rm$)/);
+
+  my $dir = $File::Find::dir;
+  my $path = $File::Find::name;
+  #my $realpath = File::Spec->rel2abs($path);
+
+  my $stat = stat $name;
+  my @mtime = localtime($stat->mtime);
+  my @ctime = localtime($stat->ctime);
+
+  my @values = ($path, $name,
+                    strftime("%Y-%m-%d", @mtime),
+                    strftime("%H-%M-%S", @mtime),
+                    strftime("%Y-%m-%d", @ctime),
+                    strftime("%H-%M-%S", @ctime));
+
+  my $values_str = join ", ", map { "\'$_\'" } @values;
+
+  unless (entry_exist("select path from movies where path='${path}'")) {
+    $dbh->do("insert into movies (path, name, mdate, mtime, cdate, ctime) values (" . $values_str . ");");
+  }
+}
+
+$dbh->disconnect;
