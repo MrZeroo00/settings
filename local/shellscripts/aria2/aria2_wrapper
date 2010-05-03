@@ -1,0 +1,60 @@
+#!/bin/sh
+
+export LC_ALL=C
+
+while getopts "e" flag; do
+  case ${flag} in
+    \?) OPT_ERROR=1; break;;
+    e) opt_e=true;;
+  esac
+done
+
+shift $(( $OPTIND - 1 ))
+
+if [ $OPT_ERROR ]; then
+  echo >&2 "Error."
+  exit 1
+fi
+
+
+aria2_opt=""
+url="`echo $1 | perl -pe 's%(\w+)://(.*@)?(.+)%\1://\3%'`" # remove pre-embedded authentication
+referer="$2"
+user="$3"
+pass="$4"
+
+root_dir=`grep 'dir=' "${HOME}/.aria2/aria2.conf" | perl -pe 's%dir=%%'`
+if [ -z "${root_dir}" ]; then
+  root_dir="${HOME}/Downloads/aria2"
+fi
+dir="${root_dir}/`echo $url | perl -pe 's%\w+://(.*)/[^/]*%\1%'`"
+
+
+# set referer
+if [ -n "${referer}" ]; then
+  aria2_opt="${aria2_opt} --referer='${referer}'"
+fi
+
+# set cookie
+#if [ -n "$3" ]; then
+#  aria2_opt="${aria2_opt} --load-cookies='$3'"
+#fi
+
+# set username/password
+if [ $opt_e ]; then
+  url="`echo $url | perl -pe \"s%(\w+://)%\1${user}:${pass}@%\"`"
+else
+  if [ -n "${user}" ]; then
+    aria2_opt="${aria2_opt} --http-user='${user}'"
+  fi
+  if [ -n "${pass}" ]; then
+    aria2_opt="${aria2_opt} --http-pass='${pass}'"
+  fi
+fi
+
+# set directory
+aria2_opt="${aria2_opt} --dir='${dir}'"
+mkdir -p "${dir}"
+
+
+eval aria2_add_uri ${aria2_opt} "${url}"
