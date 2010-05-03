@@ -49,7 +49,7 @@ sub sbm_urls {
   foreach my $url (@urls) {
     $mech->get($url->{'link'});
     $real_uri = $mech->uri();
-    $res = $del->add_post({ url => $real_uri, description => $url->{'title'}, tags => 'archive', replace => 0 });
+    $res = $del->add_post({ url => $real_uri, description => $url->{'title'}, tags => 'archive', shared => 0, replace => 0 });
     print (OUT "$url->{'title'}\n");
     print (OUT "$url->{'link'}\n");
     print (OUT "$real_uri\n");
