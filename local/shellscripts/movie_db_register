@@ -33,6 +33,7 @@ sub db_exist {
 
 unless (db_exist($table_name)) {
   my $create_table = "create table ${table_name} (" .
+  #"id integer," .
                          "path text," .
                          "name text," .
                          "mdate text," .
@@ -41,6 +42,8 @@ unless (db_exist($table_name)) {
                          "ctime text" .
                      ");";
   $dbh->do($create_table);
+  #$dbh->do("create index id_index on ${table_name}(id);");
+  $dbh->do("create index path_index on ${table_name}(path);");
   print "Create DB table!\n";
 }
 
@@ -63,10 +66,10 @@ sub wanted {
                     strftime("%Y-%m-%d", @ctime),
                     strftime("%H-%M-%S", @ctime));
 
-  my $values_str = join ", ", map { "\'$_\'" } @values;
+  my $values_str = join ", ", map { "'$_'" } @values;
 
-  unless (entry_exist("select path from movies where path='${path}'")) {
-    $dbh->do("insert into movies (path, name, mdate, mtime, cdate, ctime) values (" . $values_str . ");");
+  unless (entry_exist("select path from ${table_name} where path='${path}'")) {
+    $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime) values (" . $values_str . ");");
   }
 }
 
