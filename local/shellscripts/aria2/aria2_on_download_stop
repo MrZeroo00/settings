@@ -25,6 +25,5 @@ for file in result.collect {|x| x['path']}
 end
 
 if status == "complete" then
-  system("/Users/tanda/download_db2 #{file}")
   system("on_download_complete -d -o #{file}")
 end
