@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+
+while (my $line = readline(*STDIN)) {
+  chomp $line;
+  print $line, "\n";
+  if ($line =~ /^.*ANS_path=(.*)/) {
+    system("/Users/tanda/bin/local/movie_db star $1");
+  }
+}
