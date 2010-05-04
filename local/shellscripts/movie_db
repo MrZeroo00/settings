@@ -117,8 +117,8 @@ sub register {
 
 switch ($ARGV[0]) {
   case "register" { register() }
-  case "get" { get($ARGV[1], $ARGV[2]) }
-  case "set" { set($ARGV[1], $ARGV[2], $ARGV[3]) }
+  case "get" { get($ARGV[2], $ARGV[1]) }
+  case "set" { set($ARGV[3], $ARGV[1], $ARGV[2]) }
   else { die "Error: Unknown operation." }
 }
 

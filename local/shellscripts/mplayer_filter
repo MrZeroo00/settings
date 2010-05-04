@@ -1,12 +1,30 @@
 #!/usr/bin/env perl
+use strict;
+use warnings;
+
+sub star {
+  my $star = shift;
+
+  for (my $i = 0; $i < $star; $i++) {
+    print $star;
+  }
+}
 
 while (my $line = readline(*STDIN)) {
   chomp $line;
-  if ($line =~ /^A: /) {
-    print $line, "\n";
-  } elsif ($line =~ /^Playing/) {
-    print "AAA", $line, "\n";
-  } if ($line =~ /^.*ANS_path=(.*)/) {
-    system("/Users/tanda/bin/local/movie_db star $1");
+  if ($line =~ /^Playing (.*)\.$/) {
+    my $star = `movie_db get star $1`;
+    print "Now Playing: $1";
+    star($star);
+    print "\n";
+  } elsif ($line =~ /^.*ANS_path=(.*)/) {
+    my $star = `movie_db get star $1`;
+    $star++;
+    if ($star <= 5) {
+      system("movie_db set star $star $1");
+      print "Add star: $1, ";
+      star($star);
+      print "\n";
+    }
   }
 }
