@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use Switch;
 use File::Find;
 #use File::Spec;
 use File::stat;
@@ -13,8 +14,15 @@ my $table_name = "download";
 my $db_file = "movies.db";
 
 
+if (@ARGV < 0) {
+  die "Error.";
+}
+
+
 my $dbh = DBI->connect("dbi:SQLite:dbname=${db_file}");
 
+
+# utility
 sub entry_exist {
   my $sql = $_[0];
   my $sth = $dbh->prepare($sql);
@@ -31,42 +39,60 @@ sub db_exist {
   return entry_exist("select name FROM sqlite_master WHERE type='table' and name='$table_name'");
 }
 
-unless (db_exist($table_name)) {
-  my $create_table = "create table ${table_name} (" .
-                         "id integer," .
-                         "uri text," .
-                         "referer text," .
-                         "status integer" .
-                     ");";
-  $dbh->do($create_table);
-  $dbh->do("create index id_index on ${table_name}(id);");
-  print "Create DB table!\n";
-}
 
-sub get_id() {
-  my $sql = "select max(id) from ${table_name};";
-  my $sth = $dbh->prepare($sql);
-  $sth->execute;
-
-  my @row = $sth->fetchrow_array;
-  if (defined($row[0])) {
-    return int($row[0]) + 1;
+# register
+sub register {
+  unless (db_exist($table_name)) {
+    my $create_table = "create table ${table_name} (" .
+                           "id integer," .
+                           "uri text," .
+                           "referer text," .
+                           "status text" .
+                       ");";
+    $dbh->do($create_table);
+    $dbh->do("create index id_index on ${table_name}(id);");
+    print "Create DB table!\n";
   }
-  return 1;
+  
+  sub get_id() {
+    my $sql = "select max(id) from ${table_name};";
+    my $sth = $dbh->prepare($sql);
+    $sth->execute;
+  
+    my @row = $sth->fetchrow_array;
+    if (defined($row[0])) {
+      return int($row[0]) + 1;
+    }
+    return 1;
+  }
+  
+  my $id = get_id();
+  my $uri = $_[0];
+  my $referer = $_[1];
+  my $status = "incomplete";
+  my @values = ($id, $uri, $referer, $status);
+  
+  my $values_str = join ", ", map { "'$_'" } @values;
+  
+  unless (entry_exist("select uri from ${table_name} where uri='${uri}'")) {
+    $dbh->do("insert into ${table_name} (id, uri, referer, status) values (" . $values_str . ");");
+  }
 }
 
-my $id = get_id();
-my $uri = shift;
-my $referer = shift;
-my $status = shift;
-my @values = ($id, $uri, $referer, $status);
 
-my $values_str = join ", ", map { "'$_'" } @values;
+# status
+sub status {
+  my $uri = $_[0];
+  my $status = $_[1];
 
-unless (entry_exist("select uri from ${table_name} where uri='${uri}'")) {
-  $dbh->do("insert into ${table_name} (id, uri, referer, status) values (" . $values_str . ");");
-} else {
   $dbh->do("update ${table_name} set status = '${status}' where uri = '${uri}';");
+}
+
+
+switch ($ARGV[0]) {
+  case "register" { register($ARGV[1], $ARGV[2]) }
+  case "status" { status($ARGV[1], $ARGV[2]) }
+  else { die "Error: Unknown operation." }
 }
 
 $dbh->disconnect;
