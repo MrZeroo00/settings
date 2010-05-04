@@ -11,8 +11,19 @@ config_file.close()
 gid = ARGV[0]
 
 client = XMLRPC::Client.new2("http://#{config['user']}:#{config['pass']}@localhost:6800/rpc")
-result = client.call("aria2.getFiles", gid)
 
+result = client.call("aria2.tellStatus", gid)
+status = result['status']
+
+result = client.call("aria2.getFiles", gid)
 for file in result.collect {|x| x['path']}
-  system("echo #{file}")
+  # temporaliry patch
+  uri = file.sub(/.*aria2\//, "http://")
+  Dir.chdir("#{ENV['HOME']}/Downloads/aria2")
+
+  system("download_db status #{uri} #{status}")
+end
+
+if status == "complete" then
+  system("extract #{file}")
 end
