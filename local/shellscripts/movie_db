@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use Switch;
 use File::Find;
 #use File::Spec;
 use File::stat;
@@ -13,8 +14,14 @@ my $table_name = "movies";
 my $db_file = "movies.db";
 
 
+if (@ARGV < 1) {
+  die "Error."
+}
+
 my $dbh = DBI->connect("dbi:SQLite:dbname=${db_file}");
 
+
+# utility
 sub entry_exist {
   my $sql = $_[0];
   my $sth = $dbh->prepare($sql);
@@ -31,46 +38,57 @@ sub db_exist {
   return entry_exist("select name FROM sqlite_master WHERE type='table' and name='$table_name'");
 }
 
-unless (db_exist($table_name)) {
-  my $create_table = "create table ${table_name} (" .
-  #"id integer," .
-                         "path text," .
-                         "name text," .
-                         "mdate text," .
-                         "mtime text," .
-                         "cdate text," .
-                         "ctime text" .
-                     ");";
-  $dbh->do($create_table);
-  #$dbh->do("create index id_index on ${table_name}(id);");
-  $dbh->do("create index path_index on ${table_name}(path);");
-  print "Create DB table!\n";
-}
 
-find(\&wanted, ('./'));
-sub wanted {
-  my $name = $_;
-  return unless ($name =~ /(\.wmv$|\.rm$)/);
-
-  my $dir = $File::Find::dir;
-  my $path = $File::Find::name;
-  #my $realpath = File::Spec->rel2abs($path);
-
-  my $stat = stat $name;
-  my @mtime = localtime($stat->mtime);
-  my @ctime = localtime($stat->ctime);
-
-  my @values = ($path, $name,
-                    strftime("%Y-%m-%d", @mtime),
-                    strftime("%H-%M-%S", @mtime),
-                    strftime("%Y-%m-%d", @ctime),
-                    strftime("%H-%M-%S", @ctime));
-
-  my $values_str = join ", ", map { "'$_'" } @values;
-
-  unless (entry_exist("select path from ${table_name} where path='${path}'")) {
-    $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime) values (" . $values_str . ");");
+# register
+sub register {
+  unless (db_exist($table_name)) {
+    my $create_table = "create table ${table_name} (" .
+    #"id integer," .
+                           "path text," .
+                           "name text," .
+                           "mdate text," .
+                           "mtime text," .
+                           "cdate text," .
+                           "ctime text" .
+                       ");";
+    $dbh->do($create_table);
+    #$dbh->do("create index id_index on ${table_name}(id);");
+    $dbh->do("create index path_index on ${table_name}(path);");
+    print "Create DB table!\n";
+  }
+  
+  find(\&wanted, ('./'));
+  sub wanted {
+    my $name = $_;
+    return unless ($name =~ /(\.wmv$|\.rm$)/);
+  
+    my $dir = $File::Find::dir;
+    my $path = $File::Find::name;
+    #my $realpath = File::Spec->rel2abs($path);
+  
+    my $stat = stat $name;
+    my @mtime = localtime($stat->mtime);
+    my @ctime = localtime($stat->ctime);
+  
+    my @values = ($path, $name,
+                      strftime("%Y-%m-%d", @mtime),
+                      strftime("%H-%M-%S", @mtime),
+                      strftime("%Y-%m-%d", @ctime),
+                      strftime("%H-%M-%S", @ctime));
+  
+    my $values_str = join ", ", map { "'$_'" } @values;
+  
+    unless (entry_exist("select path from ${table_name} where path='${path}'")) {
+      $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime) values (" . $values_str . ");");
+    }
   }
 }
+
+
+switch ($ARGV[0]) {
+  case "register" { register () }
+  else { die "Error: Unknown operation." }
+}
+
 
 $dbh->disconnect;
