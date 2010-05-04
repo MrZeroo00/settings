@@ -34,8 +34,35 @@ sub entry_exist {
 }
 
 sub db_exist {
-  my $table_name = $_[0];
+  my $table_name = shift;
   return entry_exist("select name FROM sqlite_master WHERE type='table' and name='$table_name'");
+}
+
+sub registered {
+  my $path = shift;
+  return entry_exist("select path from ${table_name} where path='${path}'");
+}
+
+sub get {
+  my ($path, $param) = @_;
+
+  my $sth = $dbh->prepare("select ${param} from ${table_name} where path='${path}'");
+  $sth->execute;
+
+  my @result = $sth->fetchrow_array;
+  if (defined($result[0])) {
+    print $result[0], "\n";
+    return $result[0];
+  }
+  return;
+}
+
+sub set {
+  my ($path, $param, $val) = @_;
+
+  if (registered($path)) {
+    $dbh->do("update ${table_name} set ${param} = '${val}' where path = '${path}';");
+  }
 }
 
 
@@ -81,26 +108,8 @@ sub register {
   
     my $values_str = join ", ", map { "'$_'" } @values;
   
-    unless (entry_exist("select path from ${table_name} where path='${path}'")) {
+    unless (registered($path)) {
       $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime, star) values (" . $values_str . ");");
-    }
-  }
-}
-
-
-# star
-sub star {
-  my $path = $_[0];
-
-  my $sth = $dbh->prepare("select star from ${table_name} where path='${path}'");
-  $sth->execute;
-
-  my @result = $sth->fetchrow_array;
-  if (defined($result[0])) {
-    my $star = $result[0];
-    $star++;
-    if ($star <= 5) {
-      $dbh->do("update ${table_name} set star = '${star}' where path = '${path}';");
     }
   }
 }
@@ -108,7 +117,8 @@ sub star {
 
 switch ($ARGV[0]) {
   case "register" { register() }
-  case "star" { star($ARGV[1]) }
+  case "get" { get($ARGV[1], $ARGV[2]) }
+  case "set" { set($ARGV[1], $ARGV[2], $ARGV[3]) }
   else { die "Error: Unknown operation." }
 }
 

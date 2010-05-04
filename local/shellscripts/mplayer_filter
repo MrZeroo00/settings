@@ -2,8 +2,11 @@
 
 while (my $line = readline(*STDIN)) {
   chomp $line;
-  print $line, "\n";
-  if ($line =~ /^.*ANS_path=(.*)/) {
+  if ($line =~ /^A: /) {
+    print $line, "\n";
+  } elsif ($line =~ /^Playing/) {
+    print "AAA", $line, "\n";
+  } if ($line =~ /^.*ANS_path=(.*)/) {
     system("/Users/tanda/bin/local/movie_db star $1");
   }
 }
