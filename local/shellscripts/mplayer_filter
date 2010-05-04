@@ -14,11 +14,13 @@ while (my $line = readline(*STDIN)) {
   chomp $line;
   if ($line =~ /^Playing (.*)\.$/) {
     my $star = `movie_db get star $1`;
-    print "Now Playing: $1";
+    chomp $star;
+    print "Now Playing: $1, ";
     star($star);
     print "\n";
   } elsif ($line =~ /^.*ANS_path=(.*)/) {
     my $star = `movie_db get star $1`;
+    chomp $star;
     $star++;
     if ($star <= 5) {
       system("movie_db set star $star $1");
