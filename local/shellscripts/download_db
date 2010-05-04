@@ -49,7 +49,7 @@ sub get_id() {
   $sth->execute;
 
   my @row = $sth->fetchrow_array;
-  if ($row[0]) {
+  if (defined($row[0])) {
     return int($row[0]) + 1;
   }
   return 1;

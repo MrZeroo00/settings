@@ -49,7 +49,8 @@ sub register {
                            "mdate text," .
                            "mtime text," .
                            "cdate text," .
-                           "ctime text" .
+                           "ctime text," .
+                           "star integer" .
                        ");";
     $dbh->do($create_table);
     #$dbh->do("create index id_index on ${table_name}(id);");
@@ -74,19 +75,40 @@ sub register {
                       strftime("%Y-%m-%d", @mtime),
                       strftime("%H-%M-%S", @mtime),
                       strftime("%Y-%m-%d", @ctime),
-                      strftime("%H-%M-%S", @ctime));
+                      strftime("%H-%M-%S", @ctime),
+                      0
+                 );
   
     my $values_str = join ", ", map { "'$_'" } @values;
   
     unless (entry_exist("select path from ${table_name} where path='${path}'")) {
-      $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime) values (" . $values_str . ");");
+      $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime, star) values (" . $values_str . ");");
+    }
+  }
+}
+
+
+# star
+sub star {
+  my $path = $_[0];
+
+  my $sth = $dbh->prepare("select star from ${table_name} where path='${path}'");
+  $sth->execute;
+
+  my @result = $sth->fetchrow_array;
+  if (defined($result[0])) {
+    my $star = $result[0];
+    $star++;
+    if ($star <= 5) {
+      $dbh->do("update ${table_name} set star = '${star}' where path = '${path}';");
     }
   }
 }
 
 
 switch ($ARGV[0]) {
-  case "register" { register () }
+  case "register" { register() }
+  case "star" { star($ARGV[1]) }
   else { die "Error: Unknown operation." }
 }
 
