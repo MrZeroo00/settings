@@ -30,6 +30,11 @@ fi
 dir="${root_dir}/`echo $url | perl -pe 's%\w+://(.*)/[^/]*%\1%'`"
 
 
+# register information to DB
+cd ${root_dir}
+download_db register ${url} ${referer}
+
+
 # set referer
 if [ -n "${referer}" ]; then
   aria2_opt="${aria2_opt} --referer='${referer}'"
