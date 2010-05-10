@@ -327,6 +327,10 @@
   (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook))
 
 
+;;;; graphviz
+(my-load-and-when "graphviz-dot-mode")
+
+
 ;;;; ediff
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
