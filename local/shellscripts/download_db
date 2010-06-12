@@ -76,6 +76,9 @@ sub register {
   
   unless (entry_exist("select uri from ${table_name} where uri='${uri}'")) {
     $dbh->do("insert into ${table_name} (id, uri, referer, status) values (" . $values_str . ");");
+    print "Registered.\n";
+  } else {
+    print "Duplicated.\n";
   }
 }
 

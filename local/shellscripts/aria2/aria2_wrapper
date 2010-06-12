@@ -32,7 +32,11 @@ dir="${root_dir}/`echo $url | perl -pe 's%\w+://(.*)/[^/]*%\1%'`"
 
 # register information to DB
 cd ${root_dir}
-download_db register ${url} ${referer}
+result=`download_db register ${url} ${referer}`
+if [ "${result}" = "Duplicated." ]; then
+  echo >&2 "Skip."
+  exit 1
+fi
 
 
 # set referer
