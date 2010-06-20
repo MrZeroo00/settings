@@ -6,7 +6,7 @@ sub star {
   my $star = shift;
 
   for (my $i = 0; $i < $star; $i++) {
-    print $star;
+    print "X";
   }
 }
 
