@@ -1,5 +1,0 @@
-#!/bin/sh
-
-for i in `extract -d -o $1`; do
-  movie_db add $i
-done
