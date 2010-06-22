@@ -3,8 +3,9 @@ use strict;
 use warnings;
 use Switch;
 use File::Find;
-#use File::Spec;
+use File::Spec;
 use File::stat;
+use File::Basename;
 use POSIX 'strftime';
 use DBI;
 
@@ -43,6 +44,56 @@ sub registered {
   return entry_exist("select path from ${table_name} where path='${path}'");
 }
 
+# create
+sub create {
+  unless (db_exist($table_name)) {
+    my $create_table = "create table ${table_name} (" .
+    #"id integer," .
+    "path text," .
+    "name text," .
+    "mdate text," .
+    "mtime text," .
+    "cdate text," .
+    "ctime text," .
+    "star integer," .
+    "referer text" .
+    ");";
+    $dbh->do($create_table);
+    #$dbh->do("create index id_index on ${table_name}(id);");
+    $dbh->do("create index path_index on ${table_name}(path);");
+    print "Create DB table!\n";
+  }
+}
+
+# add
+sub add {
+  my $path = shift;
+  my $name = shift;
+
+  $name = basename($path) unless defined($name);
+  my $realpath = File::Spec->rel2abs($path);
+  create();
+
+  my $stat = stat($realpath);
+  my @mtime = localtime($stat->mtime);
+  my @ctime = localtime($stat->ctime);
+
+  my @values = ($path, $name,
+    strftime("%Y-%m-%d", @mtime),
+    strftime("%H-%M-%S", @mtime),
+    strftime("%Y-%m-%d", @ctime),
+    strftime("%H-%M-%S", @ctime),
+    0,
+    ""
+  );
+
+  my $values_str = join ", ", map { "'$_'" } @values;
+
+  unless (registered($path)) {
+    $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime, star, referer) values (" . $values_str . ");");
+  }
+}
+
 sub get {
   my ($path, $param) = @_;
 
@@ -65,62 +116,25 @@ sub set {
   }
 }
 
-
 # register
 sub register {
-  unless (db_exist($table_name)) {
-    my $create_table = "create table ${table_name} (" .
-    #"id integer," .
-                           "path text," .
-                           "name text," .
-                           "mdate text," .
-                           "mtime text," .
-                           "cdate text," .
-                           "ctime text," .
-                           "star integer" .
-                       ");";
-    $dbh->do($create_table);
-    #$dbh->do("create index id_index on ${table_name}(id);");
-    $dbh->do("create index path_index on ${table_name}(path);");
-    print "Create DB table!\n";
-  }
-  
   find(\&wanted, ('./'));
   sub wanted {
     my $name = $_;
     return unless ($name =~ /(\.wmv$|\.rm$)/);
-  
-    my $dir = $File::Find::dir;
+
     my $path = $File::Find::name;
-    #my $realpath = File::Spec->rel2abs($path);
-  
-    my $stat = stat $name;
-    my @mtime = localtime($stat->mtime);
-    my @ctime = localtime($stat->ctime);
-  
-    my @values = ($path, $name,
-                      strftime("%Y-%m-%d", @mtime),
-                      strftime("%H-%M-%S", @mtime),
-                      strftime("%Y-%m-%d", @ctime),
-                      strftime("%H-%M-%S", @ctime),
-                      0
-                 );
-  
-    my $values_str = join ", ", map { "'$_'" } @values;
-  
-    unless (registered($path)) {
-      $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime, star) values (" . $values_str . ");");
-    }
+    add($path, $name);
   }
 }
 
 
 switch ($ARGV[0]) {
   case "register" { register() }
+  case "add" { add($ARGV[1]) }
   case "get" { get($ARGV[2], $ARGV[1]) }
   case "set" { set($ARGV[3], $ARGV[1], $ARGV[2]) }
   else { die "Error: Unknown operation." }
 }
-
 
 $dbh->disconnect;
