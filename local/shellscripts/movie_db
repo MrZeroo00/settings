@@ -143,6 +143,21 @@ sub register {
   }
 }
 
+sub list {
+  my ($param, $val) = @_;
+
+  my $sth = $dbh->prepare("select path from movies order by star desc, referer, name");
+  $sth->execute;
+
+  my @result;
+  while (@result = $sth->fetchrow_array) {
+    if (defined($result[0])) {
+      print $result[0], "\n";
+    }
+  }
+  return @result;
+}
+
 
 switch ($ARGV[0]) {
   case "add" { add($ARGV[1]) }
@@ -150,6 +165,7 @@ switch ($ARGV[0]) {
   case "set" { set($ARGV[3], $ARGV[1], $ARGV[2]) }
   case "register" { register() }
   case "match" { match($ARGV[1], $ARGV[2]) }
+  case "list" { list() }
   else { die "Error: Unknown operation." }
 }
 
