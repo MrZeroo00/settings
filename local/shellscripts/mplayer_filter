@@ -23,8 +23,18 @@ while (my $line = readline(*STDIN)) {
     chomp $star;
     $star++;
     if ($star <= 5) {
-      system("movie_db set star $star $1");
-      print "Add star: $1, ";
+      my $referer = `movie_db get referer $1`;
+      chomp($referer);
+      if ($referer eq "") {
+        system("movie_db set star $star $1");
+        print "Add star: $1, ";
+      } else {
+        my $matches = `movie_db match referer $referer`;
+        foreach my $file (split("\n", $matches)) {
+          system("movie_db set star $star $file");
+          print "Add star: $file, ";
+        }
+      }
       star($star);
       print "\n";
     }

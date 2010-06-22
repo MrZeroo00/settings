@@ -116,6 +116,21 @@ sub set {
   }
 }
 
+sub match {
+  my ($param, $val) = @_;
+
+  my $sth = $dbh->prepare("select path from ${table_name} where ${param}='${val}'");
+  $sth->execute;
+
+  my @result;
+  while (@result = $sth->fetchrow_array) {
+    if (defined($result[0])) {
+      print $result[0], "\n";
+    }
+  }
+  return @result;
+}
+
 # register
 sub register {
   find(\&wanted, ('./'));
@@ -130,10 +145,11 @@ sub register {
 
 
 switch ($ARGV[0]) {
-  case "register" { register() }
   case "add" { add($ARGV[1]) }
   case "get" { get($ARGV[2], $ARGV[1]) }
   case "set" { set($ARGV[3], $ARGV[1], $ARGV[2]) }
+  case "register" { register() }
+  case "match" { match($ARGV[1], $ARGV[2]) }
   else { die "Error: Unknown operation." }
 }
 
