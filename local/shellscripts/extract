@@ -27,7 +27,7 @@ function extract_zip() {
     option="${option} -o"
   fi
 
-  eval unzip ${option} $1 | grep "inflating:" | sed -e "s/^ *inflating: /.\//"
+  eval unzip ${option} $1 | grep "inflating:" | sed -e "s/^ *inflating: //" | egrep "(wmv|rm)"
 }
 
 case "${file}" in
