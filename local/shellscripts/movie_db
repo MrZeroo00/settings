@@ -152,7 +152,7 @@ sub list {
   my @result;
   while (@result = $sth->fetchrow_array) {
     if (defined($result[0])) {
-      print $result[0], "\n";
+      print $result[0], "\n" if (-e $result[0]);
     }
   }
   return @result;
