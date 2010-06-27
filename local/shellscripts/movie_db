@@ -55,6 +55,7 @@ sub create {
     "mtime text," .
     "cdate text," .
     "ctime text," .
+    "count integer" .
     "star integer," .
     "referer text" .
     ");";
@@ -84,14 +85,22 @@ sub add {
     strftime("%Y-%m-%d", @ctime),
     strftime("%H-%M-%S", @ctime),
     0,
+    0,
     ""
   );
 
   my $values_str = join ", ", map { "'$_'" } @values;
 
   unless (registered($path)) {
-    $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime, star, referer) values (" . $values_str . ");");
+    $dbh->do("insert into ${table_name} (path, name, mdate, mtime, cdate, ctime, count, star, referer) values (" . $values_str . ");");
   }
+}
+
+# remove
+sub remove {
+  my $path = shift;
+
+  $dbh->do("delete from ${table_name} where path='${path}'");
 }
 
 sub get {
@@ -143,6 +152,22 @@ sub register {
   }
 }
 
+sub check {
+  my ($param, $val) = @_;
+
+  my $sth = $dbh->prepare("select path from movies");
+  $sth->execute;
+
+  my @result;
+  while (@result = $sth->fetchrow_array) {
+    if (defined($result[0])) {
+      unless (-e $result[0]) {
+        remove($result[0]);
+      }
+    }
+  }
+}
+
 sub list {
   my ($param, $val) = @_;
 
@@ -161,10 +186,12 @@ sub list {
 
 switch ($ARGV[0]) {
   case "add" { add($ARGV[1]) }
+  case "remove" { remove($ARGV[1]) }
   case "get" { get($ARGV[2], $ARGV[1]) }
   case "set" { set($ARGV[3], $ARGV[1], $ARGV[2]) }
   case "register" { register() }
   case "match" { match($ARGV[1], $ARGV[2]) }
+  case "check" { check() }
   case "list" { list() }
   else { die "Error: Unknown operation." }
 }

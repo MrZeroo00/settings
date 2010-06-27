@@ -5,9 +5,7 @@ use warnings;
 sub star {
   my $star = shift;
 
-  for (my $i = 0; $i < $star; $i++) {
-    print "X";
-  }
+  return "X" x $star;
 }
 
 while (my $line = readline(*STDIN)) {
@@ -15,9 +13,13 @@ while (my $line = readline(*STDIN)) {
   if ($line =~ /^Playing (.*)\.$/) {
     my $star = `movie_db get star $1`;
     chomp $star;
-    print "Now Playing: $1, ";
-    star($star);
-    print "\n";
+
+    my $count = `movie_db get count $1`;
+    chomp $count;
+    $count++;
+    system("movie_db set count $count $1");
+
+    printf "Now Playing: %s, %s, %d\n", $1, star($star), $count;
   } elsif ($line =~ /^.*ANS_path=(.*)/) {
     my $star = `movie_db get star $1`;
     chomp $star;
@@ -26,9 +28,7 @@ while (my $line = readline(*STDIN)) {
       my $referer = `movie_db get referer $1`;
       chomp($referer);
       print "-----\n";
-      print "Add star: ";
-      star($star);
-      print "\n";
+      printf "Add star: %s\n", star($star);
       if ($referer eq "") {
         system("movie_db set star $star $1");
         print "$1\n";
