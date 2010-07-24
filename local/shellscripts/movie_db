@@ -55,7 +55,7 @@ sub create {
     "mtime text," .
     "cdate text," .
     "ctime text," .
-    "count integer" .
+    "count integer," .
     "star integer," .
     "referer text" .
     ");";
@@ -171,7 +171,7 @@ sub check {
 sub list {
   my ($param, $val) = @_;
 
-  my $sth = $dbh->prepare("select path from movies order by star desc, referer, name");
+  my $sth = $dbh->prepare("select path from movies order by star desc, referer, count, name");
   $sth->execute;
 
   my @result;
