@@ -34,10 +34,16 @@ dir="${root_dir}/`echo $url | perl -pe 's%\w+://(.*)/[^/]*%\1%'`"
 cd ${root_dir}
 result=`download_db register ${url} ${referer}`
 if [ "${result}" = "Duplicated." ]; then
-  echo >&2 "Skip."
+  echo >&2 "Skip: same url."
   exit 1
 fi
-
+filename=`echo ${url} | perl -pe "s%.*/(.*)%\1%"`
+registered=`sqlite3 ${HOME}/Downloads/aria2/movies.db "select * from download where referer = '${referer}'" | grep ${filename} | wc -l`
+if [ "${registered}" -gt 1 ]; then
+  download_db status ${url} 'ignore'
+  echo >&2 "Skip: same file."
+  exit 1
+fi
 
 # set referer
 if [ -n "${referer}" ]; then
