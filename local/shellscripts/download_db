@@ -47,7 +47,12 @@ sub register {
                            "id integer," .
                            "uri text," .
                            "referer text," .
-                           "status text" .
+                           "status text," .
+                           "date text," .
+                           "priority integer," .
+                           "count integer," .
+                           "user text," .
+                           "password text" .
                        ");";
     $dbh->do($create_table);
     $dbh->do("create index id_index on ${table_name}(id);");
@@ -70,12 +75,17 @@ sub register {
   my $uri = $_[0];
   my $referer = $_[1];
   my $status = "incomplete";
-  my @values = ($id, $uri, $referer, $status);
+  my $date = strftime("%Y-%m-%d", localtime(time()));
+  my $priority = 1;
+  my $count = 0;
+  my $user = $_[2];
+  my $password = $_[3];
+  my @values = ($id, $uri, $referer, $status, $date, $priority, $count, $user, $password);
   
   my $values_str = join ", ", map { "'$_'" } @values;
   
   unless (entry_exist("select uri from ${table_name} where uri='${uri}'")) {
-    $dbh->do("insert into ${table_name} (id, uri, referer, status) values (" . $values_str . ");");
+    $dbh->do("insert into ${table_name} (id, uri, referer, status, date, priority, count, user, password) values (" . $values_str . ");");
     print "Registered.\n";
   } else {
     print "Duplicated.\n";
@@ -92,8 +102,10 @@ sub status {
 }
 
 
+my $user = $ARGV[3] ? $ARGV[3] : "";
+my $password = $ARGV[4] ? $ARGV[4] : "";
 switch ($ARGV[0]) {
-  case "register" { register($ARGV[1], $ARGV[2]) }
+  case "register" { register($ARGV[1], $ARGV[2], $user, $password) }
   case "status" { status($ARGV[1], $ARGV[2]) }
   else { die "Error: Unknown operation." }
 }
