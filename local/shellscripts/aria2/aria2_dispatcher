@@ -1,0 +1,85 @@
+#!/usr/bin/env perl
+
+my $nChild = 0;
+my $maxChild = 1;
+my %queue;
+
+while (my $entry = `download_db next_uri`) {
+  chomp($entry);
+  my ($uri, $referer, $user, $password) = split(/\|/, $entry);
+  my %req = (
+    uri => $uri,
+    referer => $referer,
+    user => $user,
+    password => $password
+  );
+
+  my $pid = fork;
+  if ($pid) {
+    $nChild++;
+    $queue{$pid} = \%req;
+  } else {
+    get(%req);
+    exit;
+  }
+
+  if ($nChild >= $maxChild) {
+    my $pid = wait;
+
+    # something wrong..
+    my $foo = $queue{$pid};
+    my %done_req = %$foo;
+    print("done:" , $done_req{uri} , "\n");
+    done(\%done_req, result_from_code($? >> 8));
+  }
+
+  sleep(1);
+}
+
+sub get {
+  my %req = @_;
+  my ( $uri, $referer, $user, $password ) = @req{ 'uri', 'referer', 'user', 'password' };
+
+  # temporary
+  my $path = $uri;
+  $path =~ s%\w+://(.*)/[^/]*%\1%;
+  my $dir = "$ENV{'HOME'}/tanda/Downloads/aria2/" . $path;
+  system("mkdir -p $dir");
+
+  if ($user) {
+    exec("aria2c --dir='$dir' --referer='$referer' --http-user='$user' --http-passwd='$password' '$uri' >/dev/null 2>&1");
+  } else {
+    exec("aria2c --dir='$dir' --referer='$referer' '$uri' >/dev/null 2>&1");
+  }
+}
+
+sub result_from_code {
+  my $code = $_[0];
+
+  if ($code == 0) {
+    return "complete";
+  } elsif ($code == 2) {
+    return "timeout";
+  } else {
+    return "incomplete";
+  }
+}
+
+sub done {
+  my ($req, $status) = @_;
+  # something wrong..
+  my %foo = %$req;
+  my ( $uri, $referer, $user, $password ) = @foo{ 'uri', 'referer', 'user', 'password' };
+
+  system("download_db status $uri $status");
+
+  if (status == "complete") {
+    my $path = $uri;
+    $path =~ s/http:\/\//.\//;
+
+    foreach my $f (`extract -d -o $path`) {
+      system("movie_db add $f");
+      system("movie_db set referer $referer $f");
+    }
+  }
+}
