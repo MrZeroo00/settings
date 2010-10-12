@@ -32,7 +32,7 @@ dir="${root_dir}/`echo $url | perl -pe 's%\w+://(.*)/[^/]*%\1%'`"
 
 # register information to DB
 cd ${root_dir}
-result=`download_db register ${url} ${referer}`
+result=`download_db register ${url} ${referer} ${user} ${pass}`
 if [ "${result}" = "Duplicated." ]; then
   echo >&2 "Skip: same url."
   exit 1
@@ -44,32 +44,3 @@ if [ "${registered}" -gt 1 ]; then
   echo >&2 "Skip: same file."
   exit 1
 fi
-
-# set referer
-if [ -n "${referer}" ]; then
-  aria2_opt="${aria2_opt} --referer='${referer}'"
-fi
-
-# set cookie
-#if [ -n "$3" ]; then
-#  aria2_opt="${aria2_opt} --load-cookies='$3'"
-#fi
-
-# set username/password
-if [ $opt_e ]; then
-  url="`echo $url | perl -pe \"s%(\w+://)%\1${user}:${pass}@%\"`"
-else
-  if [ -n "${user}" ]; then
-    aria2_opt="${aria2_opt} --http-user='${user}'"
-  fi
-  if [ -n "${pass}" ]; then
-    aria2_opt="${aria2_opt} --http-pass='${pass}'"
-  fi
-fi
-
-# set directory
-aria2_opt="${aria2_opt} --dir='${dir}'"
-mkdir -p "${dir}"
-
-
-eval aria2_add_uri ${aria2_opt} "${url}"
