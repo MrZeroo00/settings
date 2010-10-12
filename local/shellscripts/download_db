@@ -102,11 +102,27 @@ sub status {
 }
 
 
+# next_uri
+sub next_uri {
+  my $sth = $dbh->prepare("select uri, referer, user, password from ${table_name} where status='incomplete' order by priority, count limit 1;");
+  $sth->execute;
+
+  my @result;
+  while (@result = $sth->fetchrow_array) {
+    if (defined($result[0])) {
+      print join("|", @result), "\n";
+    }
+  }
+  return @result;
+}
+
+
 my $user = $ARGV[3] ? $ARGV[3] : "";
 my $password = $ARGV[4] ? $ARGV[4] : "";
 switch ($ARGV[0]) {
   case "register" { register($ARGV[1], $ARGV[2], $user, $password) }
   case "status" { status($ARGV[1], $ARGV[2]) }
+  case "next_uri" { next_uri() }
   else { die "Error: Unknown operation." }
 }
 
