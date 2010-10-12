@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 my $nChild = 0;
-my $maxChild = 1;
+my $maxChild = 3;
 my %queue;
 
 while (my $entry = `download_db next_uri`) {
@@ -29,7 +29,7 @@ while (my $entry = `download_db next_uri`) {
     # something wrong..
     my $foo = $queue{$pid};
     my %done_req = %$foo;
-    print("done:" , $done_req{uri} , "\n");
+    print("Done: $done_req{uri}\n");
     done(\%done_req, result_from_code($? >> 8));
   }
 
@@ -43,8 +43,9 @@ sub get {
   # temporary
   my $path = $uri;
   $path =~ s%\w+://(.*)/[^/]*%\1%;
-  my $dir = "$ENV{'HOME'}/tanda/Downloads/aria2/" . $path;
+  my $dir = "$ENV{'HOME'}/Downloads/aria2/" . $path;
   system("mkdir -p $dir");
+  system("download_db status $uri progress");
 
   if ($user) {
     exec("aria2c --dir='$dir' --referer='$referer' --http-user='$user' --http-passwd='$password' '$uri' >/dev/null 2>&1");
@@ -61,7 +62,8 @@ sub result_from_code {
   } elsif ($code == 2) {
     return "timeout";
   } else {
-    return "incomplete";
+    #return "incomplete";
+    return "fail";
   }
 }
 
