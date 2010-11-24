@@ -10,8 +10,10 @@ my $pid = open2(*Reader, *Writer, "~/src/mplayer/mplayer -slave -nograbpointer -
 
 my $read_thread = threads->new(\&read);
 my $write_thread = threads->new(\&write);
+my $activate_thread = threads->new(\&activate);
 $read_thread->join;
 $write_thread->join;
+$activate_thread->join;
 
 sub write {
   open(TTY, "+</dev/tty") or die "no tty: $!";
@@ -75,6 +77,13 @@ sub read {
         print "-----\n";
       }
     }
+  }
+}
+
+sub activate {
+  while (1) {
+    system "activate.scpt iTerm";
+    sleep 1;
   }
 }
 
