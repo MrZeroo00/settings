@@ -1,48 +1,6 @@
 cd $HOME/.vimperator/conf
 
-javascript <<EOM
-liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/vimpr,~/.vimperator/_plugin/vimpr/notifier,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other,~/.vimperator/_plugin/my,~/.vimperator/_plugin/local';
-liberator.globalVariables.plugin_loader_plugins = [
-    '_libly',
-    '_smooziee',
-    //'alert',
-    //'appendAnchor',
-    //'applauncher',
-    'auto-focus-frame',
-    'auto_word_select_mode',
-    //'caret-hint',
-    'char-hints-mod2',
-    'commandBookmarklet',
-    //'cookie',
-    //'cookieManager',
-    'copy',
-    'direct_bookmark',
-    'encodingSwitcherCommand',
-//  'feedSomeKeys_2',
-    'feedSomeKeys_3',
-    'hd-youkai-youtube',
-    'ime_controller',
-    'ldrize_cooperation',
-    //'ldrize_cooperation_fetch_flv',
-    //'lo',
-    'localkeymode',
-    //'loginManager',
-    //'maine_coon',
-    'multi_requester',
-    'nextlink',
-    //'splitBrowser',
-    //'stella',
-    //'tinymenu',
-    //'toggler',
-    'tombloo',
-    //'treeStyleTab',
-    //'xpathBlink',
-    //'link-targets',
-    //'logintumblr',
-    //'set_tumblr_channel_id',
-].join(',');
-EOM
-
-source! "common.d/00_init.vimp"
-source! "common.d/01_key-bind.vimp"
-source! "common.d/50_plugin.vimp"
+source default.d/00_plugin.js
+source common.d/00_init.vimp
+source common.d/01_key-bind.vimp
+source common.d/50_plugin.vimp
