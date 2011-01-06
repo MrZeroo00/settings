@@ -293,6 +293,7 @@ With a numeric argument, turn mode on iff ARG is positive."
 (my-load-and-when "70_lisp")
 (my-load-and-when "70_objective-c")
 (my-load-and-when "70_perl")
+(my-load-and-when "70_php")
 (my-load-and-when "70_python")
 (my-load-and-when "70_ruby")
 (my-load-and-when "70_scheme")
