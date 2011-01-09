@@ -53,10 +53,11 @@ noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
 noremap <Leader>block :menu ツール-Fire.fm-禁止<CR>
 noremap <Leader>nico :menu View-NicoFox_Download_Manager<CR>
 noremap <Leader>video :set! browser.sessionstore.interval=300000<CR>
+noremap <Leader>copy :copy titleAndURL<CR>
 
 " command line
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
+"cnoremap <C-A> <Home>
+"cnoremap <C-E> <End>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 cnoremap <Esc>f <S-Right>

@@ -1,1 +1,1 @@
-../_plugin/coderepos/plugin_loader.js
+../_plugin/vimpr/plugin_loader.js
