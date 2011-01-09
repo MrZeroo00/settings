@@ -149,10 +149,8 @@
 (setq inhibit-startup-message t)
 ;;;(setq inhibit-default-init t)
 (setq frame-title-format "%b")
-(tool-bar-mode nil)
 ;;;(menu-bar-mode nil)
 ;;;(msb-mode t)
-(set-scroll-bar-mode 'right)
 (setq visible-bell t)
 ;;;(fset 'yes-or-no-p 'y-or-n-p)
 (auto-insert-mode t)
@@ -170,6 +168,9 @@
 ;;;(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 (setq x-select-enable-clipboard t)
 (setq gc-cons-threshold 3500000)
+(when window-system
+  (tool-bar-mode nil)
+  (set-scroll-bar-mode 'right))
 
 
 ;;;; redo
