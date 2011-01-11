@@ -1,7 +1,7 @@
 ;;; grep-edit --- edit grep buffer and apply the changes to files
 ;; -*- Mode: Emacs-Lisp -*-
 
-;;  $Id: grep-edit.el,v 2.11 2009-10-20 12:12:55 akihisa Exp $
+;;  $Id: grep-edit.el,v 2.12 2010-07-22 13:31:26 Akihisa Exp $
 
 ;; Author: Matsushita Akihisa <akihisa@mail.ne.jp>
 ;; Keywords: grep edit
@@ -244,7 +244,7 @@
 (defun grep-edit-check-file ()
   "*check the file status. If it is impossible to change file, return t"
   (cond
-   (buffer-read-only
+   ((not (file-writable-p grep-edit-filename))
     nil)
    ((not (file-exists-p grep-edit-filename))
     nil)

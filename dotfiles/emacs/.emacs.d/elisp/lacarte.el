@@ -4,12 +4,12 @@
 ;; Description: Execute menu items as commands, with completion.
 ;; Author: Drew Adams
 ;; Maintainer: Drew Adams
-;; Copyright (C) 2005-2010, Drew Adams, all rights reserved.
+;; Copyright (C) 2005-2011, Drew Adams, all rights reserved.
 ;; Created: Fri Aug 12 17:18:02 2005
 ;; Version: 22.0
-;; Last-Updated: Fri Jan 15 13:24:08 2010 (-0800)
+;; Last-Updated: Tue Jan  4 10:59:52 2011 (-0800)
 ;;           By: dradams
-;;     Update #: 602
+;;     Update #: 638
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/lacarte.el
 ;; Keywords: menu-bar, menu, command, help, abbrev, minibuffer, keys,
 ;;           completion, matching, local, internal, extensions,
@@ -258,6 +258,15 @@
 ;;
 ;;(@* "Change log")
 ;;
+;; 2011/01/04 dadams
+;;     Added autoload cookies for defgroup, defcustom, and commands.
+;; 2010/06/26 dadams
+;;    lacarte-execute-command: Protected Icicles vars with boundp.  Thx to Alexey Romanov.
+;; 2010/05/11 dadams
+;;     lacarte-get-a-menu-item-alist-1: Add keyboard shortcuts to item names.
+;;     Applied Icicles renamings (belatedly):
+;;       icicle-sort-functions-alist to icicle-sort-orders-alist,
+;;       icicle-sort-function to icicle-sort-comparer.
 ;; 2009/12/25 dadams
 ;;     Added: lacarte-execute-command, lacarte-menu-first-p.
 ;;     lacarte-get-a-menu-item-alist-1: Handle :filter (e.g. File > Open Recent submenus).
@@ -337,6 +346,7 @@
 
 ;;; User Options -------------------------------------------
 
+;;;###autoload
 (defgroup lacarte nil
   "Execute menu items as commands, with completion."
   :prefix "lacarte-" :group 'menu
@@ -352,6 +362,7 @@ Don't forget to mention your Emacs and library versions."))
   :link '(emacs-commentary-link :tag "Commentary" "lacarte.el")
   )
 
+;;;###autoload
 (defcustom lacarte-convert-menu-item-function nil
   "*Function to call to convert a menu item.
 Used by `lacarte-execute-menu-command'.  A typical use would be to
@@ -383,6 +394,7 @@ COMMAND is the command  bound to the menu item.")
  
 ;;; Functions -------------------------------
 
+;;;###autoload
 (defun lacarte-execute-command (&optional no-commands-p)
   "Execute a menu-bar menu command or an ordinary command.
 Type a menu item or a command name.  Completion is available.
@@ -398,14 +410,16 @@ using face `icicle-special-candidate'."
   (let ((lacarte-menu-items-alist         (lacarte-get-overall-menu-item-alist))
         (completion-ignore-case           t) ; Not case-sensitive, by default.
         (icicle-special-candidate-regexp  (and (not no-commands-p) ".* > \\(.\\|\n\\)*"))
-        (icicle-sort-functions-alist      (if no-commands-p
-                                              icicle-sort-functions-alist
-                                            (cons '("menu items first"
-                                                    .  lacarte-menu-first-p)
-                                                  icicle-sort-functions-alist)))
-        (icicle-sort-function             (if no-commands-p
-                                              icicle-sort-function
-                                            'lacarte-menu-first-p))
+        (icicle-sort-orders-alist         (and (boundp 'icicle-sort-orders-alist)
+                                               (if no-commands-p
+                                                   icicle-sort-orders-alist
+                                                 (cons '("menu items first"
+                                                         .  lacarte-menu-first-p)
+                                                       icicle-sort-orders-alist))))
+        (icicle-sort-comparer             (and (boundp 'icicle-sort-comparer)
+                                               (if no-commands-p
+                                                   icicle-sort-comparer
+                                                 'lacarte-menu-first-p)))
         choice cmd)
     (unless no-commands-p
       (mapatoms (lambda (symb)
@@ -438,6 +452,7 @@ using face `icicle-special-candidate'."
   (save-match-data
     (and (string-match " > " s1) (not (string-match " > " s2)))))    
 
+;;;###autoload
 (defun lacarte-execute-menu-command ()
   "Execute a menu-bar menu command.
 Type a menu item.  Completion is available.
@@ -525,14 +540,20 @@ Returns `lacarte-menu-items-alist', which it modifies."
             ((and (eq 'menu-item (car-safe defn))
                   (member :filter (cdr (cddr defn))))
              (let ((filt  (cadr (member :filter (cdr (cddr defn))))))
-               (setq composite-name (concat root (and root " > ") (eval (cadr defn))))
+               (setq composite-name
+                     (concat root (and root " > ") (eval (cadr defn))
+                             (let ((keys  (car-safe (cdr-safe (cdr-safe (cdr-safe defn))))))
+                             (and (consp keys) (stringp (cdr keys)) (cdr keys)))))
                (setq defn (if (functionp filt) ; Apply the filter to REAL-BINDING.
                               (funcall filt (car (cddr defn)))
                             (car (cddr defn))))))
 
             ;; (menu-item ITEM-STRING REAL-BINDING . PROPERTIES)
             ((eq 'menu-item (car-safe defn))
-             (setq composite-name (concat root (and root " > ") (eval (cadr defn))))
+             (setq composite-name
+                   (concat root (and root " > ") (eval (cadr defn))
+                           (let ((keys  (car-safe (cdr-safe (cdr-safe (cdr-safe defn))))))
+                             (and (consp keys) (stringp (cdr keys)) (cdr keys)))))
              (setq defn (car (cddr defn))))
 
             ;; (ITEM-STRING . REAL-BINDING) or
@@ -543,7 +564,11 @@ Returns `lacarte-menu-items-alist', which it modifies."
              ;; Skip HELP-STRING
              (when (stringp (car-safe defn)) (setq defn (cdr defn)))
              ;; Skip (KEYBD-SHORTCUTS): cached key-equivalence data for menu items.
-             (when (and (consp defn) (consp (car defn))) (setq defn (cdr defn)))))
+             ;; But first add shortcuts to composite name.
+             (when (and (consp defn) (consp (car defn)))
+               (when (stringp (cdar defn)) ; Add shortcuts to name.
+                 (setq composite-name (concat composite-name (cdar defn))))
+               (setq defn (cdr defn)))))
 
           ;; If REAL-BINDING is a keymap, then recurse on it.
           (when (keymapp defn)

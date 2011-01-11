@@ -6,7 +6,7 @@
 ;; Maintainer: S. Irie
 ;; Keywords: Tooltip
 
-(defconst pos-tip-version "0.1.7")
+(defconst pos-tip-version "0.4.5")
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -20,8 +20,8 @@
 
 ;; You should have received a copy of the GNU General Public
 ;; License along with this program; if not, write to the Free
-;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
-;; MA 02111-1307 USA
+;; Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+;; MA  02110-1301 USA
 
 ;;; Commentary:
 
@@ -31,9 +31,8 @@
 ;; is not easy. This program provides such function to be used by other
 ;; frontend programs.
 
-;; This program is tested on GNU Emacs 22, 23.
-
-;; *** Note that this program can work only under X window system. ***
+;; This program is tested on GNU Emacs 22, 23 under X window system and
+;; Emacs 23 for MS-Windows.
 
 ;;
 ;; Installation:
@@ -45,15 +44,107 @@
 ;;
 ;;   (require 'pos-tip)
 ;;
-;; We can display a tooltip at POS in WINDOW by following:
+;; To use the full features of this program on MS-Windows,
+;; put the additional setting in .emacs file:
 ;;
-;;   (pos-tip-show "foo bar" '(FG-COLOR . BG-COLOR) POS WINDOW)
+;;   (pos-tip-w32-max-width-height)   ; Maximize frame temporarily
 ;;
-;; Here, '(FG-COLOR . BG-COLOR), POS and WINDOW can be omitted, means
-;; use default colors, current position and selected window, respectively.
+;; or
 ;;
+;;   (pos-tip-w32-max-width-height t) ; Keep frame maximized
+
+;;
+;; Examples:
+;;
+;; We can display a tooltip at the current position by the following:
+;;
+;;   (pos-tip-show "foo bar")
+;;
+;; If you'd like to specify the tooltip color, use an expression as:
+;;
+;;   (pos-tip-show "foo bar" '("white" . "red"))
+;;
+;; Here, "white" and "red" are the foreground color and background
+;; color, respectively.
+
 
 ;;; History:
+;; 2010-09-27  S. Irie
+;;         * Simplified implementation of `pos-tip-window-system'
+;;         * Version 0.4.5
+;;
+;; 2010-08-20  S. Irie
+;;         * Changed to use `window-line-height' to calculate tooltip position
+;;         * Changed `pos-tip-string-width-height' to ignore last empty line
+;;         * Version 0.4.4
+;;
+;; 2010-07-25  S. Irie
+;;         * Bug fix
+;;         * Version 0.4.3
+;;
+;; 2010-06-09  S. Irie
+;;         * Bug fix
+;;         * Version 0.4.2
+;;
+;; 2010-06-04  S. Irie
+;;         * Added support for text-scale-mode
+;;         * Version 0.4.1
+;;
+;; 2010-05-04  S. Irie
+;;         * Added functions:
+;;             `pos-tip-x-display-width', `pos-tip-x-display-height'
+;;             `pos-tip-normalize-natnum', `pos-tip-frame-relative-position'
+;;         * Fixed the supports for multi-displays and multi-frames
+;;         * Version 0.4.0
+;;
+;; 2010-04-29  S. Irie
+;;         * Modified to avoid byte-compile warning
+;;         * Bug fix
+;;         * Version 0.3.6
+;;
+;; 2010-04-29  S. Irie
+;;         * Renamed argument MAX-HEIGHT of `pos-tip-fill-string' to MAX-ROWS
+;;         * Modified old FSF address
+;;         * Version 0.3.5
+;;
+;; 2010-04-29  S. Irie
+;;         * Modified `pos-tip-show' to truncate string exceeding display size
+;;         * Added function `pos-tip-truncate-string'
+;;         * Added optional argument MAX-ROWS to `pos-tip-split-string'
+;;         * Added optional argument MAX-HEIGHT to `pos-tip-fill-string'
+;;         * Version 0.3.4
+;;
+;; 2010-04-16  S. Irie
+;;         * Changed `pos-tip-show' not to fill paragraph unless exceeding WIDTH
+;;         * Version 0.3.3
+;;
+;; 2010-04-08  S. Irie
+;;         * Bug fix
+;;         * Version 0.3.2
+;;
+;; 2010-03-31  S. Irie
+;;         * Bug fix
+;;         * Version 0.3.1
+;;
+;; 2010-03-30  S. Irie
+;;         * Added support for MS-Windows
+;;         * Added option `pos-tip-use-relative-coordinates'
+;;         * Bug fixes
+;;         * Version 0.3.0
+;;
+;; 2010-03-23  S. Irie
+;;         * Changed argument WORD-WRAP to JUSTIFY
+;;         * Added optional argument SQUEEZE
+;;         * Added function `pos-tip-fill-string'
+;;         * Added option `pos-tip-tab-width' used to expand tab characters
+;;         * Bug fixes
+;;         * Version 0.2.0
+;;
+;; 2010-03-22  S. Irie
+;;         * Added optional argument WORD-WRAP to `pos-tip-split-string'
+;;         * Changed `pos-tip-show' to perform word wrap or kinsoku shori
+;;         * Version 0.1.8
+;;
 ;; 2010-03-20  S. Irie
 ;;         * Added optional argument DY
 ;;         * Bug fix
@@ -134,45 +225,149 @@
 (defvar pos-tip-background-color "lightyellow"
   "Default background color of pos-tip's tooltip.")
 
+(defvar pos-tip-tab-width nil
+  "Tab width used for `pos-tip-split-string' and `pos-tip-fill-string'
+to expand tab characters. nil means use default value of `tab-width'.")
+
+(defvar pos-tip-use-relative-coordinates nil
+  "Non-nil means tooltip location is calculated as a coordinates
+relative to the top left corner of frame. In this case the tooltip
+will always be displayed within the frame.
+
+Note that this variable is automatically set to non-nil if absolute
+coordinates can't be obtained by `pos-tip-compute-pixel-position'.")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defun pos-tip-window-system (&optional frame)
+  "The name of the window system that FRAME is displaying through.
+The value is a symbol---for instance, 'x' for X windows.
+The value is nil if Emacs is using a text-only terminal.
+
+FRAME defaults to the currently selected frame."
+  (let ((type (framep (or frame (selected-frame)))))
+    (if type
+	(and (not (eq type t))
+	     type)
+      (signal 'wrong-type-argument (list 'framep frame)))))
+
+(defun pos-tip-normalize-natnum (object &optional n)
+  "Return a Nth power of 2 if OBJECT is a positive integer.
+Otherwise return 0. Omitting N means return 1 for a positive integer."
+  (ash (if (and (natnump object) (> object 0)) 1 0)
+       (or n 0)))
+
 (defvar pos-tip-saved-frame-coordinates '(0 . 0)
   "The latest result of `pos-tip-frame-top-left-coordinates'.")
+
+(defvar pos-tip-frame-offset nil
+  "The latest result of `pos-tip-calibrate-frame-offset'. This value
+is used for non-X graphical environment.")
+
+(defvar pos-tip-frame-offset-array [nil nil nil nil]
+  "Array of the results of `pos-tip-calibrate-frame-offset'. They are
+recorded only when `pos-tip-frame-top-left-coordinates' is called for a
+non-X but graphical frame.
+
+The 2nd and 4th elements are the values for frames having a menu bar.
+The 3rd and 4th elements are the values for frames having a tool bar.")
 
 (defun pos-tip-frame-top-left-coordinates (&optional frame)
   "Return the pixel coordinates of FRAME as a cons cell (LEFT . TOP),
 which are relative to top left corner of screen.
 
+Return nil if failing to acquire the coordinates.
+
 If FRAME is omitted, use selected-frame.
 
 Users can also get the frame coordinates by referring the variable
 `pos-tip-saved-frame-coordinates' just after calling this function."
-  (with-current-buffer (get-buffer-create " *xwininfo*")
-    (let ((case-fold-search nil))
-      (buffer-disable-undo)
-      (erase-buffer)
-      (call-process shell-file-name nil t nil shell-command-switch
-		    (concat "xwininfo -id " (frame-parameter frame 'window-id)))
-      (goto-char (point-min))
-      (search-forward "\n  Absolute")
-      (setq pos-tip-saved-frame-coordinates
-	    (cons (progn (string-to-number (buffer-substring-no-properties
-					    (search-forward "X: ")
-					    (line-end-position))))
-		  (progn (string-to-number (buffer-substring-no-properties
-					    (search-forward "Y: ")
-					    (line-end-position)))))))))
+  (let ((winsys (pos-tip-window-system frame)))
+    (cond
+     ((null winsys)
+      (error "text-only frame: %S" frame))
+     ((eq winsys 'x)
+      (condition-case nil
+	  (with-current-buffer (get-buffer-create " *xwininfo*")
+	    (let ((case-fold-search nil))
+	      (buffer-disable-undo)
+	      (erase-buffer)
+	      (call-process shell-file-name nil t nil shell-command-switch
+			    (format "xwininfo -display %s -id %s"
+				    (frame-parameter frame 'display)
+				    (frame-parameter frame 'window-id)))
+	      (goto-char (point-min))
+	      (search-forward "\n  Absolute")
+	      (setq pos-tip-saved-frame-coordinates
+		    (cons (string-to-number (buffer-substring-no-properties
+					     (search-forward "X: ")
+					     (line-end-position)))
+			  (string-to-number (buffer-substring-no-properties
+					     (search-forward "Y: ")
+					     (line-end-position)))))))
+	(error nil)))
+     (t
+      (let* ((index (+ (pos-tip-normalize-natnum
+			(frame-parameter frame 'menu-bar-lines) 0)
+		       (pos-tip-normalize-natnum
+			(frame-parameter frame 'tool-bar-lines) 1)))
+	     (offset (or (aref pos-tip-frame-offset-array index)
+			 (aset pos-tip-frame-offset-array index
+			       (pos-tip-calibrate-frame-offset frame)))))
+	(if offset
+	    (setq pos-tip-saved-frame-coordinates
+		  (cons (+ (eval (frame-parameter frame 'left))
+			   (car offset))
+			(+ (eval (frame-parameter frame 'top))
+			   (cdr offset))))))))))
+
+(defun pos-tip-frame-relative-position
+  (frame1 frame2 &optional w32-frame frame-coord1 frame-coord2)
+  "Return the pixel coordinates of FRAME1 relative to FRAME2
+as a cons cell (LEFT . TOP).
+
+W32-FRAME non-nil means both of frames are under `w32' window system.
+
+FRAME-COORD1 and FRAME-COORD2, if given, specify the absolute
+coordinates of FRAME1 and FRAME2, respectively, which make the
+calculations faster if the frames have different heights of menu bars
+and tool bars."
+  (if (and (eq (pos-tip-normalize-natnum
+		(frame-parameter frame1 'menu-bar-lines))
+	       (pos-tip-normalize-natnum
+		(frame-parameter frame2 'menu-bar-lines)))
+	   (or w32-frame
+	       (eq (pos-tip-normalize-natnum
+		    (frame-parameter frame1 'tool-bar-lines))
+		   (pos-tip-normalize-natnum
+		    (frame-parameter frame2 'tool-bar-lines)))))
+      (cons (- (eval (frame-parameter frame1 'left))
+	       (eval (frame-parameter frame2 'left)))
+	    (- (eval (frame-parameter frame1 'top))
+	       (eval (frame-parameter frame2 'top))))
+    (unless frame-coord1
+      (setq frame-coord1 (let (pos-tip-saved-frame-coordinates)
+			   (pos-tip-frame-top-left-coordinates frame1))))
+    (unless frame-coord2
+      (setq frame-coord2 (let (pos-tip-saved-frame-coordinates)
+			   (pos-tip-frame-top-left-coordinates frame2))))
+    (cons (- (car frame-coord1) (car frame-coord2))
+	  (- (cdr frame-coord1) (cdr frame-coord2)))))
 
 (defvar pos-tip-upperside-p nil
   "Non-nil indicates the latest result of `pos-tip-compute-pixel-position'
 was upper than the location specified by the arguments.")
 
+(defvar pos-tip-w32-saved-max-width-height nil
+  "Display pixel size effective for showing tooltip in MS-Windows desktop.
+This doesn't include the taskbar area, so isn't same as actual display size.")
+
 (defun pos-tip-compute-pixel-position
   (&optional pos window pixel-width pixel-height frame-coordinates dx dy)
-  "Return the screen pixel position of POS in WINDOW as a cons cell (X . Y).
-Its values show the coordinates of lower left corner of the character.
+  "Return pixel position of POS in WINDOW like (X . Y), which indicates
+the absolute or relative coordinates of bottom left corner of the object.
 
 Omitting POS and WINDOW means use current position and selected window,
 respectively.
@@ -184,49 +379,91 @@ the tooltip won't disappear by sticking out of the display. By referring
 the variable `pos-tip-upperside-p' after calling this function, user can
 examine whether the tooltip will be located above the specified position.
 
-If FRAME-COORDINATES is omitted, automatically obtain the absolute
+If FRAME-COORDINATES is omitted or nil, automatically obtain the absolute
 coordinates of the top left corner of frame which WINDOW is on. Here,
 `top left corner of frame' represents the origin of `window-pixel-edges'
-and its coordinates are essential for calculating the return value. If
-non-nil, specifies the frame location as a cons cell like (LEFT . TOP).
-This option makes the calculations slightly faster, but can be used only
-when it's clear that frame is in the specified position. Users can get the
-latest values of frame location for using in the next call by referring the
-variable `pos-tip-saved-frame-coordinates' just after calling this function.
+and its coordinates are essential for calculating the return value as
+absolute coordinates. If a cons cell like (LEFT . TOP), specifies the
+frame absolute location and makes the calculation slightly faster, but can
+be used only when it's clear that frame is in the specified position. Users
+can get the latest values of frame coordinates for using in the next call
+by referring the variable `pos-tip-saved-frame-coordinates' just after
+calling this function. Otherwise, FRAME-COORDINATES `relative' means return
+pixel coordinates of the object relative to the top left corner of the frame.
+This is the same effect as `pos-tip-use-relative-coordinates' is non-nil.
 
 DX specifies horizontal offset in pixel.
 
-DY specifies vertical offset in pixel. Omitting DY means use the height of
-object at POS and adjust the coordinates so that tooltip won't hide the
-object."
-  (unless frame-coordinates
-    (pos-tip-frame-top-left-coordinates
-     (window-frame (or window (selected-window)))))
-  (let* ((x-y (or (pos-visible-in-window-p (or pos (window-point window)) window t)
-		  '(0 0)))
-	 (ax (+ (car pos-tip-saved-frame-coordinates)
-		(car (window-inside-pixel-edges))
-		(car x-y)
-		(or dx 0)))
-	 (ay0 (+ (cdr pos-tip-saved-frame-coordinates)
-		 (cadr (window-pixel-edges))
-		 (cadr x-y)))
-	 (ay (+ ay0
-		(or dy
-		    ;; `posn-object-width-height' returns an incorrect value
-		    ;; when the header line is displayed (Emacs bug #4426).
-		    ;; In this case, `frame-char-height' is used substitutively,
-		    ;; but this function doesn't return actual object height.
-		    (and header-line-format
-			 (frame-char-height))
-		    (cdr (posn-object-width-height
-			  (posn-at-x-y (max (car x-y) 0) (cadr x-y))))))))
-    (setq pos-tip-upperside-p (> (+ ay (or pixel-height 0))
-				 (x-display-pixel-height)))
-    (cons (max 0 (min ax (- (x-display-pixel-width) (or pixel-width 0))))
+DY specifies vertical offset in pixel. This makes the calculations done
+without considering the height of object at POS, so the object might be
+hidden by the tooltip."
+  (let* ((frame (window-frame (or window (selected-window))))
+	 (w32-frame (eq (pos-tip-window-system frame) 'w32))
+	 (relative (or pos-tip-use-relative-coordinates
+		       (eq frame-coordinates 'relative)
+		       (and w32-frame
+			    (null pos-tip-w32-saved-max-width-height))))
+	 (frame-coord (or (and relative '(0 . 0))
+			  frame-coordinates
+			  (pos-tip-frame-top-left-coordinates frame)
+			  (progn
+			    (setq relative t
+				  pos-tip-use-relative-coordinates t)
+			  '(0 . 0))))
+	 (posn (posn-at-point (or pos (window-point window)) window))
+	 (line (cdr (posn-actual-col-row posn)))
+	 (line-height (and line
+			   (or (window-line-height line window)
+			       (and (redisplay t)
+				    (window-line-height line window)))))
+	 (x-y (or (posn-x-y posn)
+		  (let ((geom (pos-visible-in-window-p
+			       (or pos (window-point window)) window t)))
+		    (and geom (cons (car geom) (cadr geom))))
+		  '(0 . 0)))
+	 (x (+ (car frame-coord)
+	       (car (window-inside-pixel-edges window))
+	       (car x-y)
+	       (or dx 0)))
+	 (y0 (+ (cdr frame-coord)
+		(cadr (window-pixel-edges window))
+		(or (nth 2 line-height) (cdr x-y))))
+	 (y (+ y0
+	       (or dy
+		   (car line-height)
+		   (with-current-buffer (window-buffer window)
+		     (cond
+		      ;; `posn-object-width-height' returns an incorrect value
+		      ;; when the header line is displayed (Emacs bug #4426).
+		      ((and posn
+			    (null header-line-format))
+		       (cdr (posn-object-width-height posn)))
+		      ((and (bound-and-true-p text-scale-mode)
+			    (not (zerop (with-no-warnings
+					  text-scale-mode-amount))))
+		       (round (* (frame-char-height frame)
+				 (with-no-warnings
+				   (expt text-scale-mode-step
+					 text-scale-mode-amount)))))
+		      (t
+		       (frame-char-height frame)))))))
+	 xmax ymax)
+    (cond
+     (relative
+      (setq xmax (frame-pixel-width frame)
+	    ymax (frame-pixel-height frame)))
+     (w32-frame
+      (setq xmax (car pos-tip-w32-saved-max-width-height)
+	    ymax (cdr pos-tip-w32-saved-max-width-height)))
+     (t
+      (setq xmax (x-display-pixel-width frame)
+	    ymax (x-display-pixel-height frame))))
+    (setq pos-tip-upperside-p (> (+ y (or pixel-height 0))
+				 ymax))
+    (cons (max 0 (min x (- xmax (or pixel-width 0))))
 	  (max 0 (if pos-tip-upperside-p
-		     (- (if dy (x-display-pixel-height) ay0) (or pixel-height 0))
-		   ay)))))
+		     (- (if dy ymax y0) (or pixel-height 0))
+		   y)))))
 
 (defun pos-tip-cancel-timer ()
   "Cancel timeout of tooltip."
@@ -237,60 +474,43 @@ object."
 
 (defun pos-tip-avoid-mouse (left right top bottom &optional frame)
   "Move out mouse pointer if it is inside region (LEFT RIGHT TOP BOTTOM)
-in FRAME."
-  (let* ((mpos (mouse-pixel-position))
+in FRAME. Return new mouse position like (FRAME . (X . Y))."
+  (unless frame
+    (setq frame (selected-frame)))
+  (let* ((mpos (with-selected-window (frame-selected-window frame)
+		 (mouse-pixel-position)))
 	 (mframe (pop mpos))
 	 (mx (car mpos))
 	 (my (cdr mpos)))
-    (when (numberp mx)
-      (let* ((large-number (+ (x-display-pixel-width) (x-display-pixel-height)))
+    (when (and (eq mframe frame)
+	       (numberp mx))
+      (let* ((large-number (+ (frame-pixel-width frame) (frame-pixel-height frame)))
 	     (dl (if (> left 2)
 		     (1+ (- mx left))
 		   large-number))
-	     (dr (if (< (1+ right) (x-display-pixel-width))
+	     (dr (if (< (1+ right) (frame-pixel-width frame))
 		     (- right mx)
 		   large-number))
 	     (dt (if (> top 2)
 		     (1+ (- my top))
 		   large-number))
-	     (db (if (< (1+ bottom) (x-display-pixel-height))
+	     (db (if (< (1+ bottom) (frame-pixel-height frame))
 		     (- bottom my)
 		   large-number))
 	     (d (min dl dr dt db)))
-	(when (and mpos
-		   (eq (or frame (selected-frame)) mframe)
-		   (> d -2))
+	(when (> d -2)
 	  (cond
 	   ((= d dl)
-	    (set-mouse-pixel-position mframe (- left 2) my))
+	    (setq mx (- left 2)))
 	   ((= d dr)
-	    (set-mouse-pixel-position mframe (1+ right) my))
+	    (setq mx (1+ right)))
 	   ((= d dt)
-	    (set-mouse-pixel-position mframe mx (- top 2)))
+	    (setq my (- top 2)))
 	   (t
-	    (set-mouse-pixel-position mframe mx (1+ bottom)))))))))
-
-(defvar pos-tip-default-char-width-height-alist nil
- "Alist of default character sizes of each display." )
-
-(defun pos-tip-default-char-width-height ()
-  "Return default character size of display which selected frame is in
-as a cons cell like (WIDTH . HEIGHT)."
-  (when (display-graphic-p)
-    (let* ((display (frame-parameter nil 'display))
-	   (w-h (cdr (assoc display pos-tip-default-char-width-height-alist))))
-      (unless w-h
-	(let ((frame (x-create-frame '((visibility . nil)
-				       (minibuffer . nil)
-				       (menu-bar-lines . nil)
-				       (tool-bar-lines . nil)
-				       (vertical-scroll-bars . nil)))))
-	  (setq w-h (cons (frame-char-width frame)
-			  (frame-char-height frame)))
-	  (delete-frame frame))
-	(push (cons display w-h)
-	      pos-tip-default-char-width-height-alist))
-      w-h)))
+	    (setq my (1+ bottom))))
+	  (set-mouse-pixel-position frame mx my)
+	  (sit-for 0.0001))))
+    (cons mframe (and mpos (cons mx my)))))
 
 (defun pos-tip-show-no-propertize
   (string &optional tip-color pos window timeout pixel-width pixel-height frame-coordinates dx dy)
@@ -329,12 +549,27 @@ Example:
 \(let ((str (propertize \" foo \\n bar \\n baz \" 'face 'my-tooltip)))
   (put-text-property 6 11 'face 'my-tooltip-highlight str)
   (pos-tip-show-no-propertize str 'my-tooltip))"
-  (let* ((x-y (pos-tip-compute-pixel-position pos window pixel-width pixel-height
-					      frame-coordinates dx dy))
+  (unless window
+    (setq window (selected-window)))
+  (let* ((frame (window-frame window))
+	 (winsys (pos-tip-window-system frame))
+	 (x-frame (eq winsys 'x))
+	 (w32-frame (eq winsys 'w32))
+	 (relative (or pos-tip-use-relative-coordinates
+		       (eq frame-coordinates 'relative)
+		       (and w32-frame
+			    (null pos-tip-w32-saved-max-width-height))))
+	 (x-y (prog1
+		  (pos-tip-compute-pixel-position pos window
+						  pixel-width pixel-height
+						  frame-coordinates dx dy)
+		(if pos-tip-use-relative-coordinates
+		    (setq relative t))))
 	 (ax (car x-y))
 	 (ay (cdr x-y))
-	 (rx (- ax (car pos-tip-saved-frame-coordinates)))
-	 (ry (- ay (cdr pos-tip-saved-frame-coordinates)))
+	 (rx (if relative ax (- ax (car pos-tip-saved-frame-coordinates))))
+	 (ry (if relative ay (- ay (cdr pos-tip-saved-frame-coordinates))))
+	 (retval (cons rx ry))
 	 (fg (or (and (facep tip-color)
 		      (face-attribute tip-color :foreground))
 		 (car-safe tip-color)
@@ -343,67 +578,176 @@ Example:
 		      (face-attribute tip-color :background))
 		 (cdr-safe tip-color)
 		 pos-tip-background-color))
-	 (frame (window-frame (or window (selected-window))))
-	 (char-w-h (pos-tip-default-char-width-height))
+	 (use-dxdy (or relative
+		       (not x-frame)))
+	 (spacing (frame-parameter frame 'line-spacing))
+	 (border (ash (+ pos-tip-border-width
+			 pos-tip-internal-border-width)
+		      1))
 	 (x-max-tooltip-size
-	  (cons (1+ (/ (or pixel-width
-			   (x-display-pixel-width))
-		       (car char-w-h)))
-		(1+ (/ (or pixel-height
-			   (x-display-pixel-height))
-		       (cdr char-w-h))))))
+	  (cons (+ (if x-frame 1 0)
+		   (/ (- (or pixel-width
+			     (cond
+			      (relative
+			       (frame-pixel-width frame))
+			      (w32-frame
+			       (car pos-tip-w32-saved-max-width-height))
+			      (t
+			       (x-display-pixel-width frame))))
+			 border)
+		      (frame-char-width frame)))
+		(/ (- (or pixel-height
+			  (x-display-pixel-height frame))
+		      border)
+		   (frame-char-height frame))))
+	 (mpos (with-selected-window window (mouse-pixel-position)))
+	 (mframe (car mpos))
+	 default-frame-alist)
+    (if (or relative
+	    (and use-dxdy
+		 (null (cadr mpos))))
+	(unless (and (cadr mpos)
+		     (eq mframe frame))
+	  (let* ((edges (window-inside-pixel-edges (cadr (window-list frame))))
+		 (mx (ash (+ (pop edges) (cadr edges)) -1))
+		 (my (ash (+ (pop edges) (cadr edges)) -1)))
+	    (setq mframe frame)
+	    (set-mouse-pixel-position mframe mx my)
+	    (sit-for 0.0001)))
+      (when (and (cadr mpos)
+		 (not (eq mframe frame)))
+	(let ((rel-coord (pos-tip-frame-relative-position frame mframe w32-frame
+							  frame-coordinates)))
+	  (setq rx (+ rx (car rel-coord))
+		ry (+ ry (cdr rel-coord))))))
     (and pixel-width pixel-height
-	 (pos-tip-avoid-mouse rx (+ rx pixel-width)
-			      ry (+ ry pixel-height)
-			      frame))
-    (x-show-tip string frame
+	 (setq mpos (pos-tip-avoid-mouse rx (+ rx pixel-width
+					       (if w32-frame 3 0))
+					 ry (+ ry pixel-height)
+					 mframe)))
+    (x-show-tip string mframe
 		`((border-width . ,pos-tip-border-width)
 		  (internal-border-width . ,pos-tip-internal-border-width)
-		  (left . ,ax)
-		  (top . ,ay)
+		  ,@(and (not use-dxdy) `((left . ,ax)
+					  (top . ,ay)))
+		  (font . ,(frame-parameter frame 'font))
+		  ,@(and spacing `((line-spacing . ,spacing)))
 		  ,@(and (stringp fg) `((foreground-color . ,fg)))
 		  ,@(and (stringp bg) `((background-color . ,bg))))
-		(and timeout (> timeout 0) timeout))
+		(and timeout (> timeout 0) timeout)
+		(and use-dxdy (- rx (cadr mpos)))
+		(and use-dxdy (- ry (cddr mpos))))
     (if (and timeout (<= timeout 0))
 	(pos-tip-cancel-timer))
-    (cons rx ry)))
+    retval))
 
-(defun pos-tip-split-string (string &optional max-width left-margin)
+(defun pos-tip-split-string (string &optional width margin justify squeeze max-rows)
   "Split STRING into fixed width strings. Return a list of these strings.
 
-MAX-WIDTH specifies maximum column number of each row. MAX-WIDTH nil means
-use display-width. Note that this function doesn't add any padding characters
-at the end of the result.
+WIDTH specifies the width of filling each paragraph. WIDTH nil means use
+the width of currently selected frame. Note that this function doesn't add any
+padding characters at the end of each row.
 
-The optional 3rd arg LEFT-MARGIN, if non-nil, specifies number of spece
-characters to add at the beginning of each row."
-  (let* ((display-width (/ (x-display-pixel-width) (frame-char-width)))
-	 (width (or (and max-width
-			 (min max-width display-width))
-		    display-width))
-	 (margin (and left-margin
-		      (make-string left-margin ?\s)))
-	 line row rows)
-    (with-temp-buffer
+MARGIN, if non-nil, specifies left margin width which is the number of spece
+characters to add at the beginning of each row.
+
+The optional fourth argument JUSTIFY specifies which kind of justification
+to do: `full', `left', `right', `center', or `none'. A value of t means handle
+each paragraph as specified by its text properties. Omitting JUSTIFY means
+don't perform justification, word wrap and kinsoku shori (禁則処理).
+
+SQUEEZE nil means leave whitespaces other than line breaks untouched.
+
+MAX-ROWS, if given, specifies maximum number of elements of return value.
+The elements exceeding this number are discarded."
+  (with-temp-buffer
+    (let* ((tab-width (or pos-tip-tab-width tab-width))
+	   (fill-column (or width (frame-width)))
+	   (left-margin (or margin 0))
+	   (kinsoku-limit 1)
+	   indent-tabs-mode
+	   row rows)
       (insert string)
+      (untabify (point-min) (point-max))
+      (if justify
+	  (fill-region (point-min) (point-max) justify (not squeeze))
+	(setq margin (make-string left-margin ?\s)))
       (goto-char (point-min))
-      (end-of-line)
       (while (prog2
-		 (let ((string (buffer-substring
-				(line-beginning-position) (point))))
-		   (while (progn
-			    (setq string (concat margin string)
-				  row (truncate-string-to-width string width)
-				  rows (cons row rows))
-			    (if (not (= (length row) (length string)))
-				(setq string (substring string (length row)))))))
+		 (let ((line (buffer-substring
+			      (point) (progn (end-of-line) (point)))))
+		   (if justify
+		       (push line rows)
+		     (while (progn
+			      (setq line (concat margin line)
+				    row (truncate-string-to-width line fill-column))
+			      (push row rows)
+			      (if (not (= (length row) (length line)))
+				  (setq line (substring line (length row))))))))
 		 (< (point) (point-max))
-	       (end-of-line 2))))
-    (nreverse rows)))
+	       (beginning-of-line 2)))
+      (nreverse (if max-rows
+		    (last rows max-rows)
+		  rows)))))
 
+(defun pos-tip-fill-string (string &optional width margin justify squeeze max-rows)
+  "Fill each of the paragraphs in STRING.
+
+WIDTH specifies the width of filling each paragraph. WIDTH nil means use
+the width of currently selected frame. Note that this function doesn't add any
+padding characters at the end of each row.
+
+MARGIN, if non-nil, specifies left margin width which is the number of spece
+characters to add at the beginning of each row.
+
+The optional fourth argument JUSTIFY specifies which kind of justification
+to do: `full', `left', `right', `center', or `none'. A value of t means handle
+each paragraph as specified by its text properties. Omitting JUSTIFY means
+don't perform justification, word wrap and kinsoku shori (禁則処理).
+
+SQUEEZE nil means leave whitespaces other than line breaks untouched.
+
+MAX-ROWS, if given, specifies maximum number of rows. The rows exceeding
+this number are discarded."
+  (if justify
+      (with-temp-buffer
+	(let* ((tab-width (or pos-tip-tab-width tab-width))
+	       (fill-column (or width (frame-width)))
+	       (left-margin (or margin 0))
+	       (kinsoku-limit 1)
+	       indent-tabs-mode)
+	  (insert string)
+	  (untabify (point-min) (point-max))
+	  (fill-region (point-min) (point-max) justify (not squeeze))
+	  (if max-rows
+	      (buffer-substring (goto-char (point-min))
+				(line-end-position max-rows))
+	    (buffer-string))))
+    (mapconcat 'identity
+	       (pos-tip-split-string string width margin nil nil max-rows)
+	       "\n")))
+
+(defun pos-tip-truncate-string (string width height)
+  "Truncate each line of STRING to WIDTH and discard lines exceeding HEIGHT."
+  (with-temp-buffer
+    (insert string)
+    (goto-char (point-min))
+    (let ((nrow 0)
+	  rows)
+      (while (and (< nrow height)
+		  (prog2
+		      (push (truncate-string-to-width
+			     (buffer-substring (point) (progn (end-of-line) (point)))
+			     width)
+			    rows)
+		      (< (point) (point-max))
+		    (beginning-of-line 2)
+		    (setq nrow (1+ nrow)))))
+      (mapconcat 'identity (nreverse rows) "\n"))))
 
 (defun pos-tip-string-width-height (string)
   "Count columns and rows of STRING. Return a cons cell like (WIDTH . HEIGHT).
+The last empty line of STRING is ignored.
 
 Example:
 
@@ -414,12 +758,22 @@ Example:
     (goto-char (point-min))
     (end-of-line)
     (let ((width (current-column))
-	  (height 1))
+	  (height (if (eq (char-before (point-max)) ?\n) 0 1)))
       (while (< (point) (point-max))
 	(end-of-line 2)
 	(setq width (max (current-column) width)
 	      height (1+ height)))
       (cons width height))))
+
+(defun pos-tip-x-display-width (&optional frame)
+  "Return maximum column number in tooltip which occupies the full width
+of display. Omitting FRAME means use display that selected frame is in."
+  (1+ (/ (x-display-pixel-width frame) (frame-char-width frame))))
+
+(defun pos-tip-x-display-height (&optional frame)
+  "Return maximum row number in tooltip which occupies the full height
+of display. Omitting FRAME means use display that selected frame is in."
+  (1+ (/ (x-display-pixel-height frame) (frame-char-height frame))))
 
 (defun pos-tip-tooltip-width (width char-width)
   "Calculate tooltip pixel width."
@@ -428,15 +782,16 @@ Example:
 	     pos-tip-internal-border-width)
 	  1)))
 
-(defun pos-tip-tooltip-height (height char-height)
+(defun pos-tip-tooltip-height (height char-height &optional frame)
   "Calculate tooltip pixel height."
-  (let ((spacing (default-value 'line-spacing)))
+  (let ((spacing (or (default-value 'line-spacing)
+		     (frame-parameter frame 'line-spacing))))
     (+ (* height (+ char-height
 		    (cond
 		     ((integerp spacing)
 		      spacing)
 		     ((floatp spacing)
-		      (truncate (* (cdr (pos-tip-default-char-width-height))
+		      (truncate (* (frame-char-height frame)
 				   spacing)))
 		     (t 0))))
        (ash (+ pos-tip-border-width
@@ -446,7 +801,7 @@ Example:
 (make-face 'pos-tip-temp)
 
 (defun pos-tip-show
-  (string &optional tip-color pos window timeout max-width frame-coordinates dx dy)
+  (string &optional tip-color pos window timeout width frame-coordinates dx dy)
   "Show STRING in a tooltip, which is a small X window, at POS in WINDOW
 using frame's default font with TIP-COLOR.
 
@@ -465,43 +820,114 @@ Automatically hide the tooltip after TIMEOUT seconds. Omitting TIMEOUT means
 use the default timeout of 5 seconds. Non-positive TIMEOUT means don't hide
 tooltip automatically.
 
-MAX-WIDTH specifies the maximum number of columns, if non-nil.
+WIDTH, if non-nil, specifies the width of filling each paragraph.
 
-If FRAME-COORDINATES is omitted, automatically obtain the absolute
+If FRAME-COORDINATES is omitted or nil, automatically obtain the absolute
 coordinates of the top left corner of frame which WINDOW is on. Here,
 `top left corner of frame' represents the origin of `window-pixel-edges'
-and its coordinates are essential for calculating the return value. If
-non-nil, specifies the frame location as a cons cell like (LEFT . TOP).
-This option makes the calculations slightly faster, but can be used only
-when it's clear that frame is in the specified position. Users can get the
-latest values of frame location for using in the next call by referring the
-variable `pos-tip-saved-frame-coordinates' just after calling this function.
+and its coordinates are essential for calculating the absolute coordinates
+of the tooltip. If a cons cell like (LEFT . TOP), specifies the frame
+absolute location and makes the calculation slightly faster, but can be
+used only when it's clear that frame is in the specified position. Users
+can get the latest values of frame coordinates for using in the next call
+by referring the variable `pos-tip-saved-frame-coordinates' just after
+calling this function. Otherwise, FRAME-COORDINATES `relative' means use
+the pixel coordinates relative to the top left corner of the frame for
+displaying the tooltip. This is the same effect as
+`pos-tip-use-relative-coordinates' is non-nil.
 
 DX specifies horizontal offset in pixel.
 
-DY specifies vertical offset in pixel. Omitting DY means use the height of
-object at POS and show tooltip at appropriate location not to hide the
-object.
+DY specifies vertical offset in pixel. This makes the calculations done
+without considering the height of object at POS, so the object might be
+hidden by the tooltip.
 
 See also `pos-tip-show-no-propertize'."
-  (let ((frame (window-frame (or window (selected-window))))
-	(w-h (if max-width
-		 (let ((rows (pos-tip-split-string string max-width)))
-		   (setq string (mapconcat 'identity rows "\n"))
-		   (cons (apply 'max (mapcar 'length rows))
-			 (length rows)))
-	       (pos-tip-string-width-height string))))
+  (unless window
+    (setq window (selected-window)))
+  (let* ((frame (window-frame window))
+	 (max-width (pos-tip-x-display-width frame))
+	 (max-height (pos-tip-x-display-height frame))
+	 (w-h (pos-tip-string-width-height string)))
+    (cond
+     ((and width
+	   (> (car w-h) width))
+      (setq string (pos-tip-fill-string string width nil 'none nil max-height)
+	    w-h (pos-tip-string-width-height string)))
+     ((or (> (car w-h) max-width)
+	  (> (cdr w-h) max-height))
+      (setq string (pos-tip-truncate-string string max-width max-height)
+	    w-h (pos-tip-string-width-height string))))
     (face-spec-reset-face 'pos-tip-temp)
-    (set-face-font 'pos-tip-temp (frame-parameter frame 'font))
+    (with-selected-window window
+      (set-face-font 'pos-tip-temp (frame-parameter frame 'font)))
     (pos-tip-show-no-propertize
      (propertize string 'face 'pos-tip-temp)
      tip-color pos window timeout
      (pos-tip-tooltip-width (car w-h) (frame-char-width frame))
-     (pos-tip-tooltip-height (cdr w-h) (frame-char-height frame))
+     (pos-tip-tooltip-height (cdr w-h) (frame-char-height frame) frame)
      frame-coordinates dx dy)))
 
 (defalias 'pos-tip-hide 'x-hide-tip
   "Hide pos-tip's tooltip.")
+
+(defun pos-tip-calibrate-frame-offset (&optional frame)
+  "Return coordinates of FRAME orign relative to the top left corner of
+the FRAME extent, like (LEFT . TOP). The return value is recorded to
+`pos-tip-frame-offset'.
+
+Note that this function does't correctly work for X frame and Emacs 22."
+  (setq pos-tip-frame-offset nil)
+  (let* ((window (frame-first-window frame))
+	 (delete-frame-functions
+	  '((lambda (frame)
+	      (if (equal (frame-parameter frame 'name) "tooltip")
+		  (setq pos-tip-frame-offset
+			(cons (eval (frame-parameter frame 'left))
+			      (eval (frame-parameter frame 'top))))))))
+	 (pos-tip-border-width 0)
+	 (pos-tip-internal-border-width 1)
+	 (rpos (pos-tip-show ""
+			     '(nil . (frame-parameter frame 'background-color))
+			     (window-start window) window
+			     nil nil 'relative nil 0)))
+    (sit-for 0)
+    (pos-tip-hide)
+    (and pos-tip-frame-offset
+	 (setq pos-tip-frame-offset
+	       (cons (- (car pos-tip-frame-offset)
+			(car rpos)
+			(eval (frame-parameter frame 'left)))
+		     (- (cdr pos-tip-frame-offset)
+			(cdr rpos)
+			(eval (frame-parameter frame 'top))))))))
+
+(defun pos-tip-w32-max-width-height (&optional keep-maximize)
+  "Maximize the currently selected frame temporarily and set
+`pos-tip-w32-saved-max-width-height' the effective display size in order
+to become possible to calculate the absolute location of tooltip.
+
+KEEP-MAXIMIZE non-nil means leave the frame maximized.
+
+Note that this function is usable only in Emacs 23 for MS-Windows."
+  (interactive)
+  (unless (eq window-system 'w32)
+    (error "`pos-tip-w32-max-width-height' can be used only in w32 frame."))
+  ;; Maximize frame
+  (with-no-warnings (w32-send-sys-command 61488))
+  (sit-for 0)
+  (let ((offset (pos-tip-calibrate-frame-offset)))
+    (prog1
+	(setq pos-tip-w32-saved-max-width-height
+	      (cons (frame-pixel-width)
+		    (+ (frame-pixel-height)
+		       (- (cdr offset) (car offset)))))
+      (if (interactive-p)
+	  (message "%S" pos-tip-w32-saved-max-width-height))
+      (unless keep-maximize
+	;; Restore frame
+	(with-no-warnings (w32-send-sys-command 61728))))))
+
 
 (provide 'pos-tip)
 
