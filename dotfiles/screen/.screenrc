@@ -2,13 +2,14 @@ bind . source $HOME/.screen-setting
 source $HOME/.screen-setting
 source $HOME/.screen-prefix
 source $HOME/.screen-tscreen
+source $HOME/.screen-local
 
-screen -t top 0 nice top
-#screen -t emacs 1 emacs -nw
-screen
-screen -t w3m 9 $HOME/bin/screen/screen_w3m_server
-select 1
-select 2
+#screen -t top 0 nice top
+##screen -t emacs 1 emacs -nw
+#screen
+#screen -t w3m 9 $HOME/bin/screen/screen_w3m_server
+#select 1
+#select 2
 
 # backtick
 backtick 0 0 0 tail -F /home/$USER/.screen_notify.dat
