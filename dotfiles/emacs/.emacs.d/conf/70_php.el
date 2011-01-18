@@ -24,3 +24,10 @@
               (make-variable-buffer-local 'ac-sources)
               (add-to-list 'ac-sources 'ac-source-php-completion)
               (auto-complete-mode t))))
+
+
+;;;; geben
+;;; http://code.google.com/p/geben-on-emacs/
+(add-hook 'php-mode-user-hook
+          (lambda ()
+             (my-autoload-and-when 'geben "geben")))
