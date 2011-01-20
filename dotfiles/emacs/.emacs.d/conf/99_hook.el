@@ -25,4 +25,5 @@
 (add-hook 'server-switch-hook
           (lambda ()
             (shell-command
-             "screen -X select $WINDOW")))
+             "screen -X select $WINDOW")
+            (raise-frame)))
