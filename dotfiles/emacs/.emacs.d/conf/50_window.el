@@ -53,6 +53,12 @@
 (my-require-and-when 'split-root)
 
 
+;;;; popwin
+;;;(install-elisp "https://github.com/m2ym/popwin-el/raw/master/popwin.el")
+(my-require-and-when 'popwin
+  (setq display-buffer-function 'popwin:display-buffer))
+
+
 ;;;; winhist
 '(my-require-and-when 'winhist
   (winhist-mode t))
