@@ -20,3 +20,9 @@
 ;;;  (my-eval-after-load "flymake" '(diminish 'flymake-mode))
 ;;;  (my-eval-after-load "gtags" '(diminish 'gtags-mode))
   )
+
+;;;; screen
+(add-hook 'server-switch-hook
+          (lambda ()
+            (shell-command
+             "screen -X select $WINDOW")))
