@@ -1,5 +1,6 @@
 ;;;(install-elisp-from-emacswiki "anything.el")
 ;;;(install-elisp-from-emacswiki "anything-config.el")
+;;;(install-elisp-from-emacswiki "anything-obsolete.el")
 ;;;(install-elisp-from-emacswiki "anything-rubikitch.el")
 ;;;(install-elisp-from-emacswiki "anything-goodies.el")
 (my-require-and-when 'anything-config)
@@ -238,7 +239,7 @@
 
 
 ;;;; key setting
-(define-key global-map (kbd "C-;") 'anything)
+(define-key global-map (kbd "C-c <SPC>") 'anything)
 (define-key global-map (kbd "C-'") 'anything-resume)
 (define-key global-map (kbd "C-&") 'anything-call-source)
 ;;;(define-key ctl-x-map "\C-f" 'anything-find-files)
