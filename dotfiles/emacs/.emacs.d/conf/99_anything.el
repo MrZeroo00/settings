@@ -1,9 +1,10 @@
 ;;;(install-elisp-from-emacswiki "anything.el")
 ;;;(install-elisp-from-emacswiki "anything-config.el")
+;;;(install-elisp-from-emacswiki "anything-startup.el")
 ;;;(install-elisp-from-emacswiki "anything-obsolete.el")
 ;;;(install-elisp-from-emacswiki "anything-rubikitch.el")
 ;;;(install-elisp-from-emacswiki "anything-goodies.el")
-(my-require-and-when 'anything-config)
+(my-require-and-when 'anything-startup)
 (my-load-and-when "anything-rubikitch-import")
 ;;;(my-load-and-when "anything-rubikitch")
 
@@ -68,19 +69,6 @@
 ;;;; anything-c-yasnippet
 (my-require-and-when 'anything-c-yasnippet
   (setq anything-c-yas-space-match-any-greedy t))
-
-
-;;;; anything-complete
-;;;(install-elisp-from-emacswiki "anything-complete.el")
-(my-require-and-when 'anything-complete
-  (anything-read-string-mode t)
-  (anything-lisp-complete-symbol-set-timer 150)
-  (setq anything-lisp-complete-symbol-input-idle-delay 0.0)
-  (setq anything-find-file-additional-sources (list anything-find-file-additional-sources
-                                                    (if run-darwin
-                                                        anything-c-source-mac-spotlight
-                                                      anything-c-source-locate)))
-  )
 
 
 ;;;; anything-dabbrev-expand
@@ -209,8 +197,6 @@
 ;;;(install-elisp-from-emacswiki "anything-kyr.el")
 ;;;(install-elisp-from-emacswiki "anything-kyr-config.el")
 (my-require-and-when 'anything-kyr-config)
-(my-require-and-when 'anything-complete
-  (anything-read-string-mode t))
 
 (setq anything-kyr-commands-by-major-mode
       '((c-mode "recompile" "compile"
