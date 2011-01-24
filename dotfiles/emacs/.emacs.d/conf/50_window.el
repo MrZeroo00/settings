@@ -50,7 +50,7 @@
 
 ;;;; split-root
 ;;;(install-elisp "http://nschum.de/src/emacs/split-root/split-root.el")
-(my-require-and-when 'split-root)
+;;;(my-require-and-when 'split-root)
 
 
 ;;;; popwin
