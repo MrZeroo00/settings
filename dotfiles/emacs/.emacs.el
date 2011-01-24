@@ -122,22 +122,6 @@
 	  (load (expand-file-name "subdirs.el") t t t)))))
 
 
-;;;; byte-compile
-(define-minor-mode auto-async-byte-compile-mode
-  "With no argument, toggles the mode.
-With a numeric argument, turn mode on iff ARG is positive."
-  nil "" nil
-  (if auto-async-byte-compile-mode
-      (add-hook 'after-save-hook 'auto-async-byte-compile nil 'local)
-    (remove-hook 'after-save-hook 'auto-async-byte-compile 'local)))
-
-(defun auto-async-byte-compile ()
-  (interactive)
-  (and buffer-file-name
-       (string-match "¥¥.el$" buffer-file-name)
-       (executable-interpret (format "emacs_byte-compile %s" buffer-file-name))))
-(add-hook 'emacs-lisp-mode-hook 'auto-async-byte-compile)
-
 ;;;; define eval-safe
 ;;;; http://www.sodan.org/~knagano/emacs/dotemacs.html#eval-safe
 (defmacro eval-safe (&rest body)
@@ -223,6 +207,13 @@ With a numeric argument, turn mode on iff ARG is positive."
         (setq e-time (current-time))
         (message "%s secs" (timediff s-time e-time))))))
 
+;;;; byte-compile
+;;;(install-elisp-from-emacswiki "auto-async-byte-compile")
+(my-require-and-when 'auto-async-byte-compile)
+;;;(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
+(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+
+;;;; profiling
 (defcustom my-profiling nil
   "The flag to enable profiling")
 ;;;; hook profiling macro (still unstable)
