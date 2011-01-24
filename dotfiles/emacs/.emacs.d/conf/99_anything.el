@@ -228,7 +228,6 @@
 (define-key global-map (kbd "C-c <SPC>") 'anything)
 (define-key global-map (kbd "C-'") 'anything-resume)
 (define-key global-map (kbd "C-&") 'anything-call-source)
-;;;(define-key ctl-x-map "\C-f" 'anything-find-files)
 (define-key anything-map "\C-\M-n" 'anything-next-source)
 (define-key anything-map "\C-\M-p" 'anything-previous-source)
 (define-key anything-map "\C-r" 'anything-select-source)
@@ -250,13 +249,9 @@
                              anything-c-source-call-source
                              ;;anything-c-source-yasnippet
                              ;;anything-c-source-gtags-select
-                             anything-c-source-files-in-current-dir+
+                             ;;anything-c-source-files-in-current-dir+
                              anything-c-source-recentf
-                             ;;anything-c-source-file-name-history
-                             anything-c-source-file-cache
-                             ;;(if run-darwin
-                             ;;    anything-c-source-mac-spotlight
-                             ;;  anything-c-source-locate)
+                             anything-c-source-filelist
                              anything-c-source-extended-command-history
                              ;;anything-c-source-complex-command-history
                              anything-c-source-emacs-commands
@@ -265,9 +260,9 @@
                              ;;anything-c-source-calculation-result
                              ))
 
-(defun my-anything-null-function (candidate))
-(setcdr (assoc 'persistent-action anything-c-source-find-files) 'my-anything-null-function)
-(nconc (cdr (assoc 'action anything-c-source-find-files)) '(("Copy file name" . kill-new)))
+;;;(defun my-anything-null-function (candidate))
+;;;(setcdr (assoc 'persistent-action anything-c-source-find-files) 'my-anything-null-function)
+;;;(nconc (cdr (assoc 'action anything-c-source-find-files)) '(("Copy file name" . kill-new)))
 
 
 ;;;; anything-display-function
