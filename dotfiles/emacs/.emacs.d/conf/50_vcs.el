@@ -41,8 +41,8 @@
 
 ;;;; git-dwim
 ;;;(install-elisp-from-emacswiki "git-dwim.el")
-(my-require-and-when 'git-dwim)
-(global-set-key "\C-xvb" 'git-branch-next-action)
+(my-require-and-when 'git-dwim
+  (global-set-key "\C-xvb" 'git-branch-next-action))
 
 
 ;;;; p4
