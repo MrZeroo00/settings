@@ -39,6 +39,12 @@
   (define-key egg-file-cmd-map "l" 'git-log-file))
 
 
+;;;; git-dwim
+;;;(install-elisp-from-emacswiki "git-dwim.el")
+(my-require-and-when 'git-dwim)
+(global-set-key "\C-xvb" 'git-branch-next-action)
+
+
 ;;;; p4
 ;;;; http://p4el.sourceforge.net/
 ;;;(my-require-and-when 'p4)
