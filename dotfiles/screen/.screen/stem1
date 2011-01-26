@@ -4,4 +4,5 @@ source defaults
 #caption always "%{=b yk}[%02c] %-w%{=b bw}%n %t%{-}%+w %= %?%1`%? %0`"
 caption always "%{= dd}%h%-023= %Y/%m/%d %02C:%s %A"
  
+#screen screen -qUmc leaf
 screen screen -qmc leaf
