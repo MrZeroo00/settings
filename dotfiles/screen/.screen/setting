@@ -19,8 +19,8 @@ blanker
 blankerprg fortune
 
 ## notification settings
-vbell off
 startup_message off
+vbell off
 msgwait 3
 msgminwait 2
 
