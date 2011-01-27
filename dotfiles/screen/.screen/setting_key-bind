@@ -1,6 +1,7 @@
 ## key bindings
 # prefix key setting
 escape ^t^t # prefix key
+zombie q^m
 bind '$' escape ^\^\ # change prefix key at inner screen
 bind 'T' escape ^t^t # revert prefix key to C-t
 
