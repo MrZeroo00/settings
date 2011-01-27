@@ -10,8 +10,6 @@ shell -$SHELL # make the shell in every window a login shell
 #password ODSJQf.4IJN7E # password setting
 zombie q^m
 #maxwin 5
-msgwait 3
-msgminwait 2
 logfile "$HOME/log/screen-%Y%m%d-%n.log"
 #term xterm-256color
 term screen-bce
@@ -25,6 +23,8 @@ blankerprg fortune
 ## notification settings
 vbell off
 startup_message off
+msgwait 3
+msgminwait 2
 
 activity "%{=B km}Activity in window %.%{-}"
 #bell_msg "%{=B km}Bell in window %.%{-}"
