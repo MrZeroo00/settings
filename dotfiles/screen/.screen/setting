@@ -2,17 +2,16 @@ source $HOME/.screen/defaults
 source $HOME/.screen/setting_key-bind
 
 ## basic settings
+term screen-bce
+#term screen-256color-bce
+shell -$SHELL # make the shell in every window a login shell
 autodetach on
 deflogin off
 defflow off
 defscrollback 10000
-shell -$SHELL # make the shell in every window a login shell
-#password ODSJQf.4IJN7E # password setting
 #maxwin 5
+#password ODSJQf.4IJN7E # password setting
 logfile "$HOME/log/screen-%Y%m%d-%n.log"
-#term xterm-256color
-term screen-bce
-#term screen-256color-bce
 
 # screen blanker settings
 idle 3600
