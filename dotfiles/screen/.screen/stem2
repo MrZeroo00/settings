@@ -3,5 +3,5 @@ source $HOME/.screen/defaults
 caption always "%{= dd}%`"
 backtick 0 0 0 /home/$USER/bin/screen/screen_uptime
 
-#screen screen -qUmc leaf
-screen screen -qmc leaf
+#screen screen -qUmc stem1
+screen screen -qmc stem1
