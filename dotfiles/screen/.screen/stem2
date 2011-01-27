@@ -1,6 +1,7 @@
 source $HOME/.screen/defaults
 
-caption always "%{= dd}%h%-023= %Y/%m/%d %02C:%s %A"
+caption always "%{= dd}%`"
+backtick 0 0 0 tail -F /home/$USER/.screen_notify.dat
 
 #screen screen -qUmc leaf
 screen screen -qmc leaf
