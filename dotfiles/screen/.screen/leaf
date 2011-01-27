@@ -1,6 +1,5 @@
 bind . source $HOME/.screen/setting
 source $HOME/.screen/setting
-source $HOME/.screen/prefix
 source $HOME/.screen/tscreen
 source $HOME/.screen/local
 
