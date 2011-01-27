@@ -1,7 +1,7 @@
 (setq migemo-command
       (or (my-which "cmigemo")
           (my-which "migemo")))
-(setq migemo-options '("-q" "--emacs"))
+;;(setq migemo-options '("-q" "--emacs"))
 
 ;;;; dictionary
 (setq migemo-user-dictionary nil)

@@ -66,6 +66,11 @@
 (my-require-and-when 'anything-c-source-buffers2)
 
 
+;;;; anything-c-source-filelist
+(setq anything-c-filelist-file-name "/tmp/all.filelist")
+(setq anything-grep-candidates-fast-directory-regexp "^/tmp")
+
+
 ;;;; anything-c-yasnippet
 (my-require-and-when 'anything-c-yasnippet
   (setq anything-c-yas-space-match-any-greedy t))
@@ -225,7 +230,7 @@
 
 
 ;;;; key setting
-(define-key global-map (kbd "C-c <SPC>") 'anything)
+(define-key global-map (kbd "M-<SPC>") 'anything)
 (define-key global-map (kbd "C-'") 'anything-resume)
 (define-key global-map (kbd "C-&") 'anything-call-source)
 (define-key anything-map "\C-\M-n" 'anything-next-source)
@@ -254,7 +259,7 @@
                              anything-c-source-filelist
                              anything-c-source-extended-command-history
                              ;;anything-c-source-complex-command-history
-                             anything-c-source-emacs-commands
+                             ;;anything-c-source-emacs-commands
                              ;;anything-c-source-man-pages
                              ;;anything-c-source-info-pages
                              ;;anything-c-source-calculation-result

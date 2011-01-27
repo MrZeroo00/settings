@@ -3,7 +3,10 @@
 ;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.php" . php-mode))
 
+
+;;;; common setting
 ;(setq php-mode-force-pear t)
+(add-to-list 'which-func-modes 'php-mode)
 
 
 ;;;; gtags
