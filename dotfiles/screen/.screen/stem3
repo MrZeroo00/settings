@@ -1,7 +1,7 @@
 source $HOME/.screen/defaults
 
 caption always "%{= dd}%`"
-backtick 0 0 0 tail -F /home/$USER/.screen_notify.dat
+backtick 0 0 0 tail -F /home/$USER/.screen/notify.dat
 
 #screen screen -qUmc stem2
 screen screen -qmc stem2
