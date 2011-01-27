@@ -10,6 +10,3 @@ chdir
 #screen -t w3m 9 $HOME/bin/screen/screen_w3m_server
 #select 1
 #select 2
-
-# backtick
-backtick 2 0 0 /home/$USER/bin/screen/screen_uptime
