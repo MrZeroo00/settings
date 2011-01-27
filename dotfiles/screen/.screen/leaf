@@ -1,8 +1,8 @@
-bind . source $HOME/.screen-setting
-source $HOME/.screen-setting
-source $HOME/.screen-prefix
-source $HOME/.screen-tscreen
-source $HOME/.screen-local
+bind . source $HOME/.screen/setting
+source $HOME/.screen/setting
+source $HOME/.screen/prefix
+source $HOME/.screen/tscreen
+source $HOME/.screen/local
 
 #screen -t top 0 nice top
 ##screen -t emacs 1 emacs -nw
