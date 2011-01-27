@@ -20,7 +20,7 @@ bind 'I' login on
 bind 'O' login off
 bind '}' history
 
-bind w windowlist -b
+bind w windowlist -b -g
 #bind ^] paste [.]
 bind o focus
 bind ^t eval 'focus top' 'other'
