@@ -14,6 +14,7 @@ bind x # lockscreen
 bind ^g # vbell
 bind . # dumptermcap
 bind h # hardcopy
+
 # make them better
 bind 'K' kill
 bind 'I' login on
