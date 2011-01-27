@@ -1,2 +1,2 @@
 #!/bin/sh
-echo $@ >> $HOME/.screen_notify.txt
+echo $@ >> $HOME/.screen/notify.dat
