@@ -237,7 +237,6 @@
 
 
 ;;;; local settings
-(my-load-and-when "00_local")
 (my-load-and-when (concat "00_local_" hostname))
 
 
@@ -318,7 +317,7 @@
 (when (and run-w32 run-meadow)
   (my-load-and-when "99_local_meadow"))
 
-(my-load-and-when "99_local")
+(my-load-and-when (concat "99_local_" hostname))
 
 
 ;;;(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
