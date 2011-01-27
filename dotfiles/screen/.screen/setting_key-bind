@@ -116,3 +116,44 @@ bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy /tmp/screen-ex
 #register [ "\033:se noai\015a"
 #register ] "\033:se ai\015a"
 #bind ^] paste [.]
+
+# prefix for each window
+bind s
+bind ^s command -c PREFIX
+bind -c PREFIX ^a command
+bind -c PREFIX 0 select 0
+bind -c PREFIX 1 select 1
+bind -c PREFIX 2 select 2
+bind -c PREFIX 3 select 3
+bind -c PREFIX 4 select 4
+bind -c PREFIX 5 select 5
+bind -c PREFIX 6 select 6
+bind -c PREFIX 7 select 7
+bind -c PREFIX 8 select 8
+bind -c PREFIX 9 select 9
+bind -c PREFIX a select a
+bind -c PREFIX b select b
+bind -c PREFIX c select c
+bind -c PREFIX d select d
+bind -c PREFIX e select e
+bind -c PREFIX f select f
+bind -c PREFIX g select g
+bind -c PREFIX h select h
+bind -c PREFIX i select i
+bind -c PREFIX j select j
+bind -c PREFIX k select k
+bind -c PREFIX l select l
+bind -c PREFIX m select m
+bind -c PREFIX n select n
+bind -c PREFIX o select o
+bind -c PREFIX p select p
+bind -c PREFIX q select q
+bind -c PREFIX r select r
+bind -c PREFIX s select s
+bind -c PREFIX t select t
+bind -c PREFIX u select u
+bind -c PREFIX v select v
+bind -c PREFIX w select w
+bind -c PREFIX x select x
+bind -c PREFIX y select y
+bind -c PREFIX z select z
