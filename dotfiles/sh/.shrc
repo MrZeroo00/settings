@@ -101,6 +101,13 @@ export LC_NUMERIC=${LANG}
 export LC_COLLATE=${LANG}
 
 
+# keychain
+if [ -x "`which keychain`" ]; then
+    keychain ${HOME}/.ssh/id_rsa
+    source ${HOME}/.keychain/`uname -n`-sh
+fi
+
+
 # aliases
 if [ -f ${HOME}/.sh_aliases ]; then
     source ${HOME}/.sh_aliases
