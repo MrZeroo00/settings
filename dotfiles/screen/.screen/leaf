@@ -3,6 +3,7 @@ source $HOME/.screen/setting
 source $HOME/.screen/tscreen
 source $HOME/.screen/local
 
+chdir
 #screen -t top 0 nice top
 ##screen -t emacs 1 emacs -nw
 #screen

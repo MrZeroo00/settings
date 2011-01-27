@@ -10,7 +10,8 @@ shell -$SHELL # make the shell in every window a login shell
 #password ODSJQf.4IJN7E    # password setting
 zombie q^m
 #maxwin 5
-msgminwait 0
+msgwait 3
+msgminwait 2
 logfile "$HOME/log/screen-%Y%m%d-%n.log"
 #term xterm-256color
 term screen-bce
