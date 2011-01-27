@@ -130,6 +130,8 @@ bind -c REGION t focus top
 bind -c REGION k focus up
 bind -c REGION j focus down
 bind -c REGION b focus bottom
+bind -c REGION h focus left
+bind -c REGION l focus right
 bind -c REGION + resize +1
 bind -c REGION - resize -1
 bind -c REGION = resize =
