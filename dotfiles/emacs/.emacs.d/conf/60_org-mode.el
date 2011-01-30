@@ -132,7 +132,7 @@
           ("i" "Idea" entry
            (file+headline nil "New Ideas")
            "** %?\n   %i\n   %a\n   %t")))
-  (global-set-key (kbd ("C-c c")) 'org-capture))
+  (global-set-key (kbd "C-c c") 'org-capture))
 
 
 ;;;; imenu
