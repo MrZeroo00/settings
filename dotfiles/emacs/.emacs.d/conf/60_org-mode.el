@@ -122,6 +122,7 @@
      ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
     )
 
+  (defvar org-code-reading-file (concat org-directory "code-reading.org"))
   (setq org-capture-templates
         '(("t" "Todo" entry
            (file+headline nil "Inbox")
@@ -131,7 +132,10 @@
            "** TODO %?   :bug:\n   %i\n   %a\n   %t")
           ("i" "Idea" entry
            (file+headline nil "New Ideas")
-           "** %?\n   %i\n   %a\n   %t")))
+           "** %?\n   %i\n   %a\n   %t")
+          ("c" "Code" entry
+           (file+headline ,org-code-reading-file "Code Reading")
+           "** CODE %?\n   %i\n   %a\n   %t")))
   (global-set-key (kbd "C-c c") 'org-capture))
 
 
