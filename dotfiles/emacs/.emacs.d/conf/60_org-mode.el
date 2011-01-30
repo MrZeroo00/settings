@@ -120,7 +120,19 @@
      ((org-agenda-text-search-extra-files (file-expand-wildcards "~/memo/archive/*.org"))))
     ("QA" "Archive tags search" org-tags-view ""
      ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
-    ))
+    )
+
+  (setq org-capture-templates
+        '(("t" "Todo" entry
+           (file+headline nil "Inbox")
+           "** TODO %?\n   %i\n   %a\n   %t")
+          ("b" "Bug" entry
+           (file+headline nil "Inbox")
+           "** TODO %?   :bug:\n   %i\n   %a\n   %t")
+          ("i" "Idea" entry
+           (file+headline nil "New Ideas")
+           "** %?\n   %i\n   %a\n   %t")))
+  (global-set-key (kbd ("C-c c") 'org-capture)))
 
 
 ;;;; imenu
