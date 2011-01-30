@@ -122,7 +122,7 @@
      ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
     )
 
-  (defvar org-code-reading-file (concat org-directory "code-reading.org"))
+  (setq org-code-reading-file (concat org-directory "code-reading.org"))
   (setq org-capture-templates
         '(("t" "Todo" entry
            (file+headline nil "Inbox")
@@ -148,16 +148,16 @@
 ;;;; remember
 ;;;; https://gna.org/p/remember-el
 ;;;(org-remember-insinuate)
-(my-require-and-when 'remember
-  (setq remember-annotation-functions '(org-remember-annotation))
-  (setq remember-handler-functions '(org-remember-handler))
-  (add-hook 'remember-mode-hook 'org-remember-apply-template)
-
-  (setq org-remember-templates
-  '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
-    ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
-    ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
-    )))
+;;;(my-require-and-when 'remember
+;;;  (setq remember-annotation-functions '(org-remember-annotation))
+;;;  (setq remember-handler-functions '(org-remember-handler))
+;;;  (add-hook 'remember-mode-hook 'org-remember-apply-template)
+;;;
+;;;  (setq org-remember-templates
+;;;  '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
+;;;    ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
+;;;    ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
+;;;    )))
 
 
 ;;;; freemind
@@ -166,7 +166,7 @@
 
 
 ;;;; macros
-(my-load-and-when "_org-remember-code-reading")
+;;;(my-load-and-when "_org-remember-code-reading")
 (my-load-and-when "_org-next-prev-visible-link"
   (define-key org-mode-map "\M-n" 'org-next-visible-link)
   (define-key org-mode-map "\M-p" 'org-previous-visible-link))
