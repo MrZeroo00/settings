@@ -265,7 +265,7 @@
 
 
 ;;;; macros
-(my-load-and-when "_window-line")
+'(my-load-and-when "_window-line")
 '(my-load-and-when "_copy-region-with-info")
 '(my-load-and-when "_duplicate-line"
   (define-key esc-map "Y" 'duplicate-line))
