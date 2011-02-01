@@ -9,6 +9,19 @@
 (add-to-list 'which-func-modes 'php-mode)
 
 
+;;;; flymake
+(defun flymake-php-init ()
+  "Use php to check the syntax of the current file."
+  (let* ((temp (flymake-init-create-temp-buffer-copy 'flymake-create-temp-inplace))
+		 (local (file-relative-name temp (file-name-directory buffer-file-name))))
+	(list "php" (list "-f" local "-l"))))
+
+(add-to-list 'flymake-err-line-patterns
+			 '("\\(Parse\\|Fatal\\) error: +\\(.*?\\) in \\(.*?\\) on line \\([0-9]+\\)$" 3 4 nil 2))
+
+(add-to-list 'flymake-allowed-file-name-masks '("\\.php$" flymake-php-init))
+
+
 ;;;; gtags
 (add-hook 'php-mode-user-hook (lambda ()
                            (gtags-mode t)
@@ -31,6 +44,4 @@
 
 ;;;; geben
 ;;; http://code.google.com/p/geben-on-emacs/
-(add-hook 'php-mode-user-hook
-          (lambda ()
-             (my-autoload-and-when 'geben "geben")))
+(my-autoload-and-when 'geben "geben")
