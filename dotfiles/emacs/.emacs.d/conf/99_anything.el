@@ -189,7 +189,7 @@
 
 
 ;;;; anything-compile-source--candidates-file
-(defvar anything-c-source-home-directory
+'(defvar anything-c-source-home-directory
   '((name . "Home directory")
     ;; /log/home.filelist にホームディレクトリのファイル名が1行につきひとつ格納されている
     (candidates-file "/log/home.filelist" updating)
@@ -271,7 +271,7 @@
 
 
 ;;;; anything-display-function
-(my-require-and-when 'split-root
+'(my-require-and-when 'split-root
   (defvar anything-compilation-window-height-percent 50.0)
   (defun anything-compilation-window-root (buf)
     (setq anything-compilation-window
