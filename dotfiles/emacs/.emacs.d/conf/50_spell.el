@@ -11,9 +11,10 @@
 
 ;;;; flyspell
 (setq flyspell-auto-correct-binding [(control ?\')]) ; avoid key binding conflict with anything
-(my-autoload-and-when 'flyspell-mode "flyspell")
-(my-autoload-and-when 'flyspell-delay-command "flyspell")
-(my-autoload-and-when 'tex-mode-flyspell-verify "flyspell")
+(when (my-which "aspell")
+  (my-autoload-and-when 'flyspell-mode "flyspell")
+  (my-autoload-and-when 'flyspell-delay-command "flyspell")
+  (my-autoload-and-when 'tex-mode-flyspell-verify "flyspell"))
 (my-eval-after-load "flyspell"
   (setq flyspell-issue-message-flag nil)
   (setq ispell-parser 'tex)
