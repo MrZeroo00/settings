@@ -269,7 +269,7 @@
 (my-load-and-when "60_hatena")
 (my-load-and-when "60_howm")
 ;;;(my-load-and-when "60_iswitchb")
-;;;(my-load-and-when "60_key-chord")
+(my-load-and-when "60_key-chord")
 (my-load-and-when "60_lookup")
 ;;;(my-load-and-when "60_mew")
 (my-load-and-when "60_migemo")
