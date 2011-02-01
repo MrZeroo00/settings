@@ -44,7 +44,7 @@
 ;;;; master
 ;;;; http://www.geocities.com/kensanata/elisp/master.el.txt
 ;;;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
-(my-autoload-and-when 'master-mode "master"
+'(my-autoload-and-when 'master-mode "master"
   	      (my-load-and-when "dired-master"))
 
 
