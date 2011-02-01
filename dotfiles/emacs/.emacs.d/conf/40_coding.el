@@ -253,7 +253,7 @@
 ;;;; smartchr
 ;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
 (my-require-and-when 'smartchr
-  (global-set-key (kbd "=") (smartchr '(" = " " == " "=")))
+  (global-set-key (kbd "=") (smartchr '(" = " " == " " === " "=")))
 ;;;  (global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
 ;;;  (global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
 ;;;  (global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
@@ -306,7 +306,7 @@
 
 ;;;; gtk-look
 ;;;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
-(my-autoload-and-when 'gtk-lookup-symbol "gtk-look"
+'(my-autoload-and-when 'gtk-lookup-symbol "gtk-look"
   	      (when run-linux
   		(setq gtk-lookup-devhelp-indices
   		      '("/usr/share/doc/lib*-doc/*.devhelp*"
@@ -470,7 +470,7 @@
 
 
 ;;;; to pop up compilation buffers at the bottom
-(my-eval-after-load "split-root"
+'(my-eval-after-load "split-root"
   (my-require-and-when 'compile)
   (defvar my-compilation-window nil
     "The window opened for displaying a compilation buffer.")
