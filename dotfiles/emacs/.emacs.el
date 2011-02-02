@@ -207,6 +207,8 @@
         (setq e-time (current-time))
         (message "%s secs" (timediff s-time e-time))))))
 
+(my-load-and-when "_which")
+
 ;;;; boot check
 ;;;(install-elisp-from-emacswiki "emacs-init-check")
 (my-require-and-when 'emacs-init-check

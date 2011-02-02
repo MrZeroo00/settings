@@ -121,7 +121,8 @@
 
 ;;;; clipboard setting
 ;;;; http://d.hatena.ne.jp/pakepion/20081209/1228828521
-(when (or run-linux run-bsd run-unix run-system-v)
+(when (and (or run-linux run-bsd run-unix run-system-v)
+		   (my-which "xsel"))
   (setq interprogram-paste-function
         (lambda ()
           (shell-command-to-string "xsel -b -o")))
