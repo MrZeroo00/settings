@@ -44,4 +44,5 @@
 
 ;;;; geben
 ;;; http://code.google.com/p/geben-on-emacs/
-(my-autoload-and-when 'geben "geben")
+(my-autoload-and-when 'geben "geben"
+  (geben-source-coding-system 'utf-8))
