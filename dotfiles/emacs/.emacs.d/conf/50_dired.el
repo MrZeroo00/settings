@@ -7,14 +7,16 @@
 
 
 ;;;; ls-lisp
-(my-require-and-when 'ls-lisp
-  (setq ls-lisp-dirs-first t))
+(when run-w32
+  (my-require-and-when 'ls-lisp
+    (setq ls-lisp-dirs-first t)))
 
 
 ;;;; find-dired-lisp (filter file list)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/find-dired-lisp.el")
-(my-autoload-and-when 'find-dired-lisp "find-dired-lisp")
-(my-autoload-and-when 'find-grep-dired-lisp "find-dired-lisp")
+(when run-w32
+  (my-autoload-and-when 'find-dired-lisp "find-dired-lisp")
+  (my-autoload-and-when 'find-grep-dired-lisp "find-dired-lisp"))
 
 
 ;;;; sorter (sort file list)
