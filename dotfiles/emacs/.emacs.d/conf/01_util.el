@@ -19,7 +19,3 @@
                         ((symbol-value 'buffer-file-name)))))
     (unless (null location)
       (kill-new location))))
-
-
-;;;; macros
-(my-load-and-when "_which")
