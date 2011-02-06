@@ -120,9 +120,8 @@
      ((org-agenda-text-search-extra-files (file-expand-wildcards "~/memo/archive/*.org"))))
     ("QA" "Archive tags search" org-tags-view ""
      ((org-agenda-files (file-expand-wildcards "~/memo/archive/*.org"))))
-    )
+    ))
 
-  (setq org-code-reading-file (concat org-directory "code-reading.org"))
   (setq org-capture-templates
         '(("t" "Todo" entry
            (file+headline nil "Inbox")
@@ -134,9 +133,9 @@
            (file+headline nil "New Ideas")
            "** %?\n   %i\n   %a\n   %t")
           ("c" "Code" entry
-           (file+headline ,org-code-reading-file "Code Reading")
+           (file+headline "~/memo/code-reading.org" "Code Reading")
            "** CODE %?\n   %i\n   %a\n   %t")))
-  (global-set-key (kbd "C-c c") 'org-capture))
+  (global-set-key (kbd "C-c c") 'org-capture)
 
 
 ;;;; imenu
