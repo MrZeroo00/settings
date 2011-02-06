@@ -107,6 +107,8 @@ if [ -x "`which keychain`" ]; then
     source ${HOME}/.keychain/`uname -n`-sh
 fi
 
+# screen
+screen -r
 
 # aliases
 if [ -f ${HOME}/.sh_aliases ]; then
