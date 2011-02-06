@@ -66,6 +66,7 @@ fi
 # OS specific environmental variables
 case "${OS}" in
   "Linux")
+  export GREP_USE_DFA=1
   ;;
   "Darwin")
   add_path "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin"
