@@ -5,6 +5,7 @@
 ;;;(install-elisp "http://www.xsteve.at/prg/emacs/psvn.el")
 (my-autoload-and-when 'svn-status "psvn")
 (my-autoload-and-when 'svn-update "psvn")
+(setq svn-status-verbose nil)
 
 
 ;;;; dsvn
