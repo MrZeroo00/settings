@@ -3,7 +3,9 @@
 if [ $# -ne 0 ]; then
   case "`uname`" in
     "Linux")
-    xclip $*
+    if [ -f "`which xclip`" ]; then
+      xclip $*
+    fi
     ;;
     "Darwin")
     cat $* | pbcopy
@@ -12,7 +14,9 @@ if [ $# -ne 0 ]; then
 else
   case "`uname`" in
     "Linux")
-    xclip
+    if [ -f "`which xclip`" ]; then
+      xclip
+    fi
     ;;
     "Darwin")
     pbcopy
