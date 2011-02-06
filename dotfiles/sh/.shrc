@@ -108,7 +108,7 @@ if [ -x "`which keychain`" ]; then
 fi
 
 # screen
-screen -r
+screen -D -R
 
 # aliases
 if [ -f ${HOME}/.sh_aliases ]; then
