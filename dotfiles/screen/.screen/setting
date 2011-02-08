@@ -34,6 +34,6 @@ rendition monitor "+rb" ".R"
 rendition silence "+rb" ".B"
 rendition so "+rb" ".M"
 
-caption always "%{=b yk}[%02c] %-w%{=b bw}%n %t%{-}%+w %= %?%1`%? %0`"
+caption always "%?%F%{=b mw}%:%{=b Bw}%?[%02c] %-w%?%F%{=b Bw}%:%{=b wB}%?%n %t%{-}%+w %= %?%1`%? %0`"
 hardstatus string "%?%h%:%t (screen #%n on %H)%?"
 #defhstatus "^En:^Et"
