@@ -248,12 +248,7 @@
                              anything-c-source-bm
                              anything-c-source-bookmarks
                              ;;anything-c-source-bookmark-files&dirs
-                             anything-c-source-org-todo-state
-                             anything-c-source-org-headline
-                             anything-c-source-imenu
                              anything-c-source-call-source
-                             ;;anything-c-source-yasnippet
-                             ;;anything-c-source-gtags-select
                              ;;anything-c-source-files-in-current-dir+
                              anything-c-source-recentf
                              anything-c-source-filelist
