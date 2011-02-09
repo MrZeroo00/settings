@@ -1,0 +1,5 @@
+#!/bin/sh
+
+while true; do
+  nc -l 2224 | cbcopy
+done
