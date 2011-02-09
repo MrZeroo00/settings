@@ -102,17 +102,18 @@ bind ^a command -c RESIZE
 # launcher
 bind ^x	eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
 bind x eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
-bind -c LANUCHER f exec $HOME/bin/screen/screen_exec_x -bg firefox
-bind -c LANUCHER w screen -t w3m $HOME/bin/screen/screen_exec w3m http://www.google.co.jp/
-bind -c LANUCHER p screen -t cpan $HOME/bin/screen/screen_exec perl -MCPAN -e shell
-bind -c LANUCHER t screen -t top $HOME/bin/screen/screen_exec top
+bind -c LANUCHER f exec ${HOME}/bin/screen/screen_exec_x -bg firefox
+bind -c LANUCHER w screen -t w3m ${HOME}/bin/screen/screen_exec w3m http://www.google.co.jp/
+bind -c LANUCHER p screen -t cpan ${HOME}/bin/screen/screen_exec perl -MCPAN -e shell
+bind -c LANUCHER t screen -t top ${HOME}/bin/screen/screen_exec top
 bind ^a command -c LANUCHER
 
 # copy to X clipboard
-bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
-bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
-bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
-bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy /tmp/screen-exchange' 'msgwait 2'
+bufferfile "${HOME}/.screen-exchange"
+bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
+bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
+bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
+bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
 
 # Yet another hack:
 # Prepend/append register [/] to the paste if ^a^] is pressed.
