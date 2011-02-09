@@ -109,11 +109,11 @@ bind -c LANUCHER t screen -t top ${HOME}/bin/screen/screen_exec top
 bind ^a command -c LANUCHER
 
 # copy to X clipboard
-bufferfile "${HOME}/.screen-exchange"
-bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
-bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
-bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
-bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy ${HOME}/.screen-exchange' 'msgwait 2'
+bufferfile "${HOME}/.screen/exchange"
+bindkey -m ' ' eval 'msgwait 0' 'stuff \040' writebuf 'exec !!! cbcopy ${HOME}/.screen/exchange' 'msgwait 2'
+bindkey -m Y eval 'msgwait 0' 'stuff Y' writebuf 'exec !!! cbcopy ${HOME}/.screen/exchange' 'msgwait 2'
+bindkey -m y eval 'msgwait 0' 'stuff y' writebuf 'exec !!! cbcopy ${HOME}/.screen/exchange' 'msgwait 2'
+bindkey -m W eval 'msgwait 0' 'stuff W' writebuf 'exec !!! cbcopy ${HOME}/.screen/exchange' 'msgwait 2'
 
 # Yet another hack:
 # Prepend/append register [/] to the paste if ^a^] is pressed.
