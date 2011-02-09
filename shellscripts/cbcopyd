@@ -1,3 +1,5 @@
 #!/bin/sh
 
-nc -k -l 2224 | cbcopy
+while true; do
+  nc -k -l 2224 | nkf -w | cbcopy
+done
