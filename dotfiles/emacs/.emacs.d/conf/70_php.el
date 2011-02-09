@@ -33,16 +33,16 @@
 ;;;(install-elisp-from-emacswiki "php-completion.el")
 (add-hook 'php-mode-user-hook
           (lambda ()
-            (my-require-and-when 'php-completion)
-            (php-completion-mode t)
-            (define-key php-mode-map (kbd "C-o") 'phpcmp-complete)
-            (when (require 'auto-complete nil t)
-              (make-variable-buffer-local 'ac-sources)
-              (add-to-list 'ac-sources 'ac-source-php-completion)
-              (auto-complete-mode t))))
+            (my-require-and-when 'php-completion
+			  (php-completion-mode t)
+			  ;;(define-key php-mode-map (kbd "C-o") 'phpcmp-complete)
+			  (when (my-require-and-when 'auto-complete
+					  (make-variable-buffer-local 'ac-sources)
+					  (add-to-list 'ac-sources 'ac-source-php-completion)
+					  (auto-complete-mode t))))))
 
 
 ;;;; geben
 ;;; http://code.google.com/p/geben-on-emacs/
 (my-autoload-and-when 'geben "geben"
-  (geben-source-coding-system 'utf-8))
+  (geben-source-coding-system 'euc-jp))
