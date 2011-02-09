@@ -1,6 +1,6 @@
 ;;; php-completion.el -- complete everything PHP with Anything.el
 
-;; Copyright (C) 2009 KAYAC Inc. All rights reserved.
+;; Copyright (c) 2009 by KAYAC Inc.
 
 ;; Author: IMAKADO <ken.imakado@gmail.com>
 ;; blog: http://d.hatena.ne.jp/IMAKADO (japanese)
@@ -103,6 +103,7 @@
 (require 'url-util)
 (require 'etags)
 (require 'thingatpt)
+(require 'tool-bar)
 
 (require 'anything)
 (require 'anything-match-plugin)
@@ -302,7 +303,8 @@ see `phpcmp-search-url'"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Candidates from php command ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; silence compiler
 ;; (defun phpcmp-get-functions () ())
-(defun phpcmp-async-set-functions () ())
+(defun phpcmp-async-set-functions (&rest dummy))
+(defun phpcmp-get-functions (&rest dummy))
 
 (defvar phpcmp-get-functions-async-buffer-name "*php-completion functions*")
 (lexical-let (set-functions-done)
