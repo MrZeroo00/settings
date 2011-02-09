@@ -28,6 +28,16 @@
                                  ))
 
 
+;;;; anything
+(add-hook 'c-mode-common-hook
+          (lambda ()
+			(make-variable-buffer-local 'anything-sources)
+			;;(add-to-list 'anything-sources 'anything-c-source-yasnippet t)
+			(add-to-list 'anything-sources 'anything-c-source-imenu t)
+			(add-to-list 'anything-sources 'anything-c-source-gtags-select t)
+			))
+
+
 ;;;; flymake
 (defun my-flymake-gcc-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
