@@ -23,7 +23,7 @@
 
 
 ;;;; gtags
-(add-hook 'php-mode-user-hook (lambda ()
+(add-hook 'php-mode-hook (lambda ()
                            (gtags-mode t)
                            ;;(gtags-make-complete-list)
                            ))
@@ -31,7 +31,7 @@
 
 ;;;; php-completion
 ;;;(install-elisp-from-emacswiki "php-completion.el")
-(add-hook 'php-mode-user-hook
+(add-hook 'php-mode-hook
           (lambda ()
             (my-require-and-when 'php-completion
 			  (php-completion-mode t)
