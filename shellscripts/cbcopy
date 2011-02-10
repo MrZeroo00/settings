@@ -1,27 +1,33 @@
 #!/bin/sh
 
-if [ -f "${HOME}/bin/.cbcopy_remote" ]; then
-  cat | nc -q1 localhost 2224
-elif [ $# -ne 0 ]; then
-  case "`uname`" in
-    "Linux")
-    if [ -f "`which xclip`" ]; then
-      xclip $*
-    fi
-    ;;
-    "Darwin")
-    cat $* | pbcopy
-    ;;
-  esac
+if [ $# -ne 0 ]; then
+  if [ -f "${HOME}/bin/.cbcopy_remote" ]; then
+    cat $* | nc -q1 localhost 2224
+  else
+    case "`uname`" in
+      "Linux")
+      if [ -f "`which xclip`" ]; then
+        xclip $*
+      fi
+      ;;
+      "Darwin")
+      cat $* | pbcopy
+      ;;
+    esac
+  fi
 else
-  case "`uname`" in
-    "Linux")
-    if [ -f "`which xclip`" ]; then
-      xclip
-    fi
-    ;;
-    "Darwin")
-    pbcopy
-    ;;
-  esac
+  if [ -f "${HOME}/bin/.cbcopy_remote" ]; then
+    cat | nc -q1 localhost 2224
+  else
+    case "`uname`" in
+      "Linux")
+      if [ -f "`which xclip`" ]; then
+        xclip
+      fi
+      ;;
+      "Darwin")
+      pbcopy
+      ;;
+    esac
+  fi
 fi
