@@ -241,6 +241,19 @@
 ;;;; local settings
 (my-load-and-when (concat "00_local_" hostname))
 
+(when run-linux
+  (my-load-and-when "00_local_linux"))
+
+(when run-darwin
+  (add-to-list 'exec-path "/opt/local/bin")
+  (my-load-and-when "00_local_darwin"))
+
+(when (and run-w32)
+  (my-load-and-when "00_local_windows"))
+
+(when (and run-w32 run-meadow)
+  (my-load-and-when "00_local_meadow"))
+
 
 ;;;; common settings
 (my-load-and-when "00_init")
