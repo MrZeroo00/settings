@@ -143,7 +143,7 @@
        (autoload function file docstring interactive type)))
 
 (eval-when-compile
-  (defvar my-disabled-features nil
+  (defvar my-disabled-features '()
     "The list of disabled features"))
 '(defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
@@ -289,6 +289,7 @@
 ;;;(my-load-and-when "60_iswitchb")
 (my-load-and-when "60_key-chord")
 (my-load-and-when "60_lookup")
+(my-load-and-when "60_mediawiki")
 ;;;(my-load-and-when "60_mew")
 (my-load-and-when "60_migemo")
 ;;;(my-load-and-when "60_mmm-mode")
