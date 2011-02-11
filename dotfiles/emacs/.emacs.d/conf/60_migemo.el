@@ -1,6 +1,8 @@
 (setq migemo-command
       (or (my-which "cmigemo")
           (my-which "migemo")))
+(if (null migemo-command)
+    (add-to-list 'my-disabled-features 'migemo))
 ;;(setq migemo-options '("-q" "--emacs"))
 
 ;;;; dictionary
