@@ -27,17 +27,16 @@
                    (assoc lang language-info-alist))))))
 
 ;;;; 日本語じゃないときは migemo を使わない
-  (my-eval-after-load "migemo"
-    '(progn
-       (defadvice isearch-mode
-         (before my-migemo-off activate)
-         (unless (my-language-check "Japanese")
-           (make-local-variable 'migemo-isearch-enable-p)
-           (setq migemo-isearch-enable-p nil)))
-       (add-hook 'isearch-mode-end-hook
-                 (lambda ()
-                   (unless (my-language-check "Japanese")
-                     (setq migemo-isearch-enable-p t))))))
+  '(progn
+     (defadvice isearch-mode
+       (before my-migemo-off activate)
+       (unless (my-language-check "Japanese")
+         (make-local-variable 'migemo-isearch-enable-p)
+         (setq migemo-isearch-enable-p nil)))
+     (add-hook 'isearch-mode-end-hook
+               (lambda ()
+                 (unless (my-language-check "Japanese")
+                   (setq migemo-isearch-enable-p t))))))
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=auto%20renmigemo
 ;;;(defun my-ren-cap (str) ; 次単語の先頭を大文字化
