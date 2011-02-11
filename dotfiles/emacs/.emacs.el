@@ -88,15 +88,16 @@
 (defvar run-carbon-emacs(and run-darwin window-system))
 
 ;;;; get hostname
-(setq hostname
-      (car (split-string
-	    (downcase
-	     ;;(cond ((getenv "HOSTNAME"))
-		   ;;((getenv "HOST"))
-		   ;;((getenv "COMPUTERNAME"))
-		   ;;(t "default")))
-       (system-name))
-	    "\\.")))
+(eval-when-compile
+  (defvar hostname
+    (car (split-string
+          (downcase
+           ;;(cond ((getenv "HOSTNAME"))
+           ;;((getenv "HOST"))
+           ;;((getenv "COMPUTERNAME"))
+           ;;(t "default")))
+           (system-name))
+          "\\."))))
 
 
 ;;;; add argument to load-path
@@ -141,8 +142,9 @@
   (and (locate-library file)
        (autoload function file docstring interactive type)))
 
-(defcustom my-disabled-features nil
-  "The list of disabled features")
+(eval-when-compile
+  (defvar my-disabled-features nil
+    "The list of disabled features"))
 '(defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
   `(if (require ,feature nil t)
@@ -212,7 +214,7 @@
 ;;;; boot check
 ;;;(install-elisp-from-emacswiki "emacs-init-check")
 (my-require-and-when 'emacs-init-check
-  (setq auto-emacs-init-check-file-regexp ""/\\.emacs\\.d/"")
+  (setq auto-emacs-init-check-file-regexp "/\\.emacs\\.d/")
   ;;;(add-to-list 'auto-emacs-init-check-program-args "nice")
   (add-hook 'vc-checkin-hook 'auto-emacs-init-check))
 
@@ -223,8 +225,9 @@
   (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
 
 ;;;; profiling
-(defcustom my-profiling nil
-  "The flag to enable profiling")
+(eval-when-compile
+  (defvar my-profiling nil
+    "The flag to enable profiling"))
 ;;;; hook profiling macro (still unstable)
 (defmacro my-add-hook (hook function &optional append local)
   (declare (indent 4))
