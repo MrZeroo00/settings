@@ -284,6 +284,7 @@
 ;;;(my-load-and-when "60_dmacro")
 ;;;(my-load-and-when "60_doc-view")
 ;;;(my-load-and-when "60_emms")
+(my-load-and-when "60_evernote")
 (my-load-and-when "60_hatena")
 (my-load-and-when "60_howm")
 ;;;(my-load-and-when "60_iswitchb")
