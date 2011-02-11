@@ -13,33 +13,31 @@
 (setq migemo-pattern-alist-length 1024)
 
 (my-require-and-when 'migemo
-  (migemo-init))
-
+  (migemo-init)
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=migemo%20onlyjapanese
 ;;;; buffer-file-coding-system から言語判別
 ;;;; unicode も入れた方がいいのかも。
-(defun my-language-check (lang)
-  (let ((coding
-         (coding-system-base buffer-file-coding-system)))
-    (memq
-     coding
-     (cdr (assoc 'coding-system
-                 (assoc lang language-info-alist))))))
+  (defun my-language-check (lang)
+    (let ((coding
+           (coding-system-base buffer-file-coding-system)))
+      (memq
+       coding
+       (cdr (assoc 'coding-system
+                   (assoc lang language-info-alist))))))
 
 ;;;; 日本語じゃないときは migemo を使わない
-(my-eval-after-load "migemo"
-  '(progn
-     (defadvice isearch-mode
-       (before my-migemo-off activate)
-       (unless (my-language-check "Japanese")
-         (make-local-variable 'migemo-isearch-enable-p)
-         (setq migemo-isearch-enable-p nil)))
-     (add-hook 'isearch-mode-end-hook
-               (lambda ()
-                 (unless (my-language-check "Japanese")
-                   (setq migemo-isearch-enable-p t))))))
-
+  (my-eval-after-load "migemo"
+    '(progn
+       (defadvice isearch-mode
+         (before my-migemo-off activate)
+         (unless (my-language-check "Japanese")
+           (make-local-variable 'migemo-isearch-enable-p)
+           (setq migemo-isearch-enable-p nil)))
+       (add-hook 'isearch-mode-end-hook
+                 (lambda ()
+                   (unless (my-language-check "Japanese")
+                     (setq migemo-isearch-enable-p t))))))
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=auto%20renmigemo
 ;;;(defun my-ren-cap (str) ; 次単語の先頭を大文字化
@@ -76,7 +74,6 @@
 ;;;    (goto-char isearch-opoint)
 ;;;    (isearch-search)))
 
-
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=no%20migemo
 ;;;; 文字をバッファからコピーするときには
 ;;;; migemo をオフにする
@@ -89,3 +86,4 @@
 ;;;(defadvice isearch-mode
 ;;;  (before migemo-on activate)
 ;;;  (setq migemo-isearch-enable-p t))
+)
