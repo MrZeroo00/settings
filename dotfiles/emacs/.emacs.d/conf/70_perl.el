@@ -14,7 +14,7 @@
            (lambda ()
              (my-require-and-when 'perl-completion)
              (make-variable-buffer-local 'ac-sources)
-             (add-to-list 'ac-sources ac-source-perl-completion)))
+             (add-to-list 'ac-sources 'ac-source-perl-completion)))
 
 
 ;;;; eldoc

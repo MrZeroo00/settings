@@ -34,9 +34,9 @@
           (lambda ()
             (when (memq major-mode '(c-mode c++-mode))
               (make-variable-buffer-local 'anything-sources)
-              ;;(add-to-list 'anything-sources anything-c-source-yasnippet t)
-              (add-to-list 'anything-sources anything-c-source-imenu t)
-              (add-to-list 'anything-sources anything-c-source-gtags-select t)
+              ;;(add-to-list 'anything-sources 'anything-c-source-yasnippet t)
+              (add-to-list 'anything-sources 'anything-c-source-imenu t)
+              (add-to-list 'anything-sources 'anything-c-source-gtags-select t)
               )))
 
 
