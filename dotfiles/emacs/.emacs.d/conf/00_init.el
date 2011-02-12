@@ -181,8 +181,8 @@
 (when window-system
   (tool-bar-mode nil)
   (set-scroll-bar-mode 'right))
-;;;(setq max-lisp-eval-depth 10000)
-;;;(setq max-specpdl-size 50000)
+(setq max-lisp-eval-depth 10000)
+(setq max-specpdl-size 50000)
 
 
 ;;;; redo
