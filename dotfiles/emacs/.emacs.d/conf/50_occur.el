@@ -56,7 +56,7 @@
         ("dir" default-directory (".*") dir)
         ))
 (my-eval-after-load "dmoccur"
-  (add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*")))
+  (add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*" "\\.git\\/\*"))))
 
 
 ;;;; advice
