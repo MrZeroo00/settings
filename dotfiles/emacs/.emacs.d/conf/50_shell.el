@@ -15,7 +15,7 @@
 (add-hook 'shell-mode-hook
           (lambda ()
             (make-local-variable 'anything-sources)
-            (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
+            (add-to-list 'anything-sources anything-c-source-complete-shell-history)))
 
 
 ;;;; shell-pop

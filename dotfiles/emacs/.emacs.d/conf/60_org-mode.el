@@ -148,8 +148,8 @@
 (add-hook 'org-mode-hook
           (lambda ()
 			(make-variable-buffer-local 'anything-sources)
-			(add-to-list 'anything-sources 'anything-c-source-org-todo-state t)
-			(add-to-list 'anything-sources 'anything-c-source-org-headline t)
+			(add-to-list 'anything-sources anything-c-source-org-todo-state t)
+			(add-to-list 'anything-sources anything-c-source-org-headline t)
 			))
 
 
