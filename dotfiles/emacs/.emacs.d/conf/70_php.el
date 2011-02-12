@@ -55,8 +55,7 @@
 ;;;; geben
 ;;; http://code.google.com/p/geben-on-emacs/
 (add-hook 'php-mode-hook
-          (my-autoload-and-when 'geben "geben"
-				(geben-source-coding-system 'euc-jp)))
+          (my-autoload-and-when 'geben "geben"))
 
 
 ;;;; smarty-mode
