@@ -145,7 +145,7 @@
 
 
 ;;;; anything
-(add-hook 'org-mode-hook
+'(add-hook 'org-mode-hook
           (lambda ()
 			(make-variable-buffer-local 'anything-sources)
 			(add-to-list 'anything-sources 'anything-c-source-org-todo-state t)

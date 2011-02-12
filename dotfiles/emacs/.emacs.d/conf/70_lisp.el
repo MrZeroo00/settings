@@ -9,7 +9,7 @@
 
 
 ;;;; anything
-(add-hook 'lisp-mode-hook
+'(add-hook 'lisp-mode-hook
           (lambda ()
             (make-variable-buffer-local 'anything-sources)
             (add-to-list 'anything-sources

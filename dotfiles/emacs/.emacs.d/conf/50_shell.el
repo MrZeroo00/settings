@@ -12,7 +12,7 @@
 
 
 ;;;; anything
-(add-hook 'shell-mode-hook
+'(add-hook 'shell-mode-hook
           (lambda ()
             (make-variable-buffer-local 'anything-sources)
             (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
