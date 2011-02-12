@@ -23,6 +23,7 @@
 (my-require-and-when 'auto-complete-config
 		     (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/dict")
 		     (ac-config-default)
+		     (setq ac-trigger-key "TAB")
 		     (set-face-background 'ac-candidate-face "lightgray")
 		     (set-face-underline 'ac-candidate-face "darkgray")
 		     (set-face-background 'ac-selection-face "steelblue")
