@@ -40,7 +40,7 @@
   (add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
   (add-hook 'c-mode-common-hook
             (lambda ()
-              (make-local-variable 'ac-sources)
+              (make-variable-buffer-local 'ac-sources)
               (add-to-list 'ac-sources 'ac-source-yasnippet)))
 
   ;; http://d.hatena.ne.jp/kiwanami/20081124/1227543508

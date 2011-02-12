@@ -14,7 +14,7 @@
 ;;;; anything
 (add-hook 'shell-mode-hook
           (lambda ()
-            (make-local-variable 'anything-sources)
+            (make-variable-buffer-local 'anything-sources)
             (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
 
 
