@@ -248,7 +248,7 @@
 ;;;; yasnippet
 (my-require-and-when 'yasnippet
   (yas/initialize)
-  (yas/load-directory "~/local/share/emacs/site-lisp/yasnippet/snippets"))
+  (yas/load-directory "~/.emacs.d/elisp/yasnippet/snippets"))
 
 
 ;;;; smartchr

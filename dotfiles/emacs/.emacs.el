@@ -109,10 +109,16 @@
            (add-to-load-path-recompile path))
         (mapcar 'expand-file-name paths)))
 
-;;;; add conf and elisp to load-path
-(add-to-load-path "~/.emacs.d/elisp"
-		  "~/.emacs.d/macro"
-		  "~/.emacs.d/conf")
+;;;; add conf and macro to load-path
+(add-to-load-path "~/.emacs.d/conf"
+                  "~/.emacs.d/macro")
+
+(if (file-exists-p "~/.emacs.d/elisp/subdirs.el")
+    (let ((dir (expand-file-name "~/.emacs.d/elisp")))
+      (if (member dir load-path) nil
+        (setq load-path (cons dir load-path))
+        (let ((default-directory dir))
+          (load (expand-file-name "subdirs.el") t t t)))))
 
 ;;;; add additional load-path
 (if (file-exists-p "~/local/share/emacs/site-lisp/subdirs.el")
