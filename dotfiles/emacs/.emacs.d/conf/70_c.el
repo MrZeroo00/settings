@@ -40,6 +40,14 @@
               )))
 
 
+;;;; auto-complete
+(add-hook 'c-mode-common-hook
+	  (lambda ()
+            (when (memq major-mode '(c-mode c++-mode))
+              (make-variable-buffer-local 'ac-sources)
+              (add-to-list 'ac-sources 'ac-source-yasnippet)))
+
+
 ;;;; flymake
 (defun my-flymake-gcc-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
