@@ -47,7 +47,7 @@
 ;; (setq migemo-user-dictionary nil)
 ;; (setq migemo-regex-dictionary nil))
 
-(defvar migemo-directory "/usr/local/share/migemo"
+(defvar migemo-directory "/usr/share/migemo"
   "*Directory where migemo files are placed")
 
 (defvar migemo-isearch-enable-p t
@@ -98,7 +98,7 @@
 (defvar migemo-search-pattern nil)
 (defvar migemo-pattern-alist nil)
 (defvar migemo-frequent-pattern-alist nil)
-(defconst migemo-emacs21p (> emacs-major-version 20) (not (featurep 'xemacs)))
+(defconst migemo-emacs21p (and (> emacs-major-version 20) (not (featurep 'xemacs))))
 (defvar migemo-search-pattern-alist nil)
 (defvar migemo-do-isearch nil)
 
