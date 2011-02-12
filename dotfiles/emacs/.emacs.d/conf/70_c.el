@@ -26,7 +26,7 @@
                                   (define-key c-mode-map "\C-c]" 'insert-brackets-region)
                                   (define-key c-mode-map "\C-c\"" 'insert-double-quotation-region)
                                   (setq imenu-create-index-function 'imenu-default-create-index-function)
-                                  ))
+                                  )))
 
 
 ;;;; anything
@@ -100,22 +100,22 @@
 
 ;;;; cpp-complt
 ;;;(install-elisp "http://www.bookshelf.jp/elc/cpp-complt.el")
-;;;(add-hook 'c-mode-common-hook
-;;;          (function (lambda ()
-;;;                      (when (memq major-mode '(c-mode c++-mode))
-;;;                        (my-require-and-when 'cpp-complt)
-;;;                        (define-key c-mode-map [mouse-2]
-;;;                          'cpp-complt-include-mouse-select)
-;;;                        (define-key c-mode-map "#"
-;;;                          'cpp-complt-instruction-completing)
-;;;                        (define-key c-mode-map "\C-c#"
-;;;                          'cpp-complt-ifdef-region)
-;;;                        (cpp-complt-init)))))
-;;;
-;;;(setq cpp-complt-standard-header-path
-;;;      '(
-;;;        "/usr/include"
-;;;        ))
+'(add-hook 'c-mode-common-hook
+          (function (lambda ()
+                      (when (memq major-mode '(c-mode c++-mode))
+                        (my-require-and-when 'cpp-complt)
+                        (define-key c-mode-map [mouse-2]
+                          'cpp-complt-include-mouse-select)
+                        (define-key c-mode-map "#"
+                          'cpp-complt-instruction-completing)
+                        (define-key c-mode-map "\C-c#"
+                          'cpp-complt-ifdef-region)
+                        (cpp-complt-init)))))
+
+'(setq cpp-complt-standard-header-path
+      '(
+        "/usr/include"
+        ))
 
 
 ;;;; pbf-mode
