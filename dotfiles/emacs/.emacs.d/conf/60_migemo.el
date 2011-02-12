@@ -1,10 +1,8 @@
-(setq migemo-command (my-which "cmigemo"))
-(when (not (null migemo-command))
+(when (my-which "cmigemo")
+  (setq migemo-command (my-which "cmigemo"))
   (setq migemo-options '("-q" "--emacs" "-i" "\a"))
   (setq migemo-user-dictionary nil)
   (setq migemo-regex-dictionary nil))
-
-(setq migemo-directory "/usr/share/migemo")
 
 ;;;; cache
 (setq migemo-use-pattern-alist t)
