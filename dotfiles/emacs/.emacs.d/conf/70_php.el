@@ -55,10 +55,12 @@
 ;;;; geben
 ;;; http://code.google.com/p/geben-on-emacs/
 (add-hook 'php-mode-hook
-          (my-autoload-and-when 'geben "geben"))
+          (lambda ()
+            (my-autoload-and-when 'geben "geben")))
 
 
 ;;;; smarty-mode
 ;;;(install-elisp "http://lisp.morinie.fr/smarty/download/smarty-mode.el")
 (add-hook 'php-mode-hook
-          (my-autoload-and-when 'smarty-mode "smarty-mode"))
+          (lambda ()
+            (my-autoload-and-when 'smarty-mode "smarty-mode")))
