@@ -8,7 +8,7 @@
   (diminish 'widen-window-mode " WW")
   (diminish 'auto-complete-mode)
   (diminish 'doxymacs-mode)
-  (diminish 'egg-minor-mode)
+;;;  (diminish 'egg-minor-mode)
   (diminish 'eldoc-mode)
   (diminish 'font-lock-mode)
   (diminish 'hs-minor-mode)
