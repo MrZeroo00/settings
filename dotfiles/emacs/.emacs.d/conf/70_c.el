@@ -30,7 +30,7 @@
 
 
 ;;;; anything
-(add-hook 'c-mode-common-hook
+'(add-hook 'c-mode-common-hook
           (lambda ()
             (when (memq major-mode '(c-mode c++-mode))
               (make-variable-buffer-local 'anything-sources)

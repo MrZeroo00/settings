@@ -10,7 +10,7 @@
 
 
 ;;;; anything
-(add-hook 'emacs-lisp-mode-hook
+'(add-hook 'emacs-lisp-mode-hook
           (lambda ()
 	    (make-variable-buffer-local 'anything-sources)
 	    (add-to-list 'anything-sources 'anything-c-source-lisp-complete-symbol)
