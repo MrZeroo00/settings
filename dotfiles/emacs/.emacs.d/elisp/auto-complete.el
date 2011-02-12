@@ -245,7 +245,7 @@ If you specify `nil', never be started automatically."
   :group 'auto-complete)
 (defvaralias 'ac-ignores 'ac-stop-words)
 
-(defcustom ac-use-dictionary-as-stop-words nil
+(defcustom ac-use-dictionary-as-stop-words t
   "Non-nil means a buffer related dictionary will be thought of as stop words."
   :type 'boolean
   :group 'auto-complete)
@@ -1041,9 +1041,10 @@ You can not use it in source definition like (prefix . `NAME')."
 (defun ac-reposition ()
   "Force to redraw candidate menu with current `ac-candidates'."
   (let ((cursor (popup-cursor ac-menu))
-        (scroll-top (popup-scroll-top ac-menu)))
+        (scroll-top (popup-scroll-top ac-menu))
+        (height (popup-height ac-menu)))
     (ac-menu-delete)
-    (ac-menu-create ac-point (popup-preferred-width ac-candidates) (popup-height ac-menu))
+    (ac-menu-create ac-point (popup-preferred-width ac-candidates) height)
     (ac-update-candidates cursor scroll-top)))
 
 (defun ac-cleanup ()
@@ -1271,7 +1272,8 @@ that have been made before in this function."
 
 (defun ac-remove-quick-help ()
   (when (ac-quick-help-use-pos-tip-p)
-    (pos-tip-hide))
+    (with-no-warnings
+      (pos-tip-hide)))
   (when ac-quick-help
     (popup-delete ac-quick-help)
     (setq ac-quick-help nil)))
@@ -1629,6 +1631,14 @@ This workaround avoid flyspell processes when auto completion is being started."
   (interactive)
   (defadvice flyspell-post-command-hook (around ac-flyspell-workaround activate)
     (unless ac-triggered
+      ad-do-it)))
+
+(defun ac-linum-workaround ()
+  "linum-mode tries to display the line numbers even for the
+completion menu. This workaround stops that annoying behavior."
+  (interactive)
+  (defadvice linum-update (around ac-linum-update-workaround activate)
+    (unless ac-completing
       ad-do-it)))
 
 
