@@ -12,11 +12,9 @@
 ;;;; anything
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (make-variable-buffer-local 'anything-sources)
-;;;            (add-to-list 'anything-sources
-;;;                         'anything-c-source-lisp-complete-symbol
-;;;                         'anything-c-source-linkd-tag
-;;;                         )
+	    (make-variable-buffer-local 'anything-sources)
+	    (add-to-list 'anything-sources 'anything-c-source-lisp-complete-symbol)
+	    (add-to-list 'anything-sources 'anything-c-source-linkd-tag)
             ))
 
 
