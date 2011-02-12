@@ -15,8 +15,6 @@
 (setq migemo-pattern-alist-length 1024)
 
 (my-require-and-when 'migemo
-  (migemo-init)
-
   ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=migemo%20onlyjapanese
   ;; buffer-file-coding-system から言語判別
   ;; unicode も入れた方がいいのかも。
