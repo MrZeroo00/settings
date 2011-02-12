@@ -21,23 +21,17 @@
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/fuzzy.el")
 (my-require-and-when 'auto-complete-config
-  (global-auto-complete-mode t)
-  (set-face-background 'ac-candidate-face "lightgray")
-  (set-face-underline 'ac-candidate-face "darkgray")
-  (set-face-background 'ac-selection-face "steelblue")
-  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-  (define-key ac-completing-map "\C-n" 'ac-next)
-  (define-key ac-completing-map "\C-p" 'ac-previous)
-  (ac-set-trigger-key "TAB")
-  (setq ac-auto-start 2)
-  (setq ac-candidate-max 15)
-  (setq ac-dwim t)
-  (setq-default ac-sources '(ac-source-words-in-buffer
-;;;                             ac-source-words-in-same-mode-buffers
-                             ac-source-abbrev
-;;;                             ac-source-files-in-current-dir
-                             ))
-  (add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
+		     (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/dict")
+		     (ac-config-default)
+		     (set-face-background 'ac-candidate-face "lightgray")
+		     (set-face-underline 'ac-candidate-face "darkgray")
+		     (set-face-background 'ac-selection-face "steelblue")
+		     (setq-default ac-sources '(ac-source-words-in-buffer
+;;						ac-source-words-in-same-mode-buffers
+						ac-source-abbrev
+;;						ac-source-files-in-current-dir
+						))
+		     (add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
 
   ;; http://d.hatena.ne.jp/kiwanami/20081124/1227543508
 ;;;  (defun ac-next-or-next-line (arg)
