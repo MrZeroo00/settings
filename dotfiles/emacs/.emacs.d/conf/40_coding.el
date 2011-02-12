@@ -246,9 +246,9 @@
 
 
 ;;;; yasnippet
-(my-require-and-when 'yasnippet
-  (yas/initialize)
-  (yas/load-directory "~/.emacs.d/elisp/yasnippet/snippets"))
+(setq yas/trigger-key "TAB")
+(my-require-and-when 'yasnippet-config
+  (yas/setup "~/.emacs.d/elisp/yasnippet"))
 
 
 ;;;; smartchr
