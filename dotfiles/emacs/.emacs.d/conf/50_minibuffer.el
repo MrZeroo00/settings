@@ -1,5 +1,5 @@
 (minibuffer-electric-default-mode t)
-(setq enable-recursive-minibuffers t)
+;;;(setq enable-recursive-minibuffers t)
 
 
 ;;;; minibuf-isearch
