@@ -1,4 +1,8 @@
 ;;;; w3m
+(setq w3m-command (my-which "w3m"))
+(when (null w3m-command)
+    (add-to-list 'my-disabled-features 'w3m-ems)
+    (add-to-list 'my-disabled-features 'w3m))
 (if (= emacs-major-version 23)
     (my-require-and-when 'w3m-ems)
   (my-require-and-when 'w3m))
