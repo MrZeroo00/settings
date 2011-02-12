@@ -1,13 +1,8 @@
-(setq migemo-command
-      (or (my-which "cmigemo")
-          (my-which "migemo")))
-(if (null migemo-command)
-    (add-to-list 'my-disabled-features 'migemo))
-;;(setq migemo-options '("-q" "--emacs"))
-
-;;;; dictionary
-(setq migemo-user-dictionary nil)
-(setq migemo-regex-dictionary nil)
+(setq migemo-command (my-which "cmigemo"))
+(when (not (null migemo-command))
+  (setq migemo-options '("-q" "--emacs" "-i" "\a"))
+  (setq migemo-user-dictionary nil)
+  (setq migemo-regex-dictionary nil))
 
 ;;;; cache
 (setq migemo-use-pattern-alist t)
