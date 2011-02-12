@@ -22,7 +22,7 @@
   )
 
 ;;;; screen
-(add-hook 'server-visit-hook
+'(add-hook 'server-visit-hook
           (lambda ()
             (shell-command
              "screen -X select $WINDOW")
