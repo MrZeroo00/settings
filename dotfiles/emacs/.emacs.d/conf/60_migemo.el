@@ -4,6 +4,8 @@
   (setq migemo-user-dictionary nil)
   (setq migemo-regex-dictionary nil))
 
+(setq migemo-directory "/usr/share/migemo")
+
 ;;;; cache
 (setq migemo-use-pattern-alist t)
 (setq migemo-use-frequent-pattern-alist t)
