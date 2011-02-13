@@ -50,4 +50,8 @@
 ;;;(my-require-and-when 'unbound)
 
 
+;;;; viper
+;;;(my-require-and-when 'viper)
+
+
 ;; -*-no-byte-compile: t; -*-

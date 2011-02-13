@@ -22,25 +22,6 @@
 ;;;(my-require-and-when 'cheat)
 
 
-;;;; session
-;;;; http://emacs-session.sourceforge.net/
-(my-require-and-when 'session
-  (setq session-initialize '(de-saveplace session keys menus places)
-        session-globals-include '((kill-ring 50)
-                                  (session-file-alist 500 t)
-                                  (file-name-history 10000)))
-  (setq session-globals-max-string 100000000)
-  (setq session-undo-check -1)
-  (add-hook 'after-init-hook 'session-initialize))
-
-
-;;;; desktop
-;;;(my-autoload-and-when 'desktop-save "desktop")
-;;;(my-autoload-and-when 'desktop-clear "desktop")
-;;;(my-autoload-and-when 'desktop-load-default "desktop")
-;;;(my-autoload-and-when 'desktop-remove "desktop")
-
-
 ;;;; lacarte
 ;;;(install-elisp-from-emacswiki "lacarte.el")
 (my-require-and-when 'lacarte)
@@ -48,10 +29,6 @@
 
 ;;;; autoarg
 ;;;(my-require-and-when 'autoarg)
-
-
-;;;; viper
-;;;(my-require-and-when 'viper)
 
 
 ;;;; thing-opt
@@ -190,10 +167,6 @@
   (setq calendar-weekend-marker 'diary)
   (add-hook 'today-visible-calendar-hook 'calendar-mark-weekend)
   (add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
-
-
-;;;; midnight
-(my-require-and-when 'midnight)
 
 
 ;;;; macros
