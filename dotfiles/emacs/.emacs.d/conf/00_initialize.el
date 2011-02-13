@@ -31,13 +31,13 @@
            (lambda ()
              (setq coding-system-for-read 'utf-8)
              (setq coding-system-for-write 'utf-8)))
-(cond
+'(cond
  (run-darwin
   (my-require-and-when 'ucs-normalize
     (setq file-name-coding-system 'utf-8-hfs)
     (setq locale-coding-system 'utf-8-hfs))
   )
- ((or run-w32 cygwin)
+ ((or run-w32 run-cygwin)
   (setq file-name-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
   ;;if use command prompt
