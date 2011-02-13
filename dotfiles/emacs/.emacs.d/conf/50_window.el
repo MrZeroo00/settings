@@ -8,17 +8,16 @@
 ;;;; windows (window manager for Emacs)
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=windows%20screen
 ;;;(install-elisp "http://www.gentei.org/~yuuji/software/windows.el")
+;;(setq win:switch-prefix "\C-cw")
+;;(define-key global-map win:switch-prefix nil)
+;;(define-key global-map "\C-cwb" 'win-switch-to-window)
+(setq win:switch-prefix "\C-z")
+(define-key global-map win:switch-prefix nil)
+(define-key global-map "\C-z1" 'win-switch-to-window)
+(setq win:base-key ?`)       ;; ` は「直前の状態」
+(setq win:max-configs 27)    ;; ` 〜 z は 27 文字
+(setq win:quick-selection nil) ;; C-c 英字 に割り当てない
 (my-require-and-when 'windows
-  ;;(setq win:switch-prefix "\C-cw")
-  ;;(define-key global-map win:switch-prefix nil)
-  ;;(define-key global-map "\C-cwb" 'win-switch-to-window)
-  (setq win:switch-prefix "\C-z")
-  (define-key global-map win:switch-prefix nil)
-  (define-key global-map "\C-z1" 'win-switch-to-window)
-  (setq win:base-key ?`)       ;; ` は「直前の状態」
-  (setq win:max-configs 27)    ;; ` 〜 z は 27 文字
-  (setq win:quick-selection nil) ;; C-c 英字 に割り当てない
-
   (setq win:use-frame nil)
   (win:startup-with-window)
   ;;(add-hook 'after-init-hook 'resume-windows) ;; don't work...
