@@ -10,10 +10,6 @@
 (setq dabbrev-case-replace nil)
 
 
-;;;; ac-company
-;;;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
-
-
 ;;;; yasnippet
 ;;;(setq yas/trigger-key "TAB")
 ;;;(my-require-and-when 'yasnippet-config
@@ -78,6 +74,10 @@
 ;;;  (define-key ac-complete-mode-map "\C-n" 'ac-next-or-next-line)
 ;;;  (define-key ac-complete-mode-map "\C-p" 'ac-previous-or-previous-line)
   )
+
+
+;;;; ac-company
+;;;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
 
 
 ;;;; dabbrev-highlight
