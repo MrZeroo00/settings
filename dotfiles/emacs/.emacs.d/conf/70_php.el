@@ -19,6 +19,12 @@
 			))
 
 
+;;;; auto-complete
+(add-hook 'php-mode-hook
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-yasnippet t)))
+
+
 ;;;; flymake
 (defun flymake-php-init ()
   "Use php to check the syntax of the current file."
