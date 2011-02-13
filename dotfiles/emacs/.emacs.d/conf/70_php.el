@@ -66,6 +66,5 @@
 
 ;;;; smarty-mode
 ;;;(install-elisp "http://lisp.morinie.fr/smarty/download/smarty-mode.el")
-(add-hook 'php-mode-hook
-          (lambda ()
-            (my-autoload-and-when 'smarty-mode "smarty-mode")))
+(my-autoload-and-when 'smarty-mode "smarty-mode")
+(add-to-list 'auto-mode-alist '("\\.tpl" . smarty-mode))
