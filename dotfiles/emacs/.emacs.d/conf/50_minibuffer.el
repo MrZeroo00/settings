@@ -7,19 +7,8 @@
 (my-require-and-when 'minibuf-isearch)
 
 
-;;;; cycle-mini
-;;;(install-elisp "http://joereiss.net/misc/cycle-mini.el")
-;;;(my-require-and-when 'cycle-mini)
-
-
-;;;; completing-help
-;;;(install-elisp "http://homepage1.nifty.com/bmonkey/emacs/elisp/completing-help.el")
-'(my-require-and-when 'completing-help
-  (turn-on-completing-help-mode))
-
-
 ;;;; advice
-(defadvice abort-recursive-edit (before minibuffer-save activate)
+'(defadvice abort-recursive-edit (before minibuffer-save activate)
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
