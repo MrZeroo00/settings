@@ -1,4 +1,6 @@
-(my-require-and-when 'cc-mode)
+(my-require-and-when 'cc-mode
+  )
+
 
 ;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.\\(cc\\|hh\\)\\'" . c++-mode))
