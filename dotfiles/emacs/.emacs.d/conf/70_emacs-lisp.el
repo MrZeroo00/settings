@@ -47,7 +47,7 @@
   (define-key emacs-lisp-mode-map "\C-m" 'newline-and-indent)
 
   ;; anything
-  '(when (featurep anything)
+  '(when (featurep 'anything)
      (make-variable-buffer-local 'anything-sources)
      (add-to-list 'anything-sources 'anything-c-source-lisp-complete-symbol)
      (add-to-list 'anything-sources 'anything-c-source-linkd-tag)
