@@ -23,7 +23,6 @@
 
 
 ;;;;;;;; 50_complete
-'(progn
 ;;;; dabbrev-highlight
 ;;;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
 '(my-require-and-when 'dabbrev-highlight)
@@ -74,7 +73,6 @@
 ;;;; icicles
 ;;;(install-elisp-from-emacswiki "icicles.el")
 ;;;(my-require-and-when 'icicles)
-)
 
 
 ;; -*-no-byte-compile: t; -*-
