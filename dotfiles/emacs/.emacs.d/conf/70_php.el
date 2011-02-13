@@ -45,7 +45,7 @@
 
   ;; php-completion
   ;;(install-elisp-from-emacswiki "php-completion.el")
-  (when (featurep 'php-completion)
+  (my-require-and-when 'php-completion
     (php-completion-mode t)
     '(define-key php-mode-map (kbd "C-o") 'phpcmp-complete)
     (when (featurep 'auto-complete)

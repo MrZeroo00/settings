@@ -11,3 +11,10 @@
 70_systemtap.el
 70_xml.el
 70_c.el
+70_cplusplus.el
+70_emacs-lisp.el
+70_php.el
+70_yaml.el
+70_text.el
+70_ruby.el
+70_scheme.el
