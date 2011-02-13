@@ -165,11 +165,6 @@
 (my-require-and-when 'imenu)
 
 
-;;;; xcscope
-;;;; http://cscope.sourceforge.net/
-;;;(my-require-and-when 'xcscope)
-
-
 ;;;; simple-call-tree
 ;;;(install-elisp-from-emacswiki "simple-call-tree.el")
 ;;;(my-require-and-when 'simple-call-tree)
@@ -376,40 +371,6 @@
       (append '(("\\.pov$" . pov-mode)
   	("\\.inc$" . pov-mode)
   	) auto-mode-alist))
-
-
-;;;; to pop up compilation buffers at the bottom
-'(my-eval-after-load "split-root"
-  (my-require-and-when 'compile)
-  (defvar my-compilation-window nil
-    "The window opened for displaying a compilation buffer.")
-
-  (setq my-compilation-window-height 14)
-
-  (defun my-display-buffer (buffer &optional not-this-window)
-    (if (or (compilation-buffer-p buffer)
-      (equal (buffer-name buffer) "*Shell Command Output*"))
-  (progn
-    (unless (and my-compilation-window (window-live-p my-compilation-window))
-      (setq my-compilation-window (split-root-window my-compilation-window-height))
-      (set-window-buffer my-compilation-window buffer))
-    my-compilation-window)
-      (let ((display-buffer-function nil))
-  (display-buffer buffer not-this-window))))
-
-  (setq display-buffer-function 'my-display-buffer)
-
-  ;; on success, delete compilation window right away!
-  (add-hook 'compilation-finish-functions
-      (lambda(buf res)
-         (unless (or (eq last-command 'grep)
-  		   (eq last-command 'grep-find))
-  	 (when (equal res "finished\n")
-  	   (when my-compilation-window
-  	     (delete-window my-compilation-window)
-  	     (setq my-compilation-window nil))
-  	   (message "compilation successful")))))
-  )
 
 
 ;;;; color
