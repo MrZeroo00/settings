@@ -18,3 +18,6 @@
           (lambda ()
 ;;;              other hooks must be wrote here!
              (hatenahelper-mode t)))
+
+
+;; -*-no-byte-compile: t; -*-

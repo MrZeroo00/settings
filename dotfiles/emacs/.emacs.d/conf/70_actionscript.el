@@ -8,3 +8,6 @@
   (add-hook 'actionscript-mode-hook
             (lambda ()
               (my-load-and-when "as-config"))))
+
+
+;; -*-no-byte-compile: t; -*-

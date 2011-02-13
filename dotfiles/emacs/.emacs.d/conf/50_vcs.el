@@ -49,3 +49,6 @@
 ;;;; p4
 ;;;; http://p4el.sourceforge.net/
 ;;;(my-require-and-when 'p4)
+
+
+;; -*-no-byte-compile: t; -*-

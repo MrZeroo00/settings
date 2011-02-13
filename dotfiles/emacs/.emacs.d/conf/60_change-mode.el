@@ -25,3 +25,6 @@
             (change-mode)
             (local-set-key "\C-^" 'change-mode-next-change)
             ))
+
+
+;; -*-no-byte-compile: t; -*-

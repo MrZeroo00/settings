@@ -85,3 +85,6 @@
 (push '("\\.h\\'" flymake-vc-init) flymake-allowed-file-name-masks)
 (push '("\\.cpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
 (push '("\\.hpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
+
+
+;; -*-no-byte-compile: t; -*-

@@ -9,3 +9,6 @@
 (setq delete-old-versions t)
 
 (setq delete-auto-save-files t)
+
+
+;; -*-no-byte-compile: t; -*-

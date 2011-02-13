@@ -275,3 +275,6 @@
   (global-set-key "\C-c\C-w" 'my-memo))
 (my-load-and-when "_byte-compile-directory")
 (my-load-and-when "_screen-read-hardcopy")
+
+
+;; -*-no-byte-compile: t; -*-

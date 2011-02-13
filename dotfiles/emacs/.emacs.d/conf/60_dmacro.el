@@ -2,3 +2,6 @@
 (my-autoload-and-when 'dmacro-exec "dmacro"
                       (defconst *dmacro-key* "\C-t" "繰返し指定キー")
                       (global-set-key *dmacro-key* 'dmacro-exec))
+
+
+;; -*-no-byte-compile: t; -*-

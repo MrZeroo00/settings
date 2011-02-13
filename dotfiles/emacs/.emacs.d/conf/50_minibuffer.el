@@ -27,3 +27,6 @@
 ;;;; macros
 ;;;(my-load-and-when "_minibuffer-delete-duplicate")
 ;;;(my-load-and-when "_minibuf-shrink")
+
+
+;; -*-no-byte-compile: t; -*-

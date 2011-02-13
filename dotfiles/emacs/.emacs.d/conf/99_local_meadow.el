@@ -148,3 +148,6 @@
 
 
 (my-require-and-when 'outlookedit)
+
+
+;; -*-no-byte-compile: t; -*-

@@ -93,3 +93,6 @@
             (setq outline-regexp "[^ ]*[>%#]")
 ;;;            (outline-minor-mode t)
             (turn-on-orgstruct)))
+
+
+;; -*-no-byte-compile: t; -*-

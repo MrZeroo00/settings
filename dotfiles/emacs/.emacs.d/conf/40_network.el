@@ -84,3 +84,6 @@
 ;;;; macros
 ;;;(my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
 ;;;(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"
+
+
+;; -*-no-byte-compile: t; -*-

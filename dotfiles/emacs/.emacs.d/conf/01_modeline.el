@@ -11,3 +11,6 @@
 
 ;;;; show current directory
 (add-to-list 'global-mode-string '("" default-directory "-"))
+
+
+;; -*-no-byte-compile: t; -*-

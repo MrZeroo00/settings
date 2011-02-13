@@ -51,3 +51,6 @@
 
   (setq gnuserv-find-file-function 'gnuserv-find-file)
   (define-key ctl-x-map "\C-c" 'gnuserv-edit-finish))
+
+
+;; -*-no-byte-compile: t; -*-

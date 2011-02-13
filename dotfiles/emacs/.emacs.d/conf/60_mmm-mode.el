@@ -11,3 +11,6 @@
       :front "<style[^>]*>"
       :back "</style>")))
   (mmm-add-mode-ext-class nil "\\.html?\\'" 'embedded-css))
+
+
+;; -*-no-byte-compile: t; -*-

@@ -119,3 +119,6 @@
               (lambda ()
                 (define-key dired-mode-map "z" 'uenox-dired-winstart))))
   )
+
+
+;; -*-no-byte-compile: t; -*-

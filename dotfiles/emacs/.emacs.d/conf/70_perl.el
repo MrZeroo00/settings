@@ -50,3 +50,6 @@
             (my-load-and-when "_perl-insert-use-statement")
             (local-set-key (kbd "\C-c \C-m") 'perl-insert-use-statement)
             (my-load-and-when "_perltidy")))
+
+
+;; -*-no-byte-compile: t; -*-

@@ -68,3 +68,6 @@
 ;;;(install-elisp "http://lisp.morinie.fr/smarty/download/smarty-mode.el")
 (my-autoload-and-when 'smarty-mode "smarty-mode")
 (add-to-list 'auto-mode-alist '("\\.tpl" . smarty-mode))
+
+
+;; -*-no-byte-compile: t; -*-

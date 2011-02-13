@@ -78,3 +78,6 @@
           (lambda ()
             (my-load-and-when "_ruby-insert-magic-comment-if-needed")
             (add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)))
+
+
+;; -*-no-byte-compile: t; -*-

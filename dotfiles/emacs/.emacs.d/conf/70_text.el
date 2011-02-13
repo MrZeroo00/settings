@@ -58,3 +58,6 @@
 ;;;(add-hook 'text-mode-hook
 ;;;          (lambda ()
 ;;;            (my-load-and-when "text-adjust-space-before-save-if-needed")))
+
+
+;; -*-no-byte-compile: t; -*-

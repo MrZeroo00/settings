@@ -4,3 +4,6 @@
 
 (my-eval-after-load "lookup"
   (setq lookup-search-agents '((ndtp "dserver") (ndspell))))
+
+
+;; -*-no-byte-compile: t; -*-

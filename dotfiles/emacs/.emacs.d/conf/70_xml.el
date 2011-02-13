@@ -8,3 +8,6 @@
 
 ;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))
+
+
+;; -*-no-byte-compile: t; -*-

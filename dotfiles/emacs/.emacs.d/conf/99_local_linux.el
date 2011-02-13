@@ -19,3 +19,6 @@
 
 ;;;; anything
 (setq anything-c-locate-options `("mlocate" "-q" "-i" "-n" "50" "-r"))
+
+
+;; -*-no-byte-compile: t; -*-

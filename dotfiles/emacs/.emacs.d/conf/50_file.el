@@ -144,3 +144,6 @@
 '(my-load-and-when "_file-cache-read-save-cache"
   (file-cache-read-cache-from-file "~/.emacs.d/.file_cache"))
 ;;;(my-load-and-when "_Yama-binary-file-view")
+
+
+;; -*-no-byte-compile: t; -*-

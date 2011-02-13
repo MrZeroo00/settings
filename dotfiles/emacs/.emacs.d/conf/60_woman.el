@@ -15,3 +15,6 @@
         (woman (thing-at-point 'word))
       (call-interactively 'woman)))
   )
+
+
+;; -*-no-byte-compile: t; -*-

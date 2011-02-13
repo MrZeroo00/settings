@@ -23,3 +23,6 @@
                       (define-key howm-mode-map "\C-c\C-c" 'my-save-and-kill-buffer)
                       )
 (global-set-key "\C-c,," 'howm-menu)
+
+
+;; -*-no-byte-compile: t; -*-

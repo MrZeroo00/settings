@@ -36,3 +36,6 @@
   (my-eval-after-load "slime"
     '(slime-setup '(slime-fancy slime-banner)))
   )
+
+
+;; -*-no-byte-compile: t; -*-

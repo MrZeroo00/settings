@@ -185,3 +185,6 @@
     (wicked/org-update-checkbox-count (ad-get-arg 1)))))
 (my-load-and-when "_org-summary-todo")
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+
+;; -*-no-byte-compile: t; -*-

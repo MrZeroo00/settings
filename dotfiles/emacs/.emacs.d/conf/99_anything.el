@@ -302,3 +302,6 @@
 (my-load-and-when "_anything-c-source-other-windows")
 ;;; http://gist.github.com/315995
 (my-load-and-when "_any-source-visible-mark")
+
+
+;; -*-no-byte-compile: t; -*-

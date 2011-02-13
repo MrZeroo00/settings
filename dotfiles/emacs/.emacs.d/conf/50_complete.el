@@ -137,3 +137,6 @@
 ;;;(install-elisp-from-emacswiki "icicles.el")
 ;;;(my-require-and-when 'icicles)
 )
+
+
+;; -*-no-byte-compile: t; -*-

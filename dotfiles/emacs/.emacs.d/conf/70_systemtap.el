@@ -3,3 +3,6 @@
 
 ;;;; association setting
 (add-to-list 'auto-mode-alist '("¥¥.stp¥¥'" . systemtap-mode))
+
+
+;; -*-no-byte-compile: t; -*-

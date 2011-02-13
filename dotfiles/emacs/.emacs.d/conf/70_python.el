@@ -15,3 +15,6 @@
     (list "pyflakes" (list local-file))))
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-pyflakes-init))
+
+
+;; -*-no-byte-compile: t; -*-

@@ -144,3 +144,6 @@
             (when (memq major-mode '(c-mode c++-mode))
               (my-require-and-when 'cwarn)
               (turn-on-cwarn-mode))))
+
+
+;; -*-no-byte-compile: t; -*-

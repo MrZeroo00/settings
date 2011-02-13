@@ -46,3 +46,6 @@
   (setq w3m-type-ahead-from-point t)
   (define-key w3m-mode-map (kbd "/") 'w3m-type-ahead)
   (define-key w3m-mode-map (kbd "M-/") 'w3m-type-ahead-new-session))
+
+
+;; -*-no-byte-compile: t; -*-

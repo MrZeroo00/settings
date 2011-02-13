@@ -19,3 +19,6 @@
                         ((symbol-value 'buffer-file-name)))))
     (unless (null location)
       (kill-new location))))
+
+
+;; -*-no-byte-compile: t; -*-

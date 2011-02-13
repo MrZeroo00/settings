@@ -41,3 +41,6 @@
 ;;;  (my-require-and-when 'one-key-default)
 ;;;  (one-key-default-setup-keys)
   )
+
+
+;; -*-no-byte-compile: t; -*-

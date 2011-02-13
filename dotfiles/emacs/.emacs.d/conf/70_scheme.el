@@ -24,3 +24,6 @@
           (lambda ()
             (define-key scheme-mode-map "\e\t" 'scheme-smart-complete)
             (define-key scheme-mode-map "\t" 'scheme-complete-or-indent)))
+
+
+;; -*-no-byte-compile: t; -*-

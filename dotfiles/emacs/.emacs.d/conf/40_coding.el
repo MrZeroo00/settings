@@ -528,3 +528,6 @@
   (global-set-key "\C-cm" 'tdd-bgcolor-rotate))
 (my-load-and-when "_google-code-search")
 (my-load-and-when "_open-junk-file")
+
+
+;; -*-no-byte-compile: t; -*-

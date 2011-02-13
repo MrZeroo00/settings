@@ -25,3 +25,6 @@
             (function (lambda ()
                         (unless (member "*scratch*" (my-buffer-name-list))
                           (my-make-scratch t))))))
+
+
+;; -*-no-byte-compile: t; -*-

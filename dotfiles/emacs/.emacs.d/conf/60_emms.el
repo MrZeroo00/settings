@@ -5,3 +5,6 @@
   (setq emms-repeat-playlist t)
   (setq emms-player-list '(emms-player-mplayer))
   (setq emms-source-file-default-directory "~/Music/"))
+
+
+;; -*-no-byte-compile: t; -*-

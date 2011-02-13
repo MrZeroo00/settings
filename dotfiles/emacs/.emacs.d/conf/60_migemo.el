@@ -80,3 +80,6 @@
   '(defadvice isearch-mode
     (before migemo-on activate)
     (setq migemo-isearch-enable-p t)))
+
+
+;; -*-no-byte-compile: t; -*-

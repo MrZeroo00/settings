@@ -13,3 +13,6 @@
 (my-require-and-when 'space-chord
 ;;;  (space-chord-define-global "f" 'find-file)
   )
+
+
+;; -*-no-byte-compile: t; -*-

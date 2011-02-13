@@ -20,3 +20,6 @@
   (setq ispell-parser 'tex)
   (setq flyspell-delay 10)
   )
+
+
+;; -*-no-byte-compile: t; -*-

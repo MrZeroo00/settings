@@ -33,3 +33,6 @@
 
 (add-hook 'javascript-mode-hook
           (lambda () (flymake-js-load)))
+
+
+;; -*-no-byte-compile: t; -*-

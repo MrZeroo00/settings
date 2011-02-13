@@ -60,3 +60,6 @@
 
 (do-not-exit-view-mode-unless-writable-advice view-mode-exit)
 (do-not-exit-view-mode-unless-writable-advice view-mode-disable)
+
+
+;; -*-no-byte-compile: t; -*-
