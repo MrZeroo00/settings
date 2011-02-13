@@ -126,17 +126,17 @@ javascript <<EOM
 EOM
 
 " show feed-button to statusbar
-"javascript <<EOM
-"(function () {
-"var feedPanel = document.createElement('statusbarpanel');
-"var feedButton = document.getElementById('feed-button');
-"  feedPanel.setAttribute('id','feed-panel-clone');
-"  feedPanel.appendChild(feedButton.cloneNode(true));
-"  feedButton.parentNode.removeChild(feedButton);
-"  document.getElementById('status-bar')
-"    .insertBefore(feedPanel,document.getElementById('security-button'));
-"})();
-"EOM
+javascript <<EOM
+(function () {
+var feedPanel = document.createElement('statusbarpanel');
+var feedButton = document.getElementById('feed-button');
+  feedPanel.setAttribute('id','feed-panel-clone');
+  feedPanel.appendChild(feedButton.cloneNode(true));
+  feedButton.parentNode.removeChild(feedButton);
+  document.getElementById('status-bar')
+    .insertBefore(feedPanel,document.getElementById('security-button'));
+})();
+EOM
 
 
 " vim: set ft=vimperator:
