@@ -50,9 +50,9 @@
   (setq gdb-many-windows t)
   (setq gdb-use-separate-io-buffer t)
 
-  (defun my-gdb-mode-hooks ()
+  (defun my-gdb-mode-hook ()
     (gud-tooltip-mode t))
-  (add-hook 'gdb-mode-hook 'my-gdb-mode-hooks)
+  (add-hook 'gdb-mode-hook 'my-gdb-mode-hook)
 
   (when gdb-many-windows
     (defvar my-gud-window-configuration nil)
