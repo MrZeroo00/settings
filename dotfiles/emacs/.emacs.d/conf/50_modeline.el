@@ -6,7 +6,6 @@
       '(month "/" day " " dayname " " 
               24-hours ":" minutes " "
               (if mail " Mail" "") ))
-
 (display-time-mode t)
 
 ;;;; show current directory
