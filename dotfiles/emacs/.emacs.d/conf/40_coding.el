@@ -404,10 +404,6 @@
 (my-require-and-when 'wrap-region)
 
 
-;;;; flyspell
-(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
-
-
 ;;;; develock (emphasize bad coding convention)
 ;;;; http://www.jpl.org/elips/develock.el.gz
 (my-require-and-when 'develock
