@@ -22,7 +22,7 @@
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/fuzzy.el")
 (my-require-and-when 'auto-complete-config
 		     ;;(ac-config-default)
-		     (global-auto-complete-mode t))
+		     (global-auto-complete-mode t)
 		     ;;(setq ac-auto-start 4)
 		     (setq ac-auto-start nil)
 		     (setq ac-auto-show-menu 0.8)
@@ -33,7 +33,7 @@
 		     (setq ac-ignore-case 'smart)
 		     (setq ac-use-fuzzy t)
 		     (setq ac-stop-flymake-on-completing t)
-		     (ac-flyspell-workaround))
+		     (ac-flyspell-workaround)
 		     (setq ac-trigger-key "TAB")
 		     (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 		     (define-key ac-completing-map "\M-/" 'ac-stop)
