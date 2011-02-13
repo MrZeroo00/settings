@@ -9,6 +9,13 @@
 (setq ruby-deep-indent-paren-style nil)
 
 
+;;;; auto-complete
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (make-local-variable 'ac-ignores)
+            (add-to-list 'ac-ignores "end")))
+
+
 ;;;; flymake
 (defun flymake-ruby-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy

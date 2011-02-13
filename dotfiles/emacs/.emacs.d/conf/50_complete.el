@@ -21,18 +21,40 @@
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/fuzzy.el")
 (my-require-and-when 'auto-complete-config
-		     (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/dict")
-		     (ac-config-default)
+		     ;;(ac-config-default)
+		     (global-auto-complete-mode t))
+		     ;;(setq ac-auto-start 4)
+		     (setq ac-auto-start nil)
+		     (setq ac-auto-show-menu 0.8)
+		     (setq ac-use-menu-map t)
+		     (setq ac-dwim t)
+		     (setq ac-menu-height 20)
+		     (setq ac-candidate-limit 50)
+		     (setq ac-ignore-case 'smart)
+		     (setq ac-use-fuzzy t)
+		     (setq ac-stop-flymake-on-completing t)
+		     (ac-flyspell-workaround))
 		     (setq ac-trigger-key "TAB")
+		     (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+		     (define-key ac-completing-map "\M-/" 'ac-stop)
+		     (define-key ac-menu-map "\C-n" 'ac-next)
+		     (define-key ac-menu-map "\C-p" 'ac-previous)
+		     ;;(setq ac-use-overriding-local-map t)
 		     (set-face-background 'ac-candidate-face "lightgray")
 		     (set-face-underline 'ac-candidate-face "darkgray")
 		     (set-face-background 'ac-selection-face "steelblue")
-		     (setq-default ac-sources '(ac-source-words-in-buffer
-;;						ac-source-words-in-same-mode-buffers
-						ac-source-abbrev
+		     ;;(add-to-list 'ac-modes 'brandnew-mode)
+		     (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/dict")
+         (add-to-list 'ac-user-dictionary-files "~/.emacs.d/conf/auto-complete/dict")
+		     (setq-default ac-sources '(
+						ac-source-filename
 ;;						ac-source-files-in-current-dir
+						ac-source-dictionary
+;;						ac-source-abbrev
+						ac-source-words-in-buffer
+;;						ac-source-words-in-same-mode-buffers
+;;						ac-source-words-in-all-buffer
 						))
-		     (add-hook 'auto-complete-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-filename)))
 
   ;; http://d.hatena.ne.jp/kiwanami/20081124/1227543508
 ;;;  (defun ac-next-or-next-line (arg)
