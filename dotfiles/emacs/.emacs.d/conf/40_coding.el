@@ -245,12 +245,6 @@
   (add-hook 'find-file-not-found-hooks 'auto-insert))
 
 
-;;;; yasnippet
-(setq yas/trigger-key "TAB")
-(my-require-and-when 'yasnippet-config
-  (yas/setup "~/.emacs.d/elisp/yasnippet"))
-
-
 ;;;; smartchr
 ;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
 (my-require-and-when 'smartchr

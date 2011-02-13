@@ -14,6 +14,12 @@
 ;;;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
 
 
+;;;; yasnippet
+;;;(setq yas/trigger-key "TAB")
+;;;(my-require-and-when 'yasnippet-config
+;;;  (yas/setup "~/.emacs.d/elisp/yasnippet"))
+
+
 ;;;; auto-complete
 ;;;; http://github.com/m2ym/auto-complete
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
