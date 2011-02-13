@@ -24,11 +24,14 @@
 (add-to-list 'auto-mode-alist '("\\.tpl" . smarty-mode))
 
 
+;;;; common setting
+(add-to-list 'which-func-modes 'php-mode)
+
+
 ;;;; mode hook
 (defun my-php-mode-hook ()
   ;; common setting
   '(setq php-mode-force-pear t)
-  (add-to-list 'which-func-modes 'php-mode)
 
   ;; anything
   '(when (featurep 'anything)

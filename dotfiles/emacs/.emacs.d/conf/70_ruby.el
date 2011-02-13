@@ -51,6 +51,12 @@
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 
+;; macros
+(when (fboundp 'ruby-insert-magic-comment-if-needed)
+  (add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)
+  )
+
+
 ;;;; mode hook
 (defun my-ruby-mode-hook ()
   ;; common setting
@@ -58,7 +64,7 @@
 
   ;; auto-complete
   (when (featurep 'auto-complete)
-    (make-local-variable 'ac-ignores)
+    (make-variable-buffer-local 'ac-ignores)
     (add-to-list 'ac-ignores "end")
     )
 
@@ -78,11 +84,6 @@
   ;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
   ;;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
   (my-load-and-when "_refe2")
-
-  ;; macros
-  (when (fboundp 'ruby-insert-magic-comment-if-needed)
-    (add-hook 'before-save-hook 'ruby-insert-magic-comment-if-needed)
-    )
   )
 
 
