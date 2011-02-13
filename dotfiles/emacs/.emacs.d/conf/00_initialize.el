@@ -25,6 +25,8 @@
 ;;;(set-buffer-file-coding-system 'utf-8)
 ;;;(setq default-buffer-file-coding-system 'utf-8)
 ;;;(set-file-name-coding-system 'utf-8)
+;;;(set-language-environment 'utf-8)
+;;;(prefer-coding-system 'utf-8)
 '(add-hook 'find-file-hooks
            (lambda ()
              (setq coding-system-for-read 'utf-8)
