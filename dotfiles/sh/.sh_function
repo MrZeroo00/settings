@@ -1,5 +1,13 @@
 #!/bin/sh
 
+function isemacs() {
+  if [ -z "${EMACS}" ]; then
+    return 1
+  else
+    return 0
+  fi
+}
+
 function title() {
   printf "\033]2;$1\007"
 }
