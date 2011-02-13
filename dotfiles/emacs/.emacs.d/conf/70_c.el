@@ -68,6 +68,11 @@
     (flymake-mode t)
     )
 
+  ;; flyspell
+  (when (featurep 'flyspell)
+    (flyspell-prog-mode)
+    )
+
   ;; eldoc
   ;;(install-elisp-from-emacswiki "c-eldoc.el")
   '(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
