@@ -2,7 +2,7 @@
 ;;;; http://code.google.com/p/js2-mode/
 (my-autoload-and-when 'js2-mode "js2"
   ;; flymake
-  (my-require-and-when 'flymake
+  (when (featurep 'flymake)
     (defconst flymake-allowed-js-file-name-masks'(("\\.json$" flymake-js-init)
                                                   ("\\.js$" flymake-js-init)))
     (defcustom flymake-js-detect-trailing-comma t nil :type 'boolean)

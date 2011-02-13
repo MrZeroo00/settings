@@ -1,6 +1,6 @@
 (my-require-and-when 'cc-mode
   ;; flymake
-  (my-require-and-when 'flymake
+  (when (featurep 'flymake)
     (defun my-flymake-gcc-init ()
       (let* ((temp-file   (flymake-init-create-temp-buffer-copy
                            'flymake-create-temp-inplace))

@@ -1,6 +1,6 @@
 (my-autoload-and-when 'python-mode "python-mode"
   ;; flymake
-  (my-require-and-when 'flymake
+  (when (featurep 'flymake)
     (defun flymake-pyflakes-init ()
       (let* ((temp-file (flymake-init-create-temp-buffer-copy
                          'flymake-create-temp-inplace))
