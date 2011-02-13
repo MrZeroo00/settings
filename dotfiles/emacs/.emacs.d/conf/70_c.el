@@ -69,7 +69,7 @@
     )
 
   ;; flyspell
-  (when (featurep 'flyspell)
+  '(when (featurep 'flyspell)
     (flyspell-prog-mode)
     )
 
