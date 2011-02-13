@@ -47,8 +47,7 @@
 			  (php-completion-mode t)
 			  ;;(define-key php-mode-map (kbd "C-o") 'phpcmp-complete)
 			  (when (my-require-and-when 'auto-complete
-					  (add-to-list 'ac-sources 'ac-source-yasnippet)
-					  (add-to-list 'ac-sources 'ac-source-php-completion)
+					  (add-to-list 'ac-sources 'ac-source-php-completion t)
 					  (auto-complete-mode t))))))
 
 

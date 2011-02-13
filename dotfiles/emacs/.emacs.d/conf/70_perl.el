@@ -13,7 +13,7 @@
 (add-hook 'cperl-mode-hook
            (lambda ()
              (my-require-and-when 'perl-completion)
-             (add-to-list 'ac-sources 'ac-source-perl-completion)))
+             (add-to-list 'ac-sources 'ac-source-perl-completion t)))
 
 
 ;;;; eldoc

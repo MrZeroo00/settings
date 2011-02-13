@@ -44,7 +44,7 @@
 (add-hook 'c-mode-common-hook
 	  (lambda ()
             (when (memq major-mode '(c-mode c++-mode))
-              (add-to-list 'ac-sources 'ac-source-yasnippet))))
+              (add-to-list 'ac-sources 'ac-source-yasnippet t))))
 
 
 ;;;; flymake
