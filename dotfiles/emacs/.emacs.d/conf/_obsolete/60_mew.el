@@ -17,6 +17,3 @@
                             'mew-draft-send-message
                             'mew-draft-kill
                             'mew-send-hook)))
-
-
-;; -*-no-byte-compile: t; -*-

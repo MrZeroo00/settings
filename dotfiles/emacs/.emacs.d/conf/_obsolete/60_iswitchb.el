@@ -64,6 +64,3 @@ For details of keybindings, do `\\[describe-function] iswitchb'."
     (ad-set-arg
      0 (migemo-get-pattern
         (ad-get-arg 0)))))
-
-
-;; -*-no-byte-compile: t; -*-

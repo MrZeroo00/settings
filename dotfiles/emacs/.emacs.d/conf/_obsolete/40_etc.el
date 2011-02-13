@@ -20,6 +20,3 @@
 '(my-require-and-when 'typing-outputz
    (global-typing-outputz-mode t)
    (setq typing-outputz-key "bWAROb-quUbf"))
-
-
-;; -*-no-byte-compile: t; -*-

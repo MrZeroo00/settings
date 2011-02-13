@@ -8,12 +8,6 @@
 (setq svn-status-verbose nil)
 
 
-;;;; dsvn
-;;;(install-elisp "http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs/dsvn.el")
-;;;(my-autoload-and-when 'svn-status "dsvn")
-;;;(my-autoload-and-when 'svn-update "dsvn")
-
-
 ;;;; egg
 ;;;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg.el")
 ;;;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg-grep.el")
@@ -44,11 +38,6 @@
 ;;;(install-elisp-from-emacswiki "git-dwim.el")
 (my-require-and-when 'git-dwim
   (global-set-key "\C-xvb" 'git-branch-next-action))
-
-
-;;;; p4
-;;;; http://p4el.sourceforge.net/
-;;;(my-require-and-when 'p4)
 
 
 ;; -*-no-byte-compile: t; -*-

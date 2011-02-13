@@ -8,6 +8,3 @@
   '(("Dummy" "http://www.example.com/" nil euc-jp-dos)
     ))
   (setq pukiwiki-auto-insert t))
-
-
-;; -*-no-byte-compile: t; -*-

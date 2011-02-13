@@ -81,6 +81,3 @@
                                 (char-after (1- (match-end 0)))))))
 ;;;            (outline-minor-mode t)
             (turn-on-orgstruct)))
-
-
-;; -*-no-byte-compile: t; -*-
