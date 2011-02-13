@@ -25,6 +25,11 @@
   (global-set-key [(control ?,)] 'goto-last-change-reverse))
 
 
+;;;; saveplace (save cursor position in last edit session)
+'(my-require-and-when 'saveplace
+  (setq-default save-place t))
+
+
 ;;;; advice
 ;;; http://0xcc.net/blog/archives/000035.html
 ;;(defadvice bookmark-set (around bookmark-set-ad activate)

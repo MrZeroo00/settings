@@ -60,32 +60,6 @@
 ;;;(setq ffap-kpathsea-depth 5)
 
 
-;;;; highlight-completion
-;;;(install-elisp "http://www.math.washington.edu/~palmieri/Emacs/Hlc/highlight-completion.el")
-;;;(setq hc-ctrl-x-c-is-completion t)
-'(my-require-and-when 'highlight-completion
-  (highlight-completion-mode t)
-  (global-set-key "\C-\\" 'toggle-input-method))
-
-
-;;;; saveplace (save cursor position in last edit session)
-'(my-require-and-when 'saveplace
-  (setq-default save-place t))
-
-
-;;;; multiverse
-;;;; http://d.hatena.ne.jp/rubikitch/20081218/multiverse
-;;;(install-elisp-from-emacswiki "multiverse.el")
-(my-require-and-when 'multiverse
-  (defun my-save-buffer (arg)
-    (interactive "P")
-    (if arg
-        (multiverse-store)
-      (save-buffer)))
-
-  (global-set-key "\C-x\C-s" 'my-save-buffer))
-
-
 ;;;; auto-save-buffers-enhanced
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/auto-save-buffers-enhanced/trunk/auto-save-buffers-enhanced.el")
 '(my-require-and-when 'auto-save-buffers-enhanced
@@ -101,11 +75,6 @@
 ;;;(install-elisp "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
 '(my-require-and-when 'auto-save-buffers
   (run-with-idle-timer 0.5 t 'auto-save-buffers))
-
-
-;;;; disk
-;;;(install-elisp-from-emacswiki "disk.el")
-(my-autoload-and-when 'disk "disk")
 
 
 ;;;; dirvars (set directory local variables)
