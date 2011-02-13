@@ -108,6 +108,11 @@
 (my-autoload-and-when 'disk "disk")
 
 
+;;;; dirvars (set directory local variables)
+;;;(install-elisp "http://www.bookshelf.jp/elc/dirvars.el")
+(my-require-and-when 'dirvars)
+
+
 ;;;; make executable if script file
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)

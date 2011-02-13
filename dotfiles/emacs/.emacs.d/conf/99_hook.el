@@ -1,7 +1,3 @@
-;;;; dirvars (set directory local variables)
-;;;(install-elisp "http://www.bookshelf.jp/elc/dirvars.el")
-(my-require-and-when 'dirvars)
-
 ;;;; diminish
 ;;;(install-elisp "http://www.eskimo.com/~seldon/diminish.el")
 (my-require-and-when 'diminish
@@ -20,13 +16,6 @@
 ;;;  (my-eval-after-load "flymake" '(diminish 'flymake-mode))
 ;;;  (my-eval-after-load "gtags" '(diminish 'gtags-mode))
   )
-
-;;;; screen
-'(add-hook 'server-visit-hook
-          (lambda ()
-            (shell-command
-             "screen -X select $WINDOW")
-            (raise-frame)))
 
 
 ;; -*-no-byte-compile: t; -*-
