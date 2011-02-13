@@ -10,3 +10,4 @@
 70_shell.el
 70_systemtap.el
 70_xml.el
+70_c.el
