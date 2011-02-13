@@ -9,6 +9,7 @@
 
 ;;;; mode hook
 (defun my-nxml-mode-hook ()
+  ;; common setting
   (setq nxml-slash-auto-complete-flag t)
   (setq nxml-child-indent 2)
   (setq auto-fill-mode -1)

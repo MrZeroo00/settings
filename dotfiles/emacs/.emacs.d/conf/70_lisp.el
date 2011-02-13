@@ -15,6 +15,7 @@
 
 ;;;; mode hook
 (defun my-lisp-mode-hook ()
+  ;; common setting
   (setq inferior-lisp-program "clisp")
   (define-key lisp-mode-map "\C-m" 'newline-and-indent)
 

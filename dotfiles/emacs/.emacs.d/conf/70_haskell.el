@@ -4,6 +4,7 @@
 
 ;;;; mode-hook
 (defun my-haskell-mode-hook ()
+  ;; common setting
   (turn-on-haskell-indent)
   (turn-on-haskell-doc-mode)
   '(turn-on-haskell-simple-indent)

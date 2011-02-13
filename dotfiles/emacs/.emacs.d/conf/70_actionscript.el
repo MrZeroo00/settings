@@ -8,6 +8,7 @@
 
 ;;;; mode hook
 (defun my-actionscript-mode-hook ()
+  ;; common setting
   (my-load-and-when "as-config")
   )
 (add-hook 'actionscript-mode-hook 'my-actionscript-mode-hook)

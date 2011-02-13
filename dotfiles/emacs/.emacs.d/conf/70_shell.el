@@ -4,6 +4,7 @@
 
 ;;;; mode hook
 (defun my-sh-mode-hook ()
+  ;; flymake-shell
   (when (featurep 'flymake-shell)
     (flymake-shell-load)
     )
