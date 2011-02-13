@@ -274,6 +274,7 @@
 (my-load-and-when "40_key-bind")
 (my-load-and-when "40_network")
 (my-load-and-when "50_backup")
+(my-load-and-when "50_bookmark")
 (my-load-and-when "50_buffer")
 (my-load-and-when "50_complete")
 (my-load-and-when "50_dired")
