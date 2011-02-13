@@ -80,6 +80,12 @@
 ;;;(install-elisp "http://github.com/buzztaiki/auto-complete/raw/master/ac-company.el")
 
 
+;;;; macros
+;;;(my-load-and-when "_maybe-capitalize-bos")
+
+
+;;;; obsolete
+'(progn
 ;;;; dabbrev-highlight
 ;;;(install-elisp "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
 '(my-require-and-when 'dabbrev-highlight)
@@ -130,7 +136,4 @@
 ;;;; icicles
 ;;;(install-elisp-from-emacswiki "icicles.el")
 ;;;(my-require-and-when 'icicles)
-
-
-;;;; macros
-;;;(my-load-and-when "_maybe-capitalize-bos")
+)
