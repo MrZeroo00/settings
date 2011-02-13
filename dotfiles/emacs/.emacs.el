@@ -287,7 +287,7 @@
 (my-load-and-when "50_window")
 ;;;(my-load-and-when "60_change-mode")
 ;;;(my-load-and-when "60_confluence")
-;;;(my-load-and-when "60_dmacro")
+(my-load-and-when "60_dmacro")
 ;;;(my-load-and-when "60_doc-view")
 ;;;(my-load-and-when "60_emms")
 (my-load-and-when "60_evernote")
