@@ -1,7 +1,5 @@
 (setq make-backup-files t)
-(setq backup-directory-alist
-      (cons (cons "\\.*$" (expand-file-name "~/etc/backup/emacs"))
-            backup-directory-alist))
+(add-to-list 'backup-directory-alist (cons "\\.*$" (expand-file-name "~/etc/backup/emacs")))
 
 (setq version-control t)
 (setq kept-new-versions 2)
