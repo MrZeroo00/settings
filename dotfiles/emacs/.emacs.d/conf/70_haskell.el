@@ -2,7 +2,7 @@
   )  ; autoload
 
 
-;;;; mode-hook
+;;;; mode hook
 (defun my-haskell-mode-hook ()
   ;; common setting
   (turn-on-haskell-indent)

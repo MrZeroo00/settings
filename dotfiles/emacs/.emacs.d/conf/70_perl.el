@@ -48,6 +48,7 @@
     (local-set-key (kbd "\C-c \C-m") 'perl-insert-use-statement)
     )
   )
+(add-to-list 'cperl-mode-hook 'my-cperl-mode-hook)
 
 
 ;; -*-no-byte-compile: t; -*-

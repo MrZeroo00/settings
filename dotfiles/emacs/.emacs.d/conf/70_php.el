@@ -65,6 +65,7 @@
   ;; http://code.google.com/p/geben-on-emacs/
   (my-autoload-and-when 'geben "geben")
   )
+(add-to-list 'php-mode-hook 'my-php-mode-hook)
 
 
 ;; -*-no-byte-compile: t; -*-
