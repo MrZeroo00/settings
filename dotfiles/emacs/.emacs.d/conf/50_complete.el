@@ -22,6 +22,7 @@
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/fuzzy.el")
+(setq yas/root-directory "~/.emacs.d/elisp/yasnippet/snippets/text-mode")
 (my-require-and-when 'auto-complete-config
 		     ;;(ac-config-default)
 		     (global-auto-complete-mode t)
