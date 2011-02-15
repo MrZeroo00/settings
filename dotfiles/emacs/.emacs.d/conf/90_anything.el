@@ -4,6 +4,7 @@
 ;;;(install-elisp-from-emacswiki "anything-obsolete.el")
 ;;;(install-elisp-from-emacswiki "anything-rubikitch.el")
 ;;;(install-elisp-from-emacswiki "anything-goodies.el")
+;;;(setq anything-debug t)
 (my-require-and-when 'anything-startup)
 (my-load-and-when "anything-rubikitch-import")
 ;;;(my-load-and-when "anything-rubikitch")
@@ -239,6 +240,7 @@
 (define-key anything-map "\C-a" 'beginning-of-line)
 (define-key anything-map "\C-h" 'delete-backward-char)
 (define-key anything-map "\C-k" (lambda () (interactive) (delete-minibuffer-contents)))
+(define-key anything-map "M" 'anything-toggle-visible-mark) ; for terminal, "C-<SPC>" doesn't work...
 
 
 ;;;; source
