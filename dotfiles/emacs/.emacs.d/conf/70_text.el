@@ -37,14 +37,16 @@
 
 ;;;; mode hook
 (defun my-text-mode-hook ()
-  ;; common setting
-  '(ruler-mode)
-  (flyspell-mode)
-  '(refill-mode t)
-  '(setq paragraph-start '"^\\([ 　・○<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
+  (when (memq major-mode '(text-mode))
+    ;; common setting
+    '(ruler-mode)
+    (flyspell-mode)
+    '(refill-mode t)
+    '(setq paragraph-start '"^\\([ 　・○<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
 
-  ;; macros
-  '(my-load-and-when "text-adjust-space-before-save-if-needed")
+    ;; macros
+    '(my-load-and-when "text-adjust-space-before-save-if-needed")
+    )
   )
 (add-hook 'text-mode-hook 'my-text-mode-hook)
 
