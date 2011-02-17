@@ -31,7 +31,7 @@ alias web='w3m http://www.google.co.jp/'
 alias gdb='gdb -silent'
 alias gvim-remote='gvim --remote-silent'
 alias mysql='mysql --table'
-alias vl="vim -u ${$HOME}/.vimrc_pager -"
+alias vl='vim -u ~/.vimrc_pager -'
 
 # OS specific aliases
 case "${OS}" in
