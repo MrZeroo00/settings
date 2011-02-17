@@ -36,6 +36,10 @@ function nfind() {
   find . -name "*$1*"
 }
 
+function git_diff() {
+  git diff --no-ext-diff -w "$@" | vim -R -
+}
+
 case "${OS}" in
   "Darwin")
   growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
