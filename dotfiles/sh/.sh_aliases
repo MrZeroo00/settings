@@ -22,6 +22,7 @@ alias h='history'
 # etc
 alias wcd=/usr/lib/wcd/wcd.exec
 alias number='screen_number'
+alias layout='screen_layout'
 alias sl='ls'
 alias rm='rm -i'
 alias grep='egrep'
