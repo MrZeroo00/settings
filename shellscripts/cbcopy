@@ -2,7 +2,7 @@
 
 if [ $# -ne 0 ]; then
   if [ -f "${HOME}/bin/.cbcopy_remote" ]; then
-    cat $* | nkf -w | nc -q1 localhost 2224
+    cat $* | nc -q1 localhost 2224
   else
     case "`uname`" in
       "Linux")
