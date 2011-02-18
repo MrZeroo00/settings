@@ -37,6 +37,9 @@ hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
 
 # Set prompts
 LPROMPT="%n@%m%% "
+RPROMPT="[%~]"
+SPROMPT="correct: %R -> %r ? "
+
 autoload -U colors
 colors
 PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
@@ -44,9 +47,6 @@ _change_prompt_color_by_return_value () {
   PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
 }
 add-zsh-hook precmd _change_prompt_color_by_return_value
-
-RPROMPT="[%~]"
-SPROMPT="correct: %R -> %r ? "
 
 # vcs_info
 autoload -Uz vcs_info
