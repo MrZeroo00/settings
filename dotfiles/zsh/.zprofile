@@ -118,8 +118,6 @@ unsetopt prompt_cr
 unsetopt recexact
 unsetopt rm_star_silent
 
-[[ ${EMACS} = t ]] && unsetopt zle
-
 
 ## key bindings
 #bindkey -v                # vi key bindings
