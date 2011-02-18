@@ -6,16 +6,6 @@ fi
 # Search path for the cd command
 #cdpath=(.. ~ ~/src ~/zsh)
 
-# Use hard limits, except for a smaller stack and no core dumps
-if [ "${OS}" != "Cygwin" ]; then
-  unlimit
-  limit stack 8192
-  limit core 0
-  limit -s
-fi
-
-umask 022
-
 
 ## autoload
 # Where to look for autoloaded function definitions

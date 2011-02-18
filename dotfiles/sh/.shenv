@@ -9,6 +9,14 @@ fi
 
 umask 022
 
+# Use hard limits, except for a smaller stack and no core dumps
+if [ "${OS}" != "Cygwin" ]; then
+  unlimit
+  limit stack 8192
+  limit core 0
+  limit -s
+fi
+
 # local setting
 if [ -f ${HOME}/.shenv.local ]; then
   source ${HOME}/.shenv.local
