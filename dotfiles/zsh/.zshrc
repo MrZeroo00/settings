@@ -26,11 +26,8 @@ zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 
-# automatically remove duplicates from these arrays
-typeset -U path cdpath fpath manpath
 
-
-## environmental variables
+## variables
 #cdpath=(.. ~ ~/src ~/zsh)
 WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 DIRSTACKSIZE=20
@@ -67,6 +64,9 @@ RPROMPT="%1(v|%F{green}%1v%f|)"
 #watch=(notme)                   # watch for everybody but me
 #LOGCHECK=300                    # check every 5 min for login/logout activity
 #WATCHFMT='%n %a %l from %m at %t.'
+
+# automatically remove duplicates from these arrays
+typeset -U path cdpath fpath manpath
 
 
 ## options
