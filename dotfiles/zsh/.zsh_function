@@ -27,22 +27,6 @@ zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 
 
-## setenv (csh compatibility)
-setenv() {
-  typeset -x "${1}${1:+=}${(@)argv[2,$#]}"
-}
-
-
-## freload
-freload() {
-  while (( $# )); do;
-    unfunction $1;
-    autoload -U $1;
-    shift;
-  done
-}
-
-
 ## Phil!'s ZSH Prompt
 #source ${HOME}/.zsh/function/phil_prompt.sh
 #add-zsh-hook precmd _phil_prompt
@@ -147,6 +131,22 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
   #chpwd
   #_update_screen_title_by_cd
 fi
+
+
+## setenv (csh compatibility)
+setenv() {
+  typeset -x "${1}${1:+=}${(@)argv[2,$#]}"
+}
+
+
+## freload
+freload() {
+  while (( $# )); do;
+    unfunction $1;
+    autoload -U $1;
+    shift;
+  done
+}
 
 
 # local setting
