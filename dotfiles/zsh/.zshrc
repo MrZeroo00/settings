@@ -29,9 +29,6 @@ zstyle ':completion:*' recent-dirs-insert both
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
 
-# Hosts to use for completion (see later zstyle)
-hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
-
 
 ## environmental variables
 #cdpath=(.. ~ ~/src ~/zsh)
@@ -221,6 +218,8 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 # command for process lists, the local web server details and host completion
 #zstyle ':completion:*:processes' command 'ps -o pid,s,nice,stime,args'
 #zstyle ':completion:*:urls' local 'www' '/var/www/htdocs' 'public_html'
+#hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
+hosts=(`hostname`)
 zstyle '*' hosts $hosts
 
 # Filename suffixes to ignore during completion (except after rm command)
