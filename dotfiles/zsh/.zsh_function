@@ -130,7 +130,7 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
       ;;
       *)
       echo -n "k$cmd[1]:t\\"
-      prev=$cmd[1]
+      #prev=$cmd[1]
       return
       ;;
     esac
@@ -141,7 +141,7 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
     cmd=(${(z)${(e):-\$jt$num}})
     echo -n "k$cmd[1]:t\\") 2>/dev/null
 
-    prev=$cmd[1]
+    #prev=$cmd[1]
   }
   add-zsh-hook preexec _update_screen_title_by_command
 
