@@ -4,27 +4,11 @@ if [ -f ${HOME}/.shrc ]; then
 fi
 
 
-# autoload zsh modules when they are referenced
+## modules
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
 zmodload -ap zsh/mapfile mapfile
-autoload -U add-zsh-hook
-#autoload zed
-#autoload predict-on
-#predict-on
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey "^O" edit-command-line
-#history-register-line () { fc -R <(<<<$BUFFER); zle send-break }
-#zle -N history-register-line
-
-## cdr system stuff.
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-max 5000
-zstyle ':chpwd:*' recent-dirs-default yes
-zstyle ':completion:*' recent-dirs-insert both
 
 
 ## variables
