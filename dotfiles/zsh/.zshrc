@@ -39,6 +39,8 @@ autoload -U add-zsh-hook
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey "^O" edit-command-line
+#history-register-line () { fc -R <(<<<$BUFFER); zle send-break }
+#zle -N history-register-line
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
@@ -82,7 +84,6 @@ WATCHFMT='%n %a %l from %m at %t.'
 #setopt aliases
 #setopt always_last_prompt
 #setopt append_history
-setopt auto_cd
 #setopt auto_list
 #setopt auto_menu
 #setopt auto_param_keys
@@ -122,6 +123,7 @@ setopt auto_cd
 #setopt short_loops
 #setopt unset
 
+setopt auto_cd
 #setopt auto_name_dirs
 setopt auto_pushd
 setopt autoresume
@@ -139,14 +141,16 @@ setopt extended_history
 setopt hist_ignore_dups
 #setopt hist_ignore_space
 setopt hist_reduce_blanks
+setopt hist_save_no_dups
 #setopt hist_verify
 setopt interactive_comments
+#setopt list_packed
 setopt longlistjobs
 setopt magic_equal_subst
 setopt mailwarning
 setopt notify
 setopt numeric_glob_sort
-#setopt print_eight_bit
+setopt print_eight_bit
 #setopt print_exit_value
 setopt pushd_ignore_dups
 setopt pushd_minus
@@ -157,7 +161,6 @@ setopt rec_exact
 setopt share_history
 #setopt transient_rprompt
 
-unsetopt auto_cd
 unsetopt cdable_vars
 unsetopt clobber
 unsetopt correct
@@ -165,6 +168,7 @@ unsetopt correctall
 unsetopt flow_control
 unsetopt list_beep
 unsetopt longlistjobs
+unsetopt prompt_cr
 unsetopt recexact
 unsetopt rm_star_silent
 
