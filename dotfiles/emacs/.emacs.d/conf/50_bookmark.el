@@ -9,10 +9,10 @@
 
 ;;;; bm
 ;;;; http://www.nongnu.org/bm/
+(setq bm-repository-file (expand-file-name "~/.emacs.d/.bm-repository"))
+(setq bm-repository-size nil)
+(setq bm-buffer-persistence t)
 (my-require-and-when 'bm
-  (setq bm-repository-file (expand-file-name "~/.emacs.d/.bm-repository"))
-  (setq bm-repository-size nil)
-  (setq bm-buffer-persistence t)
   (global-set-key (kbd "<C-f2>") 'bm-toggle)
   (global-set-key (kbd "<f2>")   'bm-next)
   (global-set-key (kbd "<S-f2>") 'bm-previous))
