@@ -37,21 +37,21 @@
 (my-time-lag "all")
 
 '(defadvice require
-  (around require-time activate)
-  (my-time-lag (format "require-%s"
-                       (ad-get-arg 0)))
-  ad-do-it
-  (my-time-lag (format "require-%s"
-                       (ad-get-arg 0)))
-  )
+   (around require-time activate)
+   (my-time-lag (format "require-%s"
+                        (ad-get-arg 0)))
+   ad-do-it
+   (my-time-lag (format "require-%s"
+                        (ad-get-arg 0)))
+   )
 
 
 ;;;; check Operating System
 (defvar run-unix
   (or (equal system-type 'gnu/linux)
       (or (equal system-type 'usg-unix-v)
-	  (or  (equal system-type 'berkeley-unix)
-	       (equal system-type 'cygwin)))))
+          (or  (equal system-type 'berkeley-unix)
+               (equal system-type 'cygwin)))))
 
 (defvar run-linux
   (equal system-type 'gnu/linux))
@@ -59,13 +59,13 @@
   (equal system-type 'usg-unix-v))
 (defvar run-bsd
   (equal system-type 'berkeley-unix))
-(defvar run-cygwin ; treat cygwin as unix group
+(defvar run-cygwin                      ; treat cygwin as unix group
   (equal system-type 'cygwin))
 
 (defvar run-w32
   (and (null run-unix)
        (or (equal system-type 'windows-nt)
-	   (equal system-type 'ms-dos))))
+           (equal system-type 'ms-dos))))
 (defvar run-darwin (equal system-type 'darwin))
 
 ;;;; check Emacsen major version
@@ -124,9 +124,9 @@
 (if (file-exists-p "~/local/share/emacs/site-lisp/subdirs.el")
     (let ((dir (expand-file-name "~/local/share/emacs/site-lisp")))
       (if (member dir load-path) nil
-	(setq load-path (cons dir load-path))
-	(let ((default-directory dir))
-	  (load (expand-file-name "subdirs.el") t t t)))))
+        (setq load-path (cons dir load-path))
+        (let ((default-directory dir))
+          (load (expand-file-name "subdirs.el") t t t)))))
 
 
 ;;;; define eval-safe
@@ -152,12 +152,12 @@
   (defvar my-disabled-features '()
     "The list of disabled features"))
 '(defmacro my-require-and-when (feature &rest body)
-  (declare (indent 1))
-  `(if (require ,feature nil t)
-       (progn
-         (message "Require success: %s" ,feature)
-         ,@body)
-     (message "Require error: %s" ,feature)))
+   (declare (indent 1))
+   `(if (require ,feature nil t)
+        (progn
+          (message "Require success: %s" ,feature)
+          ,@body)
+      (message "Require error: %s" ,feature)))
 (defmacro my-require-and-when (feature &rest body)
   (declare (indent 1))
   ;;`(unless (featurep ,feature)
@@ -171,38 +171,38 @@
           (message "Require error: %s" ,feature))))
 
 '(defmacro my-autoload-and-when (function file &rest body)
-  (declare (indent 2))
-  `(if (autoload-if-found ,function ,file nil t)
-       (progn
-         (message "Autoload success: %s %s" ,function ,file)
-         (my-eval-after-load ,file ,@body))
-     (message "Autoload error: %s %s" ,function ,file)))
+   (declare (indent 2))
+   `(if (autoload-if-found ,function ,file nil t)
+        (progn
+          (message "Autoload success: %s %s" ,function ,file)
+          (my-eval-after-load ,file ,@body))
+      (message "Autoload error: %s %s" ,function ,file)))
 (defmacro my-autoload-and-when (function file &rest body)
   (declare (indent 2))
   `(cond ((member ,file my-disabled-features)
-	  (message "Autoload skip: %s %s" ,function ,file))
-	 ((autoload-if-found ,function ,file nil t)
-	  (message "Autoload success: %s %s" ,function ,file)
-	  (my-eval-after-load ,file ,@body))
-	 (t
-	  (message "Autoload error: %s %s" ,function ,file))))
+          (message "Autoload skip: %s %s" ,function ,file))
+         ((autoload-if-found ,function ,file nil t)
+          (message "Autoload success: %s %s" ,function ,file)
+          (my-eval-after-load ,file ,@body))
+         (t
+          (message "Autoload error: %s %s" ,function ,file))))
 
 '(defmacro my-load-and-when (name &rest body)
-  (declare (indent 1))
-  `(if (load ,name t)
-       (progn
-         (message "Load success: %s" ,name)
-         ,@body)
-     (message "Load error: %s" ,name)))
+   (declare (indent 1))
+   `(if (load ,name t)
+        (progn
+          (message "Load success: %s" ,name)
+          ,@body)
+      (message "Load error: %s" ,name)))
 (defmacro my-load-and-when (name &rest body)
   (declare (indent 1))
   `(cond ((member ,name my-disabled-features)
-	  (message "Load skip: %s" ,name))
-	 ((load ,name t)
-	  (message "Load success: %s" ,name)
-	  ,@body)
-	 (t
-	  (message "Load error: %s" ,name))))
+          (message "Load skip: %s" ,name))
+         ((load ,name t)
+          (message "Load success: %s" ,name)
+          ,@body)
+         (t
+          (message "Load error: %s" ,name))))
 
 (my-require-and-when 'cl
   (defun profile (block)
@@ -221,13 +221,13 @@
 ;;;(install-elisp-from-emacswiki "emacs-init-check")
 (my-require-and-when 'emacs-init-check
   (setq auto-emacs-init-check-file-regexp "/\\.emacs\\.d/")
-  ;;;(add-to-list 'auto-emacs-init-check-program-args "nice")
+  ;;(add-to-list 'auto-emacs-init-check-program-args "nice")
   (add-hook 'vc-checkin-hook 'auto-emacs-init-check))
 
 ;;;; byte-compile
 ;;;(install-elisp-from-emacswiki "auto-async-byte-compile")
 (my-require-and-when 'auto-async-byte-compile
-  ;;;(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
+  ;;(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
   (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
 
 ;;;; profiling
@@ -296,8 +296,8 @@
 (my-load-and-when (concat "99_local_" hostname))
 
 
-;;;(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
-;;;    (my-load-and-when "99_timeout"))
+'(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
+    (my-load-and-when "99_timeout"))
 
 
 (my-time-lag "all")
