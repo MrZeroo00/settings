@@ -50,9 +50,9 @@ export EDITOR='emacsclient -a vim -n'
 export PAGER='lv'
 export BROWSER='w3m'
 export HTMLPAGER='w3m -T text/html -dump'
-export TERMSCREEN='screen-bce'
 export SVN_EDITOR='vim'
 export GIT_EDITOR='vim'
+export TERMSCREEN='screen-bce'
 
 # for CPAN
 #export PERL5LIB=${HOME}/local/lib/perl5/5.8.8:${HOME}/local/lib/perl5/site_perl/5.8.8
@@ -62,6 +62,7 @@ export GIT_EDITOR='vim'
 if [ -f ${HOME}/bin/gtags_load_libpath ]; then
     source ${HOME}/bin/gtags_load_libpath
 fi
+
 
 # OS specific environmental variables
 case "${OS}" in
@@ -109,8 +110,10 @@ if [ -x "`which keychain`" ]; then
     source ${HOME}/.keychain/`uname -n`-sh
 fi
 
+
 # screen
 screen -D -R
+
 
 # aliases
 if [ -f ${HOME}/.sh_aliases ]; then
