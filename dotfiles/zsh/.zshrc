@@ -12,36 +12,14 @@ zmodload -ap zsh/mapfile mapfile
 
 
 ## variables
-#cdpath=(.. ~ ~/src ~/zsh)
-WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
-DIRSTACKSIZE=20
-MAILCHECK=300
-HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
-
-# prompts
 LPROMPT="%n@%m%% "
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
-
-autoload -U colors
-colors
-PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
-_change_prompt_color_by_return_value () {
-  PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
-}
-add-zsh-hook precmd _change_prompt_color_by_return_value
-
-# vcs_info
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-_set_vcs_info () {
-  psvar=()
-  LANG=en_US.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-add-zsh-hook precmd _set_vcs_info
-RPROMPT="%1(v|%F{green}%1v%f|)"
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+#cdpath=(.. ~ ~/src ~/zsh)
+DIRSTACKSIZE=20
+MAILCHECK=300
+HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
 
 # Watch for my friends
 #watch=( $(<~/.friends) )       # watch for people in .friends file

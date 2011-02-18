@@ -19,12 +19,36 @@ bindkey "^O" edit-command-line
 #history-register-line () { fc -R <(<<<$BUFFER); zle send-break }
 #zle -N history-register-line
 
+
 ## cdr system stuff.
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
+
+
+## change prompt color by return value
+autoload -U colors
+colors
+PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
+_change_prompt_color_by_return_value () {
+  PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
+}
+add-zsh-hook precmd _change_prompt_color_by_return_value
+
+
+## display vcs info in right prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+_set_vcs_info () {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+add-zsh-hook precmd _set_vcs_info
+RPROMPT="%1(v|%F{green}%1v%f|)"
 
 
 ## Phil!'s ZSH Prompt
