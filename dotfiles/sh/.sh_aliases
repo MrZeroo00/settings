@@ -20,53 +20,53 @@ alias d='dirs -v'
 alias h='history'
 
 # etc
-alias wcd=/usr/lib/wcd/wcd.exec
-alias number='screen_number'
-alias layout='screen_layout'
+#alias wcd=/usr/lib/wcd/wcd.exec
+alias less='lv'
 alias sl='ls'
-alias rm='rm -i'
+alias gdb='gdb -silent'
+alias gvim-remote='gvim --remote-silent'
 alias grep='egrep'
+alias mysql='mysql --table'
+alias rm='rm -i'
 alias psgrep='ps aux | egrep'
 alias w3m='LANG="" w3m'
 alias web='w3m http://www.google.co.jp/'
-alias gdb='gdb -silent'
-alias gvim-remote='gvim --remote-silent'
-alias mysql='mysql --table'
 alias vl='vim -u ~/.vimrc_pager -'
+alias number='screen_number'
+alias layout='screen_layout'
 
 # OS specific aliases
 case "${OS}" in
   "Linux")
-  alias ack='ack-grep'
-  #alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
-  alias emacs='emacsclient -a emacs -n'
   alias open='gnome-open'
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
+  alias ack='ack-grep'
+  #alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
+  alias emacs='emacsclient -a emacs -n'
   ;;
   "Darwin")
-  alias top='top -o cpu'
-  #alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -a /Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -n'
   alias addr2line='gaddr2line'
+  alias ldd='otool -L'
   alias nm='gnm'
   alias objdump='gobjdump'
-  alias readelf='greadelf'
-  alias ldd='otool -L'
-  alias strace='sudo dtruss sudo -u ${USER}'
   alias ql='qlmanage -p "$@" >& /dev/null'
+  alias readelf='greadelf'
+  alias strace='sudo dtruss sudo -u ${USER}'
+  #alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -a /Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -n'
+  alias top='top -o cpu'
   ;;
   "Cygwin")
-  alias ls='ls --show-control-chars --color'
-  alias less='lv'
-  #alias lv='lv -Os'
-  #alias grep='lgrep -Os -Ks'
-  alias vim='/c/Vim/vim.exe'
-  alias emacs='/c/meadow/bin/emacsclient.exe -a /c/meadow/bin/RunMW32.exe -n'
-  alias svn='/c/Program\ Files/Subversion/bin/svn.exe'
-  alias strace='/c/Program\ Files/StraceNT/StraceNt.exe'
   alias open='fiber'
   alias pbcopy='putclip'
   alias pbpaste='getclip'
+  alias svn='/c/Program\ Files/Subversion/bin/svn.exe'
+  alias strace='/c/Program\ Files/StraceNT/StraceNt.exe'
+  alias vim='/c/Vim/vim.exe'
+  alias emacs='/c/meadow/bin/emacsclient.exe -a /c/meadow/bin/RunMW32.exe -n'
+  alias ls='ls --show-control-chars --color'
+  #alias lv='lv -Os'
+  #alias grep='lgrep -Os -Ks'
   ;;
 esac
 
