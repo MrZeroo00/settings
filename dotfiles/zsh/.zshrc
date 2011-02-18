@@ -42,6 +42,13 @@ bindkey "^O" edit-command-line
 #history-register-line () { fc -R <(<<<$BUFFER); zle send-break }
 #zle -N history-register-line
 
+## cdr system stuff.
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
 
