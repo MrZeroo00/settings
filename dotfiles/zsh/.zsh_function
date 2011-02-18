@@ -14,6 +14,12 @@ freload() {
 }
 
 
+## Phil!'s ZSH Prompt
+#source ${HOME}/.zsh/function/phil_prompt.sh
+#add-zsh-hook precmd _phil_prompt
+#setprompt
+
+
 ## magic-abbrev-expand
 source ${HOME}/.zsh/function/magic-abbrev-expand.sh
 #zle -N magic-abbrev-expand
@@ -113,11 +119,6 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
   #_update_screen_title_by_cd
 fi
 
-
-## Phil!'s ZSH Prompt
-source ${HOME}/.zsh/function/phil_prompt.sh
-#add-zsh-hook precmd _phil_prompt
-#setprompt
 
 # local setting
 if [ -f ${HOME}/.zsh_function.local ]; then
