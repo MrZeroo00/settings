@@ -82,6 +82,7 @@ WATCHFMT='%n %a %l from %m at %t.'
 #setopt aliases
 #setopt always_last_prompt
 #setopt append_history
+setopt auto_cd
 #setopt auto_list
 #setopt auto_menu
 #setopt auto_param_keys
