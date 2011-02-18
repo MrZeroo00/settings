@@ -1,3 +1,9 @@
+# read common profile
+#if [ -f ${HOME}/.profile ]; then
+#  source ${HOME}/.profile
+#fi
+
+
 ## modules
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty

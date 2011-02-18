@@ -1,12 +1,12 @@
-# read common environment
-if [ -f ${HOME}/.shenv ]; then
-  source ${HOME}/.shenv
+# read common profile
+if [ -f ${HOME}/.profile ]; then
+  source ${HOME}/.profile
 fi
 
-# include .bashrc if it exists
-if [ -f ${HOME}/.bashrc ]; then
-  source ${HOME}/.bashrc
-fi
+## include .bashrc if it exists
+#if [ -f ${HOME}/.bashrc ]; then
+#  source ${HOME}/.bashrc
+#fi
 
 # local setting
 if [ -f ${HOME}/.bash_profile.local ]; then
