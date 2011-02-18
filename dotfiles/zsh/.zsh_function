@@ -101,10 +101,10 @@ fi
 # for screen status line
 if [ "${TERM}" = ${TERMSCREEN} ]; then
   #chpwd () {
-  #_update_screen_title_by_cd () {
-  #  echo -n "_`dirs`\\"
-  #}
-  #add-zsh-hook chpwd _update_screen_title_by_cd
+  _update_screen_title_by_cd () {
+    echo -n "_`dirs`\\"
+  }
+  add-zsh-hook chpwd _update_screen_title_by_cd
 
   #preexec() {
   _update_screen_title_by_command () {
