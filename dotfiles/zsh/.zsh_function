@@ -103,11 +103,11 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
   add-zsh-hook preexec _update_screen_title_by_command
 
   #precmd() {
-  _update_screen_title() {
-    #local prev; prev=`history -1 | sed "s/^[ 0-9]*//" | sed "s/ .*$//"`
-    echo -n "k$:${prev}\\"
-  }
-  add-zsh-hook precmd _update_screen_title
+  #_update_screen_title() {
+  #  #local prev; prev=`history -1 | sed "s/^[ 0-9]*//" | sed "s/ .*$//"`
+  #  echo -n "k$:${prev}\\"
+  #}
+  #add-zsh-hook precmd _update_screen_title
 
   #chpwd
   #_update_screen_title_by_cd
