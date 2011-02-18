@@ -36,9 +36,6 @@ typeset -U path cdpath fpath manpath
 hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
 
 # Set prompts
-#PROMPT='%m%# '    # default prompt
-#RPROMPT=' %~'     # prompt for right side of screen
-
 LPROMPT="%n@%m%% "
 autoload -U colors
 colors
@@ -55,11 +52,12 @@ SPROMPT="correct: %R -> %r ? "
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
 zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
+_set_vcs_info () {
   psvar=()
   LANG=en_US.UTF-8 vcs_info
   [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
+add-zsh-hook precmd _set_vcs_info
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
 WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
