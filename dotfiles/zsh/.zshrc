@@ -3,9 +3,6 @@ if [ -f ${HOME}/.shrc ]; then
   source ${HOME}/.shrc
 fi
 
-# Search path for the cd command
-#cdpath=(.. ~ ~/src ~/zsh)
-
 
 # autoload zsh modules when they are referenced
 zmodload -a zsh/stat stat
@@ -35,7 +32,15 @@ typeset -U path cdpath fpath manpath
 # Hosts to use for completion (see later zstyle)
 hosts=(`hostname` ftp.math.gatech.edu prep.ai.mit.edu wuarchive.wustl.edu)
 
-# Set prompts
+
+## environmental variables
+#cdpath=(.. ~ ~/src ~/zsh)
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+DIRSTACKSIZE=20
+MAILCHECK=300
+HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
+
+# prompts
 LPROMPT="%n@%m%% "
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
@@ -60,22 +65,14 @@ _set_vcs_info () {
 add-zsh-hook precmd _set_vcs_info
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
-WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
-
-# Some environment variables
-export HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
-
-MAILCHECK=300
-DIRSTACKSIZE=20
-
 # Watch for my friends
 #watch=( $(<~/.friends) )       # watch for people in .friends file
-watch=(notme)                   # watch for everybody but me
-LOGCHECK=300                    # check every 5 min for login/logout activity
-WATCHFMT='%n %a %l from %m at %t.'
+#watch=(notme)                   # watch for everybody but me
+#LOGCHECK=300                    # check every 5 min for login/logout activity
+#WATCHFMT='%n %a %l from %m at %t.'
 
 
-## set/unset shell options
+## options
 # default
 #setopt aliases
 #setopt always_last_prompt
