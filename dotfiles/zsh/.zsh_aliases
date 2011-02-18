@@ -1,10 +1,10 @@
+# vared variant which splits arrays onto separate lines
+alias lvared="IFS=\$'\n' vared"
+
 alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'       # no spelling correction on cp
 alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
 alias lsd='ls -ld *(-/DN)'
-
-# vared variant which splits arrays onto separate lines
-alias lvared="IFS=\$'\n' vared"
 
 # http://www.ayu.ics.keio.ac.jp/~mukai/tips/zshdir.html
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir'
@@ -47,6 +47,7 @@ source ${HOME}/.zsh/function/zsh_commandselector.sh
 
 # directory aliases
 hash -d src="${HOME}/src"
+
 
 # local setting
 if [ -f ${HOME}/.zsh_aliases.local ]; then
