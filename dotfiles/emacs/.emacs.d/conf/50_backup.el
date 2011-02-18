@@ -11,13 +11,13 @@
 ;;;; http://d.hatena.ne.jp/rubikitch/20081218/multiverse
 ;;;(install-elisp-from-emacswiki "multiverse.el")
 '(my-require-and-when 'multiverse
-  (defun my-save-buffer (arg)
-    (interactive "P")
-    (if arg
-        (multiverse-store)
-      (save-buffer)))
+   (defun my-save-buffer (arg)
+     (interactive "P")
+     (if arg
+         (multiverse-store)
+       (save-buffer)))
 
-  (global-set-key "\C-x\C-s" 'my-save-buffer))
+   (global-set-key "\C-x\C-s" 'my-save-buffer))
 
 
 ;; -*-no-byte-compile: t; -*-
