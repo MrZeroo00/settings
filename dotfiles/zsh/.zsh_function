@@ -10,9 +10,9 @@ for func in $^fpath/*(N-.x:t); autoload $func
 
 
 autoload -U add-zsh-hook
-#autoload zed
 #autoload predict-on
 #predict-on
+#autoload zed
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey "^O" edit-command-line
