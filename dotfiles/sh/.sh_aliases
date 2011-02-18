@@ -55,6 +55,7 @@ case "${OS}" in
   alias strace='sudo dtruss sudo -u ${USER}'
   #alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -a /Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -n'
   alias top='top -o cpu'
+  alias run='open -a'
   ;;
   "Cygwin")
   alias open='fiber'
