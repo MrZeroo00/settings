@@ -9,7 +9,7 @@ fi
 
 ## autoload
 # Where to look for autoloaded function definitions
-fpath=($fpath ~/.zfunc)
+fpath=($fpath ${HOME}/.zsh/function)
 
 # Autoload all shell functions from all directories in $fpath (following
 # symlinks) that have the executable bit on (the executable bit is not
