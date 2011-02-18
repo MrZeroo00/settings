@@ -1,4 +1,7 @@
-function precmd {
+## Phil!'s ZSH Prompt
+# http://aperiodic.net/phil/prompt/
+#function precmd {
+function _phil_prompt {
 
     local TERMWIDTH
     (( TERMWIDTH = ${COLUMNS} - 1 ))
@@ -140,4 +143,4 @@ $PR_LIGHT_GREEN%_$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 }
 
-setprompt
+#setprompt
