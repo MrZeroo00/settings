@@ -3,9 +3,11 @@
 [core]
   excludesfile = ~/.gitignore
   #autocrlf = input
+  pager = "lv -c"
 [push]
   #default = tracking
 [color]
+  #ui = auto
   status = auto
   diff = auto
   branch = auto
