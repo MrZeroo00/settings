@@ -1,3 +1,22 @@
+[user]
+  name = mitsuhiro.tanda
+[core]
+  excludesfile = ~/.gitignore
+  #autocrlf = input
+[push]
+  #default = tracking
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+[alias]
+  st = status
+  up = pull --rebase
+  ci = commit -a
+  co = checkout
+  diffw = diff --color-words
 [diff]
   external = git_diff_wrapper
 [pager]
