@@ -1,5 +1,5 @@
 ;;;; bookmark
-(setq bookmark-default-file "~/.emacs.d/.emacs.bmk")
+(setq bookmark-default-file "~/.emacs.d/data/.emacs.bmk")
 
 
 ;;;; bookmark-extensions
@@ -9,7 +9,7 @@
 
 ;;;; bm
 ;;;; http://www.nongnu.org/bm/
-(setq bm-repository-file (expand-file-name "~/.emacs.d/.bm-repository"))
+(setq bm-repository-file (expand-file-name "~/.emacs.d/data/.bm-repository"))
 (setq bm-repository-size nil)
 (setq bm-buffer-persistence t)
 (my-require-and-when 'bm

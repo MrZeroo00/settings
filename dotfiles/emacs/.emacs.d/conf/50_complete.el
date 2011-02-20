@@ -1,4 +1,4 @@
-(setq abbrev-file-name "~/.emacs.d/abbrev_defs")
+(setq abbrev-file-name "~/.emacs.d/data/abbrev_defs")
 (quietly-read-abbrev-file)
 (setq save-abbrevs t)
 (add-hook 'pre-command-hook
