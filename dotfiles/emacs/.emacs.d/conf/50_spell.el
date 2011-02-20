@@ -2,7 +2,7 @@
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=ispell
 (setq ispell-grep-command "grep")
-;;;(setq ispell-alternate-dictionary "~/etc/dictionary/words")
+'(setq ispell-alternate-dictionary "~/etc/dictionary/words")
 
 (my-eval-after-load "ispell"
   '(setq ispell-skip-region-alist (cons '("[^\000-\377]")
@@ -20,6 +20,3 @@
   (setq ispell-parser 'tex)
   (setq flyspell-delay 10)
   )
-
-
-;; -*-no-byte-compile: t; -*-
