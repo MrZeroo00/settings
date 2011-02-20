@@ -60,7 +60,7 @@
 
   ;; auto-complete
   (when (featurep 'auto-complete)
-    (add-to-list 'ac-sources 'ac-source-yasnippet t)
+    (add-to-list 'ac-sources 'ac-source-yasnippet)
     )
 
   ;; flymake
