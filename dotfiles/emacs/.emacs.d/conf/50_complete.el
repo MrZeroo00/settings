@@ -38,6 +38,7 @@
 		     (setq ac-ignore-case 'smart)
 		     (setq ac-use-fuzzy t)
 		     (setq ac-stop-flymake-on-completing t)
+         (setq ac-comphist-file "~/.emacs.d/data/ac-comphist.dat")
 		     (ac-flyspell-workaround)
 		     (setq ac-trigger-key "TAB")
 		     (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
