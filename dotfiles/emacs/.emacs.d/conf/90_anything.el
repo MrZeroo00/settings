@@ -161,8 +161,7 @@
 ;;;; anything-rcodetools
 ;;;(install-elisp-from-emacswiki "anything-rcodetools.el")
 '(my-require-and-when 'anything-rcodetools
-  (setq rct-get-all-methods-command "PAGER=cat fri -l")
-  (define-key anything-map "\C-z" 'anything-execute-persistent-action))
+  (setq rct-get-all-methods-command "PAGER=cat fri -l"))
 
 
 ;;;; anything-show-completion
