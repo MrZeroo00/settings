@@ -41,20 +41,20 @@
      '(add-to-list 'anything-sources 'anything-c-source-gtags-select t)
      )
 
-  ;; auto-complete
-  (when (featurep 'auto-complete)
-    (add-to-list 'ac-sources 'ac-source-yasnippet t)
-    )
-
   ;; php-completion
   ;;(install-elisp-from-emacswiki "php-completion.el")
   (my-require-and-when 'php-completion
     (php-completion-mode t)
     '(define-key php-mode-map (kbd "C-o") 'phpcmp-complete)
     (when (featurep 'auto-complete)
-      (add-to-list 'ac-sources 'ac-source-php-completion t)
+      (add-to-list 'ac-sources 'ac-source-php-completion)
       (auto-complete-mode t)
       )
+    )
+
+  ;; auto-complete
+  (when (featurep 'auto-complete)
+    (add-to-list 'ac-sources 'ac-source-yasnippet) ; ac-sources order is important
     )
 
   ;; gtags
