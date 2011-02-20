@@ -36,7 +36,7 @@
 ;;;(install-elisp-from-emacswiki "linkd.el")
 (my-require-and-when 'linkd)
 ;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
-;;;(my-require-and-when 'anything-c-linkd-tags) ; TODO: something wrong, need to fix it
+;;;(my-require-and-when 'anything-c-linkd-tags) ; TODO: anything-goodies.el is something wrong
 
 
 ;;;; anything-c-lisp-complete-symbol
