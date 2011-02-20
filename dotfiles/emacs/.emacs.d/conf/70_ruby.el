@@ -85,7 +85,7 @@
   ;;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
   (my-load-and-when "_refe2")
   )
-'(add-to-list 'ruby-mode-hook 'my-ruby-mode-hook)
+(add-to-list 'ruby-mode-hook 'my-ruby-mode-hook)
 
 
 ;; -*-no-byte-compile: t; -*-
