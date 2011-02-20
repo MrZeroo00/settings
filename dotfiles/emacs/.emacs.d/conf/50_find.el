@@ -2,6 +2,23 @@
 (setq grep-find-command "find . -type f ! -name '*,v' ! -name '*~' ! -name '*.o' ! -name '*.a' ! -name '*.so' ! -name '*.class' ! -name '*.jar' ! -name 'semantic.cache' ! -path '*.deps*' ! -path '*/obsolete/*' ! -path '*/.svn/*' ! -path '*/CVS/*' -print0 | xargs -0 -e grep -n -e ")
 
 
+;;;; grep-a-lot
+;;;(install-elisp-from-emacswiki "grep-a-lot")
+(my-require-and-when 'grep-a-lot
+  (defvar my-grep-a-lot-search-word nil)
+  ;; overwrite defined function
+  (defun grep-a-lot-buffer-name (position)
+    "Return name of grep-a-lot buffer at POSITION."
+    (concat "*grep*<" my-grep-a-lot-search-word ">"))
+
+  (defadvice rgrep (before my-rgrep (regexp &optional files dir) activate)
+    (setq my-grep-a-lot-search-word regexp))
+
+  (defadvice lgrep (before my-lgrep (regexp &optional files dir) activate)
+    (setq my-grep-a-lot-search-word regexp))
+  )
+
+
 ;;;; color-grep
 ;;;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
 (my-require-and-when 'color-grep
