@@ -56,7 +56,10 @@
         ("dir" default-directory (".*") dir)
         ))
 (my-eval-after-load "color-moccur"
-  (add-to-list 'dmoccur-exclusion-mask '("\\~$" "\\.svn\\/\*" "\\.git\\/\*")))
+  (add-to-list 'dmoccur-exclusion-mask "\\~$")
+  (add-to-list 'dmoccur-exclusion-mask "\\.svn\\/\*")
+  (add-to-list 'dmoccur-exclusion-mask "\\.git\\/\*")
+  )
 
 
 ;;;; advice
