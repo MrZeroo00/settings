@@ -1,3 +1,15 @@
+;;;; uniquify (add directory name)
+(my-require-and-when 'uniquify
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+  (setq uniquify-ignore-buffers-re "*[^*]+*"))
+'(setq uwpn-project-root-alist
+      '(("/opt/t/prj1" . "Project A")
+        ("/opt/t/prj2" . "Project B")
+        ;;("" . "")
+        ))
+(my-require-and-when 'uniquify_with_project_name)
+
+
 ;;;; midnight
 (my-require-and-when 'midnight)
 
