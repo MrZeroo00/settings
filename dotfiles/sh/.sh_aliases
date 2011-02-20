@@ -32,7 +32,7 @@ alias psgrep='ps aux | egrep'
 alias w3m='LANG="" w3m'
 alias web='w3m http://www.google.co.jp/'
 alias vl='vim -u ~/.vimrc_pager -'
-alias tcpdump_http='tcpdump -l -s 1600 -x "port 80"'
+alias tcpdump_http='sudo tcpdump -l -s 1600 -x "port 80" | tcpdump-filter.pl'
 alias number='screen_number'
 alias layout='screen_layout'
 
