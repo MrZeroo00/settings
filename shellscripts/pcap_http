@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'pcap'
+
+def capture_data(interval)
+  capdat = [];
+  i = 0;
+  pcaplet = Pcap::Capture.open_live("eth0", 1460, true, 1000);
+  access = Pcap::Filter.new('tcp and dst port 80', pcaplet);
+  pcaplet.setfilter(access);
+  pcaplet.each_packet { |pkt|
+    if pkt.tcp_data_len > 0 then
+      p pkt.tcp_data;
+      i += 1;
+    end;
+    break if i > interval;
+  }
+  pcaplet.close
+end;
+
+capture_data(10);
