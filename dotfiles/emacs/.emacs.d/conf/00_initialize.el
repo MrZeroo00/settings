@@ -146,6 +146,7 @@
 ;;;(setq highlight-nonselected-windows t)
 ;;;(pc-selection-mode)
 ;;;(delete-selection-mode t)
+(setq shift-select-mode nil)
 
 ;;;; visible-mark
 ;;;(install-elisp-from-emacswiki "visible-mark.el")
