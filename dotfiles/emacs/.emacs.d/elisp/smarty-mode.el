@@ -21,42 +21,34 @@
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-;;; History
+;; Minor changes by Lennart Borgman
 
-;; $Log: smarty-mode.el,v $
-;; Revision 1.6  2006/12/16 19:54:26  vincent
-;; Update release version
-;;
-;; Revision 1.5  2006/12/16 19:53:00  vincent
-;; Fix bug #15
-;;
-;; Revision 1.4  2006/12/16 14:59:46  vincent
-;; Fix bugs for release
-;;
-;; Revision 1.3  2006/11/19 12:29:53  vincent
-;; Fix highlight bug, add templates
-;;
-;; Revision 1.2  2006/11/12 11:44:18  vincent
-;; First release commit
-;;
-
-(defconst smarty-version "0.0.4"
+(defconst smarty-version "0.0.5"
   "Smarty Mode version number.")
 
-(defconst smarty-time-stamp "2006-12-16"
+(defconst smarty-time-stamp "2007-11-01"
   "Smarty Mode time stamp for last update.")
 
+(defconst smarty-is-xemacs (string-match "XEmacs" emacs-version)
+  "Non-nil if XEmacs is used.")
+
 (require 'font-lock)
-(require 'cc-mode)
-(require 'custom)
-(require 'etags)
+(when (not smarty-is-xemacs)
+  (require 'cc-mode)
+  (require 'custom)
+  (require 'etags))
 (eval-when-compile
-(require 'regexp-opt))
+  (require 'regexp-opt))
+;;(when smarty-is-xemacs
+  (require 'easymenu)
+  (require 'hippie-exp)
+;;)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Customization
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;###autoload
 (defgroup smarty nil
   "Customizations for Smarty mode."
   :prefix "smarty-"
@@ -363,6 +355,12 @@ The directory of the current source file is scanned."
       ["upper" smarty-template-upper t]
       ["wordwrap" smarty-template-wordwrap t])
      ("Plugins (Functions)"
+      ("BlockRepeatPlugin"
+       ["repeat" smarty-template-repeat t]
+       ["str_repeat" smarty-template-str-repeat t])
+      ("ClipCache"
+       ["clipcache" smarty-template-clipcache t]
+       ["include_clipcache" smarty-template-include-clipcache t])
       ("SmartyFormtool"
        ["formtool_checkall" smarty-template-formtool-checkall t]
        ["formtool_copy" smarty-template-formtool-copy t]
@@ -505,7 +503,7 @@ The directory of the current source file is scanned."
   "Regexp for Smarty functions.")
 
 (defconst smarty-01-functions
-  '("capture" "config_load" "foreach" "foreachelse" "include" 
+  '("capture" "config_load" "foreach" "foreachelse" "include"
     "include_php" "insert" "if" "elseif" "else" "ldelim" "rdelim"
     "literal" "php" "section" "sectionelse" "strip" "assign" "counter"
     "cycle" "debug" "eval" "fetch" "html_checkboxes" "html_image"
@@ -538,8 +536,9 @@ The directory of the current source file is scanned."
     "formtool_init" "formtool_move" "formtool_moveall"
     "formtool_movedown" "formtool_moveup" "formtool_remove"
     "formtool_rename" "formtool_save" "formtool_selectall"
-    "paginate_first" "paginate_last" "paginate_middle" 
-    "paginate_next" "paginate_prev")
+    "paginate_first" "paginate_last" "paginate_middle"
+    "paginate_next" "paginate_prev" "clipcache" "include_clipcache"
+    "repeat" "str_repeat")
   "Smarty plugins functions.")
 
 (defvar smarty-plugins-modifiers nil
@@ -557,8 +556,8 @@ The directory of the current source file is scanned."
 	(regexp-opt
 	 '("TRUE" "FALSE" "NULL") t))
   "Smarty constants.")
-	   
-	
+
+
 ;; Syntax table creation
 (defvar smarty-mode-syntax-table nil
   "Syntax table for smarty-mode.")
@@ -570,7 +569,7 @@ The directory of the current source file is scanned."
   (if smarty-mode-syntax-table
       ()
     (setq smarty-mode-syntax-table (make-syntax-table))
-    
+
     ;; Make | a punctuation character
     (modify-syntax-entry ?| "." smarty-mode-syntax-table)
     ;; Make " a punctuation character so highlighing works withing html strings
@@ -637,11 +636,12 @@ message."
 
 (defun smarty-warning-when-idle (&rest args)
   "Wait until idle, then print out warning STRING and beep."
-  (if noninteractive
-      (smarty-warning (apply 'format args) t)
-    (unless smarty-warnings
-      (smarty-run-when-idle .1 nil 'smarty-print-warnings))
-    (setq smarty-warnings (cons (apply 'format args) smarty-warnings))))
+  (save-match-data ;; runs in timer
+    (if noninteractive
+        (smarty-warning (apply 'format args) t)
+      (unless smarty-warnings
+        (smarty-run-when-idle .1 nil 'smarty-print-warnings))
+      (setq smarty-warnings (cons (apply 'format args) smarty-warnings)))))
 
 (defun smarty-warning (string &optional nobeep)
   "Print out warning STRING and beep."
@@ -893,6 +893,10 @@ Turn on if ARG positive, turn off if ARG negative, toggle if ARG zero or nil."
 ;;; Stuttering
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defvar smarty-end-comment-column 80)
+
+(defvar found) ;; silence compiler, dyn var
+
 (defun smarty-electric-tab (&optional prefix-arg)
   "If preceding character is part of a word or a paren then hippie-expand,
 else if right of non whitespace on line then insert tab,
@@ -932,31 +936,31 @@ else indent `correctly'."
     (setq rdelim-point (point-marker))
     (goto-char here)
   (cond ((and (= here ldelim-point) ldelim-found) (insert (concat "ldelim" smarty-right-delimiter)))
-	((and (= here rdelim-point) rdelim-found) 
+	((and (= here rdelim-point) rdelim-found)
 	 (re-search-backward (regexp-quote (concat " " smarty-right-delimiter)) nil t)
 	 (delete-char 1)
 	 (insert (concat " " smarty-left-delimiter "rdelim"))
 	 (goto-char here))
 	((smarty-in-comment-p)
 	 (self-insert-command count)
-	 (cond ((>= (current-column) (+ 2 end-comment-column))
+	 (cond ((>= (current-column) (+ 2 smarty-end-comment-column))
 		(backward-char 1)
 		(skip-chars-backward "^ \t\n")
 		(indent-new-comment-line)
 		(skip-chars-forward "^ \t\n")
 		(forward-char 1))
-	       ((>= (current-column) end-comment-column)
+	       ((>= (current-column) smarty-end-comment-column)
 		(indent-new-comment-line))
 	       (t nil)))
 	((or (and (>= (preceding-char) ?a) (<= (preceding-char) ?z))
 	     (and (>= (preceding-char) ?A) (<= (preceding-char) ?Z))
 	     (and (>= (preceding-char) ?0) (<= (preceding-char) ?9)))
-	 (progn 
+	 (progn
 	   (setq here (point-marker))
 	   (insert " ")
 	   (setq delete-a t)
 	   (if (re-search-backward "|" nil t)
-	       (progn 
+	       (progn
 		 (setq found (re-search-forward (regexp-quote "B2Smilies") here t))
 		 (if (and found (= here (point-marker)))
 		     (replace-match "btosmilies")
@@ -978,7 +982,7 @@ else indent `correctly'."
 	     (delete-char 1)))
 	(t (self-insert-command count)))))
 
-(defun smarty-electric-open-bracket (count) 
+(defun smarty-electric-open-bracket (count)
   "'(' --> '(', '((' --> '[', '[(' --> '{'"
   (interactive "p")
   (if (and smarty-stutter-mode (= count 1) (not (smarty-in-literal)))
@@ -989,7 +993,7 @@ else indent `correctly'."
 	  (insert-char ?\( 1)))
     (self-insert-command count)))
 
-(defun smarty-electric-close-bracket (count) 
+(defun smarty-electric-close-bracket (count)
   "')' --> ')', '))' --> ']', '])' --> '}'"
   (interactive "p")
   (if (and smarty-stutter-mode (= count 1) (not (smarty-in-literal)))
@@ -1002,7 +1006,7 @@ else indent `correctly'."
 	(blink-matching-open))
     (self-insert-command count)))
 
-(defun smarty-electric-star (count) 
+(defun smarty-electric-star (count)
   "After a left delimiter add a right delemiter to close the comment"
   (interactive "p")
   (let ((here (point-marker)) found)
@@ -1129,6 +1133,10 @@ else insert tab (used for word completion in Smarty minibuffer)."
        ("upper" "" smarty-template-upper-hook 0)
        ("wordwrap" "" smarty-template-wordwrap-hook 0)
        ("validate" "" smarty-template-validate-hook 0)
+       ("clipcache" "" smarty-template-clipcache-hook 0)
+       ("repeat" "" smarty-template-repeat-hook 0)
+       ("str_repeat" "" smarty-template-str-repeat-hook 0)
+       ("include_clipcache" "" smarty-template-include-clipcache-hook 0)
        ("formtool_checkall" "" smarty-template-formtool-checkall-hook 0)
        ("formtool_copy" "" smarty-template-formtool-copy-hook 0)
        ("formtool_count_chars" "" smarty-template-formtool-count-chars-hook 0)
@@ -1172,7 +1180,7 @@ but not if inside a comment or quote)."
 	  (unexpand-abbrev)
 	  (backward-word 1)
 	  (delete-char 1))
-      (let ((invoke-char last-command-char)
+      (let ((invoke-char last-command-event)
 	    (abbrev-mode -1)
 	    (smarty-template-invoked-by-hook t))
 	(let ((caught (catch 'abort
@@ -1191,7 +1199,7 @@ but not if inside a comment or quote)."
 
 (defvar smarty-font-lock-keywords-1
   (list
-   
+
    ;; Fontify built-in functions
    (cons
 	(concat (regexp-quote smarty-left-delimiter) "[/]*" smarty-functions-regexp)
@@ -1201,15 +1209,15 @@ but not if inside a comment or quote)."
 	(concat "\\<\\(" smarty-constants "\\)\\>")
 	'font-lock-constant-face)
 
-   (cons (concat "\\(" (regexp-quote (concat smarty-left-delimiter "*")) "\\(\\s-\\|\\w\\|\\s.\\|\\s_\\|\\s(\\|\\s)\\|\\s\\\\)*" (regexp-quote (concat "*" smarty-right-delimiter)) "\\)") 
+   (cons (concat "\\(" (regexp-quote (concat smarty-left-delimiter "*")) "\\(\\s-\\|\\w\\|\\s.\\|\\s_\\|\\s(\\|\\s)\\|\\s\\\\)*" (regexp-quote (concat "*" smarty-right-delimiter)) "\\)")
 	 'font-lock-comment-face)
 
    )
-  "Subdued level highlighting for Smarty mode.") 
+  "Subdued level highlighting for Smarty mode.")
 
 (defconst smarty-font-lock-keywords-2
   (append
-   smarty-font-lock-keywords-1  
+   smarty-font-lock-keywords-1
    (list
 
 	;; Fontify variable names (\\sw\\|\\s_\\) matches any word character +
@@ -1220,12 +1228,12 @@ but not if inside a comment or quote)."
 	'("->\\(\\(?:\\sw\\|\\s_\\)+\\)\\s-*(" (1 font-lock-function-name-face t t)) ; ->function_call
 	'("\\<\\(\\(?:\\sw\\|\\s_\\)+\\s-*\\)(" (1 font-lock-function-name-face)) ; word(
 	'("\\<\\(\\(?:\\sw\\|\\s_\\)+\\s-*\\)[[]" (1 font-lock-variable-name-face)) ; word[
-	'("\\<[0-9]+" . default)			; number (also matches word)
+	'("\\<[0-9]+" . 'default)			; number (also matches word)
 
 	;; Fontify strings
 	;;'("\"\\([^\"]*\\)\"[^\"]+" (1 font-lock-string-face t t))
 	))
-  
+
    "Medium level highlighting for Smarty mode.")
 
 (defconst smarty-font-lock-keywords-3
@@ -1235,7 +1243,7 @@ but not if inside a comment or quote)."
     ;; Fontify modifiers
     (cons (concat "|\\(" smarty-modifiers-regexp "\\)[:|]+") '(1 font-lock-function-name-face))
     (cons (concat "|\\(" smarty-modifiers-regexp "\\)" (regexp-quote smarty-right-delimiter)) '(1 font-lock-function-name-face))
-    
+
     ;; Fontify config vars
     (cons (concat (regexp-quote smarty-left-delimiter) "\\(#\\(?:\\sw\\|\\s_\\)+#\\)") '(1 font-lock-constant-face))))
   "Balls-out highlighting for Smarty mode.")
@@ -1407,6 +1415,10 @@ Features (new features in bold) :
         - Variable Modifiers
 
         - Plugin (Functions)
+             * BlockRepeatPlugin
+
+             * ClipCache
+
              * Smarty Formtool
 
              * Smarty Paginate
@@ -1424,7 +1436,7 @@ Features (new features in bold) :
 
 
 
-This manual describes Smarty Mode version 0.0.4.
+This manual describes Smarty Mode version 0.0.5.
 
 2 Installation
 **************
@@ -1453,12 +1465,12 @@ installed.
 
 Two internet address to download Smarty Mode :
 
-   * Principal: Smarty-Mode 0.0.4
-     (http://deboutv.free.fr/lisp/smarty/download/smarty-0.0.4.tar.gz)
+   * Principal: Smarty-Mode 0.0.5
+     (http://deboutv.free.fr/lisp/smarty/download/smarty-0.0.5.tar.gz)
      (http://deboutv.free.fr/lisp/smarty/)
 
-   * Secondary: Smarty-Mode 0.0.4
-     (http://www.morinie.fr/lisp/smarty/download/smarty-0.0.4.tar.gz)
+   * Secondary: Smarty-Mode 0.0.5
+     (http://www.morinie.fr/lisp/smarty/download/smarty-0.0.5.tar.gz)
      (http://www.morinie.fr/lisp/smarty/)
 
    * Old releases: Smarty-Mode
@@ -1472,7 +1484,7 @@ Two internet address to download Smarty Mode :
 ------------------
 
 To install Smarty Mode you need to choose an installation directory
-(for example `/usr/local/share/lisp' or `c:\lisp'). The administrator
+\(for example `/usr/local/share/lisp' or `c:\lisp'). The administrator
 must have the write rights on this directory.
 
 With your favorite unzip software, unzip the archive in the
@@ -1480,13 +1492,13 @@ installation directory.
 
 Example:
      cd /usr/local/share/lisp
-     tar zxvf smarty-0.0.4.tar.gz
+     tar zxvf smarty-0.0.5.tar.gz
 Now you have a `smarty' directory in the installation directory. This
 directory contains 2 files `smarty-mode.el' and `smarty-mode.elc' and
 another directory `docs' containing the documentation.
 
 You need to configure XEmacs. open you initialization file `init.el'
-(open the file or start XEmacs then choose the Options menu and Edit
+\(open the file or start XEmacs then choose the Options menu and Edit
 Init File). Add the following lines (the installation directory in
 this example is `/usr/local/share/lisp') :
 
@@ -1503,7 +1515,7 @@ directory to remove the old release.
 Example:
      cd /usr/local/share/lisp
      rm -rf smarty
-     tar zxvf smarty-0.0.4.tar.gz
+     tar zxvf smarty-0.0.5.tar.gz
 
 2.4 Invoke Smarty-Mode
 ======================
@@ -1875,7 +1887,7 @@ For Smarty functions, see PDF or HTML documentation.
   (set (make-local-variable 'comment-start) (concat smarty-left-delimiter "*"))
   (set (make-local-variable 'comment-end) (concat "*" smarty-right-delimiter))
   (set (make-local-variable 'comment-multi-line) t)
-  (set (make-local-variable 'end-comment-column) 80)
+  (set (make-local-variable 'smarty-end-comment-column) 80)
 
   (make-local-variable 'font-lock-defaults)
   (if smarty-highlight-plugin-functions
@@ -1888,7 +1900,7 @@ For Smarty functions, see PDF or HTML documentation.
 		nil ; syntax-alist
 		nil ; syntax-begin
 		))
-  
+
   (setq font-lock-maximum-decoration t
 		case-fold-search t)
 
@@ -1899,8 +1911,8 @@ For Smarty functions, see PDF or HTML documentation.
   (easy-menu-define smarty-mode-menu smarty-mode-map
 		    "Menu keymap for Smarty Mode." smarty-mode-menu-list)
 
-  (message "Smarty Mode %s.%s" smarty-version
-	   (if noninteractive "" "  See menu for documentation and release notes."))
+  ;; (message "Smarty Mode %s.%s" smarty-version
+  ;;          (if noninteractive "" "  See menu for documentation and release notes."))
   (smarty-mode-line-update)
   (run-hooks 'smarty-mode-hook))
 
@@ -1970,7 +1982,7 @@ with double-quotes is to be inserted.  DEFAULT specifies a default string."
 	 (unexpand-abbrev))
 	(t (delete-region begin end))))
 
-(defun smarty-template-generic-function (label close-label field mandatory-count &optional infinite special-field)
+(defun smarty-template-generic-function (label close-label field mandatory-count &optional infinite special-field force-var)
   "Generic function template 'label field1= field2=..."
   (interactive)
   (let ((start (point)) found here result-value elt continue field-count stop prompt)
@@ -2003,7 +2015,11 @@ with double-quotes is to be inserted.  DEFAULT specifies a default string."
 	    (insert " ")))
 	(setq field-count (+ 1 field-count))
 	(setq elt (cdr elt)))
-      (when (and infinite continue)
+      (when (and infinite (or continue force-var))
+	(when (not continue)
+	  (delete-region here (point))
+	  (insert " "))
+	(setq continue t)
 	(while continue
 	  (setq result-value (smarty-template-field "var_name" "=" t here))
 	  (if (not result-value)
@@ -2015,8 +2031,6 @@ with double-quotes is to be inserted.  DEFAULT specifies a default string."
 	(delete-region here (point))
 	(if (> 0 mandatory-count)
 	    (delete-char -1))
-	(if special-field
-	    (delete-char -1))
 	(insert smarty-right-delimiter)
 	(setq here (point-marker))
 	(if close-label
@@ -2027,7 +2041,7 @@ with double-quotes is to be inserted.  DEFAULT specifies a default string."
   "Generic modifier template '|label:field1:field2..."
   (interactive)
   (let ((start (point)) found here result-value elt continue field-count stop prompt)
-    (setq found (re-search-backward (concat (regexp-quote smarty-left-delimiter) "\\$\\(\\w+\\)" (regexp-quote "|")) nil t))
+    (setq found (re-search-backward (concat (regexp-quote smarty-left-delimiter) "\\$\\(\\sw\\|\\s.\\)+" (regexp-quote "|")) nil t))
     (if found
 	(progn
 	  (setq found (re-search-forward (regexp-quote smarty-right-delimiter) start t))
@@ -2183,6 +2197,10 @@ with double-quotes is to be inserted.  DEFAULT specifies a default string."
 
 (defun smarty-template-validate-hook ()
   (smarty-hooked-abbrev 'smarty-template-validate))
+(defun smarty-template-clipcache-hook ()
+  (smarty-hooked-abbrev 'smarty-template-clipcache))
+(defun smarty-template-include-clipcache-hook ()
+  (smarty-hooked-abbrev 'smarty-template-include-clipcache))
 (defun smarty-template-formtool-checkall-hook ()
   (smarty-hooked-abbrev 'smarty-template-formtool-checkall))
 (defun smarty-template-formtool-copy-hook ()
@@ -2384,7 +2402,7 @@ with double-quotes is to be inserted.  DEFAULT specifies a default string."
 (defun smarty-template-math ()
   "Insert a math statement."
   (interactive)
-  (smarty-template-generic-function "math" nil '("equation" "var" "format" "assign") 2 t))
+  (smarty-template-generic-function "math" nil '("equation" "format" "assign") 1 t nil t))
 
 (defun smarty-template-popup ()
   "Insert a popup statement."
@@ -2511,6 +2529,26 @@ with double-quotes is to be inserted.  DEFAULT specifies a default string."
   "Insert a validate statement."
   (interactive)
   (smarty-template-generic-function "validate" nil '("field" "criteria" "message" "form" "transform" "trim" "empty" "halt" "assign" "append" "page") 3))
+
+(defun smarty-template-repeat ()
+  "Insert a repeat statement."
+  (interactive)
+  (smarty-template-generic-function "repeat" nil '("count" "assign") 1))
+
+(defun smarty-template-str_repeat ()
+  "Insert a str_repeat statement."
+  (interactive)
+  (smarty-template-generic-function "str_repeat" nil '("string" "count" "assign") 2))
+
+(defun smarty-template-clipcache ()
+  "Insert a clipcache statement."
+  (interactive)
+  (smarty-template-generic-function "clipcache" nil '("id" "group" "ttl" "ldelim" "rdelim") 3))
+
+(defun smarty-template-include-clipcache ()
+  "Insert a include_clipcache statement."
+  (interactive)
+  (smarty-template-generic-function "include_clipcache" nil '("file" "cache_id" "cache_lifetime" "ldelim" "rdelim") 3))
 
 (defun smarty-template-formtool-checkall ()
   "Insert a formtool_checkall statement."
