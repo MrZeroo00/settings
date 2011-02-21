@@ -169,6 +169,26 @@
   (add-hook 'today-invisible-calendar-hook 'calendar-mark-weekend))
 
 
+;;; share clipboard
+(defvar prev-yanked-text nil "*previous yanked text")
+
+(setq interprogram-cut-function
+      (lambda (text &optional push)
+        ;; use pipe
+        (let ((process-connection-type nil))
+          (let ((proc (start-process "cbcopy" nil "cbcopy")))
+            (process-send-string proc string)
+            (process-send-eof proc)
+            ))))
+
+(setq interprogram-paste-function
+      (lambda ()
+        (let ((text (shell-command-to-string "cbpaste")))
+          (if (string= prev-yanked-text text)
+              nil
+            (setq prev-yanked-text text)))))
+
+
 ;;;; macros
 '(my-load-and-when "_window-line")
 '(my-load-and-when "_copy-region-with-info")
