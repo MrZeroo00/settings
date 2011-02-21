@@ -55,11 +55,17 @@
 
 ;;;; MozRepl
 ;;;; http://hyperstruct.net/projects/mozlab
+;;;; http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
 ;;;(add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
 ;;;(my-autoload-and-when 'moz-minor-mode "moz")
 ;;;(defun java-custom-setup ()
 ;;;  (moz-minor-mode 1))
 ;;;(add-hook 'java-mode-hook 'java-custom-setup)
+
+
+;;;; mozadd
+;;;; http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
+'(my-require-and-when 'mozadd)
 
 
 ;;;; moz-plus

@@ -1,3 +1,4 @@
+;;;; http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
 (my-autoload-and-when 'php-mode "php-mode"
   (when (featurep 'flymake)
     (defun flymake-php-init ()
@@ -15,6 +16,7 @@
 
 
 ;;;; smarty-mode
+;;;; http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
 ;;;(install-elisp "http://lisp.morinie.fr/smarty/download/smarty-mode.el")
 (my-autoload-and-when 'smarty-mode "smarty-mode")
 
@@ -60,6 +62,17 @@
   ;; gtags
   (gtags-mode t)
   '(gtags-make-complete-list)
+
+
+  ;; imenu
+  (my-autoload-and-when 'php-imenu-create-index "php-imenu"
+    (add-hook 'php-mode-user-hook 'php-imenu-setup)
+    (defun php-imenu-setup ()
+      (setq imenu-create-index-function (function php-imenu-create-index))
+      ;;(setq php-imenu-alist-postprocessor (function reverse))
+      (imenu-add-menubar-index)
+      ))
+
 
   ;; geben
   ;; http://code.google.com/p/geben-on-emacs/
