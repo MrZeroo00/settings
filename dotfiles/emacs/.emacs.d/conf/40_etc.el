@@ -95,7 +95,7 @@
 
 ;;;; color-selection
 ;;;(install-elisp "http://www.bookshelf.jp/elc/color-selection.el")
-;;;(my-autoload-and-when 'list-hexadecimal-colors-display "color-selection")
+(my-autoload-and-when 'list-hexadecimal-colors-display "color-selection")
 
 
 ;;;; izonmoji-mode
