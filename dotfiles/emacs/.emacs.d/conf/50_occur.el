@@ -62,6 +62,15 @@
   )
 
 
+;;;; occur by current word
+(defun _occur-at-point ()
+  (interactive)
+  (if (thing-at-point 'symbol)
+      (occur (thing-at-point 'symbol))
+    (call-interactively 'occur)))
+(global-set-key "\C-o" '_occur-at-point)
+
+
 ;;;; advice
 (defadvice moccur-view-file (after moccur-view-file-which-func-update)
   "Call which-func-update after moving"
