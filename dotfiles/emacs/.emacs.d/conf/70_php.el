@@ -81,4 +81,9 @@
 (add-hook 'php-mode-hook 'my-php-mode-hook)
 
 
-;; -*-no-byte-compile: t; -*-
+;;;; advice
+(defadvice find-file (around _my-geben-find-file activate)
+  "replace standard find-file by geben-find-file."
+  (if (memq minor-mode-list '(geben-mode))
+      (geben-find-file (ad-get-arg 0))
+    ad-do-it))
