@@ -65,6 +65,7 @@
 
 
   ;; imenu
+  ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
   (my-autoload-and-when 'php-imenu-create-index "php-imenu"
     (add-hook 'php-mode-user-hook 'php-imenu-setup)
     (defun php-imenu-setup ()
