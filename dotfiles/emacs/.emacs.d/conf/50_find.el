@@ -2,6 +2,7 @@
 (setq grep-host-defaults-alist nil)
 (setq grep-template "lgrep <C> -n <R> <F> <N>")
 (setq grep-find-template "find . <X> -type f <F> -print0 | xargs -0 -e lgrep <C> -n <R> <N>")
+(defvar grep-find-ignored-directories '()) ;; for 2.2
 (add-to-list 'grep-find-ignored-directories ".git")
 
 
