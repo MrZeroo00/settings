@@ -181,13 +181,13 @@
             (process-send-eof proc)
             ))))
 
-(when (run-darwin
-       (setq interprogram-paste-function
-             (lambda ()
-               (let ((text (shell-command-to-string "pbpaste")))
-                 (if (string= prev-yanked-text text)
-                     nil
-                   (setq prev-yanked-text text)))))))
+(when run-darwin
+  (setq interprogram-paste-function
+        (lambda ()
+          (let ((text (shell-command-to-string "pbpaste")))
+            (if (string= prev-yanked-text text)
+                nil
+              (setq prev-yanked-text text))))))
 
 
 ;;;; macros
