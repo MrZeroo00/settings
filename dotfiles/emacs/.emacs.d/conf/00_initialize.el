@@ -254,4 +254,9 @@
 (my-load-and-when "_line-to-top-of-window")
 
 
+;;;; some patch
+(if (not (functionp 'define-fringe-bitmap))
+    (defun define-fringe-bitmap (bitmap bits &optional height width align) (lambda () ())))
+
+
 ;; -*-no-byte-compile: t; -*-
