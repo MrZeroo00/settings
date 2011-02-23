@@ -86,6 +86,6 @@
 ;;;; advice
 (defadvice find-file (around _my-geben-find-file activate)
   "replace standard find-file by geben-find-file."
-  (if (memq minor-mode-list '(geben-mode))
+  (if (memq 'geben-mode minor-mode-list)
       (geben-find-file (ad-get-arg 0))
     ad-do-it))
