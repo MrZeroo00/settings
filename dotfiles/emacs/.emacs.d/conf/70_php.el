@@ -33,6 +33,7 @@
 ;;;; mode hook
 (defun my-php-mode-hook ()
   ;; common setting
+  (setq c-basic-offset tab-width)
   '(setq php-mode-force-pear t)
 
   ;; anything
