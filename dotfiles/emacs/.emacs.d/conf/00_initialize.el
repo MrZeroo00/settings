@@ -140,6 +140,10 @@
 ;;;  (col-highlight-set-interval 3)
   (custom-set-faces
    '(col-highlight ((t (:background "DarkOliveGreen"))))))
+;;;(install-elisp-from-emacswiki "hl-line+.el")
+;;;(install-elisp-from-emacswiki "crosshairs.el")
+'(my-require-and-when 'crosshairs
+  (crosshairs-mode))
 
 
 ;;;; region setting
