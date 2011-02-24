@@ -37,7 +37,7 @@
   '(setq php-mode-force-pear t)
 
   ;; anything
-  '(when (featurep 'anything)
+  (when (featurep 'anything)
      (make-variable-buffer-local 'anything-sources)
      '(add-to-list 'anything-sources 'anything-c-source-yasnippet t)
      (add-to-list 'anything-sources 'anything-c-source-imenu t)
