@@ -1,5 +1,6 @@
 (my-require-and-when 'cperl-mode
   (defalias 'perl-mode 'cperl-mode)
+
   ;; macros
   (my-load-and-when "_perl-insert-use-statement")
   (my-load-and-when "_perltidy")
