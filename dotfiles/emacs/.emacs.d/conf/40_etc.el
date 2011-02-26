@@ -39,7 +39,27 @@
 
 ;;;; pos-tip
 ;;;(install-elisp-from-emacswiki "pos-tip.el")
-(my-require-and-when 'pos-tip)
+;;;(install-elisp-from-emacswiki "popup-pos-tip.el")
+;;;(install-elisp-from-emacswiki "sdic-inline.el")
+;;;(install-elisp-from-emacswiki "sdic-inline-pos-tip.el")
+(my-require-and-when 'pos-tip
+  (my-require-and-when 'popup-pos-tip
+    (defadvice popup-tip
+      (around popup-pos-tip-wrapper (string &rest args) activate)
+      (if (eq window-system 'x)
+          (apply 'popup-pos-tip string args)
+        ad-do-it))
+    )
+  '(my-require-and-when 'sdic-inline
+    (sdic-inline-mode t)
+    (setq sdic-inline-eiwa-dictionary "~/etc/dict/sdic/eijirou.sdic")
+    (setq sdic-inline-waei-dictionary "~/etc/dict/sdic/waeijirou.sdic")
+    (my-require-and-when 'sdic-inline-pos-tip
+      (setq sdic-inline-display-func 'sdic-inline-pos-tip-show)
+      (define-key sdic-inline-map "\C-c\C-p" 'sdic-inline-pos-tip-show)
+      )
+    )
+  )
 
 
 ;;;; sense-region
