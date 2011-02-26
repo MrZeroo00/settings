@@ -22,6 +22,17 @@
                    (modes  . '(php-mode))))
     )
 
+  ;; hs-minor-mode
+  (when (featurep 'hideshow)
+    (add-to-list 'hs-special-modes-alist
+                 '(php-mode
+                   "class\\|interface\\|function\\|declare\\|if\\|switch\\|while\\|for\\|foreach\\|do\\|try\\|catch"
+                   "enddeclare\\|endif\\|endswitch\\|endwhile\\|endfor\\|endforeach"
+                   "/[*/]"
+                   nil
+                   nil))
+    )
+
   ;; imenu
   ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
   (my-autoload-and-when 'php-imenu-create-index "php-imenu"
