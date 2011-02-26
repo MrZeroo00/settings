@@ -59,6 +59,9 @@
       (define-key sdic-inline-map "\C-c\C-p" 'sdic-inline-pos-tip-show)
       )
     )
+  (when run-w32
+    (pos-tip-w32-max-width-height t)
+    )
   )
 
 
