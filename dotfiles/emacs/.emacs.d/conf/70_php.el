@@ -13,6 +13,14 @@
     (add-to-list 'flymake-allowed-file-name-masks '("\\.php$" flymake-php-init))
     )
 
+  ;; align
+  (when (featurep 'align)
+    (add-to-list 'align-rules-list
+                 '(php-hash-literal
+                   (regexp . "\\(\\s-*\\)=>\\s-*[^/ \t\n]")
+                   (repeat . t)
+                   (modes  . '(php-mode))))
+    )
 
   ;; imenu
   ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
@@ -65,9 +73,11 @@
   (when (featurep 'anything)
     (make-variable-buffer-local 'anything-mode-specific-alist)
     (add-to-list 'anything-mode-specific-alist
-                 '(php-mode . (anything-c-source-yasnippet
+                 '(php-mode . (
+                               ;;anything-c-source-yasnippet
                                anything-c-source-imenu
-                               anything-c-source-gtags-select)))
+                               ;;anything-c-source-gtags-select
+                               )))
     )
 
   ;; php-completion
