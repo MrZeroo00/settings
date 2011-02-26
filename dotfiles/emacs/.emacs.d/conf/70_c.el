@@ -62,12 +62,16 @@
   (when (featurep 'anything)
     (make-variable-buffer-local 'anything-mode-specific-alist)
     (add-to-list 'anything-mode-specific-alist
-                 '(c-mode . (anything-c-source-yasnippet
+                 '(c-mode . (
+                             ;;anything-c-source-yasnippet
                              anything-c-source-imenu
-                             anything-c-source-gtags-select))
-                 '(c++-mode . (anything-c-source-yasnippet
+                             ;;anything-c-source-gtags-select
+                             ))
+                 '(c++-mode . (
+                               ;;anything-c-source-yasnippet
                                anything-c-source-imenu
-                               anything-c-source-gtags-select)))
+                               ;;anything-c-source-gtags-select
+                               )))
     )
 
   ;; auto-complete
