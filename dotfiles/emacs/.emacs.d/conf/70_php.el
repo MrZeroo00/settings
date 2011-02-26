@@ -12,6 +12,31 @@
 
     (add-to-list 'flymake-allowed-file-name-masks '("\\.php$" flymake-php-init))
     )
+
+
+  ;; imenu
+  ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
+  (my-autoload-and-when 'php-imenu-create-index "php-imenu"
+    (add-hook 'php-mode-user-hook 'php-imenu-setup)
+    (defun php-imenu-setup ()
+      (setq imenu-create-index-function (function php-imenu-create-index))
+      ;;(setq php-imenu-alist-postprocessor (function reverse))
+      (imenu-add-menubar-index)
+      ))
+
+
+  ;; geben
+  ;; http://code.google.com/p/geben-on-emacs/
+  (my-autoload-and-when 'geben "geben"
+    (defun _my-geben-find-file (file-path)
+      (geben-with-current-session session
+                                  (geben-open-file (geben-source-fileuri session file-path))))
+    (defadvice find-file (around _my-geben-find-file activate)
+      "replace standard find-file by geben-find-file."
+      (if (memq 'geben-mode minor-mode-list)
+          (_my-geben-find-file (ad-get-arg 0))
+        ad-do-it))
+    )
   )
 
 
@@ -63,30 +88,5 @@
   ;; gtags
   (gtags-mode t)
   '(gtags-make-complete-list)
-
-
-  ;; imenu
-  ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
-  (my-autoload-and-when 'php-imenu-create-index "php-imenu"
-    (add-hook 'php-mode-user-hook 'php-imenu-setup)
-    (defun php-imenu-setup ()
-      (setq imenu-create-index-function (function php-imenu-create-index))
-      ;;(setq php-imenu-alist-postprocessor (function reverse))
-      (imenu-add-menubar-index)
-      ))
-
-
-  ;; geben
-  ;; http://code.google.com/p/geben-on-emacs/
-  (my-autoload-and-when 'geben "geben"
-	(defun _my-geben-find-file (file-path)
-	  (geben-with-current-session session
-								  (geben-open-file (geben-source-fileuri session file-path))))
-	(defadvice find-file (around _my-geben-find-file activate)
-	  "replace standard find-file by geben-find-file."
-	  (if (memq 'geben-mode minor-mode-list)
-		  (_my-geben-find-file (ad-get-arg 0))
-		ad-do-it))
-	)
   )
 (add-hook 'php-mode-hook 'my-php-mode-hook)
