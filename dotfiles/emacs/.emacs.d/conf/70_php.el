@@ -26,8 +26,8 @@
   (when (featurep 'hideshow)
     (add-to-list 'hs-special-modes-alist
                  '(php-mode
-                   "class\\|interface\\|function\\|declare\\|if\\|switch\\|while\\|for\\|foreach\\|do\\|try\\|catch"
-                   "enddeclare\\|endif\\|endswitch\\|endwhile\\|endfor\\|endforeach"
+                   "class\\|interface\\|function\\|declare\\|if\\|switch\\|while\\|for\\|foreach\\|do\\|try\\|catch\\|{"
+                   "enddeclare\\|endif\\|endswitch\\|endwhile\\|endfor\\|endforeach\\|}"
                    "/[*/]"
                    nil
                    nil))
