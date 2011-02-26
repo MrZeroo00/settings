@@ -112,5 +112,10 @@
     (gtags-mode t)
     ;;(gtags-make-complete-list)
     )
+
+  ;; hs-minor-mode
+  (when (featurep 'hideshow)
+    (hs-minor-mode)
+    )
   )
 (add-hook 'php-mode-hook 'my-php-mode-hook)

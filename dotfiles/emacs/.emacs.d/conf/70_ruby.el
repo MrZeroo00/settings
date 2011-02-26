@@ -95,6 +95,11 @@
     (inf-ruby-keys)
     (flymake-mode t)
     )
+
+  ;; hs-minor-mode
+  (when (featurep 'hideshow)
+    (hs-minor-mode)
+    )
   )
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
