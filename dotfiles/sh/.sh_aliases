@@ -44,7 +44,7 @@ case "${OS}" in
   alias pbpaste='xclip -selection clipboard -o'
   alias ack='ack-grep'
   #alias emacs='XMODIFIERS=@im=none emacs-snapshot-gtk'
-  alias emacs='emacsclient -a emacs -n'
+  alias emacs='TERM=xterm-256color emacsclient -a emacs -n'
   ;;
   "Darwin")
   alias addr2line='gaddr2line'
