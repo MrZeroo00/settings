@@ -92,8 +92,8 @@
                          (if (frame-parameter nil
                                               'fullscreen)
                              nil 'fullboth)))
-
   (global-set-key [(meta return)] 'toggle-fullscreen))
+
 
 ;;;; color setting
 (global-font-lock-mode t)
