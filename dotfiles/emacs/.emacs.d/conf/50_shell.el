@@ -33,7 +33,7 @@
 
 ;;;; multi-term
 ;;;(install-elisp-from-emacswiki "multi-term.el")
-'(my-require-and-when 'multi-term
+(my-require-and-when 'multi-term
   (setq multi-term-program shell-file-name)
   (add-to-list 'term-unbind-key-list '"M-x")
   (global-set-key (kbd "C-c t") '(lambda ()
@@ -47,7 +47,7 @@
   (global-set-key (kbd "C-c n") 'multi-term-next)
   (global-set-key (kbd "C-c p") 'multi-term-prev)
   )
-'(add-hook 'term-mode-hook
+(add-hook 'term-mode-hook
           '(lambda ()
              (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
              (define-key term-raw-map (kbd "C-y") 'term-paste)
