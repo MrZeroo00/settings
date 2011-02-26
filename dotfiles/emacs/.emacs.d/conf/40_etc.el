@@ -85,7 +85,7 @@
 ;;;; stripes
 ;;;(install-elisp-from-emacswiki "stripes.el")
 '(my-require-and-when 'stripes
-  (set-face-background 'stripes-face "yellow"))
+  (set-face-background 'stripes-face "gray"))
 
 
 ;;;; edit-list
