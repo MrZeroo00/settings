@@ -38,11 +38,11 @@
 
   ;; anything
   (when (featurep 'anything)
-     (make-variable-buffer-local 'anything-sources)
-     '(add-to-list 'anything-sources 'anything-c-source-yasnippet t)
-     (add-to-list 'anything-sources 'anything-c-source-imenu t)
-     '(add-to-list 'anything-sources 'anything-c-source-gtags-select t)
-     )
+    (make-variable-buffer-local 'anything-sources)
+    '(add-to-list 'anything-sources 'anything-c-source-yasnippet t)
+    (add-to-list 'anything-sources 'anything-c-source-imenu t)
+    '(add-to-list 'anything-sources 'anything-c-source-gtags-select t)
+    )
 
   ;; php-completion
   ;;(install-elisp-from-emacswiki "php-completion.el")
