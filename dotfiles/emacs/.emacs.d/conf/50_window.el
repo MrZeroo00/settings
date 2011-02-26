@@ -35,11 +35,14 @@
   (define-key ctl-x-map "ww" 'global-widen-window-mode)
 
   (setq ww-advised-functions
-  (append '(windmove-up
-  	  windmove-down
-  	  windmove-right
-  	  windmove-left)
-  	ww-advised-functions)))
+        (append '(windmove-up
+                  windmove-down
+                  windmove-right
+                  windmove-left)
+                ww-advised-functions))
+
+  (setq ww-nonwide-modes '(grep-mode))
+  )
 
 
 ;;;; master
