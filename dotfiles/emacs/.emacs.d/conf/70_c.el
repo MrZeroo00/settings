@@ -25,6 +25,14 @@
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 
 
+;;;; ifdef
+;;;(setq hide-ifdef-define-alist
+;;;      '((list-name
+;;;   DEFINE1
+;;;   DEFINE2
+;;;   ))
+
+
 ;;;; mode hook
 (defun my-c-mode-hook ()
 (when (memq major-mode '(c-mode c++-mode))

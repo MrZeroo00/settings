@@ -34,14 +34,6 @@
 (setq comment-style 'multi-line)
 
 
-;;;; ifdef
-;;;(setq hide-ifdef-define-alist
-;;;      '((list-name
-;;;   DEFINE1
-;;;   DEFINE2
-;;;   ))
-
-
 ;;;; debug
 (my-require-and-when 'gud
   (setq gud-gdb-command-name "gdb -annotate=3")
