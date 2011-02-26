@@ -1,5 +1,5 @@
 ;;;; linum (show line number)
-'(my-require-and-when 'linum
+(my-require-and-when 'linum
   (global-linum-mode t)
   (unless window-system
     ;; http://www.emacswiki.org/emacs/LineNumbers
@@ -12,8 +12,8 @@
                        (concat "%" (number-to-string w) "d "))
                      line)
              'face 'linum))))
-  (set-face-foreground 'linum "magenta")
-  (set-face-background 'linum "grey20")
+  (set-face-foreground 'linum "brightblue")
+  (set-face-background 'linum "brightblack")
   )
 
 
