@@ -122,7 +122,7 @@
   (color-theme-initialize)
   (color-theme-clarity))
 (when (not window-system)
-  (set-face-background 'highlight "green"))
+  (set-face-background 'highlight "blue"))
 
 
 ;;;; highlight setting
