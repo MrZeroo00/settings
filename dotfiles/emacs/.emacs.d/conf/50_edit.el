@@ -1,7 +1,17 @@
 ;;;; linum (show line number)
 (my-require-and-when 'linum
-;;;  (global-linum-mode t)
-  (setq linum-format "%5d "))
+  (global-linum-mode t)
+  (unless window-system
+    ;; http://www.emacswiki.org/emacs/LineNumbers
+    (setq linum-format
+          (lambda (line)
+            (propertize
+             (format (let ((w (length
+                               (number-to-string
+                                (count-lines (point-min) (point-max))))))
+                       (concat "%" (number-to-string w) "d "))
+                     line)
+             'face 'linum)))))
 
 
 ;;;; hs-minor-mode (fold code block)
