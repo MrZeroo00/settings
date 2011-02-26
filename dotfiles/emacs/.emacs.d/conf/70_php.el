@@ -115,7 +115,7 @@
 
   ;; hs-minor-mode
   (when (featurep 'hideshow)
-    (hs-minor-mode)
+    (hs-minor-mode 1)
     )
   )
 (add-hook 'php-mode-hook 'my-php-mode-hook)

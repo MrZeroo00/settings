@@ -98,7 +98,7 @@
 
   ;; hs-minor-mode
   (when (featurep 'hideshow)
-    (hs-minor-mode)
+    (hs-minor-mode 1)
     )
   )
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
