@@ -230,7 +230,7 @@
 
 
 ;;;; key setting
-(define-key global-map (kbd "M-<SPC>") 'anything)
+;;;(define-key global-map (kbd "M-<SPC>") 'anything)
 (define-key global-map (kbd "C-'") 'anything-resume)
 (define-key global-map (kbd "C-&") 'anything-call-source)
 (define-key anything-map "\C-\M-n" 'anything-next-source)
@@ -243,23 +243,33 @@
 
 
 ;;;; source
-(setq anything-sources '(anything-c-source-kyr
-                         anything-c-source-ffap-guesser
-                         anything-c-source-buffers
-                         anything-c-source-bm
-                         anything-c-source-bookmarks
-                         ;;anything-c-source-bookmark-files&dirs
-                         anything-c-source-call-source
-                         ;;anything-c-source-files-in-current-dir+
-                         anything-c-source-recentf
-                         anything-c-source-filelist
-                         anything-c-source-extended-command-history
-                         ;;anything-c-source-complex-command-history
-                         ;;anything-c-source-emacs-commands
-                         ;;anything-c-source-man-pages
-                         ;;anything-c-source-info-pages
-                         ;;anything-c-source-calculation-result
-                         ))
+(defvar anything-c-source-mode-specific-default
+  '(anything-c-source-kyr
+    anything-c-source-ffap-guesser
+    anything-c-source-buffers
+    anything-c-source-bm
+    anything-c-source-bookmarks
+    ;;anything-c-source-bookmark-files&dirs
+    anything-c-source-call-source
+    ;;anything-c-source-files-in-current-dir+
+    anything-c-source-recentf
+    anything-c-source-filelist
+    anything-c-source-extended-command-history
+    ;;anything-c-source-complex-command-history
+    ;;anything-c-source-emacs-commands
+    ;;anything-c-source-man-pages
+    ;;anything-c-source-info-pages
+    ;;anything-c-source-calculation-result
+    ))
+(defvar anything-mode-specific-alist '())
+
+(defun anything-mode-specific ()
+  (interactive)
+  (let ((pair (assoc major-mode anything-mode-specific-alist)))
+    (anything-at-point (if pair
+                           (append anything-c-source-mode-specific-default (cdr pair))
+                         anything-c-source-mode-specific-default))))
+(define-key global-map (kbd "M-<SPC>") 'anything-mode-specific)
 
 ;;;(defun my-anything-null-function (candidate))
 ;;;(setcdr (assoc 'persistent-action anything-c-source-find-files) 'my-anything-null-function)
