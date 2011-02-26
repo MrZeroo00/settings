@@ -121,6 +121,8 @@
 (my-require-and-when 'color-theme
   (color-theme-initialize)
   (color-theme-clarity))
+(when (not window-system)
+  (set-face-background 'highlight "green"))
 
 
 ;;;; highlight setting
