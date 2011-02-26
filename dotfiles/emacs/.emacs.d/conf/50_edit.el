@@ -1,5 +1,5 @@
 ;;;; linum (show line number)
-(my-require-and-when 'linum
+'(my-require-and-when 'linum
   (global-linum-mode t)
   (unless window-system
     ;; http://www.emacswiki.org/emacs/LineNumbers
