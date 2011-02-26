@@ -75,6 +75,12 @@
     (add-to-list 'ac-sources 'ac-source-yasnippet)
     )
 
+  ;; gtags
+  (when (featurep 'gtags)
+    (gtags-mode t)
+    ;;(gtags-make-complete-list)
+    )
+
   ;; flymake
   (when (featurep 'flymake)
     (flymake-mode t)

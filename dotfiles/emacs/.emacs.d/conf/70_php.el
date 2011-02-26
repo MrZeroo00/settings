@@ -87,7 +87,9 @@
     )
 
   ;; gtags
-  (gtags-mode t)
-  '(gtags-make-complete-list)
+  (when (featurep 'gtags)
+    (gtags-mode t)
+    ;;(gtags-make-complete-list)
+    )
   )
 (add-hook 'php-mode-hook 'my-php-mode-hook)

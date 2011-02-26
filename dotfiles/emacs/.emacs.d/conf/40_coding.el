@@ -138,11 +138,6 @@
           (add-hook 'after-save-hook 'my-gtags-update-single-for-current-file)
           )
 
-(add-hook 'c-mode-common-hook (lambda ()
-  			 (gtags-mode t)
-  			 ;;(gtags-make-complete-list)
-  			 ))
-
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=tagsfile%20maker
 '(defadvice find-tag (before c-tag-file activate)
