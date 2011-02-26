@@ -1,3 +1,7 @@
+;;;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
+;(my-require-and-when 'indent-tabs-maybe)
+
+
 ;;;; xcscope
 ;;;; http://cscope.sourceforge.net/
 ;;;(my-require-and-when 'xcscope)

@@ -4,12 +4,11 @@
 ;;;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
-;;;(install-elisp "http://www.loveshack.ukfsn.org/emacs/indent-tabs-maybe.el")
-(my-require-and-when 'indent-tabs-maybe)
 ;;;; http://d.hatena.ne.jp/mzp/20090620/indent
-'(my-require-and-when 'ky-indent
+(my-require-and-when 'ky-indent
   (ky-indent-init)
-  (setq ky-indent-regexp "external-code/")
+  (setq ky-indent-regexp "src/")
+  (setq ky-indent-exclude-regexp "~/svn/settings")
   )
 
 
