@@ -11,7 +11,10 @@
                                 (count-lines (point-min) (point-max))))))
                        (concat "%" (number-to-string w) "d "))
                      line)
-             'face 'linum)))))
+             'face 'linum))))
+  (set-face-foreground 'linum "magenta")
+  (set-face-background 'linum "grey20")
+  )
 
 
 ;;;; hs-minor-mode (fold code block)
