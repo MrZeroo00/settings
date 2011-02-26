@@ -37,6 +37,15 @@
                     (modes  . '(ruby-mode))))
      )
 
+  ;; hs-minor-mode
+  (add-to-list 'hs-special-modes-alist
+               '(ruby-mode
+                 "class\\|module\\|def\\|if\\|unless\\|case\\|while\\|until\\|for\\|begin\\|do"
+                 "end"
+                 "#"
+                 ruby-move-to-block
+                 nil))
+
   ;; autotest
   ;;(install-elisp-from-emacswiki "autotest.el")
   (my-require-and-when 'autotest)
