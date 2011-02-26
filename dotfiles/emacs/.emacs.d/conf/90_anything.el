@@ -243,23 +243,23 @@
 
 
 ;;;; source
-(setq anything-sources (list anything-c-source-kyr
-                             anything-c-source-ffap-guesser
-                             anything-c-source-buffers
-                             anything-c-source-bm
-                             anything-c-source-bookmarks
-                             ;;anything-c-source-bookmark-files&dirs
-                             anything-c-source-call-source
-                             ;;anything-c-source-files-in-current-dir+
-                             anything-c-source-recentf
-                             anything-c-source-filelist
-                             anything-c-source-extended-command-history
-                             ;;anything-c-source-complex-command-history
-                             ;;anything-c-source-emacs-commands
-                             ;;anything-c-source-man-pages
-                             ;;anything-c-source-info-pages
-                             ;;anything-c-source-calculation-result
-                             ))
+(setq anything-sources '(anything-c-source-kyr
+                         anything-c-source-ffap-guesser
+                         anything-c-source-buffers
+                         anything-c-source-bm
+                         anything-c-source-bookmarks
+                         ;;anything-c-source-bookmark-files&dirs
+                         anything-c-source-call-source
+                         ;;anything-c-source-files-in-current-dir+
+                         anything-c-source-recentf
+                         anything-c-source-filelist
+                         anything-c-source-extended-command-history
+                         ;;anything-c-source-complex-command-history
+                         ;;anything-c-source-emacs-commands
+                         ;;anything-c-source-man-pages
+                         ;;anything-c-source-info-pages
+                         ;;anything-c-source-calculation-result
+                         ))
 
 ;;;(defun my-anything-null-function (candidate))
 ;;;(setcdr (assoc 'persistent-action anything-c-source-find-files) 'my-anything-null-function)
