@@ -55,6 +55,7 @@ case "${OS}" in
   alias readelf='greadelf'
   alias strace='sudo dtruss sudo -u ${USER}'
   #alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -a /Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -n'
+  alias emacs='TERM=xterm-256color emacsclient -a emacs -n'
   alias top='top -o cpu'
   alias run='open -a'
   ;;
