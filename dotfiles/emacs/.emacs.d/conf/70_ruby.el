@@ -14,37 +14,41 @@
     )
 
   ;; align
-  '(progn
-     (add-to-list 'align-rules-list
-                  '(ruby-comma-delimiter
-                    (regexp . ",\\(\\s-*\\)[^# \t\n]")
-                    (repeat . t)
-                    (modes  . '(ruby-mode))))
-     (add-to-list 'align-rules-list
-                  '(ruby-hash-literal
-                    (regexp . "\\(\\s-*\\)=>\\s-*[^# \t\n]")
-                    (repeat . t)
-                    (modes  . '(ruby-mode))))
-     (add-to-list 'align-rules-list
-                  '(ruby-assignment-literal
-                    (regexp . "\\(\\s-*\\)=\\s-*[^# \t\n]")
-                    (repeat . t)
-                    (modes  . '(ruby-mode))))
-     (add-to-list 'align-rules-list     ;TODO add to rcodetools.el
-                  '(ruby-xmpfilter-mark
-                    (regexp . "\\(\\s-*\\)# => [^#\t\n]")
-                    (repeat . nil)
-                    (modes  . '(ruby-mode))))
-     )
+  (when (featurep 'align)
+    (progn
+      (add-to-list 'align-rules-list
+                   '(ruby-comma-delimiter
+                     (regexp . ",\\(\\s-*\\)[^# \t\n]")
+                     (repeat . t)
+                     (modes  . '(ruby-mode))))
+      (add-to-list 'align-rules-list
+                   '(ruby-hash-literal
+                     (regexp . "\\(\\s-*\\)=>\\s-*[^# \t\n]")
+                     (repeat . t)
+                     (modes  . '(ruby-mode))))
+      (add-to-list 'align-rules-list
+                   '(ruby-assignment-literal
+                     (regexp . "\\(\\s-*\\)=\\s-*[^# \t\n]")
+                     (repeat . t)
+                     (modes  . '(ruby-mode))))
+      (add-to-list 'align-rules-list    ;TODO add to rcodetools.el
+                   '(ruby-xmpfilter-mark
+                     (regexp . "\\(\\s-*\\)# => [^#\t\n]")
+                     (repeat . nil)
+                     (modes  . '(ruby-mode))))
+      )
+    )
 
   ;; hs-minor-mode
-  (add-to-list 'hs-special-modes-alist
-               '(ruby-mode
-                 "class\\|module\\|def\\|if\\|unless\\|case\\|while\\|until\\|for\\|begin\\|do"
-                 "end"
-                 "#"
-                 ruby-move-to-block
-                 nil))
+  (when (featurep 'hideshow)
+    (add-to-list 'hs-special-modes-alist
+                 '(ruby-mode
+                   "class\\|module\\|def\\|if\\|unless\\|case\\|while\\|until\\|for\\|begin\\|do"
+                   "end"
+                   "#"
+                   ruby-move-to-block
+                   nil))
+    )
 
   ;; autotest
   ;;(install-elisp-from-emacswiki "autotest.el")
