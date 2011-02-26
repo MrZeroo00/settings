@@ -158,10 +158,10 @@
 
 
 ;;;; use ack
-(setq grep-command "ack -a --nocolor ")
+(setq grep-command "ack -a --nocolor --nogroup ")
 (defun ack ()
   (interactive)
-  (let ((grep-find-command "ack --nocolor --nogroup "))
+  (let ((grep-find-command "ack -a --nocolor --nogroup "))
     (call-interactively 'grep-find)))
 
 
