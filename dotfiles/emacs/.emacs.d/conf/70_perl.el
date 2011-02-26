@@ -28,6 +28,11 @@
     (add-to-list 'ac-sources 'ac-source-perl-completion t)
     )
 
+  ;; hs-minor-mode
+  (when (featurep 'hideshow)
+    (hs-minor-mode)
+    )
+
   ;; eldoc
   (make-variable-buffer-local 'eldoc-documentation-function)
   (set eldoc-documentation-function 'my-cperl-eldoc-documentation-function)

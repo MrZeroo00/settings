@@ -20,10 +20,8 @@
 ;;;; hs-minor-mode (fold code block)
 (my-require-and-when 'hideshow
   (setq hs-hide-comments nil)
+  ;;(setq hs-hide-comments-when-hiding-all nil)
   (setq hs-isearch-open 't)
-  (add-hook 'c-mode-hook 'hs-minor-mode)
-  (add-hook 'perl-mode-hook 'hs-minor-mode)
-  (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
   (my-load-and-when "_hs-hide-all-comments"))
 
 

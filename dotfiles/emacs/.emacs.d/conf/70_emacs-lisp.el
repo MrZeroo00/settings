@@ -61,6 +61,11 @@
     (unless (null buffer-file-name)
       (flymake-mode t)))
 
+  ;; hs-minor-mode
+  (when (featurep 'hideshow)
+    (hs-minor-mode)
+    )
+
   ;; eldoc
   (turn-on-eldoc-mode)
   )

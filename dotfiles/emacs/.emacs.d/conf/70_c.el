@@ -109,6 +109,11 @@
        )
      )
 
+  ;; hs-minor-mode
+  (when (featurep 'hideshow)
+    (hs-minor-mode)
+    )
+
   ;; moccur
   (setq moccur-grep-default-mask "\\.\[HhCc\]$")
 
