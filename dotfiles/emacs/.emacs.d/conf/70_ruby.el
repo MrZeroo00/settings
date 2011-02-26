@@ -37,6 +37,17 @@
                     (modes  . '(ruby-mode))))
      )
 
+  ;; autotest
+  ;;(install-elisp-from-emacswiki "autotest.el")
+  (my-require-and-when 'autotest)
+
+  ;; refe
+  ;;(install-elisp "http://ns103.net/~arai/ruby/refe.el")
+  '(my-require-and-when 'refe)
+  ;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
+  ;;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
+  (my-load-and-when "_refe2")
+
   ;; macros
   (my-load-and-when "_ruby-insert-magic-comment-if-needed")
   )
@@ -73,17 +84,6 @@
     (inf-ruby-keys)
     (flymake-mode t)
     )
-
-  ;; autotest
-  ;;(install-elisp-from-emacswiki "autotest.el")
-  (my-require-and-when 'autotest)
-
-  ;; refe
-  ;;(install-elisp "http://ns103.net/~arai/ruby/refe.el")
-  '(my-require-and-when 'refe)
-  ;; http://d.hatena.ne.jp/rubikitch/20071228/rubyrefm
-  ;;(install-elisp "http://www.rubyist.net/~rubikitch/archive/refe2.e")
-  (my-load-and-when "_refe2")
   )
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 

@@ -34,6 +34,9 @@
   ;; lispxmp
   ;;(install-elisp-from-emacswiki "lispxmp.el")
   '(my-require-and-when 'lispxmp)
+
+  ;; checkdoc
+  (my-require-and-when 'checkdoc)
   )
 
 
@@ -60,9 +63,6 @@
 
   ;; eldoc
   (turn-on-eldoc-mode)
-
-  ;; checkdoc
-  (my-require-and-when 'checkdoc)
   )
 (add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-mode-hook)
 

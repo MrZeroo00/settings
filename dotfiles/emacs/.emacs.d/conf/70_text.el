@@ -35,6 +35,10 @@
 ;;;(my-autoload-and-when 'manued-minor-mode "manued")
 
 
+;;;; macros
+'(my-load-and-when "text-adjust-space-before-save-if-needed")
+
+
 ;;;; mode hook
 (defun my-text-mode-hook ()
   (when (memq major-mode '(text-mode))
@@ -43,9 +47,6 @@
     (flyspell-mode)
     '(refill-mode t)
     '(setq paragraph-start '"^\\([ 　・○<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
-
-    ;; macros
-    '(my-load-and-when "text-adjust-space-before-save-if-needed")
     )
   )
 (add-hook 'text-mode-hook 'my-text-mode-hook)
