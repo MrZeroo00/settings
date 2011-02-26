@@ -75,6 +75,12 @@
     (add-to-list 'ac-sources 'ac-source-yasnippet)
     )
 
+  ;; doxymacs
+  (when (featurep 'doxymacs)
+    (doxymacs-mode)
+    (doxymacs-font-lock)
+    )
+
   ;; gtags
   (when (featurep 'gtags)
     (gtags-mode t)
