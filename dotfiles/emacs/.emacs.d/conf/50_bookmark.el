@@ -12,6 +12,9 @@
 (setq bm-repository-file (expand-file-name "~/.emacs.d/data/.bm-repository"))
 (setq bm-repository-size nil)
 (setq bm-buffer-persistence t)
+;;;; patch for non-X environment
+(if (not (functionp 'define-fringe-bitmap))
+    (defun define-fringe-bitmap (bitmap bits &optional height width align) (lambda () ())))
 (my-require-and-when 'bm
   (global-set-key (kbd "<C-f2>") 'bm-toggle)
   (global-set-key (kbd "<f2>")   'bm-next)

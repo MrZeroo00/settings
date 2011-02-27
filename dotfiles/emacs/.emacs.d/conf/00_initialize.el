@@ -176,8 +176,3 @@
 ;;;(my-load-and-when "_egoge-wash-out-colour")
 (my-load-and-when "_elisp-font-lock-top-quote")
 (my-load-and-when "_line-to-top-of-window")
-
-
-;;;; some patch
-(if (not (functionp 'define-fringe-bitmap))
-    (defun define-fringe-bitmap (bitmap bits &optional height width align) (lambda () ())))
