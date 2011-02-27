@@ -1,0 +1,4 @@
+#!/bin/sh
+
+func_name="`echo $1 | sed -e 's/_/-/g'`"
+w3m -no-cookie -dump_source "http://php.net/manual/ja/function.${func_name}.php" | xpath "//*[@id='function.${func_name}']" | w3m -dump -T text/html
