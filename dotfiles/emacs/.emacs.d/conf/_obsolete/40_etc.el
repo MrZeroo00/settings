@@ -20,3 +20,10 @@
 '(my-require-and-when 'typing-outputz
    (global-typing-outputz-mode t)
    (setq typing-outputz-key "bWAROb-quUbf"))
+
+
+;;;; postit
+;;;(install-elisp "http://www.bookshelf.jp/elc/postit.el")
+'(my-autoload-and-when 'postit "postit"
+                      (setq postit-colorize 'dark)
+                      (setq postit-compress-commands nil))

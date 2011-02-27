@@ -39,13 +39,6 @@
 '(add-hook 'find-file-hooks 'alpaca-after-find-file)
 
 
-;;;; postit
-;;;(install-elisp "http://www.bookshelf.jp/elc/postit.el")
-'(my-autoload-and-when 'postit "postit"
-                      (setq postit-colorize 'dark)
-                      (setq postit-compress-commands nil))
-
-
 ;;;; edit-list
 ;;;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
 ;;;(my-require-and-when 'edit-list)
