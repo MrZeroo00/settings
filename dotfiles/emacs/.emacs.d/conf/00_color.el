@@ -11,5 +11,5 @@
 
 
 ;;;; term
-(setq term-default-fg-color nil)
-(setq term-default-bg-color nil)
+(setq term-default-fg-color "#FFFFFF")
+(setq term-default-bg-color "#000000")
