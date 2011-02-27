@@ -13,6 +13,7 @@ zmodload -ap zsh/mapfile mapfile
 
 ## variables
 LPROMPT="%n@%m%% "
+PROMPT="${LPROMPT}"
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
 WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
