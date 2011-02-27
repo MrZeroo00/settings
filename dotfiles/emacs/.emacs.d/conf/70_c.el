@@ -70,7 +70,6 @@
   (define-key c-mode-map "\C-c)" 'insert-parens-region)
   (define-key c-mode-map "\C-c]" 'insert-brackets-region)
   (define-key c-mode-map "\C-c\"" 'insert-double-quotation-region)
-  (setq imenu-create-index-function 'imenu-default-create-index-function)
 
   ;; auto-complete
   (when (featurep 'auto-complete)
@@ -88,6 +87,9 @@
     (gtags-mode t)
     ;;(gtags-make-complete-list)
     )
+
+  ;; imenu
+  (setq imenu-create-index-function 'imenu-default-create-index-function)
 
   ;; flymake
   (when (featurep 'flymake)
