@@ -19,6 +19,3 @@
        (save-buffer)))
 
    (global-set-key "\C-x\C-s" 'my-save-buffer))
-
-
-;; -*-no-byte-compile: t; -*-

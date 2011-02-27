@@ -32,20 +32,17 @@
 
 ;;;; advice
 ;;; http://0xcc.net/blog/archives/000035.html
-;;(defadvice bookmark-set (around bookmark-set-ad activate)
-;;  (bookmark-load bookmark-default-file t t) ;; reload latest bookmark before register
-;;  ad-do-it
-;;  (bookmark-save))
-;;
-;;(defadvice bookmark-jump (before bookmark-set-ad activate)
-;;  (bookmark-load bookmark-default-file t t))
-;;(setq bookmark-save-flag 1) ; save every time
+'(defadvice bookmark-set (around bookmark-set-ad activate)
+  (bookmark-load bookmark-default-file t t) ;; reload latest bookmark before register
+  ad-do-it
+  (bookmark-save))
+
+'(defadvice bookmark-jump (before bookmark-set-ad activate)
+  (bookmark-load bookmark-default-file t t))
+'(setq bookmark-save-flag 1) ; save every time
 
 ;;; http://www.emacswiki.org/emacs/BookMarks
-;;;(defadvice bookmark-jump (after bookmark-jump activate)
-;;;  (let ((latest (bookmark-get-bookmark bookmark)))
-;;;    (setq bookmark-alist (delq latest bookmark-alist))
-;;;    (add-to-list 'bookmark-alist latest)))
-
-
-;; -*-no-byte-compile: t; -*-
+'(defadvice bookmark-jump (after bookmark-jump activate)
+  (let ((latest (bookmark-get-bookmark bookmark)))
+    (setq bookmark-alist (delq latest bookmark-alist))
+    (add-to-list 'bookmark-alist latest)))

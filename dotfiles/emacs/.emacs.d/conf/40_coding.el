@@ -1,7 +1,7 @@
 ;;;; indent
 (setq-default tab-width 2)
-;;;(setq tab-stop-list
-;;;      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
+'(setq tab-stop-list
+      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30))
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
 ;;;; http://d.hatena.ne.jp/mzp/20090620/indent
@@ -14,9 +14,9 @@
 
 ;;;; paren
 (show-paren-mode t)
-;;;(setq show-paren-style 'mixed)
-;;;(set-face-background 'show-paren-match-face "gray10")
-;;;(set-face-foreground 'show-paren-match-face "SkyBlue")
+'(setq show-paren-style 'mixed)
+'(set-face-background 'show-paren-match-face "gray10")
+'(set-face-foreground 'show-paren-match-face "SkyBlue")
 ;;;; mic-paren (highlight matching parenthesises)
 ;;;(install-elisp "http://user.it.uu.se/~mic/mic-paren.el")
 (if window-system
@@ -42,9 +42,9 @@
 ;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
 (my-require-and-when 'smartchr
   (global-set-key (kbd "=") (smartchr '(" = " " == " " === " "=")))
-;;;  (global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
-;;;  (global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
-;;;  (global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
+  ;;(global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
+  ;;(global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
+  ;;(global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
   )
 
 
@@ -80,10 +80,10 @@
 
 
 ;;;; ctags
-;;;(global-set-key "\M-t" 'find-tag)
-;;;(global-set-key "\C-t" 'pop-tag-mark)
-;;;(setq tags-table-list
-;;;      '("~/src"))
+'(global-set-key "\M-t" 'find-tag)
+'(global-set-key "\C-t" 'pop-tag-mark)
+'(setq tags-table-list
+      '("~/src"))
 
 
 ;;;; gtags
@@ -128,12 +128,12 @@
 
 
 ;;;; speedbar
-;;;(my-require-and-when 'speedbar)
+'(my-require-and-when 'speedbar)
 
 
 ;;;; simple-call-tree
 ;;;(install-elisp-from-emacswiki "simple-call-tree.el")
-;;;(my-require-and-when 'simple-call-tree)
+'(my-require-and-when 'simple-call-tree)
 
 
 ;;;; which-func
@@ -207,18 +207,18 @@
 ;;;; http://cedet.sourceforge.net/
 '(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el"
   (global-ede-mode 1)
-;;;  (ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
+  ;;(ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
   (semantic-load-enable-minimum-features)
   (semantic-load-enable-code-helpers)
-;;;  (semantic-load-enable-gaudy-code-helpers)
-;;;  (semantic-load-enable-all-exuberent-ctags-support)
-;;;  (global-srecode-minor-mode 1)
+  ;;(semantic-load-enable-gaudy-code-helpers)
+  ;;(semantic-load-enable-all-exuberent-ctags-support)
+  ;;(global-srecode-minor-mode 1)
   )
 
 
 ;;;; ecb
 ;;;; http://ecb.sourceforge.net/
-;;;(my-require-and-when 'ecb-autoloads)
+'(my-require-and-when 'ecb-autoloads)
 
 
 ;;;; textmate
@@ -247,13 +247,13 @@
 
 ;;;; face-list
 ;;;; http://groups.google.com/group/gnu.emacs.sources/msg/06afad63bfa99322
-;;;(my-require-and-when 'face-list)
+'(my-require-and-when 'face-list)
 
 
 (add-hook 'change-log-mode-hook
           (lambda ()
             (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
-;;;            (outline-minor-mode t)
+            ;;(outline-minor-mode t)
             (turn-on-orgstruct)))
 
 
@@ -287,6 +287,3 @@
   (global-set-key "\C-cm" 'tdd-bgcolor-rotate))
 (my-load-and-when "_google-code-search")
 (my-load-and-when "_open-junk-file")
-
-
-;; -*-no-byte-compile: t; -*-

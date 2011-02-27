@@ -41,7 +41,7 @@
 
 ;;;; edit-list
 ;;;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
-;;;(my-require-and-when 'edit-list)
+'(my-require-and-when 'edit-list)
 
 
 ;;;; color-selection
@@ -77,6 +77,3 @@
 '(my-load-and-when "_my-memo"
   (global-set-key "\C-c\C-w" 'my-memo))
 (my-load-and-when "_byte-compile-directory")
-
-
-;; -*-no-byte-compile: t; -*-

@@ -11,9 +11,9 @@
 
 
 ;;;; yasnippet
-;;;(setq yas/trigger-key "TAB")
-;;;(my-require-and-when 'yasnippet-config
-;;;  (yas/setup "~/.emacs.d/elisp/yasnippet"))
+'(setq yas/trigger-key "TAB")
+'(my-require-and-when 'yasnippet-config
+  (yas/setup "~/.emacs.d/elisp/yasnippet"))
 
 
 ;;;; auto-complete
@@ -28,7 +28,7 @@
 (my-require-and-when 'auto-complete-config
 		     ;;(ac-config-default)
 		     (global-auto-complete-mode t)
-		     ;(setq ac-auto-start 4)
+		     ;;(setq ac-auto-start 4)
 		     (setq ac-auto-start nil)
 		     (setq ac-auto-show-menu 0.8)
 		     (setq ac-use-menu-map t)
@@ -54,29 +54,30 @@
          (add-to-list 'ac-user-dictionary-files "~/.emacs.d/conf/auto-complete/dict")
 		     (setq-default ac-sources '(
 						ac-source-filename
-;;						ac-source-files-in-current-dir
+						;;ac-source-files-in-current-dir
 						ac-source-dictionary
-;;						ac-source-abbrev
+						;;ac-source-abbrev
 						ac-source-words-in-buffer
-;;						ac-source-words-in-same-mode-buffers
-;;						ac-source-words-in-all-buffer
+						;;ac-source-words-in-same-mode-buffers
+						;;ac-source-words-in-all-buffer
 						))
 
   ;; http://d.hatena.ne.jp/kiwanami/20081124/1227543508
-;;;  (defun ac-next-or-next-line (arg)
-;;;    (interactive "p")
-;;;    (if (= (length ac-candidates) 1)
-;;;        (progn (ac-abort)
-;;;               (next-line arg))
-;;;      (ac-next)))
-;;;  (defun ac-previous-or-previous-line (arg)
-;;;    (interactive "p")
-;;;    (if (= (length ac-candidates) 1)
-;;;        (progn (ac-abort)
-;;;               (previous-line arg))
-;;;      (ac-previous)))
-;;;  (define-key ac-complete-mode-map "\C-n" 'ac-next-or-next-line)
-;;;  (define-key ac-complete-mode-map "\C-p" 'ac-previous-or-previous-line)
+  '(progn
+    (defun ac-next-or-next-line (arg)
+      (interactive "p")
+      (if (= (length ac-candidates) 1)
+          (progn (ac-abort)
+                 (next-line arg))
+        (ac-next)))
+    (defun ac-previous-or-previous-line (arg)
+      (interactive "p")
+      (if (= (length ac-candidates) 1)
+          (progn (ac-abort)
+                 (previous-line arg))
+        (ac-previous)))
+    (define-key ac-complete-mode-map "\C-n" 'ac-next-or-next-line)
+    (define-key ac-complete-mode-map "\C-p" 'ac-previous-or-previous-line))
   )
 
 
@@ -85,7 +86,4 @@
 
 
 ;;;; macros
-;;;(my-load-and-when "_maybe-capitalize-bos")
-
-
-;; -*-no-byte-compile: t; -*-
+'(my-load-and-when "_maybe-capitalize-bos")

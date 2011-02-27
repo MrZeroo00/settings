@@ -3,6 +3,3 @@
       '("~/foo"
         "~/bar"
         "~/baz"))
-
-
-;; -*-no-byte-compile: t; -*-

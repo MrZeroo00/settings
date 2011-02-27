@@ -23,7 +23,7 @@
 
 ;;;; contentswitch
 ;;;(install-elisp-from-emacswiki "contentswitch.el")
-;;;(my-require-and-when 'contentswitch)
+'(my-require-and-when 'contentswitch)
 
 
 ;;;; macros
@@ -35,6 +35,3 @@
             (function (lambda ()
                         (unless (member "*scratch*" (my-buffer-name-list))
                           (my-make-scratch t))))))
-
-
-;; -*-no-byte-compile: t; -*-

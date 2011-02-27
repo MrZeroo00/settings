@@ -53,7 +53,7 @@
 ;;;; wdired (rename file name from dired buffer)
 ;;;(install-elisp-from-emacswiki "wdired.el")
 (my-require-and-when 'wdired
-  '(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+  ;;(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
   )
 
 
@@ -71,24 +71,25 @@
 
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=dired%20single
-'(defvar my-dired-before-buffer nil)
-'(defadvice dired-advertised-find-file
-   (before kill-dired-buffer activate)
-   (setq my-dired-before-buffer (current-buffer)))
-
-'(defadvice dired-advertised-find-file
-   (after kill-dired-buffer-after activate)
-   (if (eq major-mode 'dired-mode)
-       (kill-buffer my-dired-before-buffer)))
-
-'(defadvice dired-up-directory
-   (before kill-up-dired-buffer activate)
-   (setq my-dired-before-buffer (current-buffer)))
-
-'(defadvice dired-up-directory
-   (after kill-up-dired-buffer-after activate)
-   (if (eq major-mode 'dired-mode)
-       (kill-buffer my-dired-before-buffer)))
+'(progn
+  (defvar my-dired-before-buffer nil)
+  (defadvice dired-advertised-find-file
+     (before kill-dired-buffer activate)
+     (setq my-dired-before-buffer (current-buffer)))
+  
+  (defadvice dired-advertised-find-file
+     (after kill-dired-buffer-after activate)
+     (if (eq major-mode 'dired-mode)
+         (kill-buffer my-dired-before-buffer)))
+  
+  (defadvice dired-up-directory
+     (before kill-up-dired-buffer activate)
+     (setq my-dired-before-buffer (current-buffer)))
+  
+  (defadvice dired-up-directory
+     (after kill-up-dired-buffer-after activate)
+     (if (eq major-mode 'dired-mode)
+         (kill-buffer my-dired-before-buffer))))
 
 
 ;;;; http://d.hatena.ne.jp/higepon/20061230/1167447340

@@ -19,7 +19,7 @@
 
 
 ;;;; browser
-;;;(setq browse-url-browser-function 'w3m-browse-firefox)
+'(setq browse-url-browser-function 'w3m-browse-firefox)
 (setq browse-url-browser-function 'w3m-browse-url)
 
 
@@ -56,11 +56,11 @@
 ;;;; MozRepl
 ;;;; http://hyperstruct.net/projects/mozlab
 ;;;; http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
-;;;(add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
-;;;(my-autoload-and-when 'moz-minor-mode "moz")
-;;;(defun java-custom-setup ()
-;;;  (moz-minor-mode 1))
-;;;(add-hook 'java-mode-hook 'java-custom-setup)
+'(add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
+'(my-autoload-and-when 'moz-minor-mode "moz")
+'(defun java-custom-setup ()
+  (moz-minor-mode 1))
+'(add-hook 'java-mode-hook 'java-custom-setup)
 
 
 ;;;; mozadd
@@ -70,7 +70,7 @@
 
 ;;;; moz-plus
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
-;;;(my-autoload-and-when 'run-mozilla "moz")
+'(my-autoload-and-when 'run-mozilla "moz")
 '(add-hook 'inferior-moz-mode-hook (lambda ()
                                     (my-require-and-when 'moz-plus)
                                     (moz-plus 1)
@@ -79,17 +79,14 @@
 
 ;;;; google2
 ;;;(install-elisp "http://www.bookshelf.jp/elc/google2.el")
-;;;(my-load-and-when "google2")
+'(my-load-and-when "google2")
 
 
 ;;;; autoinfo
 ;;;(install-elisp-from-emacswiki "autoinfo.el")
-;;;(my-require-and-when 'autoinfo)
+'(my-require-and-when 'autoinfo)
 
 
 ;;;; macros
-;;;(my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
-;;;(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"
-
-
-;; -*-no-byte-compile: t; -*-
+'(my-load-and-when "_convert-ftp-url-to-efs-filename") ; convert ftp url from "ftp://" to "/anonymous..."
+'(my-load-and-when "_url-regexp") ; convert url "ttp:// to "http://"

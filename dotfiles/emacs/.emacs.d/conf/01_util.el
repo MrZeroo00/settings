@@ -3,7 +3,7 @@
 '(defun my-insert-date ()
   (interactive)
   (insert (format-time-string "%Y-%m-%dT%R:%S+09:00" (current-time))))
-;;;(global-set-key "\C-cd" 'my-insert-date)
+'(global-set-key "\C-cd" 'my-insert-date)
 
 
 ;;;; instamp
@@ -19,6 +19,3 @@
                         ((symbol-value 'buffer-file-name)))))
     (unless (null location)
       (kill-new location))))
-
-
-;; -*-no-byte-compile: t; -*-
