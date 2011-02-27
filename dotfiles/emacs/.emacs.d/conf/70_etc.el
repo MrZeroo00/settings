@@ -5,10 +5,10 @@
 ;;;; pov-mode
 ;;;; http://www.acc.umu.se/~woormie/povray/
 ;;;(my-autoload-and-when 'pov-mode "pov-mode.el")
-'(setq auto-mode-alist
-      (append '(("\\.pov$" . pov-mode)
-                ("\\.inc$" . pov-mode)
-                ) auto-mode-alist))
+'(progn
+   (add-to-list 'auto-mode-alist '("\\.pov$" . pov-mode))
+   (add-to-list 'auto-mode-alist '("\\.inc$" . pov-mode))
+   )
 
 
 ;;;; generic (coloring generic files)
