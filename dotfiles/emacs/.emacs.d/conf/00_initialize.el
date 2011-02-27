@@ -155,31 +155,12 @@
 (setq visible-bell t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 '(global-auto-revert-mode)
-(setq history-length t)
-(setq undo-limit 100000)
-(setq undo-strong-limit 130000)
 (setq message-log-max 1000)
 (setq diff-switches "-u")
 '(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 (setq gc-cons-threshold 3500000)
 (setq max-lisp-eval-depth 10000)
 (setq max-specpdl-size 50000)
-
-
-;;;; redo
-;;;(install-elisp "http://www.wonderworks.com/download/redo.el")
-(my-require-and-when 'redo)
-
-
-;;;; undo-tree
-;;;(install-elisp "http://www.dr-qubit.org/undo-tree/undo-tree.el")
-(my-require-and-when 'undo-tree
-  (global-undo-tree-mode))
-
-
-;;;; point-undo
-;;;(install-elisp-from-emacswiki "point-undo.el")
-(my-require-and-when 'point-undo)
 
 
 ;;;; pit
