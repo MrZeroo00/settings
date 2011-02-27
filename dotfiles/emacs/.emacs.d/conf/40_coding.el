@@ -181,6 +181,28 @@
     (raise-frame (selected-frame))))
 
 
+;;;; flymake
+;;;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
+(my-require-and-when 'flymake
+  (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
+
+  ;; redefine to remove "check-syntax" target
+  (defun flymake-get-make-cmdline (source base-dir)
+    (list "make"
+    (list "-s"
+  	"-C"
+  	base-dir
+  	(concat "CHK_SOURCES=" source)
+  	"SYNTAX_CHECK_MODE=1"))))
+
+
+;;;; test-case-mode
+;;;(install-elisp "http://nschum.de/src/emacs/test-case-mode/test-case-mode.el")
+(my-require-and-when 'test-case-mode
+  (add-hook 'find-file-hook 'enable-test-case-mode-if-test)
+  (add-hook 'compilation-finish-functions 'test-case-compilation-finish-run-all))
+
+
 ;;;; cedet
 ;;;; http://cedet.sourceforge.net/
 '(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el"
@@ -203,28 +225,6 @@
 ;;;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
 '(my-require-and-when 'textmate
   (textmate-mode))
-
-
-;;;; test-case-mode
-;;;(install-elisp "http://nschum.de/src/emacs/test-case-mode/test-case-mode.el")
-(my-require-and-when 'test-case-mode
-  (add-hook 'find-file-hook 'enable-test-case-mode-if-test)
-  (add-hook 'compilation-finish-functions 'test-case-compilation-finish-run-all))
-
-
-;;;; flymake
-;;;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
-(my-require-and-when 'flymake
-  (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
-
-  ;; redefine to remove "check-syntax" target
-  (defun flymake-get-make-cmdline (source base-dir)
-    (list "make"
-    (list "-s"
-  	"-C"
-  	base-dir
-  	(concat "CHK_SOURCES=" source)
-  	"SYNTAX_CHECK_MODE=1"))))
 
 
 ;;;; auto-compile
