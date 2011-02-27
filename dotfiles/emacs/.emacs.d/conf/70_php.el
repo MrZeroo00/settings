@@ -43,7 +43,6 @@
       (imenu-add-menubar-index)
       ))
 
-
   ;; geben
   ;; http://code.google.com/p/geben-on-emacs/
   (my-autoload-and-when 'geben "geben"
@@ -56,6 +55,14 @@
           (_my-geben-find-file (ad-get-arg 0))
         ad-do-it))
     )
+
+  ;; PHP API Reference
+  (defun _my-phpdoc ()
+    (interactive)
+    (let* ((symbol (thing-at-point 'symbol))
+           (query (concat "phpdoc " symbol)))
+      (popup-tip (shell-command-to-string query))))
+  ;;(define-key global-map "\M-q" '_my-phpdoc)
   )
 
 
