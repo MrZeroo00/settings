@@ -1,3 +1,11 @@
+(setq kill-whole-line t)
+(setq kill-read-only-ok t)
+(setq next-line-add-newlines nil)
+(setq truncate-lines t)
+(setq truncate-partial-width-windows t)
+(setq x-select-enable-clipboard t)
+
+
 ;;;; region setting
 (transient-mark-mode t)
 '(setq highlight-nonselected-windows t)
@@ -123,6 +131,7 @@
 ;;;; autoinsert (insert template code)
 ;;; (install-elisp "http://repo.or.cz/w/emacs.git/blob_plain/HEAD:/lisp/autoinsert.el")
 (my-require-and-when 'autoinsert
+  (auto-insert-mode t)
   (setq auto-insert-directory "~/.emacs.d/template/")
   (setq auto-insert-query nil)
   (setq auto-insert-alist
