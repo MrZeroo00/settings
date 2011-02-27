@@ -166,13 +166,13 @@
 (my-require-and-when 'imenu)
 
 
+;;;; speedbar
+;;;(my-require-and-when 'speedbar)
+
+
 ;;;; simple-call-tree
 ;;;(install-elisp-from-emacswiki "simple-call-tree.el")
 ;;;(my-require-and-when 'simple-call-tree)
-
-
-;;;; speedbar
-;;;(my-require-and-when 'speedbar)
 
 
 ;;;; which-func
