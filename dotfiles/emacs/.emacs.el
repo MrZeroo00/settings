@@ -1,4 +1,4 @@
-;;;(setq debug-on-error t)
+'(setq debug-on-error t)
 
 
 ;;;; measure time for tuning
@@ -303,4 +303,4 @@
 (my-time-lag "all")
 
 
-(setq debug-on-error t)
+'(setq debug-on-error t)
