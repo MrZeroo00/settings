@@ -83,6 +83,17 @@
               (setq prev-yanked-text text))))))
 
 
+;;;; kill-summary
+;;;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
+(my-autoload-and-when 'kill-summary "kill-summary"
+  (global-set-key "\M-y" 'kill-summary))
+
+
+;;;; list-register
+;;;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
+(my-require-and-when 'list-register)
+
+
 ;;;; thing-opt
 (my-require-and-when 'thingatpt)
 ;;;(install-elisp-from-emacswiki "thing-opt.el")
