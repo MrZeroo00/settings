@@ -10,6 +10,29 @@
 ;;;(install-elisp "http://github.com/kiwanami/emacs-window-layout/raw/master/window-layout.el")
 (my-require-and-when 'e2wm
   (global-set-key (kbd "M-+") 'e2wm:start-management)
+
+  ;; patch for widen-window
+  (defun e2wm:fix-widen-window-pre-start ()
+    ;; widen-window でエラーを起きないようする
+    (defadvice wlf:layout-internal (around disable-ww-mode activate)
+      (ad-deactivate-regexp "widen-window")
+      (unwind-protect
+          ad-do-it
+        (ad-activate-regexp "widen-window")))
+    ;; widen-window を e2wm では全く使わない場合
+    (defadvice widen-current-window (around e2wm:disable-ww-mode activate)
+      (unless (e2wm:managed-p)
+        ad-do-it
+        )))
+  (defun e2wm:fix-widen-window-post-stop ()
+    ;; e2wm が終わったら widen-window を戻す
+    (ad-deactivate-regexp "e2wm:disable-ww-mode"))
+  (defun e2wm:fix-widen-window ()
+    (interactive)
+    (when (featurep 'widen-window)
+      (add-hook 'e2wm:pre-start-hook 'e2wm:fix-widen-window-pre-start)
+      (add-hook 'e2wm:post-stop-hook 'e2wm:fix-widen-window-post-stop))
+    )
   )
 
 
