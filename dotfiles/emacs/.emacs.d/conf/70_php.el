@@ -69,7 +69,9 @@
 ;;;; smarty-mode
 ;;;; http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
 ;;;(install-elisp "http://lisp.morinie.fr/smarty/download/smarty-mode.el")
-(my-autoload-and-when 'smarty-mode "smarty-mode")
+(my-autoload-and-when 'smarty-mode "smarty-mode"
+  (add-to-list 'wrap-region-tag-active-modes 'smarty-mode)
+  )
 
 
 ;;;; association setting
