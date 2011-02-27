@@ -51,7 +51,7 @@
 (my-require-and-when 'align)
 
 
-;;;; template (insert template code)
+;;;; auto-insert (insert template code)
 (my-require-and-when 'autoinsert
   (setq auto-insert-directory "~/.emacs.d/template/")
   (setq auto-insert-query nil)
@@ -64,7 +64,6 @@
                  ;;("\\.rb$" . ["template.sh"
                  ;;             (lambda() (my-template-exec "/usr/bin/ruby"))
                  ;;             my-template]))
-                 ("bug.*\\.org$" . ["template_bug.org" my-template])
                  ) auto-insert-alist))
 
   (my-require-and-when 'cl

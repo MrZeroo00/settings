@@ -149,6 +149,11 @@
   ;; imenu
   (add-hook 'org-mode-hook
             (lambda () (imenu-add-to-menubar "Imenu")))
+
+  ;; auto-insert
+  (when (featurep 'auto-insert)
+    (add-to-list 'auto-insert-alist '("bug.*\\.org$" . ["template_bug.org" my-template]))
+    )
   )
 
 
