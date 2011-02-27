@@ -25,10 +25,12 @@
 
 
 ;;;; anything
-'(add-hook 'shell-mode-hook
-           (lambda ()
-             (make-variable-buffer-local 'anything-sources)
-             (add-to-list 'anything-sources 'anything-c-source-complete-shell-history)))
+(when (featurep 'anything)
+  (add-to-list 'anything-mode-specific-alist
+               '(shell-mode . (
+                               anything-c-source-complete-shell-history
+                               )))
+  )
 
 
 ;;;; multi-term
