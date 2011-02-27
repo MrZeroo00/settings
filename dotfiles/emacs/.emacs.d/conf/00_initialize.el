@@ -103,7 +103,6 @@
   (set-scroll-bar-mode 'right))
 (setq visible-bell t)
 (defalias 'yes-or-no-p 'y-or-n-p)
-'(global-auto-revert-mode)
 (setq message-log-max 1000)
 (setq diff-switches "-u")
 '(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
