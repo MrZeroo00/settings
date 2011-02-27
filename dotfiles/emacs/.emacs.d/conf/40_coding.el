@@ -28,9 +28,40 @@
       ))
 
 
+;;;; brackets
+;;;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
+(my-load-and-when "brackets")
+
+
 ;;;; comment
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
 (setq comment-style 'multi-line)
+
+
+;;;; smartchr
+;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
+(my-require-and-when 'smartchr
+  (global-set-key (kbd "=") (smartchr '(" = " " == " " === " "=")))
+;;;  (global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
+;;;  (global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
+;;;  (global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
+  )
+
+
+;;;; doxymacs
+(my-require-and-when 'doxymacs)
+
+
+;;;; develock (emphasize bad coding convention)
+;;;; http://www.jpl.org/elips/develock.el.gz
+(my-require-and-when 'develock
+  (setq develock-auto-enable nil))
+
+
+;;;; jaspace
+;;;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
+(my-require-and-when 'jaspace
+  (setq jaspace-modes nil))
 
 
 ;;;; debug
@@ -159,25 +190,6 @@
       (setq header-line-format which-func-header-line-format))))
 
 
-;;;; smartchr
-;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
-(my-require-and-when 'smartchr
-  (global-set-key (kbd "=") (smartchr '(" = " " == " " === " "=")))
-;;;  (global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
-;;;  (global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
-;;;  (global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
-  )
-
-
-;;;; brackets
-;;;(install-elisp "http://www.mcl.chem.tohoku.ac.jp/~nakai/emacs/site-lisp/brackets.el")
-(my-load-and-when "brackets")
-
-
-;;;; doxymacs
-(my-require-and-when 'doxymacs)
-
-
 ;;;; ediff
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
@@ -231,18 +243,6 @@
 ;;;(install-elisp-from-emacswiki "usage-memo.el")
 '(my-require-and-when 'usage-memo
   (umemo-initialize))
-
-
-;;;; develock (emphasize bad coding convention)
-;;;; http://www.jpl.org/elips/develock.el.gz
-(my-require-and-when 'develock
-  (setq develock-auto-enable nil))
-
-
-;;;; jaspace
-;;;(install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
-(my-require-and-when 'jaspace
-  (setq jaspace-modes nil))
 
 
 ;;;; face-list
