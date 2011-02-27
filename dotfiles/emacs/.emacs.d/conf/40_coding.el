@@ -129,8 +129,9 @@
 
 
 ;;;; sr-speedbar
-(install-elisp-from-emacswiki "sr-speedbar.el")
+;;;;(install-elisp-from-emacswiki "sr-speedbar.el")
 (my-require-and-when 'sr-speedbar
+  (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
   (setq sr-speedbar-right-side nil)
   )
 
