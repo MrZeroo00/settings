@@ -68,8 +68,9 @@
 ;;;; alpaca
 ;;;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
 '(my-autoload-and-when 'alpaca-after-find-file "alpaca"
-                      (setq alpaca-cache-passphrase t))
-;;;(add-hook 'find-file-hooks 'alpaca-after-find-file)
+  (if (fboundp 'epa-file-disable) (epa-file-disable))
+  (setq alpaca-cache-passphrase t))
+'(add-hook 'find-file-hooks 'alpaca-after-find-file)
 
 
 ;;;; clwiki
