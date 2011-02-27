@@ -1,4 +1,19 @@
 (my-require-and-when 'cc-mode
+  ;; anything
+  (when (featurep 'anything)
+    (add-to-list 'anything-mode-specific-alist
+                 '(c-mode . (
+                             ;;anything-c-source-yasnippet
+                             anything-c-source-imenu
+                             ;;anything-c-source-gtags-select
+                             ))
+                 '(c++-mode . (
+                               ;;anything-c-source-yasnippet
+                               anything-c-source-imenu
+                               ;;anything-c-source-gtags-select
+                               )))
+    )
+
   ;; flymake
   (when (featurep 'flymake)
     (defun my-flymake-gcc-init ()
@@ -57,22 +72,6 @@
   (define-key c-mode-map "\C-c]" 'insert-brackets-region)
   (define-key c-mode-map "\C-c\"" 'insert-double-quotation-region)
   (setq imenu-create-index-function 'imenu-default-create-index-function)
-
-  ;; anything
-  (when (featurep 'anything)
-    (make-variable-buffer-local 'anything-mode-specific-alist)
-    (add-to-list 'anything-mode-specific-alist
-                 '(c-mode . (
-                             ;;anything-c-source-yasnippet
-                             anything-c-source-imenu
-                             ;;anything-c-source-gtags-select
-                             ))
-                 '(c++-mode . (
-                               ;;anything-c-source-yasnippet
-                               anything-c-source-imenu
-                               ;;anything-c-source-gtags-select
-                               )))
-    )
 
   ;; auto-complete
   (when (featurep 'auto-complete)
