@@ -14,6 +14,18 @@
 '(setq yas/trigger-key "TAB")
 '(my-require-and-when 'yasnippet-config
   (yas/setup "~/.emacs.d/elisp/yasnippet"))
+(my-eval-after-load "yasnippet"
+  ;; http://d.hatena.ne.jp/rubikitch/20101204/yasnippet
+  (defun yas/expand-link (key)
+    "Hyperlink function for yasnippet expansion."
+    (delete-region (point-at-bol) (1+ (point-at-eol)))
+    (insert key)
+    (yas/expand))
+  (defun yas/expand-link-choice (&rest keys)
+    "Hyperlink to select yasnippet template."
+    (yas/expand-link (completing-read "Select template: " keys nil t)))
+  ;; (yas/expand-link-choice "defgp" "defcm")
+  )
 
 
 ;;;; auto-complete
