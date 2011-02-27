@@ -77,7 +77,7 @@
 (when run-darwin
   (setq interprogram-paste-function
         (lambda ()
-          (let ((text (shell-command-to-string "pbpaste")))
+          (let ((text (shell-command-to-string "cbpaste")))
             (if (string= prev-yanked-text text)
                 nil
               (setq prev-yanked-text text))))))
