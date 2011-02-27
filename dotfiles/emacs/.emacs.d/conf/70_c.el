@@ -52,15 +52,15 @@
 (when (memq major-mode '(c-mode c++-mode))
   ;; common setting
   (c-set-style "k&r")
-  '(c-set-offset 'substatement-open 0)
-  '(c-set-offset 'case-label '+)
-  '(c-set-offset 'arglist-cont-nonempty '+)
-  '(c-set-offset 'arglist-intro '+)
-  '(c-set-offset 'topmost-intro-cont '+)
-  '(c-set-offset 'arglist-close 0)
+  ;;(c-set-offset 'substatement-open 0)
+  ;;(c-set-offset 'case-label '+)
+  ;;(c-set-offset 'arglist-cont-nonempty '+)
+  ;;(c-set-offset 'arglist-intro '+)
+  ;;(c-set-offset 'topmost-intro-cont '+)
+  ;;(c-set-offset 'arglist-close 0)
   (setq c-basic-offset tab-width)
   (setq show-trailing-whitespace t)
-  '(c-toggle-auto-hungry-state 1)
+  ;;(c-toggle-auto-hungry-state 1)
   (define-key c-mode-base-map "\C-m" 'newline-and-indent)
   (define-key c-mode-map "{" 'insert-braces)
   (define-key c-mode-map "(" 'insert-parens)
@@ -101,15 +101,15 @@
 
   ;; eldoc
   ;;(install-elisp-from-emacswiki "c-eldoc.el")
-  '(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
   ;; http://github.com/nflath/cache
-  '(my-require-and-when 'cache
-     (my-require-and-when 'c-eldoc
-       (c-turn-on-eldoc-mode)
-       (when run-darwin
-         (setq c-eldoc-cpp-command "/usr/bin/cpp"))
-       )
-     )
+  (my-require-and-when 'cache
+    (my-require-and-when 'c-eldoc
+      (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I/usr/include -I./ -I../")
+      (c-turn-on-eldoc-mode)
+      (when run-darwin
+        (setq c-eldoc-cpp-command "/usr/bin/cpp"))
+      )
+    )
 
   ;; hs-minor-mode
   (when (featurep 'hideshow)
