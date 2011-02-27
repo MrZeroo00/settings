@@ -7,13 +7,6 @@
 (setq delete-by-moving-to-trash t)
 
 
-;;;; sorter (sort file list)
-;;;(install-elisp "http://www.meadowy.org/~shirai/elips/sorter.el")
-(add-hook 'dired-load-hook
-          (lambda ()
-            (my-require-and-when 'sorter)))
-
-
 ;;;; dired-x
 (my-require-and-when 'dired-x)
 
@@ -32,16 +25,23 @@
          ))
 
 
-;;;; my-dired-mode
-;;;(install-elisp "http://www.bookshelf.jp/elc/my-dired-mode.el")
-'(my-load-and-when "my-dired-mode")
-
-
 ;;;; wdired (rename file name from dired buffer)
 ;;;(install-elisp-from-emacswiki "wdired.el")
 (my-require-and-when 'wdired
   ;;(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
   )
+
+
+;;;; my-dired-mode
+;;;(install-elisp "http://www.bookshelf.jp/elc/my-dired-mode.el")
+'(my-load-and-when "my-dired-mode")
+
+
+;;;; sorter (sort file list)
+;;;(install-elisp "http://www.meadowy.org/~shirai/elips/sorter.el")
+(add-hook 'dired-load-hook
+          (lambda ()
+            (my-require-and-when 'sorter)))
 
 
 ;;;; bf-mode (show file content)
