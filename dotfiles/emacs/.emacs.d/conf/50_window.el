@@ -7,8 +7,9 @@
 
 ;;;; e2wm
 ;;;(install-elisp "http://github.com/kiwanami/emacs-window-manager/raw/master/e2wm.el")
+;;;(install-elisp "https://github.com/kiwanami/emacs-window-manager/raw/master/e2wm-config.el")
 ;;;(install-elisp "http://github.com/kiwanami/emacs-window-layout/raw/master/window-layout.el")
-(my-require-and-when 'e2wm
+(my-require-and-when 'e2wm-config
   (global-set-key (kbd "M-+") 'e2wm:start-management)
 
   ;; patch for widen-window
