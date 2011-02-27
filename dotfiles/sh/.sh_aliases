@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # enable color support of ls and also add handy aliases
-if [ "${TERM}" != "dumb" ]; then
-  #eval "`dircolors -b`"
-  alias ls='ls -G'
-  #alias dir='ls --color=auto --format=vertical'
-  #alias vdir='ls --color=auto --format=long'
-fi
+#if [ "${TERM}" != "dumb" ]; then
+#  #eval "`dircolors -b`"
+#  alias ls='ls -G'
+#  #alias dir='ls --color=auto --format=vertical'
+#  #alias vdir='ls --color=auto --format=long'
+#fi
 
 # some more ls aliases
 alias ll='ls -l'
@@ -26,6 +26,7 @@ alias sl='ls'
 alias gdb='gdb -silent'
 alias gvim-remote='gvim --remote-silent'
 alias grep='egrep'
+alias ls='ls --color=auto'
 alias mysql='mysql --table'
 alias rm='rm -i'
 alias psgrep='ps aux | egrep'
