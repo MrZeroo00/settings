@@ -8,3 +8,8 @@
   (color-theme-clarity))
 (when (not window-system)
   (set-face-background 'highlight "blue"))
+
+
+;;;; term
+(setq term-default-fg-color nil)
+(setq term-default-bg-color nil)
