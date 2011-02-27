@@ -251,7 +251,7 @@
 
 ;;;; a-menu
 ;;;; http://homepage.mac.com/zenitani/comp-e.html
-;;;(my-require-and-when 'a-menu)
+'(my-require-and-when 'a-menu)
 
 
 ;;;; macros
