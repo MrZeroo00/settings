@@ -1,3 +1,6 @@
+(setq search-highlight t)
+(setq query-replace-highlight t)
+(my-require-and-when 'hi-lock)
 (setq search-invisible 'open)
 (setq grep-find-command "find . -type f ! -name '*,v' ! -name '*~' ! -name '*.o' ! -name '*.a' ! -name '*.so' ! -name '*.class' ! -name '*.jar' ! -name 'semantic.cache' ! -path '*.deps*' ! -path '*/obsolete/*' ! -path '*/.svn/*' ! -path '*/CVS/*' -print0 | xargs -0 -e grep -n -e ")
 (setq grep-host-defaults-alist nil)
@@ -118,6 +121,3 @@
   (define-key isearch-mode-map "\C-o" 'isearch-real-delete-char))
 ;;;(my-load-and-when "_isearch-forward-comment-only")
 '(my-load-and-when "_my-igrep")
-
-
-;; -*-no-byte-compile: t; -*-

@@ -125,12 +125,6 @@
   (set-face-background 'highlight "blue"))
 
 
-;;;; highlight setting
-(setq search-highlight t)
-(setq query-replace-highlight t)
-(my-require-and-when 'hi-lock)
-
-
 ;;;; scroll setting
 '(setq scroll-conservatively 35)
 '(setq scroll-margin 0)
