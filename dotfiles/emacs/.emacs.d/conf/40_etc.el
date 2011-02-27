@@ -3,10 +3,6 @@
 (my-require-and-when 'lacarte)
 
 
-;;;; autoarg
-;;;(my-require-and-when 'autoarg)
-
-
 ;;;; thing-opt
 (my-require-and-when 'thingatpt)
 ;;;(install-elisp-from-emacswiki "thing-opt.el")

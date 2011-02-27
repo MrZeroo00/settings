@@ -2,7 +2,7 @@
 (global-set-key "\C-m" 'newline-and-indent)
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-s" 'search-forward-regexp)
-;;;(global-set-key "\M-m" 'blink-matching-open)
+'(global-set-key "\M-m" 'blink-matching-open)
 (global-set-key [mouse-3] 'yank)
 
 
@@ -45,13 +45,14 @@
   (define-key esc-map "l" 'seq-downcase-backward-word))
 
 
-;;;; unbound
-;;;(install-elisp-from-emacswiki "unbound.el")
-;;;(my-require-and-when 'unbound)
+;;;; autoarg
+'(my-require-and-when 'autoarg)
 
 
 ;;;; viper
-;;;(my-require-and-when 'viper)
+'(my-require-and-when 'viper)
 
 
-;; -*-no-byte-compile: t; -*-
+;;;; unbound
+'(install-elisp-from-emacswiki "unbound.el")
+'(my-require-and-when 'unbound)
