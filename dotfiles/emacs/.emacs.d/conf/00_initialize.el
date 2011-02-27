@@ -147,8 +147,11 @@
 (setq inhibit-startup-message t)
 '(setq inhibit-default-init t)
 (setq frame-title-format "%b")
-'(menu-bar-mode nil)
-'(msb-mode t)
+(menu-bar-mode nil)
+(when window-system
+  (tool-bar-mode nil)
+  (msb-mode t)
+  (set-scroll-bar-mode 'right))
 (setq visible-bell t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq line-move-visual nil)
@@ -160,9 +163,6 @@
 (setq diff-switches "-u")
 '(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 (setq gc-cons-threshold 3500000)
-(when window-system
-  (tool-bar-mode nil)
-  (set-scroll-bar-mode 'right))
 (setq max-lisp-eval-depth 10000)
 (setq max-specpdl-size 50000)
 
