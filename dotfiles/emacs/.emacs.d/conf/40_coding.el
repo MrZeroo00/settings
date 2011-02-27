@@ -63,13 +63,6 @@
     (raise-frame (selected-frame))))
 
 
-;;;; generic (coloring generic files)
-'(my-require-and-when 'generic-x
-  ;; association setting
-  (add-to-list 'auto-mode-alist '("\\.bat$" . bat-generic-mode))
-  (add-to-list 'auto-mode-alist '("\\.ini$" . ini-generic-mode)))
-
-
 ;;;; cedet
 ;;;; http://cedet.sourceforge.net/
 '(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el"
@@ -194,10 +187,6 @@
 (my-require-and-when 'doxymacs)
 
 
-;;;; graphviz
-(my-load-and-when "graphviz-dot-mode")
-
-
 ;;;; ediff
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
@@ -298,15 +287,6 @@
             (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
 ;;;            (outline-minor-mode t)
             (turn-on-orgstruct)))
-
-
-;;;; pov-mode
-;;;; http://www.acc.umu.se/~woormie/povray/
-;;;(my-autoload-and-when 'pov-mode "pov-mode.el")
-'(setq auto-mode-alist
-      (append '(("\\.pov$" . pov-mode)
-  	("\\.inc$" . pov-mode)
-  	) auto-mode-alist))
 
 
 ;;;; color
