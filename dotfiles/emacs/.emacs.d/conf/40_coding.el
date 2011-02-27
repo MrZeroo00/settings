@@ -128,6 +128,13 @@
 (my-require-and-when 'imenu)
 
 
+;;;; sr-speedbar
+(install-elisp-from-emacswiki "sr-speedbar.el")
+(my-require-and-when 'sr-speedbar
+  (setq sr-speedbar-right-side nil)
+  )
+
+
 ;;;; speedbar
 '(my-require-and-when 'speedbar)
 
