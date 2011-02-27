@@ -64,58 +64,19 @@
   (setq jaspace-modes nil))
 
 
-;;;; debug
-(my-require-and-when 'gud
-  (setq gud-gdb-command-name "gdb -annotate=3")
-  ;;(setq gud-chdir-before-run nil)
-  (setq gud-tooltip-echo-area nil)
-  (setq gdb-many-windows t)
-  (setq gdb-use-separate-io-buffer t)
+;;;; ediff
+(my-require-and-when 'ediff
+  (setq-default ediff-auto-refine-limit 10000)
+  (setq ediff-split-window-function (lambda (&optional arg)
+  			      (if (> (frame-width) 150)
+  				  (split-window-horizontally arg)
+  				(split-window-vertically arg))))
 
-  (defun my-gdb-mode-hook ()
-    (gud-tooltip-mode t))
-  (add-hook 'gdb-mode-hook 'my-gdb-mode-hook)
-
-  (when gdb-many-windows
-    (defvar my-gud-window-configuration nil)
-    (defun my-gud-save-window-configuration ()
-      (setq my-gud-window-configuration (current-window-configuration)))
-    (defun my-gud-restore-window-configuration ()
-      (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
-        ;; gud-関係の場合
-        (when (window-configuration-p my-gud-window-configuration)
-          (set-window-configuration my-gud-window-configuration)
-          (setq my-gud-window-configuration nil))))
-    (add-hook 'gud-mode-hook 'my-gud-save-window-configuration)
-    (add-hook 'kill-buffer-hook 'my-gud-restore-window-configuration))
-
-  (defadvice gud-display-line
-    (after raise-after-gud-display-line activate)
-    (raise-frame (selected-frame))))
-
-
-;;;; cedet
-;;;; http://cedet.sourceforge.net/
-'(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el"
-  (global-ede-mode 1)
-;;;  (ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
-  (semantic-load-enable-minimum-features)
-  (semantic-load-enable-code-helpers)
-;;;  (semantic-load-enable-gaudy-code-helpers)
-;;;  (semantic-load-enable-all-exuberent-ctags-support)
-;;;  (global-srecode-minor-mode 1)
-  )
-
-
-;;;; ecb
-;;;; http://ecb.sourceforge.net/
-;;;(my-require-and-when 'ecb-autoloads)
-
-
-;;;; textmate
-;;;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
-'(my-require-and-when 'textmate
-  (textmate-mode))
+  (defun command-line-diff (switch)
+    (let ((file1 (pop command-line-args-left))
+    (file2 (pop command-line-args-left)))
+      (ediff file1 file2)))
+  (add-to-list 'command-switch-alist '("diff" . command-line-diff)))
 
 
 ;;;; ctags
@@ -190,19 +151,58 @@
       (setq header-line-format which-func-header-line-format))))
 
 
-;;;; ediff
-(my-require-and-when 'ediff
-  (setq-default ediff-auto-refine-limit 10000)
-  (setq ediff-split-window-function (lambda (&optional arg)
-  			      (if (> (frame-width) 150)
-  				  (split-window-horizontally arg)
-  				(split-window-vertically arg))))
+;;;; debug
+(my-require-and-when 'gud
+  (setq gud-gdb-command-name "gdb -annotate=3")
+  ;;(setq gud-chdir-before-run nil)
+  (setq gud-tooltip-echo-area nil)
+  (setq gdb-many-windows t)
+  (setq gdb-use-separate-io-buffer t)
 
-  (defun command-line-diff (switch)
-    (let ((file1 (pop command-line-args-left))
-    (file2 (pop command-line-args-left)))
-      (ediff file1 file2)))
-  (add-to-list 'command-switch-alist '("diff" . command-line-diff)))
+  (defun my-gdb-mode-hook ()
+    (gud-tooltip-mode t))
+  (add-hook 'gdb-mode-hook 'my-gdb-mode-hook)
+
+  (when gdb-many-windows
+    (defvar my-gud-window-configuration nil)
+    (defun my-gud-save-window-configuration ()
+      (setq my-gud-window-configuration (current-window-configuration)))
+    (defun my-gud-restore-window-configuration ()
+      (when (string-match " \*gud-.+" (buffer-name (current-buffer)))
+        ;; gud-関係の場合
+        (when (window-configuration-p my-gud-window-configuration)
+          (set-window-configuration my-gud-window-configuration)
+          (setq my-gud-window-configuration nil))))
+    (add-hook 'gud-mode-hook 'my-gud-save-window-configuration)
+    (add-hook 'kill-buffer-hook 'my-gud-restore-window-configuration))
+
+  (defadvice gud-display-line
+    (after raise-after-gud-display-line activate)
+    (raise-frame (selected-frame))))
+
+
+;;;; cedet
+;;;; http://cedet.sourceforge.net/
+'(my-load-and-when "~/local/share/emacs/site-lisp/cedet/common/cedet.el"
+  (global-ede-mode 1)
+;;;  (ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
+  (semantic-load-enable-minimum-features)
+  (semantic-load-enable-code-helpers)
+;;;  (semantic-load-enable-gaudy-code-helpers)
+;;;  (semantic-load-enable-all-exuberent-ctags-support)
+;;;  (global-srecode-minor-mode 1)
+  )
+
+
+;;;; ecb
+;;;; http://ecb.sourceforge.net/
+;;;(my-require-and-when 'ecb-autoloads)
+
+
+;;;; textmate
+;;;(install-elisp "http://github.com/defunkt/textmate.el/raw/master/textmate.el")
+'(my-require-and-when 'textmate
+  (textmate-mode))
 
 
 ;;;; test-case-mode
