@@ -94,7 +94,6 @@
 
 ;;;; Etc
 (setq inhibit-startup-message t)
-'(setq inhibit-default-init t)
 (setq frame-title-format "%b")
 (menu-bar-mode nil)
 (when window-system
@@ -107,6 +106,7 @@
 (setq gc-cons-threshold 3500000)
 (setq max-lisp-eval-depth 10000)
 (setq max-specpdl-size 50000)
+'(setq inhibit-default-init t)
 
 
 ;;;; pit
