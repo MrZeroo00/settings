@@ -4,9 +4,9 @@ if [ -f ${HOME}/.shrc ]; then
 fi
 
 
-if [ -n "${EMACS}" ]; then
-  unsetopt zle
-fi
+#if [ -n "${EMACS}" ]; then
+#  unsetopt zle
+#fi
 
 
 # aliases
