@@ -15,5 +15,5 @@ $content = decode($encode->name, $content) unless (utf8::is_utf8($content));
 my $tree = HTML::TreeBuilder::XPath->new;
 $tree->parse($content);
 my @items = $tree->findnodes($xpath);
-my @results = map { encode($encode->name, $_->as_text) } @items;
+my @results = map { encode($encode->name, $_->as_HTML) } @items;
 print join("\n", @results);
