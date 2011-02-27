@@ -25,6 +25,12 @@
   (my-load-and-when "_hs-hide-all-comments"))
 
 
+;;;; stripes
+;;;(install-elisp-from-emacswiki "stripes.el")
+'(my-require-and-when 'stripes
+  (set-face-background 'stripes-face "gray"))
+
+
 ;;;; cua-mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)

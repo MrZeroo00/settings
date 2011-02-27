@@ -73,12 +73,6 @@
                       (setq postit-compress-commands nil))
 
 
-;;;; stripes
-;;;(install-elisp-from-emacswiki "stripes.el")
-'(my-require-and-when 'stripes
-  (set-face-background 'stripes-face "gray"))
-
-
 ;;;; edit-list
 ;;;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
 ;;;(my-require-and-when 'edit-list)
