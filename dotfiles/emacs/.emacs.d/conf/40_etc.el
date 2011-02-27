@@ -65,11 +65,6 @@
   )
 
 
-;;;; sense-region
-;;;(install-elisp "http://taiyaki.org/elisp/sense-region/src/sense-region.el")
-'(my-autoload-and-when 'sense-region-on "sense-region")
-
-
 ;;;; alpaca
 ;;;(install-elisp "http://www.mew.org/~kazu/proj/cipher/alpaca.el")
 '(my-autoload-and-when 'alpaca-after-find-file "alpaca"
