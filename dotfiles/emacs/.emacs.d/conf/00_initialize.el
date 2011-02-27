@@ -154,7 +154,6 @@
   (set-scroll-bar-mode 'right))
 (setq visible-bell t)
 (defalias 'yes-or-no-p 'y-or-n-p)
-(setq line-move-visual nil)
 '(global-auto-revert-mode)
 (setq history-length t)
 (setq undo-limit 100000)

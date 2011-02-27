@@ -1,3 +1,4 @@
+(setq line-move-visual nil)
 (setq kill-whole-line t)
 (setq kill-read-only-ok t)
 (setq next-line-add-newlines nil)
