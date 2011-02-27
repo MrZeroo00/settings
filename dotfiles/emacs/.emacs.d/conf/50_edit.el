@@ -92,3 +92,14 @@
       (message "done.")))
 
   (add-hook 'find-file-not-found-hooks 'auto-insert))
+
+
+;;;; keisen-mule
+;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=keisen
+'(if window-system
+    (my-autoload-and-when 'keisen-mode "keisen-mouse")
+  (my-autoload-and-when 'keisen-mode "keisen-mule"))
+
+
+;;;; enriched-mode
+'(my-require-and-when 'enriched)
