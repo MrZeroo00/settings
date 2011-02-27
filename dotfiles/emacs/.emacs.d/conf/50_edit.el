@@ -33,8 +33,12 @@
 
 
 ;;;; wrap-region
-;;;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
-(my-require-and-when 'wrap-region)
+;;;(install-elisp "https://github.com/rejeep/wrap-region/raw/master/wrap-region.el")
+(my-require-and-when 'wrap-region
+  (wrap-region-global-mode t)
+  ;;(add-to-list 'wrap-region-tag-active-modes 'some-tag-mode)
+  ;;(add-to-list 'wrap-region-except-modes 'conflicting-mode)
+  )
 
 
 ;;;; align (align code)
