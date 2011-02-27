@@ -104,7 +104,6 @@
 (setq visible-bell t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq message-log-max 1000)
-(setq diff-switches "-u")
 (setq gc-cons-threshold 3500000)
 (setq max-lisp-eval-depth 10000)
 (setq max-specpdl-size 50000)

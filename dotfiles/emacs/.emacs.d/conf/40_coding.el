@@ -64,7 +64,8 @@
   (setq jaspace-modes nil))
 
 
-;;;; ediff
+;;;; diff
+(setq diff-switches "-u")
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
   (setq ediff-split-window-function (lambda (&optional arg)
