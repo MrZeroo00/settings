@@ -56,7 +56,7 @@
   (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
   (add-hook 'dired-mode-hook
             (lambda ()
-               (local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)))
+              (local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)))
   (global-set-key (kbd "C-M-s") 'anything-c-moccur-isearch-forward)
   (global-set-key (kbd "C-M-r") 'anything-c-moccur-isearch-backward)
   )
@@ -287,6 +287,3 @@
 (my-load-and-when "_anything-c-source-other-windows")
 ;;; http://gist.github.com/315995
 (my-load-and-when "_any-source-visible-mark")
-
-
-;; -*-no-byte-compile: t; -*-
