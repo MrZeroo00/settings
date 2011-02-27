@@ -16,7 +16,7 @@
   (setq org-agenda-files (list "~/memo/todo.org"))
   (setq org-archive-location "::* Archived")
   (setq org-log-done t)
-;;;  (setq org-startup-folded t)
+  ;;(setq org-startup-folded t)
   (setq org-hide-leading-stars t)
   (setq org-deadline-warning-days 7)
 
@@ -137,35 +137,34 @@
            "** CODE %?\n   %i\n   %a\n   %t")))
   (global-set-key (kbd "C-c c") 'org-capture)
 
+  ;; anything
+  (when (featurep 'anything)
+    (add-to-list 'anything-mode-specific-alist
+                 '(org-mode . (
+                               anything-c-source-org-todo-state
+                               anything-c-source-org-headline
+                               )))
+    )
 
-;;;; imenu
+  ;; imenu
   (add-hook 'org-mode-hook
             (lambda () (imenu-add-to-menubar "Imenu")))
   )
 
 
-;;;; anything
-'(add-hook 'org-mode-hook
-          (lambda ()
-			(make-variable-buffer-local 'anything-sources)
-			(add-to-list 'anything-sources 'anything-c-source-org-todo-state t)
-			(add-to-list 'anything-sources 'anything-c-source-org-headline t)
-			))
-
-
 ;;;; remember
 ;;;; https://gna.org/p/remember-el
-;;;(org-remember-insinuate)
-;;;(my-require-and-when 'remember
-;;;  (setq remember-annotation-functions '(org-remember-annotation))
-;;;  (setq remember-handler-functions '(org-remember-handler))
-;;;  (add-hook 'remember-mode-hook 'org-remember-apply-template)
-;;;
-;;;  (setq org-remember-templates
-;;;  '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
-;;;    ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
-;;;    ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
-;;;    )))
+'(org-remember-insinuate)
+'(my-require-and-when 'remember
+  (setq remember-annotation-functions '(org-remember-annotation))
+  (setq remember-handler-functions '(org-remember-handler))
+  (add-hook 'remember-mode-hook 'org-remember-apply-template)
+
+  (setq org-remember-templates
+        '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
+          ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
+          ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
+          )))
 
 
 ;;;; freemind
@@ -182,9 +181,6 @@
   (defadvice org-update-checkbox-count (around wicked activate)
     "Fix the built-in checkbox count to understand headlines."
     (setq ad-return-value
-    (wicked/org-update-checkbox-count (ad-get-arg 1)))))
+          (wicked/org-update-checkbox-count (ad-get-arg 1)))))
 (my-load-and-when "_org-summary-todo")
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
-
-
-;; -*-no-byte-compile: t; -*-
