@@ -51,7 +51,8 @@
 (my-require-and-when 'align)
 
 
-;;;; auto-insert (insert template code)
+;;;; autoinsert (insert template code)
+;;; (install-elisp "http://repo.or.cz/w/emacs.git/blob_plain/HEAD:/lisp/autoinsert.el")
 (my-require-and-when 'autoinsert
   (setq auto-insert-directory "~/.emacs.d/template/")
   (setq auto-insert-query nil)
