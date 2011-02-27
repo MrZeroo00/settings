@@ -9,6 +9,14 @@
 (add-to-list 'grep-find-ignored-directories ".git")
 
 
+;;;; ack
+(setq grep-command "ack -a --nocolor --nogroup ")
+(defun ack ()
+  (interactive)
+  (let ((grep-find-command "ack -a --nocolor --nogroup "))
+    (call-interactively 'grep-find)))
+
+
 ;;;; grep-a-lot
 ;;;(install-elisp-from-emacswiki "grep-a-lot")
 (my-require-and-when 'grep-a-lot

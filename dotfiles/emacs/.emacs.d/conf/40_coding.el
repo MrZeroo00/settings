@@ -156,14 +156,6 @@
 ;;;(my-require-and-when 'simple-call-tree)
 
 
-;;;; use ack
-(setq grep-command "ack -a --nocolor --nogroup ")
-(defun ack ()
-  (interactive)
-  (let ((grep-find-command "ack -a --nocolor --nogroup "))
-    (call-interactively 'grep-find)))
-
-
 ;;;; speedbar
 ;;;(my-require-and-when 'speedbar)
 
