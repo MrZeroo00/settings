@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case "`uname`" in
+  "Linux")
+  if [ -f "`which xclip`" ]; then
+    xsel -b -o
+  fi
+  ;;
+  "Darwin")
+  pbpaste
+  ;;
+esac
