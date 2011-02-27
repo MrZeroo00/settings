@@ -135,13 +135,6 @@
   (auto-insert-mode t)
   (setq auto-insert-directory "~/.emacs.d/template/")
   (setq auto-insert-query nil)
-  (setq auto-insert-alist
-        (nconc '(
-                 ;;("\\.c$" . ["template.c" my-template])
-                 ;;("\\.rb$" . ["template.sh"
-                 ;;             (lambda() (my-template-exec "/usr/bin/ruby"))
-                 ;;             my-template]))
-                 ) auto-insert-alist))
 
   (my-require-and-when 'cl
     (defvar template-replacements-alists
