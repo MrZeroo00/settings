@@ -7,19 +7,6 @@
 (setq delete-by-moving-to-trash t)
 
 
-;;;; ls-lisp
-(when run-w32
-  (my-require-and-when 'ls-lisp
-    (setq ls-lisp-dirs-first t)))
-
-
-;;;; find-dired-lisp (filter file list)
-;;;(install-elisp "http://www.bookshelf.jp/elc/find-dired-lisp.el")
-(when run-w32
-  (my-autoload-and-when 'find-dired-lisp "find-dired-lisp")
-  (my-autoload-and-when 'find-grep-dired-lisp "find-dired-lisp"))
-
-
 ;;;; sorter (sort file list)
 ;;;(install-elisp "http://www.meadowy.org/~shirai/elips/sorter.el")
 (add-hook 'dired-load-hook
@@ -72,21 +59,18 @@
 
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=dired%20single
 '(progn
-  (defvar my-dired-before-buffer nil)
-  (defadvice dired-advertised-find-file
+   (defvar my-dired-before-buffer nil)
+   (defadvice dired-advertised-find-file
      (before kill-dired-buffer activate)
      (setq my-dired-before-buffer (current-buffer)))
-  
-  (defadvice dired-advertised-find-file
+   (defadvice dired-advertised-find-file
      (after kill-dired-buffer-after activate)
      (if (eq major-mode 'dired-mode)
          (kill-buffer my-dired-before-buffer)))
-  
-  (defadvice dired-up-directory
+   (defadvice dired-up-directory
      (before kill-up-dired-buffer activate)
      (setq my-dired-before-buffer (current-buffer)))
-  
-  (defadvice dired-up-directory
+   (defadvice dired-up-directory
      (after kill-up-dired-buffer-after activate)
      (if (eq major-mode 'dired-mode)
          (kill-buffer my-dired-before-buffer))))
@@ -98,6 +82,19 @@
    (ad-set-arg 0 (concat (ad-get-arg 0) "h"))
    ad-do-it
    (setq dired-actual-switches (dired-replace-in-string "h" "" dired-actual-switches)))
+
+
+;;;; ls-lisp
+(when run-w32
+  (my-require-and-when 'ls-lisp
+    (setq ls-lisp-dirs-first t)))
+
+
+;;;; find-dired-lisp (filter file list)
+;;;(install-elisp "http://www.bookshelf.jp/elc/find-dired-lisp.el")
+(when run-w32
+  (my-autoload-and-when 'find-dired-lisp "find-dired-lisp")
+  (my-autoload-and-when 'find-grep-dired-lisp "find-dired-lisp"))
 
 
 ;;;; macros
