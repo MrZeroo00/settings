@@ -195,7 +195,7 @@
 ;;;(menu-bar-mode nil)
 ;;;(msb-mode t)
 (setq visible-bell t)
-;;;(fset 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p 'y-or-n-p)
 (setq line-move-visual nil)
 (auto-insert-mode t)
 ;;;(global-auto-revert-mode)
