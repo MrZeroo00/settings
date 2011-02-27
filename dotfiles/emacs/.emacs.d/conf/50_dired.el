@@ -3,13 +3,11 @@
 '(setq dired-listing-switches "-AFl")
 (setq dired-listing-switches "-Alph")
 (setq find-ls-option '("-exec ls -AFGl {} \\;" . "-AFGl"))
-(setq grep-find-command "find . -type f -print0 | xargs -0 -e grep -ns ")
 (setq delete-by-moving-to-trash t)
 
 
 ;;;; dired-x
 (my-require-and-when 'dired-x)
-
 '(setq dired-guess-shell-alist-user
        '(("\\.tar\\.gz\\'" "tar ztvf")
          ("\\.taz\\'" "tar ztvf")
