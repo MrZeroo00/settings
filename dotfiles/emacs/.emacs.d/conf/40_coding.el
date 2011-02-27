@@ -198,37 +198,6 @@
 (my-load-and-when "brackets")
 
 
-;;;; eldoc
-(my-autoload-and-when 'turn-on-eldoc-mode "eldoc"
-                      (setq eldoc-idle-delay 0.3)
-                      (setq eldoc-echo-area-use-multiline-p t))
-
-
-;;;; eldoc-extension
-;;;(install-elisp-from-emacswiki "eldoc-extension.el")
-(my-require-and-when 'eldoc-extension
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode))
-
-
-;;;; info-look
-(my-require-and-when 'info-look)
-
-
-;;;; gtk-look
-;;;(install-elisp "http://www.geocities.com/user42_kevin/gtk-look/gtk-look.el.txt")
-'(my-autoload-and-when 'gtk-lookup-symbol "gtk-look"
-  	      (when run-linux
-  		(setq gtk-lookup-devhelp-indices
-  		      '("/usr/share/doc/lib*-doc/*.devhelp*"
-  			"/usr/share/doc/lib*-doc/*/*.devhelp*"
-  			"/usr/share/doc/lib*-doc/*/*/*.devhelp*")))
-  	      (when run-darwin
-  		(setq gtk-lookup-devhelp-indices
-  		      '("/opt/local/share/gtk-doc/html/*/*.devhelp"))))
-
-
 ;;;; doxymacs
 (my-require-and-when 'doxymacs)
 
