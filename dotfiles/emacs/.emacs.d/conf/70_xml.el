@@ -7,6 +7,12 @@
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))
 
 
+;;;; xpath
+;;;(install-elisp-from-emacswiki "xpath.el")
+;;;(install-elisp-from-emacswiki "xpath-parser.el")
+(my-require-and-when 'xpath)
+
+
 ;;;; mode hook
 (defun my-nxml-mode-hook ()
   ;; common setting
