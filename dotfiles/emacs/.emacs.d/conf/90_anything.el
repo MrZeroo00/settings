@@ -10,6 +10,57 @@
 '(my-load-and-when "anything-rubikitch")
 
 
+;;;; anything-kyr
+;;;(install-elisp-from-emacswiki "anything-kyr.el")
+;;;(install-elisp-from-emacswiki "anything-kyr-config.el")
+(my-require-and-when 'anything-kyr-config)
+
+(setq anything-kyr-commands-by-major-mode
+      '((c-mode "recompile" "compile"
+                "gtags-find-file" "gtags-find-rtag"
+                "ff-find-other-file" "align"
+                "develock-mode" "highlight-lines-matching-regexp"
+                "hs-hide-block" "hs-show-block"
+                "hide-ifdef-mode")
+        (ruby-mode "rdefs" "rcov" "rbtest")
+        (emacs-lisp-mode "byte-compile-file"))
+      anything-kyr-commands-by-major-mode)
+
+
+;;;; anything-with-everything
+;;;; (install-elisp "https://github.com/yaotti/anything-with-everything.el/raw/master/anything-with-everything.el")
+(my-require-and-when 'anything-with-everything
+  ;;(defun-anything-function-with-script anything-emacswiki-changes "get-emacswiki-changes.pl")
+  )
+
+
+;;;; anything-match-plugin
+;;;(install-elisp-from-emacswiki "anything-match-plugin.el")
+(my-require-and-when 'anything-match-plugin
+  (setq anything-mp-space-regexp "[\\ ] "))
+
+
+;;;; anything-show-completion
+;;;(install-elisp-from-emacswiki "anything-show-completion.el")
+(setq anything-show-completion-activate nil)
+
+
+;;;; anything-migemo
+;;;(install-elisp-from-emacswiki "anything-migemo.el")
+(my-require-and-when 'anything-migemo
+  (define-key global-map (kbd "C-:") 'anything-migemo))
+
+
+;;;; anything-extension
+;;;(install-elisp-from-emacswiki "anything-extension.el")
+'(my-require-and-when 'anything-extension)
+
+
+;;;; anything-menu
+;;;(install-elisp-from-emacswiki "anything-menu.el")
+(my-require-and-when 'anything-menu)
+
+
 ;;;; ac-anything
 ;;;(install-elisp-from-emacswiki "ac-anything.el")
 (my-require-and-when 'ac-anything
@@ -103,11 +154,6 @@
 '(my-require-and-when 'anything-emms)
 
 
-;;;; anything-extension
-;;;(install-elisp-from-emacswiki "anything-extension.el")
-'(my-require-and-when 'anything-extension)
-
-
 ;;;; anything-grep
 ;;;(install-elisp-from-emacswiki "anything-grep.el")
 (my-require-and-when 'anything-grep
@@ -140,23 +186,6 @@
 (my-require-and-when 'anything-ipa)
 
 
-;;;; anything-match-plugin
-;;;(install-elisp-from-emacswiki "anything-match-plugin.el")
-(my-require-and-when 'anything-match-plugin
-  (setq anything-mp-space-regexp "[\\ ] "))
-
-
-;;;; anything-menu
-;;;(install-elisp-from-emacswiki "anything-menu.el")
-(my-require-and-when 'anything-menu)
-
-
-;;;; anything-migemo
-;;;(install-elisp-from-emacswiki "anything-migemo.el")
-(my-require-and-when 'anything-migemo
-  (define-key global-map (kbd "C-:") 'anything-migemo))
-
-
 ;;;; anything-rurima
 ;;;(install-elisp-from-emacswiki "anything-rurima.el")
 '(my-require-and-when 'anything-rurima
@@ -169,22 +198,10 @@
   (setq rct-get-all-methods-command "PAGER=cat fri -l"))
 
 
-;;;; anything-show-completion
-;;;(install-elisp-from-emacswiki "anything-show-completion.el")
-(setq anything-show-completion-activate nil)
-
-
 ;;;; anything-project
 ;;;; http://github.com/imakado/anything-project
 '(my-require-and-when 'anything-project
   (global-set-key (kbd "C-c C-f") 'anything-project))
-
-
-;;;; anything-with-everything
-;;;; (install-elisp "https://github.com/yaotti/anything-with-everything.el/raw/master/anything-with-everything.el")
-(my-require-and-when 'anything-with-everything
-  ;;(defun-anything-function-with-script anything-emacswiki-changes "get-emacswiki-changes.pl")
-  )
 
 
 ;;;; descbinds-anything
@@ -195,23 +212,6 @@
 
 ;;;; anything-c-key-chord-describe
 (my-load-and-when "_anything-c-key-chord-describe")
-
-
-;;;; anything-kyr
-;;;(install-elisp-from-emacswiki "anything-kyr.el")
-;;;(install-elisp-from-emacswiki "anything-kyr-config.el")
-(my-require-and-when 'anything-kyr-config)
-
-(setq anything-kyr-commands-by-major-mode
-      '((c-mode "recompile" "compile"
-                "gtags-find-file" "gtags-find-rtag"
-                "ff-find-other-file" "align"
-                "develock-mode" "highlight-lines-matching-regexp"
-                "hs-hide-block" "hs-show-block"
-                "hide-ifdef-mode")
-        (ruby-mode "rdefs" "rcov" "rbtest")
-        (emacs-lisp-mode "byte-compile-file"))
-      anything-kyr-commands-by-major-mode)
 
 
 ;;;; basic setting
