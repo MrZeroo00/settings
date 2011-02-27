@@ -10,7 +10,7 @@
 ;;;; xpath
 ;;;(install-elisp-from-emacswiki "xpath.el")
 ;;;(install-elisp-from-emacswiki "xpath-parser.el")
-(my-require-and-when 'xpath)
+'(my-require-and-when 'xpath)
 
 
 ;;;; mode hook
