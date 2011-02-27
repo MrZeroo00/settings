@@ -184,6 +184,11 @@
   (setq rct-get-all-methods-command "PAGER=cat fri -l"))
 
 
+;;;; anything-org-mode
+;;; http://d.hatena.ne.jp/r_takaishi/20101218/1292641216
+(my-require-and-when 'anything-org-mode)
+
+
 ;;;; anything-ipa
 ;;;(install-elisp-from-emacswiki "anything-ipa.el")
 (my-require-and-when 'anything-ipa)
