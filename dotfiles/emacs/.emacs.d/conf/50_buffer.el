@@ -1,4 +1,5 @@
 '(global-auto-revert-mode)
+'(setq special-display-buffer-names '("*Help*" "*compilation*" "*interpretation*" "*Occur*"))
 
 
 ;;;; uniquify (add directory name)
