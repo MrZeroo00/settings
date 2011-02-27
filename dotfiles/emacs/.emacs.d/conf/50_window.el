@@ -5,6 +5,14 @@
 ;;;(global-set-key (quote [kp-4]) (quote windmove-left))
 
 
+;;;; e2wm
+;;;(install-elisp "http://github.com/kiwanami/emacs-window-manager/raw/master/e2wm.el")
+;;;(install-elisp "http://github.com/kiwanami/emacs-window-layout/raw/master/window-layout.el")
+(my-require-and-when 'e2wm
+  (global-set-key (kbd "M-+") 'e2wm:start-management)
+  )
+
+
 ;;;; windows (window manager for Emacs)
 ;;;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=windows%20screen
 ;;;(install-elisp "http://www.gentei.org/~yuuji/software/windows.el")
