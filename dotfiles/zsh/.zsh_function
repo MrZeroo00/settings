@@ -29,13 +29,15 @@ zstyle ':completion:*' recent-dirs-insert both
 
 
 ## change prompt color by return value
-autoload -U colors
-colors
-PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
-_change_prompt_color_by_return_value () {
-  PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
-}
-add-zsh-hook precmd _change_prompt_color_by_return_value
+if [ -z "${EMACS}" ]; then
+  autoload -U colors
+  colors
+  PROMPT="%{$fg[green]%}$LPROMPT%{$reset_color%}"
+  _change_prompt_color_by_return_value () {
+    PROMPT="%{%(?.$fg[green].$fg[red])%}$LPROMPT%{$reset_color%}"
+  }
+  add-zsh-hook precmd _change_prompt_color_by_return_value
+fi
 
 
 ## display vcs info in right prompt
