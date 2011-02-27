@@ -2,16 +2,18 @@
 
 use strict;
 use warnings;
-use XML::LibXML;
-use XML::XPath::XMLParser;
+use Encode;
+use Encode::Guess;
+use HTML::TreeBuilder::XPath;
 
 my $xpath = "$ARGV[0]";
 
-my $parser = XML::LibXML->new;
-my $parsed_file = $parser->parse_file($_);
-my @nodes = $parsed_file->findnodes($xpath);
+my $content = do { local $/; <STDIN> };
+my $encode = guess_encoding($content, qw/ euc-jp shiftjis 7bit-jis /);
+$content = decode($encode->name, $content) unless (utf8::is_utf8($content));
 
-foreach $node (@nodes) {
-  my $str = XML::XPath::XMLParser::as_string($node);
-  print "$str\n";
-}
+my $tree = HTML::TreeBuilder::XPath->new;
+$tree->parse($content);
+my @items = $tree->findnodes($xpath);
+my @results = map { encode($encode->name, $_->as_text) } @items;
+print join("\n", @results);
