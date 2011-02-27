@@ -13,6 +13,16 @@
     (add-to-list 'flymake-allowed-file-name-masks '("\\.php$" flymake-php-init))
     )
 
+  ;; anything
+  (when (featurep 'anything)
+    (add-to-list 'anything-mode-specific-alist
+                 '(php-mode . (
+                               ;;anything-c-source-yasnippet
+                               anything-c-source-imenu
+                               ;;anything-c-source-gtags-select
+                               )))
+    )
+
   ;; align
   (when (featurep 'align)
     (add-to-list 'align-rules-list
@@ -88,17 +98,6 @@
   ;; common setting
   (setq c-basic-offset tab-width)
   '(setq php-mode-force-pear t)
-
-  ;; anything
-  (when (featurep 'anything)
-    (make-variable-buffer-local 'anything-mode-specific-alist)
-    (add-to-list 'anything-mode-specific-alist
-                 '(php-mode . (
-                               ;;anything-c-source-yasnippet
-                               anything-c-source-imenu
-                               ;;anything-c-source-gtags-select
-                               )))
-    )
 
   ;; php-completion
   ;;(install-elisp-from-emacswiki "php-completion.el")
