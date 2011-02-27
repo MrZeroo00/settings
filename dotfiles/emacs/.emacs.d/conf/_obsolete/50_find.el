@@ -1,3 +1,9 @@
+;;;; color-grep
+;;;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
+(my-require-and-when 'color-grep
+  (setq color-grep-sync-kill-buffer t))
+
+
 ;;;; isearch-all
 ;;;(install-elisp "http://www.bookshelf.jp/elc/isearch-all.el")
 ;;;(my-require-and-when 'isearch-all)

@@ -37,12 +37,6 @@
   )
 
 
-;;;; color-grep
-;;;(install-elisp "http://www.bookshelf.jp/elc/color-grep.el")
-(my-require-and-when 'color-grep
-  (setq color-grep-sync-kill-buffer t))
-
-
 ;;;; grep-edit
 (my-require-and-when 'grep)
 ;;;(install-elisp "http://www.bookshelf.jp/elc/grep-edit.el")
