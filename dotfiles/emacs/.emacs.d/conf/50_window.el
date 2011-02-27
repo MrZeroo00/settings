@@ -62,7 +62,7 @@
 (my-require-and-when 'popwin
   (setq display-buffer-function 'popwin:display-buffer)
   (setq anything-samewindow nil)
-  (push '("*anything*" :height 20) popwin:special-display-config))
+  (add-to-list 'popwin:special-display-config '("*anything*" :position bottom :height 20)))
 
 
 ;;;; winhist
