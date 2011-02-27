@@ -16,6 +16,11 @@
   (define-key ac-complete-mode-map (kbd "C-'") 'ac-complete-with-anything))
 
 
+;;;; anything-ack
+;;;(install-elisp-from-emacswiki "anything-ack.el")
+(my-require-and-when 'anything-ack)
+
+
 ;;;; anything-auto-install
 ;;;(install-elisp-from-emacswiki "anything-auto-install.el")
 (my-require-and-when 'anything-auto-install)
