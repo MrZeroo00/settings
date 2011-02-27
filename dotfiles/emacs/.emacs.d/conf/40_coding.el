@@ -261,11 +261,6 @@
   (umemo-initialize))
 
 
-;;;; wrap-region
-;;;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
-(my-require-and-when 'wrap-region)
-
-
 ;;;; develock (emphasize bad coding convention)
 ;;;; http://www.jpl.org/elips/develock.el.gz
 (my-require-and-when 'develock

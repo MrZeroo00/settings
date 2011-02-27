@@ -32,6 +32,11 @@
 (setq cua-enable-cua-keys nil)
 
 
+;;;; wrap-region
+;;;(install-elisp "http://sami.samhuri.net/assets/2007/6/23/wrap-region.el")
+(my-require-and-when 'wrap-region)
+
+
 ;;;; align (align code)
 (my-require-and-when 'align)
 
