@@ -4,6 +4,7 @@
 (setq kept-old-versions 2)
 (setq delete-old-versions t)
 (setq delete-auto-save-files t)
+(setq auto-save-interval 500)
 (setq auto-save-list-file-prefix "~/.emacs.d/data/auto-save-list/.saves-")
 (add-to-list 'backup-directory-alist (cons "\\.*$" (expand-file-name "~/etc/backup/emacs")))
 
