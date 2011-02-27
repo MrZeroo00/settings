@@ -297,5 +297,7 @@
 ;;;; macros
 ;;; http://www.emacswiki.org/emacs/AnythingSources
 (my-load-and-when "_anything-c-source-other-windows")
+;;; http://d.hatena.ne.jp/kitokitoki/20101205/p2
+(my-load-and-when "_ac-complete-look")
 ;;; http://gist.github.com/315995
 (my-load-and-when "_any-source-visible-mark")
