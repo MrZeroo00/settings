@@ -129,51 +129,6 @@
 (setq search-highlight t)
 (setq query-replace-highlight t)
 (my-require-and-when 'hi-lock)
-;;;; highlight current line
-'(global-hl-line-mode)
-'(hl-line-mode t)
-;;;;;;(setq hl-line-face 'underline)
-'(set-face-background 'hl-line "DarkOliveGreen")
-;;;(install-elisp-from-emacswiki "col-highlight.el")
-;;;(install-elisp-from-emacswiki "vline.el")
-'(my-require-and-when 'col-highlight
-   (column-highlight-mode t)
-   ;;(toggle-highlight-column-when-idle t)
-   ;;(col-highlight-set-interval 3)
-   (custom-set-faces
-    '(col-highlight ((t (:background "DarkOliveGreen"))))))
-;;;(install-elisp-from-emacswiki "hl-line+.el")
-;;;(install-elisp-from-emacswiki "crosshairs.el")
-'(my-require-and-when 'crosshairs
-   (crosshairs-mode))
-
-
-;;;; region setting
-(transient-mark-mode t)
-'(setq highlight-nonselected-windows t)
-'(pc-selection-mode)
-'(delete-selection-mode t)
-(setq shift-select-mode nil)
-
-;;;; visible-mark
-;;;(install-elisp-from-emacswiki "visible-mark.el")
-(my-require-and-when 'visible-mark)
-
-
-;;;; clipboard setting
-;;;; http://d.hatena.ne.jp/pakepion/20081209/1228828521
-(when (and (or run-linux run-bsd run-unix run-system-v)
-           window-system
-           (my-which "xsel"))
-  (setq interprogram-paste-function
-        (lambda ()
-          (shell-command-to-string "xsel -b -o")))
-  (setq interprogram-cut-function
-        (lambda (text &optional rest)
-          (let* ((process-connection-type nil)
-                 (proc (start-process "xsel" "*Messages*" "xsel" "-b" "-i")))
-            (process-send-string proc text)
-            (process-send-eof proc)))))
 
 
 ;;;; scroll setting
