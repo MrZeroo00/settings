@@ -124,3 +124,10 @@
 
 ;;;; enriched-mode
 '(my-require-and-when 'enriched)
+
+
+;;;; macros
+'(my-load-and-when "_copy-region-with-info")
+'(my-load-and-when "_duplicate-line"
+  (define-key esc-map "Y" 'duplicate-line))
+(my-load-and-when "_screen-read-hardcopy")
