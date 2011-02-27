@@ -18,6 +18,21 @@
 (my-require-and-when 'midnight)
 
 
+;;;; tail
+;;;; http://d.hatena.ne.jp/kitokitoki/20101211/p1
+(defun my-auto-revert-tail-mode-on ()
+  (interactive)
+  (when (string-match "^/var/log/" default-directory)
+    (auto-revert-tail-mode t)))
+
+(add-hook 'find-file-hook 'my-auto-revert-tail-mode-on)
+
+(add-hook 'after-revert-hook
+          (lambda ()
+            (when auto-revert-tail-mode
+              (end-of-buffer))))
+
+
 ;;;; tempbuf
 ;;;(install-elisp-from-emacswiki "tempbuf.el")
 '(my-require-and-when 'tempbuf
