@@ -3,12 +3,6 @@
 (my-require-and-when 'lacarte)
 
 
-;;;; thing-opt
-(my-require-and-when 'thingatpt)
-;;;(install-elisp-from-emacswiki "thing-opt.el")
-(my-require-and-when 'thing-opt)
-
-
 ;;;; pos-tip
 ;;;(install-elisp-from-emacswiki "pos-tip.el")
 ;;;(install-elisp-from-emacswiki "popup-pos-tip.el")

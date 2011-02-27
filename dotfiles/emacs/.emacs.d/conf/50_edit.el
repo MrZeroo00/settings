@@ -52,6 +52,12 @@
               (setq prev-yanked-text text))))))
 
 
+;;;; thing-opt
+(my-require-and-when 'thingatpt)
+;;;(install-elisp-from-emacswiki "thing-opt.el")
+(my-require-and-when 'thing-opt)
+
+
 ;;;; cua-mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
