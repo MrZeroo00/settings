@@ -51,7 +51,7 @@
   (setq anything-c-moccur-enable-initial-pattern t)
   (setq anything-c-moccur-higligt-info-line-flag t)
   (setq anything-c-moccur-enable-auto-look-flag t)
-;;;  (defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
+  ;;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
   (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
   (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
   (add-hook 'dired-mode-hook
@@ -183,19 +183,6 @@
 
 ;;;; anything-c-key-chord-describe
 (my-load-and-when "_anything-c-key-chord-describe")
-
-
-;;;; anything-call-source
-
-
-;;;; anything-compile-source--candidates-file
-'(defvar anything-c-source-home-directory
-  '((name . "Home directory")
-    ;; /log/home.filelist にホームディレクトリのファイル名が1行につきひとつ格納されている
-    (candidates-file "/log/home.filelist" updating)
-    (requires-pattern . 5)
-    (candidate-number-limit . 20)
-    (type . file)))
 
 
 ;;;; anything-kyr
