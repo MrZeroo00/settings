@@ -1,13 +1,13 @@
-;;;(install-elisp-from-emacswiki "anything.el")
-;;;(install-elisp-from-emacswiki "anything-config.el")
-;;;(install-elisp-from-emacswiki "anything-startup.el")
-;;;(install-elisp-from-emacswiki "anything-obsolete.el")
-;;;(install-elisp-from-emacswiki "anything-rubikitch.el")
-;;;(install-elisp-from-emacswiki "anything-goodies.el")
-;;;(setq anything-debug t)
+'(install-elisp-from-emacswiki "anything.el")
+'(install-elisp-from-emacswiki "anything-config.el")
+'(install-elisp-from-emacswiki "anything-startup.el")
+'(install-elisp-from-emacswiki "anything-obsolete.el")
+'(install-elisp-from-emacswiki "anything-rubikitch.el")
+'(install-elisp-from-emacswiki "anything-goodies.el")
+'(setq anything-debug t)
 (my-require-and-when 'anything-startup)
 (my-load-and-when "anything-rubikitch-import")
-;;;(my-load-and-when "anything-rubikitch")
+'(my-load-and-when "anything-rubikitch")
 
 
 ;;;; ac-anything
@@ -95,17 +95,17 @@
 
 ;;;; anything-delicious
 ;;;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
-;;;(my-require-and-when 'anything-delicious)
+'(my-require-and-when 'anything-delicious)
 
 
 ;;;; anything-emms
 ;;;(install-elisp-from-emacswiki "anything-emms.el")
-;;;(my-require-and-when 'anything-emms)
+'(my-require-and-when 'anything-emms)
 
 
 ;;;; anything-extension
 ;;;(install-elisp-from-emacswiki "anything-extension.el")
-;;;(my-require-and-when 'anything-extension)
+'(my-require-and-when 'anything-extension)
 
 
 ;;;; anything-grep
