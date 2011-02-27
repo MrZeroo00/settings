@@ -1,8 +1,3 @@
-;;;; lacarte
-;;;(install-elisp-from-emacswiki "lacarte.el")
-(my-require-and-when 'lacarte)
-
-
 ;;;; pos-tip
 ;;;(install-elisp-from-emacswiki "pos-tip.el")
 ;;;(install-elisp-from-emacswiki "popup-pos-tip.el")
@@ -39,9 +34,23 @@
 '(add-hook 'find-file-hooks 'alpaca-after-find-file)
 
 
+;;;; pit
+(my-require-and-when 'pit)
+
+
 ;;;; edit-list
 ;;;(install-elisp "http://mwolson.org/static/dist/elisp/edit-list.el")
 '(my-require-and-when 'edit-list)
+
+
+;;;; lacarte
+;;;(install-elisp-from-emacswiki "lacarte.el")
+(my-require-and-when 'lacarte)
+
+
+;;;; a-menu
+;;;; http://homepage.mac.com/zenitani/comp-e.html
+'(my-require-and-when 'a-menu)
 
 
 ;;;; color-selection

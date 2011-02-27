@@ -79,15 +79,6 @@
 '(setq inhibit-default-init t)
 
 
-;;;; pit
-(my-require-and-when 'pit)
-
-
-;;;; a-menu
-;;;; http://homepage.mac.com/zenitani/comp-e.html
-'(my-require-and-when 'a-menu)
-
-
 ;;;; macros
 ;;;(my-load-and-when "_egoge-wash-out-colour")
 (my-load-and-when "_elisp-font-lock-top-quote")
