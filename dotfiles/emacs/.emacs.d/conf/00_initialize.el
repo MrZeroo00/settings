@@ -51,10 +51,11 @@
 
 
 ;;;; scroll setting
-(setq scroll-conservatively 35)
-(setq scroll-margin 0)
-(setq scroll-step 1)
+(setq scroll-conservatively 1)
+'(setq scroll-step 1)
+(setq scroll-margin 4)
 (setq scroll-preserve-screen-position t)
+(setq next-screen-context-lines 0)
 
 
 ;;;; timestamp setting
