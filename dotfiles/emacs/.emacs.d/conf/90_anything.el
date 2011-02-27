@@ -180,6 +180,13 @@
   (global-set-key (kbd "C-c C-f") 'anything-project))
 
 
+;;;; anything-with-everything
+;;;; (install-elisp "https://github.com/yaotti/anything-with-everything.el/raw/master/anything-with-everything.el")
+(my-require-and-when 'anything-with-everything
+  ;;(defun-anything-function-with-script anything-emacswiki-changes "get-emacswiki-changes.pl")
+  )
+
+
 ;;;; descbinds-anything
 ;;;(install-elisp-from-emacswiki "descbinds-anything.el")
 (my-require-and-when 'descbinds-anything
