@@ -57,6 +57,9 @@
 (setq scroll-margin 4)
 '(setq scroll-preserve-screen-position t)
 (setq next-screen-context-lines 0)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
 
 
 ;;;; timestamp setting
