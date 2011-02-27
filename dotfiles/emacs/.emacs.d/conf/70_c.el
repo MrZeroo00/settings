@@ -30,6 +30,13 @@
             (list (my-flymake-cc-conditional-init)))
     )
 
+  ;; ifdef
+  ;;(setq hide-ifdef-define-alist
+  ;;      '((list-name
+  ;;         DEFINE1
+  ;;         DEFINE2
+  ;;         ))
+
   ;; summarye
   ;;(install-elisp "http://www.bookshelf.jp/elc/summarye.el")
   '(autoload 'se/make-summary-buffer "summarye" nil t)
@@ -38,14 +45,6 @@
 
 ;;;; association setting
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
-
-
-;;;; ifdef
-;;;(setq hide-ifdef-define-alist
-;;;      '((list-name
-;;;   DEFINE1
-;;;   DEFINE2
-;;;   ))
 
 
 ;;;; mode hook
