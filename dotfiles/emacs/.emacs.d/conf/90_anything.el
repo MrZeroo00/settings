@@ -61,76 +61,24 @@
 (my-require-and-when 'anything-menu)
 
 
+;;;; anything-c-source-buffers2
+;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-source-buffers2.el")
+(my-require-and-when 'anything-c-source-buffers2)
+
+
 ;;;; ac-anything
 ;;;(install-elisp-from-emacswiki "ac-anything.el")
 (my-require-and-when 'ac-anything
   (define-key ac-complete-mode-map (kbd "C-'") 'ac-complete-with-anything))
 
 
-;;;; anything-ack
-;;;(install-elisp-from-emacswiki "anything-ack.el")
-(my-require-and-when 'anything-ack)
-
-
-;;;; anything-auto-install
-;;;(install-elisp-from-emacswiki "anything-auto-install.el")
-(my-require-and-when 'anything-auto-install)
+;;;; anything-c-yasnippet
+(my-require-and-when 'anything-c-yasnippet
+  (setq anything-c-yas-space-match-any-greedy t))
 
 
 ;;;; anything-c-dabbrev
 ;;;(install-elisp-from-emacswiki "anything-c-dabbrev.el")
-
-
-;;;; anything-c-imenu
-;;;(install-elisp-from-emacswiki "el-expectations.el")
-(my-require-and-when 'el-expectations)
-;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
-(my-require-and-when 'anything-c-imenu)
-
-
-;;;; anything-c-linkd-tags
-;;;(install-elisp-from-emacswiki "linkd.el")
-(my-require-and-when 'linkd)
-;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
-;;;(my-require-and-when 'anything-c-linkd-tags) ; TODO: anything-goodies.el is something wrong
-
-
-;;;; anything-c-lisp-complete-symbol
-;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-lisp-complete-symbol/anything-c-lisp-complete-symbol.el")
-(my-require-and-when 'anything-c-lisp-complete-symbol)
-
-
-;;;; anything-c-moccur
-;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
-(my-require-and-when 'anything-c-moccur
-  (setq anything-c-moccur-anything-idle-delay 0.2)
-  (setq anything-c-moccur-enable-initial-pattern t)
-  (setq anything-c-moccur-higligt-info-line-flag t)
-  (setq anything-c-moccur-enable-auto-look-flag t)
-  ;;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
-  (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
-  (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
-  (add-hook 'dired-mode-hook
-            (lambda ()
-              (local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)))
-  (global-set-key (kbd "C-M-s") 'anything-c-moccur-isearch-forward)
-  (global-set-key (kbd "C-M-r") 'anything-c-moccur-isearch-backward)
-  )
-
-
-;;;; anything-c-source-buffers2
-;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-source-buffers2.el")
-(my-require-and-when 'anything-c-source-buffers2)
-
-
-;;;; anything-c-source-filelist
-(setq anything-c-filelist-file-name "/tmp/all.filelist")
-(setq anything-grep-candidates-fast-directory-regexp "^/tmp")
-
-
-;;;; anything-c-yasnippet
-(my-require-and-when 'anything-c-yasnippet
-  (setq anything-c-yas-space-match-any-greedy t))
 
 
 ;;;; anything-dabbrev-expand
@@ -142,16 +90,6 @@
   (global-set-key "\M-/" 'anything-dabbrev-expand)
   (define-key anything-dabbrev-map "\M-/" 'anything-dabbrev-find-all-buffers)
   )
-
-
-;;;; anything-delicious
-;;;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
-'(my-require-and-when 'anything-delicious)
-
-
-;;;; anything-emms
-;;;(install-elisp-from-emacswiki "anything-emms.el")
-'(my-require-and-when 'anything-emms)
 
 
 ;;;; anything-grep
@@ -175,15 +113,63 @@
   )
 
 
+;;;; anything-ack
+;;;(install-elisp-from-emacswiki "anything-ack.el")
+(my-require-and-when 'anything-ack)
+
+
+;;;; anything-c-moccur
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
+(my-require-and-when 'anything-c-moccur
+  (setq anything-c-moccur-anything-idle-delay 0.2)
+  (setq anything-c-moccur-enable-initial-pattern t)
+  (setq anything-c-moccur-higligt-info-line-flag t)
+  (setq anything-c-moccur-enable-auto-look-flag t)
+  ;;(defalias 'aoccur 'anything-c-moccur-occur-by-moccur)
+  (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
+  (global-set-key (kbd "C-M-o") 'anything-c-moccur-dmoccur)
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              (local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)))
+  (global-set-key (kbd "C-M-s") 'anything-c-moccur-isearch-forward)
+  (global-set-key (kbd "C-M-r") 'anything-c-moccur-isearch-backward)
+  )
+
+
+;;;; anything-c-source-filelist
+(setq anything-c-filelist-file-name "/tmp/all.filelist")
+(setq anything-grep-candidates-fast-directory-regexp "^/tmp")
+
+
+;;;; anything-project
+;;;; http://github.com/imakado/anything-project
+'(my-require-and-when 'anything-project
+  (global-set-key (kbd "C-c C-f") 'anything-project))
+
+
 ;;;; anything-gtags
 ;;;(install-elisp-from-emacswiki "anything-gtags.el")
 (my-require-and-when 'anything-gtags
   (setq anything-gtags-classify t))
 
 
-;;;; anything-ipa
-;;;(install-elisp-from-emacswiki "anything-ipa.el")
-(my-require-and-when 'anything-ipa)
+;;;; anything-c-imenu
+;;;(install-elisp-from-emacswiki "el-expectations.el")
+(my-require-and-when 'el-expectations)
+;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/anything-c-imenu.el")
+(my-require-and-when 'anything-c-imenu)
+
+
+;;;; anything-c-linkd-tags
+;;;(install-elisp-from-emacswiki "linkd.el")
+(my-require-and-when 'linkd)
+;;;(install-elisp "http://www4.atpages.jp/loveloveelisp/lib/anything-c-linkd-tags.el")
+;;;(my-require-and-when 'anything-c-linkd-tags) ; TODO: anything-goodies.el is something wrong
+
+
+;;;; anything-c-lisp-complete-symbol
+;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/anything-c-lisp-complete-symbol/anything-c-lisp-complete-symbol.el")
+(my-require-and-when 'anything-c-lisp-complete-symbol)
 
 
 ;;;; anything-rurima
@@ -198,10 +184,19 @@
   (setq rct-get-all-methods-command "PAGER=cat fri -l"))
 
 
-;;;; anything-project
-;;;; http://github.com/imakado/anything-project
-'(my-require-and-when 'anything-project
-  (global-set-key (kbd "C-c C-f") 'anything-project))
+;;;; anything-ipa
+;;;(install-elisp-from-emacswiki "anything-ipa.el")
+(my-require-and-when 'anything-ipa)
+
+
+;;;; anything-delicious
+;;;(install-elisp "http://trac.codecheck.in/share/browser/lang/elisp/anything-delicious/trunk/anything-delicious.el?format=txt")
+'(my-require-and-when 'anything-delicious)
+
+
+;;;; anything-emms
+;;;(install-elisp-from-emacswiki "anything-emms.el")
+'(my-require-and-when 'anything-emms)
 
 
 ;;;; descbinds-anything
@@ -212,6 +207,11 @@
 
 ;;;; anything-c-key-chord-describe
 (my-load-and-when "_anything-c-key-chord-describe")
+
+
+;;;; anything-auto-install
+;;;(install-elisp-from-emacswiki "anything-auto-install.el")
+(my-require-and-when 'anything-auto-install)
 
 
 ;;;; basic setting
