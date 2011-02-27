@@ -12,21 +12,21 @@ zmodload -ap zsh/mapfile mapfile
 
 
 ## variables
-LPROMPT="%n@%m%% "
-PROMPT="${LPROMPT}"
-RPROMPT="[%~]"
-SPROMPT="correct: %R -> %r ? "
-WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
-#cdpath=(.. ~ ~/src ~/zsh)
-DIRSTACKSIZE=20
-MAILCHECK=300
-HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
+export LPROMPT="%n@%m%% "
+export PROMPT="${LPROMPT}"
+export RPROMPT="[%~]"
+export SPROMPT="correct: %R -> %r ? "
+export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+#export cdpath=(.. ~ ~/src ~/zsh)
+export DIRSTACKSIZE=20
+export MAILCHECK=300
+export HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
 
 # Watch for my friends
-#watch=( $(<~/.friends) )       # watch for people in .friends file
-#watch=(notme)                   # watch for everybody but me
-#LOGCHECK=300                    # check every 5 min for login/logout activity
-#WATCHFMT='%n %a %l from %m at %t.'
+#export watch=( $(<~/.friends) )       # watch for people in .friends file
+#export watch=(notme)                   # watch for everybody but me
+#export LOGCHECK=300                    # check every 5 min for login/logout activity
+#export WATCHFMT='%n %a %l from %m at %t.'
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
