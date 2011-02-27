@@ -265,13 +265,15 @@
 
 
 ;;;; common settings
-(setq my-disabled-features (list
-                            "60_change-mode"
-                            "60_doc-view"
-                            "60_mmm-mode"
-                            "60_one-key"
-                            "60_view"
-                            ))
+(setq my-disabled-features
+	  (append '("60_change-mode"
+				"60_doc-view"
+				"60_mmm-mode"
+				"60_one-key"
+				"60_view"
+				)
+			  my-disabled-features))
+
 (mapc (lambda (fname)
         (if (and (string-match "[0-9][0-9]_[^.]+\.el$" fname)
                  (not (string-match "[0-9][0-9]_local_[^.]+\.el$" fname)))
@@ -297,7 +299,7 @@
 
 
 '(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
-    (my-load-and-when "99_timeout"))
+	 (my-load-and-when "99_timeout"))
 
 
 (my-time-lag "all")
