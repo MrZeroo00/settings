@@ -1,4 +1,13 @@
-(my-require-and-when 'lisp-mode)
+(my-require-and-when 'lisp-mode
+  ;; anything
+  (when (featurep 'anything)
+    (add-to-list 'anything-mode-specific-alist
+                 '(lisp-mode . (
+                                anything-c-source-lisp-complete-symbol
+                                anything-c-source-linkd-tag
+                                )))
+    )
+  )
 
 
 ;;;; slime
@@ -23,15 +32,6 @@
   (when (not (featurep 'slime))
     (my-require-and-when 'slime)
     (normal-mode)
-    )
-
-  ;; anything
-  '(when (featurep 'anything)
-    (make-variable-buffer-local 'anything-sources)
-    (add-to-list 'anything-sources
-                 'anything-c-source-lisp-complete-symbol
-                 'anything-c-source-linkd-tag
-                 )
     )
   )
 (defun my-lisp-interaction-mode-hook ()

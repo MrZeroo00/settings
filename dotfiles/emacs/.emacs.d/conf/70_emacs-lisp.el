@@ -1,4 +1,13 @@
 (my-require-and-when 'lisp-mode
+  ;; anything
+  (when (featurep 'anything)
+    (add-to-list 'anything-mode-specific-alist
+                 '(emacs-lisp-mode . (
+                                      anything-c-source-lisp-complete-symbol
+                                      anything-c-source-linkd-tag
+                                      )))
+    )
+
   ;; flymake
   (when (featurep 'flymake)
     (defun flymake-elisp-init ()
@@ -48,13 +57,6 @@
 (defun my-emacs-lisp-mode-hook ()
   ;; common setting
   (define-key emacs-lisp-mode-map "\C-m" 'newline-and-indent)
-
-  ;; anything
-  '(when (featurep 'anything)
-     (make-variable-buffer-local 'anything-sources)
-     (add-to-list 'anything-sources 'anything-c-source-lisp-complete-symbol)
-     (add-to-list 'anything-sources 'anything-c-source-linkd-tag)
-     )
 
   ;; flymake
   (when (not run-w32)                   ; tentative patch
