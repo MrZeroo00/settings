@@ -51,6 +51,8 @@ noremap <Leader>dic :sidebar Mouseover Dictionary<CR>
 noremap <Leader>ever :menu ツール-Add_to_Evernote<CR>
 noremap <Leader>love :menu ツール-Fire.fm-Love<CR>
 noremap <Leader>block :menu ツール-Fire.fm-禁止<CR>
+noremap <Leader>mobile :menu Tools-FireMobileSimulator-DC_P903i<CR>
+noremap <Leader>nmobile :menu Tools-FireMobileSimulator-端末選択解除<CR>
 noremap <Leader>nico :menu View-NicoFox_Download_Manager<CR>
 noremap <Leader>video :set! browser.sessionstore.interval=300000<CR>
 noremap <Leader>copy :copy titleAndURL<CR>
