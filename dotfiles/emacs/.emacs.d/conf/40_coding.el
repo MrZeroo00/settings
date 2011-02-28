@@ -117,8 +117,8 @@
             (interactive
              (list (symbol-value 'buffer-file-name)))
             (when (memq major-mode '(c-mode c++-mode))
-              (shell-command (concat "gtags_update_single " file))))
-              ;;(start-process "my-gtags-update-process" "my-gtags-update-buffer" "gtags_update_single" file)))
+              (shell-command (concat "gtags-update-single " file))))
+              ;;(start-process "my-gtags-update-process" "my-gtags-update-buffer" "gtags-update-single" file)))
           (defun my-gtags-update-single-for-current-file () (my-gtags-update-single (symbol-value 'buffer-file-name)))
           (add-hook 'after-save-hook 'my-gtags-update-single-for-current-file)
           )
