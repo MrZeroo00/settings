@@ -74,6 +74,9 @@ set! spellchecker.dictionary=en-US
 " extensions
 set! extensions.treestyletab.tabbar.shrunkenWidth=40
 set! extensions.treestyletab.tabbar.width=200
+" alternate image
+set! browser.display.show_image_placeholders=true
+set! browser.display.force_inline_alttext=true
 " favicon
 set! browser.chrome.favicons=false
 set! browser.chrome.site_icons=false
