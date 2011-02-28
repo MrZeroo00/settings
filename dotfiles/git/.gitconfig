@@ -21,6 +21,6 @@
   co = checkout
   diffw = diff --color-words
 [diff]
-  external = git_diff_wrapper
+  external = git-diff-wrapper
 [pager]
   diff =
