@@ -49,10 +49,10 @@ bind P colon "^p"
 
 # additional key bindings
 #bind '-' exec screensplit telnet
-bind '-' exec $HOME/bin/screen/screen_split --toggle w3m 8
-bind ^w exec $HOME/bin/screen/screen_copy_word -e
-bind ^j exec $HOME/bin/screen/screen_copy_word -j
-bind ^k exec $HOME/bin/screen/screen_copy_line
+bind '-' exec $HOME/bin/screen/screen-split --toggle w3m 8
+bind ^w exec $HOME/bin/screen/screen-copy-word -e
+bind ^j exec $HOME/bin/screen/screen-copy-word -j
+bind ^k exec $HOME/bin/screen/screen-copy-line
 
 # window management by Emacs key bindings
 #bind ^w command -c REGION
@@ -89,8 +89,8 @@ bind ^a command -c SWITCH
 
 # move window
 bind m eval 'echo "Move window"' 'command -c MOVE'
-bind -c MOVE ^f eval "exec $HOME/bin/screen/screen_move_window forward " "command -c MOVE"
-bind -c MOVE ^b eval "exec $HOME/bin/screen/screen_move_window backward" "command -c MOVE"
+bind -c MOVE ^f eval "exec $HOME/bin/screen/screen-move-window forward " "command -c MOVE"
+bind -c MOVE ^b eval "exec $HOME/bin/screen/screen-move-window backward" "command -c MOVE"
 bind ^a command -c MOVE
 
 # resize window
@@ -102,10 +102,10 @@ bind ^a command -c RESIZE
 # launcher
 bind ^x	eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
 bind x eval 'echo "Launcher:  (f: Firefox) (w: w3m) (p: CPAN) (t: top)"' 'command -c LANUCHER'
-bind -c LANUCHER f exec ${HOME}/bin/screen/screen_exec_x -bg firefox
-bind -c LANUCHER w screen -t w3m ${HOME}/bin/screen/screen_exec w3m http://www.google.co.jp/
-bind -c LANUCHER p screen -t cpan ${HOME}/bin/screen/screen_exec perl -MCPAN -e shell
-bind -c LANUCHER t screen -t top ${HOME}/bin/screen/screen_exec top
+bind -c LANUCHER f exec ${HOME}/bin/screen/screen-exec-x -bg firefox
+bind -c LANUCHER w screen -t w3m ${HOME}/bin/screen/screen-exec w3m http://www.google.co.jp/
+bind -c LANUCHER p screen -t cpan ${HOME}/bin/screen/screen-exec perl -MCPAN -e shell
+bind -c LANUCHER t screen -t top ${HOME}/bin/screen/screen-exec top
 bind ^a command -c LANUCHER
 
 # copy to X clipboard
