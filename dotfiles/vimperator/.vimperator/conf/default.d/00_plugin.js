@@ -10,6 +10,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'caret-hint',
     //'char-hints-mod2',
     'commandBookmarklet',
+    'command_menu',
     //'cookie',
     //'cookieManager',
     'copy',
