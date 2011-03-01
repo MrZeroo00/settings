@@ -33,6 +33,7 @@ alias w3m='LANG="" w3m'
 alias web='w3m http://www.google.co.jp/'
 alias vl='vim -u ~/.vimrc_pager -'
 alias tcpdump_http='sudo tcpdump -l -s 1460 -x "port 80" | tcpdump-filter.pl'
+alias git_patch='git diff --no-prefix --no-ext-diff'
 alias number='screen-number'
 alias layout='screen-layout'
 
