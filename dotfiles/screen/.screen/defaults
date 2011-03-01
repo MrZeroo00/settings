@@ -4,6 +4,9 @@ escape \233\233
  
 # no zombie ... upper screen termination should propagate to this one.
 zombie
+
+# for EUC terminal
+#termcapinfo xterm*|kterm*|screen* KJ=euc
  
 # To use mouse. XT capability is screen specific, not seen in the system
 # termcap / terminfo.
