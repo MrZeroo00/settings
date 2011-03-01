@@ -1,9 +1,9 @@
 -- http://memogaki.soudesune.net/AppleScript.html
 
 on run argv
-  set type to item 1 of argv
-  set x to item 2 of argv
-  set y to item 3 of argv
+  set type to (item 1 of argv) as string
+  set x to (item 2 of argv) as integer
+  set y to (item 3 of argv) as integer
   my mouseClick({x, y}, type, 1, "", 0.1)
 end run
 
