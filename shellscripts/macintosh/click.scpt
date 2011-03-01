@@ -1,5 +1,14 @@
+-- http://memogaki.soudesune.net/AppleScript.html
+
+on run argv
+  set type to item 1 of argv
+  set x to item 2 of argv
+  set y to item 3 of argv
+  my mouseClick({x, y}, type, 1, "", 0.1)
+end run
+
 -- 現在のマウスの場所をコントロール+クリックする
-my mouseClick({"mouse", "mouse"}, "left", 1, "control", 0.1)
+--my mouseClick({"mouse", "mouse"}, "left", 1, "control", 0.1)
 
 -- アップルメニューあたりをクリックする
 --my mouseClick({18, 10}, "left", 1, "", 0.1)
