@@ -50,6 +50,7 @@ case "${OS}" in
   "Darwin")
   alias addr2line='gaddr2line'
   alias ldd='otool -L'
+  alias locate='mdfind kMDItemDisplayName = '
   alias nm='gnm'
   alias objdump='gobjdump'
   alias ql='qlmanage -p "$@" >& /dev/null'
