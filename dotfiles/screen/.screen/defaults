@@ -6,7 +6,7 @@ escape \233\233
 zombie
 
 # for EUC terminal
-#termcapinfo xterm*|kterm*|screen* KJ=euc
+#termcapinfo xterm*|kterm*|screen* KJ=eucJP
  
 # To use mouse. XT capability is screen specific, not seen in the system
 # termcap / terminfo.
