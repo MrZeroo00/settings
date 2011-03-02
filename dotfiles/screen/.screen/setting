@@ -6,6 +6,7 @@ term screen-bce
 #term screen-256color-bce
 shell -$SHELL # make the shell in every window a login shell
 autodetach on
+#defencoding eucJP
 deflogin off
 defflow off
 defscrollback 10000
