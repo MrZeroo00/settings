@@ -22,6 +22,7 @@
                 "develock-mode" "highlight-lines-matching-regexp"
                 "hs-hide-block" "hs-show-block"
                 "hide-ifdef-mode")
+        (php-mode "geben")
         (ruby-mode "rdefs" "rcov" "rbtest")
         (emacs-lisp-mode "byte-compile-file"))
       anything-kyr-commands-by-major-mode)
