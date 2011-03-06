@@ -1,6 +1,6 @@
 #!/bin/sh
 
 pid="`ps aux | grep apache | grep root | head -n 1 | awk '{print $2}'`"
-sudo strace -f -p "${pid}" $@ &
+sudo strace -f -p "${pid}" $@ 2>&1 &
 sudo /etc/init.d/apache restart
 fg 1
