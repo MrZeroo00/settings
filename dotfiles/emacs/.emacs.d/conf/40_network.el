@@ -19,8 +19,9 @@
 
 
 ;;;; browser
-'(setq browse-url-browser-function 'w3m-browse-firefox)
-(setq browse-url-browser-function 'w3m-browse-url)
+(if window-system
+    (setq browse-url-browser-function 'w3m-browse-firefox)
+  (setq browse-url-browser-function 'w3m-browse-url))
 
 
 ;;;; telnet
