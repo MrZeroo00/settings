@@ -59,11 +59,19 @@
     (defun _my-geben-find-file (file-path)
       (geben-with-current-session session
                                   (geben-open-file (geben-source-fileuri session file-path))))
-    (defadvice find-file (around _my-geben-find-file activate)
+    (defadvice find-file (around _my-geben-find-file-advice disable)
       "replace standard find-file by geben-find-file."
       (if (memq 'geben-mode minor-mode-list)
           (_my-geben-find-file (ad-get-arg 0))
         ad-do-it))
+	(add-hook 'geben-session-enter-hook (lambda (session)
+										  (ad-enable-advice 'find-file 'around '_my-geben-find-file-advice)
+										  (ad-activate 'find-file)
+										  ))
+	(add-hook 'geben-session-exit-hook (lambda (session)
+										 (ad-disable-advice 'find-file 'around '_my-geben-find-file-advice)
+										 (ad-activate 'find-file)
+										 ))
     )
 
   ;; PHP API Reference
