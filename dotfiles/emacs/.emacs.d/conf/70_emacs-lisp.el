@@ -6,6 +6,10 @@
                                       anything-c-source-lisp-complete-symbol
                                       anything-c-source-linkd-tag
                                       )))
+	(add-to-list anything-kyr-commands-by-major-mode
+				 '(emacs-lisp-mode
+				   "byte-compile-file"
+				   ))
     )
 
   ;; flymake

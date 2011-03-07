@@ -1,4 +1,14 @@
 (my-autoload-and-when 'ruby-mode "ruby-mode"
+  ;; anything
+  (when (featurep 'anything)
+	(add-to-list 'anything-kyr-commands-by-major-mode
+				 '(ruby-mode
+				   "rdefs"
+				   "rcov"
+				   "rbtest"
+				   ))
+	)
+
   ;; flymake
   (when (featurep 'flymake)
     (defun flymake-ruby-init ()

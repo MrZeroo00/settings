@@ -15,17 +15,7 @@
 ;;;(install-elisp-from-emacswiki "anything-kyr-config.el")
 (my-require-and-when 'anything-kyr-config)
 
-(setq anything-kyr-commands-by-major-mode
-      '((c-mode "recompile" "compile"
-                "gtags-find-file" "gtags-find-rtag"
-                "ff-find-other-file" "align"
-                "develock-mode" "highlight-lines-matching-regexp"
-                "hs-hide-block" "hs-show-block"
-                "hide-ifdef-mode")
-        (php-mode "geben")
-        (ruby-mode "rdefs" "rcov" "rbtest")
-        (emacs-lisp-mode "byte-compile-file"))
-      anything-kyr-commands-by-major-mode)
+(setq anything-kyr-commands-by-major-mode '())
 
 
 ;;;; anything-with-everything
@@ -101,13 +91,13 @@
           (when anything-in-persistent-action
             (anything-persistent-highlight-point (point-at-bol) (point-at-eol)))))
   (setq anything-grep-alist
-        ;; å…¨ãƒãƒƒãƒ•ã‚¡ã®ãƒ•ã‚¡ã‚¤ãƒ«åã«ãŠã„ã¦egrepã‚’ã‹ã‘ã‚‹ã€‚moccurã®ä»£ã‚ã‚Šã€‚
+        ;; Á´¥Ğ¥Ã¥Õ¥¡¤Î¥Õ¥¡¥¤¥ëÌ¾¤Ë¤ª¤¤¤Æegrep¤ò¤«¤±¤ë¡£moccur¤ÎÂå¤ï¤ê¡£
         '(("buffers" ("egrep -Hin %s $buffers" "/"))
-          ;; ~/memo ä»¥ä¸‹ã‹ã‚‰å†å¸°çš„ã«egrepã‚’ã‹ã‘ã‚‹ã€‚ä¸è¦ãªãƒ•ã‚¡ã‚¤ãƒ«ã¯é™¤ã‹ã‚Œã‚‹ã€‚
+          ;; ~/memo °Ê²¼¤«¤éºÆµ¢Åª¤Ëegrep¤ò¤«¤±¤ë¡£ÉÔÍ×¤Ê¥Õ¥¡¥¤¥ë¤Ï½ü¤«¤ì¤ë¡£
           ("memo" ("ack-grep -af | xargs egrep -Hin %s" "~/memo"))
           ;; grep current directory (now testing)
           ("current directory" ("ack-grep -af | xargs egrep -Hin %s" "."))
-          ;; ~/rubyä»¥ä¸‹ã®å…¨Rubyã‚¹ã‚¯ãƒªãƒ—ãƒˆã¨~/binä»¥ä¸‹ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã¾ã¨ã‚ã¦æ¤œç´¢ã™ã‚‹ã€‚
+          ;; ~/ruby°Ê²¼¤ÎÁ´Ruby¥¹¥¯¥ê¥×¥È¤È~/bin°Ê²¼¤Î¥Õ¥¡¥¤¥ë¤ò¤Ş¤È¤á¤Æ¸¡º÷¤¹¤ë¡£
           ("~/bin and ~/ruby"
            ("ack-grep -afG 'rb$' | xargs egrep -Hin %s" "~/ruby")
            ("ack-grep -af | xargs egrep -Hin %s" "~/bin"))))

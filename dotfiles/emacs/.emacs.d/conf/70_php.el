@@ -21,6 +21,10 @@
                                anything-c-source-imenu
                                ;;anything-c-source-gtags-select
                                )))
+	(add-to-list 'anything-kyr-commands-by-major-mode
+				 '(php-mode
+				   "geben"
+				   ))
     )
 
   ;; align
