@@ -1,1 +1,11 @@
-(defun define-fringe-bitmap (bitmap bits &optional height width align) (lambda () ()))
+(dolist (dir (list
+              "/sbin"
+              "/usr/sbin"
+              "/bin"
+              "/usr/bin"
+              "/usr/local/bin"
+              (expand-file-name "~/bin")
+              ))
+  (when (and (file-exists-p dir) (not (member dir exec-path)))
+	(setenv "PATH" (concat dir ":" (getenv "PATH")))
+	(setq exec-path (append (list dir) exec-path))))
