@@ -8,7 +8,7 @@
                                       )))
 	(add-to-list anything-kyr-commands-by-major-mode
 				 '(emacs-lisp-mode
-				   "byte-compile-file"
+				   byte-compile-file
 				   ))
     )
 

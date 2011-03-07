@@ -3,9 +3,9 @@
   (when (featurep 'anything)
 	(add-to-list 'anything-kyr-commands-by-major-mode
 				 '(ruby-mode
-				   "rdefs"
-				   "rcov"
-				   "rbtest"
+				   rdefs
+				   rcov
+				   rbtest
 				   ))
 	)
 

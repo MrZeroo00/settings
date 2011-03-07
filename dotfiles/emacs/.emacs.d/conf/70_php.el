@@ -23,7 +23,7 @@
                                )))
 	(add-to-list 'anything-kyr-commands-by-major-mode
 				 '(php-mode
-				   "geben"
+				   geben
 				   ))
     )
 
