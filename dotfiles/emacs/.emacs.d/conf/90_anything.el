@@ -91,13 +91,13 @@
           (when anything-in-persistent-action
             (anything-persistent-highlight-point (point-at-bol) (point-at-eol)))))
   (setq anything-grep-alist
-        ;; Á´¥Ğ¥Ã¥Õ¥¡¤Î¥Õ¥¡¥¤¥ëÌ¾¤Ë¤ª¤¤¤Æegrep¤ò¤«¤±¤ë¡£moccur¤ÎÂå¤ï¤ê¡£
+        ;; å…¨ãƒãƒƒãƒ•ã‚¡ã®ãƒ•ã‚¡ã‚¤ãƒ«åã«ãŠã„ã¦egrepã‚’ã‹ã‘ã‚‹ã€‚moccurã®ä»£ã‚ã‚Šã€‚
         '(("buffers" ("egrep -Hin %s $buffers" "/"))
-          ;; ~/memo °Ê²¼¤«¤éºÆµ¢Åª¤Ëegrep¤ò¤«¤±¤ë¡£ÉÔÍ×¤Ê¥Õ¥¡¥¤¥ë¤Ï½ü¤«¤ì¤ë¡£
+          ;; ~/memo ä»¥ä¸‹ã‹ã‚‰å†å¸°çš„ã«egrepã‚’ã‹ã‘ã‚‹ã€‚ä¸è¦ãªãƒ•ã‚¡ã‚¤ãƒ«ã¯é™¤ã‹ã‚Œã‚‹ã€‚
           ("memo" ("ack-grep -af | xargs egrep -Hin %s" "~/memo"))
           ;; grep current directory (now testing)
           ("current directory" ("ack-grep -af | xargs egrep -Hin %s" "."))
-          ;; ~/ruby°Ê²¼¤ÎÁ´Ruby¥¹¥¯¥ê¥×¥È¤È~/bin°Ê²¼¤Î¥Õ¥¡¥¤¥ë¤ò¤Ş¤È¤á¤Æ¸¡º÷¤¹¤ë¡£
+          ;; ~/rubyä»¥ä¸‹ã®å…¨Rubyã‚¹ã‚¯ãƒªãƒ—ãƒˆã¨~/binä»¥ä¸‹ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã¾ã¨ã‚ã¦æ¤œç´¢ã™ã‚‹ã€‚
           ("~/bin and ~/ruby"
            ("ack-grep -afG 'rb$' | xargs egrep -Hin %s" "~/ruby")
            ("ack-grep -af | xargs egrep -Hin %s" "~/bin"))))
