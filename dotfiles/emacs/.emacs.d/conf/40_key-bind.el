@@ -3,6 +3,8 @@
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-s" 'search-forward-regexp)
 '(global-set-key "\M-m" 'blink-matching-open)
+(define-key ctl-x-map "\C-z"
+  (if window-system 'iconify-or-deiconify-frame 'suspend-emacs))
 (global-set-key [mouse-3] 'yank)
 
 
