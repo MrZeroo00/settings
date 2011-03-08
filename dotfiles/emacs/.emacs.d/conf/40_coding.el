@@ -41,7 +41,7 @@
 ;;;; smartchr
 ;;;(install-elisp "http://github.com/imakado/emacs-smartchr/raw/master/smartchr.el")
 (my-require-and-when 'smartchr
-  (global-set-key (kbd "=") (smartchr '(" = " " == " " === " "=")))
+  (global-set-key (kbd "=") (smartchr '("=" " = " " == " " === ")))
   ;;(global-set-key (kbd "{") (smartchr '("{ `!!' }" "{")))
   ;;(global-set-key (kbd ">") (smartchr '(">" " => " " => '`!!''" " => \"`!!'\"")))
   ;;(global-set-key (kbd "F") (smartchr '("F" "$" "$_" "$_->" "@$")))
