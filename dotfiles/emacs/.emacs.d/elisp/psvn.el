@@ -2,7 +2,7 @@
 ;; Copyright (C) 2002-2009 by Stefan Reichoer
 
 ;; Author: Stefan Reichoer <stefan@xsteve.at>
-;; $Id: psvn.el 40299 2009-10-29 19:38:54Z xsteve $
+;; $Id$
 
 ;; psvn.el is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
 ;; if you upgrade to a higher version, you need to do a fresh checkout
 
 ;; psvn.el is an interface for the revision control tool subversion
-;; (see http://subversion.tigris.org)
+;; (see http://subversion.apache.org)
 ;; psvn.el provides a similar interface for subversion as pcl-cvs for cvs.
 ;; At the moment the following commands are implemented:
 ;;
@@ -138,7 +138,7 @@
 ;; The latest version of psvn.el can be found at:
 ;;   http://www.xsteve.at/prg/emacs/psvn.el
 ;; Or you can check it out from the subversion repository:
-;;   svn co http://svn.collab.net/repos/svn/trunk/contrib/client-side/emacs emacs-svn
+;;   svn co http://svn.apache.org/repos/asf/subversion/trunk/contrib/client-side/emacs emacs-svn
 
 ;; TODO:
 ;; * shortcut for svn propset svn:keywords "Date" psvn.el
@@ -256,7 +256,7 @@
       (require 'diff-mode))
   (error nil))
 
-(defconst svn-psvn-revision "$Id: psvn.el 40299 2009-10-29 19:38:54Z xsteve $"
+(defconst svn-psvn-revision "$Id$"
   "The revision number of psvn.")
 
 ;;; user setable variables
@@ -1738,7 +1738,7 @@ The results are used to build the `svn-status-info' variable."
           ;; (message "Going to skip %s" skip-double-external-dir-entry-name)
           nil)
          ((looking-at "--- Changelist") ; skip svn changelist header lines
-          ;; See: http://svn.collab.net/repos/svn/trunk/notes/changelist-design.txt
+          ;; See: http://svn.apache.org/repos/asf/subversion/trunk/notes/changelist-design.txt
           nil)
          (t
           (setq svn-marks (buffer-substring (point) (+ (point) svn-marks-length))
