@@ -9,3 +9,10 @@
   (when (and (file-exists-p dir) (not (member dir exec-path)))
 	(setenv "PATH" (concat dir ":" (getenv "PATH")))
 	(setq exec-path (append (list dir) exec-path))))
+
+
+;;;; ns-platform-support
+;;;(install-elisp-from-emacswiki "ns-platform-support.el")
+(my-require-and-when 'ns-platform-support
+  ;;(ns-extended-platform-support-mode 1)
+  )
