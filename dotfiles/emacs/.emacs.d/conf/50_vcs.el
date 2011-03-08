@@ -8,6 +8,11 @@
 (setq svn-status-verbose nil)
 
 
+;;;; magit
+;;; http://philjackson.github.com/magit/
+(my-require-and-when 'magit)
+
+
 ;;;; egg
 ;;;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg.el")
 ;;;(install-elisp "http://github.com/bogolisk/egg/raw/master/egg-grep.el")
