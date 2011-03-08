@@ -1,5 +1,5 @@
 ;;;; bookmark
-(setq bookmark-default-file "~/.emacs.d/data/.emacs.bmk")
+(setq bookmark-default-file (expand-file-name "~/.emacs.d/data/.emacs.bmk"))
 
 
 ;;;; bookmark-extensions
