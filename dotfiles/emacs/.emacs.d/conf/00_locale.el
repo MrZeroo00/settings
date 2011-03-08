@@ -4,8 +4,10 @@
 '(set-language-environment 'utf-8)
 '(prefer-coding-system 'utf-8)
 
-'(cond
+(cond
   (run-darwin
+   (set-language-environment 'utf-8)
+   (prefer-coding-system 'utf-8)
    (my-require-and-when 'ucs-normalize
      (setq file-name-coding-system 'utf-8-hfs)
      (setq locale-coding-system 'utf-8-hfs))
