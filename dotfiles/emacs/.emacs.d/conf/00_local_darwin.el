@@ -1,4 +1,4 @@
-(dolist (dir (list
+'(dolist (dir (list
               "/sbin"
               "/usr/sbin"
               "/bin"
