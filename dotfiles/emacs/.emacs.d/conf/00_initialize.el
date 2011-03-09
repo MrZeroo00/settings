@@ -17,12 +17,16 @@
 
 
 ;;;; position and size setting
+(defvar my-default-frame-top 0)
+(defvar my-default-frame-left 0)
+(defvar my-default-frame-width 80)
+(defvar my-default-frame-height 50)
 (when window-system
   (setq default-frame-alist
-        (append (list '(top . 0)        ; 起動時の表示位置(右から)
-                      '(left . 0)       ; 起動時の表示位置(左から)
-                      '(width . 80)     ; 起動時のサイズ(幅)
-                      '(height . 50)    ; 起動時のサイズ(縦)
+        (append (list '(top    . my-default-frame-top)       ; 起動時の表示位置(右から)
+                      '(left   . my-default-frame-left)      ; 起動時の表示位置(左から)
+                      '(width  . my-default-frame-width)     ; 起動時のサイズ(幅)
+                      '(height . my-default-frame-height)    ; 起動時のサイズ(縦)
                       ;;'(foreground-color . "green")       ; 文字の色
                       ;;'(background-color . "black")       ; 背景の色
                       ;;'(alpha . (nil 70 50 30))           ; 透過
