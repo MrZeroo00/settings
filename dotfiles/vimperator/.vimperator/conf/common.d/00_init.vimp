@@ -1,4 +1,5 @@
 "" options --------------------
+set autocomplete
 set cdpath=$HOME,$HOME/Desktop
 "set complete=lS
 set complete=l
@@ -35,7 +36,6 @@ set visualbell
 set wildcase=smart
 "set wildignore=".\.o,\..\.s[a-z]{2}"
 "set wildmode="list:full"
-set wildoptions=auto
 "]]
 set nextpattern+='next, 次(の)?ページ,\b次.*,→\b,下一頁,Следующая,다음'
 "[[
