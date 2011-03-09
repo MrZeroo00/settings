@@ -31,12 +31,9 @@ noremap U :undo<Space>
 " disable css
 "noremap! :set invusermode<CR>
 
-" change guioptions
-noremap <A-b> :set guioptions+=b<CR>
-noremap <A-B> :set guioptions-=b<CR>
 " Unhidden and hidden the menubar and the toolbar
-noremap <A-Up> :set guioptions+=mT<CR>
-noremap <A-Down> :set guioptions-=mT<CR>
+noremap <A-Up> :set toolbars=menu,navigation<CR>
+noremap <A-Down> :set toolbars=nomenu,nonavigation<CR>
 
 let mapleader = ","
 noremap <Leader>re :mb reblog<CR>
