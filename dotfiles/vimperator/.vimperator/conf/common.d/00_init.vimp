@@ -6,8 +6,6 @@ set defsearch=google
 set editor='emacsclient -a emacs -n'
 set focuscontent
 "set followhints=0
-"set guioptions+=Bbrn
-set guioptions+=Bbr
 "set hintmatching=custom
 set history=1000
 set hlsearch
@@ -31,6 +29,7 @@ set showmode
 set smartcase
 set suggestengines='g,w'
 "set titlestring=Vimperator
+set toolbars=nomenu,tabs,nonavigation,bookmarks,addons
 "set verbose=9
 set visualbell
 set wildcase=smart
