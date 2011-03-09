@@ -25,7 +25,6 @@ set runtimepath='~/.vimperator'
 set shell=$SHELL
 set showmode
 "set showstatuslinks=1
-"set showtabline=2
 set smartcase
 set suggestengines='g,w'
 set tabnumbers
