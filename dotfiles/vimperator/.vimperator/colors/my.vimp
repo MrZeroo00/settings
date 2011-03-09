@@ -22,7 +22,6 @@ hi Tag			color: CornflowerBlue;
 hi CompTitle		color: magenta;		background: rgba(34,34,34,0.5);	font-weight: bold;
 hi CompItem[selected]	color: DeepPink;	background: rgba(34,34,34,0.7)
 hi CompDesc		color: Pink;
-hi GradientRight	background-color: Black;
 
 hi Title		color: white;
 hi Indicator		color: DodgerBlue;
