@@ -19,3 +19,4 @@
 
 
 (setq browse-url-firefox-program "/Applications/Firefox.app/Contents/MacOS/firefox-bin")
+(setq browse-url-firefox-arguments '("-new-tab"))
