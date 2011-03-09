@@ -10,6 +10,13 @@ fi
 #  source ${HOME}/.shrc
 #fi
 
+
+# Ruby Version Manager (RVM)
+if [ -s ${HOME}/.rvm/scripts/rvm ]; then
+  source ${HOME}/.rvm/scripts/rvm
+fi
+
+
 # local setting
 if [ -f ${HOME}/.profile.local ]; then
   source ${HOME}/.profile.local
