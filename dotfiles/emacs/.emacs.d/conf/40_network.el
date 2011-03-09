@@ -20,7 +20,7 @@
 
 ;;;; browser
 (if window-system
-    (setq browse-url-browser-function 'w3m-browse-firefox)
+    (setq browse-url-browser-function 'browse-url-firefox)
   (setq browse-url-browser-function 'w3m-browse-url))
 
 
