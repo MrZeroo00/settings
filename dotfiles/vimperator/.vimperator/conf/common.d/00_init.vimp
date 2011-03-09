@@ -33,8 +33,6 @@ set tabnumbers
 set toolbars=nomenu,tabs,nonavigation,bookmarks,addons
 "set verbose=9
 set visualbell
-set wildcase=smart
-"set wildignore=".\.o,\..\.s[a-z]{2}"
 "set wildmode="list:full"
 "]]
 set nextpattern+='next, 次(の)?ページ,\b次.*,→\b,下一頁,Следующая,다음'
