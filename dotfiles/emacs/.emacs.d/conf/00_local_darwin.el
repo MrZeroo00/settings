@@ -16,3 +16,6 @@
 (my-require-and-when 'ns-platform-support
   ;;(ns-extended-platform-support-mode 1)
   )
+
+
+(setq browse-url-firefox-program "/Applications/Firefox.app/Contents/MacOS/firefox-bin")
