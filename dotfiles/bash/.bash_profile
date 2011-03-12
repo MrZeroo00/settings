@@ -14,6 +14,6 @@ fi
 #fi
 
 # local setting
-if [ -f ${HOME}/.bash_profile.local ]; then
-  source ${HOME}/.bash_profile.local
+if [ -f ${HOME}/.bash_profile.`hostname -s`.local ]; then
+  source ${HOME}/.bash_profile.`hostname -s`.local
 fi

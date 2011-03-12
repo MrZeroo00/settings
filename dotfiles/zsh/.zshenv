@@ -52,6 +52,6 @@ setopt share_history
 function history-all { history -E 1 }
 
 # local setting
-if [ -f ${HOME}/.zshenv.local ]; then
-  source ${HOME}/.zshenv.local
+if [ -f ${HOME}/.zshenv.`hostname -s`.local ]; then
+  source ${HOME}/.zshenv.`hostname -s`.local
 fi

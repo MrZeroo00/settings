@@ -20,6 +20,6 @@ if [ -f ${HOME}/.zsh_function ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.zshrc.local ]; then
-  source ${HOME}/.zshrc.local
+if [ -f ${HOME}/.zshrc.`hostname -s`.local ]; then
+  source ${HOME}/.zshrc.`hostname -s`.local
 fi

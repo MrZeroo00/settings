@@ -203,6 +203,6 @@ esac
 
 
 # local setting
-if [ -f ${HOME}/.zprofile.local ]; then
-  source ${HOME}/.zprofile.local
+if [ -f ${HOME}/.zprofile.`hostname -s`.local ]; then
+  source ${HOME}/.zprofile.`hostname -s`.local
 fi

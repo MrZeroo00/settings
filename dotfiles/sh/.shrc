@@ -126,6 +126,6 @@ if [ -f ${HOME}/.sh_function ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.shrc.local ]; then
-    source ${HOME}/.shrc.local
+if [ -f ${HOME}/.shrc.`hostname -s`.local ]; then
+    source ${HOME}/.shrc.`hostname -s`.local
 fi

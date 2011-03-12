@@ -60,6 +60,6 @@ case "${OS}" in
 esac
 
 # local setting
-if [ -f ${HOME}/.sh_function.local ]; then
-  source ${HOME}/.sh_function.local
+if [ -f ${HOME}/.sh_function.`hostname -s`.local ]; then
+  source ${HOME}/.sh_function.`hostname -s`.local
 fi

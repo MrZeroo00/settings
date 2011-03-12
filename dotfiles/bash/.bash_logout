@@ -3,6 +3,6 @@ if [ -f ${HOME}/.sh_logout ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.bash_logout.local ]; then
-  source ${HOME}/.bash_logout.local
+if [ -f ${HOME}/.bash_logout.`hostname -s`.local ]; then
+  source ${HOME}/.bash_logout.`hostname -s`.local
 fi

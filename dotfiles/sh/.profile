@@ -13,6 +13,6 @@ fi
 
 
 # local setting
-if [ -f ${HOME}/.profile.local ]; then
-  source ${HOME}/.profile.local
+if [ -f ${HOME}/.profile.`hostname -s`.local ]; then
+  source ${HOME}/.profile.`hostname -s`.local
 fi

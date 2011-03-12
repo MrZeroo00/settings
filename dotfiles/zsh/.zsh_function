@@ -176,6 +176,6 @@ freload() {
 
 
 # local setting
-if [ -f ${HOME}/.zsh_function.local ]; then
-  source ${HOME}/.zsh_function.local
+if [ -f ${HOME}/.zsh_function.`hostname -s`.local ]; then
+  source ${HOME}/.zsh_function.`hostname -s`.local
 fi

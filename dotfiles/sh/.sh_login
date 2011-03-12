@@ -13,6 +13,6 @@ fi
 #msgs -fp
 
 # local setting
-if [ -f ${HOME}/.sh_login.local ]; then
-  source ${HOME}/.sh_login.local
+if [ -f ${HOME}/.sh_login.`hostname -s`.local ]; then
+  source ${HOME}/.sh_login.`hostname -s`.local
 fi

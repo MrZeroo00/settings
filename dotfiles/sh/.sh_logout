@@ -6,6 +6,6 @@ if [ "${SHLVL}" = 1 ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.sh_logout.local ]; then
-  source ${HOME}/.sh_logout.local
+if [ -f ${HOME}/.sh_logout.`hostname -s`.local ]; then
+  source ${HOME}/.sh_logout.`hostname -s`.local
 fi

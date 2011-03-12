@@ -3,6 +3,6 @@ if [ -f ${HOME}/.sh_logout ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.zlogout.local ]; then
-  source ${HOME}/.zlogout.local
+if [ -f ${HOME}/.zlogout.`hostname -s`.local ]; then
+  source ${HOME}/.zlogout.`hostname -s`.local
 fi

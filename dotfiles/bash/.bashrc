@@ -51,6 +51,6 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.bashrc.local ]; then
-  source ${HOME}/.bashrc.local
+if [ -f ${HOME}/.bashrc.`hostname -s`.local ]; then
+  source ${HOME}/.bashrc.`hostname -s`.local
 fi

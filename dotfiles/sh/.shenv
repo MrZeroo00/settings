@@ -18,6 +18,6 @@ if [ "${OS}" != "Cygwin" ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.shenv.local ]; then
-  source ${HOME}/.shenv.local
+if [ -f ${HOME}/.shenv.`hostname -s`.local ]; then
+  source ${HOME}/.shenv.`hostname -s`.local
 fi

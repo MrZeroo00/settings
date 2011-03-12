@@ -82,6 +82,6 @@ if [ -x "`which tscreen`" ]; then
 fi
 
 # local setting
-if [ -f ${HOME}/.sh_aliases.local ]; then
-  source ${HOME}/.sh_aliases.local
+if [ -f ${HOME}/.sh_aliases.`hostname -s`.local ]; then
+  source ${HOME}/.sh_aliases.`hostname -s`.local
 fi
