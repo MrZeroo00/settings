@@ -95,9 +95,9 @@ function ssh_screen() {
   eval server=\${$#}
     screen -t $server ssh "$@"
 }
-if [ x${TERM} = x${TERMSCREEN} ]; then
-  alias ssh=ssh_screen
-fi
+#if [ x${TERM} = x${TERMSCREEN} ]; then
+#  alias ssh=ssh_screen
+#fi
 
 
 # for screen status line
