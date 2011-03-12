@@ -17,24 +17,36 @@ liberator.globalVariables.plugin_loader_plugins = [
     'direct_bookmark',
     'encodingSwitcherCommand',
     'feedSomeKeys_3',
-    'hd-youkai-youtube',
     'ime_controller',
-    //'ldrize_cooperation',
-    //'ldrize_cooperation_fetch_flv',
     //'lo',
     //'localkeymode',
     //'loginManager',
     //'maine_coon',
     'multi_requester',
     'nextlink',
-    //'splitBrowser',
     //'stella',
     //'tinymenu',
     //'toggler',
-    'tombloo',
-    //'treeStyleTab',
     //'xpathBlink',
     //'link-targets',
+
+    // Fox Splitter
+    //'splitBrowser',
+
+    // LDRize
+    //'ldrize_cooperation',
+    //'ldrize_cooperation_fetch_flv',
+
+    // Tombloo
+    'tombloo',
+
+    // Tree Style Tab
+    //'treeStyleTab',
+
+    // Tumblr
     //'logintumblr',
     //'set_tumblr_channel_id',
+
+    // Youtube
+    'hd-youkai-youtube',
 ].join(',');
