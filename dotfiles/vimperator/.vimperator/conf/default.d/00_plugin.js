@@ -17,7 +17,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Development
     //'auto_reload',
     //'auto_source',
-    //'inspector',
+    'inspector',
     //'jquery-loader',
 
     // Download
@@ -32,9 +32,9 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Hint
     //'asdfghjkl',
     //'caret-hint',
-    //'char-hints-mod2',
-    //'hints-for-embedded',
-    //'hints-yank-paste',
+    'char-hints-mod2',
+    'hints-for-embedded',
+    'hints-yank-paste',
     //'x-hint',
     //'xpath_hint',
 
@@ -52,7 +52,6 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Menu
     'command_menu',
-    //'tinymenu',
 
     // Proxy
     //'autoproxychanger',
@@ -99,7 +98,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'history-search-backward',
     //'imageextender',
     //'maine_coon',
-    //'marker_reader',
+    'marker_reader',
     //'memo',
     //'multi-exec',
     'multi_requester',
@@ -116,13 +115,13 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Video
     //'stella',
-    //'video-controller',
+    'video-controller',
 
     // AutoPagerize
     //'autopagerize_controll',
 
     // Fox Splitter
-    //'splitBrowser',
+    'splitBrowser',
 
     // FoxyTunes
     //'foxytunes',
@@ -141,15 +140,18 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Session Manager
     //'session-manager',
 
+    // Tiny Menu
+    //'tinymenu',
+
     // Tombloo
     'tombloo',
     //'hint-tombloo',
 
     // Tree Style Tab
-    //'treeStyleTab',
+    'treeStyleTab',
 
     // Amazon
-    //'amazon_simple_uri',
+    'amazon_simple_uri',
 
     // Android
     //'vimp_to_android_phone',
