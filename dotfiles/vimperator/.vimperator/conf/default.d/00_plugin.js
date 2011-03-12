@@ -2,33 +2,48 @@ liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/coderepos
 liberator.globalVariables.plugin_loader_plugins = [
     '_libly',
     '_smooziee',
-    //'alert',
     //'appendAnchor',
     //'applauncher',
-    'auto-focus-frame',
-    'auto_word_select_mode',
-    //'caret-hint',
-    //'char-hints-mod2',
-    'commandBookmarklet',
-    'command_menu',
-    //'cookie',
-    //'cookieManager',
     'copy',
-    'direct_bookmark',
-    'encodingSwitcherCommand',
-    'feedSomeKeys_3',
-    'ime_controller',
     //'lo',
-    //'localkeymode',
     //'loginManager',
-    //'maine_coon',
     'multi_requester',
     'nextlink',
-    //'stella',
-    //'tinymenu',
     //'toggler',
     //'xpathBlink',
+
+    // Bookmark
+    'commandBookmarklet',
+    'direct_bookmark',
+
+    // Cookie
+    //'cookie',
+    //'cookieManager',
+
+    // Key
+    'feedSomeKeys_3',
+    'ime_controller',
+    //'localkeymode',
+
+    // Hint
+    //'caret-hint',
+    //'char-hints-mod2',
+
+    // Menu
+    'command_menu',
+    //'tinymenu',
+
+    // Utility
+    //'alert',
+    'auto-focus-frame',
+    'auto_word_select_mode',
+    'encodingSwitcherCommand',
+    //'maine_coon',
     //'link-targets',
+
+    // Video
+    //'stella',
+    //'video-controller'
 
     // Fox Splitter
     //'splitBrowser',
@@ -42,6 +57,12 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Tree Style Tab
     //'treeStyleTab',
+
+    // Android
+    //'vimp_to_android_phone',
+
+    // Twitter
+    'twittperator',
 
     // Tumblr
     //'logintumblr',
