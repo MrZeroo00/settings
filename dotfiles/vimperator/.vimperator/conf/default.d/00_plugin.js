@@ -39,8 +39,8 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'xpath_hint',
 
     // Insert Mode
-    //'option-selector'
-    //'resizable_textarea'
+    //'option-selector',
+    //'resizable_textarea',
     //'walk-input',
 
     // Javascript
