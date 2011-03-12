@@ -1,3 +1,8 @@
+# read common environment
+if [ -f ${HOME}/.shenv ]; then
+  source ${HOME}/.shenv
+fi
+
 # read common profile
 if [ -f ${HOME}/.profile ]; then
   source ${HOME}/.profile
