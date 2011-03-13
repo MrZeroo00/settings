@@ -47,16 +47,6 @@
                    hs-c-like-adjust-block-beginning))
     )
 
-  ;; imenu
-  ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
-  (my-autoload-and-when 'php-imenu-create-index "php-imenu"
-    (add-hook 'php-mode-user-hook 'php-imenu-setup)
-    (defun php-imenu-setup ()
-      (setq imenu-create-index-function (function php-imenu-create-index))
-      ;;(setq php-imenu-alist-postprocessor (function reverse))
-      (imenu-add-menubar-index)
-      ))
-
   ;; geben
   ;; http://code.google.com/p/geben-on-emacs/
   (my-autoload-and-when 'geben "geben"
@@ -138,6 +128,16 @@
     (gtags-mode t)
     ;;(gtags-make-complete-list)
     )
+
+  ;; imenu
+  ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
+  (my-autoload-and-when 'php-imenu-create-index "php-imenu"
+    (add-hook 'php-mode-user-hook 'php-imenu-setup)
+    (defun php-imenu-setup ()
+      (setq imenu-create-index-function (function php-imenu-create-index))
+      ;;(setq php-imenu-alist-postprocessor (function reverse))
+      (imenu-add-menubar-index)
+      ))
 
   ;; hs-minor-mode
   (when (featurep 'hideshow)
