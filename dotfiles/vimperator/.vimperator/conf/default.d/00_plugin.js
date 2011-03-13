@@ -150,6 +150,9 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Tree Style Tab
     'treeStyleTab',
 
+    // Ubiquity
+    //'ubiquity',
+
     // Amazon
     'amazon_simple_uri',
 
