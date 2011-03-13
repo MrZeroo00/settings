@@ -1,4 +1,4 @@
-liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/vimpr,~/.vimperator/_plugin/vimpr/notifier,~/.vimperator/_plugin/vimpr/twittperator,~/.vimperator/_plugin/coderepos,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other,~/.vimperator/_plugin/my,~/.vimperator/_plugin/local';
+liberator.globalVariables.plugin_loader_roots = '~/.vimperator/_plugin/vimpr,~/.vimperator/_plugin/vimpr/notifier,~/.vimperator/_plugin/vimpr/twittperator,~/.vimperator/_plugin/vimperator,~/.vimperator/_plugin/other,~/.vimperator/_plugin/my,~/.vimperator/_plugin/local';
 liberator.globalVariables.plugin_loader_plugins = [
     '_libly',
     '_smooziee',
