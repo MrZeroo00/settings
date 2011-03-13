@@ -60,34 +60,34 @@
   ;; geben
   ;; http://code.google.com/p/geben-on-emacs/
   (my-autoload-and-when 'geben "geben"
-    (defun _my-geben-find-file (file-path)
+    (defun my-geben-find-file (file-path)
       (geben-with-current-session session
                                   (geben-open-file (geben-source-fileuri session file-path))))
-    (defadvice find-file (around _my-geben-find-file-advice disable)
+    (defadvice find-file (around my-geben-find-file-advice disable)
       "replace standard find-file by geben-find-file."
       (let ((file (ad-get-arg 0)))
         (unless (string-match "\\.php$" file)
           (ad-do-it))
         (if (memq 'geben-mode minor-mode-list)
-            (_my-geben-find-file file)
+            (my-geben-find-file file)
           ad-do-it)))
 	(add-hook 'geben-session-enter-hook (lambda (session)
-										  (ad-enable-advice 'find-file 'around '_my-geben-find-file-advice)
+										  (ad-enable-advice 'find-file 'around 'my-geben-find-file-advice)
 										  (ad-activate 'find-file)
 										  ))
 	(add-hook 'geben-session-exit-hook (lambda (session)
-										 (ad-disable-advice 'find-file 'around '_my-geben-find-file-advice)
+										 (ad-disable-advice 'find-file 'around 'my-geben-find-file-advice)
 										 (ad-activate 'find-file)
 										 ))
     )
 
   ;; PHP API Reference
-  (defun _my-phpdoc ()
+  (defun my-phpdoc ()
     (interactive)
     (let* ((symbol (thing-at-point 'symbol))
            (query (concat "phpdoc " symbol)))
       (popup-tip (shell-command-to-string query))))
-  ;;(define-key global-map "\M-q" '_my-phpdoc)
+  ;;(define-key global-map "\M-q" 'my-phpdoc)
   )
 
 
