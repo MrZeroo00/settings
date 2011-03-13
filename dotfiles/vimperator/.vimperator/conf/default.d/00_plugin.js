@@ -145,7 +145,7 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Tombloo
     'tombloo',
-    //'hint-tombloo',
+    'hint-tombloo',
 
     // Tree Style Tab
     'treeStyleTab',
@@ -156,8 +156,11 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Android
     //'vimp_to_android_phone',
 
-    // Gmail
-    //'gmail-commando',
+    // Google
+    'gmail-commando',
+    //'google-search',
+    //'googledocs',
+    //'googlekanji',
 
     // SBM
     'direct_bookmark',
