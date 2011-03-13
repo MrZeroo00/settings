@@ -23,7 +23,7 @@
                                )))
 	(add-to-list 'anything-kyr-commands-by-major-mode
 				 '(php-mode
-				   geben
+				   my-geben
 				   ))
     )
 
@@ -80,6 +80,9 @@
 										 (ad-activate 'find-file)
 										 ))
     )
+  (defun my-geben ()
+	(geben 1)
+	(message "GEBEN is started."))
 
   ;; PHP API Reference
   (defun my-phpdoc ()
