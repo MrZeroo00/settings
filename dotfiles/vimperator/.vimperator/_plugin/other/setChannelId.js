@@ -1,3 +1,17 @@
+var PLUGIN_INFO =
+<VimperatorPlugin>
+<name>{name}</name>
+<description>Tomblooでtumblrにpostする時、post先のchannel_idを指定可能にします</description>
+<minVersion>2.0</minVersion>
+<maxVersion>2.0</maxVersion>
+<author homepage="http://d.hatena.ne.jp/zaknak/">zaknak</author>
+<require type="extension" id="tombloo@brasil.to">Tombloo</require>
+<version>0.0.1</version>
+<detail><![CDATA[
+== command ==
+]]></detail>
+</VimperatorPlugin>;
+
 (function(){
     const sv = Components.classes['@brasil.to/tombloo-service;1'].getService().wrappedJSObject;
     var channel_id = '0';
