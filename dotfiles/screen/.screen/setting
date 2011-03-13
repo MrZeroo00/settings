@@ -17,7 +17,7 @@ logfile "$HOME/log/screen-%Y%m%d-%n.log"
 # screen blanker settings
 idle 3600
 blanker
-blankerprg fortune
+blankerprg blanker
 
 ## notification settings
 startup_message off
