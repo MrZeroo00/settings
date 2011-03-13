@@ -247,7 +247,7 @@
 ;;;; ipa (in place annotations)
 ;;;(install-elisp-from-emacswiki "ipa.el")
 (my-require-and-when 'ipa
- (setq ipa-file "~/.emacs.d/data/ipa"))
+  (setq ipa-file "~/.emacs.d/data/ipa"))
 
 
 ;;;; usage-memo
