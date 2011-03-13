@@ -105,6 +105,16 @@ function fileCompleter(c){
   completion.file(c, true);
   return c.items;
 }
+function setTheme(theme){
+  try {
+    LightweightThemeManager.currentTheme = theme;
+  } catch(e){
+    if (e == Cr.NS_ERROR_INVALID_ARG){
+      document.documentElement._lightweightTheme._update(theme);
+    }
+  }
+}
+
 let options = [
   ["textcolor",   ["-c", "-color"],       commands.OPTION_STRING],
   ["accentcolor", ["-a", "-accent"],      commands.OPTION_STRING],
@@ -123,9 +133,9 @@ commands.addUserCommand(['personas'], "Personas Theme",
       LightweightThemeManager.forgetUsedTheme(id);
       return;
     }
-    let registeredThemer = LightweightThemeManager.getUsedTheme(id);
-    if (registeredThemer) {
-      LightweightThemeManager.currentTheme = registeredThemer;
+    let registeredTheme = LightweightThemeManager.getUsedTheme(id);
+    if (registeredTheme) {
+      setTheme(registeredTheme);
     } else {
       let buf = {id: id};
       options.forEach(function(opt){
@@ -134,7 +144,7 @@ commands.addUserCommand(['personas'], "Personas Theme",
       });
       let t = createLWTheme(buf);
       if (t)
-        LightweightThemeManager.currentTheme = t;
+        setTheme(t);
     }
   }, {
     argCount: "1",
