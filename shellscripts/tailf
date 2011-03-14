@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+def tailf(f)
+  while true
+    begin
+      sleep 1
+      $_ = f.sysread(1024)
+      print
+    rescue EOFError
+    end
+  end
+end
+
+filename = ARGV.shift
+f = File.open(filename)
+f.sysseek(0, IO::SEEK_END)
+tailf(f)
+f.close
