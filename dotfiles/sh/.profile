@@ -71,6 +71,8 @@ case "${OS}" in
   ;;
   "Darwin")
   add_path "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin"
+  add_path "/Applications/android-sdk-mac_x86/platform-tools"
+  add_path "/Applications/android-sdk-mac_x86/tools"
   export PATH
   export MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
   export INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
