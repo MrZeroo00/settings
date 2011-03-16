@@ -60,6 +60,7 @@ set! middlemouse.paste=true
 "set! network.http.pipelining=true
 "set! network.http.pipelining.maxrequests=8
 "set! network.http.proxy.pipelining=true
+set! network.proxy.socks_remote_dns=true
 set! layout.word_select.eat_space_to_next_word=false
 set! security.dialog_enable_delay=0
 set! ui.key.generalAccessKey=0
