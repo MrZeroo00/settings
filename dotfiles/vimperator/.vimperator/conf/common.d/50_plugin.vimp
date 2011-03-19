@@ -61,7 +61,7 @@ autocmd LocationChange .* :set! browser.sessionstore.interval=120000
 autocmd LocationChange 'www\.youtube\.(com|co\.jp)' :set! browser.sessionstore.interval=300000
 autocmd LocationChange 'www\.nicovideo\.jp' :set! browser.sessionstore.interval=300000
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
-lazy fmaps -u='mail\.google\.com/mail' c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+lazy fmaps -u='mail\.google\.com/' c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
 lazy fmaps -u='www\.google\.com/calendar/' -events=vkeypress t a d w m x c e <Del> / + q s ?
 lazy fmaps -u='www\.rememberthemilk\.com/home' t c p d f g s u l y r z 1 2 3 4 <Del> a n k j i h m <Tab> <Esc>
 lazy fmaps -u='www\.google\.(com|co\.jp)/reader' -events=vkeypress j k n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ? Z
