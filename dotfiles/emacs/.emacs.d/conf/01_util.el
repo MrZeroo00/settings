@@ -22,5 +22,5 @@
 
 
 ;;;; deferred
-;;;(install-elisp "https://github.com/kiwanami/emacs-deferred/raw/master/deferred.el")
+;;;(install-elisp "http://github.com/kiwanami/emacs-deferred/raw/master/deferred.el")
 (my-require-and-when 'deferred)
