@@ -19,6 +19,9 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Development
     //'auto_reload',
     //'auto_source',
+    //'bufferecho',
+    //'echopy',
+    //'i_love_echo',
     'inspector',
     //'jquery-loader',
 
@@ -95,13 +98,10 @@ liberator.globalVariables.plugin_loader_plugins = [
     'auto-focus-frame',
     'auto_word_select_mode',
     //'browser_object',
-    //'bufferecho',
     'copy',
-    //'echopy',
     'encodingSwitcher',
     //'every',
     'history-search-backward',
-    //'i_love_echo',
     //'imageextender',
     //'jetpackHack',
     //'maine_coon',
