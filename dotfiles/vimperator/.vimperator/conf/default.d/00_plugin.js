@@ -4,7 +4,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     '_smooziee',
 
     // Bookmark
-    'bookmarktoolbar-hint',
+    //'bookmarktoolbar-hint',
     'commandBookmarklet',
     //'literal-bmark',
     'readcatlater',
@@ -52,7 +52,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'char-hints-mod2',
     'hints-for-embedded',
     'hints-yank-paste',
-    'migemo_hint',
+    //'migemo_hint',
     //'x-hint',
     //'xpath_hint',
 
