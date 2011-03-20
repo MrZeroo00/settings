@@ -19,3 +19,8 @@
                         ((symbol-value 'buffer-file-name)))))
     (unless (null location)
       (kill-new location))))
+
+
+;;;; deferred
+;;;(install-elisp "https://github.com/kiwanami/emacs-deferred/raw/master/deferred.el")
+(my-require-and-when 'deferred)
