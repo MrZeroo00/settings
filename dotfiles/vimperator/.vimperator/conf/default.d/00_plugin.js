@@ -4,6 +4,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     '_smooziee',
 
     // Bookmark
+    'bookmarktoolbar-hint',
     'commandBookmarklet',
     //'literal-bmark',
 
@@ -93,9 +94,11 @@ liberator.globalVariables.plugin_loader_plugins = [
     'auto_word_select_mode',
     //'browser_object',
     'copy',
+    //'echopy',
     'encodingSwitcherCommand',
     //'every',
     'history-search-backward',
+    //'i_love_echo',
     //'imageextender',
     //'maine_coon',
     'marker_reader',
@@ -161,7 +164,9 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Google
     'gmail-commando',
+    'goo.gl',
     //'google-search',
+    //'google-translator',
     //'googledocs',
     //'googlekanji',
 
