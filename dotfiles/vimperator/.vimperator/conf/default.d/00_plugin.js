@@ -113,7 +113,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Utility
     //'alert',
     //'alias',
-    //'applauncher',
+    'applauncher',
     'auto-focus-frame',
     'auto_word_select_mode',
     //'blinkelement',
