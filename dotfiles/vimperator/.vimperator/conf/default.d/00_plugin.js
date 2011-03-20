@@ -21,6 +21,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'auto_source',
     //'bufferecho',
     //'echopy',
+    //'exShowElementInfo',
     //'i_love_echo',
     'inspector',
     //'jquery-loader',
@@ -47,6 +48,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'char-hints-mod2',
     'hints-for-embedded',
     'hints-yank-paste',
+    //'migemo_hint',
     //'x-hint',
     //'xpath_hint',
 
@@ -107,7 +109,9 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'browser_object',
     'copy',
     'encodingSwitcher',
+    //'ex_autocmd',
     //'every',
+    //'feeder',
     'history-search-backward',
     //'imageextender',
     //'incuri',
@@ -115,6 +119,8 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'maine_coon',
     'marker_reader',
     //'memo',
+    //'migemo_completion',
+    //'mouse_gestures',
     //'multi-exec',
     'multi_requester',
     'nextlink',
@@ -186,6 +192,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'google-translator',
     //'googledocs',
     //'googlekanji',
+    //'googlesuggest',
 
     // SBM
     //'delicious_search',
