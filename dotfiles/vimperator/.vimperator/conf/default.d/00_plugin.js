@@ -22,6 +22,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'bufferecho',
     //'echopy',
     //'exShowElementInfo',
+    //'highlight',
     //'i_love_echo',
     'inspector',
     //'jquery-loader',
@@ -56,6 +57,7 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Insert Mode
     //'option-selector',
+    //'param_editor',
     //'resizable_textarea',
     //'walk-input',
 
@@ -84,6 +86,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'reporter',
 
     // Status Bar
+    //'migratestatusbar',
     //'statstat',
     'statusbar_panel',
 
@@ -140,6 +143,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'zoom-em-all',
 
     // Video
+    //'fetchyoutube',
     //'nnp_cooperation',
     //'stella',
     'video-controller',
