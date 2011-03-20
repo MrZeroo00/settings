@@ -111,26 +111,31 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'applauncher',
     'auto-focus-frame',
     'auto_word_select_mode',
+    //'blinkelement',
     //'browser_object',
     'copy',
     'encodingSwitcher',
     //'ex_autocmd',
     //'every',
     //'feeder',
+    //'hidecritter',
     'history-search-backward',
     //'imageextender',
     //'incuri',
     //'jetpackHack',
+    //'keywordstore',
     //'maine_coon',
     'marker_reader',
     //'memo',
     //'migemo_completion',
+    //'moreqmarks',
     //'mouse_gestures',
     //'multi-exec',
     'multi_requester',
     'nextlink',
     //'no-reading',
     //'onclick',
+    //'peekpage',
     //'relative_move',
     //'refcontrol',
     //'scenario-actor',
@@ -150,6 +155,9 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // AutoPagerize
     //'autopagerize_controll',
+
+    // EPUBReader
+    //'epub-reader',
 
     // Fox Splitter
     'splitBrowser',
@@ -189,6 +197,9 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Android
     //'vimp_to_android_phone',
+
+    // GitHub
+    //'togglecontextgithub',
 
     // Google
     'gmail-commando',
