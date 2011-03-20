@@ -4,4 +4,7 @@
 (setq mac-option-modifier nil)
 
 
-;; -*-no-byte-compile: t; -*-
+(defun open ()
+  "Open current buffer for OSX command"
+  (interactive)
+  (shell-command (concat "open " (buffer-file-name))))
