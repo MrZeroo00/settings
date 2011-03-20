@@ -130,6 +130,69 @@ javascript <<EOM
   //document.getElementById("liberator-completions").parentNode.maxHeight="400px"
 EOM
 
+
+" ステータスバーにいろいろ表示 (for Firefox4)
+" http://d.hatena.ne.jp/k_hanazuki/20110310/1299749396
+javascript <<JS
+let statusLine = document.getElementById("liberator-statusline");
+let bottomBar = document.getElementById("liberator-bottombar");
+
+// ステータスラインに戻る/進むを表示
+if(!document.getElementById("history-indicators")) {
+  let xml = <hbox id="history-indicators" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <label value="&lt;" id="back-indicator" class="history-indicator">
+      <observes element={document.getElementById("back-button").command} attribute="disabled" />
+    </label>
+    <label value="&gt;" id="forward-indicator" class="history-indicator">
+      <observes element={document.getElementById("forward-button").command} attribute="disabled" />
+    </label>
+  </hbox>;
+
+  statusLine.appendChild(document.adoptNode(new DOMParser().parseFromString(xml.toXMLString(), "application/xml").documentElement, true));
+}
+
+// ステータスバーにブックマークアイコンを移動
+let (statusBar = document.getElementById("status-bar")) {
+  let (id = "star-button") {
+    if(!document.getElementById("panel-" + id)) {
+      let panel = document.createElement("statusbarpanel");
+      panel.setAttribute("id", "panel-" + id);
+      let (icon = document.getElementById(id)) {
+        icon.setAttribute("class", "");
+        panel.appendChild(icon);
+      }
+      statusBar.insertBefore(panel, statusBar.firstChild);
+    }
+  }
+}
+
+// ステータスラインの横にステータスバーを移動
+let (statusBar = document.getElementById("status-bar")) {
+  statusBar.style.maxHeight = "20px";
+  bottomBar.appendChild(statusBar);
+}
+
+// ステータスラインにfaviconを移動
+let (favicon = document.getElementById("page-proxy-stack")) {
+  favicon.style.maxWidth = favicon.style.maxHeight = "20px"
+  statusLine.insertBefore(favicon, statusLine.firstChild);
+}
+JS
+
+style -name history-indicators chrome://browser/content/browser.xul <<CSS
+  #history-indicators {
+    padding: 0 ! important;
+  }
+  .history-indicator {
+    margin: 0 1px ! important;
+    color: WindowText;
+  }
+  .history-indicator[disabled="true"] {
+    //visibility: hidden;
+  }
+CSS
+
+
 " show feed-button to statusbar
 javascript <<EOM
 (function () {
