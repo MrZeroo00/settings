@@ -84,7 +84,8 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'exopen',
     //'lo',
     //'link-targets',
-    'opener',
+    //'opener',
+    'opener-ex',
 
     // Utility
     //'alert',
@@ -93,13 +94,15 @@ liberator.globalVariables.plugin_loader_plugins = [
     'auto-focus-frame',
     'auto_word_select_mode',
     //'browser_object',
+    //'bufferecho',
     'copy',
     //'echopy',
-    'encodingSwitcherCommand',
+    'encodingSwitcher',
     //'every',
     'history-search-backward',
     //'i_love_echo',
     //'imageextender',
+    //'jetpackHack',
     //'maine_coon',
     'marker_reader',
     //'memo',
@@ -117,6 +120,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'zoom-em-all',
 
     // Video
+    //'nnp_cooperation',
     //'stella',
     'video-controller',
 
@@ -171,7 +175,9 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'googlekanji',
 
     // SBM
+    //'delicious_search',
     'direct_bookmark',
+    //'hatebuCounter',
     //'sbmcommentsviewer',
 
     // Twitter
