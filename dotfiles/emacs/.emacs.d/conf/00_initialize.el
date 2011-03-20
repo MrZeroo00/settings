@@ -67,6 +67,25 @@
 (setq mouse-wheel-follow-mouse 't)
 
 
+;;;; inertial-scroll
+;;;(install-elisp "http://github.com/kiwanami/emacs-inertial-scroll/raw/master/inertial-scroll.el")
+(my-require-and-when 'inertial-scroll
+  (setq inertias-global-minor-mode-map
+        (inertias-define-keymap
+         '(
+           ("<next>"  . inertias-up)
+           ("<prior>" . inertias-down)
+           ("C-v"     . inertias-up)
+           ("M-v"     . inertias-down)
+           ) inertias-prefix-key))
+  (setq inertias-initial-velocity 50)
+  (setq inertias-friction 120)
+  (setq inertias-rest-coef 0)
+  (setq inertias-update-time 60)
+  (inertias-global-minor-mode 1)
+  )
+
+
 ;;;; timestamp setting
 (setq time-stamp-start "Time-stamp:[ \t]*<")
 (setq time-stamp-end ">")
