@@ -91,7 +91,7 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Status Bar
     //'clock',
-    'migratestatusbar',
+    //'migratestatusbar',
     'statusbar_panel',
 
     // Tab
