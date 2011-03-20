@@ -24,6 +24,9 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'i_love_echo',
     'inspector',
     //'jquery-loader',
+    //'tohex',
+    //'unicode',
+    //'uuid',
 
     // Download
     //'simg',
