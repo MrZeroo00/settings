@@ -116,7 +116,7 @@
     (if (> (* (window-width) 0.5) (window-height))
         (split-window-horizontally)
       (split-window-vertically)))
-  (other-window 1))
+  (switch-window))
 (global-set-key (kbd "C-o") 'other-window-or-split)
 
 

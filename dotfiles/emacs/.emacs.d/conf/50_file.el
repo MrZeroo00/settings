@@ -14,7 +14,6 @@
       (append completion-ignored-extensions
               '(".exe" ".com")))
 (auto-image-file-mode t)
-(recentf-mode t)
 ;;;(filesets-init)
 ;;;(file-name-shadow-mode t)
 ;;;; complete
@@ -25,6 +24,17 @@
 ;;;; dircolors (coloring file names)
 ;;;(install-elisp "http://lfs.irisa.fr/~pad/rawaccess.query/hacks/dircolors.el")
 ;;;(my-require-and-when 'dircolors)
+
+
+;;;; recentf
+(my-require-and-when 'recentf
+  (setq recentf-max-saved-items 2000)
+  (setq recentf-exclude '(".recentf"))
+  (setq recentf-auto-cleanup 10)
+  (setq recentf-auto-save-timer
+        (run-with-idle-timer 30 t 'recentf-save-list))
+  (recentf-mode t)
+  )
 
 
 ;;;; recentf-ext
