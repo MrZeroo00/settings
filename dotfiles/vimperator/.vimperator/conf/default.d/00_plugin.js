@@ -86,6 +86,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'reporter',
 
     // Status Bar
+    //'clock',
     //'migratestatusbar',
     //'statstat',
     'statusbar_panel',
@@ -209,6 +210,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'googledocs',
     //'googlekanji',
     //'googlesuggest',
+    //'gvimail',
 
     // SBM
     //'delicious_search',
