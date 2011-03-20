@@ -77,6 +77,11 @@
   )
 
 
+;;;; switch-window
+;;;(install-elisp "https://github.com/dimitri/switch-window/raw/master/switch-window.el")
+(my-require-and-when 'switch-window)
+
+
 ;;;; master
 ;;;; http://www.geocities.com/kensanata/elisp/master.el.txt
 ;;;(install-elisp "http://www.bookshelf.jp/elc/dired-master.el")
