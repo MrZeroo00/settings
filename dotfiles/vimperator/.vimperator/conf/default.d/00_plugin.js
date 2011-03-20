@@ -7,6 +7,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     'bookmarktoolbar-hint',
     'commandBookmarklet',
     //'literal-bmark',
+    'readcatlater',
 
     // Cookie
     //'cookie',
@@ -110,10 +111,12 @@ liberator.globalVariables.plugin_loader_plugins = [
     'multi_requester',
     'nextlink',
     //'no-reading',
+    //'notifier',
     //'onclick',
     //'refcontrol',
     //'scenario-actor',
     //'spatial-navigation',
+    //'toggline',
     //'toggler',
     //'uaSwitchLite',
     //'xpathBlink',
@@ -181,6 +184,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'sbmcommentsviewer',
 
     // Twitter
+    //'reading',
     //'retweet',
     //'twittperator',
 
