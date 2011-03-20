@@ -70,7 +70,8 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'loginManager',
 
     // Neta
-    'bijin_clock',
+    //'bijin_clock',
+    //'happy_hacking_vimperator',
 
     // Menu
     'command_menu',
