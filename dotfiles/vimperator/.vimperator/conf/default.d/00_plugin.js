@@ -28,9 +28,12 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'tohex',
     //'unicode',
     //'uuid',
+    //'xpcom_inspector',
+    //'yslow',
 
     // Download
     //'simg',
+    //'zip-de-download',
 
     // Key
     'feedSomeKeys_3',
@@ -107,6 +110,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'every',
     'history-search-backward',
     //'imageextender',
+    //'incuri',
     //'jetpackHack',
     //'maine_coon',
     'marker_reader',
@@ -117,8 +121,10 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'no-reading',
     //'notifier',
     //'onclick',
+    //'relative_move',
     //'refcontrol',
     //'scenario-actor',
+    //'scroll_div',
     //'spatial-navigation',
     //'toggline',
     //'toggler',
