@@ -68,6 +68,9 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'account_switcher',
     //'loginManager',
 
+    // Neta
+    'bijin_clock',
+
     // Menu
     'command_menu',
 
