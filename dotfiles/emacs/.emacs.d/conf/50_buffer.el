@@ -20,6 +20,7 @@
 
 ;;;; tail
 ;;;; http://d.hatena.ne.jp/kitokitoki/20101211/p1
+(defvar auto-revert-tail-mode nil)
 (defun my-auto-revert-tail-mode-on ()
   (interactive)
   (when (string-match "^/var/log/" default-directory)
