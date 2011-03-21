@@ -125,7 +125,9 @@
 
 
 ;;;; imenu
-(my-require-and-when 'imenu)
+(my-require-and-when 'imenu
+  (setq speedbar-use-imenu-flag t)
+  )
 
 
 ;;;; sr-speedbar
