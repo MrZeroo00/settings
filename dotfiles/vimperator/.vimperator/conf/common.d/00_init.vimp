@@ -87,7 +87,7 @@ command -nargs=+ alc mr alc <args>
 "" abbreviations --------------------
 
 
-"" colorscheme --------------------
+"" color scheme --------------------
 colorscheme my
 style -name personas chrome://* <<EOM
 #main-window { background-repeat: repeat-y !important; }
@@ -98,14 +98,14 @@ EOM
 autocmd LocationChange .* :js getBrowser().mCurrentBrowser.collapsed = buffer.URL == "about:blank" ? true : false
 
 
-"" QuickMarks --------------------
+"" quick marks --------------------
 qmark m https://mail.google.com/
 qmark r http://www.google.com/reader/
 qmark d http://del.icio.us/tanda/
 qmark v http://localhost:10010/
 
 
-"" Hints --------------------
+"" hints --------------------
 javascript <<EOM
 hints.addMode("m", "Open movie",
   function(elem, uri) {
