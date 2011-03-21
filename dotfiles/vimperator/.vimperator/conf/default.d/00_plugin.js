@@ -130,7 +130,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'jetpackHack',
     //'keywordstore',
     //'maine_coon',
-    'marker_reader',
+    //'marker_reader',
     //'memo',
     'migemo_completion',
     //'moreqmarks',
