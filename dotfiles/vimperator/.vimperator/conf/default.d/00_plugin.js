@@ -43,7 +43,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Key
     'feedSomeKeys_3',
     'ime_controller',
-    //'localkeymode',
+    'localkeymode',
     //'yetmappings',
 
     // Hint
@@ -60,7 +60,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'option-selector',
     //'param_editor',
     //'resizable_textarea',
-    //'walk-input',
+    'walk-input',
 
     // Javascript
     //'garbage_finder',
@@ -103,7 +103,7 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // URL
     //'auto_detect_link',
-    //'appendAnchor',
+    'appendAnchor',
     //'exopen',
     //'lo',
     //'link-targets',
@@ -111,13 +111,13 @@ liberator.globalVariables.plugin_loader_plugins = [
     'opener-ex',
 
     // Utility
-    //'alert',
+    'alert',
     //'alias',
     'applauncher',
     'auto-focus-frame',
     'auto_word_select_mode',
     //'blinkelement',
-    //'browser_object',
+    'browser_object',
     'copy',
     'encodingSwitcher',
     //'ex_autocmd',
@@ -132,7 +132,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'maine_coon',
     'marker_reader',
     //'memo',
-    //'migemo_completion',
+    'migemo_completion',
     //'moreqmarks',
     //'mouse_gestures',
     //'multi-exec',
@@ -155,7 +155,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Video
     //'fetchyoutube',
     //'nnp_cooperation',
-    //'stella',
+    'stella',
     'video-controller',
 
     // AutoPagerize
@@ -220,7 +220,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'delicious_search',
     'direct_bookmark',
     //'hatebuCounter',
-    //'sbmcommentsviewer',
+    'sbmcommentsviewer',
 
     // Twitter
     //'reading',

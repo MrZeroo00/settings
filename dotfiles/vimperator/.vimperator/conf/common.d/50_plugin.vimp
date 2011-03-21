@@ -31,8 +31,8 @@ liberator.registerObserver("enter", function() {
 EOM
 
 " browser_object
-"let g:browser_object_prefix = ','
-let g:browser_object_prefix = ''
+let g:browser_object_prefix = ','
+"let g:browser_object_prefix = ''
 
 " char-hints-mod2
 let g:hintsio="iO"
