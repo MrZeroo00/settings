@@ -28,6 +28,13 @@
 				   ))
     )
 
+  ;; imenu
+  ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
+  (my-autoload-and-when 'php-imenu-create-index "php-imenu"
+    (add-hook 'php-mode-user-hook 'php-imenu-setup)
+    ;;(setq php-imenu-alist-postprocessor (function reverse))
+	)
+
   ;; speedbar
   (when (featurep 'speedbar)
 	(speedbar-add-supported-extension '(".php"))
@@ -136,14 +143,8 @@
     )
 
   ;; imenu
-  ;;(install-elisp "http://www.oak.homeunix.org/%7Emarcel/blog/files/php-imenu.el")
-  (my-autoload-and-when 'php-imenu-create-index "php-imenu"
-    (add-hook 'php-mode-user-hook 'php-imenu-setup)
-    (defun php-imenu-setup ()
-      (setq imenu-create-index-function (function php-imenu-create-index))
-      ;;(setq php-imenu-alist-postprocessor (function reverse))
-      (imenu-add-menubar-index)
-      ))
+  (setq imenu-create-index-function (function php-imenu-create-index))
+  (imenu-add-menubar-index)
 
   ;; hs-minor-mode
   (when (featurep 'hideshow)
