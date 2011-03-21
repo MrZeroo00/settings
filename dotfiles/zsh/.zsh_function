@@ -97,13 +97,13 @@ function ssh_screen() {
   eval server=\${$#}
     screen -t $server ssh "$@"
 }
-#if [ x${TERM} = x${TERMSCREEN} ]; then
+#if [ "${TERM}" = "${TERMSCREEN}" ]; then
 #  alias ssh=ssh_screen
 #fi
 
 
 # for screen status line
-if [ "${TERM}" = ${TERMSCREEN} ]; then
+if [ "${TERM}" = "${TERMSCREEN}" ]; then
   #preexec() {
   _update_screen_title_by_command () {
     # see [zsh-workers:13180]

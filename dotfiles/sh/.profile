@@ -114,7 +114,7 @@ fi
 
 
 # screen
-if [ "${TERM}" != ${TERMSCREEN} ]; then
+if [ "${TERM}" != "${TERMSCREEN}" ]; then
   screen -D -R
 fi
 
