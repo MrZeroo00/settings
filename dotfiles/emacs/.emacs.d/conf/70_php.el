@@ -1,5 +1,6 @@
 ;;;; http://ourcomments.org/Emacs/nXhtml/doc/nxhtml.html
 (my-autoload-and-when 'php-mode "php-mode"
+  ;; flymake
   (when (featurep 'flymake)
     (defun flymake-php-init ()
       "Use php to check the syntax of the current file."
@@ -26,6 +27,11 @@
 				   my-geben
 				   ))
     )
+
+  ;; speedbar
+  (when (featurep 'speedbar)
+	(speedbar-add-supported-extension '(".php"))
+	)
 
   ;; align
   (when (featurep 'align)
