@@ -49,11 +49,6 @@
   (global-set-key (kbd "C-c n") 'multi-term-next)
   (global-set-key (kbd "C-c p") 'multi-term-prev)
   )
-(defun my-term-mode-hook ()
-  (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
-  (define-key term-raw-map (kbd "C-y") 'term-paste)
-  )
-(add-hook 'term-mode-hook 'my-term-mode-hook)
 
 
 ;;;; shell-pop
@@ -101,11 +96,17 @@
   (define-key shell-mode-map "\M-m" 'shell-add-to-history))
 
 
-(add-hook 'shell-mode-hook
-          (lambda ()
-            (setq outline-regexp "[^ ]*[>%#]")
-            '(outline-minor-mode t)
-            (turn-on-orgstruct)))
+;;;; mode hook
+(defun my-term-mode-hook ()
+  (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
+  (define-key term-raw-map (kbd "C-y") 'term-paste)
+  )
+(defun my-shell-mode-hook ()
+  (setq outline-regexp "[^ ]*[>%#]")
+  '(outline-minor-mode t)
+  (turn-on-orgstruct))
+(add-hook 'term-mode-hook 'my-term-mode-hook)
+(add-hook 'shell-mode-hook 'my-shell-mode-hook)
 
 
 ;; -*-no-byte-compile: t; -*-
