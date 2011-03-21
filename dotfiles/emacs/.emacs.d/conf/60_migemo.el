@@ -28,10 +28,10 @@
        (unless (my-language-check "Japanese")
          (make-local-variable 'migemo-isearch-enable-p)
          (setq migemo-isearch-enable-p nil)))
-     (add-hook 'isearch-mode-end-hook
-               (lambda ()
-                 (unless (my-language-check "Japanese")
-                   (setq migemo-isearch-enable-p t)))))
+     (defun my-migemo-enable-unless-japanese ()
+       (unless (my-language-check "Japanese")
+         (setq migemo-isearch-enable-p t)))
+     (add-hook 'isearch-mode-end-hook 'my-migemo-enable-unless-japanese))
 
   ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=auto%20renmigemo
   '(defun my-ren-cap (str)               ; 次単語の先頭を大文字化
