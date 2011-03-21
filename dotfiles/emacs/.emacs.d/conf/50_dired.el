@@ -104,13 +104,22 @@
   ;; w32-symlinks
   ;;(install-elisp "http://centaur.maths.qmw.ac.uk/Emacs/files/w32-symlinks.el")
   (my-require-and-when 'w32-symlinks)
-  (my-load-and-when "_dired-make-symbolic-link"
-    (add-hook 'dired-mode-hook
-              (lambda ()
-                (define-key dired-mode-map "S" (function dired-make-symbolic-link))
-                )))
-  (my-load-and-when "_dired-winstart"
-    (add-hook 'dired-mode-hook
-              (lambda ()
-                (define-key dired-mode-map "z" 'uenox-dired-winstart))))
+  (my-load-and-when "_dired-make-symbolic-link")
+  (my-load-and-when "_dired-winstart")
   )
+
+
+;;;; mode hook
+(defun my-dired-mode-hook ()
+  ;; anything
+  (when (featurep 'anything-c-moccur)
+	(local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)
+	)
+
+  ;; macros
+  (when (functionp 'dired-make-symbolic-link)
+	(define-key dired-mode-map "S" (function dired-make-symbolic-link)))
+  (when (functionp 'uenox-dired-winstart)
+	(define-key dired-mode-map "z" 'uenox-dired-winstart))
+  )
+(add-hook 'dired-mode-hook 'my-dired-mode-hook)
