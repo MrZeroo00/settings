@@ -116,6 +116,10 @@
 	(local-set-key (kbd "O") 'anything-c-moccur-dired-do-moccur-by-moccur)
 	)
 
+  ;; occur
+  '(when (featurep 'color-moccur)
+	(local-set-key "O" 'dired-do-moccur))
+
   ;; macros
   (when (functionp 'dired-make-symbolic-link)
 	(define-key dired-mode-map "S" (function dired-make-symbolic-link)))
