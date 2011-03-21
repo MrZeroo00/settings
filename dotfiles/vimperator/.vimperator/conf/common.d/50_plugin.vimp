@@ -116,33 +116,33 @@ EOM
 let g:marker_reader_onload = 0
 javascript <<EOM
 liberator.globalVariables.marker_reader_ignore = [
-    /^https?:\/\/mail\.google\.com\//,
-    /^http:\/\/(?:reader\.livedoor|fastladder)\.com\/(?:reader|public)\//,
+  /^https?:\/\/mail\.google\.com\//,
+  /^http:\/\/(?:reader\.livedoor|fastladder)\.com\/(?:reader|public)\//,
 ];
 EOM
 
 " migratestatusbar
 javascript <<EOM
-    liberator.globalVariables.migrate_elements = [
-        {
-            // star button of awesome bar
-            id:    'star-button',
-            dest:  'security-button',
-            after: true,
-        },
-        {
-            // icon that show the existence of RSS and Atom on current page
-            id:    'feed-button',
-            dest:  'security-button',
-            after: true,
-        },
-        {
-            // favicon of awesome bar
-            id:    'page-proxy-stack',
-            dest:  'liberator-statusline',
-            after: false,
-        },
-    ];
+  liberator.globalVariables.migrate_elements = [
+    {
+      // star button of awesome bar
+      id:  'star-button',
+      dest:  'security-button',
+      after: true,
+    },
+    {
+      // icon that show the existence of RSS and Atom on current page
+      id:  'feed-button',
+      dest:  'security-button',
+      after: true,
+    },
+    {
+      // favicon of awesome bar
+      id:  'page-proxy-stack',
+      dest:  'liberator-statusline',
+      after: false,
+    },
+  ];
 EOM
 
 " multi_requester.js
@@ -171,22 +171,22 @@ EOM
 " notifier.js
 javascript <<EOM
 liberator.globalVariables.observer_growl_settings = {
-    //'Hatelabo bottle': { hide: true },
-    //'Hatena::Message': { hide: true },
-    //'liberator.echomsg': { life: 1 },
-    //'Twitter': { life: 3 },
-    //'Wassr': { hide: true },
-    'Weather forecast by Yahoo!': { life: 3 }
+  //'Hatelabo bottle': { hide: true },
+  //'Hatena::Message': { hide: true },
+  //'liberator.echomsg': { life: 1 },
+  //'Twitter': { life: 3 },
+  //'Wassr': { hide: true },
+  'Weather forecast by Yahoo!': { life: 3 }
 };
 
 liberator.globalVariables.subject_liberator_echomsg_filter = [
-    'Auto commands for',
-    '^autocommand'
+  'Auto commands for',
+  '^autocommand'
 ];
 
 liberator.globalVariables.subject_weather_yahoo_urls = [
-    "http://weather.yahoo.co.jp/weather/jp/13/4410/13117/1150053.html",
-    "http://weather.yahoo.co.jp/weather/jp/13/4410/13101/1010064.html"
+  "http://weather.yahoo.co.jp/weather/jp/13/4410/13117/1150053.html",
+  "http://weather.yahoo.co.jp/weather/jp/13/4410/13101/1010064.html"
 ];
 EOM
 
@@ -230,15 +230,15 @@ EOM
 " scenario-actor
 javascript <<EOM
 liberator.globalVariables.userScenario = {
-    DOMContentLoaded: [
-    { // good by hatena keyword
-        pattern: 'http://d.hatena.ne.jp/keyword/',
-        action: [
-            {sleep: 1000},
-            {follow: '//a[contains(@href,"http://ja.wikipedia.org/wiki")]'},
-        ],
-    },
-    ]
+  DOMContentLoaded: [
+  { // good by hatena keyword
+    pattern: 'http://d.hatena.ne.jp/keyword/',
+    action: [
+      {sleep: 1000},
+      {follow: '//a[contains(@href,"http://ja.wikipedia.org/wiki")]'},
+    ],
+  },
+  ]
 };
 EOM
 
