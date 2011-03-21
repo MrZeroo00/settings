@@ -268,6 +268,7 @@
 (setq my-disabled-features
 	  (append '("60_change-mode"
 				"60_doc-view"
+				"60_key-chord"
 				"60_mmm-mode"
 				"60_one-key"
 				"60_view"
