@@ -72,6 +72,7 @@ let g:hint_tombloo_xpath = '//img'
 
 " ime_control.js
 let g:ex_ime_mode = "inactive"
+let g:textarea_ime_mode = "auto"
 
 " ldrize_cooperation.js
 let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']"
@@ -108,6 +109,15 @@ liberator.globalVariables.localKeyMappings =
       ['<', ':stseek! -10']
     ]
   ]
+];
+EOM
+
+" marker_reader.js
+let g:marker_reader_onload = 0
+javascript <<EOM
+liberator.globalVariables.marker_reader_ignore = [
+    /^https?:\/\/mail\.google\.com\//,
+    /^http:\/\/(?:reader\.livedoor|fastladder)\.com\/(?:reader|public)\//,
 ];
 EOM
 
