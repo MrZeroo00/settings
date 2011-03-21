@@ -14,10 +14,9 @@
   (global-set-key "\C-xH" 'hatenahelper-mode))
 ;;;(add-hook 'hatena-mode-hook 'hatenahelper-mode)  ; 本当はこう
 ;;;(add-hook 'hatena-mode-hook
-(add-hook 'simple-hatena-mode-hook
-          (lambda ()
-;;;              other hooks must be wrote here!
-             (hatenahelper-mode t)))
+(defun my-simple-hatena-mode-hook ()
+  (hatenahelper-mode t))
+(add-hook 'simple-hatena-mode-hook 'my-simple-hatena-mode-hook)
 
 
 ;; -*-no-byte-compile: t; -*-
