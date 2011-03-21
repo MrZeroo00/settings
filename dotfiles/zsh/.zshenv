@@ -42,6 +42,7 @@ SAVEHIST=100000
 
 # autoload
 autoload zargs
+autoload -Uz is-at-least
 
 # options
 setopt extended_history
