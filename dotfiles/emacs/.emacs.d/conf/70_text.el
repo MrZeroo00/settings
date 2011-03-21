@@ -44,7 +44,7 @@
   (when (memq major-mode '(text-mode))
     ;; common setting
     '(ruler-mode)
-    (flyspell-mode)
+    (flyspell-mode 1)
     '(refill-mode t)
     '(setq paragraph-start '"^\\([ 　・○<\t\n\f]\\|(?[0-9a-zA-Z]+)\\)")
     )
