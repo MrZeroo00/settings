@@ -69,7 +69,7 @@
 
 ;;;; inertial-scroll
 ;;;(install-elisp "http://github.com/kiwanami/emacs-inertial-scroll/raw/master/inertial-scroll.el")
-(my-require-and-when 'inertial-scroll
+'(my-require-and-when 'inertial-scroll
   (setq inertias-global-minor-mode-map
         (inertias-define-keymap
          '(
