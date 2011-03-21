@@ -223,7 +223,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'sbmcommentsviewer',
 
     // Twitter
-    'reading',
+    //'reading',
     //'retweet',
     //'twittperator',
 
