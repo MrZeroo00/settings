@@ -146,10 +146,6 @@
                                )))
     )
 
-  ;; imenu
-  (add-hook 'org-mode-hook
-            (lambda () (imenu-add-to-menubar "Imenu")))
-
   ;; auto-insert
   (when (featurep 'autoinsert)
     (add-to-list 'auto-insert-alist '("bug.*\\.org$" . ["template_bug.org" my-template]))
@@ -189,3 +185,17 @@
           (wicked/org-update-checkbox-count (ad-get-arg 1)))))
 (my-load-and-when "_org-summary-todo")
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+
+;;;; mode hook
+(defun my-org-mode-hook ()
+  ;; common setting
+  (imenu-add-to-menubar "Imenu")
+
+  ;; sequential-command
+  (when (featurep 'sequential-command)
+	(define-key org-mode-map "\C-a" 'org-seq-home)
+	(define-key org-mode-map "\C-e" 'org-seq-end)
+	)
+  )
+(add-hook 'org-mode-hook 'my-org-mode-hook)

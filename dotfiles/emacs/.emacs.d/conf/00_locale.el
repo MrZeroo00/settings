@@ -39,10 +39,10 @@
 
 '(set-buffer-process-coding-system 'utf-8 'utf-8)
 '(set-clipboard-coding-system 'utf-8)
-'(add-hook 'find-file-hooks
-           (lambda ()
-             (setq coding-system-for-read 'utf-8)
-             (setq coding-system-for-write 'utf-8)))
+'(defun my-set-coding-system-for-read-write ()
+  (setq coding-system-for-read 'utf-8)
+  (setq coding-system-for-write 'utf-8))
+'(add-hook 'find-file-hooks 'my-set-coding-system-for-read-write)
 
 
 ;;;; locale setting

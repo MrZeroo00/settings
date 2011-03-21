@@ -263,11 +263,11 @@
 '(my-require-and-when 'face-list)
 
 
-(add-hook 'change-log-mode-hook
-          (lambda ()
-            (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
-            ;;(outline-minor-mode t)
-            (turn-on-orgstruct)))
+(defun my-change-log-mode-hook ()
+  (setq outline-regexp "\\(^[0-9A-Za-z]\\|[\t][*]\\)")
+  ;;(outline-minor-mode t)
+  (turn-on-orgstruct))
+(add-hook 'change-log-mode-hook 'my-change-log-mode-hook)
 
 
 ;;;; color
