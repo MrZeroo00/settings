@@ -2,10 +2,10 @@
 
 ;;;; IME
 (setq default-input-method "MW32-IME")
-(add-hook 'mw32-ime-on-hook
-          (function (lambda () (set-cursor-color "SkyBlue"))))
-(add-hook 'mw32-ime-off-hook
-          (function (lambda () (set-cursor-color "LemonChiffon"))))
+(defun my-mw32-ime-on-hook () (set-cursor-color "SkyBlue"))
+(defun my-mw32-ime-off-hook () (set-cursor-color "LemonChiffon"))
+(add-hook 'mw32-ime-on-hook 'my-mw32-ime-on-hook)
+(add-hook 'mw32-ime-off-hook 'my-mw32-ime-off-hook)
 (setq-default mw32-ime-mode-line-state-indicator "[--]")
 (setq mw32-ime-mode-line-state-indicator-list '("[--]" "[J]" "[--]"))
 (mw32-ime-initialize)
