@@ -249,4 +249,22 @@ EOM
 " toggler.js
 
 
+" twittperator.js
+let g:twittperator_use_chirp = 1
+js <<EOM
+commands.addUserCommand(
+    ["twuri"],
+    "Twittperator tweet with URI",
+    function(){
+        let uri = 'https://www.googleapis.com/urlshortener/v1/url';
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", uri, false);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify({ longUrl: buffer.URI }));
+        let result = JSON.parse(xhr.responseText).id;
+        commandline.open(":",["tw"," /",buffer.title,result].join(" "),modes.EX);
+    }
+);
+EOM
+
 " vim: set ft=vimperator:
