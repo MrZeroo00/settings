@@ -102,9 +102,15 @@
   (define-key term-raw-map (kbd "C-y") 'term-paste)
   )
 (defun my-shell-mode-hook ()
+  ;; common setting
   (setq outline-regexp "[^ ]*[>%#]")
   '(outline-minor-mode t)
-  (turn-on-orgstruct))
+
+  ;; org-mode
+  (when (featurep 'org)
+	(turn-on-orgstruct)
+	)
+  )
 (add-hook 'term-mode-hook 'my-term-mode-hook)
 (add-hook 'shell-mode-hook 'my-shell-mode-hook)
 
