@@ -104,12 +104,6 @@ function ssh_screen() {
 
 # for screen status line
 if [ "${TERM}" = ${TERMSCREEN} ]; then
-  #chpwd () {
-  _update_screen_title_by_cd () {
-    echo -n "_`dirs`\\"
-  }
-  add-zsh-hook chpwd _update_screen_title_by_cd
-
   #preexec() {
   _update_screen_title_by_command () {
     # see [zsh-workers:13180]
@@ -152,16 +146,6 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
     #prev=$cmd[1]
   }
   add-zsh-hook preexec _update_screen_title_by_command
-
-  #precmd() {
-  #_update_screen_title() {
-  #  #local prev; prev=`history -1 | sed "s/^[ 0-9]*//" | sed "s/ .*$//"`
-  #  echo -n "k$:${prev}\\"
-  #}
-  #add-zsh-hook precmd _update_screen_title
-
-  chpwd
-  #_update_screen_title_by_cd
 fi
 
 
