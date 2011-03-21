@@ -27,11 +27,10 @@
     (auto-revert-tail-mode t)))
 
 (add-hook 'find-file-hook 'my-auto-revert-tail-mode-on)
-
-(add-hook 'after-revert-hook
-          (lambda ()
-            (when auto-revert-tail-mode
-              (end-of-buffer))))
+(defun my-auto-revert-tail-mode-goto-tail ()
+  (when auto-revert-tail-mode
+	(end-of-buffer)))
+(add-hook 'after-revert-hook 'my-auto-revert-tail-mode-goto-tail)
 
 
 ;;;; tempbuf
@@ -50,8 +49,8 @@
 (my-load-and-when "_my-kill-buffers")
 (my-load-and-when "_my-save-and-kill-buffer")
 '(my-load-and-when "_my-make-scratch"
-  (add-hook 'after-save-hook
-            ;; when save *scratch* buffer, create new *scratch* buffer
-            (function (lambda ()
-                        (unless (member "*scratch*" (my-buffer-name-list))
-                          (my-make-scratch t))))))
+  (defun my-make-scratch-renew ()
+	;; when save *scratch* buffer, create new *scratch* buffer
+	(unless (member "*scratch*" (my-buffer-name-list))
+	  (my-make-scratch t)))
+  (add-hook 'after-save-hook 'my-make-scratch-renew))

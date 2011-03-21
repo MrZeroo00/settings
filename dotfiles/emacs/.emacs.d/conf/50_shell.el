@@ -49,11 +49,11 @@
   (global-set-key (kbd "C-c n") 'multi-term-next)
   (global-set-key (kbd "C-c p") 'multi-term-prev)
   )
-(add-hook 'term-mode-hook
-          '(lambda ()
-             (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
-             (define-key term-raw-map (kbd "C-y") 'term-paste)
-             ))
+(defun my-term-mode-hook ()
+  (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
+  (define-key term-raw-map (kbd "C-y") 'term-paste)
+  )
+(add-hook 'term-mode-hook 'my-term-mode-hook)
 
 
 ;;;; shell-pop

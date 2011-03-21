@@ -26,9 +26,9 @@
 
 ;;;; telnet
 (setq telnet-program "telnet")
-(add-hook 'telnet-mode-hook '_telnet-mode)
-(defun _telnet-mode ()
+(defun my-telnet-mode-hook ()
   (set-buffer-process-coding-system 'euc-japan 'sjis-unix))
+(add-hook 'telnet-mode-hook 'my-telnet-mode-hook)
 
 
 ;;;; ange-ftp
@@ -72,10 +72,11 @@
 ;;;; moz-plus
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/moz-plus/moz-plus.el")
 '(my-autoload-and-when 'run-mozilla "moz")
-'(add-hook 'inferior-moz-mode-hook (lambda ()
-                                    (my-require-and-when 'moz-plus)
-                                    (moz-plus 1)
-                                    ))
+(defun my-inferior-moz-mode-hook ()
+  (my-require-and-when 'moz-plus)
+  (moz-plus 1)
+  )
+(add-hook 'inferior-moz-mode-hook 'my-inferior-moz-mode-hook)
 
 
 ;;;; google2

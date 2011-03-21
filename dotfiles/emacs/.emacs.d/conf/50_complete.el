@@ -1,9 +1,9 @@
 (setq abbrev-file-name "~/.emacs.d/data/abbrev_defs")
 (quietly-read-abbrev-file)
 (setq save-abbrevs t)
-(add-hook 'pre-command-hook
-          (lambda ()
-            (setq abbrev-mode nil)))
+(defun my-disable-abbrev-mode ()
+  (setq abbrev-mode nil))
+(add-hook 'pre-command-hook 'my-disable-abbrev-mode)
 
 ;;;; for coding
 (setq dabbrev-case-fold-search nil)

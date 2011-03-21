@@ -37,9 +37,7 @@
 
 ;;;; sorter (sort file list)
 ;;;(install-elisp "http://www.meadowy.org/~shirai/elips/sorter.el")
-(add-hook 'dired-load-hook
-          (lambda ()
-            (my-require-and-when 'sorter)))
+(my-require-and-when 'sorter)
 
 
 ;;;; bf-mode (show file content)

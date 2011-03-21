@@ -1,9 +1,9 @@
 ;;;; find-file-hooks
-'(add-hook 'find-file-hooks
-          (function (lambda ()
-                      (if (string-match "/foo/bar/baz" buffer-file-name)
-                          (setq foo baz))
-                      )))
+'(defun my-find-file-hooks ()
+  (if (string-match "/foo/bar/baz" buffer-file-name)
+	  (setq foo baz))
+  )
+'(add-hook 'find-file-hooks 'my-find-file-hooks)
 
 ;;;; before-save-hook
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
