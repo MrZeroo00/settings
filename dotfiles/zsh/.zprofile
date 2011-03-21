@@ -105,6 +105,7 @@ setopt notify
 setopt numeric_glob_sort
 setopt print_eight_bit
 #setopt print_exit_value
+setopt prompt_subst
 setopt pushd_ignore_dups
 setopt pushd_minus
 setopt pushd_silent
