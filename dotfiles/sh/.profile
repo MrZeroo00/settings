@@ -114,7 +114,9 @@ fi
 
 
 # screen
-screen -D -R
+if [ "${TERM}" != ${TERMSCREEN} ]; then
+  screen -D -R
+fi
 
 
 # Ruby Version Manager (RVM)
