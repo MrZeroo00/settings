@@ -1,4 +1,16 @@
 (my-autoload-and-when 'css-mode "css-mode"
+  ;; anything
+  (when (featurep 'anything)
+    (add-to-list 'anything-mode-specific-alist
+                 '(css-mode . (
+                               anything-c-source-imenu
+                               )))
+	)
+
+  ;; speedbar
+  (when (featurep 'speedbar)
+	(speedbar-add-supported-extension '(".css"))
+	)
   )
 
 
