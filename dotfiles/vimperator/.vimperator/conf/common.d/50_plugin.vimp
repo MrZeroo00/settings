@@ -225,6 +225,9 @@ liberator.globalVariables.proxy_settings = [
 ];
 EOM
 
+" reading.js
+let g:reading_format='$SERVICENAME : $COMMENT "$TITLE" $URL $SELECTED'
+
 " refcontrol.js
 
 
