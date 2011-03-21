@@ -69,6 +69,10 @@ lazy fmaps -u='reader\.livedoor\.com/reader' j k s a p o v c <Space> <S-Space> z
 lazy fmaps -u='friendfeed\.com/' -events=vkeypress p P q / gh gd gm gb
 lazy fmaps -u='localhost:10010' j k h l r o
 
+" hint_tombloo
+let g:hint_tombloo_key   = 'R'
+let g:hint_tombloo_xpath = '//img'
+
 " ime_control.js
 let g:ex_ime_mode = "inactive"
 
