@@ -129,6 +129,10 @@ if [ "${TERM}" = ${TERMSCREEN} ]; then
       if (( $#cmd == 2)); then
         cmd[1]=$cmd[2]
       fi
+
+      # my patch
+      echo -n "k$cmd[1]:t\\"
+      return
       ;;
       *)
       echo -n "k$cmd[1]:t\\"
