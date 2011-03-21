@@ -30,15 +30,15 @@ liberator.registerObserver("enter", function() {
 });
 EOM
 
-" browser_object.js
+" browser_object
 "let g:browser_object_prefix = ','
 let g:browser_object_prefix = ''
 
-" char-hints-mod2.js
+" char-hints-mod2
 let g:hintsio="iO"
 let g:hintchars="asdfghjklrtyu"
 
-" copy.js
+" copy
 javascript <<EOM
 liberator.globalVariables.copy_templates = [
   { label: 'titleAndURL',    value: '%TITLE% %URL%' },
@@ -50,7 +50,7 @@ liberator.globalVariables.copy_templates = [
 ];
 EOM
 
-" direct_bookmark.js
+" direct_bookmark
 let g:direct_sbm_use_services_by_tag = "d"
 let g:direct_sbm_use_services_by_post = "d"
 let g:direct_sbm_is_normalize = "true"
@@ -70,16 +70,16 @@ lazy fmaps -u='localhost:10010' j k h l r o
 let g:hint_tombloo_key   = 'R'
 let g:hint_tombloo_xpath = '//img'
 
-" ime_control.js
+" ime_control
 let g:ex_ime_mode = "inactive"
 let g:textarea_ime_mode = "auto"
 
-" ldrize_cooperation.js
+" ldrize_cooperation
 let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']"
 let g:ldrc_intelligence_bind = "true"
 let g:ldrc_skip = "0.25"
 
-" localkeymode.js
+" localkeymode
 let g:localkeymode_enable = "true"
 javascript <<EOM
 liberator.globalVariables.localKeyMappings =
@@ -112,7 +112,7 @@ liberator.globalVariables.localKeyMappings =
 ];
 EOM
 
-" marker_reader.js
+" marker_reader
 let g:marker_reader_onload = 0
 javascript <<EOM
 liberator.globalVariables.marker_reader_ignore = [
@@ -145,7 +145,7 @@ javascript <<EOM
   ];
 EOM
 
-" multi_requester.js
+" multi_requester
 javascript <<EOM
 liberator.globalVariables.multi_requester_mappings = [
   [',ma', 'alc',  , 'args'],
@@ -166,10 +166,10 @@ liberator.globalVariables.multi_requester_siteinfo = [
 ];
 EOM
 
-" nextlink.js
+" nextlink
 "let g:nextlink_followlink = "true"
 
-" notifier.js
+" notifier
 javascript <<EOM
 liberator.globalVariables.observer_growl_settings = {
   //'Hatelabo bottle': { hide: true },
@@ -191,7 +191,7 @@ liberator.globalVariables.subject_weather_yahoo_urls = [
 ];
 EOM
 
-" proxy.js
+" proxy
 javascript <<EOM
 liberator.globalVariables.proxy_settings = [
   {
@@ -225,10 +225,10 @@ liberator.globalVariables.proxy_settings = [
 ];
 EOM
 
-" reading.js
+" reading
 let g:reading_format='$SERVICENAME : $COMMENT "$TITLE" $URL $SELECTED'
 
-" refcontrol.js
+" refcontrol
 
 
 " scenario-actor
@@ -246,10 +246,10 @@ liberator.globalVariables.userScenario = {
 };
 EOM
 
-" toggler.js
+" toggler
 
 
-" twittperator.js
+" twittperator
 let g:twittperator_use_chirp = 1
 js <<EOM
 commands.addUserCommand(
