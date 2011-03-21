@@ -1,4 +1,4 @@
-"" options --------------------
+"" Options --------------------
 set autocomplete
 set cdpath=$HOME,$HOME/Desktop
 "set complete=lS
@@ -40,7 +40,7 @@ set nextpattern+='next, 次(の)?ページ,\b次.*,→\b,下一頁,Следую�
 set previouspattern+='prev, 前(の)?ページ,\b前.*,\b←'
 
 
-"" set preferences --------------------
+"" Preferences --------------------
 set! accessibility.typeaheadfind.casesensitive=1
 set! browser.bookmarks.autoExportHTML=true
 set! browser.cache.memory.capacity=24576
@@ -80,14 +80,14 @@ set! browser.chrome.favicons=false
 set! browser.chrome.site_icons=false
 
 
-"" commands --------------------
+"" Commands --------------------
 command -nargs=+ alc mr alc <args>
 
 
-"" abbreviations --------------------
+"" Abbreviations --------------------
 
 
-"" color scheme --------------------
+"" Color Scheme --------------------
 colorscheme my
 style -name personas chrome://* <<EOM
 #main-window { background-repeat: repeat-y !important; }
@@ -98,14 +98,14 @@ EOM
 autocmd LocationChange .* :js getBrowser().mCurrentBrowser.collapsed = buffer.URL == "about:blank" ? true : false
 
 
-"" quick marks --------------------
+"" Quick Marks --------------------
 qmark m https://mail.google.com/
 qmark r http://www.google.com/reader/
 qmark d http://del.icio.us/tanda/
 qmark v http://localhost:10010/
 
 
-"" hints --------------------
+"" Hints --------------------
 javascript <<EOM
 hints.addMode("m", "Open movie",
   function(elem, uri) {
@@ -124,7 +124,7 @@ hints.addMode("i", "Focus to textbox",
 EOM
 
 
-"" other --------------------
+"" Other --------------------
 javascript <<EOM
   document.getElementById("liberator-multiline-output").parentNode.maxHeight="400px"
   //document.getElementById("liberator-completions").parentNode.maxHeight="400px"
