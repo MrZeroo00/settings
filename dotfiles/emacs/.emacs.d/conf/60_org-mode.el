@@ -189,7 +189,7 @@
 
 ;;;; mode hook
 (defun my-org-mode-hook ()
-  ;; common setting
+  ;; imenu
   (imenu-add-to-menubar "Imenu")
 
   ;; sequential-command
