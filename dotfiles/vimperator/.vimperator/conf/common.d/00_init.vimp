@@ -84,6 +84,12 @@ set! browser.chrome.site_icons=false
 command -nargs=+ alc mr alc <args>
 
 
+"" Auto Commands --------------------
+autocmd LocationChange .* :set! browser.sessionstore.interval=120000
+autocmd LocationChange 'www\.youtube\.(com|co\.jp)' :set! browser.sessionstore.interval=300000
+autocmd LocationChange 'www\.nicovideo\.jp' :set! browser.sessionstore.interval=300000
+
+
 "" Abbreviations --------------------
 
 
