@@ -151,6 +151,7 @@ liberator.globalVariables.multi_requester_mappings = [
   [',ma', 'alc',  , 'args'],
 ];
 EOM
+let g:multi_requester_default_sites = 'alc';
 
 javascript <<EOM
 liberator.globalVariables.multi_requester_siteinfo = [

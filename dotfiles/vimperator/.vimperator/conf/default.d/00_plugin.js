@@ -97,7 +97,7 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Tab
     //'open-frame',
-    'panorama',
+    //'panorama',
     //'removetabs',
     //'tabsort',
 
