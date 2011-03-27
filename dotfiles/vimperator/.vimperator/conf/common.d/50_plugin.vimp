@@ -246,6 +246,10 @@ liberator.globalVariables.userScenario = {
 };
 EOM
 
+" statusline-toolbar
+set toolbars=statuslinetoolbar
+set statustoolbars=feed-button
+
 " toggler
 
 
