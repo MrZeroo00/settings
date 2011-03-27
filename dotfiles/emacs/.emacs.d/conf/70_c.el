@@ -1,72 +1,59 @@
 (my-require-and-when 'cc-mode
-  ;; anything
-  (when (featurep 'anything)
-    (add-to-list 'anything-mode-specific-alist
-                 '(c-mode . (
-                             ;;anything-c-source-yasnippet
-                             anything-c-source-imenu
-                             ;;anything-c-source-gtags-select
-                             ))
-                 '(c++-mode . (
+  (defun my-c-mode-after-init-hook ()
+    ;; anything
+    (when (featurep 'anything)
+      (add-to-list 'anything-mode-specific-alist
+                   '(c-mode . (
                                ;;anything-c-source-yasnippet
                                anything-c-source-imenu
                                ;;anything-c-source-gtags-select
-                               )))
-	(add-to-list 'anything-kyr-commands-by-major-mode
-				 '(c-mode
-				   recompile
-				   compile
-				   gtags-find-file
-				   gtags-find-rtag
-				   ff-find-other-file
-				   align
-				   highlight-lines-matching-regexp
-				   hs-hide-block
-				   hs-show-block
-				   hide-ifdef-mode
-				   develock-mode
-				   )
-				 '(c++-mode
-				   recompile
-				   compile
-				   gtags-find-file
-				   gtags-find-rtag
-				   ff-find-other-file
-				   align
-				   highlight-lines-matching-regexp
-				   hs-hide-block
-				   hs-show-block
-				   hide-ifdef-mode
-				   develock-mode
-				   ))
+                               ))
+                   )
+      (add-to-list 'anything-kyr-commands-by-major-mode
+                   '(c-mode
+                     recompile
+                     compile
+                     gtags-find-file
+                     gtags-find-rtag
+                     ff-find-other-file
+                     align
+                     highlight-lines-matching-regexp
+                     hs-hide-block
+                     hs-show-block
+                     hide-ifdef-mode
+                     develock-mode
+                     )
+                   )
+      )
+
+    ;; flymake
+    (when (featurep 'flymake)
+      (defun my-flymake-gcc-init ()
+        (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                             'flymake-create-temp-inplace))
+               (local-file  (file-relative-name
+                             temp-file
+                             (file-name-directory buffer-file-name))))
+          (list "gcc" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
+      (defun my-flymake-cc-conditional-init()
+        (cond ((file-exists-p (concat flymake-base-dir "/" "Makefile")) 'flymake-simple-make-init)
+              (t 'my-flymake-gcc-init)))
+      (setcdr (assoc "\\.c\\'" flymake-allowed-file-name-masks)
+              (list (my-flymake-cc-conditional-init)))
+      )
+
+    ;; ifdef
+    ;;(setq hide-ifdef-define-alist
+    ;;      '((list-name
+    ;;         DEFINE1
+    ;;         DEFINE2
+    ;;         ))
+
+    ;; summarye
+    ;;(install-elisp "http://www.bookshelf.jp/elc/summarye.el")
+    '(autoload 'se/make-summary-buffer "summarye" nil t)
     )
-
-  ;; flymake
-  (when (featurep 'flymake)
-    (defun my-flymake-gcc-init ()
-      (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-                           'flymake-create-temp-inplace))
-             (local-file  (file-relative-name
-                           temp-file
-                           (file-name-directory buffer-file-name))))
-        (list "gcc" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
-    (defun my-flymake-cc-conditional-init()
-      (cond ((file-exists-p (concat flymake-base-dir "/" "Makefile")) 'flymake-simple-make-init)
-            (t 'my-flymake-gcc-init)))
-    (setcdr (assoc "\\.c\\'" flymake-allowed-file-name-masks)
-            (list (my-flymake-cc-conditional-init)))
-    )
-
-  ;; ifdef
-  ;;(setq hide-ifdef-define-alist
-  ;;      '((list-name
-  ;;         DEFINE1
-  ;;         DEFINE2
-  ;;         ))
-
-  ;; summarye
-  ;;(install-elisp "http://www.bookshelf.jp/elc/summarye.el")
-  '(autoload 'se/make-summary-buffer "summarye" nil t)
+  (add-hook 'after-init-hook 'my-c-mode-after-init-hook)
   )
 
 
