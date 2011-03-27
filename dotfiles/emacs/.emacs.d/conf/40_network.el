@@ -4,7 +4,11 @@
 
 
 ;;;; tramp
-(my-require-and-when 'tramp)
+(my-require-and-when 'tramp
+  (setq tramp-default-method "ssh")
+  ;;(add-to-list 'tramp-default-proxies-alist
+  ;;             '("pattern" nil "/ssh:user@host:"))
+  )
 
 
 ;;;; emacs-wget
