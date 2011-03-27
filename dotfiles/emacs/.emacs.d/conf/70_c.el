@@ -63,7 +63,7 @@
 
 ;;;; mode hook
 (defun my-c-mode-hook ()
-(when (memq major-mode '(c-mode c++-mode))
+(when (memq major-mode '(c-mode))
   ;; common setting
   (c-set-style "k&r")
   ;;(c-set-offset 'substatement-open 0)
