@@ -89,7 +89,7 @@
 
 ;;;; shell-history
 ;;;(install-elisp-from-emacswiki "shell-history.el")
-(my-require-and-when 'shell-history
+'(my-require-and-when 'shell-history
   (define-key shell-mode-map "\M-m" 'shell-add-to-history))
 
 
