@@ -68,10 +68,10 @@
 (setq diff-switches "-u")
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
-  (setq ediff-split-window-function (lambda (&optional arg)
-  			      (if (> (frame-width) 150)
-  				  (split-window-horizontally arg)
-  				(split-window-vertically arg))))
+  ;;(setq ediff-split-window-function (lambda (&optional arg)
+  ;;			      (if (> (frame-width) 150)
+  ;;				  (split-window-horizontally arg)
+  ;;				(split-window-vertically arg))))
 
   (defun command-line-diff (switch)
     (let ((file1 (pop command-line-args-left))
