@@ -57,7 +57,7 @@
    (shell-pop-set-internal-mode-shell shell-file-name)
    (shell-pop-set-window-height 60) ; the number for the percentage of the selected window.
    )
-(global-set-key (kbd "C-c t") 'shell-pop)
+'(global-set-key (kbd "C-c t") 'shell-pop)
 
 
 ;;;; tails-comint-history
