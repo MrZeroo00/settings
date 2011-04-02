@@ -8,6 +8,8 @@
 (setq shell-file-name (skt:shell))
 (setenv "SHELL" shell-file-name)
 (setq explicit-shell-file-name shell-file-name)
+;;;(setq shell-command-switch "-c")
+;;;(setq exec-suffix-list '(".exe" ".sh" ".pl"))
 '(global-set-key (kbd "C-c t") '(lambda ()
                                   (interactive)
                                   (term shell-file-name)))
@@ -18,10 +20,6 @@
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 
 (setq comint-scroll-show-maximum-output t)
-;;;(setq explicit-shell-file-name "bash")
-;;;(setq shell-file-name "bash")
-;;;(setq shell-command-switch "-c")
-;;;(setq exec-suffix-list '(".exe" ".sh" ".pl"))
 
 
 ;;;; anything
