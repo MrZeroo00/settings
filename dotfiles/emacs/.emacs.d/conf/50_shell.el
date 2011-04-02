@@ -36,10 +36,10 @@
 (my-require-and-when 'multi-term
   (setq multi-term-program shell-file-name)
   (add-to-list 'term-unbind-key-list '"M-x")
-  (global-set-key (kbd "C-c t") '(lambda ()
+  '(global-set-key (kbd "C-c t") '(lambda ()
                                    (interactive)
                                    (multi-term)))
-  '(global-set-key (kbd "C-c t") '(lambda ()
+  (global-set-key (kbd "C-c t") '(lambda ()
                                    (interactive)
                                    (if (get-buffer "*terminal<1>*")
                                        (switch-to-buffer "*terminal<1>*")
@@ -51,14 +51,13 @@
 
 ;;;; shell-pop
 ;;;(install-elisp-from-emacswiki "shell-pop.el")
-'(my-require-and-when 'shell-pop
+(my-require-and-when 'shell-pop
    (add-to-list 'shell-pop-internal-mode-list '("multi-term" "*terminal<1>*" '(lambda () (multi-term))))
    (shell-pop-set-internal-mode "multi-term")
-   '(shell-pop-set-internal-mode "ansi-term")
    (shell-pop-set-internal-mode-shell shell-file-name)
    (shell-pop-set-window-height 60) ; the number for the percentage of the selected window.
    )
-;;;(global-set-key [f8] 'shell-pop)
+(global-set-key (kbd "C-c t") 'shell-pop)
 
 
 ;;;; tails-comint-history
@@ -84,8 +83,8 @@
 
 ;;;; shell-toggle (switch shell buffer easily)
 ;;;(install-elisp "http://user.it.uu.se/~mic/shell-toggle.el")
-(my-autoload-and-when 'shell-toggle "shell-toggle")
-(my-autoload-and-when 'shell-toggle-cd "shell-toggle")
+'(my-autoload-and-when 'shell-toggle "shell-toggle")
+'(my-autoload-and-when 'shell-toggle-cd "shell-toggle")
 
 
 ;;;; shell-history
