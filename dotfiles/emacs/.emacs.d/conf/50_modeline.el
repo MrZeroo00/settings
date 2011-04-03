@@ -10,14 +10,14 @@
                          #("   " 0 3
                            (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))
                          mode-line-position
-                         (vc-mode vc-mode)
-                         #("  " 0 2
-                           (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))
-                         mode-line-modes
                          (which-func-mode
                           ("" which-func-format
                            #("--" 0 2
                              (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))))
+                         (vc-mode vc-mode)
+                         #("  " 0 2
+                           (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))
+                         mode-line-modes
                          (global-mode-string
                           (#("--" 0 2
                              (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))
