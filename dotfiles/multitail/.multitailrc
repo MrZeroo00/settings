@@ -1,3 +1,66 @@
+# General
+titlebar:%m %u@%h %f (%t) [%l]
+show_subwindow_id:off
+abbreviate_filesize:on
+dsblwm:yes
+warn_closed:yes
+allow_8bit:yes
+beep_method:flash
+beep_popup_length:0.1
+default_linewrap:a
+follow_filename:yes
+close_closed_windows:yes
+suppress_empty_lines:yes
+reuse_searchstring:no
+resolv_ip_addresses:yes
 check_mail:0
+
+# Color
+bright:1
+inverse:bold/reverse
+#default_background_color:black
+defaultscheme:debug
+scheme:debug:/var/log/php.log
 colorscheme:debug
 cs_re:yellow:\[debug\].*
+
+# Line
+markerline_color:red,black,reverse
+markerline_timestamp:on
+markerline_char:-
+changeline_color:blue,white,bold/reverse
+changeline_char:-
+idleline_color:yellow,black,bold/reverse
+idleline_char:-
+msgline_color:magenta,black,bold/reverse
+msgline_char:-
+statusline_above_data:no
+statusline_attrs:white,black,reverse
+statusline_ts_format:%Y/%m/%d %H:%M:%S
+ts_format:%b %d %H:%M:%S
+cnv_ts_format:%b %d %H:%M:%S %Y
+global_mark_change:no
+default_mark_change:yes:/var/log/apache/.*
+replace_by_markerline:-- MARK --
+splitline_attrs:white,black,reverse
+splitline:attributes
+
+# Scrollback
+scrollback_no_colors:no
+scrollback_search_new_window:yes
+
+# Syslogd
+syslog_ts_format:%Y/%m/%d %H:%M:%S
+show_severity_facility:yes
+
+# Conversion
+convert:apache:ip4tohost:^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})
+
+# Filter
+filterscheme:syslog:removes '----mark----' and such
+rule:ev:---- MARK ----
+usefilterscheme:syslog:/var/log/messages
+editscheme:syslog:removes '----'
+editrule:ke:----
+editrule:ke:make
+useeditscheme:syslog:/var/log/messages
