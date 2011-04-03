@@ -10,6 +10,7 @@
 (setq migemo-pattern-alist-length 1024)
 
 (my-require-and-when 'migemo
+  (setq migemo-pattern-alist-file "~/.emacs.d/data/migemo-pattern")
   ;; http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=migemo%20onlyjapanese
   ;; buffer-file-coding-system から言語判別
   ;; unicode も入れた方がいいのかも。
