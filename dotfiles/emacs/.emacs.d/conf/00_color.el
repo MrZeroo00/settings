@@ -11,14 +11,24 @@
 
 
 ;;;; ediff
-(setq ediff-odd-diff-face-A ((t (:background "magenta" :foreground "white"))))
-(setq ediff-even-diff-face-A ((t (:background "magenta" :foreground "white"))))
-(setq ediff-odd-diff-face-B ((t (:background "blue" :foreground "white"))))
-(setq ediff-even-diff-face-B ((t (:background "blue" :foreground "white"))))
-(setq ediff-odd-diff-face-C ((t (:background "black" :foreground "white"))))
-(setq ediff-even-diff-face-C ((t (:background "black" :foreground "white"))))
-(setq ediff-odd-diff-face-Ancestor ((t (:background "black" :foreground "white"))))
-(setq ediff-even-diff-face-Ancestor ((t (:background "black" :foreground "white"))))
+(my-eval-after-load "ediff"
+  (set-face-background ediff-odd-diff-face-A "magenta")
+  (set-face-foreground ediff-odd-diff-face-A "white")
+  (set-face-background ediff-even-diff-face-A "magenta")
+  (set-face-foreground ediff-even-diff-face-A "white")
+  (set-face-background ediff-odd-diff-face-B "blue")
+  (set-face-foreground ediff-odd-diff-face-B "white")
+  (set-face-background ediff-even-diff-face-B "blue")
+  (set-face-foreground ediff-even-diff-face-B "white")
+  (set-face-background ediff-odd-diff-face-C "whilte")
+  (set-face-foreground ediff-odd-diff-face-C "black")
+  (set-face-background ediff-even-diff-face-C "white")
+  (set-face-foreground ediff-even-diff-face-C "black")
+  (set-face-background ediff-odd-diff-face-Ancestor "whilte")
+  (set-face-foreground ediff-odd-diff-face-Ancestor "black")
+  (set-face-background ediff-even-diff-face-Ancestor "white")
+  (set-face-foreground ediff-even-diff-face-Ancestor "black")
+  )
 
 
 ;;;; term
