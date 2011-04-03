@@ -25,7 +25,7 @@
                          #("-%-" 0 3
                            (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display")))
       )
-(setq mode-line-frame-identification " ")
+'(setq mode-line-frame-identification " ")
 (line-number-mode t)
 (column-number-mode t)
 (setq eol-mnemonic-dos "(CRLF)")
