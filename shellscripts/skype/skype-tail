@@ -4,7 +4,8 @@ import time
 
 def handler(msg, event):
 	if event == u"RECEIVED":
-		print "[" + msg.Datetime.("%H:%M") + "] " + msg.FromDisplayName + "\n"
+		print "[" + msg.Datetime.("%H:%M") + "] " + msg.ChatName + "\n"
+		print msg.FromDisplayName + "\n"
 		print msg.Body
 
 def main():
