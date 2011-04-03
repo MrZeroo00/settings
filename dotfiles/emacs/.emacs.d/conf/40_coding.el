@@ -66,8 +66,11 @@
 
 ;;;; diff
 (setq diff-switches "-u")
+(setq ediff-force-faces t)
+(setq ediff-highlight-all-diffs t)
 (my-require-and-when 'ediff
   (setq-default ediff-auto-refine-limit 10000)
+  (setq ediff-split-window-function 'split-window-horizontally)
   ;;(setq ediff-split-window-function (lambda (&optional arg)
   ;;			      (if (> (frame-width) 150)
   ;;				  (split-window-horizontally arg)
