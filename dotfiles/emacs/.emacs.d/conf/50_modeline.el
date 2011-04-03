@@ -1,20 +1,3 @@
-(line-number-mode t)
-(column-number-mode t)
-(setq eol-mnemonic-dos "(CRLF)")
-(setq eol-mnemonic-mac "(CR)")
-(setq eol-mnemonic-unix "(LF)")
-
-;;;; display time
-(setq display-time-string-forms
-      '(month "/" day " " dayname " "
-              24-hours ":" minutes " "
-              (if mail " Mail" "") ))
-(display-time-mode t)
-
-;;;; show current directory
-(add-to-list 'global-mode-string '("" default-directory "-"))
-
-;;;; format
 (setq mode-line-format '("%e"
                          #("-" 0 1
                            (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))
@@ -43,3 +26,18 @@
                            (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display")))
       )
 (setq mode-line-frame-identification " ")
+(line-number-mode t)
+(column-number-mode t)
+(setq eol-mnemonic-dos "(CRLF)")
+(setq eol-mnemonic-mac "(CR)")
+(setq eol-mnemonic-unix "(LF)")
+
+;;;; display time
+(setq display-time-string-forms
+      '(month "/" day " " dayname " "
+              24-hours ":" minutes " "
+              (if mail " Mail" "") ))
+(display-time-mode t)
+
+;;;; show current directory
+(add-to-list 'global-mode-string '("" default-directory "-"))
