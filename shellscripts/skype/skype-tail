@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+import Skype4Py
+import time
+
+def handler(msg, event):
+	if event == u"RECEIVED":
+		print msg.Datetime.("%H:%M") + " " + msg.FromDisplayName + "\n"
+		print msg.Body
+
+def main():
+	skype = Skype4Py.Skype()
+	skype.Attach()
+	skype.OnMessageStatus = handler
+	while True:
+		time.sleep(1)
+
+if __name__ == "__main__":
+	main()
