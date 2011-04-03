@@ -1,6 +1,7 @@
 ;;;; session
 ;;;; http://emacs-session.sourceforge.net/
 (my-require-and-when 'session
+  (setq session-save-file (expand-file-name "~/emacs.d/data/session"))
   (setq session-initialize '(de-saveplace session keys menus places)
         session-globals-include '((kill-ring 50)
                                   (session-file-alist 500 t)
