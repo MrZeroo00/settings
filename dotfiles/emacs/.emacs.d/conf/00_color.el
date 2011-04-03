@@ -11,14 +11,14 @@
 
 
 ;;;; ediff
-(ediff-odd-diff-face-A ((t (:background "black" :foreground "white"))))
-(ediff-even-diff-face-A ((t (:background "black" :foreground "white"))))
-(ediff-odd-diff-face-B ((t (:background "black" :foreground "white"))))
-(ediff-even-diff-face-B ((t (:background "black" :foreground "white"))))
-(ediff-odd-diff-face-C ((t (:background "black" :foreground "white"))))
-(ediff-even-diff-face-C ((t (:background "black" :foreground "white"))))
-(ediff-odd-diff-face-Ancestor ((t (:background "black" :foreground "white"))))
-(ediff-even-diff-face-Ancestor ((t (:background "black" :foreground "white"))))
+(setq ediff-odd-diff-face-A ((t (:background "black" :foreground "white"))))
+(setq ediff-even-diff-face-A ((t (:background "black" :foreground "white"))))
+(setq ediff-odd-diff-face-B ((t (:background "black" :foreground "white"))))
+(setq ediff-even-diff-face-B ((t (:background "black" :foreground "white"))))
+(setq ediff-odd-diff-face-C ((t (:background "black" :foreground "white"))))
+(setq ediff-even-diff-face-C ((t (:background "black" :foreground "white"))))
+(setq ediff-odd-diff-face-Ancestor ((t (:background "black" :foreground "white"))))
+(setq ediff-even-diff-face-Ancestor ((t (:background "black" :foreground "white"))))
 
 
 ;;;; term
