@@ -1,1 +1,3 @@
 check_mail:0
+colorscheme:debug
+cs_re:yellow:\[debug\].*
