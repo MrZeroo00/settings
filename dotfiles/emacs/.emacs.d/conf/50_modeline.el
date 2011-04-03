@@ -18,7 +18,12 @@
 (setq mode-line-format '("%e"
                          #("-" 0 1
                            (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))
-                         mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification
+                         mode-line-mule-info
+                         mode-line-client
+                         mode-line-modified
+                         mode-line-remote
+                         mode-line-frame-identification
+                         mode-line-buffer-identification
                          #("   " 0 3
                            (help-echo "mouse-1: Select (drag to resize)\nmouse-2: Make current window occupy the whole frame\nmouse-3: Remove current window from display"))
                          mode-line-position
