@@ -52,7 +52,7 @@ syslog_ts_format:%Y/%m/%d %H:%M:%S
 bright:1
 inverse:bold/reverse
 #default_background_color:black
-defaultscheme:debug
+#defaultscheme:debug
 scheme:debug:/var/log/php.log
 colorscheme:debug
 cs_re:yellow:\[debug\].*
