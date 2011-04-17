@@ -95,7 +95,7 @@ source ${HOME}/.zsh/function/view-edit-file.sh
 ## ssh_screen
 function ssh_screen() {
   eval server=\${$#}
-    screen -t $server ssh "$@"
+    screen -t $server ssh -t "$@"
 }
 #if [ "${TERM}" = "${TERMSCREEN}" ]; then
 #  alias ssh=ssh_screen
