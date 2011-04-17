@@ -4,7 +4,7 @@ import time
 
 def handler(msg, event):
 	if event == u"RECEIVED":
-		print "[" + msg.Datetime.strftime("%H:%M") + "] " + msg.ChatName + "\n"
+		print "[" + msg.Datetime.strftime("%H:%M") + "] " + msg.Chat.FriendlyName + "\n"
 		print msg.FromDisplayName + "\n"
 		print msg.Body
 
