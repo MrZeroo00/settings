@@ -226,7 +226,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     // Twitter
     //'reading',
     //'retweet',
-    'twittperator',
+    //'twittperator',
 
     // Tumblr
     //'logintumblr',
