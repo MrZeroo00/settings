@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import Skype4Py
 import time
+import sys
+import codecs
 
 def handler(msg, event):
 	if event == u"RECEIVED":
@@ -15,5 +17,6 @@ def main():
 	while True:
 		time.sleep(1)
 
+sys.stdout = codecs.lookup('utf_8')[-1](sys.stdout)
 if __name__ == "__main__":
 	main()
