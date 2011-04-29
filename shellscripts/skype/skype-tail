@@ -3,12 +3,15 @@ import Skype4Py
 import time
 import sys
 import codecs
+import skype_tail_config
 
 def handler(msg, event):
 	if event == u"RECEIVED":
-		print "[" + msg.Datetime.strftime("%H:%M") + "] " + msg.Chat.FriendlyName + "\n"
-		print msg.FromDisplayName + "\n"
-		print msg.Body
+		for w in skype_tail_config.keywords:
+			if msg.Body.find(w) >= 0:
+				print "[" + msg.Datetime.strftime("%H:%M") + "] " + msg.Chat.FriendlyName + "\n"
+				print msg.FromDisplayName + "\n"
+				print msg.Body
 
 def main():
 	skype = Skype4Py.Skype()
