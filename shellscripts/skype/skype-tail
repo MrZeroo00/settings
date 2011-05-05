@@ -3,23 +3,44 @@ import Skype4Py
 import time
 import sys
 import codecs
-import skype_tail_config
+import json
 
-def handler(msg, event):
-	if event == u"RECEIVED":
-		for w in skype_tail_config.keywords:
-			if msg.Body.find(w) >= 0:
-				print "[" + msg.Datetime.strftime("%H:%M") + "] " + msg.Chat.FriendlyName + "\n"
-				print msg.FromDisplayName + "\n"
-				print msg.Body
+class SkypeTail:
+	def __init__(self, fname):
+		self.skype = Skype4Py.Skype()
+		self.skype.Attach()
+		self.skype.OnMessageStatus = self.handleMessage
+		with open(fname) as f:
+			self.cfg = json.load(f, 'utf-8')
 
-def main():
-	skype = Skype4Py.Skype()
-	skype.Attach()
-	skype.OnMessageStatus = handler
-	while True:
-		time.sleep(1)
+	def handleMessage(msg, event):
+		if event == u"RECEIVED":
+			for c in self.cfg:
+				if msg.Body.find(c.keyword) >= 0:
+					print self.formatMessage(msg)
 
-sys.stdout = codecs.lookup('utf_8')[-1](sys.stdout)
+	def fortmatMessage(msg):
+		format = """[%(date)] %(chatname)
+		%(from)
+		%(body)"""
+		param = { 'date': msg.Datetime.strftime("%H:%M"),
+		          'chatname': msg.Chat.FriendlyName,
+		          'from': msg.FromDisplayName,
+		          'body': msg.Body
+		        }
+		return format % param
+
+	def run(self):
+		while True:
+			time.sleep(1)
+
 if __name__ == "__main__":
-	main()
+	sys.stdout = codecs.lookup('utf_8')[-1](sys.stdout)
+
+	if (len(sys.argv) != 2):
+		print "Error"
+		quit()
+	fname = sys.argv[1]
+
+	skypeTail = SkypeTail(fname)
+	skypeTail.run()
