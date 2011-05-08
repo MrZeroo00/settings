@@ -10,6 +10,7 @@
   )
 (defvar grep-find-ignored-directories '()) ;; for 2.2
 (add-to-list 'grep-find-ignored-directories ".git")
+(define-key isearch-mode-map "\C-o" 'isearch-edit-string)
 
 
 ;;;; ack
