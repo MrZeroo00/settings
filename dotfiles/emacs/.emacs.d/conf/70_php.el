@@ -146,6 +146,11 @@
   (setq imenu-create-index-function (function php-imenu-create-index))
   (imenu-add-menubar-index)
 
+  ;; flymake
+  (when (featurep 'flymake)
+    (flymake-mode t)
+    )
+
   ;; hs-minor-mode
   (when (featurep 'hideshow)
     (hs-minor-mode 1)
