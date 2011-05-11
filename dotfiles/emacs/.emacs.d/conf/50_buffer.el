@@ -18,6 +18,17 @@
 (my-require-and-when 'midnight)
 
 
+;;;; auto-revert-mode
+(setq auto-revert-check-vc-info t)
+(setq auto-revert-interval 1)
+(defun my-auto-revert-mode-when-using-vcs ()
+  (when
+      (and buffer-file-name
+           (vc-backend buffer-file-name))
+    (auto-revert-mode)))
+(add-hook 'find-file-hook 'my-auto-revert-mode-when-using-vcs)
+
+
 ;;;; tail
 ;;;; http://d.hatena.ne.jp/kitokitoki/20101211/p1
 (defvar auto-revert-tail-mode nil)
