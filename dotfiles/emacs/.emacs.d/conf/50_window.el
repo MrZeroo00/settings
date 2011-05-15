@@ -100,8 +100,7 @@
 (my-require-and-when 'popwin
   (setq display-buffer-function 'popwin:display-buffer)
   (setq anything-samewindow nil)
-  (add-to-list 'popwin:special-display-config '("*anything*" :position bottom :height 20))
-  (add-to-list 'popwin:special-display-config '("*anything gtags*" :position bottom :height 20))
+  (add-to-list 'popwin:special-display-config '("\\*anything[^*]*\\*" :regexp t :position bottom :height 20))
   (add-to-list 'popwin:special-display-config '("\\*grep\\*.*" :regexp t :position bottom :height 20))
   )
 
