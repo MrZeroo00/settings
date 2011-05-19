@@ -1,7 +1,7 @@
 bind . source $HOME/.screen/setting
 source $HOME/.screen/setting
 source $HOME/.screen/tscreen
-source $HOME/.screen/local
+source $HOME/.screen/$HOSTNAME.local
 
 chdir
 #screen -t top 0 nice top
