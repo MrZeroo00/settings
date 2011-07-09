@@ -17,3 +17,9 @@
                  (proc (start-process "xsel" "*Messages*" "xsel" "-b" "-i")))
             (process-send-string proc text)
             (process-send-eof proc)))))
+
+
+;;;; kill-summary
+;;;(install-elisp "http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el")
+(my-autoload-and-when 'kill-summary "kill-summary"
+  (global-set-key "\M-y" 'kill-summary))
