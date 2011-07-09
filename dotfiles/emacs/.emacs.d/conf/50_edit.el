@@ -80,11 +80,6 @@
               (setq prev-yanked-text text))))))
 
 
-;;;; list-register
-;;;(install-elisp "http://www.bookshelf.jp/elc/list-register.el")
-(my-require-and-when 'list-register)
-
-
 ;;;; thing-opt
 (my-require-and-when 'thingatpt)
 ;;;(install-elisp-from-emacswiki "thing-opt.el")
