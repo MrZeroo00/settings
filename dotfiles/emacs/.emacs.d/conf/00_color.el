@@ -1,4 +1,7 @@
 (global-font-lock-mode t)
+(if (>= emacs-major-version 21)
+    (setq font-lock-support-mode 'jit-lock-mode)
+  (setq font-lock-support-mode 'lazy-lock-mode))
 
 
 ;;;; color-theme
