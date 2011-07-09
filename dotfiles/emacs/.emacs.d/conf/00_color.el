@@ -3,10 +3,10 @@
 
 ;;;; color-theme
 ;;;; https://gna.org/projects/color-theme
-(my-require-and-when 'color-theme
-  (color-theme-initialize)
-  (color-theme-clarity))
-(when (not window-system)
+(when (window-system)
+  (my-require-and-when 'color-theme
+    (color-theme-initialize)
+    (color-theme-clarity))
   (set-face-background 'highlight "blue"))
 
 
