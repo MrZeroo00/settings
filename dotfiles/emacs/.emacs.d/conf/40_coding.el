@@ -54,7 +54,7 @@
 
 ;;;; develock (emphasize bad coding convention)
 ;;;; http://www.jpl.org/elips/develock.el.gz
-'(my-require-and-when 'develock
+(my-require-and-when 'develock
   (setq develock-auto-enable nil))
 
 
