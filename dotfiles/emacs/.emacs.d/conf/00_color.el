@@ -6,11 +6,12 @@
 
 ;;;; color-theme
 ;;;; https://gna.org/projects/color-theme
-(when (window-system)
-  (my-require-and-when 'color-theme
-    (color-theme-initialize)
-    (color-theme-clarity))
-  (set-face-background 'highlight "blue"))
+(my-require-and-when 'color-theme
+  (color-theme-initialize)
+  (color-theme-clarity))
+(set-face-background 'highlight "blue")
+(unless window-system
+  (setcdr (assoc 'background-color default-frame-alist) "unspecified-bg"))
 
 
 ;;;; ediff
