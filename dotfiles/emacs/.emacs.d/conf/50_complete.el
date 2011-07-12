@@ -32,11 +32,13 @@
 ;;;; http://github.com/m2ym/auto-complete
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/auto-complete-config.el")
+;;;(install-elisp "https://raw.github.com/whitypig/auto-complete-ya-gtags/master/auto-complete-ya-gtags.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/popup.el")
 ;;;(install-elisp "http://github.com/m2ym/auto-complete/raw/master/fuzzy.el")
 (my-require-and-when 'yasnippet		; loading from auto-complete is something wrong
 		     (setq yas/root-directory "~/.emacs.d/elisp/yasnippet/snippets/text-mode/")
 		     (yas/load-directory yas/root-directory))
+(my-require-and-when 'auto-complete-ya-gtags)
 (my-require-and-when 'auto-complete-config
 		     ;;(ac-config-default)
 		     (global-auto-complete-mode t)
@@ -69,9 +71,10 @@
 						;;ac-source-files-in-current-dir
 						ac-source-dictionary
 						;;ac-source-abbrev
-						ac-source-words-in-buffer
+						;;ac-source-words-in-buffer ;; too heavy
 						;;ac-source-words-in-same-mode-buffers
 						;;ac-source-words-in-all-buffer
+						ac-source-ya-gtags
 						))
 
   ;; http://d.hatena.ne.jp/kiwanami/20081124/1227543508
