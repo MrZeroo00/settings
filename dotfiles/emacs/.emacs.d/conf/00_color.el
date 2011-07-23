@@ -16,22 +16,33 @@
 
 ;;;; ediff
 (my-eval-after-load "ediff"
-  (set-face-background ediff-odd-diff-face-A "magenta")
-  (set-face-foreground ediff-odd-diff-face-A "white")
-  (set-face-background ediff-even-diff-face-A "magenta")
-  (set-face-foreground ediff-even-diff-face-A "white")
-  (set-face-background ediff-odd-diff-face-B "blue")
-  (set-face-foreground ediff-odd-diff-face-B "white")
-  (set-face-background ediff-even-diff-face-B "blue")
-  (set-face-foreground ediff-even-diff-face-B "white")
-  (set-face-background ediff-odd-diff-face-C "white")
-  (set-face-foreground ediff-odd-diff-face-C "black")
-  (set-face-background ediff-even-diff-face-C "white")
-  (set-face-foreground ediff-even-diff-face-C "black")
-  (set-face-background ediff-odd-diff-face-Ancestor "white")
-  (set-face-foreground ediff-odd-diff-face-Ancestor "black")
-  (set-face-background ediff-even-diff-face-Ancestor "white")
-  (set-face-foreground ediff-even-diff-face-Ancestor "black")
+  (custom-set-faces
+   '(ediff-odd-diff-face-A         ((((class color)) (:background "magenta"))))
+   '(ediff-odd-diff-face-A         ((((class color)) (:foreground "white"))))
+   '(ediff-even-diff-face-A        ((((class color)) (:background "magenta"))))
+   '(ediff-even-diff-face-A        ((((class color)) (:foreground "white"))))
+   '(ediff-odd-diff-face-B         ((((class color)) (:background "blue"))))
+   '(ediff-odd-diff-face-B         ((((class color)) (:foreground "white"))))
+   '(ediff-even-diff-face-B        ((((class color)) (:background "blue"))))
+   '(ediff-even-diff-face-B        ((((class color)) (:foreground "white"))))
+   '(ediff-odd-diff-face-C         ((((class color)) (:background "white"))))
+   '(ediff-odd-diff-face-C         ((((class color)) (:foreground "black"))))
+   '(ediff-even-diff-face-C        ((((class color)) (:background "white"))))
+   '(ediff-even-diff-face-C        ((((class color)) (:foreground "black"))))
+   '(ediff-odd-diff-face-Ancestor  ((((class color)) (:background "white"))))
+   '(ediff-odd-diff-face-Ancestor  ((((class color)) (:foreground "black"))))
+   '(ediff-even-diff-face-Ancestor ((((class color)) (:background "white"))))
+   '(ediff-even-diff-face-Ancestor ((((class color)) (:foreground "black"))))
+   )
+  )
+
+
+;;;; flymake
+(my-eval-after-load "flymake"
+  (custom-set-faces
+   '(flymake-errline ((((class color)) (:background "Gray30"))))
+   '(flymake-warnline ((((class color)) (:background "Gray20"))))
+   )
   )
 
 
