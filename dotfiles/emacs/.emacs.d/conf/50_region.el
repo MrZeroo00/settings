@@ -28,3 +28,4 @@
 
 ;;;; align (align code)
 (my-require-and-when 'align)
+(setq align-to-tab-stop nil)
