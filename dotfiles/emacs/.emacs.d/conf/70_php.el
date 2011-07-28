@@ -98,6 +98,8 @@
 
   ;; php.log
   (setq compile-command "tac /var/log/php.log | tail -n 100")
+  (add-to-list 'compilation-error-regexp-alist '("in \\(.*?\\) on line \\([0-9]+\\)$" 1 2))
+  (add-to-list 'compilation-error-regexp-alist '(" \\([^ ]*?\\):\\([0-9]+\\)$" 1 2))
   )
 
 
