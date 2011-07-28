@@ -98,7 +98,7 @@
 
   ;; php.log
   (add-to-list 'compilation-error-regexp-alist '("in \\(.*?\\) on line \\([0-9]+\\)$" 1 2))
-  (add-to-list 'compilation-error-regexp-alist '(" \\([^ ]*?\\):\\([0-9]+\\)$" 1 2))
+  ;;(add-to-list 'compilation-error-regexp-alist '(" \\([^ ]*?\\):\\([0-9]+\\)$" 1 2))
   )
 
 
@@ -162,6 +162,6 @@
     )
 
   ;; php.log
-  (setq compile-command "tac /var/log/php.log | tail -n 100")
+  (setq compile-command "tac /var/log/php.log | grep 'on line' | tail -n 100")
   )
 (add-hook 'php-mode-hook 'my-php-mode-hook)
