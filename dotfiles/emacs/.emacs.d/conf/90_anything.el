@@ -275,7 +275,7 @@
       ad-do-it
     (ad-activate-regexp "widen-window")))
 
-(defadvice anything (around disable-debug-around-anything activate)
+'(defadvice anything (around disable-debug-around-anything activate)
   (setq debug-on-error nil)
   (unwind-protect
       ad-do-it

@@ -1,3 +1,5 @@
+(setq debug-on-error nil)
+
 ;;;; diminish
 ;;;(install-elisp "http://www.eskimo.com/~seldon/diminish.el")
 (my-require-and-when 'diminish
