@@ -95,6 +95,9 @@
            (query (concat "phpdoc " symbol)))
       (popup-tip (shell-command-to-string query))))
   ;;(define-key global-map "\M-q" 'my-phpdoc)
+
+  ;; php.log
+  (setq compile-command "tac /var/log/php.log | tail -n 100")
   )
 
 
