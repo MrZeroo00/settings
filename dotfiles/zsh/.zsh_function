@@ -55,6 +55,10 @@ add-zsh-hook precmd _set_vcs_info
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
 
+## git-completion
+autoload bashcompinit
+source ${HOME}/.zsh/function/git-completion.bash
+
 ## Phil!'s ZSH Prompt
 #source ${HOME}/.zsh/function/phil_prompt.sh
 #add-zsh-hook precmd _phil_prompt
