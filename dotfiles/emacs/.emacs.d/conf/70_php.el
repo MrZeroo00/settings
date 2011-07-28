@@ -97,7 +97,6 @@
   ;;(define-key global-map "\M-q" 'my-phpdoc)
 
   ;; php.log
-  (setq compile-command "tac /var/log/php.log | tail -n 100")
   (add-to-list 'compilation-error-regexp-alist '("in \\(.*?\\) on line \\([0-9]+\\)$" 1 2))
   (add-to-list 'compilation-error-regexp-alist '(" \\([^ ]*?\\):\\([0-9]+\\)$" 1 2))
   )
@@ -161,5 +160,8 @@
   (when (featurep 'hideshow)
     (hs-minor-mode 1)
     )
+
+  ;; php.log
+  (setq compile-command "tac /var/log/php.log | tail -n 100")
   )
 (add-hook 'php-mode-hook 'my-php-mode-hook)
