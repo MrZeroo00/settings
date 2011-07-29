@@ -1,5 +1,5 @@
 [user]
-  name = mitsuhiro.tanda
+  name = Mitsuhiro Tanda
 [core]
   excludesfile = ~/.gitignore
   #autocrlf = input
@@ -20,6 +20,7 @@
   ci = commit -a
   co = checkout
   diffw = diff --color-words
+  diffn = diff --no-ext-diff
 [diff]
   external = git-diff-wrapper
 [pager]
