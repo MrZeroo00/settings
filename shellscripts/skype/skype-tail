@@ -13,7 +13,7 @@ class SkypeTail:
 		with open(fname) as f:
 			self.cfg = json.load(f, 'utf-8')
 
-	def handleMessage(msg, event):
+	def handleMessage(self, msg, event):
 		if event == u"RECEIVED":
 			for c in self.cfg:
 				if msg.Body.find(c.keyword) >= 0:

@@ -1,5 +1,23 @@
 #!/bin/sh
 
+while getopts "s:" flag; do
+  case $flag in
+    \?) OPT_ERROR=1; break;;
+    s) opt_keyword="${OPTARG}";;
+  esac
+done
+
+shift $(( $OPTIND - 1 ))
+
+if [ $OPT_ERROR ]; then
+  exit 1
+fi
+
 while read line; do
-  echo $line | growlnotify -a tailfgrowl
+  opt_growl=""
+  if [ -n "`echo $line | grep $opt_keyword`" ]; then
+    opt_growl="-s"
+  fi
+
+  echo $line | growlnotify -a tailfgrowl ${opt_growl}
 done
