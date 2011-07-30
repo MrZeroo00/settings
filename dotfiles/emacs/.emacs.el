@@ -278,7 +278,7 @@
 (mapc (lambda (fname)
         (if (and (string-match "^[0-9][0-9]_[^.]+\.el$" fname)
                  (not (string-match "^[0-9][0-9]_local_[^.]+\.el$" fname)))
-            (load (substring fname 0 -3))))
+            (my-load-and-when (substring fname 0 -3))))
       (directory-files (expand-file-name "~/.emacs.d/conf")))
 
 
