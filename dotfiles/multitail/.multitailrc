@@ -68,3 +68,6 @@ editscheme:syslog:removes '----'
 editrule:ke:----
 editrule:ke:make
 useeditscheme:syslog:/var/log/messages
+filterscheme:httpd_error_favicon:remove favicon error
+rule:ev:favicon.ico
+usefilterscheme:httpd_error_favicon:/var/log/apache/error.log
