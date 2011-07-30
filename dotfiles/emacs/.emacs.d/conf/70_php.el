@@ -64,6 +64,7 @@
   ;; geben
   ;; http://code.google.com/p/geben-on-emacs/
   (my-autoload-and-when 'geben "geben"
+    (setq geben-temporary-file-directory (expand-file-name "geben" "~/.emacs.d/data"))
     (defun my-geben-find-file (file-path)
       (geben-with-current-session session
                                   (geben-open-file (geben-source-fileuri session file-path))))
