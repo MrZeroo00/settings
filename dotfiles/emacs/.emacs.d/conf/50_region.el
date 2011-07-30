@@ -10,6 +10,13 @@
 (my-require-and-when 'visible-mark)
 
 
+;;;; cua-mode
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil)
+'(setq cua-keep-region-after-copy t)
+(setq cua-enable-cua-keys nil)
+
+
 ;;;; wrap-region
 ;;;(install-elisp "https://github.com/rejeep/wrap-region/raw/master/wrap-region.el")
 (my-require-and-when 'wrap-region
