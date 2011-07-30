@@ -56,7 +56,7 @@
 
 ;;;; scroll setting
 '(setq scroll-conservatively 1)
-(setq scroll-conservatively 1000)
+(setq scroll-conservatively 10000)
 (setq scroll-step 1)
 '(setq scroll-margin 4)
 '(setq scroll-preserve-screen-position t)
