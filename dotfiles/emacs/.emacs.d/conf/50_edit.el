@@ -86,6 +86,14 @@
 (my-require-and-when 'thing-opt)
 
 
+;;;; shadow
+;;; (install-elisp "https://raw.github.com/mooz/shadow.el/master/shadow.el")
+(my-require-and-when 'shadow
+  (add-hook 'find-file-hooks 'shadow-on-find-file)
+  (add-hook 'shadow-find-unshadow-hook
+            (lambda () (auto-revert-mode 1))))
+
+
 ;;;; autoinsert (insert template code)
 ;;; (install-elisp "http://repo.or.cz/w/emacs.git/blob_plain/HEAD:/lisp/autoinsert.el")
 (my-require-and-when 'autoinsert
