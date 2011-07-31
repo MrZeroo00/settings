@@ -1,0 +1,6 @@
+#!/bin/sh
+[ $# -eq 1 -o $# -eq 2 ] || { echo 'usage: reload-chrome HOST PORT'; exit 1; }
+host=$1
+port=${2:-9222}
+
+ssh $host "chrome-repl --port $port -e \"chrome.tabs.getSelected(null, function (t) { chrome.tabs.executeScript(t.id, { code: 'location.reload()' }) });\""
