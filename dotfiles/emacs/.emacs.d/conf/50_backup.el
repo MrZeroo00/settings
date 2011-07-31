@@ -20,3 +20,9 @@
        (save-buffer)))
 
    (global-set-key "\C-x\C-s" 'my-save-buffer))
+
+
+;;;; savekill
+;;;(install-elisp-from-emacswiki "savekill.el")
+(my-require-and-when 'savekill
+  (setq save-kill-file-name "~/.emacs.d/data/kill-ring-saved.el"))
