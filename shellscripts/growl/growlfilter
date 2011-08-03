@@ -1,5 +1,6 @@
 #!/bin/sh
 
+opt_keyword=""
 while getopts "s:" flag; do
   case $flag in
     \?) OPT_ERROR=1; break;;
@@ -15,8 +16,10 @@ fi
 
 while read line; do
   opt_growl=""
-  if [ -n "`echo $line | grep $opt_keyword`" ]; then
-    opt_growl="-s"
+  if [ -n "${opt_keyword}" ]; then
+    if [ -n "`echo ${line} | grep ${opt_keyword}`" ]; then
+      opt_growl="-s"
+    fi
   fi
 
   echo $line | growlnotify -a tailfgrowl ${opt_growl}
