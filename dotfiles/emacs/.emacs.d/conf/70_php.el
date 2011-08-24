@@ -15,6 +15,9 @@
     (add-to-list 'flymake-allowed-file-name-masks '("\\.php$" flymake-php-init))
     )
 
+  ;; php-completion
+  (my-require-and-when 'php-completion)
+
   ;; anything
   (when (featurep 'anything)
     (add-to-list 'anything-mode-specific-alist
@@ -128,7 +131,7 @@
 
   ;; php-completion
   ;;(install-elisp-from-emacswiki "php-completion.el")
-  (my-require-and-when 'php-completion
+  (when (featurep 'php-completion)
     (php-completion-mode t)
     '(define-key php-mode-map (kbd "C-o") 'phpcmp-complete)
     (when (featurep 'auto-complete)
