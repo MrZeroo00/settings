@@ -253,9 +253,13 @@
 ;;;; mode-compile
 ;;;(install-elisp "https://raw.github.com/emacsmirror/mode-compile/master/mode-compile.el")
 (my-autoload-and-when 'mode-compile "mode-compile"
-  (global-set-key "\C-cc" 'mode-compile))
+  (global-set-key "\C-cc" 'mode-compile)
+  (setq mode-compile-expert-p t)
+  (setq mode-compile-reading-time 0)
+  )
 (my-autoload-and-when 'mode-compile-kill "mode-compile"
-  (global-set-key "\C-ck" 'mode-compile-kill))
+  (global-set-key "\C-ck" 'mode-compile-kill)
+  )
 
 
 ;;;; ipa (in place annotations)
