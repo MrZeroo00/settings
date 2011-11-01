@@ -12,6 +12,11 @@
    (auto-install-compatibility-setup))
 
 
+;;;; base params
+(defvar anything-mode-specific-alist '())
+(defvar anything-kyr-commands-by-major-mode '())
+
+
 ;;;; base settings
 (cd "~/")
 
