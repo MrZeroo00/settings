@@ -250,6 +250,14 @@
   (setq auto-compile-target-path-regexp-list (list "\/src")))
 
 
+;;;; mode-compile
+;;;(install-elisp "https://raw.github.com/emacsmirror/mode-compile/master/mode-compile.el")
+(my-autoload-and-when 'mode-compile "mode-compile"
+  (global-set-key "\C-cc" 'mode-compile))
+(my-autoload-and-when 'mode-compile-kill "mode-compile"
+  (global-set-key "\C-ck" 'mode-compile-kill))
+
+
 ;;;; ipa (in place annotations)
 ;;;(install-elisp-from-emacswiki "ipa.el")
 (my-require-and-when 'ipa
