@@ -257,6 +257,9 @@
   (setq mode-compile-never-edit-command-p t)
   (setq mode-compile-expert-p t)
   (setq mode-compile-reading-time 0)
+  (my-eval-after-load "mode-compile"
+    (add-to-list 'mode-compile-modes-alist '(php-mode . (default-compile kill-compilation)))
+    )
   )
 (my-autoload-and-when 'mode-compile-kill "mode-compile"
   (global-set-key "\C-ck" 'mode-compile-kill)
