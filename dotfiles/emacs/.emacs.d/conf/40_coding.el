@@ -253,7 +253,7 @@
 ;;;; mode-compile
 ;;;(install-elisp "https://raw.github.com/emacsmirror/mode-compile/master/mode-compile.el")
 (my-autoload-and-when 'mode-compile "mode-compile"
-  (global-set-key "\C-cc" 'mode-compile)
+  (global-set-key "\C-cb" 'mode-compile)
   (setq mode-compile-never-edit-command-p t)
   (setq mode-compile-expert-p t)
   (setq mode-compile-reading-time 0)
