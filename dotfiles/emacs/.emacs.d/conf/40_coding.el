@@ -257,8 +257,16 @@
   (setq mode-compile-never-edit-command-p t)
   (setq mode-compile-expert-p t)
   (setq mode-compile-reading-time 0)
+
+  (defun close-compilation-window ()
+    (interactive)
+    (let ((com-buffer (get-buffer "*compilation*")))
+      (if com-buffer
+          (let ((com-window (get-buffer-window com-buffer)))
+            (if com-window
+                (delete-window com-window))))))
   (my-eval-after-load "mode-compile"
-    (add-to-list 'mode-compile-modes-alist '(php-mode . (default-compile kill-compilation)))
+    (add-to-list 'mode-compile-modes-alist '(php-mode . (default-compile close-compilation-window)))
     )
   )
 (my-autoload-and-when 'mode-compile-kill "mode-compile"
