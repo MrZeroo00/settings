@@ -125,6 +125,16 @@ if [ -s ${HOME}/.rvm/scripts/rvm ]; then
   source ${HOME}/.rvm/scripts/rvm
 fi
 
+# Ruby Gems
+export GEM_HOME=/var/lib/gems/1.9.0
+export RUBYLIB=${RUBYLIB}:/var/lib/gems/1.9.0/lib
+export PATH=${PATH}:/var/lib/gems/1.9.0/bin
+
+# Node Version Manager (NVM)
+if [ -s ${HOME}/.nvm ]; then
+  source ${HOME}/.nvm/nvm.sh
+fi
+
 
 ## include .shrc if it exists
 #if [ -f ${HOME}/.shrc ]; then
