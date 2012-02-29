@@ -88,12 +88,12 @@
 (defvar run-carbon-emacs(and run-darwin window-system))
 
 ;;;; dummy string-match-p
-  (unless (fboundp 'string-match-p)
-    (defun string-match-p (regexp string &optional start)
-      "Same as `string-match' except this function does not
+(unless (fboundp 'string-match-p)
+  (defun string-match-p (regexp string &optional start)
+    "Same as `string-match' except this function does not
 change the match data."
-      (let ((inhibit-changing-match-data t))
-        (string-match regexp string start))))
+    (let ((inhibit-changing-match-data t))
+      (string-match regexp string start))))
 
 ;;;; get hostname
 (eval-when-compile
