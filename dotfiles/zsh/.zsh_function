@@ -80,6 +80,11 @@ bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
 
 
+## autojump
+# https://github.com/joelthelion/autojump
+source ${HOME}/.zsh/function/autojump/etc/profile.d/autojump.zsh
+
+
 ## cdd
 # http://d.hatena.ne.jp/secondlife/20080218/1203303528
 #autoload -U compinit
