@@ -13,7 +13,7 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lA='ls -A'
 
-alias j='jobs'
+#alias j='jobs'
 alias pu='pushd'
 alias po='popd'
 alias d='dirs -v'

@@ -83,6 +83,7 @@ bindkey '^o^_' reverse-menu-complete
 ## autojump
 # https://github.com/joelthelion/autojump
 source ${HOME}/.zsh/function/autojump/etc/profile.d/autojump.zsh
+fpath=(${fpath} ${HOME}/.zsh/function/autojump/functions)
 
 
 ## cdd
