@@ -1,7 +1,7 @@
 [user]
   name = Mitsuhiro Tanda
 [core]
-	excludesfile = /Users/mitsuhiro.tanda/.gitignore_global
+  excludesfile = ~/.gitignore
   #autocrlf = input
   editor = vim
   pager = "lv -c"
@@ -22,12 +22,6 @@
   diffw = diff --color-words
   diffn = diff --no-ext-diff
 [diff]
-  #external = git-diff-wrapper
+  external = git-diff-wrapper
 [pager]
   diff =
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
