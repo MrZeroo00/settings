@@ -11,17 +11,17 @@
                    )
       (add-to-list 'anything-kyr-commands-by-major-mode
                    '(c++-mode
-                     recompile
+                     ;recompile
                      compile
-                     gtags-find-file
-                     gtags-find-rtag
-                     ff-find-other-file
-                     align
-                     highlight-lines-matching-regexp
-                     hs-hide-block
-                     hs-show-block
-                     hide-ifdef-mode
-                     develock-mode
+                     ;gtags-find-file
+                     ;gtags-find-rtag
+                     ;ff-find-other-file
+                     ;align
+                     ;highlight-lines-matching-regexp
+                     ;hs-hide-block
+                     ;hs-show-block
+                     ;hide-ifdef-mode
+                     ;develock-mode
                      )
                    )
       )

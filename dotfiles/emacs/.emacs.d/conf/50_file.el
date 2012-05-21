@@ -6,7 +6,7 @@
 '(add-hook 'find-file-hooks 'my-find-file-hooks)
 
 ;;;; before-save-hook
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+'(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
 (auto-compression-mode t)

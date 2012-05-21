@@ -1,4 +1,4 @@
-(require 'as-profiler)
+;(require 'as-profiler)
 
 (defvar *working-directory* (concat (getenv "PWD") "/")
 	"String. The directory where we launched emacs and from which all of our files will be located.")
