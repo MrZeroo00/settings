@@ -1,8 +1,11 @@
 *.log
 *.elc
 *_flymake.el
+dotfiles/emacs/.emacs.d/conf/*_local_*.el
 dotfiles/emacs/.emacs.d/data/
 dotfiles/screen/.screen/exchange
+dotfiles/vimperator/.vimperator/conf/office.*
+dotfiles/vimperator/.vimperator/info/
 dotfiles/w3m/.w3m/cookie
 dotfiles/w3m/.w3m/history
 dotfiles/weechat/.weechat/logs/
