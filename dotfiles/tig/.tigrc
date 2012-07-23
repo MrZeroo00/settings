@@ -1,1 +1,8 @@
+#set show-author = no
+#set show-date = relative
 set show-rev-graph = yes
+set show-refs = yes
+set line-graphics = yes
+
+bind generic L !git reflog
+bind generic p !%(commit) | cbcopy
