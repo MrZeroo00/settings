@@ -4,5 +4,14 @@ set show-rev-graph = yes
 set show-refs = yes
 set line-graphics = yes
 
+# vi-like scroll
+bind diff h scroll-left%
+bind diff l scroll-right
+bind diff ; view-next
+# open commit at github
+bind main o !@hub browse -- commit/%(commit)
+bind diff o !@hub browse -- commit/%(commit)
+bind log  o !@hub browse -- commit/%(commit)
+# etc
 bind generic L !git reflog
 bind generic p !%(commit) | cbcopy
