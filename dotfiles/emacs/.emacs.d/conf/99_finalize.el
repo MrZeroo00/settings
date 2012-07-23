@@ -8,7 +8,7 @@
   (when (featurep 'doxymacs) (diminish 'doxymacs-mode))
   (when (featurep 'eldoc) (diminish 'eldoc-mode))
   (when (featurep 'flymake) '(diminish 'flymake-mode))
-  (when (featurep 'font-lock) (diminish 'font-lock-mode))
+  ;;(when (featurep 'font-lock) (diminish 'font-lock-mode))
   (when (featurep 'gtags) '(diminish 'gtags-mode))
   (when (featurep 'hideshow) (diminish 'hs-minor-mode))
   ;;(when (featurep 'lisp-mode) (diminish 'emacs-lisp-mode "Elisp"))

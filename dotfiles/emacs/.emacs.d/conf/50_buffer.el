@@ -20,7 +20,7 @@
 ;;;; auto-revert-mode
 '(global-auto-revert-mode)
 (setq auto-revert-check-vc-info t)
-(setq auto-revert-interval 1)
+;(setq auto-revert-interval 1)
 (defun my-auto-revert-mode-when-using-vcs ()
   (when
       (and buffer-file-name
