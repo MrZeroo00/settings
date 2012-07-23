@@ -5,4 +5,5 @@ dotfiles/emacs/.emacs.d/data/
 dotfiles/screen/.screen/exchange
 dotfiles/w3m/.w3m/cookie
 dotfiles/w3m/.w3m/history
+dotfiles/weechat/.weechat/logs/
 dotfiles/zsh/.zsh/cdd_pwd_list*
