@@ -1,1 +1,1 @@
-dotfiles/emacs/.emacs.d/elisp/*.elc
+*.elc
