@@ -1,3 +1,4 @@
 *.log
 *.elc
 *_flymake.el
+dotfiles/zsh/.zsh/cdd_pwd_list*
