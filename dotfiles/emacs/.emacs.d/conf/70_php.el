@@ -93,6 +93,8 @@
   (defun my-geben ()
 	(geben 1)
 	(message "GEBEN is started."))
+  (global-set-key (kbd "C-c d") 'geben)
+  (global-set-key (kbd "C-c b") 'geben-set-breakpoint-line)
 
   ;; PHP API Reference
   (defun my-phpdoc ()
