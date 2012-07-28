@@ -1,5 +1,6 @@
 ;;;; emacsclient
-(server-start)
+(unless (server-running-p)
+  (server-start))
 
 
 ;;;; screen
