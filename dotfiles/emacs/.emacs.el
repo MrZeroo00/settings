@@ -1,4 +1,5 @@
 '(setq debug-on-error t)
+(server-start)
 
 
 ;;;; measure time for tuning
@@ -310,6 +311,13 @@ change the match data."
 '(if (y-or-n-p-with-timeout "My-Load-And-When timeout?" 5 nil)
 	 (my-load-and-when "99_timeout"))
 
+;;;; for profiling
+(defun load-test (txt counter)
+  "create a new buffer, insert txt"
+  (pop-to-buffer (get-buffer-create (generate-new-buffer-name "load-test")))
+  (while (> counter 0)
+    (insert txt)
+    (setq counter (1- counter))))
 
 (my-time-lag "all")
 

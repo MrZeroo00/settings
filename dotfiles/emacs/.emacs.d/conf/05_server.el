@@ -1,7 +1,3 @@
-;;;; emacsclient
-(server-start)
-
-
 ;;;; screen
 (defun my-server-visit-hook ()
   (shell-command
