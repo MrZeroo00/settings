@@ -1,6 +1,8 @@
 ;;;; language setting
-'(my-require-and-when 'un-define)
-'(set-language-environment "Japanese")
+(my-require-and-when 'un-define)
+(my-require-and-when 'un-tools)
+(my-require-and-when 'jisx0213)
+(set-language-environment "Japanese")
 '(set-language-environment 'utf-8)
 '(prefer-coding-system 'utf-8)
 
