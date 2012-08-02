@@ -199,6 +199,8 @@
 ;;;; flymake
 ;;;(install-elisp "http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/progmodes/flymake.el")
 (my-require-and-when 'flymake
+  ;;;(install-elisp-from-emacswiki "flymake-cursor.el")
+  (my-require-and-when 'flymake-cursor)
   (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
 
   ;; redefine to remove "check-syntax" target
