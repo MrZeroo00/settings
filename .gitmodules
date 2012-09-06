@@ -1,3 +1,6 @@
 [submodule "dotfiles/vimperator/.vimperator/_plugin/vimpr"]
 	path = dotfiles/vimperator/.vimperator/_plugin/vimpr
 	url = https://github.com/vimpr/vimperator-plugins.git
+[submodule "dotfiles/emacs/.emacs.d/elisp/geben"]
+	path = dotfiles/emacs/.emacs.d/elisp/geben
+	url = https://github.com/blipvert/geben-svn.git
