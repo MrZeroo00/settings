@@ -11,4 +11,5 @@ dotfiles/w3m/.w3m/cookie
 dotfiles/w3m/.w3m/history
 dotfiles/weechat/.weechat/logs/
 dotfiles/zsh/.zsh/cdd_pwd_list*
+shellscripts/.*
 shellscripts/local
