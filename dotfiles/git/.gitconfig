@@ -1,7 +1,7 @@
 [user]
   name = Mitsuhiro Tanda
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore_global
   #autocrlf = input
   editor = vim
   pager = "lv -c"
@@ -27,3 +27,5 @@
   external = git-diff-wrapper
 [pager]
   diff =
+[include]
+  path = .gitconfig.local
