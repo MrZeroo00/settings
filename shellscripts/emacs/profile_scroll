@@ -1,0 +1,13 @@
+#!/bin/sh
+
+SCROLL_COUNT=200
+
+function scroll_load_test () {
+  for i in `seq 1 ${SCROLL_COUNT}`; do
+    usleep 20000 # 20ms
+    emacsclient -e '(with-current-buffer (window-buffer (selected-window)) (next-line))'
+  done
+  emacsclient -e '(with-current-buffer (window-buffer (selected-window)) (beginning-of-buffer))'
+}
+
+scroll_load_test

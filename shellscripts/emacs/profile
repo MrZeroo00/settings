@@ -5,6 +5,7 @@ for i in `ls ${HOME}/.emacs.d/conf/*.el`; do
   echo $elisp
   emacsclient -e "(my-load-and-when \"${elisp}\")"
   sleep 1
-  time emacsclient -e '(load-test "if\nfor\nwhile" 100000)'
+  #time emacsclient -e '(load-test "if\nfor\nwhile" 100000)'
+  time ${HOME}/bin/emacs/profile_scroll
   sleep 1
 done
