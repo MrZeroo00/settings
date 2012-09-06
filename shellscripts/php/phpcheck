@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $# != 1 -o ! -f $1 ]; then
+  exit
+fi
+
+php -nl -f $1
+if [ $? = 0 ]; then
+  phpmd $1 text unusedcode
+fi
