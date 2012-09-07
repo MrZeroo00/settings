@@ -66,7 +66,7 @@
       (lambda (text &optional push)
         ;; use pipe
         (let ((process-connection-type nil))
-          (let ((proc (start-process "cbcopy" nil "cbcopy")))
+          (let ((proc (start-process (my-which "cbcopy") nil "cbcopy")))
             (process-send-string proc string)
             (process-send-eof proc)
             ))))
@@ -74,7 +74,7 @@
 (when run-darwin
   (setq interprogram-paste-function
         (lambda ()
-          (let ((text (shell-command-to-string "cbpaste")))
+          (let ((text (shell-command-to-string (my-which "cbpaste"))))
             (if (string= prev-yanked-text text)
                 nil
               (setq prev-yanked-text text))))))
