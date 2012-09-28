@@ -6,10 +6,10 @@ noremap K <C-u>
 
 " open/close tab
 noremap T :tabopen<CR>
-noremap <C-q> :tabclose<CR>
+noremap <C-q> :tabclose -select lastactive<CR>
 " select next/previous tab
-noremap } gt
-noremap { gT
+"noremap } gt
+"noremap { gT
 " move current tab left/right
 noremap <C-S-]> :tabmove! +1<CR>
 noremap <C-S-[> :tabmove! -1<CR>

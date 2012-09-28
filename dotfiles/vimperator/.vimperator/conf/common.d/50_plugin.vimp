@@ -64,7 +64,8 @@ lazy fmaps -u='www\.rememberthemilk\.com/home' t c p d f g s u l y r z 1 2 3 4 <
 lazy fmaps -u='www\.google\.(com|co\.jp)/reader' -events=vkeypress j k n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ? Z
 lazy fmaps -u='reader\.livedoor\.com/reader' j k s a p o v c <Space> <S-Space> z b < >
 lazy fmaps -u='friendfeed\.com/' -events=vkeypress p P q / gh gd gm gb
-lazy fmaps -u='github\.com/' -events=vkeypress c h i j k l o s t u w x y I U / ? <Enter>
+//lazy fmaps -u='github\.com/' -events=vkeypress c h i j k l o s t u w x y I U / ? <Enter>
+ignorekeys add github\\.com -except :,T,b,<C-q>,<C-n>,<C-p>,f,j,k,/
 lazy fmaps -u='localhost:10010' j k h l r o
 
 " hint_tombloo
