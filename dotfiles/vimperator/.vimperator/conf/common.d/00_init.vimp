@@ -131,6 +131,7 @@ EOM
 
 
 "" Other --------------------
+style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 javascript <<EOM
   document.getElementById("liberator-multiline-output").parentNode.maxHeight="400px"
   //document.getElementById("liberator-completions").parentNode.maxHeight="400px"
