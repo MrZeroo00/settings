@@ -38,8 +38,7 @@
       (defun my-flymake-cc-conditional-init()
         (cond ((file-exists-p (concat flymake-base-dir "/" "Makefile")) 'flymake-simple-make-init)
               (t 'my-flymake-gcc-init)))
-      (setcdr (assoc "\\.c\\'" flymake-allowed-file-name-masks)
-              (list (my-flymake-cc-conditional-init)))
+      (push '("\\.c$" my-flymake-cc-conditional-init) flymake-allowed-file-name-masks)
       )
 
     ;; ifdef
