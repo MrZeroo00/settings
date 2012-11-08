@@ -131,8 +131,8 @@ export RUBYLIB=${RUBYLIB}:/var/lib/gems/1.9.0/lib
 export PATH=${PATH}:/var/lib/gems/1.9.0/bin
 
 # Node Version Manager (NVM)
-if [ -s ${HOME}/.nvm ]; then
-  source ${HOME}/.nvm/nvm.sh
+if [ -s ${HOME}/nvm ]; then
+  source ${HOME}/nvm/nvm.sh
 fi
 
 

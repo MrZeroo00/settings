@@ -4,7 +4,11 @@ if [ $# != 1 -o ! -f $1 ]; then
   exit
 fi
 
+if [ -f $HOME/bin/php/_phpmd_rule ]; then
+  local_rule=`cat ${HOME}/bin/php/_phpmd_rule`
+fi
+
 php -nl -f $1
 if [ $? = 0 ]; then
-  phpmd $1 text unusedcode
+  phpmd $1 ${local_opt}unusedcode text
 fi

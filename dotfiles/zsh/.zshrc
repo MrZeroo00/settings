@@ -8,11 +8,6 @@ fi
 #  unsetopt zle
 #fi
 
-if [ ! -f ${HOME}/.zsh/cdd_pwd_list ]; then
-  mkdir ${HOME}/.zsh
-  touch ${HOME}/.zsh/cdd_pwd_list
-fi
-
 
 # aliases
 if [ -f ${HOME}/.zsh_aliases ]; then

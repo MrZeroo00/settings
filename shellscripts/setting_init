@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ ! -f ${HOME}/.zsh/cdd_pwd_list ]; then
+  mkdir -p ${HOME}/.zsh
+  touch ${HOME}/.zsh/cdd_pwd_list
+  echo 'root:/' >> ${HOME}/.zsh/cdd_pwd_list
+fi
+
+if [ ! -f ${HOME}/.emacs.d/data ]; then
+  mkdir -p ${HOME}/.emacs.d/data
+  touch ${HOME}/.emacs.d/data/abbrev_defs
+fi
+
+mkdir -p ${HOME}/.emacs.d/elisp
+cd ${HOME}/.emacs.d/elisp
+wget http://download.savannah.gnu.org/releases/color-theme/color-theme-6.6.0.tar.gz
+tar zxf color-theme-6.6.0.tar.gz
+rm -f color-theme-6.6.0.tar.gz

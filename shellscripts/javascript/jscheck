@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ $# != 1 -o ! -f $1 ]; then
+  exit
+fi
+
+if [ -x "`which js`" ]; then
+  js -s $1
+fi
+
+if [ -x "`which jshint`" ]; then
+  jshint $1
+fi
