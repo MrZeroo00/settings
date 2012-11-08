@@ -4,6 +4,11 @@
   (setq font-lock-support-mode 'lazy-lock-mode))
 
 
+;;;; 256 color
+;;;; http://www.emacswiki.org/cgi-bin/wiki?PuTTY
+(my-load-and-when "_256color")
+
+
 ;;;; color-theme
 ;;;; https://gna.org/projects/color-theme
 (my-require-and-when 'color-theme
