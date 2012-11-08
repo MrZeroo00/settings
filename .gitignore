@@ -14,3 +14,4 @@ dotfiles/weechat/.weechat/logs/
 dotfiles/zsh/.zsh/cdd_pwd_list*
 shellscripts/.*
 shellscripts/local
+shellscripts/php/_phpmd_rule
