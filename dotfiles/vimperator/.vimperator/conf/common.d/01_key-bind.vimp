@@ -81,8 +81,18 @@ modules.mappings.addUserMap([modes.NORMAL], ['<C-c>'],
       BrowserStop();
       liberator.echo('Stopped loading !');
     }
-  } , {}
+  }, {}
 );
+EOM
+
+" close find bar by Esc
+js <<EOM
+modules.mappings.addUserMap([modes.NORMAL], ["<Esc>", "<C-[>"], "custom Esc",
+  function () {
+    var findbar = document.getElementById("FindToolbar");
+    if (!findbar.hidden)
+      findbar.close();
+  }, {});
 EOM
 
 
