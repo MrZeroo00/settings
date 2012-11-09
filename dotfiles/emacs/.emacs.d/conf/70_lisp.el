@@ -4,7 +4,7 @@
     (add-to-list 'anything-mode-specific-alist
                  '(lisp-mode . (
                                 anything-c-source-lisp-complete-symbol
-                                anything-c-source-linkd-tag
+                                ;anything-c-source-linkd-tag
                                 )))
     )
   )

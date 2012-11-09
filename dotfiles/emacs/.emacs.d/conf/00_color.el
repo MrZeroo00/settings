@@ -54,3 +54,16 @@
 ;;;; term
 (setq term-default-fg-color "#FFFFFF")
 (setq term-default-bg-color "#000000")
+
+
+;;;; js2-mode
+(my-eval-after-load "js2-mode"
+  (custom-set-faces
+   '(js2-error-face ((((class color)) (:underline "OrangeRed"))))
+   '(js2-warning-face ((((class color)) (:underline "Yellow"))))
+   )
+  )
+
+
+;;;; macros
+(my-load-and-when "_what-face")
