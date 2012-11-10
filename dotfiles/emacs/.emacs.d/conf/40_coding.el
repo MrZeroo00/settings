@@ -216,6 +216,9 @@
 ;;;; test-case-mode
 ;;;(install-elisp "http://nschum.de/src/emacs/test-case-mode/test-case-mode.el")
 (my-require-and-when 'test-case-mode
+  (autoload 'enable-test-case-mode-if-test "test-case-mode")
+  (autoload 'test-case-find-all-tests "test-case-mode" nil t)
+  (autoload 'test-case-compilation-finish-run-all "test-case-mode")
   (add-hook 'find-file-hook 'enable-test-case-mode-if-test)
   ;;(add-hook 'compilation-finish-functions 'test-case-compilation-finish-run-all)
   )
