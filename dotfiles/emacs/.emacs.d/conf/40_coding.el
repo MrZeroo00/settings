@@ -215,6 +215,7 @@
 
 ;;;; test-case-mode
 ;;;(install-elisp "http://nschum.de/src/emacs/test-case-mode/test-case-mode.el")
+;;;(install-elisp "https://raw.github.com/ieure/test-case-mode/master/test-case-mode.el")
 (my-require-and-when 'test-case-mode
   (autoload 'enable-test-case-mode-if-test "test-case-mode")
   (autoload 'test-case-find-all-tests "test-case-mode" nil t)
