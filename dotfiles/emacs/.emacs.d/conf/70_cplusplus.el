@@ -28,19 +28,18 @@
 
     ;; flymake
     (when (featurep 'flymake)
-    (defun my-flymake-gcc-init ()
-      (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-                           'flymake-create-temp-inplace))
-             (local-file  (file-relative-name
-                           temp-file
-                           (file-name-directory buffer-file-name))))
-        (list "gcc" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
-    (defun my-flymake-cc-conditional-init()
-      (cond ((file-exists-p (concat flymake-base-dir "/" "Makefile")) 'flymake-simple-make-init)
-            (t 'my-flymake-gcc-init)))
-    (setcdr (assoc "\\.c\\'" flymake-allowed-file-name-masks)
-            (list (my-flymake-cc-conditional-init)))
-    )
+      (defun my-flymake-gcc-init ()
+        (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                             'flymake-create-temp-inplace))
+               (local-file  (file-relative-name
+                             temp-file
+                             (file-name-directory buffer-file-name))))
+          (list "gcc" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
+      (defun my-flymake-cc-conditional-init()
+        (cond ((file-exists-p (concat flymake-base-dir "/" "Makefile")) 'flymake-simple-make-init)
+              (t 'my-flymake-gcc-init)))
+      (push '("\\.c$" my-flymake-cc-conditional-init) flymake-allowed-file-name-masks)
+      )
 
     ;; ifdef
     ;;(setq hide-ifdef-define-alist

@@ -45,8 +45,8 @@
 ;;;; flymake
 (my-eval-after-load "flymake"
   (custom-set-faces
-   '(flymake-errline ((((class color)) (:background "Gray30"))))
-   '(flymake-warnline ((((class color)) (:background "Gray20"))))
+   '(flymake-errline ((((class color)) (:background "rosybrown"))))
+   '(flymake-warnline ((((class color)) (:background "lightslategrey"))))
    )
   )
 
@@ -57,10 +57,10 @@
 
 
 ;;;; js2-mode
-(my-eval-after-load "js2-mode"
+(my-eval-after-load "js2"
   (custom-set-faces
-   '(js2-error-face ((((class color)) (:underline "OrangeRed"))))
-   '(js2-warning-face ((((class color)) (:underline "Yellow"))))
+   '(js2-error-face ((((class color)) (:background "rosybrown"))))
+   '(js2-warning-face ((((class color)) (:background "lightslategrey"))))
    )
   )
 
