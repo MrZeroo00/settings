@@ -27,5 +27,7 @@
   external = git-diff-wrapper
 [pager]
   diff =
+[credential]
+  helper = cache --timeout=3600
 [include]
   path = .gitconfig.local
