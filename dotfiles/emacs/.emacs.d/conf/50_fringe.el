@@ -4,4 +4,4 @@
 
 ;;;; rfringe
 ;;;(install-elisp-from-emacswiki "rfringe.el")
-(my-require-and-when 'rfringe)
+;(my-require-and-when 'rfringe)
