@@ -10,7 +10,7 @@ fi
 umask 022
 
 # Use hard limits, except for a smaller stack and no core dumps
-if [ "${OS}" != "Cygwin" ]; then
+if [ "${OS}" != "Cygwin" -a -n "`which limit`" ]; then
   unlimit
   limit stack 8192
   limit core 0
