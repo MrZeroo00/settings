@@ -42,7 +42,7 @@
   (when (featurep 'flymake)
     (flymake-js-load))
   )
-(add-hook 'javascript-mode-hook 'my-javascript-mode-hook)
+(add-hook 'js2-mode-hook 'my-javascript-mode-hook)
 
 
 ;; -*-no-byte-compile: t; -*-
