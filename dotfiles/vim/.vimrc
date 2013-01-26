@@ -52,6 +52,10 @@ let g:yankring_replace_n_pkey = ',yp'
 let g:yankring_replace_n_nkey = ',yn'
 nmap ,ys :YRShow<CR>
 
+"" Unite
+let g:unite_enable_start_insert=1
+noremap <C-U><C-B> :Unite buffer<CR>
+
 "nmap <Space> :MBEbn<CR>
 "" screen like key bindings
 "let mapleader = "^F"
@@ -224,7 +228,7 @@ set sessionoptions+=unix,slash
 
 "" for screen setting
 " ctags with screen (C-t key binding)
-nmap <c-[> :pop<CR>
+nmap <c-\[> :pop<CR>
 
 " set screen title to file name
 if &term == $TERMSCREEN
