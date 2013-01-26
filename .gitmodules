@@ -4,3 +4,6 @@
 [submodule "dotfiles/emacs/.emacs.d/elisp/geben"]
 	path = dotfiles/emacs/.emacs.d/elisp/geben
 	url = https://github.com/blipvert/geben-svn.git
+[submodule "dotfiles/vim/.vim/bundle/vundle"]
+	path = dotfiles/vim/.vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
