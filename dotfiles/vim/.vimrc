@@ -5,6 +5,11 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'Align'
+Bundle 'surround.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'hrp/EnhancedCommentify'
+Bundle 'Shougo/unite.vim'
 filetype plugin indent on     " required!
 
 set fileformats=unix,dos,mac
@@ -84,10 +89,10 @@ inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
-vnoremap { "zdi^V{<C-R>z}<ESC>
-vnoremap [ "zdi^V[<C-R>z]<ESC>
-vnoremap ( "zdi^V(<C-R>z)<ESC>
-vnoremap " "zdi^V"<C-R>z^V"<ESC>
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
 " move between function
@@ -97,8 +102,6 @@ map ]] j0[[%/{<CR>
 map [] k$][%?}<CR>
 
 " short command name
-command FFB FuzzyFinderBuffer
-command FFF FuzzyFinderFile
 command MK make
 command MKC make clean
 command MKI make install-files
@@ -228,9 +231,6 @@ if &term == $TERMSCREEN
   autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | silent! exe '!echo -n "k%\\"' | endif
   autocmd VimLeave * silent! exe '!echo -n "k`basename $PWD`\\"'
 endif
-
-" minibufexpl setting
-let g:miniBufExplModSelTarget=1
 
 " netrw setting
 if v:version >= 700
