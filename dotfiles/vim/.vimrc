@@ -14,6 +14,7 @@ Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
 Bundle 'Shougo/vimfiler'
 Bundle 'tpope/vim-fugitive'
+Bundle 'joonty/vdebug.git'
 Bundle 'Shougo/unite.vim'
 filetype plugin indent on     " required!
 
