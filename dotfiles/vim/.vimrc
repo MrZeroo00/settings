@@ -1,5 +1,13 @@
-set fileformats=unix,dos,mac
+" vundle
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+filetype plugin indent on     " required!
+
+set fileformats=unix,dos,mac
 set viminfo='100,f1,\"50,:100,@100,/100,!
 
 " key bindings
