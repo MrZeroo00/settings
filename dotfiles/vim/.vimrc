@@ -8,7 +8,12 @@ Bundle 'gmarik/vundle'
 Bundle 'Align'
 Bundle 'surround.vim'
 Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache-snippets-complete'
 Bundle 'hrp/EnhancedCommentify'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+Bundle 'Shougo/vimfiler'
+Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/unite.vim'
 filetype plugin indent on     " required!
 
@@ -53,7 +58,7 @@ let g:yankring_replace_n_nkey = ',yn'
 nmap ,ys :YRShow<CR>
 
 "" Unite
-let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=0
 noremap <C-U><C-B> :Unite buffer<CR>
 
 "nmap <Space> :MBEbn<CR>
