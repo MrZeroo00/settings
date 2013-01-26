@@ -106,6 +106,10 @@ source ${HOME}/.zsh/function/view-edit-file.sh
 #bindkey "^x^f" edit-file
 
 
+## zaw
+# https://github.com/zsh-users/zaw
+source ${HOME}/.zsh/function/zaw/zaw.zsh
+
 ## ssh_screen
 function ssh_screen() {
   eval server=\${$#}
