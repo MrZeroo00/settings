@@ -2,6 +2,13 @@
 (server-start)
 
 
+;;;; ELPA
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+
 ;;;; measure time for tuning
 ;;;; http://www.bookshelf.jp/pukiwiki/pukiwiki.php?Meadow%2F%B5%AF%C6%B0%C2%AE%C5%D9
 (defconst my-time-zero (current-time))
