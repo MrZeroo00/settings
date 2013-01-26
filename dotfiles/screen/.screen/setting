@@ -7,6 +7,8 @@ term screen-bce
 shell -$SHELL # make the shell in every window a login shell
 autodetach on
 #defencoding eucJP
+defencoding utf8
+cjkwidth on
 deflogin off
 defflow off
 defscrollback 10000
