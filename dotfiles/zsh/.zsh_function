@@ -83,7 +83,7 @@ bindkey '^o^_' reverse-menu-complete
 ## z.sh
 # https://github.com/rupa/z
 _Z_CMD=j
-source ~/.zsh/function/z/z.sh
+source ${HOME}/.zsh/function/z/z.sh
 _z_sh () {
   _z --add "$(pwd -P)"
 }
