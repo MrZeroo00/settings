@@ -10,13 +10,21 @@ Bundle 'surround.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'hrp/EnhancedCommentify'
+Bundle 'scrooloose/syntastic'
+Bundle 'mattn/zencoding-vim'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
 Bundle 'Shougo/vimfiler'
+Bundle 'jpalardy/vim-slime'
+Bundle 'taglist.vim'
+Bundle 'ack.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'joonty/vdebug.git'
+Bundle 'thinca/vim-quickrun'
+Bundle 'Lokaltog/powerline'
 Bundle 'Shougo/unite.vim'
-filetype plugin indent on     " required!
+Bundle 'altercation/vim-colors-solarized'
+filetype plugin indent on
 
 set fileformats=unix,dos,mac
 set viminfo='100,f1,\"50,:100,@100,/100,!
