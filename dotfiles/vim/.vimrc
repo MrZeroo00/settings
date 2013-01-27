@@ -58,6 +58,22 @@ let g:yankring_replace_n_pkey = ',yp'
 let g:yankring_replace_n_nkey = ',yn'
 nmap ,ys :YRShow<CR>
 
+"" Vdebug
+"let g:vdebug_options['port'] = 9000
+"let g:vdebug_options['server'] = 'localhost'
+"let g:vdebug_options['timeout'] = 20
+"let g:vdebug_options['on_close'] = 'detach'
+"let g:vdebug_options['break_on_open'] = 0
+"let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+"let g:vdebug_options['path_maps'] = {}
+"let g:vdebug_options['debug_window_level'] = 0
+"let g:vdebug_options['debug_file_level'] = 0
+"let g:vdebug_options['debug_file'] = ''
+"let g:vdebug_options['watch_window_style'] = 'expanded'
+"let g:vdebug_options['marker_default'] = '⬦'
+"let g:vdebug_options['marker_closed_tree'] = '▸'
+"let g:vdebug_options['marker_open_tree'] = '▾'
+
 "" Unite
 let g:unite_enable_start_insert=0
 noremap <C-U><C-B> :Unite buffer<CR>
