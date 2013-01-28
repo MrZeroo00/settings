@@ -7,9 +7,6 @@
 [submodule "dotfiles/vim/.vim/bundle/vundle"]
 	path = dotfiles/vim/.vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
-[submodule "dotfiles/zsh/.zsh/function/z"]
-	path = dotfiles/zsh/.zsh/function/z
-	url = https://github.com/rupa/z.git
 [submodule "dotfiles/zsh/.zsh/function/zaw"]
 	path = dotfiles/zsh/.zsh/function/zaw
 	url = git://github.com/zsh-users/zaw.git

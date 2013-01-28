@@ -85,16 +85,6 @@ bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
 
 
-## z.sh
-# https://github.com/rupa/z
-_Z_CMD=j
-source ${HOME}/.zsh/function/z/z.sh
-_z_sh () {
-  _z --add "$(pwd -P)"
-}
-add-zsh-hook precmd _z_sh
-
-
 ## cdd
 # http://d.hatena.ne.jp/secondlife/20080218/1203303528
 #autoload -U compinit
