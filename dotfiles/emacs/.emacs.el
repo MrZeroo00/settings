@@ -178,13 +178,21 @@ change the match data."
   (declare (indent 1))
   ;;`(unless (featurep ,feature)
   ;;   (cond ((member ,feature my-disabled-features)
-  `(cond ((member ,feature my-disabled-features)
-          (message "Require skip: %s" ,feature))
-         ((require ,feature nil t)
-          (message "Require success: %s" ,feature)
-          ,@body)
-         (t
-          (message "Require error: %s" ,feature))))
+  `(unless (featurep ,feature)
+     (progn
+       (if (and (not (package-built-in-p ,feature))
+                (assq ,feature package-archive-contents)
+                (not (package-installed-p ,feature)))
+           (progn
+             (message "Package install: %s" ,feature)
+             (package-install ,feature)))
+       (cond ((member ,feature my-disabled-features)
+              (message "Require skip: %s" ,feature))
+             ((require ,feature nil t)
+              (message "Require success: %s" ,feature)
+              ,@body)
+             (t
+              (message "Require error: %s" ,feature))))))
 
 '(defmacro my-autoload-and-when (function file &rest body)
    (declare (indent 2))
