@@ -99,9 +99,9 @@
 ;;;; Etc
 (setq inhibit-startup-message t)
 (setq frame-title-format "%b")
-(menu-bar-mode nil)
+(menu-bar-mode 0)
 (when window-system
-  (tool-bar-mode nil)
+  (tool-bar-mode 0)
   (msb-mode t)
   (set-scroll-bar-mode 'right))
 (setq visible-bell t)

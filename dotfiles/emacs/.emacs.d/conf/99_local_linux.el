@@ -1,4 +1,4 @@
-(menu-bar-mode nil)
+(menu-bar-mode 0)
 
 
 (when window-system
