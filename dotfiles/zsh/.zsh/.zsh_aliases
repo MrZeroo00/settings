@@ -50,6 +50,6 @@ hash -d src="${HOME}/src"
 
 
 # local setting
-if [ -f ${HOME}/.zsh_aliases.`hostname -s`.local ]; then
-  source ${HOME}/.zsh_aliases.`hostname -s`.local
+if [ -f ${HOME}/.zsh/.zsh_aliases.`hostname -s`.local ]; then
+  source ${HOME}/.zsh/.zsh_aliases.`hostname -s`.local
 fi
