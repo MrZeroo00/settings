@@ -21,6 +21,7 @@ export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 export DIRSTACKSIZE=20
 export MAILCHECK=300
 export HELPDIR=/usr/local/lib/zsh/help  # directory for run-help function to find docs
+export REPORTTIME=3
 
 # Watch for my friends
 #export watch=( $(<~/.friends) )       # watch for people in .friends file
@@ -139,6 +140,10 @@ bindkey -e                 # emacs key bindings
 #bindkey -s '\M-=' \|
 bindkey ' ' magic-space    # also do history expansion on space
 bindkey '^I' complete-word # complete on tab, leave expansion to _expand
+
+
+## disable
+disable r
 
 
 ## completion
