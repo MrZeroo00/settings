@@ -1,3 +1,7 @@
+if [ -f ${HOME}/.sh_aliases ]; then
+    source ${HOME}/.sh_aliases
+fi
+
 # vared variant which splits arrays onto separate lines
 alias lvared="IFS=\$'\n' vared"
 

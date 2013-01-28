@@ -50,6 +50,16 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
+# function
+if [ -f ${HOME}/.bash_function ]; then
+  source ${HOME}/.bash_function
+fi
+
+# aliases
+if [ -f ${HOME}/.bash_aliases ]; then
+  source ${HOME}/.bash_aliases
+fi
+
 # local setting
 if [ -f ${HOME}/.bashrc.`hostname -s`.local ]; then
   source ${HOME}/.bashrc.`hostname -s`.local

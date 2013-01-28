@@ -210,6 +210,6 @@ esac
 
 
 # local setting
-if [ -f ${HOME}/.zprofile.`hostname -s`.local ]; then
-  source ${HOME}/.zprofile.`hostname -s`.local
+if [ -f ${HOME}/.zsh/.zprofile.`hostname -s`.local ]; then
+  source ${HOME}/.zsh/.zprofile.`hostname -s`.local
 fi

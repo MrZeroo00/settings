@@ -5,6 +5,6 @@ fi
 #ttyctl -f  # freeze the terminal modes... can't change without a ttyctl -u
 
 # local setting
-if [ -f ${HOME}/.zlogin.`hostname -s`.local ]; then
-  source ${HOME}/.zlogin.`hostname -s`.local
+if [ -f ${HOME}/.zsh/.zlogin.`hostname -s`.local ]; then
+  source ${HOME}/.zsh/.zlogin.`hostname -s`.local
 fi

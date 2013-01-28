@@ -1,3 +1,7 @@
+if [ -f ${HOME}/.sh_function ]; then
+    source ${HOME}/.sh_function
+fi
+
 ## autoload
 # Where to look for autoloaded function definitions
 #fpath=($fpath ${HOME}/.zsh/function)
@@ -9,6 +13,7 @@
 for func in $^fpath/*(N-.x:t); autoload $func
 
 
+autoload -Uz is-at-least
 autoload -U add-zsh-hook
 #autoload predict-on
 #predict-on
@@ -182,6 +187,6 @@ freload() {
 
 
 # local setting
-if [ -f ${HOME}/.zsh_function.`hostname -s`.local ]; then
-  source ${HOME}/.zsh_function.`hostname -s`.local
+if [ -f ${HOME}/.zsh/.zsh_function.`hostname -s`.local ]; then
+  source ${HOME}/.zsh/.zsh_function.`hostname -s`.local
 fi

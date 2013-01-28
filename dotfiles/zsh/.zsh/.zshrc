@@ -9,14 +9,14 @@ fi
 #fi
 
 
-# aliases
-if [ -f ${HOME}/.zsh/.zsh_aliases ]; then
-  source ${HOME}/.zsh/.zsh_aliases
-fi
-
 # function
 if [ -f ${HOME}/.zsh/.zsh_function ]; then
   source ${HOME}/.zsh/.zsh_function
+fi
+
+# aliases
+if [ -f ${HOME}/.zsh/.zsh_aliases ]; then
+  source ${HOME}/.zsh/.zsh_aliases
 fi
 
 # local setting
