@@ -10,3 +10,6 @@
 [submodule "dotfiles/zsh/.zsh/function/zaw"]
 	path = dotfiles/zsh/.zsh/function/zaw
 	url = git://github.com/zsh-users/zaw.git
+[submodule "dotfiles/zsh/.zsh/function/cdd"]
+	path = dotfiles/zsh/.zsh/function/cdd
+	url = git@github.com:m4i/cdd.git
