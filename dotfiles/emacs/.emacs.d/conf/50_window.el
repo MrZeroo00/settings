@@ -62,7 +62,7 @@
 
 ;;;; widen-window
 ;;;(install-elisp "http://svn.coderepos.org/share/lang/elisp/widen-window-mode/trunk/widen-window.el")
-(my-require-and-when 'widen-window
+'(my-require-and-when 'widen-window
   (global-widen-window-mode t)
   (setq ww-ratio 0.625)
   (define-key ctl-x-map "ww" 'global-widen-window-mode)
