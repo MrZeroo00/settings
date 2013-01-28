@@ -19,6 +19,11 @@ bindkey "^O" edit-command-line
 #history-register-line () { fc -R <(<<<$BUFFER); zle send-break }
 #zle -N history-register-line
 
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+typeset -ga chpwd_functions
 
 ## cdr system stuff.
 if is-at-least 4.3.11; then
@@ -109,6 +114,8 @@ source ${HOME}/.zsh/function/view-edit-file.sh
 ## zaw
 # https://github.com/zsh-users/zaw
 source ${HOME}/.zsh/function/zaw/zaw.zsh
+zstyle ':filter-select' case-insensitive yes
+bindkey '^@' zaw-cdr
 
 ## ssh_screen
 function ssh_screen() {
