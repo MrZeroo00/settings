@@ -96,6 +96,7 @@ setopt hist_ignore_dups
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
 #setopt hist_verify
+setopt inc_append_history
 setopt interactive_comments
 #setopt list_packed
 setopt longlistjobs
