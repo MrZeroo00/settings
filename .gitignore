@@ -6,6 +6,7 @@ dotfiles/emacs/.emacs.d/data/
 dotfiles/screen/.screen/exchange
 dotfiles/screen/.screen/*.local
 dotfiles/vim/.vim/.netrwhist
+dotfiles/vim/.vim/bundle
 dotfiles/vimperator/.vimperator/conf/office.*
 dotfiles/vimperator/.vimperator/info/
 dotfiles/w3m/.w3m/cookie
