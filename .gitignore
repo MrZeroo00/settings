@@ -3,6 +3,7 @@
 *_flymake.el
 dotfiles/emacs/.emacs.d/conf/*_local_*.el
 dotfiles/emacs/.emacs.d/data/
+dotfiles/emacs/.emacs.d/elpa/
 dotfiles/screen/.screen/exchange
 dotfiles/screen/.screen/*.local
 dotfiles/vim/.vim/.netrwhist
