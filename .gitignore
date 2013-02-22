@@ -13,6 +13,7 @@ dotfiles/w3m/.w3m/cookie
 dotfiles/w3m/.w3m/history
 dotfiles/weechat/.weechat/logs/
 dotfiles/zsh/.zsh/cdd_pwd_list*
+dotfiles/zsh/.zsh/*local
 shellscripts/.*
 shellscripts/local
 shellscripts/php/_phpmd_rule
