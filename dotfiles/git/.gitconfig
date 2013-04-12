@@ -23,6 +23,7 @@
   co = checkout
   diffw = diff --color-words
   diffn = diff --no-ext-diff
+  cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [diff]
   external = git-diff-wrapper
 [pager]
