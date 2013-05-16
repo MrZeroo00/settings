@@ -66,6 +66,9 @@ add-zsh-hook precmd _set_vcs_info
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
 
+## percol
+source ${HOME}/.zsh/function/percol
+
 ## git-completion
 autoload bashcompinit
 source ${HOME}/.zsh/function/git-completion.bash

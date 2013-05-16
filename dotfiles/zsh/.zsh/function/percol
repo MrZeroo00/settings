@@ -1,0 +1,11 @@
+function lg {
+  line=`\git log --pretty=format:'%h <%an> -%d %s' --abbrev-commit --graph --no-color | percol`
+  rev=`echo "$line" | awk 'match($0,/[a-f0-9]+/) {print substr($0,RSTART,RLENGTH)}'`
+  git $* $rev
+}
+
+function eg {
+  line=`\git reflog | percol`
+  rev=`echo "$line" | awk '{ print $1 }'`
+  git $* $rev
+}
