@@ -1,6 +1,10 @@
 {
 	"installed_packages":
 	[
-		"CTags"
+		"CTags",
+		"Function Name Display",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeREPL"
 	]
 }
