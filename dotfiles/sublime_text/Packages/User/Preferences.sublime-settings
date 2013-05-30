@@ -1,5 +1,7 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"draw_minimap_border": true,
+	"ensure_newline_at_eof_on_save": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -10,8 +12,12 @@
 		"draw_active",
 		"draw_normal"
 	],
+	"line_numbers": true,
+	"match_brackets_angle": true,
+	"scroll_speed": 5.0,
 	"tab_size": 4,
 	"trim_trailing_white_space_on_save": true,
 	"vintage_ctrl_keys": true,
-	"vintage_start_in_command_mode": true
+	"vintage_start_in_command_mode": true,
+	"word_wrap": true
 }

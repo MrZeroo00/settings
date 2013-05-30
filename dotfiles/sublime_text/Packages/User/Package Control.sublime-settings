@@ -3,8 +3,11 @@
 	[
 		"CTags",
 		"Function Name Display",
+		"Package Control",
+		"SublimeBlockCursor",
 		"SublimeCodeIntel",
 		"SublimeLinter",
-		"SublimeREPL"
+		"SublimeREPL",
+		"VintageEx"
 	]
 }
