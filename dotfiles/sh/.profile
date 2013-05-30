@@ -79,6 +79,7 @@ case "${OS}" in
   export INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
   export LANG=ja_JP.UTF-8
   export __CF_USER_TEXT_ENCODING="`printf "%#x\n" ${UID}`:0x8000100:14"
+  export JAVA_OPTS='-Dfile.encoding=UTF-8'
   ;;
   "Cygwin")
   add_path -a '/c/meadow/bin'
