@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"CTags",
+		"Ensime",
 		"Function Name Display",
 		"Package Control",
 		"SublimeBlockCursor",
