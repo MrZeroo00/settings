@@ -121,6 +121,18 @@ fi
 #fi
 
 
+# tmux
+if [ -x "`which tmux`" ]; then
+  if [ -z $TMUX ]; then
+    if $(tmux has-session); then
+      tmux attach
+    else
+      tmux
+    fi
+  fi
+fi
+
+
 # Ruby Version Manager (RVM)
 if [ -s ${HOME}/.rvm/scripts/rvm ]; then
   source ${HOME}/.rvm/scripts/rvm
