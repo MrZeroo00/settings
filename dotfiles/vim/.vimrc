@@ -2,29 +2,34 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'Align'
-Bundle 'surround.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-Bundle 'hrp/EnhancedCommentify'
-Bundle 'scrooloose/syntastic'
-Bundle 'mattn/zencoding-vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'Shougo/vimfiler'
-Bundle 'jpalardy/vim-slime'
-Bundle 'taglist.vim'
-Bundle 'ack.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'joonty/vdebug.git'
-Bundle 'thinca/vim-quickrun'
-Bundle 'Lokaltog/powerline'
-Bundle 'Shougo/unite.vim'
-Bundle 'altercation/vim-colors-solarized'
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'gmarik/vundle'
+NeoBundle 'Align'
+NeoBundle 'surround.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'hrp/EnhancedCommentify'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'jpalardy/vim-slime'
+NeoBundle 'taglist.vim'
+NeoBundle 'ack.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'joonty/vdebug.git'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Lokaltog/powerline'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 filetype plugin indent on
+NeoBundleCheck
 
 set fileformats=unix,dos,mac
 set viminfo='100,f1,\"50,:100,@100,/100,!
