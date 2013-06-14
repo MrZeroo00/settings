@@ -175,7 +175,7 @@ set smartcase
 syntax on
 
 set number
-set cursorline
+set nocursorline
 "set ruler
 "set ttyfast
 set t_Co=256

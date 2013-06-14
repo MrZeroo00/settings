@@ -1,3 +1,11 @@
 #!/bin/sh
-
-vimdiff "$2" "$5"
+ 
+BRANCH=$(git branch --no-color | sed -n -e 's/^\* //p')
+gitroot="$(git rev-parse --show-toplevel)/"
+ 
+vim -c 'set nofoldenable' \
+    -c 'wincmd p'         \
+    -c 'noremap J ]c'     \
+    -c 'noremap K [c'     \
+    -c "set tags+=.tags;${gitroot}" \
+    -d "${2}" "${5}"
