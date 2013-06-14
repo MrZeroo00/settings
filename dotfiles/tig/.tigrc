@@ -5,7 +5,7 @@ set show-refs = yes
 set line-graphics = yes
 
 # vi-like scroll
-bind diff h scroll-left%
+bind diff h scroll-left
 bind diff l scroll-right
 bind diff ; view-next
 # open commit at github
