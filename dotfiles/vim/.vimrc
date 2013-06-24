@@ -89,7 +89,10 @@ nmap ,ys :YRShow<CR>
 
 "" Unite
 let g:unite_enable_start_insert=0
-noremap <C-U><C-B> :Unite buffer<CR>
+nnoremap [unite] <Nop>
+nmap , [unite]
+nnoremap <silent> [unite]b :Unite buffer<CR>
+nnoremap <silent> [unite]p :<C-u>Unite file_rec:! -buffer-name=file_rec<CR>
 
 "nmap <Space> :MBEbn<CR>
 "" screen like key bindings
