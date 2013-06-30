@@ -133,15 +133,10 @@ if [ -x "`which tmux`" ]; then
 fi
 
 
-# Ruby Version Manager (RVM)
-if [ -s ${HOME}/.rvm/scripts/rvm ]; then
-  source ${HOME}/.rvm/scripts/rvm
-fi
+# rbenv
+export PATH="${HOME}/.rbenv/bin:${PATH}"
+eval "$(rbenv init -)"
 
-# Ruby Gems
-export GEM_HOME=/var/lib/gems/1.9.0
-export RUBYLIB=${RUBYLIB}:/var/lib/gems/1.9.0/lib
-export PATH=${PATH}:/var/lib/gems/1.9.0/bin
 
 # Node Version Manager (NVM)
 if [ -s ${HOME}/nvm ]; then
