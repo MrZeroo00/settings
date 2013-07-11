@@ -115,7 +115,7 @@ source ${HOME}/.zsh/function/view-edit-file.sh
 # https://github.com/zsh-users/zaw
 source ${HOME}/.zsh/function/zaw/zaw.zsh
 zstyle ':filter-select' case-insensitive yes
-bindkey '^@' zaw-cdr
+bindkey '^S' zaw-cdr
 
 ## ssh_screen
 function ssh_screen() {
