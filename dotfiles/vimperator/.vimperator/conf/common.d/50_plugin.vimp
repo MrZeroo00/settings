@@ -58,15 +58,14 @@ let g:direct_sbm_is_use_migemo = "true"
 
 " feedSomeKeys_3
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
-lazy fmaps -u='mail\.google\.com/' c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
-lazy fmaps -u='www\.google\.com/calendar/' -events=vkeypress t a d w m x c e <Del> / + q s ?
-lazy fmaps -u='www\.rememberthemilk\.com/home' t c p d f g s u l y r z 1 2 3 4 <Del> a n k j i h m <Tab> <Esc>
-lazy fmaps -u='www\.google\.(com|co\.jp)/reader' -events=vkeypress j k n p o <Enter> s S m t v A 1 2 r N P X O gh ga gs gt gu u / ? Z
-lazy fmaps -u='reader\.livedoor\.com/reader' j k s a p o v c <Space> <S-Space> z b < >
-lazy fmaps -u='friendfeed\.com/' -events=vkeypress p P q / gh gd gm gb
-//lazy fmaps -u='github\.com/' -events=vkeypress c h i j k l o s t u w x y I U / ? <Enter>
+ignorekeys add mail\.google\.com/ -except c,/,j,k,n,p,o,u,e,x,s,r,a,#,[,],z,?,gi,gs,gt,gd,ga,gc
+ignorekeys add www\.google\.com/calendar/ -except t,a,d,w,m,x,c,e,<Del>,/,+,q,s,?
+ignorekeys add www\.rememberthemilk\.com/home -except t,c,p,d,f,g,s,u,l,y,r,z,1,2,3,4,<Del>,a,n,k,j,i,h,m,<Tab>,<Esc>
+ignorekeys add www\.google\.(com|co\.jp)/reader -except j,k,n,p,o,<Enter>,s,S,m,t,v,A,1,2,r,N,P,X,O,gh,ga,gs,gt,gu,u,/,?,Z
+ignorekeys add reader\.livedoor\.com/reader -except j,k,s,a,p,o,v,c,<Space>,<S-Space>,z,b,<,>
+ignorekeys add friendfeed\.com/ -except p,P,q,/,gh,gd,gm,gb
 ignorekeys add github\\.com -except :,T,b,<C-q>,<C-o>,<C-n>,<C-p>,f,j,k,/,y
-lazy fmaps -u='localhost:10010' j k h l r o
+ignorekeys add localhost:10010 -except j,k,h,l,r,o
 
 " hint_tombloo
 let g:hint_tombloo_key   = 'R'
