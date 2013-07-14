@@ -1,35 +1,35 @@
 [user]
-  name = Mitsuhiro Tanda
+	name = Mitsuhiro Tanda
 [core]
-  excludesfile = ~/.gitignore_global
-  #autocrlf = input
-  editor = vim
-  pager = "LC_ALL=ja_JP.UTF-8 lv -c"
+	excludesfile = ~/.gitignore_global
+	#autocrlf = input
+	editor = vim
+	pager = "LC_ALL=ja_JP.UTF-8 lv -c"
 [push]
-  #default = tracking
+	#default = tracking
 [rebase]
-  stat = true
+	stat = true
 [color]
-  #ui = auto
-  status = auto
-  diff = auto
-  branch = auto
-  interactive = auto
-  grep = auto
+	#ui = auto
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = auto
 [alias]
-  st = status
-  up = pull --rebase
-  ci = commit -a
-  co = checkout
-  diffw = diff --color-words
-  diffn = diff --no-ext-diff
-  cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+	st = status
+	up = pull --rebase
+	ci = commit -a
+	co = checkout
+	diffw = diff --color-words
+	diffn = diff --no-ext-diff
+	cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [diff]
-  external = git-diff-wrapper
+	external = git-diff-wrapper
 	tool = vdwrap
 [pager]
-  diff =
+	diff =
 [credential]
-  helper = cache --timeout=3600
+	helper = cache --timeout=3600
 [include]
-  path = .gitconfig.local
+	path = .gitconfig.local
