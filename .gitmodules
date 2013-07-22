@@ -19,3 +19,6 @@
 [submodule "dotfiles/vim/.vim/bundle/neobundle.vim"]
 	path = dotfiles/vim/.vim/bundle/neobundle.vim
 	url = git://github.com/Shougo/neobundle.vim
+[submodule "dotfiles/alfred/alfred-workflows"]
+	path = dotfiles/alfred/alfred-workflows
+	url = git@github.com:peteokma/alfred-workflows.git
