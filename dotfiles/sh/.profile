@@ -110,8 +110,8 @@ export LC_COLLATE=${LANG}
 
 # X
 if [ -x "`which xset`" ]; then
-    xset r on
-    xset r rate 200 80
+#    xset r on
+#    xset r rate 200 80
 fi
 
 
