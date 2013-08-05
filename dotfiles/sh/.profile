@@ -80,6 +80,7 @@ case "${OS}" in
   export LANG=ja_JP.UTF-8
   export __CF_USER_TEXT_ENCODING="`printf "%#x\n" ${UID}`:0x8000100:14"
   export JAVA_OPTS='-Dfile.encoding=UTF-8'
+  export GTK_PATH=/usr/local/lib/gtk-2.0
   ;;
   "Cygwin")
   add_path -a '/c/meadow/bin'
