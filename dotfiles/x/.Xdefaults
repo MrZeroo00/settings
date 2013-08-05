@@ -1,4 +1,9 @@
 Xcursor.theme: alpha-cursors
+Xft.dpi:       96
+Xft.antialias: 1
+Xft.hinting:   1
+Xft.hintstyle: hintslight
+Xft.rgba:      rgb
 Rxvt.termName: rxvt-256color
 Rxvt.foreground: green
 Rxvt.background: black
@@ -31,3 +36,5 @@ Rxvt.color14: #34E2E2
 Rxvt.color15: #EEEEEC
 Emacs.FontBackend: xft
 Emacs.font: Bitstream Vera Sans Mono-8
+vim.FontBackend: xft
+vim.font: Bitstream Vera Sans Mono-8
