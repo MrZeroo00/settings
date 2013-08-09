@@ -22,7 +22,7 @@ define hookpost-continue
 end
 
 define hook-quit
-  save breakpoints .gdb_breakpoints
+#  save breakpoints .gdb_breakpoints
 end
 
 define timestamp
