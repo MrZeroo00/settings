@@ -126,7 +126,7 @@ unsetopt correctall
 unsetopt flow_control
 unsetopt list_beep
 unsetopt longlistjobs
-unsetopt prompt_cr
+unsetopt promptcr
 unsetopt recexact
 unsetopt rm_star_silent
 
