@@ -117,6 +117,12 @@ source ${HOME}/.zsh/function/zaw/zaw.zsh
 zstyle ':filter-select' case-insensitive yes
 bindkey '^S' zaw-cdr
 
+
+## notify-command-exit
+# http://qiita.com/hayamiz/items/d64730b61b7918fbb970
+source ${HOME}/.zsh/function/notify-command-exit.sh
+
+
 ## ssh_screen
 function ssh_screen() {
   eval server=\${$#}
