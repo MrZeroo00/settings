@@ -28,6 +28,12 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Lokaltog/powerline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'closetag.vim'
+NeoBundle 'othree/eregex.vim'
+NeoBundle 'YankRing.vim'
+NeoBundle 'vim-scripts/CodeReviewer.vim'
+NeoBundle 'vim-scripts/gtags.vim'
+NeoBundle 'vim-scripts/guicolorscheme.vim'
 filetype plugin indent on
 NeoBundleCheck
 
