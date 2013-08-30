@@ -1,6 +1,3 @@
-" OmniCppComplete initialization
-call omni#cpp#complete#Init()
-
 " highlight setting
 let b:c_gnu=1
 let b:c_comment_strings=1
