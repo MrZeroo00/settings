@@ -16,7 +16,7 @@ dirdiff() {
     left=$1
     right=$2
     tmp=${1%%/left*}
-    vimcmdsfile="$tmp/vimcommands.vim"
+    vimcmdsfile="`pwd`/$tmp/vimcommands.vim"
 
     left_files=( $left/**/*(.N) )
     right_files=( $right/**/*(.N) )
@@ -53,10 +53,11 @@ dirdiff() {
     print 'tabfirst'
     print 'tabclose'
     print "cd $tmp"
+    print "call delete('$vimcmdsfile')"
     } \
     > $vimcmdsfile
     vim -c "silent source $vimcmdsfile"
-    rm $vimcmdsfile
+    #rm $vimcmdsfile
 }
 
 # Hacky way getting the default vimdiff behaviour. TODO: Can it be prettied
