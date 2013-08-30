@@ -314,6 +314,9 @@ let g:howm_dir="$HOME/howm"
 let g:howm_grepprg="/bin/egrep"
 let g:howm_findprg="/usr/bin/find"
 
+"" CodeReviewer
+let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
+
 if filereadable($HOME . '/.vimrc.local')
   source $HOME/.vimrc.local
 endif
