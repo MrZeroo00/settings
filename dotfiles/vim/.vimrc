@@ -39,6 +39,10 @@ NeoBundle 'YankRing.vim'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
 NeoBundle 'vim-scripts/gtags.vim'
 NeoBundle 'vim-scripts/guicolorscheme.vim'
+if has('clientserver')
+  NeoBundle 'thinca/vim-singleton'
+  call singleton#enable()
+endif
 filetype plugin indent on
 NeoBundleCheck
 
