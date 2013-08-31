@@ -35,9 +35,6 @@ add_path "${HOME}/local/bin"
 for i in `find ${HOME}/bin/ -type d -and -not -path "*/.svn*" | sed -e "s/\/\//\//g"`; do
   add_path "$i"
 done
-for i in `find ${HOME}/bin/local/ -type d -and -not -path "*/.svn*" | sed -e "s/\/\//\//g"`; do
-  add_path "$i"
-done
 add_path "${HOME}/bin"
 export PATH
 
