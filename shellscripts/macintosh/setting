@@ -6,3 +6,8 @@ defaults write com.apple.Terminal AppleShowScrollbars WhenScrolling
 defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
 defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
 sudo sysctl -w net.inet.tcp.delayed_ack=0
+
+pushd .
+git clone https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git && cd tmux-MacOSX-pasteboard && make && cp reattach-to-user-namespace ~/bin/tmux
+popd
+rm -rf tmux-MacOSX-pasteboard
