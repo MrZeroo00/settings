@@ -152,42 +152,6 @@ nmap ,ys :YRShow<CR>
 "let g:vdebug_options['marker_closed_tree'] = '▸'
 "let g:vdebug_options['marker_open_tree'] = '▾'
 
-"" Unite
-if s:bundle_tap('unite.vim') " {{{
-  call s:bundle_config({
-        \   'autoload' : {
-        \     'commands' : [
-        \       {
-        \         'name' : 'Unite',
-        \         'complete' : 'customlist,unite#complete_source'
-        \       },
-        \       'UniteWithCursorWord',
-        \       'UniteWithInput'
-        \     ]
-        \   }
-        \ })
-
-  function! s:tapped_bundle.hooks.on_source(bundle)
-    let g:unite_kind_jump_list_after_jump_scroll=0
-    let g:unite_enable_start_insert = 0
-    let g:unite_source_rec_min_cache_files = 1000
-    let g:unite_source_rec_max_cache_files = 5000
-    let g:unite_source_file_mru_long_limit = 6000
-    let g:unite_source_file_mru_limit = 300
-    let g:unite_source_directory_mru_long_limit = 6000
-    let g:unite_prompt = '❯ '
-  endfunction
-
-  nnoremap [unite] <Nop>
-  nmap , [unite]
-  nnoremap <silent> [unite]u :<C-u>Unite -start-insert menu:unite<CR>
-  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-  nnoremap <silent> [unite]p :<C-u>Unite -start-insert file_rec/async:! -buffer-name=file_rec<CR>
-  nnoremap <silent> [unite]g :<C-u>Unite grep -no-quit<CR>
-
-  call s:bundle_untap()
-endif " }}}
-
 "nmap <Space> :MBEbn<CR>
 "" screen like key bindings
 "let mapleader = "^F"
@@ -394,6 +358,42 @@ let g:howm_findprg="/usr/bin/find"
 
 "" CodeReviewer
 let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
+
+"" Unite
+if s:bundle_tap('unite.vim') " {{{
+  call s:bundle_config({
+        \   'autoload' : {
+        \     'commands' : [
+        \       {
+        \         'name' : 'Unite',
+        \         'complete' : 'customlist,unite#complete_source'
+        \       },
+        \       'UniteWithCursorWord',
+        \       'UniteWithInput'
+        \     ]
+        \   }
+        \ })
+
+  function! s:tapped_bundle.hooks.on_source(bundle)
+    let g:unite_kind_jump_list_after_jump_scroll=0
+    let g:unite_enable_start_insert = 0
+    let g:unite_source_rec_min_cache_files = 1000
+    let g:unite_source_rec_max_cache_files = 5000
+    let g:unite_source_file_mru_long_limit = 6000
+    let g:unite_source_file_mru_limit = 300
+    let g:unite_source_directory_mru_long_limit = 6000
+    let g:unite_prompt = '❯ '
+  endfunction
+
+  nnoremap [unite] <Nop>
+  nmap , [unite]
+  nnoremap <silent> [unite]u :<C-u>Unite -start-insert menu:unite<CR>
+  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+  nnoremap <silent> [unite]p :<C-u>Unite -start-insert file_rec/async:! -buffer-name=file_rec<CR>
+  nnoremap <silent> [unite]g :<C-u>Unite grep -no-quit<CR>
+
+  call s:bundle_untap()
+endif " }}}
 
 if filereadable($HOME . '/.vimrc.local')
   source $HOME/.vimrc.local
