@@ -8,7 +8,6 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'gmarik/vundle'
 NeoBundle 'Align'
 NeoBundle 'surround.vim'
 NeoBundle 'Shougo/neocomplcache'
@@ -27,9 +26,11 @@ NeoBundle 'joonty/vdebug.git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'closetag.vim'
 NeoBundle 'grep.vim'
+NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'mru.vim'
 NeoBundle 'MultipleSearch'
 NeoBundle 'SearchComplete'
@@ -107,7 +108,7 @@ let g:unite_enable_start_insert=0
 nnoremap [unite] <Nop>
 nmap , [unite]
 nnoremap <silent> [unite]b :Unite buffer<CR>
-nnoremap <silent> [unite]p :<C-u>Unite file_rec:! -buffer-name=file_rec<CR>
+nnoremap <silent> [unite]p :<C-u>Unite -start-insert file_rec/async:! -buffer-name=file_rec<CR>
 
 "nmap <Space> :MBEbn<CR>
 "" screen like key bindings
