@@ -9,6 +9,7 @@
 	#default = tracking
 [rebase]
 	stat = true
+	autosquash = true
 [color]
 	#ui = auto
 	status = auto
