@@ -131,11 +131,6 @@ nmap <C-p> :cprevious<CR>
 "" taglist
 nmap ,tlist :Tlist<CR>
 
-"" YankRing
-let g:yankring_replace_n_pkey = ',yp'
-let g:yankring_replace_n_nkey = ',yn'
-nmap ,ys :YRShow<CR>
-
 "" Vdebug
 "let g:vdebug_options['port'] = 9000
 "let g:vdebug_options['server'] = 'localhost'
@@ -404,6 +399,18 @@ if s:bundle_tap('vimfiler') " {{{
         \     ]
         \   }
         \ })
+
+  call s:bundle_untap()
+endif " }}}
+
+"" YankRing.vim
+if s:bundle_tap('YankRing.vim') " {{{
+  function! s:tapped_bundle.hooks.on_source(bundle)
+    let g:yankring_replace_n_pkey = ',yp'
+    let g:yankring_replace_n_nkey = ',yn'
+  endfunction
+
+  nmap ,ys :YRShow<CR>
 
   call s:bundle_untap()
 endif " }}}
