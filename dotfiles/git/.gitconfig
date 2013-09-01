@@ -27,6 +27,7 @@
 [diff]
 	external = git-diff-wrapper
 	tool = vdwrap
+	algorithm = patience
 [pager]
 	diff =
 [credential]
