@@ -117,9 +117,6 @@ cnoremap <C-B> <Left>
 cnoremap <Esc>f <S-Right>
 cnoremap <Esc>b <S-Left>
 
-"" taglist
-nmap ,tlist :Tlist<CR>
-
 "nmap <Space> :MBEbn<CR>
 "" screen like key bindings
 "let mapleader = "^F"
@@ -337,6 +334,9 @@ nmap <C-p> :cprevious<CR>
 "map <C-]> :GtagsCursor<CR>
 "nmap <C-J> <C-W>j<C-W>_
 "nmap <C-K> <C-W>k<C-W>_
+
+"" taglist
+nmap ,tlist :Tlist<CR>
 
 "" unite.vim
 if s:bundle_tap('unite.vim') " {{{
