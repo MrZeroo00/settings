@@ -318,12 +318,6 @@ set printfont=IPAGothic:h12
 "" CodeReviewer
 let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
 
-"" howm
-set runtimepath+=$HOME/etc/howm_vim
-let g:howm_dir="$HOME/howm"
-let g:howm_grepprg="/bin/egrep"
-let g:howm_findprg="/usr/bin/find"
-
 "" gtags
 nmap ,gtags :Gtags <C-R><C-W><CR>
 nmap ,gr :Gtags -r <C-R><C-W><CR>
@@ -334,6 +328,12 @@ nmap <C-p> :cprevious<CR>
 "map <C-]> :GtagsCursor<CR>
 "nmap <C-J> <C-W>j<C-W>_
 "nmap <C-K> <C-W>k<C-W>_
+
+"" howm
+set runtimepath+=$HOME/etc/howm_vim
+let g:howm_dir="$HOME/howm"
+let g:howm_grepprg="/bin/egrep"
+let g:howm_findprg="/usr/bin/find"
 
 "" taglist
 nmap ,tlist :Tlist<CR>
