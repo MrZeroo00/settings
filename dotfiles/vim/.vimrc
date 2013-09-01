@@ -63,7 +63,14 @@ NeoBundleLazy 'elzr/vim-json', {
   \   'filetypes' : 'json',
   \ }}
 
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \   },
+      \ }
 NeoBundleLazy 'Shougo/vimshell', { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
