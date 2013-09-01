@@ -64,11 +64,11 @@ NeoBundleLazy 'elzr/vim-json', {
   \ }}
 
 NeoBundle 'Shougo/vimproc'
-NeoBundleLazy 'Shougo/vimshell.vim', { 'depends' : [ 'Shougo/vimproc.vim' ] }
+NeoBundleLazy 'Shougo/vimshell', { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
 
-NeoBundleLazy 'Shougo/unite.vim', { 'depends' : [ 'Shougo/vimproc.vim' ] }
+NeoBundleLazy 'Shougo/unite.vim', { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
   \ 'unite_sources' : 'locate',
   \ }}
