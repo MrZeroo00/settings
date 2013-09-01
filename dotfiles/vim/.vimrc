@@ -27,7 +27,7 @@ NeoBundle 'MultipleSearch'
 NeoBundle 'SearchComplete'
 
 NeoBundle 'hrp/EnhancedCommentify'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'scrooloose/syntastic'
