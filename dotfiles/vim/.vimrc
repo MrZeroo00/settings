@@ -9,7 +9,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Align'
-NeoBundle 'kana/vim-textobj-user'
+NeoBundleLazy 'kana/vim-textobj-user'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'vim-scripts/YankRing.vim'
@@ -57,7 +57,9 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
   \ 'unite_sources' : 'locate',
   \ }}
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundleLazy 'h1mesuke/unite-outline', { 'autoload' : {
+  \ 'unite_sources' : 'outline',
+  \ }}
 NeoBundleLazy 'osyo-manga/unite-quickfix', { 'autoload' : {
   \ 'unite_sources' : 'quickfix',
   \ }}
