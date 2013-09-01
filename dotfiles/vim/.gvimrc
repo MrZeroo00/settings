@@ -1,4 +1,5 @@
-colorscheme desert
+set background=dark
+colorscheme solarized
 "set guioptions-=m
 "set guioptions-=T
 set guioptions+=a

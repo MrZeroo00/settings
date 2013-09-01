@@ -207,13 +207,8 @@ set nocursorline
 "set ruler
 "set ttyfast
 set t_Co=256
-if &term == $TERMSCREEN
-  set background=dark
-endif
-"colorscheme desert
-"colorscheme desert256
-"colorscheme twilight
-colorscheme railscasts
+set background=dark
+colorscheme solarized
 highlight Normal ctermfg=lightgray
 highlight Search ctermbg=90 cterm=NONE
 highlight CursorLine cterm=underline
