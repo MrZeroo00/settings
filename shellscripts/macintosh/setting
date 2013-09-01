@@ -11,3 +11,9 @@ pushd .
 git clone https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git && cd tmux-MacOSX-pasteboard && make && cp reattach-to-user-namespace ~/bin/tmux
 popd
 rm -rf tmux-MacOSX-pasteboard
+
+# Homebrew
+if [ ! -x "`which brew`" ]; then
+  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+fi
+brew install the_silver_searcher
