@@ -72,7 +72,7 @@ NeoBundle 'Shougo/vimproc', {
       \   },
       \ }
 NeoBundleLazy 'Shougo/vimshell', { 'depends' : [ 'Shougo/vimproc' ] }
-NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'Shougo/vimfiler', { 'depends' : [ 'Shougo/unite.vim' ] }
 NeoBundle 'thinca/vim-quickrun'
 
 NeoBundleLazy 'Shougo/unite.vim' ", { 'depends' : [ 'Shougo/vimproc' ] }
@@ -359,7 +359,7 @@ let g:howm_findprg="/usr/bin/find"
 "" CodeReviewer
 let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
 
-"" Unite
+"" unite.vim
 if s:bundle_tap('unite.vim') " {{{
   call s:bundle_config({
         \   'autoload' : {
@@ -391,6 +391,19 @@ if s:bundle_tap('unite.vim') " {{{
   nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
   nnoremap <silent> [unite]p :<C-u>Unite -start-insert file_rec/async:! -buffer-name=file_rec<CR>
   nnoremap <silent> [unite]g :<C-u>Unite grep -no-quit<CR>
+
+  call s:bundle_untap()
+endif " }}}
+
+"" vimfiler
+if s:bundle_tap('vimfiler') " {{{
+  call s:bundle_config({
+        \   'autoload' : {
+        \     'commands' : [
+        \       'VimFilerBufferDir'
+        \     ]
+        \   }
+        \ })
 
   call s:bundle_untap()
 endif " }}}
