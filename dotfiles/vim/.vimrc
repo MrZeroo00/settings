@@ -72,7 +72,7 @@ NeoBundle 'Shougo/vimproc', {
       \   },
       \ }
 NeoBundleLazy 'Shougo/vimshell', { 'depends' : [ 'Shougo/vimproc' ] }
-NeoBundleLazy 'Shougo/vimfiler', { 'depends' : [ 'Shougo/unite.vim' ] }
+NeoBundleLazy 'Shougo/vimfiler' ", { 'depends' : [ 'Shougo/unite.vim' ] }
 NeoBundle 'thinca/vim-quickrun'
 
 NeoBundleLazy 'Shougo/unite.vim' ", { 'depends' : [ 'Shougo/vimproc' ] }
@@ -386,7 +386,7 @@ if s:bundle_tap('unite.vim') " {{{
   endfunction
 
   nnoremap [unite] <Nop>
-  nmap , [unite]
+  nmap <Space>u [unite]
   nnoremap <silent> [unite]u :<C-u>Unite -start-insert menu:unite<CR>
   nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
   nnoremap <silent> [unite]p :<C-u>Unite -start-insert file_rec/async:! -buffer-name=file_rec<CR>
