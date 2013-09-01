@@ -43,7 +43,7 @@ NeoBundle 'MultipleSearch'
 NeoBundle 'SearchComplete'
 NeoBundle 'othree/eregex.vim'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
-NeoBundle 'vim-scripts/guicolorscheme.vim'
+NeoBundle 'thinca/vim-guicolorscheme'
 if has('clientserver')
   NeoBundle 'thinca/vim-singleton'
   call singleton#enable()
