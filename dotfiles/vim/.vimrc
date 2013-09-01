@@ -35,6 +35,7 @@ NeoBundle 'closetag.vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'vim-scripts/gtags.vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'joonty/vdebug.git'
 NeoBundleLazy 'vim-ruby/vim-ruby', {
   \ 'autoload' : {
