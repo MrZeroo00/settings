@@ -131,22 +131,6 @@ nmap <C-p> :cprevious<CR>
 "" taglist
 nmap ,tlist :Tlist<CR>
 
-"" Vdebug
-"let g:vdebug_options['port'] = 9000
-"let g:vdebug_options['server'] = 'localhost'
-"let g:vdebug_options['timeout'] = 20
-"let g:vdebug_options['on_close'] = 'detach'
-"let g:vdebug_options['break_on_open'] = 0
-"let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
-"let g:vdebug_options['path_maps'] = {}
-"let g:vdebug_options['debug_window_level'] = 0
-"let g:vdebug_options['debug_file_level'] = 0
-"let g:vdebug_options['debug_file'] = ''
-"let g:vdebug_options['watch_window_style'] = 'expanded'
-"let g:vdebug_options['marker_default'] = '⬦'
-"let g:vdebug_options['marker_closed_tree'] = '▸'
-"let g:vdebug_options['marker_open_tree'] = '▾'
-
 "nmap <Space> :MBEbn<CR>
 "" screen like key bindings
 "let mapleader = "^F"
@@ -389,6 +373,22 @@ if s:bundle_tap('unite.vim') " {{{
 
   call s:bundle_untap()
 endif " }}}
+
+"" Vdebug
+"let g:vdebug_options['port'] = 9000
+"let g:vdebug_options['server'] = 'localhost'
+"let g:vdebug_options['timeout'] = 20
+"let g:vdebug_options['on_close'] = 'detach'
+"let g:vdebug_options['break_on_open'] = 0
+"let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+"let g:vdebug_options['path_maps'] = {}
+"let g:vdebug_options['debug_window_level'] = 0
+"let g:vdebug_options['debug_file_level'] = 0
+"let g:vdebug_options['debug_file'] = ''
+"let g:vdebug_options['watch_window_style'] = 'expanded'
+"let g:vdebug_options['marker_default'] = '⬦'
+"let g:vdebug_options['marker_closed_tree'] = '▸'
+"let g:vdebug_options['marker_open_tree'] = '▾'
 
 "" vimfiler
 if s:bundle_tap('vimfiler') " {{{
