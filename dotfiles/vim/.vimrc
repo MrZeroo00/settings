@@ -318,14 +318,14 @@ set printoptions+=syntax:a
 set printoptions+=collate:y
 set printfont=IPAGothic:h12
 
+"" CodeReviewer
+let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
+
 "" howm
 set runtimepath+=$HOME/etc/howm_vim
 let g:howm_dir="$HOME/howm"
 let g:howm_grepprg="/bin/egrep"
 let g:howm_findprg="/usr/bin/find"
-
-"" CodeReviewer
-let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
 
 "" gtags
 nmap ,gtags :Gtags <C-R><C-W><CR>
