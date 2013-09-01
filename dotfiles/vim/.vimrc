@@ -9,10 +9,16 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Align'
-NeoBundle 'surround.vim'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'mru.vim'
+NeoBundleLazy 'tyru/restart.vim', {
+  \ 'gui' : 1,
+  \ 'autoload' : {
+  \  'commands' : 'Restart'
+  \ }}
 
 NeoBundle 'ack.vim'
 NeoBundle 'grep.vim'
@@ -30,9 +36,17 @@ NeoBundle 'taglist.vim'
 NeoBundle 'vim-scripts/gtags.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'joonty/vdebug.git'
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+  \ 'autoload' : {
+  \   'filetypes' : 'ruby',
+  \ }}
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
+NeoBundleLazy 'elzr/vim-json', {
+  \ 'autoload' : {
+  \   'filetypes' : 'json',
+  \ }}
 
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
@@ -40,7 +54,13 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
 
 NeoBundle 'Shougo/unite.vim'
+NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
+  \ 'unite_sources' : 'locate',
+  \ }}
 NeoBundle 'h1mesuke/unite-outline'
+NeoBundleLazy 'osyo-manga/unite-quickfix', { 'autoload' : {
+  \ 'unite_sources' : 'quickfix',
+  \ }}
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
