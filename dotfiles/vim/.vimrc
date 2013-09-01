@@ -117,17 +117,6 @@ cnoremap <C-B> <Left>
 cnoremap <Esc>f <S-Right>
 cnoremap <Esc>b <S-Left>
 
-"" gtags
-nmap ,gtags :Gtags <C-R><C-W><CR>
-nmap ,gr :Gtags -r <C-R><C-W><CR>
-nmap ,gs :Gtags -s <C-R><C-W><CR>
-nmap ,gg :Gtags -g <C-R><C-W><CR>
-nmap <C-n> :cnext<CR>
-nmap <C-p> :cprevious<CR>
-"map <C-]> :GtagsCursor<CR>
-"nmap <C-J> <C-W>j<C-W>_
-"nmap <C-K> <C-W>k<C-W>_
-
 "" taglist
 nmap ,tlist :Tlist<CR>
 
@@ -337,6 +326,17 @@ let g:howm_findprg="/usr/bin/find"
 
 "" CodeReviewer
 let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
+
+"" gtags
+nmap ,gtags :Gtags <C-R><C-W><CR>
+nmap ,gr :Gtags -r <C-R><C-W><CR>
+nmap ,gs :Gtags -s <C-R><C-W><CR>
+nmap ,gg :Gtags -g <C-R><C-W><CR>
+nmap <C-n> :cnext<CR>
+nmap <C-p> :cprevious<CR>
+"map <C-]> :GtagsCursor<CR>
+"nmap <C-J> <C-W>j<C-W>_
+"nmap <C-K> <C-W>k<C-W>_
 
 "" unite.vim
 if s:bundle_tap('unite.vim') " {{{
