@@ -75,7 +75,7 @@ NeoBundleLazy 'Shougo/vimshell', { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
 
-NeoBundleLazy 'Shougo/unite.vim', { 'depends' : [ 'Shougo/vimproc' ] }
+NeoBundleLazy 'Shougo/unite.vim' ", { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
   \ 'unite_sources' : 'locate',
   \ }}
