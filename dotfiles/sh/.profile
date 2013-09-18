@@ -71,7 +71,6 @@ case "${OS}" in
   add_path "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin"
   add_path "/Applications/android-sdk/platform-tools"
   add_path "/Applications/android-sdk/tools"
-  export PATH
   export MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
   export INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
   export LANG=ja_JP.UTF-8
@@ -86,7 +85,6 @@ case "${OS}" in
   add_path -a '/c/namazu/bin'
   add_path -a '/c/Program\ Files/Subversion/bin'
   add_path -a '/c/Program\ Files/StraceNT'
-  export PATH
   export TERM=cygwin
   export LANG=ja_JP.UTF-8
   export TZ='JST-9'
@@ -139,8 +137,10 @@ fi
 
 
 # rbenv
-export PATH="${HOME}/.rbenv/bin:${PATH}"
-eval "$(rbenv init -)"
+add_path "${HOME}/.rbenv/bin"
+if [ -x "`which rbenv`" ]; then
+  eval "$(rbenv init -)"
+fi
 
 
 # Node Version Manager (NVM)
