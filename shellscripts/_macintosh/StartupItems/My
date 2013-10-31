@@ -1,0 +1,23 @@
+#!/bin/sh
+
+. /etc/rc.common
+
+
+StartService()
+{
+}
+
+
+StopService()
+{
+}
+
+
+RestartService()
+{
+    StopService
+    StartService
+}
+
+
+RunService "$1"
