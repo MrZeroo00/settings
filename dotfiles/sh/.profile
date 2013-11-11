@@ -6,7 +6,7 @@ if [ -x "`which tmux`" ]; then
     if $(tmux has-session); then
       tmux attach
     else
-      tmux -l
+      #tmux -l
     fi
   fi
 fi
