@@ -124,7 +124,7 @@ fi
 
 
 # keychain
-if [ -x "`which keychain`" -a "${HOME}/.ssh/id_rsa" ]; then
+if [ -x "`which keychain`" -a -f "${HOME}/.ssh/id_rsa" ]; then
     keychain ${HOME}/.ssh/id_rsa
     source ${HOME}/.keychain/`uname -n`-sh
 fi
