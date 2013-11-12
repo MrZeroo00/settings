@@ -1,17 +1,5 @@
 #!/bin/sh
 
-# tmux
-if [ -x "`which tmux`" ]; then
-  if [ -z $TMUX ]; then
-    if $(tmux has-session); then
-      tmux attach
-    else
-      #tmux -l
-    fi
-  fi
-fi
-
-
 ## environmental variables
 # set PATH so it includes user's private bin if it exists
 function add_path() {
@@ -49,6 +37,18 @@ for i in `find ${HOME}/bin/ -type d -and -not -path "*/.svn*" | sed -e "s/\/\//\
 done
 add_path "${HOME}/bin"
 export PATH
+
+
+# tmux
+if [ -x "`which tmux`" ]; then
+  if [ -z $TMUX ]; then
+    if $(tmux has-session); then
+      tmux attach
+    else
+      #tmux -l
+    fi
+  fi
+fi
 
 
 export HOSTNAME="`hostname -s`"
