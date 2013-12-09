@@ -38,7 +38,7 @@
 		<key>positionOfDivider</key>
 		<real>333</real>
 		<key>savedFrame</key>
-		<string>24 258 602 597 0 0 1440 878 </string>
+		<string>24 558 602 597 0 0 1920 1178 </string>
 		<key>selectedTabView</key>
 		<string>result</string>
 	</dict>
@@ -53,5 +53,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>LSUIElement</key>
+	<true/>
 </dict>
 </plist>
