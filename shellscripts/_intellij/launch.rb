@@ -8,5 +8,5 @@ filename = Dir.glob("#{ENV['HOME']}/IdeaProjects/*/*/#{filename}")[0]
 iml_files = Dir.glob("#{ENV['HOME']}/IdeaProjects/*/*/*.iml")
 prj_dir = iml_files.map {|iml| File.dirname(iml)}.select {|prj_dir| filename.index(prj_dir)}[0]
 unless filename.empty? and line.empty? and ij_dir.empty? then
-  spawn("#{ij_dir.shellescape}/Contents/MacOS/idea #{prj_dir.shellescape} --line #{line} #{filename.shellescape}")
+  exec("#{ij_dir.shellescape}/Contents/MacOS/idea #{prj_dir.shellescape} --line #{line} #{filename.shellescape}")
 end
