@@ -3,7 +3,7 @@ set autocomplete
 set cdpath=$HOME,$HOME/Desktop
 "set complete=lS
 set complete=l
-set defsearch=g
+"set defsearch=g
 set editor='emacsclient -a emacs -n'
 set focuscontent
 "set followhints=0
