@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'shellwords'
+require 'uri'
 
-filename, line = ARGV[0].split('://')[1].split(':')
+url = URI.unescape(ARGV[0])
+filename, line = url.split(':///')[1].split(':')
 ij_dir = Dir.glob('/Applications/IntelliJ IDEA *.app')[0]
 filename = Dir.glob("#{ENV['HOME']}/IdeaProjects/*/*/#{filename}")[0] unless filename.index('IdeaProjects')
 iml_files = Dir.glob("#{ENV['HOME']}/IdeaProjects/*/*/*.iml")
