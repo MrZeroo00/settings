@@ -2,6 +2,7 @@
 	name = Mitsuhiro Tanda
 [core]
 	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes_global
 	#autocrlf = input
 	editor = vim
 	pager = "LC_ALL=ja_JP.UTF-8 lv -c"
