@@ -22,3 +22,6 @@
 [submodule "dotfiles/alfred/alfred-workflows"]
 	path = dotfiles/alfred/alfred-workflows
 	url = git@github.com:peteokma/alfred-workflows.git
+[submodule "shellscripts/_git/git-prune-remote-branch"]
+	path = shellscripts/_git/git-prune-remote-branch
+	url = git://github.com/kyanny/git-prune-remote-branch.git
