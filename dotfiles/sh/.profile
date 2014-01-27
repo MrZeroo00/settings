@@ -117,10 +117,10 @@ export LC_COLLATE=${LANG}
 
 
 # X
-if [ -x "`which xset`" ]; then
+#if [ -x "`which xset`" ]; then
 #    xset r on
 #    xset r rate 200 80
-fi
+#fi
 
 
 # keychain
