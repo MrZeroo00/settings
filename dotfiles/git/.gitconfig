@@ -6,6 +6,7 @@
 	#autocrlf = input
 	editor = vim
 	pager = "LC_ALL=ja_JP.UTF-8 lv -c"
+	preloadindex = true
 [push]
 	#default = tracking
 [rebase]
@@ -19,13 +20,17 @@
 	interactive = auto
 	grep = auto
 [alias]
-	st = status
+	st = status --short --branch
 	up = pull --rebase
 	ci = commit -a
 	co = checkout
 	diffw = diff --color-words
 	diffn = diff --no-ext-diff
 	cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+	graph = log --graph --decorate --oneline
+	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
+	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
+	current-branch = rev-parse --abbrev-ref HEAD
 [diff]
 	external = git-diff-wrapper
 	tool = vdwrap
@@ -49,3 +54,7 @@
 [url "git@github.com:"]
 	pushinsteadof = "https://github.com/"
 	pushinsteadof = "git://github.com/"
+[branch "master"]
+	rebase = true
+[pull]
+  #rebase = true
