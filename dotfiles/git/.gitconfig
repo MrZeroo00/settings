@@ -28,6 +28,7 @@
 	diffn = diff --no-ext-diff
 	cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 	graph = log --graph --decorate --oneline
+	logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
 	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
 	current-branch = rev-parse --abbrev-ref HEAD
