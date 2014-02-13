@@ -16,7 +16,6 @@ set insertmode
 set loadplugins
 set maxitems=10
 set messages=100
-set more
 set newtab=all
 "set pageinfo+=c
 "set popups=1
@@ -27,7 +26,7 @@ set showmode
 "set showstatuslinks=1
 set smartcase
 set status=input,location,tabcount,position
-set suggestengines='g,w'
+"set suggestengines='g,w'
 set tabnumbers
 "set titlestring=Vimperator
 set toolbars=nomenu,tabs,nonavigation,bookmarks,addons
