@@ -126,7 +126,7 @@ export LC_COLLATE=${LANG}
 # keychain
 if [ -x "`which keychain`" -a -f "${HOME}/.ssh/id_rsa" ]; then
     keychain ${HOME}/.ssh/id_rsa
-    source ${HOME}/.keychain/`uname -n`-sh
+    source ${HOME}/.keychain/${HOSTNAME}-sh
 fi
 
 
