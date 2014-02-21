@@ -8,6 +8,10 @@ fi
 #  unsetopt zle
 #fi
 
+mkdir -p ${HOME}/log
+if [ "${TMUX}" != "" ] ; then
+  tmux pipe-pane 'cat >> ${HOME}/log/`date +%Y-%m-%d`_#S:#I.#P.log'
+fi
 
 # function
 if [ -f ${HOME}/.zsh/.zsh_function ]; then
