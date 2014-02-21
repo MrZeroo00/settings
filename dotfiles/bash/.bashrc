@@ -33,6 +33,8 @@ esac
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='${debian_chroot:+($debian_chroot)}[$(date +%Y/%m/%d) \t] \u@\h:\w\$ '
+export HISTTIMEFORMAT="[%Y/%m/%d %H:%M:%S] "
 
 # If this is an xterm set the title to user@host:dir
 case "${TERM}" in
