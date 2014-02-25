@@ -1,0 +1,81 @@
+# Make sure using latest Homebrew
+update
+
+# Update already-installed formula (takes too much time, I will do it manually later)
+# upgrade
+
+# Add Repository
+tap homebrew/versions || true
+tap phinze/homebrew-cask || true
+tap homebrew/binary || true
+
+# Packages
+install ack
+install apple-gcc42
+install aspell
+install boot2docker
+install casperjs
+install closure-compiler
+install cmigemo
+install cscope
+install ctags
+install docker
+install ffmpeg
+install ghc
+install git
+install global
+install go
+install graphviz
+install hping
+install hub
+install imagemagick
+install jq
+install keychain
+install llvm --with-clang
+install lua
+install lv
+install macvim --HEAD --with-lua
+install mobile-shell
+install mysql
+install ngrep
+install nkf
+install phantomjs
+install rbenv
+install redis
+install rlwrap
+install ruby-build
+install sbt
+install scala
+install sqlite
+install stow
+install the_silver_searcher
+install tig
+install tmux
+install w3m
+install wget
+install zsh
+install zsh-completions
+
+# .dmg
+install brew-cask
+#cask install appcleaner
+#cask install coteditor
+#cask install dropbox
+#cask install evernote
+#cask install firefox
+#cask install flip4mac
+#cask install gimp
+#cask install github
+#cask install google-chrome
+#cask install google-drive
+#cask install iterm2
+#cask install keyremap4macbook
+#cask install libreoffice
+#cask install limechat
+#cask install sourcetree
+#cask install sublime-text
+#cask install vagrant
+#cask install virtualbox
+
+# Remove outdated versions
+cleanup
