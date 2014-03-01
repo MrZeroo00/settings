@@ -13,14 +13,21 @@ tap homebrew/binary || true
 install ack
 install apple-gcc42
 install aspell
+install autossh
 install boot2docker
+install bsdmake
 install casperjs
+install cgdb
 install closure-compiler
+install cmake
 install cmigemo
 install cscope
 install ctags
 install docker
+install emacs
+install exiftool
 install ffmpeg
+install fortune
 install ghc
 install git
 install global
@@ -35,6 +42,7 @@ install llvm --with-clang
 install lua
 install lv
 install macvim --HEAD --with-lua
+install meld
 install mobile-shell
 install mysql
 install ngrep
