@@ -1,5 +1,5 @@
 # Make sure using latest Homebrew
-update
+update || true
 
 # Update already-installed formula (takes too much time, I will do it manually later)
 # upgrade
@@ -8,82 +8,105 @@ update
 tap homebrew/versions || true
 tap phinze/homebrew-cask || true
 tap homebrew/binary || true
+tap jimbojsb/launchrocket || true
 
 # Packages
-install ack
-install apple-gcc42
-install aspell
-install autossh
-install boot2docker
-install bsdmake
-install casperjs
-install cgdb
-install closure-compiler
-install cmake
-install cmigemo
-install cscope
-install ctags
-install docker
-install emacs
-install exiftool
-install ffmpeg
-install fortune
-install ghc
-install git
-install global
-install go
-install graphviz
-install hping
-install hub
-install imagemagick
-install jq
-install keychain
-install llvm --with-clang
-install lua
-install lv
-install macvim --HEAD --with-lua
-install meld
-install mobile-shell
-install mysql
-install ngrep
-install nkf
-install phantomjs
-install rbenv
-install redis
-install rlwrap
-install ruby-build
-install sbt
-install scala
-install sqlite
-install stow
-install the_silver_searcher
-install tig
-install tmux
-install w3m
-install wget
-install zsh
-install zsh-completions
+install ack || true
+install ag || true
+install apple-gcc42 || true
+install aspell || true
+install automake || true
+install autossh || true
+install boot2docker || true
+install bsdmake || true
+install casperjs || true
+install cgdb || true
+install closure-compiler || true
+install cmake || true
+install cmigemo || true
+install cscope || true
+install ctags || true
+install curl || true
+install docker || true
+install emacs || true
+install erlang || true
+install exiftool || true
+install ffmpeg || true
+install fish || true
+install fortune || true
+install ghc || true
+install gibo || true
+install gist || true
+install git || true
+install global || true
+install go || true
+install graphviz || true
+install haskell-platform || true
+install heroku-toolbelt || true
+install hg || true
+install hping || true
+install hub || true
+install imagemagick || true
+install jq || true
+install keychain || true
+install llvm --with-clang || true
+install lua || true
+install lv || true
+install macvim --HEAD --with-lua || true
+install meld || true
+install mobile-shell || true
+install mysql || true
+install ngrep || true
+install nkf || true
+install phantomjs || true
+install python3 || true
+install rbenv || true
+install redis || true
+install rlwrap || true
+install ruby-build || true
+install sbt || true
+install scala || true
+install spark || true
+install sqlite || true
+install stow || true
+install the_silver_searcher || true
+install tig || true
+install tmux || true
+install tree || true
+install w3m || true
+install wemux || true
+install wget || true
+install zsh || true
+install zsh-completions || true
 
 # .dmg
-install brew-cask
-#cask install appcleaner
-#cask install coteditor
-#cask install dropbox
-#cask install evernote
-#cask install firefox
-#cask install flip4mac
-#cask install gimp
-#cask install github
-#cask install google-chrome
-#cask install google-drive
-#cask install iterm2
-#cask install keyremap4macbook
-#cask install libreoffice
-#cask install limechat
-#cask install sourcetree
-#cask install sublime-text
-#cask install vagrant
-#cask install virtualbox
+install brew-cask || true
+#cask install alfred || true
+#cask install appcleaner || true
+#cask install Chromium || true
+#cask install coteditor || true
+#cask install dropbox || true
+#cask install evernote || true
+#cask install firefox || true
+#cask install flip4mac || true
+#cask install gimp || true
+#cask install github || true
+#cask install google-chrome || true
+#cask install google-drive || true
+#cask install hipchat || true
+#cask install iterm2 || true
+#cask install keyremap4macbook || true
+#cask install kindle || true
+#cask install launchrocket || true
+#cask install libreoffice || true
+#cask install limechat || true
+#cask install sourcetree || true
+#cask install sublime-text || true
+#cask install totalfinder || true
+#cask install vagrant || true
+#cask install virtualbox || true
+#cask install vlc || true
+#cask install xamarin-studio || true
 
 # Remove outdated versions
 cleanup
