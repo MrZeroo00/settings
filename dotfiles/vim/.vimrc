@@ -57,6 +57,7 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {
   \ }}
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'jceb/vim-orgmode'
+NeoBundle 'vim-scripts/confluencewiki.vim'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
 NeoBundleLazy 'elzr/vim-json', {
   \ 'autoload' : {
