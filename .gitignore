@@ -28,4 +28,4 @@ dotfiles/zsh/.zsh/*local
 shellscripts/.*
 shellscripts/local
 shellscripts/php/_phpmd_rule
-shellscripts/tmux/reattach-to-user-namespace
+shellscripts/_tmux/reattach-to-user-namespace
