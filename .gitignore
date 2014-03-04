@@ -2,6 +2,7 @@
 *.log
 *.elc
 *_flymake.el
+Gemfile.lock
 dotfiles/emacs/.emacs.d/conf/*_local_*.el
 dotfiles/emacs/.emacs.d/data/
 dotfiles/emacs/.emacs.d/elpa/
@@ -16,6 +17,10 @@ dotfiles/vimperator/.vimperator/info/
 dotfiles/w3m/.w3m/cookie
 dotfiles/w3m/.w3m/history
 dotfiles/weechat/.weechat/logs/
+dotfiles/xdg/.config/configstore/
+dotfiles/xdg/.config/gtk-2.0/
+dotfiles/xdg/.config/menus/
+dotfiles/xdg/.config/hub
 dotfiles/zsh/.zsh/.chpwd-recent-dirs
 dotfiles/zsh/.zsh/.zcompdump
 dotfiles/zsh/.zsh/cdd_pwd_list*
