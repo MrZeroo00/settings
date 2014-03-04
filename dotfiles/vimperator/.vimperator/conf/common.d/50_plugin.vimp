@@ -56,13 +56,6 @@ let g:direct_sbm_use_services_by_post = "d"
 let g:direct_sbm_is_normalize = "true"
 let g:direct_sbm_is_use_migemo = "true"
 
-" feedSomeKeys_3
-command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
-ignorekeys add mail\\.google\\.com -except :,T,<C-q>,b,<C-n>,<C-p>,<C-i>,<C-o>
-ignorekeys add www\\.google\\.com/calendar/ -except :,T,<C-q>,b,<C-n>,<C-p>,<C-i>,<C-o>
-ignorekeys add cloud\\.feedly\\.com -except :,T,<C-q>,b,<C-n>,<C-p>,<C-i>,<C-o>
-ignorekeys add github\\.com -except :,T,<C-q>,b,<C-n>,<C-p>,<C-i>,<C-o>,f,j,k,/,y
-
 " hint_tombloo
 let g:hint_tombloo_key   = 'R'
 let g:hint_tombloo_xpath = '//img'
