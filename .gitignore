@@ -31,4 +31,3 @@ dotfiles/zsh/.zsh/*local
 shellscripts/.*
 shellscripts/local
 shellscripts/php/_phpmd_rule
-shellscripts/_tmux/reattach-to-user-namespace

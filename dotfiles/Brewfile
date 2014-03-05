@@ -62,6 +62,7 @@ install phantomjs || true
 install play || true
 install python3 || true
 install rbenv || true
+install reattach-to-user-namespace || true
 install redis || true
 install rlwrap || true
 install ruby-build || true
