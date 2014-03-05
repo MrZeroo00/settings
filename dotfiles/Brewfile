@@ -59,6 +59,7 @@ install mysql || true
 install ngrep || true
 install nkf || true
 install phantomjs || true
+install play || true
 install python3 || true
 install rbenv || true
 install redis || true
