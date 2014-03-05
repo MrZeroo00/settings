@@ -58,4 +58,7 @@
 [branch "master"]
 	rebase = true
 [pull]
-  #rebase = true
+	#rebase = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
