@@ -61,7 +61,7 @@ export PAGER='lv'
 export BROWSER='w3m'
 export HTMLPAGER='w3m -T text/html -dump'
 export SVN_EDITOR='vim'
-export GIT_EDITOR='vim'
+export GIT_EDITOR="`git var GIT_EDITOR`"
 export TERMSCREEN='screen-bce'
 
 # for CPAN
