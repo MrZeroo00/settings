@@ -88,6 +88,7 @@ install brew-cask || true
 #cask install bettertouchtool || true
 #cask install Chromium || true
 #cask install coteditor || true
+#cask install dash || true
 #cask install dropbox || true
 #cask install evernote || true
 #cask install firefox || true
@@ -103,13 +104,19 @@ install brew-cask || true
 #cask install launchrocket || true
 #cask install libreoffice || true
 #cask install limechat || true
+#cask install mysql-workbench || true
+#cask install p4merge || true
+#cask install rstudio || true
+#cask install skitch || true
 #cask install sourcetree || true
 #cask install sublime-text || true
 #cask install totalfinder || true
 #cask install vagrant || true
 #cask install virtualbox || true
 #cask install vlc || true
+#cask install wireshark || true
 #cask install xamarin-studio || true
+#cask install xquartz || true
 
 # Remove outdated versions
 cleanup
