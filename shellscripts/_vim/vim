@@ -5,4 +5,4 @@ if [ "${OS}" != "Darwin" ]; then
   exec "${vim}" ${1:+"$@"}
 fi
 
-exec mvim ${1:+"$@"}
+exec mvim -f --nomru -c "au VimLeave * !open -a iTerm" ${1:+"$@"}
