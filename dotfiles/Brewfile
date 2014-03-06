@@ -85,6 +85,7 @@ install zsh-completions || true
 install brew-cask || true
 #cask install alfred || true
 #cask install appcleaner || true
+#cask install bettertouchtool || true
 #cask install Chromium || true
 #cask install coteditor || true
 #cask install dropbox || true
