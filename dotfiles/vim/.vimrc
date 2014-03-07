@@ -55,6 +55,7 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {
   \ 'autoload' : {
   \   'filetypes' : 'ruby',
   \ }}
+NeoBundle 'shawncplus/phpcomplete.vim'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'vim-scripts/confluencewiki.vim'
