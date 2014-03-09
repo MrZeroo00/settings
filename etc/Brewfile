@@ -15,6 +15,7 @@ install ack || true
 install ag || true
 install apple-gcc42 || true
 install aspell || true
+install autojump || true
 install automake || true
 install autossh || true
 install boot2docker || true
