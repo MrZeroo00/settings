@@ -60,6 +60,7 @@ install ngrep || true
 install nkf || true
 install phantomjs || true
 install play || true
+install pv || true
 install python3 || true
 install rbenv || true
 install reattach-to-user-namespace || true
