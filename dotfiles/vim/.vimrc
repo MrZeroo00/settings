@@ -188,6 +188,7 @@ else
 endif
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932,iso-2022-jp,euc-jp
+set ambiwidth=double
 
 " format setting
 set shiftwidth=2
