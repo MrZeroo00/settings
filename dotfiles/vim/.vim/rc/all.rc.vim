@@ -339,7 +339,7 @@ let g:howm_dir="$HOME/howm"
 let g:howm_grepprg="/bin/egrep"
 let g:howm_findprg="/usr/bin/find"
 
-"" ime_control.vim
+"" im_control.vim
 let g:IM_CtrlBufLocalMode = 1
 
 "" taglist
