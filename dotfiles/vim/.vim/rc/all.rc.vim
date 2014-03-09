@@ -22,6 +22,7 @@ function! s:bundle_untap() " {{{
   let s:tapped_bundle = {}
 endfunction " }}}
 
+NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'Align'
 NeoBundleLazy 'kana/vim-textobj-user'
 NeoBundle 'tpope/vim-surround'
@@ -337,6 +338,9 @@ set runtimepath+=$HOME/etc/howm_vim
 let g:howm_dir="$HOME/howm"
 let g:howm_grepprg="/bin/egrep"
 let g:howm_findprg="/usr/bin/find"
+
+"" ime_control.vim
+let g:IM_CtrlBufLocalMode = 1
 
 "" taglist
 nmap ,tlist :Tlist<CR>
