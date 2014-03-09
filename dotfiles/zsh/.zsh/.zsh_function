@@ -66,6 +66,11 @@ add-zsh-hook precmd _set_vcs_info
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
 
+## autojump
+if [ -s `brew --prefix`/etc/autojump.sh ]; then
+  `brew --prefix`/etc/autojump.sh
+fi
+
 ## percol
 source ${HOME}/.zsh/function/percol
 
