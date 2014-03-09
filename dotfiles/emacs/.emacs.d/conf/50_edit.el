@@ -10,6 +10,7 @@
 ;;;; highlight current line
 '(global-hl-line-mode)
 '(hl-line-mode t)
+'(blink-cursor-mode t)
 ;;;;;;(setq hl-line-face 'underline)
 '(set-face-background 'hl-line "DarkOliveGreen")
 ;;;(install-elisp-from-emacswiki "col-highlight.el")
@@ -43,6 +44,9 @@
   (set-face-foreground 'linum "brightblue")
   (set-face-background 'linum "brightblack")
   )
+'(setq linum-delay t)
+'(defadvice linum-schedule (around my-linum-schedule () activate)
+  (run-with-idle-timer 0.2 nil #'linum-update-current))
 
 
 ;;;; hs-minor-mode (fold code block)

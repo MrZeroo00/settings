@@ -48,6 +48,8 @@
          default-frame-alist)
         )
 
+  (set-frame-parameter nil 'alpha 100)
+
   ;; http://groups.google.com/group/carbon-emacs/msg/287876a967948923
   (defun toggle-fullscreen ()
     (interactive)
@@ -103,7 +105,8 @@
 (when window-system
   (tool-bar-mode 0)
   (msb-mode t)
-  (set-scroll-bar-mode 'right))
+  ;;(set-scroll-bar-mode 'right)
+  (scroll-bar-mode -1))
 (setq visible-bell t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq message-log-max 1000)
