@@ -26,6 +26,9 @@ function! IsMac()
       \     system('uname') =~? '^darwin'))
 endfunction
 
+" tmp
+call s:source_rc('all.rc.vim')
+
 call s:source_rc('init.rc.vim')
 
 call s:source_rc('neobundle.rc.vim')
