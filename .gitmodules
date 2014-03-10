@@ -28,3 +28,6 @@
 [submodule "dotfiles/zsh/.oh-my-zsh"]
 	path = dotfiles/zsh/.oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "shellscripts/iterm-manager"]
+	path = shellscripts/iterm-manager
+	url = git@github.com:syui/iterm-manager.git
