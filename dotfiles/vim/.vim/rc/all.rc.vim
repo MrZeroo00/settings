@@ -29,6 +29,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'mru.vim'
+NeoBundle 'kana/vim-submode'
 NeoBundleLazy 'tyru/restart.vim', {
   \ 'gui' : 1,
   \ 'autoload' : {
