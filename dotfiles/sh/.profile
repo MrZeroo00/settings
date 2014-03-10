@@ -68,6 +68,9 @@ export TERMSCREEN='screen-bce'
 #export PERL5LIB=${HOME}/local/lib/perl5/5.8.8:${HOME}/local/lib/perl5/site_perl/5.8.8
 #export PERL_BADLANG=0
 
+# for Python
+export PYTHONPATH=${HOME}/local/lib/python2.7/site-packages
+
 # for Global
 if [ -f ${HOME}/bin/gtags-load-libpath ]; then
     source ${HOME}/bin/gtags-load-libpath
