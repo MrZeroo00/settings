@@ -95,6 +95,7 @@ fi
 # cd 履歴を記録
 typeset -ga chpwd_functions
 CD_HISTORY_FILE=${HOME}/.cd_history_file # cd 履歴の記録先ファイル
+touch ${CD_HISTORY_FILE}
 function chpwd_record_history() {
   echo $PWD >> ${CD_HISTORY_FILE}
 }
