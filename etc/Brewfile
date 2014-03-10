@@ -63,6 +63,8 @@ install phantomjs || true
 install play || true
 install pv || true
 install python3 || true
+install pyenv || true
+install pyenv-virtualenv || true
 install rbenv || true
 install reattach-to-user-namespace || true
 install redis || true
