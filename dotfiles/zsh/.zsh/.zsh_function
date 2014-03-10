@@ -136,7 +136,7 @@ zle -N percol_insert_history
 
 # C-x ; でディレクトリに cd
 # C-x i でディレクトリを挿入
-bindkey '^x;' percol_cd_history
+bindkey '^xc' percol_cd_history
 bindkey '^xi' percol_insert_history
 
 ## git-completion
