@@ -54,7 +54,6 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 NeoBundleLazy 'Shougo/vimshell', { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundleLazy 'Shougo/vimfiler' ", { 'depends' : [ 'Shougo/unite.vim' ] }
-NeoBundle 'thinca/vim-quickrun'
 
 NeoBundleLazy 'Shougo/unite.vim' ", { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
@@ -69,7 +68,6 @@ NeoBundleLazy 'osyo-manga/unite-quickfix', { 'autoload' : {
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'thinca/vim-guicolorscheme'
 if has('clientserver')
   NeoBundle 'thinca/vim-singleton'
   call singleton#enable()
