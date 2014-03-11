@@ -142,7 +142,3 @@ set printoptions+=wrap:y
 set printoptions+=syntax:a
 set printoptions+=collate:y
 set printfont=IPAGothic:h12
-
-if filereadable($HOME . '/.vimrc.local')
-  source $HOME/.vimrc.local
-endif

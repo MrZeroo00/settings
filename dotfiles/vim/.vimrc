@@ -137,4 +137,8 @@ call neobundle#call_hook('on_source')
 
 set secure
 
+if filereadable($HOME . '/.vimrc.local')
+  source $HOME/.vimrc.local
+endif
+
 " vim: foldmethod=marker
