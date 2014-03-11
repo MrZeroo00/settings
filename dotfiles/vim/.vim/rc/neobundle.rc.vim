@@ -1,17 +1,11 @@
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'Align'
-NeoBundleLazy 'kana/vim-textobj-user'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'mru.vim'
 NeoBundle 'kana/vim-submode'
-NeoBundleLazy 'tyru/restart.vim', {
-  \ 'gui' : 1,
-  \ 'autoload' : {
-  \  'commands' : 'Restart'
-  \ }}
 
 NeoBundle 'ack.vim'
 NeoBundle 'grep.vim'
@@ -30,19 +24,11 @@ NeoBundle 'vim-scripts/gtags.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'joonty/vdebug.git'
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-  \ 'autoload' : {
-  \   'filetypes' : 'ruby',
-  \ }}
 NeoBundle 'shawncplus/phpcomplete.vim'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'vim-scripts/confluencewiki.vim'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
-NeoBundleLazy 'elzr/vim-json', {
-  \ 'autoload' : {
-  \   'filetypes' : 'json',
-  \ }}
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -76,8 +62,6 @@ endif
 "---------------------------------------------------------------------------
 " NeoBundle:
 "
-
-NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'rhysd/vim-operator-surround', {
       \   'mappings' : '<Plug>(operator-surround',
