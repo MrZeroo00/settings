@@ -31,3 +31,6 @@
 [submodule "etc/iterm/theme/iTerm-2-Color-Themes"]
 	path = etc/iterm/theme/iTerm-2-Color-Themes
 	url = git@github.com:baskerville/iTerm-2-Color-Themes.git
+[submodule "etc/iterm/iTerm2-Color-Schemes"]
+	path = etc/iterm/iTerm2-Color-Schemes
+	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
