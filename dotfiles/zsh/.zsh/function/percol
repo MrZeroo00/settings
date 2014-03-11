@@ -63,14 +63,14 @@ zle -N percol_insert_history
 bindkey '^xc' percol_cd_history
 bindkey '^xi' percol_insert_history
 
-function lg_common {
+function lg_select {
   line=`\git log --pretty=format:'%h <%an> -%d %s' --abbrev-commit --graph --no-color | percol`
   rev=`echo "$line" | awk 'match($0,/[a-f0-9]+/) {print substr($0,RSTART,RLENGTH)}'`
-  echo $rev
+  echo $rev | tr -d '\n'
 }
 
 function lg {
-  git $* `lg_common`
+  git $* `lg_select`
 }
 
 function eg {
