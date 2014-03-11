@@ -22,3 +22,9 @@ rm -f color-theme-6.6.0.tar.gz
 pyenv install 2.7.6
 pyenv global 2.7.6
 pip install percol --allow-external percol --allow-unverified percol
+
+mkdir -p ${HOME}/src
+cd ${HOME}/src
+git clone git@github.com:jeremyFreeAgent/oh-my-zsh-powerline-theme.git
+cd oh-my-zsh-powerline-theme
+./install_in_omz.sh
