@@ -64,3 +64,14 @@ map [[ ?{<CR>w99[{
 map ][ /}<CR>b99]}
 map ]] j0[[%/{<CR>
 map [] k$][%?}<CR>
+
+" short command name
+command MK make
+command MKC make clean
+command MKI make install-files
+command GF execute "Gtags -f " . expand("%:~:.")
+command RS %s/\s\+$//
+if has("python")
+  command! -nargs=+ Calc :python print <args>
+  python from math import *
+endif

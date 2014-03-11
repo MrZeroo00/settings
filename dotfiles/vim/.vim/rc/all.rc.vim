@@ -4,17 +4,6 @@ set nocompatible
 set fileformats=unix,dos,mac
 set viminfo='100,f1,\"50,:100,@100,/100,!
 
-" short command name
-command MK make
-command MKC make clean
-command MKI make install-files
-command GF execute "Gtags -f " . expand("%:~:.")
-command RS %s/\s\+$//
-if has("python")
-  command! -nargs=+ Calc :python print <args>
-  python from math import *
-endif
-
 " charcode setting
 if has("gui_win32")
   set encoding=utf-8
