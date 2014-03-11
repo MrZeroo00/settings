@@ -26,9 +26,6 @@ function! IsMac()
       \     system('uname') =~? '^darwin'))
 endfunction
 
-" tmp
-call s:source_rc('all.rc.vim')
-
 call s:source_rc('init.rc.vim')
 
 call s:source_rc('neobundle.rc.vim')
@@ -86,6 +83,9 @@ call s:source_rc('plugins.rc.vim')
 " Key-mappings:
 "
 call s:source_rc('mappings.rc.vim')
+
+" tmp
+call s:source_rc('all.rc.vim')
 
 "---------------------------------------------------------------------------
 " Commands:
