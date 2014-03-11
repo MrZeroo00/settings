@@ -65,6 +65,9 @@ map ][ /}<CR>b99]}
 map ]] j0[[%/{<CR>
 map [] k$][%?}<CR>
 
+" ctags with screen (C-t key binding)
+nmap <c-\[> :pop<CR>
+
 " short command name
 command MK make
 command MKC make clean

@@ -110,10 +110,6 @@ set spell spelllang=en_us
 set sessionoptions+=unix,slash
 "autocmd BufEnter * execute ":lcd " . expand("%:p:h")
 
-"" for screen setting
-" ctags with screen (C-t key binding)
-nmap <c-\[> :pop<CR>
-
 " set screen title to file name
 if &term == $TERMSCREEN
   autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | silent! exe '!echo -n "k%\\"' | endif
