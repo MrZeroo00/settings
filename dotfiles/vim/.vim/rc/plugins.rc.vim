@@ -55,7 +55,7 @@ endif " }}}
 
 "" YankRing.vim
 if neobundle#tap('YankRing.vim') " {{{
-  function! s:tapped_bundle.hooks.on_source(bundle)
+  function! neobundle#tapped.hooks.on_source(bundle)
     let g:yankring_replace_n_pkey = ',yp'
     let g:yankring_replace_n_nkey = ',yn'
   endfunction

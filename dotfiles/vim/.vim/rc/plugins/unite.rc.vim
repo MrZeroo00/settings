@@ -13,7 +13,7 @@ if neobundle#tap('unite.vim') " {{{
         \   }
         \ })
 
-  function! s:tapped_bundle.hooks.on_source(bundle)
+  function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_kind_jump_list_after_jump_scroll=0
     let g:unite_enable_start_insert = 0
     let g:unite_source_rec_min_cache_files = 1000
