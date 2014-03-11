@@ -96,18 +96,3 @@ endif
 let g:loaded_netrwPlugin = 1
 
 let g:loaded_matchparen = 0
-
-function! s:bundle_tap(bundle) " {{{
-  let s:tapped_bundle = neobundle#get(a:bundle)
-  return neobundle#is_installed(a:bundle)
-endfunction " }}}
-
-function! s:bundle_config(config) " {{{
-  if exists("s:tapped_bundle") && s:tapped_bundle != {}
-    call neobundle#config(s:tapped_bundle.name, a:config)
-  endif
-endfunction " }}}
-
-function! s:bundle_untap() " {{{
-  let s:tapped_bundle = {}
-endfunction " }}}

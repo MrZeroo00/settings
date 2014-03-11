@@ -41,8 +41,8 @@ nmap ,tlist :Tlist<CR>
 "let g:vdebug_options['marker_open_tree'] = '▾'
 
 "" vimfiler
-if s:bundle_tap('vimfiler') " {{{
-  call s:bundle_config({
+if neobundle#tap('vimfiler') " {{{
+  call neobundle#config({
         \   'autoload' : {
         \     'commands' : [
         \       'VimFilerBufferDir'
@@ -50,11 +50,11 @@ if s:bundle_tap('vimfiler') " {{{
         \   }
         \ })
 
-  call s:bundle_untap()
+  call neobundle#untap()
 endif " }}}
 
 "" YankRing.vim
-if s:bundle_tap('YankRing.vim') " {{{
+if neobundle#tap('YankRing.vim') " {{{
   function! s:tapped_bundle.hooks.on_source(bundle)
     let g:yankring_replace_n_pkey = ',yp'
     let g:yankring_replace_n_nkey = ',yn'
@@ -62,5 +62,5 @@ if s:bundle_tap('YankRing.vim') " {{{
 
   nmap ,ys :YRShow<CR>
 
-  call s:bundle_untap()
+  call neobundle#untap()
 endif " }}}

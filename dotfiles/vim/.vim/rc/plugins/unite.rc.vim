@@ -1,6 +1,6 @@
 "" unite.vim
-if s:bundle_tap('unite.vim') " {{{
-  call s:bundle_config({
+if neobundle#tap('unite.vim') " {{{
+  call neobundle#config({
         \   'autoload' : {
         \     'commands' : [
         \       {
@@ -31,5 +31,5 @@ if s:bundle_tap('unite.vim') " {{{
   nnoremap <silent> [unite]p :<C-u>Unite -start-insert file_rec/async:! -buffer-name=file_rec<CR>
   nnoremap <silent> [unite]g :<C-u>Unite grep -no-quit<CR>
 
-  call s:bundle_untap()
+  call neobundle#untap()
 endif " }}}
