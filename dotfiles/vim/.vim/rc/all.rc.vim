@@ -16,21 +16,10 @@ set smartcase
 " syntax setting
 syntax on
 
-set number
-set nocursorline
-"set ruler
-"set ttyfast
-set t_Co=256
 set background=dark
 colorscheme solarized
-highlight Normal ctermfg=lightgray
-highlight Search ctermbg=90 cterm=NONE
-highlight CursorLine cterm=underline
-"set list
-"set listchars=tab:>-,trail:-,"etends:<,eol:/
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
 match ZenkakuSpace /　/
-set showmatch
 
 "highlight tabs ctermbg=green guibg=green
 "match tabs /\t/
@@ -48,14 +37,9 @@ set t_vb=
 " completion
 set complete+=k
 set completeopt=menu,preview
-hi Pmenu ctermbg=8
-hi PmenuSel ctermbg=12
-hi PmenuSbar ctermbg=0
 
 "" programming setting
 filetype plugin indent on
-"set autoindent
-"set smartindent
 set cindent
 set tags=./tags,tags,tags;/
 "set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,b0,gs,hs,ps,ts,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,m0,M0,j1,)20,*30,#0
