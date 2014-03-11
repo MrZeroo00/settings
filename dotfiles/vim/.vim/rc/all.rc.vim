@@ -63,13 +63,6 @@ set visualbell
 set t_vb=
 
 " completion
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 set complete+=k
 set completeopt=menu,preview
 hi Pmenu ctermbg=8
