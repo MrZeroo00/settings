@@ -26,19 +26,6 @@ nmap ,tlist :Tlist<CR>
 
 "" unite.vim
 if neobundle#tap('unite.vim') " {{{
-  call neobundle#config({
-        \   'autoload' : {
-        \     'commands' : [
-        \       {
-        \         'name' : 'Unite',
-        \         'complete' : 'customlist,unite#complete_source'
-        \       },
-        \       'UniteWithCursorWord',
-        \       'UniteWithInput'
-        \     ]
-        \   }
-        \ })
-
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_kind_jump_list_after_jump_scroll=0
     let g:unite_enable_start_insert = 0
