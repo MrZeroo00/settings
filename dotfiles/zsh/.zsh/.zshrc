@@ -23,6 +23,9 @@ if [ -f ${HOME}/.zsh/.zsh_aliases ]; then
   source ${HOME}/.zsh/.zsh_aliases
 fi
 
+# oh-my-zsh
+plugins=(brew bundler emoji-clock git osx rails ruby)
+
 # local setting
 if [ -f ${HOME}/.zsh/.zshrc.`hostname -s`.local ]; then
   source ${HOME}/.zsh/.zshrc.`hostname -s`.local
