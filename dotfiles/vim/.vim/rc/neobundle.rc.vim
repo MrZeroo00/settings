@@ -1,3 +1,4 @@
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'Align'
 NeoBundleLazy 'kana/vim-textobj-user'
