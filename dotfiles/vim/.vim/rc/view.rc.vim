@@ -19,7 +19,7 @@ endif
 " Do not wrap long line.
 set nowrap
 " Wrap conditions.
-set whichwrap+=h,l,<,>,[,],b,s,~
+"set whichwrap+=h,l,<,>,[,],b,s,~
 " Always display statusline.
 set laststatus=2
 " Height of command line.
