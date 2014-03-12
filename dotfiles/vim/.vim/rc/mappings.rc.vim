@@ -205,117 +205,117 @@ function! s:init_cmdwin()
   startinsert!
 endfunction"}}}
 
-"" [Space]: Other useful commands "{{{
-"" Smart space mapping.
-"" Notice: when starting other <Space> mappings in noremap, disappeared [Space].
-"nmap  <Space>   [Space]
-"xmap  <Space>   [Space]
-"nnoremap  [Space]   <Nop>
-"xnoremap  [Space]   <Nop>
-"
-"" Toggle relativenumber.
-"nnoremap <silent> [Space].
-"      \ :<C-u>call ToggleOption('relativenumber')<CR>
-"nnoremap <silent> [Space]p
-"      \ :<C-u>call ToggleOption('paste')<CR>:set mouse=<CR>
-"" Toggle highlight.
-"nnoremap <silent> [Space]/
-"      \ :<C-u>call ToggleOption('hlsearch')<CR>
-"" Toggle cursorline.
-"nnoremap <silent> [Space]cl
-"      \ :<C-u>call ToggleOption('cursorline')<CR>
-"" Set autoread.
-"nnoremap [Space]ar
-"      \ :<C-u>setlocal autoread<CR>
-"" Output encoding information.
-"nnoremap <silent> [Space]en
-"      \ :<C-u>setlocal encoding? termencoding? fenc? fencs?<CR>
-"" Set spell check.
-"nnoremap [Space]sp
-"      \ :<C-u>call ToggleOption('spell')<CR>
-"nnoremap [Space]w
-"      \ :<C-u>call ToggleOption('wrap')<CR>
-"" Echo syntax name.
-"nnoremap [Space]sy
-"      \ :<C-u>echo synIDattr(synID(line('.'), col('.'), 1), "name")<CR>
-"
-"" Easily edit .vimrc and .gvimrc "{{{
-"nnoremap <silent> [Space]ev  :<C-u>edit $MYVIMRC<CR>
-"nnoremap <silent> [Space]eg  :<C-u>edit $MYGVIMRC<CR>
-"" Load .gvimrc after .vimrc edited at GVim.
-"nnoremap <silent> [Space]rv :<C-u>source $MYVIMRC \|
-"      \ if has('gui_running') \|
-"      \   source $MYGVIMRC \|
-"      \ endif \| echo "source $MYVIMRC"<CR>
-"nnoremap <silent> [Space]rg
-"      \ :<C-u>source $MYGVIMRC \|
-"      \ echo "source $MYGVIMRC"<CR>
-""}}}
-"
-"" Useful save mappings.
-"nnoremap <silent> <Leader><Leader> :<C-u>update<CR>
-"
-"" Change current directory.
-"nnoremap <silent> [Space]cd :<C-u>call <SID>cd_buffer_dir()<CR>
-"function! s:cd_buffer_dir() "{{{
-"  let filetype = getbufvar(bufnr('%'), '&filetype')
-"  if filetype ==# 'vimfiler'
-"    let dir = getbufvar(bufnr('%'), 'vimfiler').current_dir
-"  elseif filetype ==# 'vimshell'
-"    let dir = getbufvar(bufnr('%'), 'vimshell').save_dir
-"  else
-"    let dir = isdirectory(bufname('%')) ? bufname('%') : fnamemodify(bufname('%'), ':p:h')
-"  endif
-"
-"  cd `=dir`
-"endfunction"}}}
-"
-"" Delete windows ^M codes.
-"nnoremap <silent> [Space]<C-m> mmHmt:<C-u>%s/\r$//ge<CR>'tzt'm
-"
-"" Delete spaces before newline.
-"nnoremap <silent> [Space]ss mmHmt:<C-u>%s/<Space>$//ge<CR>`tzt`m
-"
-"" Easily syntax change.
-"nnoremap <silent> [Space]ft :<C-u>Unite -start-insert filetype<CR>
-"
-"" Exchange gj and gk to j and k. "{{{
-"command! -nargs=? -bar -bang ToggleGJK call s:ToggleGJK()
-"nnoremap <silent> [Space]gj :<C-u>ToggleGJK<CR>
-"xnoremap <silent> [Space]gj :<C-u>ToggleGJK<CR>
-"function! s:ToggleGJK()
-"  if exists('b:enable_mapping_gjk') && b:enable_mapping_gjk
-"    let b:enable_mapping_gjk = 0
-"    noremap <buffer> j j
-"    noremap <buffer> k k
-"    noremap <buffer> gj gj
-"    noremap <buffer> gk gk
-"
-"    xnoremap <buffer> j j
-"    xnoremap <buffer> k k
-"    xnoremap <buffer> gj gj
-"    xnoremap <buffer> gk gk
-"  else
-"    let b:enable_mapping_gjk = 1
-"    noremap <buffer> j gj
-"    noremap <buffer> k gk
-"    noremap <buffer> gj j
-"    noremap <buffer> gk k
-"
-"    xnoremap <buffer> j gj
-"    xnoremap <buffer> k gk
-"    xnoremap <buffer> gj j
-"    xnoremap <buffer> gk k
-"  endif
-"endfunction"}}}
-"
-"" Change tab width. "{{{
-"nnoremap <silent> [Space]t2 :<C-u>setl shiftwidth=2 softtabstop=2<CR>
-"nnoremap <silent> [Space]t4 :<C-u>setl shiftwidth=4 softtabstop=4<CR>
-"nnoremap <silent> [Space]t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
-""}}}
-""}}}
-"
+" [Space]: Other useful commands "{{{
+" Smart space mapping.
+" Notice: when starting other <Space> mappings in noremap, disappeared [Space].
+nmap  <Space>   [Space]
+xmap  <Space>   [Space]
+nnoremap  [Space]   <Nop>
+xnoremap  [Space]   <Nop>
+
+" Toggle relativenumber.
+nnoremap <silent> [Space].
+      \ :<C-u>call ToggleOption('relativenumber')<CR>
+nnoremap <silent> [Space]p
+      \ :<C-u>call ToggleOption('paste')<CR>:set mouse=<CR>
+" Toggle highlight.
+nnoremap <silent> [Space]/
+      \ :<C-u>call ToggleOption('hlsearch')<CR>
+" Toggle cursorline.
+nnoremap <silent> [Space]cl
+      \ :<C-u>call ToggleOption('cursorline')<CR>
+" Set autoread.
+nnoremap [Space]ar
+      \ :<C-u>setlocal autoread<CR>
+" Output encoding information.
+nnoremap <silent> [Space]en
+      \ :<C-u>setlocal encoding? termencoding? fenc? fencs?<CR>
+" Set spell check.
+nnoremap [Space]sp
+      \ :<C-u>call ToggleOption('spell')<CR>
+nnoremap [Space]w
+      \ :<C-u>call ToggleOption('wrap')<CR>
+" Echo syntax name.
+nnoremap [Space]sy
+      \ :<C-u>echo synIDattr(synID(line('.'), col('.'), 1), "name")<CR>
+
+" Easily edit .vimrc and .gvimrc "{{{
+nnoremap <silent> [Space]ev  :<C-u>edit $MYVIMRC<CR>
+nnoremap <silent> [Space]eg  :<C-u>edit $MYGVIMRC<CR>
+" Load .gvimrc after .vimrc edited at GVim.
+nnoremap <silent> [Space]rv :<C-u>source $MYVIMRC \|
+      \ if has('gui_running') \|
+      \   source $MYGVIMRC \|
+      \ endif \| echo "source $MYVIMRC"<CR>
+nnoremap <silent> [Space]rg
+      \ :<C-u>source $MYGVIMRC \|
+      \ echo "source $MYGVIMRC"<CR>
+"}}}
+
+" Useful save mappings.
+nnoremap <silent> <Leader><Leader> :<C-u>update<CR>
+
+" Change current directory.
+nnoremap <silent> [Space]cd :<C-u>call <SID>cd_buffer_dir()<CR>
+function! s:cd_buffer_dir() "{{{
+  let filetype = getbufvar(bufnr('%'), '&filetype')
+  if filetype ==# 'vimfiler'
+    let dir = getbufvar(bufnr('%'), 'vimfiler').current_dir
+  elseif filetype ==# 'vimshell'
+    let dir = getbufvar(bufnr('%'), 'vimshell').save_dir
+  else
+    let dir = isdirectory(bufname('%')) ? bufname('%') : fnamemodify(bufname('%'), ':p:h')
+  endif
+
+  cd `=dir`
+endfunction"}}}
+
+" Delete windows ^M codes.
+nnoremap <silent> [Space]<C-m> mmHmt:<C-u>%s/\r$//ge<CR>'tzt'm
+
+" Delete spaces before newline.
+nnoremap <silent> [Space]ss mmHmt:<C-u>%s/<Space>$//ge<CR>`tzt`m
+
+" Easily syntax change.
+nnoremap <silent> [Space]ft :<C-u>Unite -start-insert filetype<CR>
+
+" Exchange gj and gk to j and k. "{{{
+command! -nargs=? -bar -bang ToggleGJK call s:ToggleGJK()
+nnoremap <silent> [Space]gj :<C-u>ToggleGJK<CR>
+xnoremap <silent> [Space]gj :<C-u>ToggleGJK<CR>
+function! s:ToggleGJK()
+  if exists('b:enable_mapping_gjk') && b:enable_mapping_gjk
+    let b:enable_mapping_gjk = 0
+    noremap <buffer> j j
+    noremap <buffer> k k
+    noremap <buffer> gj gj
+    noremap <buffer> gk gk
+
+    xnoremap <buffer> j j
+    xnoremap <buffer> k k
+    xnoremap <buffer> gj gj
+    xnoremap <buffer> gk gk
+  else
+    let b:enable_mapping_gjk = 1
+    noremap <buffer> j gj
+    noremap <buffer> k gk
+    noremap <buffer> gj j
+    noremap <buffer> gk k
+
+    xnoremap <buffer> j gj
+    xnoremap <buffer> k gk
+    xnoremap <buffer> gj j
+    xnoremap <buffer> gk k
+  endif
+endfunction"}}}
+
+" Change tab width. "{{{
+nnoremap <silent> [Space]t2 :<C-u>setl shiftwidth=2 softtabstop=2<CR>
+nnoremap <silent> [Space]t4 :<C-u>setl shiftwidth=4 softtabstop=4<CR>
+nnoremap <silent> [Space]t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
+"}}}
+"}}}
+
 "" s: Windows and buffers(High priority) "{{{
 "" The prefix key.
 "nnoremap    [Window]   <Nop>
