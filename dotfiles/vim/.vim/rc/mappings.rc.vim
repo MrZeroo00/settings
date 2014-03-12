@@ -8,14 +8,6 @@ nmap ,msession :mksession $HOME/etc/session.vim<CR>
 nmap ,rsession :source $HOME/etc/session.vim<CR>
 nmap . .`[
 
-"" command line
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-cnoremap <C-F> <Right>
-cnoremap <C-B> <Left>
-cnoremap <Esc>f <S-Right>
-cnoremap <Esc>b <S-Left>
-
 "nmap <Space> :MBEbn<CR>
 "" screen like key bindings
 "let mapleader = "^F"
@@ -155,21 +147,21 @@ cabbrev wqa <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'wa\|tabonly\|only\
 "endfunction
 ""}}}
 "
-"" Command-line mode keymappings:"{{{
-"" <C-a>, A: move to head.
-"cnoremap <C-a>          <Home>
-"" <C-b>: previous char.
-"cnoremap <C-b>          <Left>
-"" <C-d>: delete char.
-"cnoremap <C-d>          <Del>
-"" <C-e>, E: move to end.
-"cnoremap <C-e>          <End>
-"" <C-f>: next char.
-"cnoremap <C-f>          <Right>
-"" <C-n>: next history.
-"cnoremap <C-n>          <Down>
-"" <C-p>: previous history.
-"cnoremap <C-p>          <Up>
+" Command-line mode keymappings:"{{{
+" <C-a>, A: move to head.
+cnoremap <C-a>          <Home>
+" <C-b>: previous char.
+cnoremap <C-b>          <Left>
+" <C-d>: delete char.
+cnoremap <C-d>          <Del>
+" <C-e>, E: move to end.
+cnoremap <C-e>          <End>
+" <C-f>: next char.
+cnoremap <C-f>          <Right>
+" <C-n>: next history.
+cnoremap <C-n>          <Down>
+" <C-p>: previous history.
+cnoremap <C-p>          <Up>
 "" <C-k>, K: delete to end.
 "cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
 "      \ '' : getcmdline()[:getcmdpos()-2]<CR>
