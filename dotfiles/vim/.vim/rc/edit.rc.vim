@@ -66,7 +66,7 @@ endif
 " Use vimgrep.
 "set grepprg=internal
 " Use grep.
-set grepprg=grep\ -inH
+set grepprg=ack\ -a
 
 " Exclude = from isfilename.
 set isfname-==

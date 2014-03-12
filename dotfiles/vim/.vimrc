@@ -53,8 +53,8 @@ set smartcase
 
 " Enable incremental search.
 set incsearch
-" Don't highlight search result.
-set nohlsearch
+" Highlight search result.
+set hlsearch
 
 " Searches wrap around the end of the file.
 set wrapscan

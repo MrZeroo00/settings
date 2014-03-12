@@ -6,12 +6,6 @@ set viminfo='100,f1,\"50,:100,@100,/100,!
 " charcode setting
 set ambiwidth=double
 
-" search setting
-set incsearch
-set hlsearch
-set smartcase
-"set nowrapscan
-
 "" view setting
 " syntax setting
 syntax on
@@ -45,19 +39,10 @@ set tags=./tags,tags,tags;/
 "set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,b0,gs,hs,ps,ts,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,m0,M0,j1,)20,*30,#0
 set cinoptions=t0
 
-set directory=.,/tmp
-
 "set autochdir
-set browsedir=buffer
-set hidden
-set backspace=indent,eol,start
 set scrolloff=5
-set clipboard+=unnamed
 runtime ftplugin/man.vim
-set keywordprg=$HOME/bin/eijiro
-set grepprg=ack\ -a
 set dictionary=$HOME/.vim/dictionary
-set spell spelllang=en_us
 set sessionoptions+=unix,slash
 "autocmd BufEnter * execute ":lcd " . expand("%:p:h")
 
