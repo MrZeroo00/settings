@@ -69,11 +69,11 @@ map [] k$][%?}<CR>
 nmap <c-\[> :pop<CR>
 
 " short command name
-command MK make
-command MKC make clean
-command MKI make install-files
-command GF execute "Gtags -f " . expand("%:~:.")
-command RS %s/\s\+$//
+command! MK make
+command! MKC make clean
+command! MKI make install-files
+command! GF execute "Gtags -f " . expand("%:~:.")
+command! RS %s/\s\+$//
 if has("python")
   command! -nargs=+ Calc :python print <args>
   python from math import *
