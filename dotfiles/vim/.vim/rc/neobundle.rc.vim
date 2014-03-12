@@ -1,44 +1,8 @@
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'fuenor/im_control.vim'
-NeoBundle 'Align'
-NeoBundle 'yuroyoro/monday'
-NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'kana/vim-submode'
-
-NeoBundle 'ack.vim'
-NeoBundle 'grep.vim'
-NeoBundle 'othree/eregex.vim'
-NeoBundle 'MultipleSearch'
-NeoBundle 'SearchComplete'
-
-NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'closetag.vim'
-NeoBundle 'taglist.vim'
-NeoBundle 'vim-scripts/gtags.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'joonty/vdebug.git'
-NeoBundle 'shawncplus/phpcomplete.vim'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'jceb/vim-orgmode'
-NeoBundle 'vim-scripts/confluencewiki.vim'
-NeoBundle 'vim-scripts/CodeReviewer.vim'
-
-NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
-  \ 'unite_sources' : 'locate',
-  \ }}
-
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-if has('clientserver')
-  NeoBundle 'thinca/vim-singleton'
-  call singleton#enable()
-endif
-
 "---------------------------------------------------------------------------
 " NeoBundle:
 "
+
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'rhysd/vim-operator-surround', {
       \   'mappings' : '<Plug>(operator-surround',
@@ -328,6 +292,43 @@ if filereadable('vimrc_local.vim') ||
 endif
 
 " NeoBundle 'tpope/vim-fugitive'
+
+" my
+NeoBundle 'fuenor/im_control.vim'
+NeoBundle 'Align'
+NeoBundle 'yuroyoro/monday'
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'kana/vim-submode'
+
+NeoBundle 'ack.vim'
+NeoBundle 'grep.vim'
+NeoBundle 'othree/eregex.vim'
+NeoBundle 'MultipleSearch'
+NeoBundle 'SearchComplete'
+
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'closetag.vim'
+NeoBundle 'taglist.vim'
+NeoBundle 'vim-scripts/gtags.vim'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'joonty/vdebug.git'
+NeoBundle 'shawncplus/phpcomplete.vim'
+NeoBundle 'jpalardy/vim-slime'
+NeoBundle 'jceb/vim-orgmode'
+NeoBundle 'vim-scripts/confluencewiki.vim'
+NeoBundle 'vim-scripts/CodeReviewer.vim'
+
+NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
+  \ 'unite_sources' : 'locate',
+  \ }}
+
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+if has('clientserver')
+  NeoBundle 'thinca/vim-singleton'
+  call singleton#enable()
+endif
 
 NeoBundleLocal ~/.vim/bundle
 
