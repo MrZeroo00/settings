@@ -30,26 +30,8 @@ NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'vim-scripts/confluencewiki.vim'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
 
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \   },
-      \ }
-NeoBundleLazy 'Shougo/vimshell', { 'depends' : [ 'Shougo/vimproc' ] }
-NeoBundleLazy 'Shougo/vimfiler' ", { 'depends' : [ 'Shougo/unite.vim' ] }
-
-NeoBundleLazy 'Shougo/unite.vim' ", { 'depends' : [ 'Shougo/vimproc' ] }
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
   \ 'unite_sources' : 'locate',
-  \ }}
-NeoBundleLazy 'h1mesuke/unite-outline', { 'autoload' : {
-  \ 'unite_sources' : 'outline',
-  \ }}
-NeoBundleLazy 'osyo-manga/unite-quickfix', { 'autoload' : {
-  \ 'unite_sources' : 'quickfix',
   \ }}
 
 NeoBundle 'itchyny/lightline.vim'
