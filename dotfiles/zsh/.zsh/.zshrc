@@ -68,6 +68,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# revert history alias
+alias history='fc -l'
+
 
 # read common setting
 if [ -f ${HOME}/.shrc ]; then
