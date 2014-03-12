@@ -294,6 +294,7 @@ endif
 " NeoBundle 'tpope/vim-fugitive'
 
 " my
+NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'Align'
 NeoBundle 'yuroyoro/monday'
