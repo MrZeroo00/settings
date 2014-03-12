@@ -24,18 +24,6 @@ let g:IM_CtrlBufLocalMode = 1
 "" taglist
 nmap ,tlist :Tlist<CR>
 
-"" unite.vim
-if neobundle#tap('unite.vim') " {{{
-  nnoremap [unite] <Nop>
-  nmap <Space>u [unite]
-  nnoremap <silent> [unite]u :<C-u>Unite -start-insert menu:unite<CR>
-  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-  nnoremap <silent> [unite]p :<C-u>Unite -start-insert file_rec/async:! -buffer-name=file_rec<CR>
-  nnoremap <silent> [unite]g :<C-u>Unite grep -no-quit<CR>
-
-  call neobundle#untap()
-endif " }}}
-
 "" Vdebug
 "let g:vdebug_options['port'] = 9000
 "let g:vdebug_options['server'] = 'localhost'
