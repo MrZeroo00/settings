@@ -466,37 +466,37 @@ command! -nargs=0 JunkfileDiary call junkfile#open_immediately(
 "nnoremap [Alt];  ;
 "nnoremap [Alt],  ,
 ""}}}
-"
-"" Disable Ex-mode.
-"nnoremap Q  q
-"
-"" q: Quickfix  "{{{
-"" The prefix key.
-"nnoremap [Quickfix]   <Nop>
-"
-"" Toggle quickfix window.
-"nnoremap <silent> [Quickfix]<Space>
-"      \ :<C-u>call <SID>toggle_quickfix_window()<CR>
-"function! s:toggle_quickfix_window()
-"  let _ = winnr('$')
-"  cclose
-"  if _ == winnr('$')
-"    copen
-"    setlocal nowrap
-"    setlocal whichwrap=b,s
-"  endif
-"endfunction
-""}}}
-"
-"" Jump mark can restore column."{{{
-"nnoremap \  `
-"" Useless command.
-"nnoremap M  m
-""}}}
-"
-"" Smart <C-f>, <C-b>.
-"nnoremap <silent> <C-f> <C-f>
-"nnoremap <silent> <C-b> <C-b>
+
+" Disable Ex-mode.
+nnoremap Q  q
+
+" q: Quickfix  "{{{
+" The prefix key.
+nnoremap [Quickfix]   <Nop>
+
+" Toggle quickfix window.
+nnoremap <silent> [Quickfix]<Space>
+      \ :<C-u>call <SID>toggle_quickfix_window()<CR>
+function! s:toggle_quickfix_window()
+  let _ = winnr('$')
+  cclose
+  if _ == winnr('$')
+    copen
+    setlocal nowrap
+    setlocal whichwrap=b,s
+  endif
+endfunction
+"}}}
+
+" Jump mark can restore column."{{{
+nnoremap \  `
+" Useless command.
+nnoremap M  m
+"}}}
+
+" Smart <C-f>, <C-b>.
+nnoremap <silent> <C-f> <C-f>
+nnoremap <silent> <C-b> <C-b>
 
 " Disable ZZ.
 nnoremap ZZ  <Nop>
