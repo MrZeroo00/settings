@@ -23,11 +23,6 @@ set cmdheight=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2
 
-" bell setting
-set noerrorbells
-set visualbell
-set t_vb=
-
 " completion
 set complete+=k
 set completeopt=menu,preview
