@@ -14,7 +14,7 @@ zmodload -ap zsh/mapfile mapfile
 ## variables
 export LPROMPT="%n@%m%% "
 export PROMPT="${LPROMPT}"
-export RPROMPT="[%~]"
+#export RPROMPT="[%~]"
 export SPROMPT="correct: %R -> %r ? "
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 #export cdpath=(.. ~ ~/src ~/zsh)
