@@ -8,9 +8,10 @@ function isemacs() {
   fi
 }
 
-function title() {
-  printf "\033]2;$1\007"
-}
+# comment out temporally
+#function title() {
+#  printf "\033]2;$1\007"
+#}
 
 function singleton() {
   if [ -z "`ps ax | grep $1 | grep -v grep`"]; then
