@@ -157,6 +157,12 @@ set display=lastline
 " Display an invisible letter with hex format.
 "set display+=uhex
 
+" Highlight
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
+match ZenkakuSpace /　/
+"highlight tabs ctermbg=green guibg=green
+"match tabs /\t/
+
 " View setting.
 set viewdir=~/.cache/vim_view viewoptions-=options viewoptions+=slash,unix
 
