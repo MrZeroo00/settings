@@ -25,7 +25,7 @@ dotfiles/xdg/.config/hub
 dotfiles/xdg/.config/stetic/
 dotfiles/xdg/.config/xbuild/
 dotfiles/zsh/.zsh/.chpwd-recent-dirs
-dotfiles/zsh/.zsh/.zcompdump
+dotfiles/zsh/.zsh/.zcompdump*
 dotfiles/zsh/.zsh/cdd_pwd_list*
 dotfiles/zsh/.zsh/*local
 shellscripts/.*
