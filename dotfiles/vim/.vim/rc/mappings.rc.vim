@@ -800,18 +800,18 @@ nnoremap ZZ  <Nop>
 "nnoremap ;m  ,
 "
 "nnoremap <silent> q :<C-u>call <sid>smart_close()<CR>
-"
-"" Toggle options. "{{{
-"function! ToggleOption(option_name)
-"  execute 'setlocal' a:option_name.'!'
-"  execute 'setlocal' a:option_name.'?'
-"endfunction  "}}}
-"" Toggle variables. "{{{
-"function! ToggleVariable(variable_name)
-"  if eval(a:variable_name)
-"    execute 'let' a:variable_name.' = 0'
-"  else
-"    execute 'let' a:variable_name.' = 1'
-"  endif
-"  echo printf('%s = %s', a:variable_name, eval(a:variable_name))
-"endfunction  "}}}
+
+" Toggle options. "{{{
+function! ToggleOption(option_name)
+  execute 'setlocal' a:option_name.'!'
+  execute 'setlocal' a:option_name.'?'
+endfunction  "}}}
+" Toggle variables. "{{{
+function! ToggleVariable(variable_name)
+  if eval(a:variable_name)
+    execute 'let' a:variable_name.' = 0'
+  else
+    execute 'let' a:variable_name.' = 1'
+  endif
+  echo printf('%s = %s', a:variable_name, eval(a:variable_name))
+endfunction  "}}}
