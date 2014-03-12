@@ -84,9 +84,6 @@ call s:source_rc('plugins.rc.vim')
 "
 call s:source_rc('mappings.rc.vim')
 
-" tmp
-call s:source_rc('all.rc.vim')
-
 "---------------------------------------------------------------------------
 " Commands:
 "
