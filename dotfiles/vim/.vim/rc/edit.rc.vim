@@ -129,17 +129,17 @@ function! s:mkdir_as_necessary(dir, force)
 endfunction
 
 " Auto Write
-set autowrite
-set updatetime=500
-
-function s:AutoWriteIfPossible()
-  if !&readonly && bufname('%') !=# ''
-    w
-  endif
-endfunction
-
-autocmd CursorHold * call s:AutoWriteIfPossible()
-autocmd CursorHoldI * call s:AutoWriteIfPossible()
+"set autowrite
+"set updatetime=500
+"
+"function s:AutoWriteIfPossible()
+"  if !&readonly && bufname('%') !=# ''
+"    w
+"  endif
+"endfunction
+"
+"autocmd CursorHold * call s:AutoWriteIfPossible()
+"autocmd CursorHoldI * call s:AutoWriteIfPossible()
 
 " Use autofmt.
 set formatexpr=autofmt#japanese#formatexpr()
