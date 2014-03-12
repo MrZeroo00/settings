@@ -24,6 +24,8 @@ set whichwrap+=h,l,<,>,[,],b,s,~
 set laststatus=2
 " Height of command line.
 set cmdheight=2
+" Scroll off
+set scrolloff=5
 " Not show command on statusline.
 set noshowcmd
 " Show title.

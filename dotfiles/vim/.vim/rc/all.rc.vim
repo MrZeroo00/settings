@@ -3,16 +3,9 @@ set nocompatible
 
 set viminfo='100,f1,\"50,:100,@100,/100,!
 
-" charcode setting
-set ambiwidth=double
-
 "" view setting
 " syntax setting
 syntax on
-
-" completion
-set complete+=k
-set completeopt=menu,preview
 
 "" programming setting
 filetype plugin indent on
@@ -22,7 +15,6 @@ set tags=./tags,tags,tags;/
 set cinoptions=t0
 
 "set autochdir
-set scrolloff=5
 runtime ftplugin/man.vim
 set dictionary=$HOME/.vim/dictionary
 set sessionoptions+=unix,slash
