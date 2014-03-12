@@ -37,6 +37,7 @@ alias tcpdump_http='sudo tcpdump -l -s 1460 -x "port 80" | tcpdump-filter.pl'
 alias git_patch='git diff --no-prefix --no-ext-diff'
 alias number='screen-number'
 alias layout='screen-layout'
+alias git='hub'
 
 # OS specific aliases
 case "${OS}" in
