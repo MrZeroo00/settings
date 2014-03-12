@@ -25,7 +25,7 @@
 	ci = commit -a
 	co = checkout
 	diffw = diff --color-words
-	diffn = diff --no-ext-diff
+	diffn = !git --no-pager diff --no-ext-diff
 	cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 	graph = log --graph --decorate --oneline
 	logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
