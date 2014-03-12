@@ -52,19 +52,6 @@ endif " }}}
 "let g:vdebug_options['marker_closed_tree'] = '▸'
 "let g:vdebug_options['marker_open_tree'] = '▾'
 
-"" vimfiler
-if neobundle#tap('vimfiler') " {{{
-  call neobundle#config({
-        \   'autoload' : {
-        \     'commands' : [
-        \       'VimFilerBufferDir'
-        \     ]
-        \   }
-        \ })
-
-  call neobundle#untap()
-endif " }}}
-
 "" YankRing.vim
 if neobundle#tap('YankRing.vim') " {{{
   function! neobundle#tapped.hooks.on_source(bundle)
