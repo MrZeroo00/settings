@@ -497,10 +497,10 @@ nnoremap <silent> [Space]t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
 "" Smart <C-f>, <C-b>.
 "nnoremap <silent> <C-f> <C-f>
 "nnoremap <silent> <C-b> <C-b>
-"
-"" Disable ZZ.
-"nnoremap ZZ  <Nop>
-"
+
+" Disable ZZ.
+nnoremap ZZ  <Nop>
+
 "" Like gv, but select the last changed text.
 "" nnoremap gc  `[v`]
 "" Specify the last changed text as {motion}.
