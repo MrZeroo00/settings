@@ -11,8 +11,6 @@ NeoBundle 'othree/eregex.vim'
 NeoBundle 'MultipleSearch'
 NeoBundle 'SearchComplete'
 
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'closetag.vim'
