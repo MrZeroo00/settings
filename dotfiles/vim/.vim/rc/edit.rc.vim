@@ -132,7 +132,7 @@ endfunction
 "set autowrite
 "set updatetime=500
 "
-"function s:AutoWriteIfPossible()
+"function! s:AutoWriteIfPossible()
 "  if !&readonly && bufname('%') !=# ''
 "    w
 "  endif
