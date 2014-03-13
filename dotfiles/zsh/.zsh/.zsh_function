@@ -26,9 +26,20 @@ bindkey "^O" edit-command-line
 #zle -N history-register-line
 
 autoload -Uz compinit && compinit
-zstyle ':completion:*' menu select
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*:default' list-colors ""
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
+zstyle ':completion:*' completer \
+  _oldlist _complete _match _history _ignored _approximate _prefix
+zstyle ':completion:*' use-cache yes
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+typeset -xT SUDO_PATH sudo_path
+typeset -U sudo_path
+sudo_path=({,/usr/local,/usr}/sbin(N-/))
+zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 typeset -ga chpwd_functions
 
 ## cdr system stuff.
