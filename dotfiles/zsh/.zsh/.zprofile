@@ -28,6 +28,8 @@ export REPORTTIME=3
 #export watch=(notme)                   # watch for everybody but me
 #export LOGCHECK=300                    # check every 5 min for login/logout activity
 #export WATCHFMT='%n %a %l from %m at %t.'
+export watch="all"
+log
 
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
@@ -92,6 +94,7 @@ setopt extended_history
 #setopt glob_assign
 #setopt glob_complete
 #setopt globdots
+#setopt hist_expand
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_ignore_space
@@ -99,12 +102,14 @@ setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
 #setopt hist_verify
+setopt ignore_eof
 setopt inc_append_history
 setopt interactive_comments
 #setopt list_packed
 setopt longlistjobs
 setopt magic_equal_subst
 setopt mailwarning
+#setopt mark_dirs
 setopt notify
 setopt numeric_glob_sort
 setopt print_eight_bit
