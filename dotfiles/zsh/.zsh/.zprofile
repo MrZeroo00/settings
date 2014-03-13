@@ -28,7 +28,7 @@ export REPORTTIME=3
 #export watch=(notme)                   # watch for everybody but me
 #export LOGCHECK=300                    # check every 5 min for login/logout activity
 #export WATCHFMT='%n %a %l from %m at %t.'
-export watch="all"
+watch="all"
 log
 
 # automatically remove duplicates from these arrays
