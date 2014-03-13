@@ -292,6 +292,8 @@ if filereadable('vimrc_local.vim') ||
 endif
 
 " NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv.git'
+NeoBundle 'vim-scripts/DirDiff.vim'
 
 " my
 NeoBundle 'itchyny/thumbnail.vim'
