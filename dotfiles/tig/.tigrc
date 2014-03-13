@@ -15,3 +15,10 @@ bind log  o !@hub browse -- commit/%(commit)
 # etc
 bind generic L !git reflog
 bind generic p !%(commit) | cbcopy
+# github
+bind generic ^ !@hub browse
+bind generic - !@hub browse -- issues
+bind generic ~ !@hub browse -- commit/%(commit)
+bind generic = !hub ci-status %(commit)
+bind branch [ !@hub compare %(branch)
+bind main { !hub pull-request
