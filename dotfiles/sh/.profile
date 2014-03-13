@@ -57,6 +57,7 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 #export MAIL=/var/spool/mail/${USERNAME}
 #export LESS=-cex4M
+export LV="-c -l"
 export EDITOR='emacsclient -a vim -n'
 export PAGER='lv'
 export BROWSER='w3m'
@@ -64,6 +65,20 @@ export HTMLPAGER='w3m -T text/html -dump'
 export SVN_EDITOR='vim'
 export GIT_EDITOR="`git var GIT_EDITOR`"
 export TERMSCREEN='screen-bce'
+
+#export GREP_OPTIONS=""
+#GREP_OPTIONS="--binary-files=without-match"
+#GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
+#GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
+#if [ -n $(grep --help | grep -q -- --exclude-dir) ]; then
+#  GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
+#  GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
+#  GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
+#  GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
+#fi
+#if [ -n $(grep --help | grep -q -- --color) ]; then
+#  GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+#fi
 
 # for CPAN
 #export PERL5LIB=${HOME}/local/lib/perl5/5.8.8:${HOME}/local/lib/perl5/site_perl/5.8.8
