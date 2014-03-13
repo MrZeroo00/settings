@@ -94,7 +94,7 @@ setopt extended_history
 #setopt globdots
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
-#setopt hist_ignore_space
+setopt hist_ignore_space
 setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
@@ -117,7 +117,7 @@ setopt pushd_to_home
 setopt rc_quotes
 setopt rec_exact
 setopt share_history
-#setopt transient_rprompt
+setopt transient_rprompt
 
 unsetopt cdable_vars
 unsetopt clobber
