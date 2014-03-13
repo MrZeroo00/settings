@@ -163,6 +163,7 @@ fi
 
 # list of completers to use
 zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+#zstyle ':completion:*' completer oldlist _complete _match _history _ignored _approximate _prefix
 
 # allow one error for every three characters typed in approximate completer
 zstyle -e ':completion:*:approximate:*' max-errors \
@@ -180,7 +181,7 @@ zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 zstyle ':completion:*' group-name ''
 
 # match uppercase from lowercase
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
 
 # offer indexes before parameters in subscripts
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
@@ -203,6 +204,12 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # use color
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+
+zstyle ':completion:*' use-cache yes
+typeset -xT SUDO_PATH sudo_path
+typeset -U sudo_path
+sudo_path=({,/usr/local,/usr}/sbin(N-/))
+zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 
 case "${OS}" in
   "Darwin")
