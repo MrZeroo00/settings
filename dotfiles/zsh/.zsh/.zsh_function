@@ -90,12 +90,6 @@ source ${HOME}/.zsh/function/percol
 autoload bashcompinit
 source ${HOME}/.zsh/function/git-completion.bash
 
-## Phil!'s ZSH Prompt
-#source ${HOME}/.zsh/function/phil_prompt.sh
-#add-zsh-hook precmd _phil_prompt
-#setprompt
-
-
 ## magic-abbrev-expand
 source ${HOME}/.zsh/function/magic-abbrev-expand.sh
 #zle -N magic-abbrev-expand
