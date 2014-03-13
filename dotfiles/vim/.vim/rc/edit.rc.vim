@@ -138,16 +138,18 @@ endfunction
 "  endif
 "endfunction
 "
-"autocmd CursorHold * call s:AutoWriteIfPossible()
-"autocmd CursorHoldI * call s:AutoWriteIfPossible()
+"autocmd MyAutoCmd CursorHold * call s:AutoWriteIfPossible()
+"autocmd MyAutoCmd CursorHoldI * call s:AutoWriteIfPossible()
 
 " Use autofmt.
 set formatexpr=autofmt#japanese#formatexpr()
 
 " delete git buffer when "set hidden"
-autocmd BufNewFile,BufRead *.git/{,modules/**/}{COMMIT_EDIT,MERGE_}MSG setlocal bufhidden=delete
-autocmd BufNewFile,BufRead *.git/{,modules/**/}{COMMIT_EDIT,MERGE_}MSG setlocal viminfo="NONE"
-autocmd BufNewFile,BufRead *.git/config,.gitconfig,.gitmodules setlocal bufhidden=delete
-autocmd BufNewFile,BufRead *.git/config,.gitconfig,.gitmodules setlocal viminfo="NONE"
-autocmd BufNewFile,BufRead git-rebase-todo setlocal bufhidden=delete
-autocmd BufNewFile,BufRead git-rebase-todo setlocal viminfo="NONE"
+augroup MyAutoCmd
+  autocmd BufNewFile,BufRead *.git/{,modules/**/}{COMMIT_EDIT,MERGE_}MSG setlocal bufhidden=delete
+  autocmd BufNewFile,BufRead *.git/{,modules/**/}{COMMIT_EDIT,MERGE_}MSG setlocal viminfo="NONE"
+  autocmd BufNewFile,BufRead *.git/config,.gitconfig,.gitmodules setlocal bufhidden=delete
+  autocmd BufNewFile,BufRead *.git/config,.gitconfig,.gitmodules setlocal viminfo="NONE"
+  autocmd BufNewFile,BufRead git-rebase-todo setlocal bufhidden=delete
+  autocmd BufNewFile,BufRead git-rebase-todo setlocal viminfo="NONE"
+augroup END

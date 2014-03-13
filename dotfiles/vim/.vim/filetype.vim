@@ -6,6 +6,6 @@ endif
 
 augroup filetypedetect
   " Scala
-  autocmd! BufRead,BufNewFile *.scala setfiletype scala
+  autocmd MyAutoCmd BufRead,BufNewFile *.scala setfiletype scala
 augroup END
 
