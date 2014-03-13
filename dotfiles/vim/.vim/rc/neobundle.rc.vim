@@ -292,8 +292,6 @@ if filereadable('vimrc_local.vim') ||
 endif
 
 " NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gregsexton/gitv.git'
-NeoBundle 'vim-scripts/DirDiff.vim'
 
 " my
 NeoBundle 'itchyny/thumbnail.vim'
@@ -321,6 +319,16 @@ NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'vim-scripts/confluencewiki.vim'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
+NeoBundle 'gregsexton/gitv.git'
+NeoBundle 'vim-scripts/DirDiff.vim'
+NeoBundle 'tyru/capture'
+NeoBundle 'osyo-manga/vim-precious'
+NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'osyo-manga/unite-qfixhowm'
+NeoBundle 't9md/vim-quickhl'
+NeoBundle 'sgur/vim-textobj-parameter'
+NeoBundle 'osyo-manga/vim-textobj-multiblock'
+NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
   \ 'unite_sources' : 'locate',
