@@ -34,7 +34,7 @@
 	current-branch = rev-parse --abbrev-ref HEAD
 [diff]
 	external = git-diff-wrapper
-	tool = vdwrap
+	tool = vim-diff
 	algorithm = patience
 [pager]
 	log = diff-highlight | lv -c
@@ -44,6 +44,10 @@
 	helper = cache --timeout=3600
 [include]
 	path = .gitconfig.local
+[difftool]
+	prompt = false
+[difftool "vim-diff"]
+	cmd = vim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
 [difftool "vdwrap"]
 	cmd = /Users/mitsuhiro.tanda/bin/git/vdwrap $LOCAL $REMOTE
 [difftool "sourcetree"]
