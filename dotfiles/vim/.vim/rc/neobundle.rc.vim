@@ -327,9 +327,9 @@ NeoBundle 'osyo-manga/vim-precious'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'osyo-manga/unite-qfixhowm'
 NeoBundle 't9md/vim-quickhl'
-NeoBundle 'sgur/vim-textobj-parameter'
-NeoBundle 'osyo-manga/vim-textobj-multiblock'
-NeoBundle 'osyo-manga/vim-textobj-multitextobj'
+NeoBundleLazy 'sgur/vim-textobj-parameter'
+NeoBundleLazy 'osyo-manga/vim-textobj-multiblock'
+NeoBundleLazy 'osyo-manga/vim-textobj-multitextobj'
 
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
   \ 'unite_sources' : 'locate',
