@@ -60,7 +60,6 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 export LV="-c -l"
 export EDITOR='emacsclient -a vim -n'
 export PAGER='lv'
-export BROWSER='w3m'
 export HTMLPAGER='w3m -T text/html -dump'
 export SVN_EDITOR='vim'
 export GIT_EDITOR="`git var GIT_EDITOR`"
@@ -97,6 +96,7 @@ fi
 case "${OS}" in
   "Linux")
   export GREP_USE_DFA=1
+  export BROWSER='w3m'
   ;;
   "Darwin")
   add_path "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin"
