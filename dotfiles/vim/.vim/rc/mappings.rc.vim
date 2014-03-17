@@ -342,7 +342,7 @@ nnoremap <silent> [Window]p  :<C-u>tabprevious<CR>
 nnoremap <silent> [Window]r  :<C-u>wincmd r<CR>
 nnoremap <silent> [Window]=  :<C-u>wincmd =<CR>
 nnoremap <silent> [Window]w  :<C-u>wincmd w<CR>
-nnoremap <silent> [Window]o  :<C-u>wincmd _<CR><C-u>wincmd \|<CR>
+"nnoremap <silent> [Window]o  :<C-u>wincmd _<CR><C-u>wincmd \|<CR>
 nnoremap <silent> [Window]O  :<C-u>wincmd =<CR>
 nnoremap <silent> [Window]N  :<C-u>bnext<CR>
 nnoremap <silent> [Window]P  :<C-u>bprevious<CR>
