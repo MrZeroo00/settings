@@ -328,6 +328,39 @@ nnoremap <silent> [Window]o  :<C-u>only<CR>
 nnoremap <silent> [Window]b  :<C-u>Thumbnail<CR>
 nnoremap <silent> [Window]<Space>  :<C-u>Unite -buffer-name=files file_rec:~/.vim/rc<CR>
 
+nnoremap <silent> [Window]s  :<C-u>split<CR>
+nnoremap <silent> [Window]j  :<C-u>wincmd j<CR>
+nnoremap <silent> [Window]k  :<C-u>wincmd k<CR>
+nnoremap <silent> [Window]l  :<C-u>wincmd l<CR>
+nnoremap <silent> [Window]h  :<C-u>wincmd h<CR>
+nnoremap <silent> [Window]J  :<C-u>wincmd J<CR>
+nnoremap <silent> [Window]K  :<C-u>wincmd K<CR>
+nnoremap <silent> [Window]L  :<C-u>wincmd L<CR>
+nnoremap <silent> [Window]H  :<C-u>wincmd H<CR>
+nnoremap <silent> [Window]n  :<C-u>tabnext<CR>
+nnoremap <silent> [Window]p  :<C-u>tabprevious<CR>
+nnoremap <silent> [Window]r  :<C-u>wincmd r<CR>
+nnoremap <silent> [Window]=  :<C-u>wincmd =<CR>
+nnoremap <silent> [Window]w  :<C-u>wincmd w<CR>
+nnoremap <silent> [Window]o  :<C-u>wincmd _<CR><C-u>wincmd \|<CR>
+nnoremap <silent> [Window]O  :<C-u>wincmd =<CR>
+nnoremap <silent> [Window]N  :<C-u>bnext<CR>
+nnoremap <silent> [Window]P  :<C-u>bprevious<CR>
+nnoremap <silent> [Window]t  :<C-u>tabnew<CR>
+nnoremap <silent> [Window]T  :<C-u>Unite tab<CR>
+nnoremap <silent> [Window]q  :<C-u>q<CR>
+nnoremap <silent> [Window]Q  :<C-u>bdelete<CR>
+nnoremap <silent> [Window]b  :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap <silent> [Window]B  :<C-u>Unite buffer -buffer-name=file<CR>
+call submode#enter_with('winsize', 'n', '', 's>', ':<C-u>wincmd ><CR>')
+call submode#enter_with('winsize', 'n', '', 's<', ':<C-u>wincmd <<CR>')
+call submode#enter_with('winsize', 'n', '', 's+', ':<C-u>wincmd +<CR>')
+call submode#enter_with('winsize', 'n', '', 's-', ':<C-u>wincmd -<CR>')
+call submode#map('winsize', 'n', '', '>', ':<C-u>wincmd ><CR>')
+call submode#map('winsize', 'n', '', '<', ':<C-u>wincmd <<CR>')
+call submode#map('winsize', 'n', '', '+', ':<C-u>wincmd +<CR>')
+call submode#map('winsize', 'n', '', '-', ':<C-u>wincmd -<CR>')
+
 " A .vimrc snippet that allows you to move around windows beyond tabs
 nnoremap <silent> <Tab> :call <SID>NextWindow()<CR>
 nnoremap <silent> <S-Tab> :call <SID>PreviousWindowOrTab()<CR>
