@@ -533,6 +533,16 @@ let g:IM_CtrlBufLocalMode = 1
 "" taglist
 nmap ,tlist :Tlist<CR>
 
+"" vim-quickhl
+if neobundle#tap('vim-quickhl') "{{{
+  nmap <Space>m <Plug>(quickhl-manual-this)
+  xmap <Space>m <Plug>(quickhl-manual-this)
+  nmap <Space>M <Plug>(quickhl-manual-reset)
+  xmap <Space>M <Plug>(quickhl-manual-reset)
+
+  call neobundle#untap()
+endif "}}}
+
 "" Vdebug
 "let g:vdebug_options['port'] = 9000
 "let g:vdebug_options['server'] = 'localhost'
