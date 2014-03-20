@@ -103,6 +103,7 @@ install brew-cask || true
 #cask install github || true
 #cask install google-chrome || true
 #cask install google-drive || true
+#cask install haroopad || true
 #cask install hipchat || true
 #cask install iterm2 || true
 #cask install keyremap4macbook || true
