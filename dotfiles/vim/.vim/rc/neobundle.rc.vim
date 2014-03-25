@@ -305,7 +305,7 @@ NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'Align'
 NeoBundle 'yuroyoro/monday'
-NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kana/vim-submode'
 
 NeoBundle 'ack.vim'

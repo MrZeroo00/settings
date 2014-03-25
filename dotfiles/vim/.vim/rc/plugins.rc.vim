@@ -559,14 +559,16 @@ endif "}}}
 "let g:vdebug_options['marker_closed_tree'] = '▸'
 "let g:vdebug_options['marker_open_tree'] = '▾'
 
-"" YankRing.vim
-if neobundle#tap('YankRing.vim') " {{{
-  function! neobundle#tapped.hooks.on_source(bundle)
-    let g:yankring_replace_n_pkey = ',yp'
-    let g:yankring_replace_n_nkey = ',yn'
-  endfunction
-
-  nmap ,ys :YRShow<CR>
+"" yankround.vim
+if neobundle#tap('yankround.vim') " {{{
+  nmap p <Plug>(yankround-p)
+  xmap p <Plug>(yankround-p)
+  nmap P <Plug>(yankround-P)
+  nmap gp <Plug>(yankround-gp)
+  xmap gp <Plug>(yankround-gp)
+  nmap gP <Plug>(yankround-gP)
+  nmap <C-p> <Plug>(yankround-prev)
+  nmap <C-n> <Plug>(yankround-next)
 
   call neobundle#untap()
 endif " }}}
