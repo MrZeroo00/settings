@@ -533,6 +533,24 @@ let g:IM_CtrlBufLocalMode = 1
 "" taglist
 nmap ,tlist :Tlist<CR>
 
+"" unite-choosewin-actions
+if neobundle#tap('unite-choosewin-actions') " {{{
+  " 選択を行わないウィンドウ番号をフィルタリングする関数
+  function! s:choosewin_is_ignore_window(action, winnr)
+    if a:action ==# "open"
+      return index(["unite", "vimfiler", "vimshell"], getbufvar(winbufnr(a:winnr), "&filetype")) >= 0
+    else
+      return 0
+    endif
+  endfunction
+  let g:Unite_kinds_choosewin_is_ignore_window_func = function("s:choosewin_is_ignore_window")
+
+  " ファイルを開く場合のデフォルトアクションを choosewin にする
+  call unite#custom#default_action('file' , 'choosewin/open')
+
+  call neobundle#untap()
+endif " }}}
+
 "" vim-quickhl
 if neobundle#tap('vim-quickhl') "{{{
   nmap <Space>m <Plug>(quickhl-manual-this)
