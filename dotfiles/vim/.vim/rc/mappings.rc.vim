@@ -8,18 +8,6 @@ nmap ,msession :mksession $HOME/etc/session.vim<CR>
 nmap ,rsession :source $HOME/etc/session.vim<CR>
 nmap . .`[
 
-" close symbols
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-vnoremap { "zdi{<C-R>z}<ESC>
-vnoremap [ "zdi[<C-R>z]<ESC>
-vnoremap ( "zdi(<C-R>z)<ESC>
-vnoremap " "zdi"<C-R>z"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
-
 " move between function
 map [[ ?{<CR>w99[{
 map ][ /}<CR>b99]}
