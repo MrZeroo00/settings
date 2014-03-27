@@ -155,4 +155,6 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead git-rebase-todo setlocal bufhidden=delete
   autocmd BufNewFile,BufRead git-rebase-todo setlocal viminfo="NONE"
   autocmd BufDelete git-rebase-todo !open -a iTerm
+  autocmd FileType gitcommit setlocal bufhidden=delete
+  autocmd FileType gitcommit setlocal viminfo="NONE"
 augroup END
