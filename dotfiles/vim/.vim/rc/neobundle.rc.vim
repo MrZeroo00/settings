@@ -348,6 +348,9 @@ NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
 NeoBundleLazy 'sgur/vim-textobj-parameter'
 NeoBundleLazy 'osyo-manga/vim-textobj-multiblock'
 NeoBundleLazy 'osyo-manga/vim-textobj-multitextobj'
+NeoBundleLazy 'mattn/emoji-vim',  {
+      \ 'commands' : 'Emoji',
+      \ }
 
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
   \ 'unite_sources' : 'locate',
