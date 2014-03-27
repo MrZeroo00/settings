@@ -340,6 +340,7 @@ NeoBundle 'zoncoen/unite-autojump'
 NeoBundle 'joker1007/unite-pull-request'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'wellle/tmux-complete.vim'
+NeoBundle 'mhinz/vim-hugefile'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
       \ 'depends' : 't9md/vim-choosewin',
