@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ "${OS}" != "Darwin" ]; then
+  vim="`which -a vim | grep -v ${HOME} | head -1`"
+  exec "${vim}" ${1:+"$@"}
+fi
+
+exec mvim ${1:+"$@"}
