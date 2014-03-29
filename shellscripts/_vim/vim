@@ -5,4 +5,34 @@ if [ "${OS}" != "Darwin" ]; then
   exec "${vim}" ${1:+"$@"}
 fi
 
-exec mvim ${1:+"$@"}
+ARGS=()
+cmdflag=false
+remoteflag=false
+while [ $# -gt 0 ]; do
+  arg=$1
+
+  if ${cmdflag}; then
+    if ${remoteflag}; then
+      arg="+'${arg}'"
+    else
+      arg="'${arg}'"
+    fi
+    cmdflag=false
+  fi
+
+  if [ "${arg}" = '-c' ]; then
+    cmdflag=true
+    if ${remoteflag}; then
+      shift
+      continue
+    fi
+  fi
+
+  if [ -n "$(echo ${arg} | grep -F 'remote')" ]; then
+    remoteflag=true
+  fi
+
+  ARGS+=(${arg})
+  shift
+done
+exec mvim ${ARGS[@]}
