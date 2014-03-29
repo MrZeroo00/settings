@@ -35,4 +35,4 @@ while [ $# -gt 0 ]; do
   ARGS+=(${arg})
   shift
 done
-exec mvim ${ARGS[@]}
+eval "mvim ${ARGS[@]}"
