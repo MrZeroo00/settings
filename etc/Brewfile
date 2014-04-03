@@ -82,6 +82,7 @@ install tig || true
 install tmux || true
 install tree || true
 install w3m || true
+install weechat || true
 install wemux || true
 install wget || true
 install zsh || true
