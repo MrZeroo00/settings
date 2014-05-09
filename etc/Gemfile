@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'gist'
 gem 'gisty'
+gem 'git-prune-remote-branch'
 gem 'homesick'
 gem 'thor'
 gem 'tmuxinator'
