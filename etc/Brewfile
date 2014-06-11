@@ -10,6 +10,7 @@ tap phinze/homebrew-cask || true
 tap homebrew/binary || true
 tap jimbojsb/launchrocket || true
 tap thoughtbot/formulae || true
+tap sanemat/font || true
 
 # Packages
 install ack || true
@@ -70,6 +71,7 @@ install pyenv-virtualenv || true
 install rbenv || true
 install reattach-to-user-namespace || true
 install redis || true
+install ricty --powerline --vim-powerline || true
 install rlwrap || true
 install ruby-build || true
 install sbt || true
