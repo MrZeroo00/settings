@@ -30,6 +30,7 @@ install cmigemo || true
 install cscope || true
 install ctags || true
 install curl || true
+install direnv || true
 install docker || true
 install emacs || true
 install erlang || true
