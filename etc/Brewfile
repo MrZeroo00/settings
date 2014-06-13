@@ -123,6 +123,7 @@ install brew-cask || true
 #cask install iterm2 || true
 #cask install keyremap4macbook || true
 #cask install kindle || true
+#cask install kobito || true
 #cask install launchrocket || true
 #cask install libreoffice || true
 #cask install limechat || true
