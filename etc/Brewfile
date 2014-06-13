@@ -102,6 +102,7 @@ install brew-cask || true
 #cask install Chromium || true
 #cask install charles || true
 #cask install chefdk || true
+#cask install cloudytabs || true
 #cask install coteditor || true
 #cask install dash || true
 #cask install dropbox || true
