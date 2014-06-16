@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ghn'
 gem 'gist'
 gem 'gisty'
 gem 'git'
