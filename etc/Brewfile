@@ -11,6 +11,7 @@ tap homebrew/binary || true
 tap jimbojsb/launchrocket || true
 tap thoughtbot/formulae || true
 tap sanemat/font || true
+tap lestrrat/peco || true
 
 # Packages
 install ack || true
@@ -63,6 +64,7 @@ install mobile-shell || true
 install mysql || true
 install ngrep || true
 install nkf || true
+install peco || true
 install phantomjs || true
 install play || true
 install pv || true
