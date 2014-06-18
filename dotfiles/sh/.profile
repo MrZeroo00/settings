@@ -172,8 +172,9 @@ fi
 
 
 # Node Version Manager (NVM)
-if [ -s ${HOME}/nvm ]; then
-  source ${HOME}/nvm/nvm.sh
+if [ -f $(brew --prefix nvm)/nvm.sh ]; then
+  source $(brew --prefix nvm)/nvm.sh
+  export NVM_DIR="${HOME}/.nvm"
 fi
 
 
