@@ -11,7 +11,7 @@ tap homebrew/binary || true
 tap jimbojsb/launchrocket || true
 tap thoughtbot/formulae || true
 tap sanemat/font || true
-tap lestrrat/peco || true
+tap peco/peco || true
 
 # Packages
 install ack || true
