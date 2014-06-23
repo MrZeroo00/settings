@@ -22,6 +22,8 @@ install autojump || true
 install automake || true
 install autossh || true
 install boot2docker || true
+install brew-gem || true
+install brew-pip || true
 install bsdmake || true
 install casperjs || true
 install cgdb || true
