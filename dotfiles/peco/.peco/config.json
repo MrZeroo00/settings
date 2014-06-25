@@ -28,6 +28,12 @@
     "C-t": "peco.ToggleSelection",
     "C-s": "peco.ToggleSelectionAndSelectNext",
     "C-r": "peco.RotateMatcher"
+  },
+  "CustomMatcher": {
+    "C/Migemo": [
+      "~/.peco/peco-migemo",
+      "$QUERY"
+    ]
   }
 }
 
