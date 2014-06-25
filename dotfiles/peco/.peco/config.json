@@ -1,0 +1,33 @@
+{
+  "Keymap": {
+    "C-f": "peco.ForwardChar",
+    "C-b": "peco.BackwardChar",
+
+    "C-a": "peco.BeginningOfLine",
+    "C-e": "peco.EndOfLine",
+
+    "C-d": "peco.DeleteForwardChar",
+    "C-h": "peco.DeleteBackwardChar",
+
+    "C-k": "peco.KillEndOfLine",
+
+    "C-p": "peco.SelectPrevious",
+    "C-n": "peco.SelectNext",
+
+    "C-v": "peco.SelectNextPage",
+
+    "C-m": "peco.Finish",
+    "C-j": "peco.Finish",
+
+    "C-g": "peco.Cancel",
+    "Esc": "peco.Cancel",
+
+    "C-\\": "peco.ForwardWord",
+    "C-/": "peco.BackwardWord",
+    "C-l": "peco.DeleteAll",
+    "C-t": "peco.ToggleSelection",
+    "C-s": "peco.ToggleSelectionAndSelectNext",
+    "C-r": "peco.RotateMatcher"
+  }
+}
+
