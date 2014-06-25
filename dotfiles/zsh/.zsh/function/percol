@@ -1,19 +1,19 @@
 # cmd 履歴を検索
-if which percol > /dev/null; then
-  function percol_select_history() {
+if which peco > /dev/null; then
+  function peco_select_history() {
     local tac
     if which tac > /dev/null; then
       tac="tac"
     else
       tac="tail -r"
     fi
-    BUFFER=$(history -n 1 | eval $tac | percol --query "$LBUFFER")
+    BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER")
     CURSOR=$#BUFFER     # move cursor
     zle -R -c           # refresh
   }
 
-  zle -N percol_select_history
-  bindkey '^R' percol_select_history
+  zle -N peco_select_history
+  bindkey '^R' peco_select_history
 fi
 
 # cd 履歴を記録
@@ -25,18 +25,18 @@ function chpwd_record_history() {
 }
 chpwd_functions+=chpwd_record_history
 
-# percol を使って cd 履歴の中からディレクトリを選択
+# peco を使って cd 履歴の中からディレクトリを選択
 # 過去の訪問回数が多いほど選択候補の上に来る
-function percol_get_destination_from_history() {
+function peco_get_destination_from_history() {
   sort ${CD_HISTORY_FILE} | uniq -c | sort -r | \
     sed -e 's/^[ ]*[0-9]*[ ]*//' | \
     sed -e "s/^${HOME//\//\\/}/~/" | \
-    percol | xargs echo
+    peco | xargs echo
 }
 
-# percol を使って cd 履歴の中からディレクトリを選択し cd するウィジェット
-function percol_cd_history() {
-  local destination=$(percol_get_destination_from_history)
+# peco を使って cd 履歴の中からディレクトリを選択し cd するウィジェット
+function peco_cd_history() {
+  local destination=$(peco_get_destination_from_history)
   if [ -n "$destination" ]; then
     echo
     cd ${destination/#\~/${HOME}}
@@ -44,11 +44,11 @@ function percol_cd_history() {
   fi
   zle reset-prompt
 }
-zle -N percol_cd_history
+zle -N peco_cd_history
 
-# percol を使って cd 履歴の中からディレクトリを選択し，現在のカーソル位置に挿入するウィジェット
-function percol_insert_history() {
-  local destination=$(percol_get_destination_from_history)
+# peco を使って cd 履歴の中からディレクトリを選択し，現在のカーソル位置に挿入するウィジェット
+function peco_insert_history() {
+  local destination=$(peco_get_destination_from_history)
   if [ $? -eq 0 ]; then
     local new_left="${LBUFFER} ${destination} "
     BUFFER=${new_left}${RBUFFER}
@@ -56,15 +56,15 @@ function percol_insert_history() {
   fi
   zle reset-prompt
 }
-zle -N percol_insert_history
+zle -N peco_insert_history
 
 # C-x ; でディレクトリに cd
 # C-x i でディレクトリを挿入
-bindkey '^xc' percol_cd_history
-bindkey '^xi' percol_insert_history
+bindkey '^xc' peco_cd_history
+bindkey '^xi' peco_insert_history
 
 function lg_select {
-  line=`\git log --pretty=format:'%h <%an> -%d %s' --abbrev-commit --graph --no-color | percol`
+  line=`\git log --pretty=format:'%h <%an> -%d %s' --abbrev-commit --graph --no-color | peco`
   rev=`echo "$line" | awk 'match($0,/[a-f0-9]+/) {print substr($0,RSTART,RLENGTH)}'`
   echo $rev | tr -d '\n'
 }
@@ -74,31 +74,31 @@ function lg {
 }
 
 function eg {
-  line=`\git reflog | percol`
+  line=`\git reflog | peco`
   rev=`echo "$line" | awk '{ print $1 }'`
   git $* $rev
 }
 
-function percol-git-recent-branches () {
+function peco-git-recent-branches () {
   local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
     perl -pne 's{^refs/heads/}{}' | \
-    percol --query "$LBUFFER")
+    peco --query "$LBUFFER")
   if [ -n "$selected_branch" ]; then
     BUFFER="git checkout ${selected_branch}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N percol-git-recent-branches
+zle -N peco-git-recent-branches
 
-function percol-git-recent-all-branches () {
+function peco-git-recent-all-branches () {
   local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads refs/remotes | \
     perl -pne 's{^refs/(heads|remotes)/}{}' | \
-    percol --query "$LBUFFER")
+    peco --query "$LBUFFER")
   if [ -n "$selected_branch" ]; then
     BUFFER="git checkout -t ${selected_branch}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N percol-git-recent-all-branches
+zle -N peco-git-recent-all-branches
