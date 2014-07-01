@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -n "$TMUX" ]; then
+  local_command='tmux rename-window $(echo "%r@%n(%h:%p)")'
+fi
+
+command -p ssh -o PermitLocalCommand=yes -o LocalCommand="${local_command}" "$@"
+
+if [ -n "$TMUX" ]; then
+  tmux set-window-option -u automatic-rename
+fi
