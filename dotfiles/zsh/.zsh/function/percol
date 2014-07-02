@@ -113,3 +113,9 @@ function peco-src () {
 }
 #zle -N peco-src
 #bindkey '^]' peco-src
+
+function peco-exec () {
+  peco | while read LINE; do
+    $@ $LINE;
+  done
+}

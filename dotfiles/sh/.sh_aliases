@@ -38,6 +38,7 @@ alias git_patch='git diff --no-prefix --no-ext-diff'
 alias number='screen-number'
 alias layout='screen-layout'
 alias git='hub'
+alias gpo='git ls-files | peco | xargs open'
 
 # OS specific aliases
 case "${OS}" in
