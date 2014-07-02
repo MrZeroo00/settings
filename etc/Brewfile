@@ -71,6 +71,7 @@ install peco || true
 install phantomjs || true
 install play || true
 install pv || true
+install python || true
 install python3 || true
 install pyenv || true
 install pyenv-virtualenv || true
@@ -151,6 +152,9 @@ install brew-cask || true
 #cask install xamarin-studio || true
 #cask install xmind || true
 #cask install xquartz || true
+
+# pip
+pip install diff-highlight
 
 # Remove outdated versions
 cleanup
