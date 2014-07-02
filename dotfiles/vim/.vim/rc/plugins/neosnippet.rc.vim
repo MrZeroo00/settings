@@ -18,4 +18,5 @@ xmap <silent>U     <Plug>(neosnippet_expand_target)
 let g:neosnippet#snippets_directory = [
       \'~/.vim/snippets',
       \'~/.vim/bundle/serverspec-snippets',
+      \'~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets',
       \]

@@ -343,6 +343,7 @@ NeoBundle 'wellle/tmux-complete.vim'
 NeoBundle 'mhinz/vim-hugefile'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'glidenote/serverspec-snippets'
+NeoBundle 'ryuzee/neosnippet_chef_recipe_snippet'
 NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
       \ 'depends' : 't9md/vim-choosewin',
       \ 'unite_sources' : ['file']
