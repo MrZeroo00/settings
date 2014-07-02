@@ -49,6 +49,19 @@ unset extensions
 #preexec() { file=$1; if [ -f $file ]; then open $file; fi; }
 
 
+# other suffix alias
+alias -s rb='ruby'
+alias -s py='python'
+alias -s php='php -f'
+
+function runcpp () {
+  g++ -O2 $1
+  shift
+  ./a.out $@
+}
+alias -s {c,cpp}='runcpp'
+
+
 ## suffix aliases
 source ${HOME}/.zsh/function/zsh_commandselector.sh
 
