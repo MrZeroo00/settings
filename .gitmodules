@@ -34,3 +34,6 @@
 [submodule "etc/iterm/iTerm2-Color-Schemes"]
 	path = etc/iterm/iTerm2-Color-Schemes
 	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
+[submodule "shellscripts/_iterm2/iterm2-zmodem"]
+	path = shellscripts/_iterm2/iterm2-zmodem
+	url = git@github.com:mmastrac/iterm2-zmodem.git

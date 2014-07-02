@@ -58,6 +58,7 @@ install imagemagick || true
 install jq || true
 install keychain || true
 install llvm --with-clang || true
+install lrzsz || true
 install lua || true
 install lv || true
 install macvim --HEAD --with-lua || true
