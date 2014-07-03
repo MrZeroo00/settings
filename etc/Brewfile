@@ -21,6 +21,7 @@ install aspell || true
 install autojump || true
 install automake || true
 install autossh || true
+install bash-completion || true
 install boot2docker || true
 install brew-gem || true
 install brew-pip || true
@@ -65,6 +66,7 @@ install macvim --HEAD --with-lua || true
 install meld || true
 install mobile-shell || true
 install mysql || true
+install nmap || true
 install ngrep || true
 install nkf || true
 install parallel || true
@@ -88,6 +90,7 @@ install spark || true
 install sqlite || true
 install stow || true
 #sysdig
+install terminal-notifier || true
 install the_silver_searcher || true
 install tig || true
 install tmux || true
@@ -136,6 +139,7 @@ install brew-cask || true
 #cask install launchrocket || true
 #cask install libreoffice || true
 #cask install limechat || true
+#cask install mou || true
 #cask install mysql-workbench || true
 #cask install node-webkit || true
 #cask install omnifocus || true
