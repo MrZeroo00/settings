@@ -86,6 +86,10 @@ export TERMSCREEN='screen-bce'
 # for Python
 export PYTHONPATH=${HOME}/local/lib/python2.7/site-packages
 
+# for GO
+export GOPATH=${HOME}/go
+PATH=${GOPATH}/bin:${PATH}
+
 # for Global
 if [ -f ${HOME}/bin/gtags-load-libpath ]; then
     source ${HOME}/bin/gtags-load-libpath
