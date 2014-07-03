@@ -88,6 +88,7 @@ export PYTHONPATH=${HOME}/local/lib/python2.7/site-packages
 
 # for GO
 export GOPATH=${HOME}/go
+export GOROOT=/usr/local/opt/go/libexec
 PATH=${GOPATH}/bin:${PATH}
 
 # for Global
