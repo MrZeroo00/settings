@@ -28,6 +28,7 @@ install brew-pip || true
 install bsdmake || true
 install casperjs || true
 install cgdb || true
+install chrome-cli || true
 install closure-compiler || true
 install cmake || true
 install cmigemo || true

@@ -265,7 +265,7 @@ NeoBundleLazy 'JesseKPhillips/d.vim', {
       \ }
 " NeoBundleLazy 'osyo-manga/vim-marching', {
 "       \ 'filetypes' : ['c', 'cpp']
-"       \ 'depends' : ['osyo-manga/vim-reunions', 'Shougo/vimproc'],
+"       \ 'depends' : ['osyo-manga/vim-reunions', 'Shougo/vimproc.vim'],
 "       \}
 NeoBundleLazy 't9md/vim-smalls', {
       \ 'mappings' : ['<Plug>(smalls)', '<Plug>(smalls-)']
@@ -412,7 +412,7 @@ call neobundle#config('vimfiler.vim', {
       \    'explorer' : 1,
       \ }
       \ })
-call neobundle#config('vimproc', {
+call neobundle#config('vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
       \     'cygwin' : 'make -f make_cygwin.mak',
@@ -420,7 +420,7 @@ call neobundle#config('vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ })
-call neobundle#config('vimshell', {
+call neobundle#config('vimshell.vim', {
       \ 'lazy' : 1,
       \ 'autoload' : {
       \   'commands' : [{ 'name' : 'VimShell',
