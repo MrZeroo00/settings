@@ -15,6 +15,7 @@
     "C-n": "peco.SelectNext",
 
     "C-v": "peco.SelectNextPage",
+    "M-v": "peco.SelectPreviousPage",
 
     "C-m": "peco.Finish",
     "C-j": "peco.Finish",
