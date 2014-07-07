@@ -23,9 +23,9 @@ command! MKC make clean
 command! MKI make install-files
 command! GF execute "Gtags -f " . expand("%:~:.")
 command! RS %s/\s\+$//
-if has("python")
-  command! -nargs=+ Calc :python print <args>
-  python from math import *
+if has("ruby")
+  command! -nargs=+ Calc :ruby print <args>
+  ruby include Math
 endif
 
 " Don't exit vim when closing last tab with :q and :wq, :qa, :wqa
