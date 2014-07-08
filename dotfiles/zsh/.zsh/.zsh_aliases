@@ -30,7 +30,7 @@ alias -g T='|tail'
 alias -g G='|grep'
 alias -g E="| xargs vim"
 alias -g O="| xargs open"
-alias -g P="| percol --match-method migemo"
+alias -g P="| peco"
 alias -g C="| pbcopy"
 alias -g B='&|'
 alias -g HL='--help'
@@ -38,6 +38,7 @@ alias -g LL='2>&1 | lv'
 alias -g TE='2>&1 | tee'
 alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
+alias -g BR='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
 
 # relate file extensions to open command
