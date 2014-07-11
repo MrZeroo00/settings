@@ -135,7 +135,7 @@ install brew-cask || true
 #cask install hipchat || true
 #cask install intellij-idea || true
 #cask install iterm2 || true
-#cask install keyremap4macbook || true
+#cask install karabiner || true
 #cask install kindle || true
 #cask install kobito || true
 #cask install launchrocket || true
