@@ -31,7 +31,7 @@
     "C-r": "peco.RotateMatcher"
   },
   "CustomMatcher": {
-    "C/Migemo": [
+    "Migemo": [
       "/usr/local/bin/migemogrep",
       "$QUERY"
     ]
