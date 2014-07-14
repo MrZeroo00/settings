@@ -10,3 +10,4 @@ go get code.google.com/p/rog-go/exp/cmd/godef
 go get github.com/jstemmer/gotags
 go get install github.com/tcnksm/dmux
 go get github.com/mattn/gof
+go get github.com/motemen/github-commit-status-mark

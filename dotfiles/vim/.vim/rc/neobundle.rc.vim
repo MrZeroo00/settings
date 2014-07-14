@@ -356,8 +356,14 @@ NeoBundleLazy 'mattn/emoji-vim',  {
       \ }
 
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
-  \ 'unite_sources' : 'locate',
-  \ }}
+      \ 'unite_sources' : 'locate',
+      \ }}
+NeoBundleLazy 'lambdalisue/vim-gista', {
+      \ 'autoload': {
+      \   'commands': ['Gista'],
+      \   'mappings': '<Plug>(gista-',
+      \   'unite_sources': 'gista',
+      \}}
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'

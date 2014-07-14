@@ -65,6 +65,7 @@ install lua || true
 install lv || true
 install macvim --HEAD --with-lua || true
 install meld || true
+install migemogrep || true
 install mobile-shell || true
 install mysql || true
 install nmap || true
