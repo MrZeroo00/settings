@@ -346,6 +346,11 @@ NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'ryuzee/neosnippet_chef_recipe_snippet'
 NeoBundle 'tyru/current-func-info.vim'
 NeoBundle 'haya14busa/vim-migemo'
+NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
+      \ 'name': 'vimperator-syntax',
+      \ 'type': 'hg',
+      \ 'rtp':  'vimperator/contrib/vim/'
+      \ }
 NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
       \ 'depends' : 't9md/vim-choosewin',
       \ 'unite_sources' : ['file']
