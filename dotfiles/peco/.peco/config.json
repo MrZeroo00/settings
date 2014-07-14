@@ -32,7 +32,7 @@
   },
   "CustomMatcher": {
     "C/Migemo": [
-      "~/.peco/peco-cmigemo",
+      "/usr/local/bin/migemogrep",
       "$QUERY"
     ]
   }
