@@ -111,6 +111,7 @@ install brew-cask || true
 #cask install android-studio || true
 #cask install appcleaner || true
 #cask install appium || true
+#cask install atom || true
 #cask install bettertouchtool || true
 #cask install Chromium || true
 #cask install charles || true
