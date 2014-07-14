@@ -344,6 +344,7 @@ NeoBundle 'mhinz/vim-hugefile'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'ryuzee/neosnippet_chef_recipe_snippet'
+NeoBundle "tyru/current-func-info.vim"
 NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
       \ 'depends' : 't9md/vim-choosewin',
       \ 'unite_sources' : ['file']
