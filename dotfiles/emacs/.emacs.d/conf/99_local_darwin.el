@@ -2,6 +2,7 @@
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
+(setq ns-command-modifier (quote meta))
 
 
 (defun open ()
