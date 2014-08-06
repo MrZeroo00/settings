@@ -143,6 +143,7 @@ install brew-cask || true
 #cask install launchrocket || true
 #cask install libreoffice || true
 #cask install limechat || true
+#cask install macs-fan-control || true
 #cask install mou || true
 #cask install mysql-workbench || true
 #cask install node-webkit || true
