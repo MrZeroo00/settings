@@ -146,6 +146,7 @@ install brew-cask || true
 #cask install mou || true
 #cask install mysql-workbench || true
 #cask install node-webkit || true
+#cask install notifyr || true
 #cask install omnifocus || true
 #cask install p4merge || true
 #cask install rstudio || true
