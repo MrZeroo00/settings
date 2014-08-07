@@ -33,6 +33,7 @@
 	rb = rebase
 	st = status --short --branch
 	up = pull --rebase
+	n  = now --all --stat
 	diffn = !git diff --no-ext-diff
 	cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 	fixup = commit --amend -C HEAD
