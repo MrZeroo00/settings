@@ -158,6 +158,7 @@ install brew-cask || true
 #cask install totalspace || true
 #cask install totalterminal || true
 #cask install trailer || true
+#cask install utorrent || true
 #cask install vagrant || true
 #cask install virtualbox || true
 #cask install vlc || true
