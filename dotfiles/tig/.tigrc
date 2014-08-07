@@ -12,6 +12,9 @@ bind diff ; view-next
 bind main o !@hub browse -- commit/%(commit)
 bind diff o !@hub browse -- commit/%(commit)
 bind log  o !@hub browse -- commit/%(commit)
+# rebase
+bind main R !git rebase -i %(commit)
+bind diff R !git rebase -i %(commit)
 # etc
 bind generic L !git reflog
 bind generic p !%(commit) | cbcopy

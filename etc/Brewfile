@@ -47,6 +47,7 @@ install ghc || true
 install gibo || true
 install gist || true
 install git || true
+install git-now || true
 install gitsh || true
 install global || true
 install go || true
