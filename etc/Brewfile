@@ -138,6 +138,7 @@ install brew-cask || true
 #cask install growlnotify || true
 #cask install haroopad || true
 #cask install hipchat || true
+#cask install hyperswitch || true
 #cask install intellij-idea || true
 #cask install iterm2 || true
 #cask install karabiner || true
