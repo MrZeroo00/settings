@@ -68,7 +68,7 @@ cnoremap <C-p> <S-Tab>
 cnoremap <C-r>* <S-Insert>
 
 " ignorekeys
-ignorekeys add github.com -except :,T,<C-q>,b,<C-n>,<C-p>,<C-i>,<C-o>,f,j,k,/,y
+ignorekeys add github.com -except :,T,<C-q>,b,<C-n>,<C-p>,<C-i>,<C-o>,f,j,k,/,y,<Esc>
 
 " add Mapping `C-c' copy or stop loading
 javascript <<EOM
