@@ -90,6 +90,7 @@ install rlwrap || true
 install ruby-build || true
 install sbt || true
 install scala || true
+install screenfetch || true
 install socat || true
 install spark || true
 install sqlite || true
