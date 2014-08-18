@@ -98,6 +98,7 @@ install stow || true
 install terminal-notifier || true
 install the_silver_searcher || true
 install tig || true
+install tiger-vnc || true
 install tmux || true
 install tree || true
 install w3m || true
