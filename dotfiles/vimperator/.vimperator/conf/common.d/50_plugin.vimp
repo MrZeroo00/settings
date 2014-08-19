@@ -43,6 +43,7 @@ javascript <<EOM
 liberator.globalVariables.copy_templates = [
   { label: 'titleAndURL',    value: '%TITLE% %URL%' },
   { label: 'title',          value: '%TITLE%' },
+  { label: 'URL',            value: '%URL%' },
   { label: 'hatena',         value: '[%URL%:title=%TITLE%]' },
   { label: 'hatenacite',     value: '>%URL%:title=%TITLE%>\n%SEL%\n<<' },
   { label: 'markdown',       value: '[%SEL%](%URL% "%TITLE%")' },
