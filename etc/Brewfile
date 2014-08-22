@@ -6,6 +6,7 @@ update || true
 
 # Add Repository
 tap homebrew/versions || true
+tap caskroom/versions || true
 tap phinze/homebrew-cask || true
 tap homebrew/binary || true
 tap jimbojsb/launchrocket || true
