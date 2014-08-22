@@ -102,8 +102,8 @@ function peco-git-recent-all-branches () {
   zle clear-screen
 }
 zle -N peco-git-recent-all-branches
-bindkey "^g^b" peco-git-recent-branches
-bindkey "^gb" peco-git-recent-all-branches
+bindkey '^g^b' peco-git-recent-branches
+bindkey '^gb' peco-git-recent-all-branches
 
 function peco-select-gitadd() {
   local SELECTED_FILE_TO_ADD="$(git status --porcelain | \
@@ -117,7 +117,7 @@ function peco-select-gitadd() {
   # zle clear-screen
 }
 zle -N peco-select-gitadd
-bindkey "^g^a" peco-select-gitadd
+bindkey '^g^a' peco-select-gitadd
 
 function peco-src () {
   local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
