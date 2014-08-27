@@ -13,6 +13,7 @@ tap jimbojsb/launchrocket || true
 tap thoughtbot/formulae || true
 tap sanemat/font || true
 tap peco/peco || true
+tap suin/suin || true
 
 # Packages
 install ack || true
@@ -48,6 +49,7 @@ install ghc || true
 install gibo || true
 install gist || true
 install git || true
+install git-forgot || true
 install git-now || true
 install gitsh || true
 install global || true
