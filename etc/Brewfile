@@ -80,6 +80,7 @@ install parallel || true
 install peco || true
 install phantomjs || true
 install play || true
+install pssh || true
 install pv || true
 install python || true
 install python3 || true
