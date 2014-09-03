@@ -40,6 +40,7 @@ alias layout='screen-layout'
 alias git='hub'
 alias g='hub'
 alias gpo='git ls-files | peco | xargs open'
+alias wholediff="diff --new-line-format='+%L' --old-line-format='-%L' --unchanged-line-format=' %L'"
 
 # OS specific aliases
 case "${OS}" in
