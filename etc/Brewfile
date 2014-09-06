@@ -29,6 +29,7 @@ install brew-gem || true
 install brew-pip || true
 install bsdmake || true
 install casperjs || true
+install ccze || true
 install cgdb || true
 install chrome-cli || true
 install closure-compiler || true
