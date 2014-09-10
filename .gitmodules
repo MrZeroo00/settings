@@ -38,3 +38,6 @@
 [submodule "shellscripts/_iterm2/iterm2-zmodem"]
 	path = shellscripts/_iterm2/iterm2-zmodem
 	url = git@github.com:mmastrac/iterm2-zmodem.git
+[submodule "dotfiles/tmux/.tmux.d/plugins/tpm"]
+	path = dotfiles/tmux/.tmux.d/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
