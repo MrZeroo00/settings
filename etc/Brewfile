@@ -14,6 +14,7 @@ tap thoughtbot/formulae || true
 tap sanemat/font || true
 tap peco/peco || true
 tap suin/suin || true
+tap rcmdnk/file || true
 
 # Packages
 install ack || true
@@ -25,6 +26,7 @@ install automake || true
 install autossh || true
 install bash-completion || true
 install boot2docker || true
+install brew-file || true
 install brew-gem || true
 install brew-pip || true
 install bsdmake || true
