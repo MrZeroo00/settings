@@ -38,6 +38,7 @@ install closure-compiler || true
 install cmake || true
 install cmigemo || true
 install cscope || true
+install csshx || true
 install ctags || true
 install curl || true
 install direnv || true
