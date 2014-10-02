@@ -25,6 +25,7 @@ install autojump || true
 install automake || true
 install autossh || true
 install bash-completion || true
+install bats || true
 install boot2docker || true
 install brew-file || true
 install brew-gem || true
