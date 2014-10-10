@@ -63,6 +63,14 @@ zle -N peco_insert_history
 bindkey '^xc' peco_cd_history
 bindkey '^xi' peco_insert_history
 
+function git-hash {
+  git log --oneline --branches | peco | awk '{print $1}'
+}
+
+function git-changed-files {
+  git status --short | peco | awk '{print $2}'
+}
+
 function lg_select {
   line=`\git log --pretty=format:'%h <%an> -%d %s' --abbrev-commit --graph --no-color | peco`
   rev=`echo "$line" | awk 'match($0,/[a-f0-9]+/) {print substr($0,RSTART,RLENGTH)}'`
