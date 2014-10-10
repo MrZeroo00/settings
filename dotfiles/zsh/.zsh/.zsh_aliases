@@ -39,6 +39,8 @@ alias -g TE='2>&1 | tee'
 alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
 alias -g BR='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias -g GH='$(git-hash)'
+alias -g GF='$(git-changed-files)'
 
 
 # relate file extensions to open command
