@@ -30,6 +30,7 @@ function add_path() {
 }
 
 add_path "/usr/local/bin"
+add_path "/usr/local/sbin"
 add_path "/opt/local/sbin"
 add_path "/opt/local/bin"
 add_path "${HOME}/local/bin"
