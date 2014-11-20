@@ -33,7 +33,7 @@ add_path "/usr/local/bin"
 add_path "/opt/local/sbin"
 add_path "/opt/local/bin"
 add_path "${HOME}/local/bin"
-for i in `find ${HOME}/bin/ -type d -and -not -path "*/.svn*" | sed -e "s/\/\//\//g"`; do
+for i in `find ${HOME}/bin/ -type d -and -not -path "*/.svn*" | sed -e "s/\/\//\//g" | sed -e "s/\/$//"`; do
   add_path "$i"
 done
 add_path "${HOME}/bin"
