@@ -27,6 +27,7 @@ install autossh || true
 install bash-completion || true
 install bats || true
 install boot2docker || true
+install boris || true
 install brew-file || true
 install brew-gem || true
 install brew-pip || true
