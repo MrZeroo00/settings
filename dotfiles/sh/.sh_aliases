@@ -41,6 +41,7 @@ alias git='hub'
 alias g='hub'
 alias gpo='git ls-files | peco | xargs open'
 alias wholediff="diff --new-line-format='+%L' --old-line-format='-%L' --unchanged-line-format=' %L'"
+#alias 'ssh'=cat ~/.ssh/config.local ~/.ssh/config.global >> ~/.ssh/config; ssh
 
 # OS specific aliases
 case "${OS}" in
