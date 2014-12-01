@@ -11,3 +11,4 @@ go get github.com/jstemmer/gotags
 go get install github.com/tcnksm/dmux
 go get github.com/mattn/gof
 go get github.com/motemen/github-commit-status-mark
+go get github.com/handlename/go-get-git-ignore
