@@ -43,6 +43,8 @@ alias -g GBRR='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e
 alias -g GR='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 alias -g GH='$(git-hash)'
 alias -g GF='$(git-changed-files)'
+alias -g GH='`curl -sL https://api.github.com/users/mtanda/repos | jq -r ".[].full_name" | peco --prompt "GITHUB REPOS>" | head -n 1`'
+alias -g GLR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
 
 
 # relate file extensions to open command
