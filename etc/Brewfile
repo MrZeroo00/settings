@@ -125,6 +125,7 @@ install zsh-completions || true
 install brew-cask || true
 #cask install accessmenubarapps || true
 #cask install alfred || true
+#cask install amethyst || true
 #cask install android-studio || true
 #cask install appcleaner || true
 #cask install appium || true
