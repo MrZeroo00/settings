@@ -1,0 +1,8 @@
+---
+path: "/Users/mitsuhiro.tanda/.ssh/config"
+aws_keys:
+  default:
+    access_key_id: ENV['AWS_ACCESS_KEY_ID']
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+regions:
+- ap-northeast-1
