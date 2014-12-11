@@ -67,6 +67,7 @@ install heroku-toolbelt || true
 install hg || true
 install hping || true
 install hub || true
+install icdiff || true
 install imagemagick || true
 install jq || true
 install keychain || true
