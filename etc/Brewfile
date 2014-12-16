@@ -12,7 +12,6 @@ tap homebrew/binary || true
 tap jimbojsb/launchrocket || true
 tap thoughtbot/formulae || true
 tap sanemat/font || true
-tap peco/peco || true
 tap suin/suin || true
 tap rcmdnk/file || true
 
@@ -84,7 +83,7 @@ install nmap || true
 install ngrep || true
 install nkf || true
 install parallel || true
-install peco || true
+install peco/peco/peco || true
 install phantomjs || true
 install play || true
 install pssh || true
