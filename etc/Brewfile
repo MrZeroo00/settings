@@ -134,6 +134,7 @@ install brew-cask || true
 #cask install bettertouchtool || true
 #cask install Chromium || true
 #cask install charles || true
+#cask install cheatsheet || true
 #cask install chefdk || true
 #cask install clipmenu || true
 #cask install cloudytabs || true
