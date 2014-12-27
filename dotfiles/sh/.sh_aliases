@@ -25,7 +25,10 @@ alias less='lv'
 alias sl='ls'
 alias gdb='gdb -silent'
 alias gvim-remote='gvim --remote-silent'
-alias grep='egrep'
+#alias grep='egrep'
+grep() {
+  LC_ALL=C command grep --color=auto "$@"
+}
 alias mysql='mysql --table'
 alias rm='rm -i'
 alias multitail='multitail -f --mergeall --no-repeat --mark-interval 600 -n 1'
