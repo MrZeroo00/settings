@@ -159,6 +159,10 @@ function peco-ssh() {
 }
 alias ss="peco-ssh"
 
+function peco-docker() {
+  docker-enter $(docker ps | tail -n +2 | peco | cut -d" " -f1)
+}
+
 function peco-aws-instance() {
   aws ec2 describe-instances --profile $1 --output json | jq -r '.Reservations[].Instances[] | [.InstanceId, .PrivateIpAddress, .PublicIpAddress, (.Tags[] | select(.Key=="Name").Value)] | @csv' | peco
 }
