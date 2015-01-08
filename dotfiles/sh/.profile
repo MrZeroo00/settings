@@ -34,7 +34,7 @@ add_path "/usr/local/sbin"
 add_path "/opt/local/sbin"
 add_path "/opt/local/bin"
 add_path "${HOME}/local/bin"
-for i in `find ${HOME}/bin/ -type d -and -not -path "*/.svn*" | sed -e "s/\/\//\//g" | sed -e "s/\/$//"`; do
+for i in $(find ${HOME}/bin/ -type d -and -not -path "*/.svn*" | sed -e "s/\/\//\//g" | sed -e "s/\/$//"`; do
   add_path "$i"
 done
 add_path "${HOME}/bin"
@@ -42,7 +42,7 @@ export PATH
 
 
 # tmux
-if [ -x "`which tmux`" ]; then
+if [ -x "$(which tmux`" ]; then
   if [ -z $TMUX ]; then
     if $(tmux has-session); then
       tmux attach
@@ -53,17 +53,17 @@ if [ -x "`which tmux`" ]; then
 fi
 
 
-export HOSTNAME="`hostname -s`"
+export HOSTNAME="$(hostname -s`"
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-#export MAIL=/var/spool/mail/${USERNAME}
+#export MAIL="/var/spool/mail/${USERNAME}
 #export LESS=-cex4M
 export LV="-c -l"
-export EDITOR='emacsclient -a vim -n'
+export EDITOR='vim'
 export PAGER='lv'
 export HTMLPAGER='w3m -T text/html -dump'
 export SVN_EDITOR='vim'
-export GIT_EDITOR="`git var GIT_EDITOR`"
+export GIT_EDITOR="$(git var GIT_EDITOR`"
 export TERMSCREEN='screen-bce'
 
 #export GREP_OPTIONS=""
