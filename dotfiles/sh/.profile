@@ -150,9 +150,9 @@ export LC_COLLATE=${LANG}
 
 
 # keychain
-if [ -x "`which keychain`" -a -f "${HOME}/.ssh/id_rsa" ]; then
-    keychain ${HOME}/.ssh/id_rsa
-    source ${HOME}/.keychain/${HOSTNAME}-sh
+if [ -x "$(which keychain)" -a -f "${HOME}/.ssh/id_rsa" ]; then
+    keychain "${HOME}/.ssh/id_rsa"
+    source "${HOME}/.keychain/${HOSTNAME}-sh"
 fi
 
 
@@ -164,14 +164,14 @@ fi
 
 # rbenv
 add_path "${HOME}/.rbenv/bin"
-if [ -x "`which rbenv`" ]; then
+if [ -x "$(which rbenv)" ]; then
   eval "$(rbenv init -)"
 fi
 
 
 # pyenv
 add_path "${HOME}/.pyenv/bin"
-if [ -x "`which pyenv`" ]; then
+if [ -x "$(which pyenv)" ]; then
   export PYENV_ROOT="${HOME}/.pyenv"
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
@@ -179,8 +179,8 @@ fi
 
 
 # Node Version Manager (NVM)
-if [ -f $(brew --prefix nvm)/nvm.sh ]; then
-  source $(brew --prefix nvm)/nvm.sh
+if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
+  source "$(brew --prefix nvm)/nvm.sh"
   export NVM_DIR="${HOME}/.nvm"
 fi
 
@@ -192,6 +192,6 @@ fi
 
 
 # local setting
-if [ -f ${HOME}/.profile.`hostname -s`.local ]; then
-  source ${HOME}/.profile.`hostname -s`.local
+if [ -f "${HOME}/.profile.$(hostname -s).local" ]; then
+  source "${HOME}/.profile.$(hostname -s).local"
 fi
