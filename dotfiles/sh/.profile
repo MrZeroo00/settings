@@ -85,16 +85,16 @@ export TERMSCREEN='screen-bce'
 #export PERL_BADLANG=0
 
 # for Python
-export PYTHONPATH="${HOME}/local/lib/python2.7/site-packages
+export PYTHONPATH="${HOME}/local/lib/python2.7/site-packages"
 
 # for GO
-export GOPATH="${HOME}/go
+export GOPATH="${HOME}/go"
 export GOROOT=/usr/local/opt/go/libexec
-PATH="${GOPATH}/bin:${PATH}
+PATH="${GOPATH}/bin:${PATH}"
 
 # for Global
-if [ -f "${HOME}/bin/gtags-load-libpath ]; then
-    source "${HOME}/bin/gtags-load-libpath
+if [ -f "${HOME}/bin/gtags-load-libpath" ]; then
+    source "${HOME}/bin/gtags-load-libpath"
 fi
 
 
