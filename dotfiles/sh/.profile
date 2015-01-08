@@ -111,10 +111,10 @@ case "${OS}" in
   export MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
   export INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
   export LANG=ja_JP.UTF-8
-  export __CF_USER_TEXT_ENCODING="`printf "%#x\n" ${UID}`:0x8000100:14"
+  export __CF_USER_TEXT_ENCODING="$(printf "%#x\n" ${UID}):0x8000100:14"
   export JAVA_OPTS='-Dfile.encoding=UTF-8'
   export GTK_PATH=/usr/local/lib/gtk-2.0
-  export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+  export PYTHONPATH="$(brew --prefix)/lib/python2.7/site-packages"
   ;;
   "Cygwin")
   add_path -a '/c/meadow/bin'
