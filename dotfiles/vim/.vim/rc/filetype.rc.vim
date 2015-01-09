@@ -6,7 +6,7 @@
 set autoindent smartindent
 
 augroup MyAutoCmd
-  autocmd FileType,Syntax * call s:my_on_filetype()
+  autocmd FileType,Syntax,BufEnter,BufWinEnter * call s:my_on_filetype()
 
   " Enable gauche syntax.
   autocmd FileType scheme nested let b:is_gauche=1 | setlocal lispwords=define |
@@ -56,7 +56,10 @@ augroup MyAutoCmd
   autocmd FileType php setlocal path+=/usr/local/share/pear
   autocmd FileType apache setlocal path+=./;/
 
-  autocmd Syntax * syntax sync minlines=100
+  autocmd FileType go highlight default link goErr WarningMsg |
+        \ match goErr /\<err\>/
+
+  " autocmd Syntax * syntax sync minlines=100
 augroup END
 
 " PHP
@@ -87,6 +90,9 @@ let g:java_highlight_functions=1
 let g:SimpleJsIndenter_BriefMode = 1
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 
+" Markdown
+let g:markdown_fenced_languages = []
+
 " Go
 if $GOROOT != ''
   set runtimepath+=$GOROOT/misc/vim
@@ -102,6 +108,20 @@ endif
 " tcl: t
 " mzscheme: m
 let g:vimsyn_folding = 'af'
+
+" http://mattn.kaoriya.net/software/vim/20140523124903.htm
+let g:markdown_fenced_languages = [
+      \  'coffee',
+      \  'css',
+      \  'erb=eruby',
+      \  'javascript',
+      \  'js=javascript',
+      \  'json=javascript',
+      \  'ruby',
+      \  'sass',
+      \  'xml',
+      \  'vim',
+      \]
 
 " Syntax highlight for user commands.
 augroup syntax-highlight-extends
@@ -125,7 +145,7 @@ endfunction"}}}
 
 function! s:my_on_filetype() "{{{
   " Disable automatically insert comment.
-  setl formatoptions-=ro | setl formatoptions+=mM
+  setl formatoptions-=ro | setl formatoptions+=mMBl
 
   " Disable auto wrap.
   if &l:textwidth != 70 && &filetype !=# 'help'
@@ -140,6 +160,7 @@ function! s:my_on_filetype() "{{{
   if !&l:modifiable
     setlocal nofoldenable
     setlocal foldcolumn=0
+    silent! IndentLinesDisable
 
     if v:version >= 703
       setlocal colorcolumn=
