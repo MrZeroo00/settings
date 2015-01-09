@@ -16,10 +16,6 @@ if IsWindows()
 else
   set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
 endif
-" Do not wrap long line.
-set nowrap
-" Wrap conditions.
-"set whichwrap+=h,l,<,>,[,],b,s,~
 " Always display statusline.
 set laststatus=2
 " Height of command line.
@@ -34,7 +30,7 @@ set title
 set titlelen=95
 " Title string.
 let &titlestring="
-      \ %{expand('%:p:.:~')}%(%m%r%w%)
+      \ %{expand('%:p:~:.')}%(%m%r%w%)
       \ %<\(%{".s:SID_PREFIX()."strwidthpart(
       \ fnamemodify(&filetype ==# 'vimfiler' ?
       \ substitute(b:vimfiler.current_dir, '.\\zs/$', '', '') : getcwd(), ':~'),
@@ -73,19 +69,29 @@ function! s:my_tabline()  "{{{
   return s
 endfunction "}}}
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-set showtabline=2
+set showtabline=0
 
 " Set statusline.
 let &statusline="%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
       \ . ".(winnr('#')==winnr()?'#':'').']':''}\ "
-      \ . "%{(&previewwindow?'[preview] ':'').expand('%:t:.')}"
-      \ . "\ %=%m%y%{'['.(&fenc!=''?&fenc:&enc).','.&ff.']'}"
-      \ . "%{printf(' %4d/%d',line('.'),line('$'))}"
+      \ . "%{(&previewwindow?'[preview] ':'').expand('%:t')}"
+      \ . "\ %=%{(winnr('$')==1 || winnr('#')!=winnr()) ?
+      \ '['.(&filetype!=''?&filetype.',':'')"
+      \ . ".(&fenc!=''?&fenc:&enc).','.&ff.']' : ''}"
+      \ . "%m%{printf('%'.(len(line('$'))+2).'d/%d',line('.'),line('$'))}"
 
 " Turn down a long line appointed in 'breakat'
 set linebreak
-set showbreak=>\
+set showbreak=\
 set breakat=\ \	;:,!?
+" Wrap conditions.
+"set whichwrap+=h,l,<,>,[,],b,s,~
+if exists('+breakindent')
+  set breakindent
+  set wrap
+else
+  set nowrap
+endif
 
 " Do not display greetings message at the time of Vim start.
 set shortmess=aTI
@@ -110,6 +116,9 @@ set history=1000
 set showfulltag
 " Can supplement a tag in a command-line.
 set wildoptions=tagfile
+
+" Disable menu
+let g:did_install_default_menus = 1
 
 if !&verbose
   " Enable spell check.
@@ -159,14 +168,8 @@ set display=lastline
 " Display an invisible letter with hex format.
 "set display+=uhex
 
-" Highlight
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
-match ZenkakuSpace /　/
-"highlight tabs ctermbg=green guibg=green
-"match tabs /\t/
-
 " View setting.
-set viewdir=~/.cache/vim_view viewoptions-=options viewoptions+=slash,unix
+set viewdir=$CACHE/vim_view viewoptions-=options viewoptions+=slash,unix
 
 function! s:strwidthpart(str, width) "{{{
   if a:width <= 0
@@ -236,3 +239,10 @@ function! s:_wcwidth(ucs)
   endif
   return 1
 endfunction
+"}}}
+
+" Highlight
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
+match ZenkakuSpace /　/
+"highlight tabs ctermbg=green guibg=green
+"match tabs /\t/
