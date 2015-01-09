@@ -1,19 +1,9 @@
-set background=dark
-colorscheme solarized
-set showtabline=2
-
-if has('multi_byte_ime')
-  set noimcmdline
-  highlight Cursor guifg=NONE guibg=Green
-  highlight CursorIM guifg=NONE guibg=Purple
-  " don't hold IM status in insert mode
-  inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-endif
-
 "---------------------------------------------------------------------------
-" Fonts:"{{{
+" GUI:
 "
 
+"---------------------------------------------------------------------------
+" Fonts: "{{{
 set ambiwidth=double
 
 if has('win32') || has('win64')
@@ -35,6 +25,11 @@ if has('win32') || has('win64')
 
   " Number of pixel lines inserted between characters.
   set linespace=2
+
+  if has('patch-7.4.394')
+    " Use DirectWrite
+    set renderoptions=type:directx,gammma:2.2,mode:3
+  endif
 
   " Toggle font setting.
   function! FontToggle()
@@ -65,13 +60,12 @@ if has('win32') || has('win64')
   endif
 elseif has('mac')
   " For Mac.
-  set guifont=Osaka-Mono:h12
+  set guifont=Osaka－等幅:h14
 else
   " For Linux.
   set guifontwide=VL\ Gothic\ 11
   set guifont=Courier\ 10\ Pitch\ 11
-endif
-"}}}
+endif"}}}
 
 "---------------------------------------------------------------------------
 " Window:"{{{
@@ -95,29 +89,10 @@ else
   set lines=41
 endif
 
-" Save the setting of window.
-let g:save_window_file = expand('~/.cache/vimwinpos')
-augroup SaveWindow
-  autocmd!
-  autocmd VimLeavePre * call s:save_window()
-  function! s:save_window()
-    let options = [
-          \ 'set columns=' . &columns,
-          \ 'set lines=' . &lines,
-          \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
-          \ ]
-    call writefile(options, g:save_window_file)
-  endfunction
-augroup END
-
-if filereadable(g:save_window_file)
-  execute 'source' g:save_window_file
-endif
-
-" Setting of colorscheme.
 " Don't override colorscheme.
 if !exists('g:colors_name')
-  colorscheme candy
+  execute 'colorscheme' globpath(&runtimepath,
+        \ 'colors/candy.vim') != '' ? 'candy' : 'desert'
 endif
 "}}}
 
@@ -160,48 +135,8 @@ set guioptions-=rL
 " Not guitablabel.
 set guioptions-=e
 
-" fullscreen
-"-----------------------------------------------------------
-nnoremap <silent> <F11> :<C-u>call <SID>toggle_full_secreen()<CR>
-function! s:toggle_full_secreen()
-  if &guioptions =~# 'C'
-    set guioptions-=C
-    if exists('s:go_temp')
-      if s:go_temp =~# 'm'
-        set guioptions+=m
-      endif
-      if s:go_temp =~# 'T'
-        set guioptions+=T
-      endif
-    endif
-    if has('win32') || has('win64')
-      simalt ~r
-    endif
-
-    let [&lines, &columns] = [s:lines_save, s:columns_save]
-  else
-    let s:go_temp = &guioptions
-    set guioptions+=C
-    set guioptions-=m
-    set guioptions-=T
-    if has('win32') || has('win64')
-      simalt ~x
-    endif
-
-    let [s:lines_save, s:columns_save] = [&lines, &columns]
-
-    set columns=999
-    set lines=999
-  endif
-endfunction
-
 " Confirm without window.
 set guioptions+=c
-
-if has('kaoriya')
-  " For Kaoriya only.
-  "set guioptions+=C
-endif
 "}}}
 
 "---------------------------------------------------------------------------
@@ -214,13 +149,5 @@ set nohlsearch
 set guicursor&
 set guicursor+=a:blinkon0
 "}}}
-
-"---------------------------------------------------------------------------
-" Platform depends:"{{{
-"}}}
-
-"---------------------------------------------------------------------------
-" Others::
-"
 
 " vim: foldmethod=marker
