@@ -50,9 +50,6 @@ setopt extended_history
 setopt share_history
 #setopt hist_ignore_dups
 
-# functions
-function history-all { history -E 1 }
-
 # local setting
 if [ -f ${HOME}/.zshenv.`hostname -s`.local ]; then
   source ${HOME}/.zshenv.`hostname -s`.local

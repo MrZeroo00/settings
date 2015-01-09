@@ -66,6 +66,8 @@ fi
 #add-zsh-hook precmd _set_vcs_info
 #RPROMPT="%1(v|%F{green}%1v%f|)"
 
+function history-all { history -E 1 }
+
 
 ## autojump
 if [ -s `brew --prefix`/etc/autojump.sh ]; then
