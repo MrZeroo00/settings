@@ -2,6 +2,8 @@
 " neocomplete.vim
 "
 
+let g:neocomplete#disable_auto_complete = 0
+
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_camel_case = 1
@@ -32,9 +34,15 @@ let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#enable_refresh_always = 0
 let g:neocomplete#enable_cursor_hold_i = 0
 
+" Test.
+let g:neocomplete#enable_omni_fallback = 1
+
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.cache/vimshell/command-history',
+      \ 'vimshell' : $CACHE.'/vimshell/command-history',
+      \ 'java' : '~/.vim/dict/java.dict',
+      \ 'ruby' : '~/.vim/dict/ruby.dict',
+      \ 'scala' : '~/.vim/dict/scala.dict',
       \ }
 
 let g:neocomplete#enable_auto_delimiter = 1
@@ -63,7 +71,7 @@ let g:neocomplete#sources#omni#input_patterns.php =
       \'\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 " Disable omni auto completion for Java.
-let g:neocomplete#sources#omni#input_patterns.java = ''
+" let g:neocomplete#sources#omni#input_patterns.java = ''
 
 " Define keyword pattern.
 if !exists('g:neocomplete#keyword_patterns')
@@ -71,6 +79,8 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::\w*'
+let g:neocomplete#keyword_patterns.rst =
+      \ '\$\$\?\w*\|[[:alpha:]_.\\/~-][[:alnum:]_.\\/~-]*\|\d\+\%(\.\d\+\)\+'
 
 let g:neocomplete#ignore_source_files = ['tag.vim']
 
@@ -100,21 +110,20 @@ inoremap <expr><C-y>  pumvisible() ? neocomplete#close_popup() :  "\<C-r>\""
 inoremap <expr><C-e>  pumvisible() ? neocomplete#cancel_popup() : "\<End>"
 " <C-k>: unite completion.
 imap <C-k>  <Plug>(neocomplete_start_unite_complete)
-"inoremap <expr> O  &filetype == 'vim' ? "\<C-x>\<C-v>" : "\<C-x>\<C-o>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr> <BS> neocomplete#smart_close_popup()."\<C-h>"
 " <C-n>: neocomplete.
-inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>\<Down>"
+inoremap <expr> <C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>\<Down>"
 " <C-p>: keyword completion.
-inoremap <expr><C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
-inoremap <expr>'  pumvisible() ? neocomplete#close_popup() : "'"
+inoremap <expr> <C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
+inoremap <expr> '  pumvisible() ? neocomplete#close_popup() : "'"
 
-inoremap <expr><C-x><C-f>
+inoremap <silent><expr> <C-x><C-f>
       \ neocomplete#start_manual_complete('file')
 
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr> <C-g>     neocomplete#undo_completion()
+inoremap <expr> <C-l>     neocomplete#complete_common_string()
 
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -123,7 +132,8 @@ function! s:my_cr_function()
 endfunction
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ neocomplete#start_manual_complete()
 function! s:check_back_space() "{{{
@@ -139,3 +149,5 @@ inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
 inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
 inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 "}}}
+
+let g:neocomplete#fallback_mappings = ["\<C-x>\<C-o>", "\<C-x>\<C-n>"]

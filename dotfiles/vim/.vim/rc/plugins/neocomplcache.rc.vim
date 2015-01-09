@@ -23,7 +23,7 @@ let g:neocomplcache_min_keyword_length = 3
 "       \ v:version == 703 && has('patch289')
 let g:neocomplcache_enable_cursor_hold_i = 0
 let g:neocomplcache_cursor_hold_i_time = 300
-let g:neocomplcache_enable_insert_char_pre = 0
+let g:neocomplcache_enable_insert_char_pre = 1
 let g:neocomplcache_enable_prefetch = 1
 let g:neocomplcache_skip_auto_completion_time = '0.6'
 
@@ -63,9 +63,9 @@ let g:clang_use_library   = 1
 if !exists('g:neocomplcache_keyword_patterns')
   let g:neocomplcache_keyword_patterns = {}
 endif
-" let g:neocomplcache_keyword_patterns.default = '\h\w*'
 let g:neocomplcache_keyword_patterns['default'] = '[0-9a-zA-Z:#_]\+'
 let g:neocomplcache_keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#enable_multibyte_completion = 1
 
 let g:neocomplcache_vim_completefuncs = {
       \ 'Ref' : 'ref#complete',
