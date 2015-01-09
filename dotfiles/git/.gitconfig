@@ -25,7 +25,9 @@
 	co = checkout
 	cob = checkout -b
 	d = diff
+	dn = !git diff --no-ext-diff
 	dc = diff --cached
+	dnc = !git diff --no-ext-diff --cached
 	g = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd%Cblue%cn %Cred%d %Creset%s'
 	gr = grep --line-number --show-function --color --heading --break
 	i = issue
