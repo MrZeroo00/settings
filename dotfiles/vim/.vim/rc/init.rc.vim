@@ -36,13 +36,10 @@ if IsWindows()
   set shellslash
 endif
 
-" Because a value is not set in $MYGVIMRC with the console, set it.
-if !exists($MYGVIMRC)
-  let $MYGVIMRC = expand('~/.vim/gvimrc')
-endif
+let $CACHE = expand('~/.cache')
 
-if !isdirectory(expand('~/.cache'))
-  call mkdir(expand('~/.cache'), 'p')
+if !isdirectory(expand($CACHE))
+  call mkdir(expand($CACHE), 'p')
 endif
 
 " Set augroup.
@@ -54,7 +51,7 @@ if filereadable(expand('~/.secret_vimrc'))
   execute 'source' expand('~/.secret_vimrc')
 endif
 
-let s:neobundle_dir = expand('~/.cache/neobundle')
+let s:neobundle_dir = expand('$CACHE/neobundle')
 
 if has('vim_starting') "{{{
   " Set runtimepath.
@@ -66,10 +63,9 @@ if has('vim_starting') "{{{
   endif
 
   " Load neobundle.
-  if isdirectory('neobundle.vim')
-    set runtimepath^=neobundle.vim
-  elseif finddir('neobundle.vim', '.;') != ''
-    execute 'set runtimepath^=' . finddir('neobundle.vim', '.;')
+  if finddir('neobundle.vim', '.;') != ''
+    execute 'set runtimepath^=' .
+          \ fnamemodify(finddir('neobundle.vim', '.;'), ':p')
   elseif &runtimepath !~ '/neobundle.vim'
     if !isdirectory(s:neobundle_dir.'/neobundle.vim')
       execute printf('!git clone %s://github.com/Shougo/neobundle.vim.git',
@@ -82,17 +78,23 @@ if has('vim_starting') "{{{
 endif
 "}}}
 
-call neobundle#rc(s:neobundle_dir)
+let g:neobundle#default_options = {}
+" let g:neobundle#default_options._ = { 'verbose' : 1, 'focus' : 1 }
+
+"---------------------------------------------------------------------------
+" Disable default plugins
 
 " Disable menu.vim
 if has('gui_running')
   set guioptions=Mc
 endif
+
 " Disable GetLatestVimPlugin.vim
 if !&verbose
   let g:loaded_getscriptPlugin = 1
 endif
-" Disable netrw.vim
-let g:loaded_netrwPlugin = 1
 
-let g:loaded_matchparen = 0
+let g:loaded_netrwPlugin = 1
+let g:loaded_matchparen = 1
+let g:loaded_2html_plugin = 1
+let g:loaded_vimballPlugin = 1
