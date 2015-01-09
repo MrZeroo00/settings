@@ -3,14 +3,19 @@
 "
 
 let g:vimfiler_enable_clipboard = 0
-let g:vimfiler_safe_mode_by_default = 0
+
+call vimfiler#custom#profile('default', 'context', {
+      \ 'safe' : 0,
+      \ 'auto_expand' : 1,
+      \ 'parent' : 0,
+      \ })
 
 let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_detect_drives = IsWindows() ? [
-      \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
-      \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/'] :
-      \ split(glob('/mnt/*'), '\n') + split(glob('/media/*'), '\n') +
-      \ split(glob('/Users/*'), '\n')
+if IsWindows()
+  let g:vimfiler_detect_drives = [
+        \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
+        \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/']
+endif
 
 " %p : full path
 " %d : current directory
@@ -56,7 +61,6 @@ function! s:vimfiler_my_settings() "{{{
   " nnoremap <buffer> - <C-u>:Unite sendto<CR>
   " setlocal cursorline
 
-  nmap <buffer> O <Plug>(vimfiler_sync_with_another_vimfiler)
   nnoremap <silent><buffer><expr> gy vimfiler#do_action('tabopen')
   nmap <buffer> p <Plug>(vimfiler_quick_look)
   nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)

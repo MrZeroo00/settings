@@ -85,30 +85,32 @@ let g:unite_source_alias_aliases.scriptnames = {
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 
-let g:unite_ignore_source_files = ['function.vim', 'command.vim']
+let g:unite_ignore_source_files = []
 
-call unite#custom#profile('action', 'context', {'start_insert' : 1})
-
-" Set "-no-quit" automatically in grep unite source.
-call unite#custom#profile('source/grep', 'context', {'no_quit' : 1})
+call unite#custom#profile('action', 'context', {
+      \ 'start_insert' : 1
+      \ })
 
 " migemo.
 call unite#custom#source('line_migemo', 'matchers', 'matcher_migemo')
 
 " Custom filters."{{{
 call unite#custom#source(
-      \ 'buffer,file_rec,file_rec/async', 'matchers',
-      \ ['matcher_fuzzy'])
+      \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
+      \ ['converter_relative_word', 'matcher_fuzzy',
+      \  'matcher_project_ignore_files'])
 call unite#custom#source(
       \ 'file_mru', 'matchers',
-      \ ['matcher_project_files', 'matcher_fuzzy'])
+      \ ['matcher_project_files', 'matcher_fuzzy',
+      \  'matcher_hide_hidden_files', 'matcher_hide_current_file'])
 " call unite#custom#source(
 "       \ 'file', 'matchers',
 "       \ ['matcher_fuzzy', 'matcher_hide_hidden_files'])
 call unite#custom#source(
-      \ 'file_rec/async,file_mru', 'converters',
+      \ 'file_rec,file_rec/async,file_rec/git,file_mru', 'converters',
       \ ['converter_file_directory'])
 call unite#filters#sorter_default#use(['sorter_rank'])
+" call unite#filters#sorter_default#use(['sorter_length'])
 "}}}
 
 function! s:unite_my_settings() "{{{
@@ -121,45 +123,20 @@ function! s:unite_my_settings() "{{{
 
   " call unite#custom#default_action('directory', 'cd')
 
-  " Custom actions."{{{
-  let my_tabopen = {
-        \ 'description' : 'my tabopen items',
-        \ 'is_selectable' : 1,
-        \ }
-  function! my_tabopen.func(candidates) "{{{
-    call unite#take_action('tabopen', a:candidates)
-
-    let dir = isdirectory(a:candidates[0].word) ?
-          \ a:candidates[0].word : fnamemodify(a:candidates[0].word, ':p:h')
-    execute g:unite_kind_openable_lcd_command '`=dir`'
-  endfunction"}}}
-  call unite#custom#action('file,buffer', 'tabopen', my_tabopen)
-  unlet my_tabopen
-  "}}}
-
   " Overwrite settings.
   imap <buffer>  <BS>      <Plug>(unite_delete_backward_path)
-  imap <buffer>  jj      <Plug>(unite_insert_leave)
-  imap <buffer><expr> j unite#smart_map('j', '')
-  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-  imap <buffer> '     <Plug>(unite_quick_match_default_action)
-  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
-  imap <buffer><expr> x
-        \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
-  nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
-  nmap <buffer> cd     <Plug>(unite_quick_match_default_action)
-  nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-  imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-  " imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-  " nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-  nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
-  " nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-  " imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-  nmap <silent><buffer> <Tab>     :call <SID>NextWindow()<CR>
+  imap <buffer>  jj        <Plug>(unite_insert_leave)
+  imap <buffer>  <Tab>     <Plug>(unite_complete)
+  imap <buffer> '          <Plug>(unite_quick_match_default_action)
+  nmap <buffer> '          <Plug>(unite_quick_match_default_action)
+  nmap <buffer> cd         <Plug>(unite_quick_match_default_action)
+  nmap <buffer> <C-z>      <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-z>      <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-w>      <Plug>(unite_delete_backward_path)
+  nmap <buffer> <C-j>      <Plug>(unite_toggle_auto_preview)
+  nnoremap <silent><buffer> <Tab>     <C-w>w
   nnoremap <silent><buffer><expr> l
         \ unite#smart_map('l', unite#do_action('default'))
-  " nmap <buffer> <C-e>     <Plug>(unite_narrowing_input_history)
 
   let unite = unite#get_current_unite()
   if unite.profile_name ==# '^search'
@@ -169,39 +146,36 @@ function! s:unite_my_settings() "{{{
   endif
 
   nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+  nnoremap <silent><buffer><expr> !     unite#do_action('start')
   nnoremap <buffer><expr> S      unite#mappings#set_current_filters(
         \ empty(unite#mappings#get_current_filters()) ? ['sorter_reverse'] : [])
-
-  nnoremap <silent><buffer><expr> p
-        \ empty(filter(range(1, winnr('$')),
-        \ 'getwinvar(v:val, "&previewwindow") != 0')) ?
-        \ unite#do_action('preview') : ":\<C-u>pclose!\<CR>"
 endfunction"}}}
 
-" Variables.
-let g:unite_enable_split_vertically = 0
-let g:unite_winheight = 20
-let g:unite_enable_start_insert = 0
-let g:unite_enable_short_source_names = 1
+" Default configuration.
+let default_context = {
+      \ 'vertical' : 0,
+      \ 'cursor_line_highlight' : 'TabLineSel',
+      \ 'short_source_names' : 1,
+      \ }
 
-let g:unite_cursor_line_highlight = 'TabLineSel'
 " let g:unite_abbr_highlight = 'TabLine'
 
 if IsWindows()
 else
   " Like Textmate icons.
-  let g:unite_marked_icon = '✗'
+  let default_context.marked_icon = '✗'
 
   " Prompt choices.
-  "let g:unite_prompt = '❫ '
-  let g:unite_prompt = '» '
+  let default_context.prompt = '» '
 endif
+
+call unite#custom#profile('default', 'context', default_context)
 
 if executable('ag')
   " Use ag in unite grep source.
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts =
-        \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+        \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
         \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
   let g:unite_source_grep_recursive_opt = ''
 elseif executable('pt')
@@ -211,12 +185,12 @@ elseif executable('pt')
 elseif executable('jvgrep')
   " For jvgrep.
   let g:unite_source_grep_command = 'jvgrep'
-  let g:unite_source_grep_default_opts = '--exclude ''\.(git|svn|hg|bzr)'''
+  let g:unite_source_grep_default_opts = '-i --exclude ''\.(git|svn|hg|bzr)'''
   let g:unite_source_grep_recursive_opt = '-R'
 elseif executable('ack-grep')
   " For ack.
   let g:unite_source_grep_command = 'ack-grep'
-  let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+  let g:unite_source_grep_default_opts = '-i --no-heading --no-color -a'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
@@ -224,3 +198,24 @@ let g:unite_build_error_icon    = '~/.vim/signs/err.'
       \ . (IsWindows() ? 'bmp' : 'png')
 let g:unite_build_warning_icon  = '~/.vim/signs/warn.'
       \ . (IsWindows() ? 'bmp' : 'png')
+
+let g:unite_source_rec_max_cache_files = -1
+
+" My custom split action
+let s:my_split = {'is_selectable': 1}
+function! s:my_split.func(candidate)
+  let split_action = 'vsplit'
+  if winwidth(winnr('#')) <= 2 * (&tw ? &tw : 80)
+    let split_action = 'split'
+  endif
+  call unite#take_action(split_action, a:candidate)
+endfunction
+call unite#custom_action('openable', 'context_split', s:my_split)
+unlet s:my_split
+
+nnoremap <silent> <Leader>st :NeoCompleteIncludeMakeCache<CR>
+            \ :UniteWithCursorWord -immediately -sync
+            \ -default-action=context_split tag/include<CR>
+nnoremap <silent> [Space]n  :UniteNext<CR>
+nnoremap <silent> [Space]p  :UnitePrevious<CR>
+

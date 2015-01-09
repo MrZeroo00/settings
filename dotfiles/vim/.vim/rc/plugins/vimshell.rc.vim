@@ -13,6 +13,10 @@ let g:vimshell_split_command = ''
 let g:vimshell_enable_transient_user_prompt = 1
 let g:vimshell_force_overwrite_statusline = 1
 
+" let g:vimshell_prompt_expr =
+"     \ 'escape($USER . ":". fnamemodify(getcwd(), ":~")."%", "\\[]()?! ")." "'
+" let g:vimshell_prompt_pattern = '^\f\+:\%(\f\|\\.\)\+% '
+
 autocmd MyAutoCmd FileType vimshell call s:vimshell_settings()
 function! s:vimshell_settings()
   if IsWindows()
@@ -70,6 +74,9 @@ function! s:vimshell_settings()
   " Auto jump.
   call vimshell#set_alias('j', ':Unite -buffer-name=files
         \ -default-action=lcd -no-split -input=$$args directory_mru')
+
+  " Console.
+  call vimshell#set_alias('con', 'lilyterm -d `=b:vimshell.current_dir`')
 
   call vimshell#set_alias('up', 'cdup')
 
