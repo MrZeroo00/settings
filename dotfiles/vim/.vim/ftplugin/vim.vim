@@ -1,6 +1,7 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
+
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= ' | '
 else
