@@ -1,3 +1,7 @@
+if [ -f ${HOME}/.bash_login ]; then
+  source ${HOME}/.bash_login
+fi
+
 # read common environment
 if [ -f ${HOME}/.shenv ]; then
   source ${HOME}/.shenv
