@@ -5,6 +5,15 @@
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
+if &compatible
+  set nocompatible
+endif
+
+if has('nvim')
+  runtime! plugin/python_setup.vim
+  set unnamedclip
+endif
+
 function! s:source_rc(path)
   execute 'source' fnameescape(expand('~/.vim/rc/' . a:path))
 endfunction
@@ -28,24 +37,65 @@ endfunction
 
 call s:source_rc('init.rc.vim')
 
-call s:source_rc('neobundle.rc.vim')
+" call neobundle#rc(expand('$CACHE/neobundle'))
+call neobundle#begin(expand('$CACHE/neobundle'))
+
+if neobundle#has_cache()
+  NeoBundleLoadCache
+else
+  NeoBundleFetch 'Shougo/neobundle.vim'
+
+  NeoBundle 'Shougo/vimproc.vim', {
+        \ 'build' : {
+        \     'windows' : 'tools\\update-dll-mingw',
+        \     'cygwin' : 'make -f make_cygwin.mak',
+        \     'mac' : 'make -f make_mac.mak',
+        \     'unix' : 'make -f make_unix.mak',
+        \    }
+        \ }
+
+  call neobundle#load_toml(
+        \ '~/.vim/rc/neobundle.toml', {'lazy' : 1})
+  " call s:source_rc('neobundle.rc.vim')
+  NeoBundleSaveCache
+endif
+
+if filereadable('vimrc_local.vim') ||
+      \ findfile('vimrc_local.vim', '.;') != ''
+  " Load develop version.
+  call neobundle#local(fnamemodify(
+        \ findfile('vimrc_local.vim', '.;'), ':h'))
+endif
+
+NeoBundleLocal ~/.vim/bundle
+
+" NeoBundle configurations.
+" NeoBundleDisable neocomplcache.vim
+
+call s:source_rc('plugins.rc.vim')
+
+call neobundle#end()
 
 filetype plugin indent on
 
 " Enable syntax color.
 syntax enable
 
-" Installation check.
-NeoBundleCheck
+if !has('vim_starting')
+  " Installation check.
+  NeoBundleCheck
+endif
 
 "---------------------------------------------------------------------------
 " Encoding:
 "
+
 call s:source_rc('encoding.rc.vim')
 
 "---------------------------------------------------------------------------
 " Search:
 "
+
 " Ignore the case of normal letters.
 set ignorecase
 " If the search pattern contains upper case characters, override ignorecase option.
@@ -53,8 +103,8 @@ set smartcase
 
 " Enable incremental search.
 set incsearch
-" Highlight search result.
-set hlsearch
+" Don't highlight search result.
+set nohlsearch
 
 " Searches wrap around the end of the file.
 set wrapscan
@@ -62,31 +112,31 @@ set wrapscan
 "---------------------------------------------------------------------------
 " Edit:
 "
+
 call s:source_rc('edit.rc.vim')
 
 "---------------------------------------------------------------------------
 " View:
 "
+
 call s:source_rc('view.rc.vim')
 
 "---------------------------------------------------------------------------
 " FileType:
 "
+
 call s:source_rc('filetype.rc.vim')
 
 "---------------------------------------------------------------------------
-" Plugin:
+" Mappings:
 "
-call s:source_rc('plugins.rc.vim')
 
-"---------------------------------------------------------------------------
-" Key-mappings:
-"
 call s:source_rc('mappings.rc.vim')
 
 "---------------------------------------------------------------------------
 " Commands:
 "
+
 " Display diff with the file.
 command! -nargs=1 -complete=file Diff vertical diffsplit <args>
 " Display diff from last save.
@@ -95,8 +145,9 @@ command! DiffOrig vert new | setlocal bt=nofile | r # | 0d_ | diffthis | wincmd 
 command! -nargs=0 Undiff setlocal nodiff noscrollbind wrap
 
 "---------------------------------------------------------------------------
-" Platform depends:
+" Platform:
 "
+
 if s:is_windows
   call s:source_rc('windows.rc.vim')
 else
@@ -121,6 +172,14 @@ if has('mouse')
 endif
 
 "---------------------------------------------------------------------------
+" GUI:
+"
+
+if has('gui_running')
+  call s:source_rc('gui.rc.vim')
+endif
+
+"---------------------------------------------------------------------------
 " Others:
 "
 
@@ -129,8 +188,6 @@ set helplang& helplang=en,ja
 
 " Default home directory.
 let t:cwd = getcwd()
-
-call neobundle#call_hook('on_source')
 
 set secure
 
