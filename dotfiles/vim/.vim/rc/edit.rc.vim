@@ -54,7 +54,7 @@ set foldenable
 " set foldmethod=expr
 set foldmethod=marker
 " Show folding level.
-set foldcolumn=3
+set foldcolumn=1
 set fillchars=vert:\|
 set commentstring=%s
 
@@ -71,11 +71,9 @@ set grepprg=ack\ -a
 " Exclude = from isfilename.
 set isfname-==
 
-" Reload .vimrc and .gvimrc automatically.
-autocmd MyAutoCmd BufWritePost .vimrc,vimrc,*.rc.vim source $MYVIMRC |
-      \ if has('gui_running') | source $MYGVIMRC | echo "source $MYVIMRC"
-autocmd MyAutoCmd BufWritePost .gvimrc,gvimrc
-      \ if has('gui_running') | source $MYGVIMRC | echo "source $MYGVIMRC"
+" Reload .vimrc automatically.
+autocmd MyAutoCmd BufWritePost .vimrc,vimrc,*.rc.vim,neobundle.toml
+      \ NeoBundleClearCache | source $MYVIMRC | redraw
 
 " Keymapping timeout.
 set timeout timeoutlen=3000 ttimeoutlen=100
@@ -143,6 +141,13 @@ endfunction
 
 " Use autofmt.
 set formatexpr=autofmt#japanese#formatexpr()
+
+" Use blowfish2
+" https://dgl.cx/2014/10/vim-blowfish
+if has('cryptv')
+  " It seems 15ms overhead.
+  " set cryptmethod=blowfish2
+endif
 
 " delete git buffer when "set hidden"
 augroup MyAutoCmd
