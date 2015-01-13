@@ -137,7 +137,7 @@ xnoremap  [Space]   <Nop>
 " Toggle relativenumber.
 nnoremap <silent> [Space].
       \ :<C-u>call ToggleOption('relativenumber')<CR>
-nnoremap <silent> [Space]p
+nnoremap <silent> [Space]m
       \ :<C-u>call ToggleOption('paste')<CR>:set mouse=<CR>
 " Toggle highlight.
 nnoremap <silent> [Space]/
@@ -148,29 +148,17 @@ nnoremap <silent> [Space]cl
 " Set autoread.
 nnoremap [Space]ar
       \ :<C-u>setlocal autoread<CR>
-" Output encoding information.
-nnoremap <silent> [Space]en
-      \ :<C-u>setlocal encoding? termencoding? fenc? fencs?<CR>
 " Set spell check.
 nnoremap [Space]sp
       \ :<C-u>call ToggleOption('spell')<CR>
 nnoremap [Space]w
       \ :<C-u>call ToggleOption('wrap')<CR>
-" Echo syntax name.
-nnoremap [Space]sy
-      \ :<C-u>echo synIDattr(synID(line('.'), col('.'), 1), "name")<CR>
 
 " Easily edit .vimrc and .gvimrc "{{{
 nnoremap <silent> [Space]ev  :<C-u>edit $MYVIMRC<CR>
-nnoremap <silent> [Space]eg  :<C-u>edit $MYGVIMRC<CR>
 " Load .gvimrc after .vimrc edited at GVim.
 nnoremap <silent> [Space]rv :<C-u>source $MYVIMRC \|
-      \ if has('gui_running') \|
-      \   source $MYGVIMRC \|
-      \ endif \| echo "source $MYVIMRC"<CR>
-nnoremap <silent> [Space]rg
-      \ :<C-u>source $MYGVIMRC \|
-      \ echo "source $MYGVIMRC"<CR>
+      \ echo "source $MYVIMRC"<CR>
 "}}}
 
 " Useful save mappings.
@@ -190,12 +178,6 @@ function! s:cd_buffer_dir() "{{{
 
   cd `=dir`
 endfunction"}}}
-
-" Delete windows ^M codes.
-nnoremap <silent> [Space]<C-m> mmHmt:<C-u>%s/\r$//ge<CR>'tzt'm
-
-" Delete spaces before newline.
-nnoremap <silent> [Space]ss mmHmt:<C-u>%s/<Space>$//ge<CR>`tzt`m
 
 " Easily syntax change.
 nnoremap <silent> [Space]ft :<C-u>Unite -start-insert filetype<CR>
@@ -243,7 +225,7 @@ nnoremap    [Window]   <Nop>
 nmap    s [Window]
 nnoremap <silent> [Window]p  :<C-u>call <SID>split_nicely()<CR>
 nnoremap <silent> [Window]v  :<C-u>vsplit<CR>
-nnoremap <silent> [Window]c  :<C-u>call <sid>smart_close()<CR>
+nnoremap <silent> [Window]c  :<C-u>call <SID>smart_close()<CR>
 nnoremap <silent> -  :<C-u>call <SID>smart_close()<CR>
 nnoremap <silent> [Window]o  :<C-u>only<CR>
 nnoremap <silent> [Window]b  :<C-u>Thumbnail<CR>
@@ -383,12 +365,6 @@ function! s:buflisted(bufnr) "{{{
         \ has_key(t:unite_buffer_dictionary, a:bufnr) && buflisted(a:bufnr) :
         \ buflisted(a:bufnr)
 endfunction"}}}
-
-" JunkFile
-" nnoremap <silent> [Window]e  :<C-u>JunkfileOpen<CR>
-nnoremap <silent> [Window]e  :<C-u>Unite junkfile/new junkfile -start-insert<CR>
-command! -nargs=0 JunkfileDiary call junkfile#open_immediately(
-      \ strftime('%Y-%m-%d.md'))
 "}}}
 
 "" e: Change basic commands "{{{
