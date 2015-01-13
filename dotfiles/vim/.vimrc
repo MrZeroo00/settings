@@ -54,9 +54,9 @@ else
         \    }
         \ }
 
-  call neobundle#load_toml(
-        \ '~/.vim/rc/neobundle.toml', {'lazy' : 1})
-  " call s:source_rc('neobundle.rc.vim')
+  "call neobundle#load_toml(
+  "      \ '~/.vim/rc/neobundle.toml', {'lazy' : 1})
+  call s:source_rc('neobundle.rc.vim')
   NeoBundleSaveCache
 endif
 
