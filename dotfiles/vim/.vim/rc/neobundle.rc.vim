@@ -314,7 +314,7 @@ NeoBundle 'grep.vim'
 NeoBundle 'MultipleSearch'
 "NeoBundle 'SearchComplete'
 
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'closetag.vim'
 NeoBundle 'taglist.vim'
