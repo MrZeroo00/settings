@@ -151,7 +151,7 @@ if neobundle#tap('unite.vim') "{{{
   nnoremap <silent><expr> n
         \ ":\<C-u>UniteResume search%".bufnr('%')." -no-start-insert\<CR>"
 
-  nnoremap <silent> <C-w>  :<C-u>Unite -auto-resize window/gui<CR>
+  "nnoremap <silent> <C-w>  :<C-u>Unite -auto-resize window/gui<CR>
 
   let neobundle#hooks.on_source =
         \ '~/.vim/rc/plugins/unite.rc.vim'
