@@ -68,6 +68,7 @@ install hping || true
 install hub || true
 install icdiff || true
 install imagemagick || true
+install ipcalc || true
 install jq || true
 install keychain || true
 install llvm --with-clang || true
