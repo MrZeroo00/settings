@@ -83,6 +83,7 @@ install mysql || true
 install nmap || true
 install ngrep || true
 install nkf || true
+install nodebrew || true
 install parallel || true
 install peco/peco/peco || true
 install phantomjs || true
