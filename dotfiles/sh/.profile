@@ -178,10 +178,17 @@ if [ -x "$(which pyenv)" ]; then
 fi
 
 
+# nodebrew
+if [ -x "$(which nodebrew)" ]; then
+  export PATH="${HOME}/.nodebrew/current/bin:${PATH}"
+fi
+
+
 # Node Version Manager (NVM)
 if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
   source "$(brew --prefix nvm)/nvm.sh"
   export NVM_DIR="${HOME}/.nvm"
+  mkdir -p ${NVM_DIR}
 fi
 
 
