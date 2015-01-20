@@ -192,6 +192,12 @@ if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
 fi
 
 
+# ChefDK
+if [ -d "/opt/chefdk/bin" ]; then
+  export PATH="/opt/chefdk/bin:${PATH}"
+fi
+
+
 ## include .shrc if it exists
 #if [ -f ${HOME}/.shrc ]; then
 #  source ${HOME}/.shrc
