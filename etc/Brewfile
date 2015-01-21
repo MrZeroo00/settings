@@ -65,6 +65,7 @@ install haskell-platform || true
 install heroku-toolbelt || true
 install hg || true
 install hping || true
+install httpie || true
 install hub || true
 install icdiff || true
 install imagemagick || true
