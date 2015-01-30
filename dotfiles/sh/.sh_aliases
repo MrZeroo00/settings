@@ -69,7 +69,7 @@ case "${OS}" in
   alias strace='sudo dtruss sudo -u ${USER}'
   #alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -a /Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -n'
   alias emacs='TERM=xterm-256color emacsclient -a emacs -n'
-  #alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+  alias vim="$(brew --prefix)/Cellar/macvim/HEAD/MacVim.app/Contents/MacOS/Vim"
   alias ls='ls -G'
   alias top='top -o cpu'
   alias run='open -a'
