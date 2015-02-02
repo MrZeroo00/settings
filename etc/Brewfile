@@ -72,6 +72,7 @@ install imagemagick || true
 install ipcalc || true
 install jq || true
 install keychain || true
+install luarocks || true
 install llvm --with-clang || true
 install lrzsz || true
 install lua || true
