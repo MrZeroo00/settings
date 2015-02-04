@@ -519,7 +519,7 @@ if neobundle#tap('unite-choosewin-actions') " {{{
   let g:Unite_kinds_choosewin_is_ignore_window_func = function("s:choosewin_is_ignore_window")
 
   " ファイルを開く場合のデフォルトアクションを choosewin にする
-  call unite#custom#default_action('file' , 'choosewin/open')
+  "call unite#custom#default_action('file' , 'choosewin/open')
 
   call neobundle#untap()
 endif " }}}
