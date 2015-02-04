@@ -179,9 +179,11 @@ install brew-cask || true
 #cask install omnifocus || true
 #cask install p4merge || true
 #cask install rstudio || true
+#cask install sequel-pro || true
 #cask install skim || true
 #cask install skitch || true
 #cask install sourcetree || true
+#cask install sqlitebrowser || true
 #cask install sublime-text || true
 #cask install textexpander || true
 #cask install tinkertool || true
