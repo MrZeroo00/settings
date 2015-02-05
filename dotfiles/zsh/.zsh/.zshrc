@@ -88,6 +88,8 @@ if [ "${TMUX}" != "" ] ; then
   tmux pipe-pane 'cat >> ${HOME}/log/`date +%Y-%m-%d`_#S:#I.#P.log'
 fi
 
+eval "$(direnv hook zsh)"
+
 # function
 if [ -f ${HOME}/.zsh/.zsh_function ]; then
   source ${HOME}/.zsh/.zsh_function
