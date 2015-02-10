@@ -1,5 +1,14 @@
 #!/bin/sh
 
+function col {
+  awk -v col=$1 '{print $col}'
+}
+
+function skip {
+  n=$(($1 + 1))
+  cut -d' ' -f$n-
+}
+
 function isemacs() {
   if [ -z "${EMACS}" ]; then
     return 1
