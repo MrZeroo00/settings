@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function col {
+function column {
   awk -v col=$1 '{print $col}'
 }
 
