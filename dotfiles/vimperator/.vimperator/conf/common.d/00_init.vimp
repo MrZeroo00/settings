@@ -65,6 +65,7 @@ set! security.dialog_enable_delay=0
 set! ui.key.generalAccessKey=0
 "set! view_source.editor.external=true
 "set! view_source.editor.path=/usr/bin/emacsclient
+set! privacy.trackingprotection.enabled=true
 " spell check
 set! layout.spellcheckDefault=2
 set! spellchecker.dictionary=en-US
