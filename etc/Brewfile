@@ -136,6 +136,7 @@ install brew-cask || true
 #cask install asepsis || true
 #cask install atom || true
 #cask install bettertouchtool || true
+#cask install betterzipql || true
 #cask install Chromium || true
 #cask install charles || true
 #cask install cheatsheet || true
@@ -179,6 +180,11 @@ install brew-cask || true
 #cask install notifyr || true
 #cask install omnifocus || true
 #cask install p4merge || true
+#cask install qlcolorcode || true
+#cask install qlmarkdown || true
+#cask install qlstephen || true
+#cask install quicklook-csv || true
+#cask install quicklook-json || true
 #cask install rstudio || true
 #cask install sequel-pro || true
 #cask install skim || true
