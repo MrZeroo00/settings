@@ -65,6 +65,7 @@ export HTMLPAGER='w3m -T text/html -dump'
 export SVN_EDITOR='vim'
 export GIT_EDITOR="$(git var GIT_EDITOR)"
 export TERMSCREEN='screen-bce'
+#export SSLKEYLOGFILE="${HOME}/sslkey.log"
 
 #export GREP_OPTIONS=""
 #GREP_OPTIONS="--binary-files=without-match"
