@@ -19,6 +19,7 @@ tap rcmdnk/file || true
 install ack || true
 install ag || true
 install apple-gcc42 || true
+install asciinema || true
 install aspell || true
 install autojump || true
 install automake || true
