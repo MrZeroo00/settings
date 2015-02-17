@@ -166,6 +166,8 @@ install brew-cask || true
 #cask install haroopad || true
 #cask install hipchat || true
 #cask install hocus-focus || true
+#cask install hoster || true
+#cask install hosts || true
 #cask install hyperswitch || true
 #cask install imageoptim || true
 #cask install insomniax || true
