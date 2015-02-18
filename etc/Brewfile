@@ -192,6 +192,7 @@ install brew-cask || true
 #cask install quicklook-json || true
 #cask install rstudio || true
 #cask install sequel-pro || true
+#cask install shiori || true
 #cask install skim || true
 #cask install skitch || true
 #cask install sourcetree || true
