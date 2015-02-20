@@ -162,6 +162,7 @@ install brew-cask || true
 #cask install goofy || true
 #cask install google-chrome || true
 #cask install google-drive || true
+#cask install google-japanese-ime || true
 #cask install growlnotify || true
 #cask install haroopad || true
 #cask install hipchat || true
