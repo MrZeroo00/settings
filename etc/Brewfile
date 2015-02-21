@@ -101,6 +101,7 @@ install pyenv || true
 install pyenv-virtualenv || true
 install q || true
 install rbenv || true
+install rcmdnk/file/brew-file || true
 install reattach-to-user-namespace || true
 install redis || true
 install ricty --powerline --vim-powerline || true
