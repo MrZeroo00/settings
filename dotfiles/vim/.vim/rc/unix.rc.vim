@@ -60,8 +60,9 @@ if has('gui')
         \ 'italic' : '', 'sp' : ''
         \ }
   if !exists('g:colors_name')
-    execute 'colorscheme' globpath(&runtimepath,
-          \ 'colors/candy.vim') != '' ? 'candy' : 'desert'
+    "execute 'colorscheme' globpath(&runtimepath,
+    "      \ 'colors/candy.vim') != '' ? 'candy' : 'desert'
+    execute 'colorscheme' 'solarized'
   endif
 else
   " Use guicolorscheme.vim

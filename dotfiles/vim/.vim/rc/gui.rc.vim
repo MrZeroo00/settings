@@ -91,8 +91,9 @@ endif
 
 " Don't override colorscheme.
 if !exists('g:colors_name')
-  execute 'colorscheme' globpath(&runtimepath,
-        \ 'colors/candy.vim') != '' ? 'candy' : 'desert'
+  "execute 'colorscheme' globpath(&runtimepath,
+  "      \ 'colors/candy.vim') != '' ? 'candy' : 'desert'
+  execute 'colorscheme' 'solarized'
 endif
 "}}}
 
@@ -149,5 +150,7 @@ set nohlsearch
 set guicursor&
 set guicursor+=a:blinkon0
 "}}}
+
+set background=dark
 
 " vim: foldmethod=marker
