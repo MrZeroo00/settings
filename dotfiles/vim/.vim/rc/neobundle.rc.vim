@@ -348,6 +348,7 @@ NeoBundle 'tyru/current-func-info.vim'
 NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'tejr/vim-tmux'
 NeoBundle 'snipMate'
+NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
