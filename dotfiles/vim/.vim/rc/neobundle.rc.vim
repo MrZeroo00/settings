@@ -379,7 +379,6 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 if has('clientserver')
   NeoBundle 'thinca/vim-singleton'
-  call singleton#enable()
 endif
 
 NeoBundleLocal ~/.vim/bundle

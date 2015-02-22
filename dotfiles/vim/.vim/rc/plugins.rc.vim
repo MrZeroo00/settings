@@ -503,6 +503,11 @@ let g:IM_CtrlBufLocalMode = 1
 "  let g:indentLine_char = '¦'
 "endif "}}}
 
+"" vim-singleton
+if neobundle#tap('vim-singleton') " {{{
+  call singleton#enable()
+endif " }}}
+
 "" taglist
 nmap ,tlist :Tlist<CR>
 
