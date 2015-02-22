@@ -183,6 +183,11 @@ endif
 " Others:
 "
 
+"" vim-singleton
+if neobundle#tap('vim-singleton') " {{{
+  call singleton#enable()
+endif " }}}
+
 " If true Vim master, use English help file.
 set helplang& helplang=en,ja
 
