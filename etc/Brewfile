@@ -107,6 +107,7 @@ install redis || true
 install ricty --powerline --vim-powerline || true
 install rlwrap || true
 install ruby-build || true
+install rust || true
 install sbt || true
 install scala || true
 install screenfetch || true
