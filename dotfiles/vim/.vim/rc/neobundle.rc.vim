@@ -349,6 +349,7 @@ NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'tejr/vim-tmux'
 NeoBundle 'snipMate'
 NeoBundle 'stephpy/vim-yaml'
+NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
