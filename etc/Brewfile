@@ -142,6 +142,7 @@ install brew-cask || true
 #cask install atom || true
 #cask install bettertouchtool || true
 #cask install betterzipql || true
+#cask install cargo || true
 #cask install Chromium || true
 #cask install charles || true
 #cask install cheatsheet || true
