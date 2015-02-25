@@ -58,6 +58,7 @@ augroup MyAutoCmd
 
   autocmd FileType go highlight default link goErr WarningMsg |
         \ match goErr /\<err\>/
+  autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
   " autocmd Syntax * syntax sync minlines=100
 augroup END

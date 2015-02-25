@@ -5,6 +5,8 @@ if exists("did_load_filetypes")
 endif
 
 augroup filetypedetect
+  " Go
+  autocmd BufRead,BufNewFile *.go setfiletype go
   " Scala
   autocmd BufRead,BufNewFile *.scala        setfiletype scala
   " Nemerle
