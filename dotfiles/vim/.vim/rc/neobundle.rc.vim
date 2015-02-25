@@ -350,6 +350,9 @@ NeoBundle 'tejr/vim-tmux'
 NeoBundle 'snipMate'
 NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'dgryski/vim-godef'
+NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
