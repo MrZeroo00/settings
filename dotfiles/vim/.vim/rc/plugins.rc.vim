@@ -476,6 +476,9 @@ endif "}}}
 "" CodeReviewer
 let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
 
+"" go
+let g:gofmt_command = 'goimports'
+
 "" gtags
 nmap ,gtags :Gtags <C-R><C-W><CR>
 nmap ,gr :Gtags -r <C-R><C-W><CR>
