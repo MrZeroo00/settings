@@ -87,9 +87,9 @@ NeoBundleLazy 'LeafCage/foldCC', {
       \ 'filetypes' : 'vim' }
 NeoBundleLazy 'mattn/webapi-vim'
 " NeoBundle 'basyura/webapi-vim'
-NeoBundleLazy 'add20/vim-conque', {
-      \ 'commands' : 'ConqueTerm'
-      \ }
+"NeoBundleLazy 'add20/vim-conque', {
+"      \ 'commands' : 'ConqueTerm'
+"      \ }
 NeoBundleLazy 'thinca/vim-fontzoom', {
       \ 'gui' : 1,
       \ 'autoload' : {
@@ -170,7 +170,7 @@ NeoBundleLazy 'yuratomo/w3m.vim', {
 " NeoBundle 'hrsh7th/vim-unite-vcs'
 NeoBundleLazy 'osyo-manga/unite-quickfix'
 NeoBundleLazy 'osyo-manga/unite-filetype'
-NeoBundleLazy 'rbtnn/hexript.vim'
+"NeoBundleLazy 'rbtnn/hexript.vim'
 NeoBundleLazy 'kana/vim-tabpagecd', {
       \ 'unite_sources' : 'tab'
       \ }
