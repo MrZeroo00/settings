@@ -392,6 +392,8 @@ endif
 
 NeoBundleLocal ~/.vim/bundle
 
+set rtp^=$GOPATH/src/github.com/nsf/gocode/vim
+
 " NeoBundle configurations.
 " NeoBundleDisable neocomplcache.vim
 
