@@ -23,6 +23,7 @@ dotfiles/xdg/.config/gtk-2.0/
 dotfiles/xdg/.config/menus/
 dotfiles/xdg/.config/hub
 dotfiles/xdg/.config/stetic/
+dotfiles/xdg/.config/vim/
 dotfiles/xdg/.config/xbuild/
 dotfiles/zsh/.zsh/.chpwd-recent-dirs
 dotfiles/zsh/.zsh/.zcompcache/
