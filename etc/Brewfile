@@ -179,6 +179,7 @@ install brew-cask || true
 #cask install iterm2 || true
 #cask install karabiner || true
 #cask install kobito || true
+#cask install krita || true
 #cask install launchrocket || true
 #cask install libreoffice || true
 #cask install limechat || true
