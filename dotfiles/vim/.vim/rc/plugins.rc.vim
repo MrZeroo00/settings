@@ -541,11 +541,11 @@ endif "}}}
 if neobundle#tap('vim-tmux-navigator') "{{{
   let g:tmux_navigator_no_mappings = 1
 
-  nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-  nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-  nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-  nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-  nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+  nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<CR>
+  nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<CR>
+  nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<CR>
+  nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<CR>
+  nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<CR>
 endif "}}}
 
 "" Vdebug
