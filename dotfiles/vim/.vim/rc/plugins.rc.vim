@@ -537,6 +537,17 @@ if neobundle#tap('vim-quickhl') "{{{
   call neobundle#untap()
 endif "}}}
 
+"" vim-tmux-navigator
+if neobundle#tap('vim-tmux-navigator') "{{{
+  let g:tmux_navigator_no_mappings = 1
+
+  nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+  nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+  nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+  nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+  nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+endif "}}}
+
 "" Vdebug
 "let g:vdebug_options['port'] = 9000
 "let g:vdebug_options['server'] = 'localhost'
