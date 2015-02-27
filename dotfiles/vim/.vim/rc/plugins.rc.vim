@@ -538,15 +538,15 @@ if neobundle#tap('vim-quickhl') "{{{
 endif "}}}
 
 "" vim-tmux-navigator
-if neobundle#tap('vim-tmux-navigator') "{{{
-  let g:tmux_navigator_no_mappings = 1
-
-  nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<CR>
-  nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<CR>
-  nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<CR>
-  nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<CR>
-  nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<CR>
-endif "}}}
+"if neobundle#tap('vim-tmux-navigator') "{{{
+"  let g:tmux_navigator_no_mappings = 1
+"
+"  nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<CR>
+"  nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<CR>
+"  nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<CR>
+"  nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<CR>
+"  nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<CR>
+"endif "}}}
 
 "" Vdebug
 "let g:vdebug_options['port'] = 9000
