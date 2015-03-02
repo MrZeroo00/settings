@@ -9,3 +9,9 @@
 *.py diff=python
 *.rb diff=ruby
 *.php diff=php
+*.png filter=media -crlf
+*.agz filter=media -crlf
+*.ccz filter=media -crlf
+*.lwf filter=media -crlf
+*.ogg filter=media -crlf
+*.wav filter=media -crlf
