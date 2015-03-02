@@ -13,6 +13,9 @@ zmodload -ap zsh/mapfile mapfile
 
 ## variables
 #export LPROMPT="%n@%m%% "
+#export LPROMPT="%n@%m %T%% "
+#TRAPALRM () { zle reset-prompt }
+#TMOUT=30
 #export PROMPT="${LPROMPT}"
 #export RPROMPT="[%~]"
 #export SPROMPT="correct: %R -> %r ? "
