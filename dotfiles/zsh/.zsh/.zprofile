@@ -16,6 +16,11 @@ zmodload -ap zsh/mapfile mapfile
 #export LPROMPT="%n@%m %T%% "
 #TRAPALRM () { zle reset-prompt }
 #TMOUT=30
+#zmodload zsh/datetime # $EPOCHSECONDS, strftime等を利用可能に
+#reset_tmout() { TMOUT=$[60-EPOCHSECONDS%60] }
+#precmd_functions=($precmd_functions reset_tmout) # プロンプト表示時に更新までの時間を再計算
+#redraw_tmout() { zle reset-prompt; reset_tmout } # 時刻を更新
+#TRAPALRM() { redraw_tmout }
 #export PROMPT="${LPROMPT}"
 #export RPROMPT="[%~]"
 #export SPROMPT="correct: %R -> %r ? "
