@@ -56,10 +56,8 @@ augroup MyAutoCmd
   autocmd FileType php setlocal path+=/usr/local/share/pear
   autocmd FileType apache setlocal path+=./;/
 
-  autocmd FileType go compiler golang
   autocmd FileType go highlight default link goErr WarningMsg |
         \ match goErr /\<err\>/
-  autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
   " autocmd Syntax * syntax sync minlines=100
 augroup END
