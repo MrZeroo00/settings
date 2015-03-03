@@ -29,7 +29,7 @@ NeoBundleLazy 'Shougo/unite-ssh', {
       \ 'filetypes' : 'vimfiler',
       \ }
 NeoBundleLazy 'majkinetor/unite-cmdmatch' , {
-      \ 'depends':  ['Shougo/unite.vim'],
+      \ 'depends':  'Shougo/unite.vim',
       \ 'mappings' : [['c', '<Plug>(unite_cmdmatch_complete)']] }
 NeoBundle 'Shougo/neomru.vim'
 
@@ -39,7 +39,7 @@ NeoBundleLazy 'ujihisa/vimshell-ssh', {
 NeoBundle 'Shougo/unite-sudo'
 NeoBundleLazy 'thinca/vim-openbuf'
 NeoBundleLazy 'Shougo/vim-vcs', {
-      \ 'depends' : ['thinca/vim-openbuf'],
+      \ 'depends' : 'thinca/vim-openbuf',
       \ 'autoload' : {'commands' : 'Vcs'},
       \ }
 NeoBundle 'Shougo/vimfiler.vim'
@@ -76,7 +76,7 @@ NeoBundle 'kana/vim-operator-user', {
       \   'functions' : 'operator#user#define',
       \ }
 NeoBundleLazy 'kana/vim-operator-replace', {
-      \ 'depends' : ['vim-operator-user'],
+      \ 'depends' : 'vim-operator-user',
       \ 'autoload' : {
       \   'mappings' : [
       \     ['nx', '<Plug>(operator-replace)']]
@@ -363,7 +363,7 @@ NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'rtp':  'vimperator/contrib/vim/'
       \ }
 NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
-      \ 'depends' : ['t9md/vim-choosewin'],
+      \ 'depends' : 't9md/vim-choosewin',
       \ 'unite_sources' : ['file']
       \ }
 NeoBundleLazy 'sgur/vim-textobj-parameter'
@@ -408,7 +408,7 @@ call neobundle#config(['echodoc.vim', 'neocomplete.vim'], {
       \ }})
 call neobundle#config('neosnippet.vim', {
       \ 'lazy' : 1,
-      \ 'depends' : ['Shougo/neosnippet-snippets'],
+      \ 'depends' : 'Shougo/neosnippet-snippets',
       \ 'autoload' : {
       \   'insert' : 1,
       \   'filetypes' : 'snippet',
@@ -424,7 +424,7 @@ call neobundle#config('unite.vim',{
       \ }})
 call neobundle#config('vimfiler.vim', {
       \ 'lazy' : 1,
-      \ 'depends' : ['Shougo/unite.vim'],
+      \ 'depends' : 'Shougo/unite.vim',
       \ 'autoload' : {
       \    'commands' : [
       \                  { 'name' : 'VimFiler',
@@ -490,7 +490,7 @@ call neobundle#config('J6uil.vim', {
       \   'function_prefix' : 'J6uil',
       \   'unite_sources' : 'J6uil/rooms',
       \ },
-      \ 'depends' : ['mattn/webapi-vim'],
+      \ 'depends' : 'mattn/webapi-vim',
       \ })
 call neobundle#config('javacomplete', {
       \ 'lazy' : 1,
