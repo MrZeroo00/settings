@@ -1,3 +1,6 @@
+" set indent.
+setlocal shiftwidth=4 softtabstop=0 tabstop=4
+
 " gotags {{{
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
