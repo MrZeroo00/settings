@@ -37,6 +37,7 @@ NeoBundleLazy 'ujihisa/vimshell-ssh', {
       \ 'filetypes' : 'vimshell',
       \ }
 NeoBundle 'Shougo/unite-sudo'
+NeoBundleLazy 'thinca/vim-openbuf'
 NeoBundleLazy 'Shougo/vim-vcs', {
       \ 'depends' : ['thinca/vim-openbuf'],
       \ 'autoload' : {'commands' : 'Vcs'},
@@ -355,6 +356,7 @@ NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'rjohnsondev/vim-compiler-go'
 NeoBundle 'kopischke/vim-fetch'
+NeoBundleLazy 'Shougo/neosnippet-snippets'
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
