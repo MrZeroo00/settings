@@ -352,9 +352,7 @@ NeoBundle 'snipMate'
 NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'dgryski/vim-godef'
-NeoBundle 'vim-jp/vim-go-extra'
-NeoBundle 'rjohnsondev/vim-compiler-go'
+NeoBundle 'fatih/vim-go'
 NeoBundle 'kopischke/vim-fetch'
 NeoBundleLazy 'Shougo/neosnippet-snippets'
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
@@ -396,7 +394,6 @@ endif
 
 NeoBundleLocal ~/.vim/bundle
 
-set rtp^=$GOPATH/src/github.com/nsf/gocode/vim
 
 " NeoBundle configurations.
 " NeoBundleDisable neocomplcache.vim
