@@ -79,6 +79,7 @@ install lrzsz || true
 install lua || true
 install lv || true
 install macvim --HEAD --with-lua || true
+install mackup || true
 install meld || true
 install migemogrep || true
 install mobile-shell || true
@@ -106,6 +107,7 @@ install reattach-to-user-namespace || true
 install redis || true
 install ricty --powerline --vim-powerline || true
 install rlwrap || true
+install rsense || true
 install ruby-build || true
 install rust || true
 install sbt || true
