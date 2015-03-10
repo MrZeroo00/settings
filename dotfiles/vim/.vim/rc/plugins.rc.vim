@@ -527,6 +527,12 @@ if neobundle#tap('unite-choosewin-actions') " {{{
   call neobundle#untap()
 endif " }}}
 
+"" vim-go
+if neobundle#tap('vim-go') "{{{
+  let g:go_fmt_fail_silently = 1
+  let g:go_fmt_command = "goimports"
+endif "}}}
+
 "" vim-quickhl
 if neobundle#tap('vim-quickhl') "{{{
   nmap <Space>m <Plug>(quickhl-manual-this)
