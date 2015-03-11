@@ -33,7 +33,7 @@ augroup MyAutoCmd
 
   autocmd FileType go
         \ inoremap <buffer> <expr> - smartchr#loop(' - ', ' -> ', ' <- ', '-')
-        \| inoremap <buffer> <expr> = smartchr#loop(' = ', ' := ', '=')
+        \| inoremap <buffer> <expr> = smartchr#loop(' = ', ' := ', '=', ' == ')
 
   autocmd FileType eruby
         \ inoremap <buffer> <expr> > smartchr#loop('>', '%>')
