@@ -59,7 +59,7 @@ install git-forgot || true
 install git-now || true
 install gitsh || true
 install global || true
-install go || true
+install go --cross-compile-common || true
 install graphviz || true
 install grepcidr || true
 install haskell-platform || true
