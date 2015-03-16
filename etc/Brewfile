@@ -14,6 +14,7 @@ tap thoughtbot/formulae || true
 tap sanemat/font || true
 tap suin/suin || true
 tap rcmdnk/file || true
+tap peco/peco || true
 
 # Packages
 install ack || true
