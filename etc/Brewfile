@@ -24,6 +24,7 @@ install aspell || true
 install autojump || true
 install automake || true
 install autossh || true
+install awscli || true
 install bash-completion || true
 install bats || true
 install boot2docker || true
@@ -46,9 +47,11 @@ install curl || true
 install direnv || true
 install docker || true
 install emacs || true
+install envchain || true
 install erlang || true
 install exiftool || true
 install ffmpeg || true
+install fig || true
 install fish || true
 install fortune || true
 install ghc || true
@@ -88,6 +91,8 @@ install nmap || true
 install ngrep || true
 install nkf || true
 install nodebrew || true
+install nvm || true
+install packer || true
 install parallel || true
 install peco/peco/peco || true
 install phantomjs || true
@@ -125,10 +130,13 @@ install tig || true
 install tiger-vnc || true
 install tmux || true
 install tree || true
+install unzip || true
 install w3m || true
 install weechat || true
 install wemux || true
 install wget || true
+install wine || true
+install yasm || true
 install zsh || true
 install zsh-completions || true
 
