@@ -95,7 +95,7 @@ install nodebrew || true
 install nvm || true
 install packer || true
 install parallel || true
-install peco/peco/peco || true
+install peco || true
 install phantomjs || true
 install play || true
 install pssh || true
