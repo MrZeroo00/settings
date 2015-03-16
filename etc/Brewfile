@@ -15,6 +15,7 @@ tap sanemat/font || true
 tap suin/suin || true
 tap rcmdnk/file || true
 tap peco/peco || true
+tap caskroom/fonts || true
 
 # Packages
 install ack || true
