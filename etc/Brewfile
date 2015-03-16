@@ -84,6 +84,7 @@ install lv || true
 install macvim --HEAD --with-lua || true
 install mackup || true
 install meld || true
+install mercurial || true
 install migemogrep || true
 install mobile-shell || true
 install mysql || true
