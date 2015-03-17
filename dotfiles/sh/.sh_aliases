@@ -74,6 +74,7 @@ case "${OS}" in
   alias ls='ls -G'
   alias top='top -o cpu'
   alias run='open -a'
+  alias du='gdu'
   ;;
   "Cygwin")
   alias open='fiber'
