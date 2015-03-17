@@ -63,20 +63,20 @@ a {}
 /* message body */
 .message[type=system] { color: #080; }
 .message[type=error] { color: #f00; font-weight: bold; }
-.message[type=reply] { color: #088; }
+.message[type=reply] { display: none; }
 .message[type=error_reply] { color: #f00; }
 .message[type=dcc_send_send] { color: #088; }
 .message[type=dcc_send_receive] { color: #00c; }
 .message[type=privmsg] {}
 .message[type=notice] { color: #888; }
 .message[type=action] { color: #080; }
-.message[type=join] { color: #080; }
-.message[type=part] { color: #080; }
+.message[type=join] { display: none; }
+.message[type=part] { display: none; }
 .message[type=kick] { color: #080; }
-.message[type=quit] { color: #080; }
+.message[type=quit] { display: none; }
 .message[type=kill] { color: #080; }
-.message[type=nick] { color: #080; }
-.message[type=mode] { color: #080; }
+.message[type=nick] { display: none; }
+.message[type=mode] { display: none; }
 .message[type=topic] { color: #080; }
 .message[type=invite] { color: #080; }
 .message[type=wallops] { color: #080; }
