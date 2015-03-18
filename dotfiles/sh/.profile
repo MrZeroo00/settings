@@ -196,6 +196,7 @@ fi
 # ChefDK
 if [ -d "/opt/chefdk/bin" ]; then
   export PATH="/opt/chefdk/bin:${PATH}"
+  export UNBUNDLED_COMMANDS="$(ls -1 /opt/chefdk/bin)"
 fi
 
 
