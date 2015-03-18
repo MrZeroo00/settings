@@ -194,3 +194,11 @@ html[channelname="##apple"].normal {
 html[channelname="#python"].normal {
 	background: #202020 url('Limelight/python.png') no-repeat fixed bottom right;
 }
+
+/* ignore type */
+.line[type=join] { display:none; }
+.line[type=quit] { display:none; }
+.line[type=mode] { display:none; }
+.line[type=part] { display:none; }
+.line[type=nick] { display:none; }
+.line[type=reply] { display:none; }
