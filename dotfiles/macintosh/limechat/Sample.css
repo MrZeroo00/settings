@@ -116,3 +116,11 @@ a {}
 .effect[bgcolor-number='13'] {}
 .effect[bgcolor-number='14'] {}
 .effect[bgcolor-number='15'] {}
+
+/* ignore type */
+.line[type=join] { display:none; }
+.line[type=quit] { display:none; }
+.line[type=mode] { display:none; }
+.line[type=part] { display:none; }
+.line[type=nick] { display:none; }
+.line[type=reply] { display:none; }
