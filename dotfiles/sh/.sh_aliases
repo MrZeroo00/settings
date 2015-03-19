@@ -282,6 +282,11 @@ dbu() { docker build -t=$1 .; }
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 
+# am
+if [ -f ${HOME}/.am_config ]; then
+  source ${HOME}/.am_config
+fi
+
 # local setting
 if [ -f ${HOME}/.sh_aliases.`hostname -s`.local ]; then
   source ${HOME}/.sh_aliases.`hostname -s`.local
