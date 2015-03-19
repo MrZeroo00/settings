@@ -90,6 +90,11 @@ fi
 
 eval "$(direnv hook zsh)"
 
+# powerline
+export PATH="${PATH}:${HOME}/Library/Python/2.7/bin"
+powerline-daemon -q
+source ${HOME}/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # function
 if [ -f ${HOME}/.zsh/.zsh_function ]; then
   source ${HOME}/.zsh/.zsh_function
