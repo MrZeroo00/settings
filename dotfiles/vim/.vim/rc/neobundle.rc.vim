@@ -355,9 +355,6 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'kopischke/vim-fetch'
 NeoBundleLazy 'Shougo/neosnippet-snippets'
-NeoBundle 'powerline/powerline', {
-      \ 'rtp': 'powerline/bindings/vim/'
-      \ }
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
