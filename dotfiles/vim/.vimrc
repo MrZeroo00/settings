@@ -196,6 +196,9 @@ let t:cwd = getcwd()
 
 set secure
 
+"" powerline
+call s:source_rc('powerline.rc.vim')
+
 if filereadable($HOME . '/.vimrc.local')
   source $HOME/.vimrc.local
 endif
