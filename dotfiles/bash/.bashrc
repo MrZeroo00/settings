@@ -52,6 +52,15 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
+# share history
+function share_history {
+  history -a
+  history -c
+  history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+
 # function
 if [ -f ${HOME}/.bash_function ]; then
   source ${HOME}/.bash_function
