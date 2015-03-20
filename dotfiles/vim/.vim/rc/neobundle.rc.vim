@@ -17,7 +17,7 @@ NeoBundle 'Shougo/echodoc.vim'
 
 NeoBundle 'Shougo/neocomplete.vim'
 
-NeoBundleLazy 'Shougo/neocomplcache-rsense'
+"NeoBundleLazy 'Shougo/neocomplcache-rsense'
 
 NeoBundleLazy 'Shougo/neosnippet.vim'
 
@@ -355,6 +355,11 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'kopischke/vim-fetch'
 NeoBundleLazy 'Shougo/neosnippet-snippets'
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+      \ 'autoload' : {
+      \   'insert' : 1,
+      \   'filetypes': 'ruby',
+      \ }}
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
