@@ -41,3 +41,6 @@
 [submodule "dotfiles/tmux/.tmux.d/plugins/tpm"]
 	path = dotfiles/tmux/.tmux.d/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
+[submodule "dotfiles/zsh/.zsh/antigen"]
+	path = dotfiles/zsh/.zsh/antigen
+	url = git@github.com:zsh-users/antigen.git

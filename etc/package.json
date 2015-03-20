@@ -21,6 +21,7 @@
     "grunt-license-saver": "0.0.0",
     "pretty-diff": "~0.2.1",
     "mdr": "~0.1.0",
+    "sloc": "~0.1.9",
     "dot-clipboard": "~1.2.4"
   }
 }
