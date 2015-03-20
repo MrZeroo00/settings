@@ -72,12 +72,12 @@ fi
 #  unsetopt zle
 #fi
 
+eval "$(direnv hook zsh)"
+
 mkdir -p ${HOME}/log
 if [ "${TMUX}" != "" ] ; then
   tmux pipe-pane 'cat >> ${HOME}/log/`date +%Y-%m-%d`_#S:#I.#P.log'
 fi
-
-eval "$(direnv hook zsh)"
 
 # powerline
 #export PATH="${PATH}:${HOME}/Library/Python/2.7/bin"
