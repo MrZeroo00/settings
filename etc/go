@@ -17,3 +17,4 @@ go get -u github.com/motemen/go-quickfix/cmd/goquickfix
 go get -u github.com/k0kubun/pp
 go get -u github.com/tools/godep
 go get -u github.com/gizak/termui
+go get -u github.com/motemen/ghq

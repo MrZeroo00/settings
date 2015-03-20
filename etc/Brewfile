@@ -6,11 +6,14 @@ update || true
 
 # Add Repository
 tap homebrew/versions || true
+tap homebrew/dupes || true
+tap caskroom/cask || true
 tap caskroom/versions || true
 tap phinze/homebrew-cask || true
 tap homebrew/binary || true
 tap jimbojsb/launchrocket || true
 tap thoughtbot/formulae || true
+tap railwaycat/emacsmacport || true
 tap sanemat/font || true
 tap suin/suin || true
 tap rcmdnk/file || true
@@ -20,9 +23,11 @@ tap caskroom/fonts || true
 # Packages
 install ack || true
 install ag || true
+install ansible || true
 install apple-gcc42 || true
 install asciinema || true
 install aspell || true
+install autoconf || true
 install autojump || true
 install automake || true
 install autossh || true
@@ -80,10 +85,11 @@ install ipcalc || true
 install jmeter || true
 install jq || true
 install keychain || true
-install luarocks || true
+install lha || true
 install llvm --with-clang || true
 install lrzsz || true
 install lua || true
+install luarocks || true
 install lv || true
 install macvim --HEAD --with-lua || true
 install mackup || true
@@ -97,13 +103,16 @@ install ngrep || true
 install nkf || true
 install nodebrew || true
 install nvm || true
+install openssl || true
 install packer || true
 install parallel || true
 install peco || true
 install phantomjs || true
+install pkg-config || true
 install play || true
 install pssh || true
 install pv || true
+install pwgen || true
 install pyenv || true
 install pyenv-virtualenv || true
 install python || true
@@ -125,6 +134,7 @@ install scala || true
 install screenfetch || true
 install shellcheck || true
 install socat || true
+install source-highlight || true
 install spark || true
 install sqlite || true
 install stow || true
@@ -134,13 +144,16 @@ install the_silver_searcher || true
 install tig || true
 install tiger-vnc || true
 install tmux || true
+install tofrodos || true
 install tree || true
 install unzip || true
 install w3m || true
 install weechat || true
 install wemux || true
 install wget || true
+install whois || true
 install wine || true
+install xz || true
 install yasm || true
 install zsh || true
 install zsh-completions || true
@@ -148,6 +161,7 @@ install zsh-completions || true
 # .dmg
 install brew-cask || true
 #cask install accessmenubarapps || true
+#cask install adobe-reader || true
 #cask install alfred || true
 #cask install amethyst || true
 #cask install android-studio || true
@@ -181,6 +195,7 @@ install brew-cask || true
 #cask install google-chrome || true
 #cask install google-drive || true
 #cask install google-japanese-ime || true
+#cask install grandperspective || true
 #cask install growlnotify || true
 #cask install haroopad || true
 #cask install hipchat || true
@@ -193,6 +208,7 @@ install brew-cask || true
 #cask install intellij-idea || true
 #cask install iterm2 || true
 #cask install iterm2-nightly || true
+#cask install java || true
 #cask install karabiner || true
 #cask install kitematic || true
 #cask install kobito || true
@@ -214,6 +230,7 @@ install brew-cask || true
 #cask install quicklook-json || true
 #cask install rstudio || true
 #cask install sequel-pro || true
+#cask install seil || true
 #cask install shiori || true
 #cask install skim || true
 #cask install skitch || true

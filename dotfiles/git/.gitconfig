@@ -81,4 +81,4 @@
 	#clean = git-media filter-clean
 	#smudge = git-media filter-smudge
 [ghq]
-	root = /Users/mitsuhiro/src
+	root = ~/src
