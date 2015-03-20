@@ -51,10 +51,7 @@ plugins=(brew bundler emoji-clock git osx rails ruby)
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.zsh/antigen/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+source $HOME/.zsh/.zsh_antigen
 
 # User configuration
 
