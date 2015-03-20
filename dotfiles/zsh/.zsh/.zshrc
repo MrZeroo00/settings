@@ -50,7 +50,11 @@ ZSH_THEME="kolo"
 plugins=(brew bundler emoji-clock git osx rails ruby)
 
 source $ZSH/oh-my-zsh.sh
+
 source $HOME/.zsh/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
 # User configuration
 
