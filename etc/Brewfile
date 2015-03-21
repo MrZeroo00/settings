@@ -137,6 +137,7 @@ install socat || true
 install source-highlight || true
 install spark || true
 install sqlite || true
+install sslscan || true
 install stow || true
 #sysdig
 install terminal-notifier || true
