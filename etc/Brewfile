@@ -52,6 +52,7 @@ install cscope || true
 install csshx || true
 install ctags || true
 install curl || true
+# cv
 install direnv || true
 install docker || true
 install emacs || true
