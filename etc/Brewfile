@@ -140,7 +140,7 @@ install spark || true
 install sqlite || true
 install sslscan || true
 install stow || true
-#sysdig
+install sysdig || true
 install terminal-notifier || true
 install the_silver_searcher || true
 install tig || true
