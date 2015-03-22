@@ -98,6 +98,7 @@ install mercurial || true
 install migemogrep || true
 install mobile-shell || true
 install mysql || true
+# nessus
 install nmap || true
 install ngrep || true
 install nkf || true
