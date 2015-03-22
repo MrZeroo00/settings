@@ -19,6 +19,7 @@
     "grunt-contrib-csslint": "~0.2.0",
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-license-saver": "0.0.0",
+    "gulp": "~3.8.11",
     "pretty-diff": "~0.2.1",
     "mdr": "~0.1.0",
     "sloc": "~0.1.9",

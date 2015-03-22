@@ -223,6 +223,7 @@ install brew-cask || true
 #cask install node-webkit || true
 #cask install notifyr || true
 #cask install omnifocus || true
+#cask install owasp-zap || true
 #cask install p4merge || true
 #cask install qlcolorcode || true
 #cask install qlmarkdown || true
