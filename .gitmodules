@@ -26,9 +26,6 @@
 [submodule "dotfiles/zsh/.oh-my-zsh"]
 	path = dotfiles/zsh/.oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "shellscripts/iterm-manager"]
-	path = shellscripts/iterm-manager
-	url = git@github.com:syui/iterm-manager.git
 [submodule "etc/iterm/theme/iTerm-2-Color-Themes"]
 	path = etc/iterm/theme/iTerm-2-Color-Themes
 	url = git@github.com:baskerville/iTerm-2-Color-Themes.git
