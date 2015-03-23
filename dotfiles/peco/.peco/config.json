@@ -30,11 +30,11 @@
     "C-s": "peco.ToggleSelectionAndSelectNext",
     "C-r": "peco.RotateMatcher"
   },
-  "CustomMatcher": {
-    "Migemo": [
-      "/usr/local/bin/migemogrep",
-      "$QUERY"
-    ]
+  "CustomFilter": {
+    "Migemo": {
+      "Cmd": "/usr/local/bin/migemogrep",
+      "Args": [ "$QUERY" ]
+    }
   }
 }
 
