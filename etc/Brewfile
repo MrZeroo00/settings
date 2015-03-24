@@ -5,6 +5,7 @@ update || true
 # upgrade
 
 # Add Repository
+tap Homebrew/brewdler || true
 tap homebrew/versions || true
 tap homebrew/dupes || true
 tap caskroom/cask || true
