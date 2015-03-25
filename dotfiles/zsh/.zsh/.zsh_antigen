@@ -3,5 +3,8 @@ source $HOME/.zsh/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
+# Load the theme.
+antigen theme kolo
+
 # Tell antigen that you're done.
 antigen apply
