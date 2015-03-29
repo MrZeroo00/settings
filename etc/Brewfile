@@ -12,6 +12,7 @@ tap caskroom/cask || true
 tap caskroom/versions || true
 tap phinze/homebrew-cask || true
 tap homebrew/binary || true
+tap homebrew/boneyard || true
 tap jimbojsb/launchrocket || true
 tap thoughtbot/formulae || true
 tap railwaycat/emacsmacport || true
