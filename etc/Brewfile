@@ -182,6 +182,7 @@ install brew-cask || true
 #cask install chefdk || true
 #cask install clipmenu || true
 #cask install cloudytabs || true
+#cask install coconutbattery || true
 #cask install coteditor || true
 #cask install dash || true
 #cask install dropbox || true
