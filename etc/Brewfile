@@ -103,6 +103,7 @@ install migemogrep || true
 install mobile-shell || true
 install mysql || true
 # nessus
+install ngrok || true
 install nmap || true
 install ngrep || true
 install nkf || true
