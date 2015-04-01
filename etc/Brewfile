@@ -86,6 +86,7 @@ install httpie || true
 install hub || true
 install icdiff || true
 install imagemagick || true
+# intrace
 install ipcalc || true
 install jmeter || true
 install jq || true
