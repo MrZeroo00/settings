@@ -21,6 +21,7 @@
 	grep = auto
 [alias]
 	b = branch
+	br = browse-remote
 	ci = commit
 	co = checkout
 	cob = checkout -b
@@ -28,12 +29,15 @@
 	dn = !git diff --no-ext-diff
 	dc = diff --cached
 	dnc = !git diff --no-ext-diff --cached
+	f = fetch --prune
+	fs = !git f && git su
 	g = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd%Cblue%cn %Cred%d %Creset%s'
 	gr = grep --line-number --show-function --color --heading --break
 	i = issue
 	mg = merge
 	rb = rebase
 	st = status --short --branch
+	su = submodule update
 	up = pull --rebase
 	n  = now --all --stat
 	diffn = !git diff --no-ext-diff
@@ -43,6 +47,10 @@
 	graph = log --graph --decorate --oneline
 	logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
+	info = remote show origin
 	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
 	current-branch = rev-parse --abbrev-ref HEAD
 	pr = "!hub browse -- compare/master...$(git symbolic-ref --short HEAD)?body=%23%20Context%0A%0A%23%20Problem%20or%20Idea%0A%0A%23%20Solution%20or%20NextStep"
