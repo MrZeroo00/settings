@@ -106,6 +106,7 @@ install mobile-shell || true
 install mysql || true
 # nessus
 install ngrok || true
+install nkf || true
 install nmap || true
 install ngrep || true
 install nkf || true
