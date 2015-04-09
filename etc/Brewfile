@@ -72,6 +72,7 @@ install gibo || true
 install gist || true
 install git || true
 install git-forgot || true
+install git-lfs || true
 install git-now || true
 install gitsh || true
 install global || true
