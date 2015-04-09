@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# overwrite oh-my-zsh setting
+export LESS='--tabs=4 --RAW-CONTROL-CHARS --clear-screen --quit-if-one-screen --LONG-PROMPT'
+
 # local setting
 if [ -f ${HOME}/.shrc.`hostname -s`.local ]; then
     source ${HOME}/.shrc.`hostname -s`.local
