@@ -354,7 +354,13 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'kopischke/vim-fetch'
-NeoBundle 'jeaye/color_coded'
+NeoBundle 'jeaye/color_coded', {
+      \ 'build' : {
+      \     'mac' : 'mkdir build && cd build && cmake .. && make && make install',
+      \     'unix' : 'mkdir build && cd build && cmake .. && make && make install',
+      \ }
+      \ }
+
 NeoBundleLazy 'Shougo/neosnippet-snippets'
 "NeoBundleLazy 'yuku-t/vim-ref-ri'
 "NeoBundleLazy 'szw/vim-tags'
