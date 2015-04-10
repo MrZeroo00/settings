@@ -60,6 +60,7 @@ install curl || true
 install direnv || true
 install docker || true
 install emacs || true
+install entr || true
 install envchain || true
 install erlang || true
 install exiftool || true
