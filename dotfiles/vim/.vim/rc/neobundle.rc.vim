@@ -356,8 +356,8 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'kopischke/vim-fetch'
 NeoBundle 'jeaye/color_coded', {
       \ 'build' : {
-      \     'mac' : 'mkdir build && cd build && cmake .. && make && make install',
-      \     'unix' : 'mkdir build && cd build && cmake .. && make && make install',
+      \     'mac' : 'mkdir build && cmake -E chdir build cmake .. && make && make install',
+      \     'unix' : 'mkdir build && cmake -E chdir build cmake .. && make && make install',
       \ }
       \ }
 
