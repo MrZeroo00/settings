@@ -365,6 +365,7 @@ NeoBundleLazy 'Shougo/neosnippet-snippets'
 "NeoBundleLazy 'yuku-t/vim-ref-ri'
 "NeoBundleLazy 'szw/vim-tags'
 "NeoBundleLazy 'tpope/vim-endwise'
+"NeoBundle 'marcus/rsense'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
       \ 'autoload' : {
       \   'insert' : 1,
