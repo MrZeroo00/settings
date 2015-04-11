@@ -17,6 +17,8 @@ gem 'sgviz'
 gem 'thor'
 gem 'tmuxinator'
 gem 'watson-ruby'
+gem 'serverkit'
+gem 'serverkit-defaults'
 
 #gem 'activerecord-import'
 #gem 'activesupport'
