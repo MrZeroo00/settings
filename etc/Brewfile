@@ -223,6 +223,7 @@ install brew-cask || true
 #cask install iterm2 || true
 #cask install iterm2-nightly || true
 #cask install java || true
+#cask install julia || true
 #cask install karabiner || true
 #cask install kitematic || true
 #cask install kobito || true
