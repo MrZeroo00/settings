@@ -1,5 +1,6 @@
 [user]
 	name = Mitsuhiro Tanda
+	email = mitsuhiro.tanda@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes_global
