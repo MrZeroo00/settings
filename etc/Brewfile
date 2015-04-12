@@ -68,6 +68,7 @@ install ffmpeg || true
 install fig || true
 install fish || true
 install fortune || true
+# geeknote
 install ghc || true
 install gibo || true
 install gist || true
@@ -176,6 +177,7 @@ install brew-cask || true
 #cask install accessmenubarapps || true
 #cask install adobe-reader || true
 #cask install alfred || true
+# alternote
 #cask install amethyst || true
 #cask install android-studio || true
 #cask install appcleaner || true
