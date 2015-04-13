@@ -57,10 +57,10 @@
   // Suppress warnings about == null comparisons.
   "eqnull": true,
 
-  "globals": [
-    "require",
-    "define",
-    "angular",
-    "_"
-  ]
+  "globals": {
+    "require": false,
+    "define": false,
+    "angular": false,
+    "_": false
+  }
 }
