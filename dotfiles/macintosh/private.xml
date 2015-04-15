@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>launcher</name>
+    <identifier>karabiner_launcher</identifier>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_SHELL.toggle.Finder</name>
+      <url type="shell">
+        <![CDATA[ osascript ~/bin/osascript/toggleapp.scpt Finder ]]>
+      </url>
+    </vkopenurldef>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_SHELL.toggle.System_Preferences</name>
+      <url type="shell">
+        <![CDATA[ osascript ~/bin/osascript/toggleapp.scpt "System Preferences" ]]>
+      </url>
+    </vkopenurldef>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_SHELL.todotxt</name>
+      <url type="shell">
+        <![CDATA[ osascript ~/bin/osascript/togglefile.scpt TaskPaper /Users/catfist/Dropbox/todo/todo.txt ]]>
+      </url>
+    </vkopenurldef>
+    <autogen>
+    <autogen>
+    <!-- finder -->
+      __SimultaneousKeyPresses__
+      KeyCode::F, KeyCode::D,
+      KeyCode::VK_OPEN_URL_SHELL.toggle.Finder,
+      Option::SIMULTANEOUSKEYPRESSES_STRICT_KEY_ORDER
+    </autogen>
+    <autogen>
+    <!-- System Preferences -->
+      __SimultaneousKeyPresses__
+      KeyCode::S, KeyCode::P,
+      KeyCode::VK_OPEN_URL_SHELL.toggle.System_Preferences,
+      Option::SIMULTANEOUSKEYPRESSES_STRICT_KEY_ORDER
+    </autogen>
+    <autogen>
+    <!-- todo.txt -->
+      __SimultaneousKeyPresses__
+      KeyCode::T, KeyCode::X,
+      KeyCode::VK_OPEN_URL_SHELL.todotxt,
+      Option::SIMULTANEOUSKEYPRESSES_STRICT_KEY_ORDER
+    </autogen>
+  </item>
+</root>
