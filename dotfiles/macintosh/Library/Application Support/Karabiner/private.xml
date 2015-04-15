@@ -22,7 +22,6 @@
       </url>
     </vkopenurldef>
     <autogen>
-    <autogen>
     <!-- finder -->
       __SimultaneousKeyPresses__
       KeyCode::F, KeyCode::D,
