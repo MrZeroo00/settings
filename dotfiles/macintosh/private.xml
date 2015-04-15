@@ -6,19 +6,19 @@
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_SHELL.toggle.Finder</name>
       <url type="shell">
-        <![CDATA[ osascript ~/bin/osascript/toggleapp.scpt Finder ]]>
+        <![CDATA[ osascript ~/bin/_macintosh/toggleapp.scpt Finder ]]>
       </url>
     </vkopenurldef>
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_SHELL.toggle.System_Preferences</name>
       <url type="shell">
-        <![CDATA[ osascript ~/bin/osascript/toggleapp.scpt "System Preferences" ]]>
+        <![CDATA[ osascript ~/bin/_macintosh/toggleapp.scpt "System Preferences" ]]>
       </url>
     </vkopenurldef>
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_SHELL.todotxt</name>
       <url type="shell">
-        <![CDATA[ osascript ~/bin/osascript/togglefile.scpt TaskPaper /Users/catfist/Dropbox/todo/todo.txt ]]>
+        <![CDATA[ osascript ~/bin/_macintosh/togglefile.scpt TaskPaper /Users/catfist/Dropbox/todo/todo.txt ]]>
       </url>
     </vkopenurldef>
     <autogen>
