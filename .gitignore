@@ -3,6 +3,13 @@
 *.elc
 *_flymake.el
 Gemfile.lock
+dotfiles/atom/.atom/.apm/
+dotfiles/atom/.atom/.node-gyp/
+dotfiles/atom/.atom/compile-cache/
+dotfiles/atom/.atom/npm-debug.log
+dotfiles/atom/.atom/packages/
+dotfiles/atom/.atom/projects.cson
+dotfiles/atom/.atom/storage/
 dotfiles/emacs/.emacs.d/conf/*_local_*.el
 dotfiles/emacs/.emacs.d/data/
 dotfiles/emacs/.emacs.d/elpa/
