@@ -70,6 +70,7 @@ install fish || true
 install fortune || true
 # geeknote
 install ghc || true
+install ghi || true
 install gibo || true
 install gist || true
 install git || true
@@ -152,6 +153,7 @@ install spark || true
 install sqlite || true
 install sslscan || true
 install stow || true
+install syncthing || true
 install sysdig || true
 install terminal-notifier || true
 install the_silver_searcher || true
