@@ -1,0 +1,7 @@
+#!/bin/sh
+
+open ~/Applications/Alfred\ 2.app
+open ~/Applications/ClipMenu.app
+open ~/Applications/Flux.app
+open ~/Applications/Trailer.app
+open ~/Applications/Vagrant\ Manager.app
