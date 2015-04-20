@@ -225,7 +225,7 @@ install brew-cask || true
 #cask install insomniax || true
 #cask install intellij-idea || true
 #cask install iterm2 || true
-#cask install iterm2-nightly || true
+#cask install iterm2-beta || true
 #cask install java || true
 #cask install julia || true
 #cask install karabiner || true
