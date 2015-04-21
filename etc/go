@@ -21,3 +21,4 @@ go get -u github.com/motemen/ghq
 go get -u github.com/jgrahamc/httpdiff
 go get -d github.com/tcnksm/go-latest
 go get -u github.com/motemen/hub-pr
+go get -u github.com/mailgun/godebug
