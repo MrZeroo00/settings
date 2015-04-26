@@ -92,6 +92,7 @@ install icdiff || true
 install imagemagick || true
 # intrace
 install ipcalc || true
+install jless || true
 install jmeter || true
 install jq || true
 install keychain || true
