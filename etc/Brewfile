@@ -201,6 +201,7 @@ install brew-cask || true
 #cask install coteditor || true
 #cask install dash || true
 #cask install dropbox || true
+#cask install easysimbl || true
 #cask install evernote || true
 #cask install firefox || true
 #cask install flashlight || true
