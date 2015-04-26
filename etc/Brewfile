@@ -63,6 +63,7 @@ install emacs || true
 install entr || true
 install envchain || true
 install erlang || true
+# exa
 install exiftool || true
 install ffmpeg || true
 install fig || true
@@ -95,6 +96,7 @@ install ipcalc || true
 install jless || true
 install jmeter || true
 install jq || true
+# jsonnet
 install keychain || true
 install lesspipe || true
 install lha || true
