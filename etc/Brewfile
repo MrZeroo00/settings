@@ -95,6 +95,7 @@ install ipcalc || true
 install jmeter || true
 install jq || true
 install keychain || true
+install lesspipe || true
 install lha || true
 install llvm --with-clang || true
 install lrzsz || true
