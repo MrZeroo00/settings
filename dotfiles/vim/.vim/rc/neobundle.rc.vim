@@ -401,6 +401,10 @@ NeoBundleLazy 'lambdalisue/vim-gista', {
       \   'mappings': '<Plug>(gista-',
       \   'unite_sources': 'gista',
       \}}
+NeoBundleLazy 'lambdalisue/unite-grep-vcs', {
+      \ 'autoload': {
+      \   'unite_sources': ['grep/git', 'grep/hg'],
+      \}}
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
