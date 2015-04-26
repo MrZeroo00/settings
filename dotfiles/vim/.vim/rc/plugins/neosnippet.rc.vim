@@ -9,6 +9,7 @@ xmap <silent>L     <Plug>(neosnippet_start_unite_snippet_target)
 smap <silent>K     <Plug>(neosnippet_expand_or_jump)
 "imap <silent>G     <Plug>(neosnippet_expand)
 "imap <silent>S     <Plug>(neosnippet_start_unite_snippet)
+imap <silent><C-s>     <Plug>(neosnippet_start_unite_snippet)
 xmap <silent>o     <Plug>(neosnippet_register_oneshot_snippet)
 xmap <silent>U     <Plug>(neosnippet_expand_target)
 
