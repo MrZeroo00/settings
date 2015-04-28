@@ -1,3 +1,4 @@
 pip install --user powerline-status
 pip install --user git+git://github.com/powerline/powerline
 pip install --user timegrep
+pip install --user thefuck
