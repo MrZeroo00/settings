@@ -190,6 +190,7 @@ install brew-cask || true
 #cask install appium || true
 #cask install asepsis || true
 #cask install atom || true
+#cask install bartender || true
 #cask install bettertouchtool || true
 #cask install betterzipql || true
 #cask install cargo || true
