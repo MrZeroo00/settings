@@ -273,6 +273,7 @@ install brew-cask || true
 #cask install vagrant || true
 #cask install vagrant-manager || true
 #cask install virtualbox || true
+#cask install visual-studio-code || true
 #cask install vlc || true
 #cask install wireshark || true
 #cask install xamarin-studio || true
