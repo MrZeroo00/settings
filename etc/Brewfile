@@ -249,6 +249,7 @@ install brew-cask || true
 #cask install node-webkit-32bit || true
 #cask install notifyr || true
 #cask install omnifocus || true
+#cask install onyx || true
 #cask install owasp-zap || true
 #cask install p4merge || true
 #cask install qlcolorcode || true
@@ -268,6 +269,7 @@ install brew-cask || true
 #cask install sublime-text || true
 # textbar
 #cask install textexpander || true
+#cask install the-unarchiver || true
 #cask install tinkertool || true
 #cask install totalfinder || true
 #cask install totalspace || true
@@ -283,6 +285,7 @@ install brew-cask || true
 #cask install xamarin-studio || true
 #cask install xmind || true
 #cask install xquartz || true
+#cask install xtrafinder || true
 
 # pip
 pip install diff-highlight
