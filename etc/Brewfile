@@ -83,6 +83,7 @@ install global || true
 install go --cross-compile-common || true
 install graphviz || true
 install grepcidr || true
+# h2i
 install haskell-platform || true
 install heroku-toolbelt || true
 install hg || true
