@@ -22,6 +22,7 @@ tap suin/suin || true
 tap rcmdnk/file || true
 tap peco/peco || true
 tap caskroom/fonts || true
+tap stepanhruda/tap || true
 
 # Packages
 install ack || true
@@ -93,6 +94,7 @@ install hub || true
 install icdiff || true
 install imagemagick || true
 # intrace
+install ios-simulator-app-installer || true
 install ipcalc || true
 install jless || true
 install jmeter || true
