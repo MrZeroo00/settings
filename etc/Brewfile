@@ -260,6 +260,7 @@ install brew-cask || true
 #cask install qlstephen || true
 #cask install quicklook-csv || true
 #cask install quicklook-json || true
+#cask install rightfont || true
 # riverflow
 #cask install rstudio || true
 #cask install sequel-pro || true
