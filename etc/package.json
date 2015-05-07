@@ -26,6 +26,7 @@
     "sloc": "~0.1.9",
     "vorlon": "~0.0.7",
     "ws": "~0.7.1",
-    "dot-clipboard": "~1.2.4"
+    "dot-clipboard": "~1.2.4",
+    "pdf-markdown-annotator": "~1.0.8"
   }
 }
