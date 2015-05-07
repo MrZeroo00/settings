@@ -23,6 +23,7 @@ tap rcmdnk/file || true
 tap peco/peco || true
 tap caskroom/fonts || true
 tap stepanhruda/tap || true
+tap jingweno/ccat || true
 
 # Packages
 install ack || true
@@ -45,6 +46,7 @@ install brew-gem || true
 install brew-pip || true
 install bsdmake || true
 install casperjs || true
+install ccat || true
 install ccze || true
 install cgdb || true
 install chrome-cli || true
