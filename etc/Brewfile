@@ -236,6 +236,7 @@ install brew-cask || true
 #cask install hyperswitch || true
 #cask install imageoptim || true
 #cask install insomniax || true
+#cask install intel-power-gadget || true
 #cask install intellij-idea || true
 #cask install iterm2 || true
 #cask install iterm2-beta || true
