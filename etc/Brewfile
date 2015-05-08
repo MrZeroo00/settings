@@ -72,6 +72,7 @@ install ffmpeg || true
 install fig || true
 install fish || true
 install fortune || true
+install fpp || true
 # geeknote
 install ghc || true
 install ghi || true
