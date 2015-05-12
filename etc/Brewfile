@@ -146,6 +146,7 @@ install q || true
 install rbenv || true
 install rcmdnk/file/brew-file || true
 install rcmdnk/rcmdnkpac/parse-plist || true
+install rds-command-line-tools || true
 install reattach-to-user-namespace || true
 install redis || true
 install ricty --powerline --vim-powerline || true
