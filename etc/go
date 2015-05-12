@@ -23,3 +23,4 @@ go get -d github.com/tcnksm/go-latest
 go get -u github.com/motemen/hub-pr
 go get -u github.com/mailgun/godebug
 go get -u github.com/b4b4r07/gomi
+go install github.com/ncw/rclone
