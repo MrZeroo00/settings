@@ -24,6 +24,7 @@ tap peco/peco || true
 tap caskroom/fonts || true
 tap stepanhruda/tap || true
 tap jingweno/ccat || true
+tap nviennot/tmate || true
 
 # Packages
 install ack || true
@@ -91,6 +92,7 @@ install grepcidr || true
 install haskell-platform || true
 install heroku-toolbelt || true
 install hg || true
+install highlight || true
 install hping || true
 install httpie || true
 install hub || true
@@ -170,6 +172,7 @@ install terminal-notifier || true
 install the_silver_searcher || true
 install tig || true
 install tiger-vnc || true
+install tmate || true
 install tmux || true
 install tofrodos || true
 install tree || true
@@ -209,6 +212,7 @@ install brew-cask || true
 #cask install clipmenu || true
 #cask install cloudytabs || true
 #cask install coconutbattery || true
+#cask install coolterm || true
 #cask install coteditor || true
 #cask install dash || true
 #cask install dropbox || true
