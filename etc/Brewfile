@@ -40,6 +40,7 @@ install autossh || true
 install awscli || true
 install bash-completion || true
 install bats || true
+# bish
 install boot2docker || true
 install boris || true
 install brew-file || true
@@ -184,6 +185,7 @@ install wemux || true
 install wget || true
 install whois || true
 install wine || true
+install xonsh || true
 install xz || true
 install yasm || true
 install zsh || true
