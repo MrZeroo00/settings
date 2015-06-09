@@ -6,5 +6,7 @@ antigen use oh-my-zsh
 # Load the theme.
 antigen theme kolo
 
+antigen bundle mafredri/zsh-async
+
 # Tell antigen that you're done.
 antigen apply
