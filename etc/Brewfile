@@ -226,6 +226,7 @@ install brew-cask || true
 #cask install flip4mac || true
 #cask install fluid || true
 #cask install flux || true
+#cask install font-source-han-code-jp || true
 #cask install geektool || true
 #cask install genymotion || true
 #cask install gimp || true
