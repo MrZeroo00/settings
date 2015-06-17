@@ -73,6 +73,7 @@ install exiftool || true
 install ffmpeg || true
 install fig || true
 install fish || true
+install fontforge || true
 install fortune || true
 install fpp || true
 # geeknote
