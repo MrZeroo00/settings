@@ -90,6 +90,7 @@ install git-lfs || true
 install git-now || true
 install gitsh || true
 install global || true
+install gnu-tar || true
 install go --cross-compile-common || true
 install graphviz || true
 install grepcidr || true
