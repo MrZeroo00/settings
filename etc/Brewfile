@@ -26,6 +26,7 @@ tap stepanhruda/tap || true
 tap jingweno/ccat || true
 tap nviennot/tmate || true
 tap codeclimate/formulae || true
+tap homebrew/head-only || true
 
 # Packages
 install ack || true
@@ -80,6 +81,7 @@ install fortune || true
 install fpp || true
 # geeknote
 install homebrew/dupes/gdb || true
+install homebrew/head-only/xhyve || true
 install ghc || true
 install ghi || true
 install gibo || true
