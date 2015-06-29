@@ -138,6 +138,7 @@ install nkf || true
 install nodebrew || true
 install nvm || true
 install openssl || true
+install osquery || true
 install packer || true
 install parallel || true
 install peco || true
