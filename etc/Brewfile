@@ -72,6 +72,7 @@ install docker-machine || true
 install docker-swarm || true
 install dynamodb-local || true
 install emacs || true
+install embulk || true
 install entr || true
 install envchain || true
 install erlang || true
