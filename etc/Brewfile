@@ -67,6 +67,7 @@ install curl || true
 # cv
 install direnv || true
 install docker || true
+install dynamodb-local || true
 install emacs || true
 install entr || true
 install envchain || true
