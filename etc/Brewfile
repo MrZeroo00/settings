@@ -107,15 +107,18 @@ install heroku-toolbelt || true
 install hg || true
 install highlight || true
 install hping || true
+install htop-osx || true
 install httpie || true
 install hub || true
 install icdiff || true
+install iftop || true
 install imagemagick || true
 # intrace
 install ios-simulator-app-installer || true
-install ipcalc || true
 install jless || true
 install jmeter || true
+install ipcalc || true
+install iperf3 || true
 install jq || true
 # jsonnet
 install keychain || true
