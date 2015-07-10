@@ -5,7 +5,8 @@
 	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes_global
 	#autocrlf = input
-	editor = vim
+	#editor = vim
+	editor = /usr/local/Cellar/macvim/HEAD/MacVim.app/Contents/MacOS/Vim
 	pager = "LC_ALL=ja_JP.UTF-8 lv -c"
 	preloadindex = true
 [push]
