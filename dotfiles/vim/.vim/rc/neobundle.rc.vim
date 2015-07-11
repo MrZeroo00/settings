@@ -360,6 +360,7 @@ NeoBundle 'jeaye/color_coded', {
       \     'unix' : 'mkdir build && cmake -E chdir build cmake .. && make && make install',
       \ }
       \ }
+NeoBundle 'Quramy/vison'
 
 NeoBundleLazy 'Shougo/neosnippet-snippets'
 "NeoBundleLazy 'yuku-t/vim-ref-ri'
