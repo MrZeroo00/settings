@@ -27,6 +27,7 @@ tap jingweno/ccat || true
 tap nviennot/tmate || true
 tap codeclimate/formulae || true
 tap homebrew/head-only || true
+tap tcnksm/license || true
 
 # Packages
 install ack || true
@@ -124,6 +125,7 @@ install jq || true
 install keychain || true
 install lesspipe || true
 install lha || true
+install license || true
 install llvm --with-clang || true
 install lrzsz || true
 install lua || true
