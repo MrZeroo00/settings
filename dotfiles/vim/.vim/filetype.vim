@@ -17,6 +17,9 @@ augroup filetypedetect
   autocmd BufRead,BufNewfile *.p5 setf perl
   " TeXEruby
   autocmd BufRead,BufNewFile *.tex.erb setfiletype tex.eruby
+  " JSON Schema
+  autocmd BufRead,BufNewFile package.json Vison
+  autocmd BufRead,BufNewFile .bowerrc Vison bowerrc.json
 
   " Filetype detect for Assembly Language.
   autocmd BufRead,BufNewFile *.asm set ft=masm syntax=masm

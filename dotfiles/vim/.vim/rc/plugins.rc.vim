@@ -478,6 +478,7 @@ let g:CodeReviewer_reviewer = "Mitsuhiro Tanda"
 
 "" go
 let g:gofmt_command = 'goimports'
+let g:gocomplete#system_function = 'vimproc#system'
 
 "" gtags
 nmap ,gtags :Gtags <C-R><C-W><CR>
