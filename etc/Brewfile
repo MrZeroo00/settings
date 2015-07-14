@@ -28,6 +28,7 @@ tap nviennot/tmate || true
 tap codeclimate/formulae || true
 tap homebrew/head-only || true
 tap tcnksm/license || true
+tap universal-ctags/universal-ctags || true
 
 # Packages
 install ack || true
@@ -196,6 +197,7 @@ install tmate || true
 install tmux || true
 install tofrodos || true
 install tree || true
+install universal-ctags || true
 install unzip || true
 install w3m || true
 install weechat || true
