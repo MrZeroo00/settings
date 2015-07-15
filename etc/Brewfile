@@ -64,7 +64,6 @@ install codeclimate || true
 install coreutils || true
 install cscope || true
 install csshx || true
-install ctags || true
 install curl || true
 # cv
 install direnv || true
