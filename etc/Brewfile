@@ -133,6 +133,7 @@ install luarocks || true
 install lv || true
 install macvim --HEAD --with-lua || true
 install mackup || true
+install maven || true
 install md5sha1sum || true
 install meld || true
 install mercurial || true
