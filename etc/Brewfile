@@ -236,6 +236,7 @@ install brew-cask || true
 #cask install clipy || true
 #cask install cloudytabs || true
 #cask install coconutbattery || true
+#cask install controlplane || true
 #cask install coolterm || true
 #cask install coteditor || true
 #cask install dash || true
