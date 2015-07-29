@@ -11,6 +11,7 @@ for a in ${apps[@]}; do
   for dir in $(ls ${caskroom}/${a}); do
     testdir="${caskroom}/${a}/${dir}"
     if [ "$testdir" != "$current" ]; then
+      echo "$testdir"
       rm -rf "$testdir"
     fi
   done
