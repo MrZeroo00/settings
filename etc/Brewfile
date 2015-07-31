@@ -139,6 +139,7 @@ install meld || true
 install mercurial || true
 install migemogrep || true
 install mobile-shell || true
+install mycli || true
 install mysql || true
 # nessus
 install ngrok || true
