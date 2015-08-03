@@ -5,6 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "bower": "~1.2.8",
+    "caniuse-cmd": "^1.0.0",
     "dot-clipboard": "~1.2.4",
     "eslint": "~0.18.0",
     "grunt": "~0.4.1",
@@ -34,7 +35,6 @@
     "sinon": "^1.15.4",
     "sloc": "~0.1.9",
     "vorlon": "~0.0.7",
-    "ws": "~0.7.1",
-    "caniuse-cmd": "~1.0.0"
+    "ws": "~0.7.1"
   }
 }
