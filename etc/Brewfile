@@ -198,6 +198,7 @@ install tmate || true
 install tmux || true
 install tofrodos || true
 install tree || true
+install unison || true
 install universal-ctags || true
 install unzip || true
 install w3m || true
