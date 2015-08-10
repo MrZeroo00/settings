@@ -110,6 +110,7 @@ install highlight || true
 install hping || true
 install htop-osx || true
 install httpie || true
+install httpry || true
 install hub || true
 install icdiff || true
 install iftop || true
