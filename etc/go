@@ -27,3 +27,4 @@ go install github.com/ncw/rclone
 go get github.com/dufferzafar/cheat
 go get github.com/monochromegane/mdt
 go get github.com/naoty/ext
+go get github.com/moznion/go-setlock
