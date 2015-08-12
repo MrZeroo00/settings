@@ -29,6 +29,7 @@ tap codeclimate/formulae || true
 tap homebrew/head-only || true
 tap tcnksm/license || true
 tap universal-ctags/universal-ctags || true
+tap neovim/neovim || true
 
 # Packages
 install ack || true
@@ -142,6 +143,7 @@ install migemogrep || true
 install mobile-shell || true
 install mycli || true
 install mysql || true
+install --HEAD neovim || true
 # nessus
 install ngrok || true
 install nkf || true
