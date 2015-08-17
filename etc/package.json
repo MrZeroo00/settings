@@ -4,9 +4,11 @@
   "description": "",
   "dependencies": {},
   "devDependencies": {
+    "asar": "^0.7.2",
     "bower": "~1.2.8",
     "caniuse-cmd": "^1.0.0",
     "dot-clipboard": "~1.2.4",
+    "electron-prebuilt": "^0.30.4",
     "eslint": "~0.18.0",
     "grunt": "~0.4.1",
     "grunt-bower-task": "~0.3.4",
@@ -28,6 +30,7 @@
     "jshint-stylish": "^2.0.1",
     "karma": "^0.13.3",
     "karma-sinon": "^1.0.4",
+    "mdast": "~1.0.0",
     "mdr": "~0.1.0",
     "mocha": "^2.2.5",
     "pdf-markdown-annotator": "~1.0.8",
@@ -35,7 +38,6 @@
     "sinon": "^1.15.4",
     "sloc": "~0.1.9",
     "vorlon": "~0.0.7",
-    "ws": "~0.7.1",
-    "mdast": "~1.0.0"
+    "ws": "~0.7.1"
   }
 }
