@@ -30,6 +30,7 @@ tap homebrew/head-only || true
 tap tcnksm/license || true
 tap universal-ctags/universal-ctags || true
 tap neovim/neovim || true
+tap yudai/gotty
 
 # Packages
 install ack || true
@@ -101,6 +102,7 @@ install gitsh || true
 install global || true
 install gnu-tar || true
 install go --cross-compile-common || true
+install gotty || true
 install graphviz || true
 install grepcidr || true
 # h2i
