@@ -131,6 +131,7 @@ install license || true
 install llvm --with-clang || true
 install lrzsz || true
 install lua || true
+# luakit https://github.com/mason-larobina/luakit
 install luarocks || true
 install lv || true
 install macvim --HEAD --with-lua || true
@@ -207,6 +208,7 @@ install tree || true
 install unison || true
 install universal-ctags || true
 install unzip || true
+# uzbl https://github.com/uzbl/uzbl
 install w3m || true
 install weechat || true
 install wemux || true
