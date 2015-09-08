@@ -153,6 +153,7 @@ install nmap || true
 install ngrep || true
 install nkf || true
 install nodebrew || true
+install nq || true
 install nvm || true
 install openssl || true
 install osquery || true
