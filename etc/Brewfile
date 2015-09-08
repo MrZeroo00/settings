@@ -36,6 +36,7 @@ tap yudai/gotty
 install ack || true
 install ag || true
 install ansible || true
+# anyenv https://github.com/riywo/anyenv
 install apple-gcc42 || true
 install asciinema || true
 install aspell || true
@@ -46,7 +47,7 @@ install autossh || true
 install awscli || true
 install bash-completion || true
 install bats || true
-# bish
+# bish https://github.com/tdenniston/bish
 install boot2docker || true
 install boris || true
 install brew-file || true
@@ -67,7 +68,6 @@ install coreutils || true
 install cscope || true
 install csshx || true
 install curl || true
-# cv
 install direnv || true
 install docker || true
 install docker-compose || true
@@ -79,7 +79,6 @@ install embulk || true
 install entr || true
 install envchain || true
 install erlang || true
-# exa
 install exiftool || true
 install ffmpeg || true
 install fig || true
@@ -87,7 +86,7 @@ install fish || true
 install fontforge || true
 install fortune || true
 install fpp || true
-# geeknote
+# geeknote http://www.geeknote.me/
 install homebrew/dupes/gdb || true
 install homebrew/head-only/xhyve || true
 install ghc || true
@@ -105,7 +104,6 @@ install go --cross-compile-common || true
 install gotty || true
 install graphviz || true
 install grepcidr || true
-# h2i
 install haskell-platform || true
 install heroku-toolbelt || true
 install hg || true
@@ -118,14 +116,14 @@ install hub || true
 install icdiff || true
 install iftop || true
 install imagemagick || true
-# intrace
+# intrace https://github.com/robertswiecki/intrace
 install ios-simulator-app-installer || true
 install jless || true
 install jmeter || true
 install ipcalc || true
 install iperf3 || true
 install jq || true
-# jsonnet
+# jsonnet https://github.com/google/jsonnet
 install keychain || true
 install lesspipe || true
 install lha || true
@@ -146,7 +144,7 @@ install mobile-shell || true
 install mycli || true
 install mysql || true
 install --HEAD neovim || true
-# nessus
+# nessus http://www.tenable.com/products/nessus-vulnerability-scanner
 install ngrok || true
 install nkf || true
 install nmap || true
@@ -163,6 +161,7 @@ install peco || true
 install phantomjs || true
 install pkg-config || true
 install play || true
+install progress || true
 install pssh || true
 install pv || true
 install pwgen || true
@@ -173,6 +172,7 @@ install python3 || true
 install pyenv || true
 install pyenv-virtualenv || true
 install q || true
+# qfc https://github.com/pindexis/qfc
 install rbenv || true
 install rcmdnk/file/brew-file || true
 install rcmdnk/rcmdnkpac/parse-plist || true
@@ -224,7 +224,7 @@ install brew-cask || true
 #cask install accessmenubarapps || true
 #cask install adobe-reader || true
 #cask install alfred || true
-# alternote
+# alternote http://alternoteapp.com/
 #cask install amethyst || true
 #cask install android-studio || true
 #cask install appcleaner || true
@@ -307,8 +307,9 @@ install brew-cask || true
 #cask install quicklook-csv || true
 #cask install quicklook-json || true
 #cask install rightfont || true
-# riverflow
+# riverflow http://questbe.at/riverflow/
 #cask install rstudio || true
+# screentime https://github.com/nst/ScreenTime
 #cask install sequel-pro || true
 #cask install seil || true
 #cask install shiori || true
@@ -317,7 +318,7 @@ install brew-cask || true
 #cask install sourcetree || true
 #cask install sqlitebrowser || true
 #cask install sublime-text || true
-# textbar
+#cask install textbar || true
 #cask install textexpander || true
 #cask install the-unarchiver || true
 #cask install tinkertool || true
