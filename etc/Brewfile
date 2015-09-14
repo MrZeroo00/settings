@@ -195,6 +195,7 @@ install spark || true
 install sqlite || true
 install sslscan || true
 install stow || true
+# svsh http://ido50.github.io/Svsh/
 install syncthing || true
 install sysdig || true
 install terminal-notifier || true
