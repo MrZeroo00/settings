@@ -2,7 +2,6 @@
 
 use warnings FATAL => 'all';
 use strict;
-use Encode qw(decode_utf8 encode_utf8);
 
 # Highlight by reversing foreground and background. You could do
 # other things like bold or underline if you prefer.
@@ -21,10 +20,10 @@ while (<>) {
 		$in_hunk = /^$COLOR*\@/;
 	}
 	elsif (/^$COLOR*-/) {
-		push @removed, decode_utf8($_);
+		push @removed, $_;
 	}
 	elsif (/^$COLOR*\+/) {
-		push @added, decode_utf8($_);
+		push @added, $_;
 	}
 	else {
 		show_hunk(\@removed, \@added);
@@ -75,10 +74,10 @@ sub show_hunk {
 	my @queue;
 	for (my $i = 0; $i < @$a; $i++) {
 		my ($rm, $add) = highlight_pair($a->[$i], $b->[$i]);
-		print encode_utf8($rm);
+		print $rm;
 		push @queue, $add;
 	}
-	print encode_utf8($_) for @queue;
+	print @queue;
 }
 
 sub highlight_pair {
