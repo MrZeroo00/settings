@@ -64,6 +64,7 @@ install closure-compiler || true
 install cmake || true
 install cmigemo || true
 install codeclimate || true
+install codefirst/sparkling/brew-sparkling
 install coreutils || true
 install cscope || true
 install csshx || true
