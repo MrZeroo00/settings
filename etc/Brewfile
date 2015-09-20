@@ -58,6 +58,7 @@ install casperjs || true
 install ccat || true
 install ccze || true
 install cgdb || true
+install checkbashisms || true
 install chrome-cli || true
 install clib || true
 install closure-compiler || true
