@@ -142,6 +142,7 @@ install maven || true
 install md5sha1sum || true
 install meld || true
 install mercurial || true
+install metashell || true
 install migemogrep || true
 install mobile-shell || true
 install mycli || true
