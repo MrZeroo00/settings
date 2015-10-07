@@ -20,6 +20,7 @@ gem 'tmuxinator'
 gem 'watson-ruby'
 gem 'serverkit'
 gem 'serverkit-defaults'
+gem 'winrm'
 
 #gem 'activerecord-import'
 #gem 'activesupport'
