@@ -194,6 +194,7 @@ install screenfetch || true
 install shellcheck || true
 install socat || true
 install source-highlight || true
+install sox || true
 install spark || true
 install sqlite || true
 install sslscan || true
