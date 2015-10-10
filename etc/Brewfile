@@ -131,6 +131,7 @@ install lesspipe || true
 install lha || true
 install license || true
 install llvm --with-clang || true
+install lnav || true
 install lrzsz || true
 install lua || true
 # luakit https://github.com/mason-larobina/luakit
