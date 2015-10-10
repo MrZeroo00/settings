@@ -336,6 +336,7 @@ install brew-cask || true
 #cask install totalspace || true
 #cask install totalterminal || true
 #cask install trailer || true
+#cask install typora || true
 #cask install unicorns || true
 #cask install utorrent || true
 #cask install vagrant || true
