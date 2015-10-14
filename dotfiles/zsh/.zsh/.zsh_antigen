@@ -7,6 +7,7 @@ antigen use oh-my-zsh
 antigen theme kolo
 
 antigen bundle mafredri/zsh-async
+#antigen-bundle b4b4r07/enhancd
 
 # Tell antigen that you're done.
 antigen apply
