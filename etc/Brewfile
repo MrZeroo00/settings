@@ -165,6 +165,7 @@ install parallel || true
 install peco || true
 install phantomjs || true
 install pkg-config || true
+install plantuml || true
 install play || true
 install progress || true
 install pssh || true
