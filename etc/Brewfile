@@ -30,7 +30,8 @@ tap homebrew/head-only || true
 tap tcnksm/license || true
 tap universal-ctags/universal-ctags || true
 tap neovim/neovim || true
-tap yudai/gotty
+tap yudai/gotty || true
+tap tkengo/highway || true
 
 # Packages
 install ack || true
@@ -110,6 +111,7 @@ install haskell-platform || true
 install heroku-toolbelt || true
 install hg || true
 install highlight || true
+install highway || true
 install hping || true
 install htop-osx || true
 install httpie || true
@@ -194,6 +196,7 @@ install sbt || true
 install scala || true
 install screenfetch || true
 install shellcheck || true
+install sift || true
 install socat || true
 install source-highlight || true
 install sox || true
