@@ -197,6 +197,7 @@ install scala || true
 install screenfetch || true
 install shellcheck || true
 install sift || true
+install smartmontools || true
 install socat || true
 install source-highlight || true
 install sox || true
