@@ -331,6 +331,7 @@ install brew-cask || true
 #cask install shiori || true
 #cask install skim || true
 #cask install skitch || true
+# sikuli https://github.com/sikuli/sikuli
 #cask install sourcetree || true
 #cask install sqlitebrowser || true
 #cask install sublime-text || true
