@@ -184,6 +184,14 @@ if neobundle#tap('quickrun.vim') "{{{
   call neobundle#untap()
 endif "}}}
 
+if neobundle#tap('vim-javascript-syntax') "{{{
+  function! neobundle#hooks.on_source(bundle)
+    autocmd MyAutoCmd FileType javascript call JavaScriptFold()
+  endfunction
+
+  call neobundle#untap()
+endif "}}}
+
 if neobundle#tap('vim-ref') "{{{
   function! neobundle#hooks.on_source(bundle)
     let g:ref_cache_dir = expand('$CACHE/ref')
