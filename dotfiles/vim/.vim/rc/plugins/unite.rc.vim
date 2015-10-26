@@ -133,7 +133,8 @@ function! s:unite_my_settings() "{{{
   nmap <buffer> <C-z>      <Plug>(unite_toggle_transpose_window)
   imap <buffer> <C-z>      <Plug>(unite_toggle_transpose_window)
   imap <buffer> <C-w>      <Plug>(unite_delete_backward_path)
-  nmap <buffer> <C-j>      <Plug>(unite_toggle_auto_preview)
+  nmap <buffer> <C-v>      <Plug>(unite_toggle_auto_preview)
+  imap <buffer> <C-v>      <Plug>(unite_toggle_auto_preview)
   nnoremap <silent><buffer> <Tab>     <C-w>w
   nnoremap <silent><buffer><expr> l
         \ unite#smart_map('l', unite#do_action('default'))
