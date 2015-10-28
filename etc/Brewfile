@@ -148,6 +148,7 @@ install mercurial || true
 install metashell || true
 install migemogrep || true
 install mobile-shell || true
+install mruby || true
 install mycli || true
 install mysql || true
 install --HEAD neovim || true
