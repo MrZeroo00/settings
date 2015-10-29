@@ -89,6 +89,7 @@ install fish || true
 install fontforge || true
 install fortune || true
 install fpp || true
+install fzf || true
 # geeknote http://www.geeknote.me/
 install homebrew/dupes/gdb || true
 install homebrew/head-only/xhyve || true
