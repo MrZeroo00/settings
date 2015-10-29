@@ -109,6 +109,7 @@ case "${OS}" in
   add_path "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin"
   add_path "/Applications/android-sdk/platform-tools"
   add_path "/Applications/android-sdk/tools"
+  add_path "${HOME}/Library/Python/2.7/bin"
   export MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
   export INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
   export LANG=ja_JP.UTF-8
