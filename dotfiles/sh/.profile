@@ -196,6 +196,12 @@ if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
 fi
 
 
+# AWS
+if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then
+  source /usr/local/bin/aws_zsh_completer.sh
+fi
+
+
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
