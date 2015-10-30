@@ -77,6 +77,9 @@ fi
 ## percol
 source ${HOME}/.zsh/function/percol
 
+## fzf
+source ${HOME}/.zsh/function/fzf
+
 ## git-completion
 autoload bashcompinit
 source ${HOME}/.zsh/function/git-completion.bash
