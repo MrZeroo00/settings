@@ -32,6 +32,7 @@ tap universal-ctags/universal-ctags || true
 tap neovim/neovim || true
 tap yudai/gotty || true
 tap tkengo/highway || true
+tap beeftornado/rmtree || true
 
 # Packages
 install ack || true
@@ -48,6 +49,7 @@ install autossh || true
 install awscli || true
 install bash-completion || true
 install bats || true
+install beeftornado/rmtree/brew-rmtree || true
 # bish https://github.com/tdenniston/bish
 install boot2docker || true
 install boris || true
