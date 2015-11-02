@@ -100,3 +100,5 @@
 	#smudge = git-media filter-smudge
 [ghq]
 	root = ~/src
+[commit]
+	template = ~/.git_commit_msg.txt
