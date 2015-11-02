@@ -117,6 +117,7 @@ install highlight || true
 install highway || true
 install hping || true
 install htop-osx || true
+install http_load || true
 install httpie || true
 install httpry || true
 install hub || true
@@ -230,6 +231,7 @@ install wemux || true
 install wget || true
 install whois || true
 install wine || true
+install wrk || true
 install xonsh || true
 install xz || true
 install yasm || true
