@@ -313,6 +313,7 @@ install brew-cask || true
 #cask install limechat || true
 #cask install loading || true
 #cask install macs-fan-control || true
+#cask install manuscripts || true
 #cask install media-converter || true
 # monosnap https://monosnap.com/
 #cask install mou || true
