@@ -356,6 +356,7 @@ install brew-cask || true
 #cask install utorrent || true
 #cask install vagrant || true
 #cask install vagrant-manager || true
+#cask install vault || true
 #cask install virtualbox || true
 #cask install visual-studio-code || true
 #cask install vlc || true
