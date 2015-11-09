@@ -259,6 +259,7 @@ install brew-cask || true
 #cask install charles || true
 #cask install cheatsheet || true
 #cask install chefdk || true
+# Chemrtron https://github.com/cho45/Chemrtron
 # clipcard
 #cask install clipmenu || true
 #cask install clipy || true
