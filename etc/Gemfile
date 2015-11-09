@@ -21,6 +21,7 @@ gem 'tmuxinator'
 gem 'watson-ruby'
 gem 'serverkit'
 gem 'serverkit-defaults'
+gem 'ultrahook'
 gem 'winrm'
 
 #gem 'activerecord-import'
