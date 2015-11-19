@@ -226,6 +226,7 @@ zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 
 if [ -x "`which aws_zsh_completer.sh`" ]; then
   source aws_zsh_completer.sh
+  complete -C aws_completer aws
 fi
 
 case "${OS}" in
