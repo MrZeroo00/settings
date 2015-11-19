@@ -29,20 +29,21 @@
     "gulp": "~3.8.11",
     "istanbul": "^0.3.17",
     "jshint-stylish": "^2.0.1",
+    "json-diff": "^0.3.1",
     "karma": "^0.13.3",
     "karma-sinon": "^1.0.4",
+    "linux": "~2.2.0",
     "mdast": "~1.0.0",
     "mdr": "~0.1.0",
     "mocha": "^2.2.5",
     "pdf-markdown-annotator": "~1.0.8",
     "pretty-diff": "~0.2.1",
+    "ramda-cli": "~0.18.0",
     "sinon": "^1.15.4",
     "sloc": "~0.1.9",
+    "textlint": "~3.3.2",
     "vorlon": "~0.0.7",
     "wopr": "~0.0.3",
-    "ws": "~0.7.1",
-    "textlint": "~3.3.2",
-    "linux": "~2.2.0",
-    "ramda-cli": "~0.18.0"
+    "ws": "~0.7.1"
   }
 }
