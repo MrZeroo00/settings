@@ -225,7 +225,7 @@ sudo_path=({,/usr/local,/usr}/sbin(N-/))
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 
 if [ -x "`which aws_zsh_completer.sh`" ]; then
-  #source aws_zsh_completer.sh
+  source aws_zsh_completer.sh
 fi
 
 case "${OS}" in
