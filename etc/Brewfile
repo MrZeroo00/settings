@@ -33,6 +33,7 @@ tap neovim/neovim || true
 tap yudai/gotty || true
 tap tkengo/highway || true
 tap beeftornado/rmtree || true
+tap itchyny/rexdep || true
 
 # Packages
 install ack || true
@@ -193,6 +194,7 @@ install rcmdnk/rcmdnkpac/parse-plist || true
 install rds-command-line-tools || true
 install reattach-to-user-namespace || true
 install redis || true
+install rexdep || true
 install ricty --powerline --vim-powerline || true
 install rlwrap || true
 install rsense || true
