@@ -124,6 +124,7 @@ install httpie || true
 install httpry || true
 install hub || true
 install icdiff || true
+# icGrep http://parabix.costar.sfu.ca/wiki/ICgrep
 install iftop || true
 install imagemagick || true
 # intrace https://github.com/robertswiecki/intrace
@@ -258,6 +259,7 @@ install brew-cask || true
 #cask install bartender || true
 #cask install bettertouchtool || true
 #cask install betterzipql || true
+# boost http://b00st.io/
 #cask install cargo || true
 #cask install Chromium || true
 #cask install charles || true
