@@ -160,6 +160,7 @@ install mycli || true
 install mysql || true
 install --HEAD neovim || true
 # nessus http://www.tenable.com/products/nessus-vulnerability-scanner
+install netcat || true
 install ngrok || true
 install nkf || true
 install nmap || true
