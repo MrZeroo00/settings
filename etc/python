@@ -5,3 +5,4 @@ pip install --user thefuck
 pip install --user saws
 pip install --user blockdiag
 pip install --user pinggraph
+pip install --user jupyter
