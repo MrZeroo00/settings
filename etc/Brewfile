@@ -368,6 +368,7 @@ install brew-cask || true
 #cask install virtualbox || true
 #cask install visual-studio-code || true
 #cask install vlc || true
+# wallcat https://www.wall.cat
 #cask install wireshark || true
 #cask install xamarin-studio || true
 #cask install xmind || true
