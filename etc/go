@@ -35,3 +35,4 @@ go get github.com/mefellows/muxy
 go get github.com/tkuchiki/alp
 go get github.com/yuroyoro/gommit-m
 go get github.com/kohkimakimoto/zssh/cmd/zssh
+go get github.com/otiai10/amesh/amesh
