@@ -8,3 +8,4 @@ pip install --user pinggraph
 pip install --user jupyter
 pip install --user pandas
 pip install --user matplotlib
+pip install --user aws-shell
