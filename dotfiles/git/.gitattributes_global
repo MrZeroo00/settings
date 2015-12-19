@@ -15,3 +15,4 @@
 *.lwf filter=media -crlf
 *.ogg filter=media -crlf
 *.wav filter=media -crlf
+*.csv diff=csv
