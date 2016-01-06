@@ -24,6 +24,7 @@
 	interactive = auto
 	grep = auto
 [alias]
+	alias = confg --get-regexp \"alias.*\"
 	b = branch
 	br = browse-remote
 	ci = commit

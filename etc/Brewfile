@@ -35,6 +35,7 @@ tap yudai/gotty || true
 tap tkengo/highway || true
 tap beeftornado/rmtree || true
 tap itchyny/rexdep || true
+tap tldr-pages/tldr || true
 
 # Packages
 install ack || true
@@ -225,6 +226,7 @@ install terminal-notifier || true
 install the_silver_searcher || true
 install tig || true
 install tiger-vnc || true
+install tldr || true
 install tmate || true
 install tmux || true
 install tofrodos || true
@@ -233,6 +235,7 @@ install unison || true
 install universal-ctags || true
 install unzip || true
 # uzbl https://github.com/uzbl/uzbl
+install valgrind || true
 install w3m || true
 install weechat || true
 install wemux || true

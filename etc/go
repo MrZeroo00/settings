@@ -37,3 +37,4 @@ go get github.com/yuroyoro/gommit-m
 go get github.com/kohkimakimoto/zssh/cmd/zssh
 go get github.com/otiai10/amesh/amesh
 go get github.com/mizoR/croneye/...
+go get github.com/lukasmartinelli/pipecat
