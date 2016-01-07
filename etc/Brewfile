@@ -265,6 +265,7 @@ install brew-cask || true
 #cask install bartender || true
 #cask install bettertouchtool || true
 #cask install betterzipql || true
+#cask install bitbar || true
 # boost http://b00st.io/
 #cask install cargo || true
 #cask install Chromium || true
