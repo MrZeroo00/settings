@@ -360,6 +360,7 @@ install brew-cask || true
 #cask install textbar || true
 #cask install textexpander || true
 #cask install the-unarchiver || true
+# Tickeys https://github.com/yingDev/Tickeys
 #cask install tinkertool || true
 #cask install totalfinder || true
 #cask install totalspace || true
