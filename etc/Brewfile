@@ -164,6 +164,7 @@ install mysql || true
 install --HEAD neovim || true
 # nessus http://www.tenable.com/products/nessus-vulnerability-scanner
 install netcat || true
+install nghttp2 || true
 install ngrok || true
 install nkf || true
 install nmap || true
@@ -343,6 +344,7 @@ install brew-cask || true
 #cask install qlstephen || true
 #cask install quicklook-csv || true
 #cask install quicklook-json || true
+# remixos http://www.jide.com/en/remixos
 #cask install rightfont || true
 # riverflow http://questbe.at/riverflow/
 #cask install rstudio || true
