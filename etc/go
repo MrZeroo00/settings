@@ -39,3 +39,4 @@ go get github.com/otiai10/amesh/amesh
 go get github.com/mizoR/croneye/...
 go get github.com/lukasmartinelli/pipecat
 go get github.com/Songmu/goshim/cmd/goshim
+go get -u github.com/variadico/noti
