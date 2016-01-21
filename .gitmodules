@@ -44,3 +44,6 @@
 [submodule "dotfiles/zsh/.zprezto"]
 	path = dotfiles/zsh/.zprezto
 	url = git@github.com:sorin-ionescu/prezto.git
+[submodule "dotfiles/zsh/.zsh/.zim"]
+	path = dotfiles/zsh/.zsh/.zim
+	url = git@github.com:Eriner/zim.git
