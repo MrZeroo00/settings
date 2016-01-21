@@ -7,6 +7,7 @@
     "asar": "^0.7.2",
     "bower": "~1.2.8",
     "caniuse-cmd": "^1.0.0",
+    "devtool": "~1.2.2",
     "dot-clipboard": "~1.2.4",
     "electron-packager": "^5.0.1",
     "electron-prebuilt": "^0.30.4",
