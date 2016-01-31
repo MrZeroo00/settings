@@ -20,6 +20,7 @@ antigen bundle mafredri/zsh-async
 antigen bundle b4b4r07/emoji-cli
 antigen bundle b4b4r07/http_code
 antigen bundle jamesob/desk
+antigen bundle themattrix/bash-concurrent
 
 # Tell antigen that you're done.
 antigen apply
