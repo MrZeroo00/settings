@@ -5,6 +5,8 @@
   "dependencies": {},
   "devDependencies": {
     "asar": "^0.7.2",
+    "betwixt": "^0.0.0",
+    "black-screen": "^0.0.1",
     "bower": "~1.2.8",
     "caniuse-cmd": "^1.0.0",
     "devtool": "~1.2.2",
@@ -43,6 +45,7 @@
     "sinon": "^1.15.4",
     "sloc": "~0.1.9",
     "textlint": "~3.3.2",
+    "trendy": "^0.1.2",
     "vorlon": "~0.0.7",
     "wopr": "~0.0.3",
     "ws": "~0.7.1",
