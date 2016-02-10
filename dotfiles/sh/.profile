@@ -168,7 +168,7 @@ fi
 # rbenv
 add_path "${HOME}/.rbenv/bin"
 if [ -x "$(which rbenv)" ]; then
-  eval "$(rbenv init -)"
+  eval "$(rbenv init - --no-rehash)"
 fi
 
 
@@ -177,7 +177,7 @@ add_path "${HOME}/.pyenv/bin"
 if [ -x "$(which pyenv)" ]; then
   export PYENV_ROOT="${HOME}/.pyenv"
   export PATH="${PYENV_ROOT}/bin:${PATH}"
-  eval "$(pyenv init -)"
+  eval "$(pyenv init - --no-rehash)"
 fi
 
 
