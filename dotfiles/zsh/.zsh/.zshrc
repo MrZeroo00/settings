@@ -99,3 +99,7 @@ fi
 if [ -f ${HOME}/.zsh/.zshrc.`hostname -s`.local ]; then
   source ${HOME}/.zsh/.zshrc.`hostname -s`.local
 fi
+
+if type zprof > /dev/null 2>&1; then
+  zprof | less
+fi
