@@ -45,6 +45,7 @@ install ansible || true
 install apple-gcc42 || true
 install asciinema || true
 install aspell || true
+install assh || true
 install autoconf || true
 install autojump || true
 install automake || true
