@@ -10,7 +10,7 @@
 # commands that produce output or assume the shell is attached to a tty.
 #
 
-zmodload zsh/zprof
+#zmodload zsh/zprof
 
 # THIS FILE IS NOT INTENDED TO BE USED AS /etc/zshenv, NOR WITHOUT EDITING
 #return 0	# Remove this line after editing this file as appropriate
