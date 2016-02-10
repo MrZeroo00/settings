@@ -41,3 +41,4 @@ go get github.com/lukasmartinelli/pipecat
 go get github.com/Songmu/goshim/cmd/goshim
 go get -u github.com/variadico/noti
 go get github.com/google/codesearch
+go get -u github.com/tarao/apiconsole
