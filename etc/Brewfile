@@ -348,6 +348,7 @@ install brew-cask || true
 #cask install qlstephen || true
 #cask install quicklook-csv || true
 #cask install quicklook-json || true
+# quiver https://github.com/HappenApps/Quiver
 # remixos http://www.jide.com/en/remixos
 #cask install rightfont || true
 # riverflow http://questbe.at/riverflow/
