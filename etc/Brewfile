@@ -75,6 +75,7 @@ install cmigemo || true
 install codeclimate || true
 install codefirst/sparkling/brew-sparkling
 install coreutils || true
+install cpanminus || true
 install cppcheck || true
 install cscope || true
 install csshx || true
