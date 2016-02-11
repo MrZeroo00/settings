@@ -230,11 +230,6 @@ typeset -U sudo_path
 sudo_path=({,/usr/local,/usr}/sbin(N-/))
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 
-if [ -x "`which aws_zsh_completer.sh`" ]; then
-  source aws_zsh_completer.sh
-  complete -C aws_completer aws
-fi
-
 case "${OS}" in
   "Darwin")
   #compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open
