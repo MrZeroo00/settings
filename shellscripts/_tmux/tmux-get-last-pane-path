@@ -1,0 +1,14 @@
+if [[ -z $TMUX ]]; then
+  echo "you are not on tmux" >&2
+  exit 1
+fi
+
+if [[ -n $1 && $1 =~ ^[0-9]+$ ]]; then
+  arg="-t $1"
+fi
+
+{
+  tmux last-pane
+  tmux display-message -p -F "#{pane_current_path}" "$arg"
+  tmux last-pane
+} 2>/dev/null
