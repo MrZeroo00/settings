@@ -1,26 +1,21 @@
-source $HOME/.zsh/antigen/antigen.zsh
+export ZPLUG_HOME=$HOME/.zsh/zplug
+source $ZPLUG_HOME/zplug
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+zplug "themes/kolo", from:oh-my-zsh
 
-# Load the theme.
-#antigen theme robbyrussell
-antigen theme kolo
+#zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "plugins/osx", from:oh-my-zsh
+zplug "plugins/vagrant", from:oh-my-zsh
 
-#antigen bundle git
-antigen bundle command-not-found
-antigen bundle osx
-antigen bundle vagrant
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "mafredri/zsh-async"
+#zplug "sindresorhus/pure"
+zplug "b4b4r07/enhancd"
+zplug "b4b4r07/emoji-cli"
+zplug "b4b4r07/http_code"
+zplug "jamesob/desk"
+zplug "themattrix/bash-concurrent"
 
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle mafredri/zsh-async
-#antigen bundle sindresorhus/pure
-#antigen-bundle b4b4r07/enhancd
-antigen bundle b4b4r07/emoji-cli
-antigen bundle b4b4r07/http_code
-antigen bundle jamesob/desk
-#antigen bundle themattrix/bash-concurrent
-
-# Tell antigen that you're done.
-antigen apply
+zplug load --verbose
