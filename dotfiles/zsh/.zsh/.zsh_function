@@ -80,10 +80,6 @@ source ${HOME}/.zsh/function/percol
 ## fzf
 source ${HOME}/.zsh/function/fzf
 
-## git-completion
-autoload bashcompinit
-source ${HOME}/.zsh/function/git-completion.zsh
-
 ## magic-abbrev-expand
 source ${HOME}/.zsh/function/magic-abbrev-expand.sh
 #zle -N magic-abbrev-expand
