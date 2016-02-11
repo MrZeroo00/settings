@@ -36,6 +36,9 @@ dotfiles/zsh/.zsh/.chpwd-recent-dirs
 dotfiles/zsh/.zsh/.zcompcache/
 dotfiles/zsh/.zsh/.zcompdump*
 dotfiles/zsh/.zsh/cdd_pwd_list*
+dotfiles/zsh/.zsh/zplug/.cache
+dotfiles/zsh/.zsh/zplug/repos/
+dotfiles/zsh/.zsh/zplug/zcompdump
 dotfiles/zsh/.zsh/*local
 shellscripts/.*
 shellscripts/local
