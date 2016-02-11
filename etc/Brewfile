@@ -222,7 +222,7 @@ install smartmontools || true
 install socat || true
 install source-highlight || true
 install sox || true
-install spark || true
+#install spark || true
 install sqlite || true
 install sslscan || true
 install stow || true
