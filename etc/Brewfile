@@ -106,6 +106,7 @@ install ghi || true
 install gibo || true
 install gist || true
 install git || true
+install git-cal || true
 install git-forgot || true
 install git-lfs || true
 install git-now || true
