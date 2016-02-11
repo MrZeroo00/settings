@@ -16,6 +16,6 @@ zplug "b4b4r07/enhancd"
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/http_code"
 zplug "jamesob/desk"
-zplug "themattrix/bash-concurrent"
+#zplug "themattrix/bash-concurrent"
 
 zplug load --verbose
