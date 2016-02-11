@@ -1,4 +1,5 @@
-source $HOME/.zsh/.zsh_antigen
+#source $HOME/.zsh/.zsh_antigen
+source $HOME/.zsh/.zsh_zplug
 
 # User configuration
 
