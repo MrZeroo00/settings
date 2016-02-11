@@ -357,6 +357,7 @@ NeoBundle 'kopischke/vim-fetch'
 NeoBundle 'b4b4r07/vim-shellutils'
 NeoBundle 'asenac/vim-opengrok'
 NeoBundle 'sergei-dyshel/vim-abbrev-matcher'
+NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'jeaye/color_coded', {
       \ 'build' : {
       \     'mac' : 'mkdir build && cmake -E chdir build cmake .. && make && make install',
