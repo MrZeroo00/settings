@@ -18,6 +18,8 @@ zplug "b4b4r07/http_code"
 zplug "jamesob/desk"
 #zplug "themattrix/bash-concurrent"
 
+zplug "mrowa44/emojify", as:command
+
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
