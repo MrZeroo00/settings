@@ -369,6 +369,7 @@ install brew-cask || true
 #cask install sourcetree || true
 #cask install spectacle || true
 #cask install sqlitebrowser || true
+#cask install startninja || true
 #cask install sublime-text || true
 #cask install td-agent || true
 #cask install textbar || true
