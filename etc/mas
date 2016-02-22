@@ -1,26 +1,50 @@
 mas install 766939888  # 1Keyboard
+mas install 443987910  # 1Password
 mas install 408981426  # Aperture
 mas install 918858936  # Airmail 2
 mas install 411246225  # Caffeine
+mas install 630315610  # Clock
+mas install 442160773  # Cocoa JSON Editor
+mas install 923920635  # Current
+mas install 458034879  # Dash
 mas install 1055511498 # Day One
 mas install 422304217  # Day One
 mas install 913724705  # Disk App
 mas install 672206759  # Disk Diag
 mas install 549083868  # Display Menu
+mas install 1037994372 # DrCleanerPro
 mas install 695406827  # Dropzone 3
 mas install 524373870  # Due
 mas install 522294492  # Eggscellent
+mas install 738130898  # Focus
 mas install 815333099  # Foldery
+mas install 445211988  # FormatMatch
+mas install 510934532  # FreeMan
+mas install 682658836  # GarageBand
 mas install 467939042  # Growl
 mas install 467040476  # HiddenMe Free
+mas install 408981434  # iMovie
+mas install 408981381  # iPhoto
+mas install 414568915  # Key Codes
+mas install 409183694  # Keynote
 mas install 585126594  # Kiritori
 mas install 921923693  # LibreOffice Vanilla
 mas install 414030210  # LimeChat
 mas install 890031187  # Marked 2
 mas install 908787641  # MemoZou
+mas install 404747434  # MenuPop
+mas install 715768417  # Microsoft Remote Desktop
 mas install 992076693  # MindNode
+mas install 406827163  # Minutes
+mas install 540348655  # Monosnap
+mas install 419330170  # Moom
+mas install 627505674  # Nekoze
 mas install 777221999  # NewFileHere
+mas install 409203825  # Numbers
+mas install 473921881  # NSMonitor
 mas install 867299399  # OmniFocus
+mas install 409201541  # Pages
+mas install 568494494  # Pocket
 mas install 907364780  # Pomodoro One
 mas install 445189367  # PopClip
 mas install 948415170  # Pushbullet
@@ -30,5 +54,7 @@ mas install 886106985  # Sunrise Calendar
 mas install 431511738  # Timing
 mas install 472717129  # Type2Phone
 mas install 623795237  # Ulysses
+mas install 1024069033 # Veertu
 mas install 411680127  # WiFi Scanner
 mas install 909760813  # Who's On My WiFi
+mas install 497799835  # Xcode
