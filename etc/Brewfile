@@ -232,6 +232,7 @@ install stow || true
 install syncthing || true
 install sysdig || true
 install tcpflow || true
+install tcptrace || true
 install terminal-notifier || true
 install the_silver_searcher || true
 install tig || true
