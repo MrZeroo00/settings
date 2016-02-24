@@ -10,3 +10,4 @@ pip install --user pandas
 pip install --user matplotlib
 pip install --user aws-shell
 pip install --user twtxt
+pip install --user mitmproxy
