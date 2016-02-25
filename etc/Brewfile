@@ -37,6 +37,7 @@ tap beeftornado/rmtree || true
 tap itchyny/rexdep || true
 tap tldr-pages/tldr || true
 tap homebrew/nginx || true
+tap codekitchen/dinghy || true
 
 # Packages
 install ack || true
@@ -80,6 +81,7 @@ install cppcheck || true
 install cscope || true
 install csshx || true
 install curl || true
+install dinghy || true
 install direnv || true
 install docker || true
 install docker-compose || true
