@@ -242,3 +242,15 @@ esac
 if [ -f ${HOME}/.zsh/.zprofile.`hostname -s`.local ]; then
   source ${HOME}/.zsh/.zprofile.`hostname -s`.local
 fi
+
+
+# tmux
+if [ -x "$(which tmux)" ]; then
+  if [ -z $TMUX ]; then
+    if $(tmux has-session); then
+      tmux attach
+    else
+      tmux -l
+    fi
+  fi
+fi
