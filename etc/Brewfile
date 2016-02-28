@@ -38,6 +38,7 @@ tap itchyny/rexdep || true
 tap tldr-pages/tldr || true
 tap homebrew/nginx || true
 tap codekitchen/dinghy || true
+tap caskroom/cask || true
 
 # Packages
 install ack || true
@@ -264,7 +265,6 @@ install zsh || true
 install zsh-completions || true
 
 # .dmg
-install brew-cask || true
 #cask install accessmenubarapps || true
 #cask install adobe-reader || true
 #cask install alfred || true
