@@ -312,7 +312,6 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'ack.vim'
 NeoBundle 'grep.vim'
 "NeoBundle 'othree/eregex.vim'
-NeoBundle 'MultipleSearch'
 "NeoBundle 'SearchComplete'
 
 NeoBundle 'mattn/emmet-vim'
