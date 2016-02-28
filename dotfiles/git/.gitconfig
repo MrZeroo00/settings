@@ -116,3 +116,5 @@
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [stash]
 	showPatch = true
+[merge]
+	conflictstyle = diff3
