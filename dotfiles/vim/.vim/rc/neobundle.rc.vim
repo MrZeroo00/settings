@@ -338,7 +338,6 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'zoncoen/unite-autojump'
 NeoBundle 'joker1007/unite-pull-request'
-NeoBundle 't9md/vim-quickhl'
 "NeoBundle 'wellle/tmux-complete.vim' " become slow, comment out
 NeoBundle 'mhinz/vim-hugefile'
 NeoBundle 'osyo-manga/vim-over'
