@@ -11,3 +11,4 @@ pip install --user matplotlib
 pip install --user aws-shell
 pip install --user twtxt
 pip install --user mitmproxy
+pip install --user ipython
