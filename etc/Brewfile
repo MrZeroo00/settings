@@ -39,6 +39,7 @@ tap tldr-pages/tldr || true
 tap homebrew/nginx || true
 tap codekitchen/dinghy || true
 tap caskroom/cask || true
+tap caius/jo || true
 
 # Packages
 install ack || true
@@ -142,6 +143,7 @@ install imagemagick || true
 install ios-simulator-app-installer || true
 install jless || true
 install jmeter || true
+install jo || true
 install ipcalc || true
 install iperf3 || true
 install jq || true
