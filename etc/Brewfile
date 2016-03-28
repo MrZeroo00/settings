@@ -214,6 +214,7 @@ install rcmdnk/rcmdnkpac/parse-plist || true
 install rds-command-line-tools || true
 install reattach-to-user-namespace || true
 install redis || true
+install redpen || true
 install rexdep || true
 install ricty --powerline --vim-powerline || true
 install rlwrap || true
