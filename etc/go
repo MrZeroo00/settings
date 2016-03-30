@@ -46,3 +46,4 @@ go get github.com/yudai/gotty
 go get github.com/uber-common/cpustat
 go get github.com/iopipe/iopipe
 go get github.com/jtopjian/jsed
+go get github.com/dropbox/dbxcli
