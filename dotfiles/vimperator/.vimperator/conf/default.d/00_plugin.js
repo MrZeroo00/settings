@@ -133,7 +133,7 @@ liberator.globalVariables.plugin_loader_plugins = [
     //'maine_coon',
     //'marker_reader',
     //'memo',
-    'migemo_completion',
+    //'migemo_completion',
     //'moreqmarks',
     //'mouse_gestures',
     //'multi-exec',
@@ -180,7 +180,7 @@ liberator.globalVariables.plugin_loader_plugins = [
 
     // Migemo
     //'migemized_find',
-    'migemo-find',
+    //'migemo-find',
 
     // Session Manager
     //'session-manager',
