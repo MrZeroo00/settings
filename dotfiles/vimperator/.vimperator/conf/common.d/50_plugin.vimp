@@ -55,7 +55,7 @@ EOM
 let g:direct_sbm_use_services_by_tag = "d"
 let g:direct_sbm_use_services_by_post = "d"
 let g:direct_sbm_is_normalize = "true"
-let g:direct_sbm_is_use_migemo = "true"
+"let g:direct_sbm_is_use_migemo = "true"
 
 " hint_tombloo
 let g:hint_tombloo_key   = 'R'
