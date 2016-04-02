@@ -336,6 +336,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'tyru/current-func-info.vim'
 
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'Quramy/vison'
 NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'shawncplus/phpcomplete.vim'
@@ -369,7 +370,6 @@ NeoBundle 'jeaye/color_coded', {
       \     'unix' : 'mkdir build && cmake -E chdir build cmake .. && make && make install',
       \ }
       \ }
-NeoBundle 'Quramy/vison'
 
 NeoBundleLazy 'Shougo/neosnippet-snippets'
 "NeoBundleLazy 'yuku-t/vim-ref-ri'
