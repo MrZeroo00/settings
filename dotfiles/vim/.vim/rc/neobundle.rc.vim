@@ -320,6 +320,7 @@ NeoBundle 'kana/vim-submode'
 
 NeoBundle 'zoncoen/unite-autojump'
 NeoBundle 'joker1007/unite-pull-request'
+"NeoBundle 'sergei-dyshel/vim-abbrev-matcher'
 
 NeoBundle 'cohama/agit.vim'
 NeoBundle 'airblade/vim-gitgutter'
@@ -363,7 +364,6 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'kopischke/vim-fetch'
 NeoBundle 'b4b4r07/vim-shellutils'
 NeoBundle 'asenac/vim-opengrok'
-NeoBundle 'sergei-dyshel/vim-abbrev-matcher'
 NeoBundle 'jeaye/color_coded', {
       \ 'build' : {
       \     'mac' : 'mkdir build && cmake -E chdir build cmake .. && make && make install',
