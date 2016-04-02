@@ -305,6 +305,7 @@ endif
 "NeoBundle 'itchyny/thumbnail.vim'
 "NeoBundle 'ack.vim'
 "NeoBundle 'grep.vim'
+"NeoBundle 'taglist.vim'
 
 "NeoBundle 'closetag.vim'
 
@@ -319,7 +320,6 @@ NeoBundle 'kana/vim-submode'
 
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'taglist.vim'
 NeoBundle 'vim-scripts/gtags.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'joonty/vdebug.git'
