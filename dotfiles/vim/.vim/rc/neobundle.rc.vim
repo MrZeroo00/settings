@@ -302,21 +302,23 @@ endif
 " NeoBundle 'tpope/vim-fugitive'
 
 " my
-NeoBundle 'itchyny/thumbnail.vim'
+"NeoBundle 'itchyny/thumbnail.vim'
+"NeoBundle 'ack.vim'
+"NeoBundle 'grep.vim'
+
+"NeoBundle 'closetag.vim'
+
 NeoBundle 'fuenor/im_control.vim'
 NeoBundle 'Align'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kana/vim-submode'
 
-NeoBundle 'ack.vim'
-NeoBundle 'grep.vim'
 "NeoBundle 'othree/eregex.vim'
 "NeoBundle 'SearchComplete'
 
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'closetag.vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'vim-scripts/gtags.vim'
 NeoBundle 'airblade/vim-gitgutter'
