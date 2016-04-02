@@ -318,6 +318,9 @@ NeoBundle 'kana/vim-submode'
 "NeoBundle 'othree/eregex.vim'
 "NeoBundle 'SearchComplete'
 
+NeoBundle 'zoncoen/unite-autojump'
+NeoBundle 'joker1007/unite-pull-request'
+
 NeoBundle 'cohama/agit.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mattn/gist-vim'
@@ -343,8 +346,6 @@ NeoBundle 'vim-scripts/DirDiff.vim'
 NeoBundle 'tyru/capture.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'zoncoen/unite-autojump'
-NeoBundle 'joker1007/unite-pull-request'
 "NeoBundle 'wellle/tmux-complete.vim' " become slow, comment out
 NeoBundle 'mhinz/vim-hugefile'
 NeoBundle 'osyo-manga/vim-over'
