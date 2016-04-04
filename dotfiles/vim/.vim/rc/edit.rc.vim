@@ -72,7 +72,7 @@ set grepprg=ack\ -a
 set isfname-==
 
 " Reload .vimrc automatically.
-autocmd MyAutoCmd BufWritePost .vimrc,vimrc,*.rc.vim,neobundle.toml
+autocmd MyAutoCmd BufWritePost .vimrc,vimrc,*.rc.vim,neobundle.toml nested
       \ NeoBundleClearCache | source $MYVIMRC | redraw
 
 " Keymapping timeout.

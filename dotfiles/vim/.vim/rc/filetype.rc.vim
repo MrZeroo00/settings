@@ -13,7 +13,7 @@ augroup MyAutoCmd
         \let b:current_syntax='' | syntax enable
 
   " Auto reload VimScript.
-  autocmd BufWritePost,FileWritePost *.vim if &autoread
+  autocmd BufWritePost,FileWritePost *.vim nested if &autoread
         \ | source <afile> | echo 'source ' . bufname('%') | endif
 
   " Manage long Rakefile easily
