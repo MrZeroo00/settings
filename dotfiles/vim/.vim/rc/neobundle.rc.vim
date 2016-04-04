@@ -310,7 +310,7 @@ endif
 "NeoBundle 'closetag.vim'
 
 NeoBundle 'fuenor/im_control.vim'
-NeoBundle 'Align'
+NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'yuroyoro/monday'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kana/vim-submode'
@@ -353,6 +353,7 @@ NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'osyo-manga/unite-qfixhowm'
 
+NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'vim-scripts/DirDiff.vim'
 NeoBundle 'tyru/capture.vim'
 NeoBundle 't9md/vim-quickhl'
