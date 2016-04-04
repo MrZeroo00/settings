@@ -319,6 +319,7 @@ NeoBundle 'kana/vim-submode'
 "NeoBundle 'SearchComplete'
 
 NeoBundle 'zoncoen/unite-autojump'
+NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'joker1007/unite-pull-request'
 "NeoBundle 'sergei-dyshel/vim-abbrev-matcher'
 
