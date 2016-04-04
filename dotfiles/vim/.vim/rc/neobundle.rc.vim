@@ -378,36 +378,25 @@ NeoBundle 'jeaye/color_coded', {
       \ }
       \ }
 
-NeoBundleLazy 'Shougo/neosnippet-snippets'
 "NeoBundleLazy 'yuku-t/vim-ref-ri'
 "NeoBundleLazy 'szw/vim-tags'
-"NeoBundleLazy 'tpope/vim-endwise'
-"NeoBundle 'marcus/rsense'
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \   'filetypes': 'ruby',
-      \ }}
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
       \ 'rtp':  'vimperator/contrib/vim/'
       \ }
-NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
-      \ 'depends' : 't9md/vim-choosewin',
-      \ 'unite_sources' : ['file']
-      \ }
-NeoBundleLazy 'sgur/vim-textobj-parameter'
-NeoBundleLazy 'osyo-manga/vim-textobj-multiblock'
-NeoBundleLazy 'osyo-manga/vim-textobj-multitextobj'
+
 "NeoBundleLazy 'terryma/vim-multiple-cursors', {
 "      \ 'autoload': {
 "      \   'commands': ['MultipleCursorsFind'],
 "      \}}
-
 NeoBundleLazy 'mattn/emoji-vim',  {
       \ 'commands' : 'Emoji',
       \ }
+
+NeoBundleLazy 'sgur/vim-textobj-parameter'
+NeoBundleLazy 'osyo-manga/vim-textobj-multiblock'
+NeoBundleLazy 'osyo-manga/vim-textobj-multitextobj'
 
 NeoBundleLazy 'lambdalisue/unite-grep-vcs', {
       \ 'autoload': {
@@ -416,7 +405,19 @@ NeoBundleLazy 'lambdalisue/unite-grep-vcs', {
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
       \ 'unite_sources' : 'locate',
       \ }}
+NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
+      \ 'depends' : 't9md/vim-choosewin',
+      \ 'unite_sources' : ['file']
+      \ }
 
+"NeoBundleLazy 'tpope/vim-endwise'
+"NeoBundle 'marcus/rsense'
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+      \ 'autoload' : {
+      \   'insert' : 1,
+      \   'filetypes': 'ruby',
+      \ }}
+NeoBundleLazy 'Shougo/neosnippet-snippets'
 NeoBundleLazy 'lambdalisue/vim-gista', {
       \ 'autoload': {
       \   'commands': ['Gista'],
