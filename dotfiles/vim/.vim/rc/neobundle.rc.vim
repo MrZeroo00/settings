@@ -378,8 +378,6 @@ NeoBundle 'jeaye/color_coded', {
       \ }
       \ }
 
-"NeoBundleLazy 'yuku-t/vim-ref-ri'
-"NeoBundleLazy 'szw/vim-tags' " => https://github.com/alpaca-tc/alpaca_tags
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
@@ -411,6 +409,7 @@ NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
       \ }
 
 "NeoBundleLazy 'tpope/vim-endwise'
+"NeoBundleLazy 'szw/vim-tags' " => https://github.com/alpaca-tc/alpaca_tags
 "NeoBundle 'marcus/rsense'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
       \ 'autoload' : {
