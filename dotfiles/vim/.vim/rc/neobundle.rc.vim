@@ -357,6 +357,8 @@ NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'osyo-manga/unite-qfixhowm'
 
 NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'vim-scripts/DirDiff.vim'
 NeoBundle 'tyru/capture.vim'
 NeoBundle 't9md/vim-quickhl'
