@@ -379,7 +379,7 @@ NeoBundle 'jeaye/color_coded', {
       \ }
 
 "NeoBundleLazy 'yuku-t/vim-ref-ri'
-"NeoBundleLazy 'szw/vim-tags'
+"NeoBundleLazy 'szw/vim-tags' " => https://github.com/alpaca-tc/alpaca_tags
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
       \ 'name': 'vimperator-syntax',
       \ 'type': 'hg',
