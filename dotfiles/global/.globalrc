@@ -32,7 +32,7 @@
 #	:tc=native:
 #
 default:\
-	:tc=native:
+	:tc=native:tc=pygments:
 native:\
 	:tc=gtags:tc=htags:
 user:\
