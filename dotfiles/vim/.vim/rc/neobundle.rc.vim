@@ -339,6 +339,7 @@ NeoBundle 'tyru/current-func-info.vim'
 "NeoBundle 'osyo-manga/shabadou.vim'
 "NeoBundle 'osyo-manga/vim-watchdogs'
 
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Quramy/vison'
 NeoBundle 'stephpy/vim-yaml'
