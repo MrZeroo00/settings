@@ -409,18 +409,19 @@ NeoBundleLazy 'mattn/emoji-vim',  {
       \ 'commands' : 'Emoji',
       \ }
 
+NeoBundleLazy 'lambdalisue/unite-grep-vcs', {
+      \ 'autoload': {
+      \   'unite_sources': ['grep/git', 'grep/hg'],
+      \}}
 NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
       \ 'unite_sources' : 'locate',
       \ }}
+
 NeoBundleLazy 'lambdalisue/vim-gista', {
       \ 'autoload': {
       \   'commands': ['Gista'],
       \   'mappings': '<Plug>(gista-',
       \   'unite_sources': 'gista',
-      \}}
-NeoBundleLazy 'lambdalisue/unite-grep-vcs', {
-      \ 'autoload': {
-      \   'unite_sources': ['grep/git', 'grep/hg'],
       \}}
 NeoBundleLazy 'codegram/vim-codereview', {
       \ 'depends' : 'junkblocker/patchreview-vim',
