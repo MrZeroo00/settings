@@ -537,10 +537,10 @@ if neobundle#tap('unite-choosewin-actions') " {{{
 endif " }}}
 
 "" vim-expand-regin
-if neobundle#tap('vim-expand-region') "{{{
-  vmap v <Plug>(expand_region_expand)
-  vmap <C-v> <Plug>(expand_region_shrink)
-endif "}}}
+"if neobundle#tap('vim-expand-region') "{{{
+"  vmap v <Plug>(expand_region_expand)
+"  vmap <C-v> <Plug>(expand_region_shrink)
+"endif "}}}
 
 "" vim-go
 if neobundle#tap('vim-go') "{{{
