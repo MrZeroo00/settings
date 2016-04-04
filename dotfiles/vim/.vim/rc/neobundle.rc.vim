@@ -336,6 +336,8 @@ NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'osyo-manga/vim-precious'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'tyru/current-func-info.vim'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-watchdogs'
 
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Quramy/vison'
