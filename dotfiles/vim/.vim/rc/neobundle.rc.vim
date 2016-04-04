@@ -408,6 +408,10 @@ NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
       \ 'unite_sources' : ['file']
       \ }
 
+NeoBundleLazy 'lambdalisue/vim-gita', {
+      \ 'autoload': {
+      \   'commands': ['Gita'],
+      \}}
 "NeoBundleLazy 'tpope/vim-endwise'
 "NeoBundleLazy 'szw/vim-tags' " => https://github.com/alpaca-tc/alpaca_tags
 "NeoBundle 'marcus/rsense'
