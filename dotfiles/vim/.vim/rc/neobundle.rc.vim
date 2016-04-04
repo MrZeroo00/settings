@@ -417,6 +417,11 @@ NeoBundleLazy 'lambdalisue/unite-grep-vcs', {
       \ 'autoload': {
       \   'unite_sources': ['grep/git', 'grep/hg'],
       \}}
+NeoBundleLazy 'codegram/vim-codereview', {
+      \ 'depends' : 'junkblocker/patchreview-vim',
+      \ 'autoload': {
+      \   'commands': ['CodeReview'],
+      \}}
 
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
