@@ -388,6 +388,10 @@ NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
 "      \ 'autoload': {
 "      \   'commands': ['MultipleCursorsFind'],
 "      \}}
+NeoBundleLazy 'terryma/vim-expand-region', {
+      \ 'autoload': {
+      \   'mappings': ['(expand_region']
+      \}}
 NeoBundleLazy 'mattn/emoji-vim',  {
       \ 'commands' : 'Emoji',
       \ }

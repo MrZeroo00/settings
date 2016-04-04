@@ -536,6 +536,12 @@ if neobundle#tap('unite-choosewin-actions') " {{{
   call neobundle#untap()
 endif " }}}
 
+"" vim-expand-regin
+if neobundle#tap('vim-expand-region') "{{{
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+endif "}}}
+
 "" vim-go
 if neobundle#tap('vim-go') "{{{
   let g:go_fmt_fail_silently = 1
