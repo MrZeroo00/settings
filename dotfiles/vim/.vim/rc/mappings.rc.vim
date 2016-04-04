@@ -389,7 +389,7 @@ endfunction"}}}
 "nnoremap <silent> [Alt]O O<Space><BS><ESC>
 "" Yank to end line.
 "nnoremap [Alt]y y$
-"nnoremap Y y$
+nnoremap Y y$
 "nnoremap x "_x
 "
 "" Useless commands
@@ -748,6 +748,8 @@ endfunction  "}}}
 
 "" my
 " key bindings
+nnoremap + <C-a>
+nnoremap - <C-x>
 nmap <C-e> :!eijiro <C-R><C-W><CR>
 nmap ,man :!man -S 2,3,1,4,5,6,7,8,9 <C-R><C-W><CR>
 map ,cd :cd %:p:h<CR>
