@@ -495,7 +495,7 @@ nmap ,gs :Gtags -s <C-R><C-W><CR>
 nmap ,gg :Gtags -g <C-R><C-W><CR>
 nmap <C-n> :cnext<CR>
 nmap <C-p> :cprevious<CR>
-"map <C-]> :GtagsCursor<CR>
+map <C-]> :GtagsCursor<CR>
 "nmap <C-J> <C-W>j<C-W>_
 "nmap <C-K> <C-W>k<C-W>_
 
