@@ -489,6 +489,7 @@ let g:gofmt_command = 'goimports'
 let g:gocomplete#system_function = 'vimproc#system'
 
 "" gtags
+let g:Gtags_Close_When_Single = 1
 nmap ,gtags :Gtags <C-R><C-W><CR>
 nmap ,gr :Gtags -r <C-R><C-W><CR>
 nmap ,gs :Gtags -s <C-R><C-W><CR>
