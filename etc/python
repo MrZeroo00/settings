@@ -13,3 +13,4 @@ pip install --user twtxt
 pip install --user mitmproxy
 pip install --user ipython
 pip install --user Pygments
+pip install --user voltron
