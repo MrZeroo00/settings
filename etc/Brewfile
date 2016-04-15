@@ -40,6 +40,7 @@ tap homebrew/nginx || true
 tap codekitchen/dinghy || true
 tap caskroom/cask || true
 tap caius/jo || true
+tap passy/givegif || true
 
 # Packages
 install ack || true
@@ -117,6 +118,7 @@ install git-lfs || true
 install git-now || true
 install git-secrets || true
 install gitsh || true
+install givegif || true
 install global --with-exuberant-ctags --with-pygments || true
 install gnu-tar || true
 install go --cross-compile-common || true
