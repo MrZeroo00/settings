@@ -41,6 +41,7 @@ tap codekitchen/dinghy || true
 tap caskroom/cask || true
 tap caius/jo || true
 tap passy/givegif || true
+tap homebrew/services || true
 
 # Packages
 install ack || true
