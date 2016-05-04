@@ -92,6 +92,7 @@ install docker-compose || true
 install docker-machine || true
 install docker-swarm || true
 install dynamodb-local || true
+# egzact https://github.com/greymd/egzact
 install emacs || true
 install embulk || true
 install entr || true
