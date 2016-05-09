@@ -370,6 +370,7 @@ install zsh-completions || true
 #cask install qlstephen || true
 #cask install quicklook-csv || true
 #cask install quicklook-json || true
+# quitter https://marco.org/apps#quitter
 # quiver https://github.com/HappenApps/Quiver
 # remixos http://www.jide.com/en/remixos
 #cask install rightfont || true
