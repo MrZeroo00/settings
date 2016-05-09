@@ -42,6 +42,7 @@ tap caskroom/cask || true
 tap caius/jo || true
 tap passy/givegif || true
 tap homebrew/services || true
+tap jhawthorn/fzy || true
 
 # Packages
 install ack || true
@@ -106,6 +107,7 @@ install fontforge || true
 install fortune || true
 install fpp || true
 install fzf || true
+install fzy || true
 # geeknote http://www.geeknote.me/
 install homebrew/dupes/gdb || true
 install homebrew/head-only/xhyve || true
