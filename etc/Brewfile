@@ -351,6 +351,7 @@ install zsh-completions || true
 #cask install krita || true
 #cask install launchrocket || true
 #cask install libreoffice || true
+#cask install licecap || true
 #cask install limechat || true
 #cask install loading || true
 #cask install macs-fan-control || true
