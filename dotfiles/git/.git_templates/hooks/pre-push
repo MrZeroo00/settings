@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 守りたいbranch名を定義
 PROTECTED_BRANCHES=( trunk master )
@@ -17,12 +17,12 @@ do
   # エラーメッセージを定義
   MESSAGE="$PROTECTED_BRANCH には $PUSH_COMMAND してはダメです！先にgit fetch && git merge origin $PROTECTED_BRANCH すること。by pre-push hook"
 
-  if [[ $PUSH_COMMAND =~ $IS_DESTRUCTIVE ]] && [ $CURRENT_BRANCH = $PROTECTED_BRANCH ]; then
+  if [[ $PUSH_COMMAND =~ $IS_DESTRUCTIVE ]] && [[ ! $PUSH_COMMAND =~ --force-with-lease ]] && [ $CURRENT_BRANCH = $PROTECTED_BRANCH ]; then
     echo $MESSAGE
     exit 1
   fi
 
-  if [[ $PUSH_COMMAND =~ $IS_DESTRUCTIVE ]] && [[ $PUSH_COMMAND =~ $PROTECTED_BRANCH ]]; then
+  if [[ $PUSH_COMMAND =~ $IS_DESTRUCTIVE ]] && [[ ! $PUSH_COMMAND =~ --force-with-lease ]] && [[ $PUSH_COMMAND =~ $PROTECTED_BRANCH ]]; then
     echo $MESSAGE
     exit 1
   fi
