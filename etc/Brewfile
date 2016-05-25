@@ -139,6 +139,7 @@ install hping || true
 install htop-osx || true
 install http_load || true
 install httpie || true
+install httping || true
 install httpry || true
 install hub || true
 install icdiff || true
