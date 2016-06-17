@@ -70,6 +70,7 @@
 	external = git-diff-wrapper
 	tool = vim-diff
 	algorithm = patience
+	compactionHeuristic = true
 [pager]
 	log = diff-highlight | lv -c
 	show = diff-highlight | lv -c
@@ -122,3 +123,5 @@
 	showPatch = true
 [merge]
 	conflictstyle = diff3
+[interactive]
+	diffFilter = diff-highlight
