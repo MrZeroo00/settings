@@ -15,3 +15,4 @@ pip install --user ipython
 pip install --user Pygments
 pip install --user voltron
 pip install --user awslogs --ignore-installed six
+# marker https://github.com/pindexis/marker
