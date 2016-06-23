@@ -85,6 +85,7 @@ install cpanminus || true
 install cppcheck || true
 install cscope || true
 install csshx || true
+# ctypes.sh https://github.com/taviso/ctypes.sh
 install curl || true
 install dinghy || true
 install direnv || true
