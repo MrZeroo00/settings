@@ -3,3 +3,4 @@ cpanm App::YG
 cpanm App::FromUnixtime
 cpanm App::Randf
 cpanm Text::Chord::Piano
+# encoreutils https://github.com/xtetsuji/encoreutils
