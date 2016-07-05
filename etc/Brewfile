@@ -293,6 +293,7 @@ install zsh-completions || true
 #cask install bettertouchtool || true
 #cask install betterzipql || true
 #cask install bitbar || true
+# blisk https://blisk.io/
 # boost http://b00st.io/
 #cask install cargo || true
 #cask install Chromium || true
