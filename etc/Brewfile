@@ -157,6 +157,7 @@ install iperf3 || true
 install jq || true
 # jsonnet https://github.com/google/jsonnet
 install keychain || true
+install kibana || true
 # kwm https://github.com/koekeishiya/kwm
 install lesspipe || true
 install lha || true
