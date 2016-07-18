@@ -169,6 +169,7 @@ install lua || true
 # luakit https://github.com/mason-larobina/luakit
 install luarocks || true
 install lv || true
+# m-cli https://github.com/rgcr/m-cli
 install macvim --HEAD --with-lua || true
 install mackup || true
 install argon/mas/mas || true
