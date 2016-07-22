@@ -55,6 +55,7 @@ export SVN_EDITOR='vim'
 export GIT_EDITOR="$(git var GIT_EDITOR)"
 export TERMSCREEN='screen-bce'
 #export SSLKEYLOGFILE="${HOME}/sslkey.log"
+export XDG_CONFIG_HOME=~/.config
 
 #export GREP_OPTIONS=""
 #GREP_OPTIONS="--binary-files=without-match"
