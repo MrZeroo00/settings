@@ -3,7 +3,7 @@
 "
 
 " Anywhere SID.
-function! s:SID_PREFIX()
+function! s:SID_PREFIX() abort
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
@@ -12,16 +12,14 @@ endfunction
 " Show <TAB> and <CR>
 set list
 if IsWindows()
-  set listchars=tab:>-,trail:-,extends:>,precedes:<
+   set listchars=tab:>-,trail:-,extends:>,precedes:<
 else
-  set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
+   set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
 endif
 " Always display statusline.
 set laststatus=2
 " Height of command line.
 set cmdheight=2
-" Scroll off
-set scrolloff=5
 " Not show command on statusline.
 set noshowcmd
 " Show title.
@@ -29,50 +27,17 @@ set title
 " Title length.
 set titlelen=95
 " Title string.
-let &titlestring="
+let &g:titlestring="
       \ %{expand('%:p:~:.')}%(%m%r%w%)
       \ %<\(%{".s:SID_PREFIX()."strwidthpart(
       \ fnamemodify(&filetype ==# 'vimfiler' ?
       \ substitute(b:vimfiler.current_dir, '.\\zs/$', '', '') : getcwd(), ':~'),
       \ &columns-len(expand('%:p:.:~')))}\) - VIM"
-
-" Set tabline.
-function! s:my_tabline()  "{{{
-  let s = ''
-
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-
-    let no = i  " display 0-origin tabpagenr.
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-
-    " Use gettabvar().
-    let title =
-          \ !exists('*gettabvar') ?
-          \      fnamemodify(bufname(bufnr), ':t') :
-          \ gettabvar(i, 'title') != '' ?
-          \      gettabvar(i, 'title') :
-          \      fnamemodify((i == tabpagenr() ?
-          \       getcwd() : gettabvar(i, 'cwd')), ':t')
-
-    let title = '[' . title . ']'
-
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= title
-    let s .= mod
-    let s .= '%#TabLineFill#'
-  endfor
-
-  let s .= '%#TabLineFill#%T%=%#TabLine#'
-  return s
-endfunction "}}}
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+" Disable tabline.
 set showtabline=0
 
 " Set statusline.
-let &statusline="%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
+let &g:statusline="%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
       \ . ".(winnr('#')==winnr()?'#':'').']':''}\ "
       \ . "%{(&previewwindow?'[preview] ':'').expand('%:t')}"
       \ . "\ %=%{(winnr('$')==1 || winnr('#')!=winnr()) ?
@@ -85,16 +50,31 @@ set linebreak
 set showbreak=\
 set breakat=\ \	;:,!?
 " Wrap conditions.
-"set whichwrap+=h,l,<,>,[,],b,s,~
+set whichwrap+=h,l,<,>,[,],b,s,~
 if exists('+breakindent')
-  set breakindent
-  set wrap
+   set breakindent
+   set wrap
 else
-  set nowrap
+   set nowrap
 endif
 
-" Do not display greetings message at the time of Vim start.
+" Do not display the greetings message at the time of Vim start.
 set shortmess=aTI
+
+" Do not display the completion messages
+set noshowmode
+if has('patch-7.4.314')
+  set shortmess+=c
+else
+  autocmd MyAutoCmd VimEnter *
+        \ highlight ModeMsg guifg=bg guibg=bg |
+        \ highlight Question guifg=bg guibg=bg
+endif
+
+" Do not display the edit messages
+if has('patch-7.4.1570')
+  set shortmess+=F
+endif
 
 " Don't create backup.
 set nowritebackup
@@ -104,8 +84,8 @@ set backupdir-=.
 
 " Disable bell.
 set t_vb=
-set noerrorbells
 set novisualbell
+set belloff=all
 
 " Display candidate supplement.
 set nowildmenu
@@ -120,15 +100,11 @@ set wildoptions=tagfile
 " Disable menu
 let g:did_install_default_menus = 1
 
-if !&verbose
-  " Enable spell check.
-  set spelllang=en_us
-  " Enable CJK support.
-  set spelllang+=cjk
-endif
-
 " Completion setting.
 set completeopt=menuone
+if has('patch-7.4.775')
+  set completeopt+=noinsert
+endif
 " Don't complete from other buffer.
 set complete=.
 "set complete=.,w,b,i,t
@@ -156,11 +132,9 @@ set cmdwinheight=5
 set noequalalways
 
 " Adjust window size of preview and help.
-set previewheight=16
+set previewheight=8
 set helpheight=12
 
-" Don't redraw while macro executing.
-set lazyredraw
 set ttyfast
 
 " When a line is long, do not omit it in @.
@@ -168,10 +142,7 @@ set display=lastline
 " Display an invisible letter with hex format.
 "set display+=uhex
 
-" View setting.
-set viewdir=$CACHE/vim_view viewoptions-=options viewoptions+=slash,unix
-
-function! s:strwidthpart(str, width) "{{{
+function! s:strwidthpart(str, width) abort "{{{
   if a:width <= 0
     return ''
   endif
@@ -188,61 +159,16 @@ endfunction"}}}
 
 if v:version >= 703
   " For conceal.
-  set conceallevel=2 concealcursor=iv
+   set conceallevel=2 concealcursor=niv
 
-  set colorcolumn=79
+   set colorcolumn=79
 
   " Use builtin function.
-  function! s:wcswidth(str)
+  function! s:wcswidth(str) abort
     return strwidth(a:str)
   endfunction
-  finish
+else
+  function! s:wcswidth(str) abort
+    return len(a:str)
+  endfunction
 endif
-
-function! s:wcswidth(str)
-  if a:str =~# '^[\x00-\x7f]*$'
-    return strlen(a:str)
-  end
-
-  let mx_first = '^\(.\)'
-  let str = a:str
-  let width = 0
-  while 1
-    let ucs = char2nr(substitute(str, mx_first, '\1', ''))
-    if ucs == 0
-      break
-    endif
-    let width += s:_wcwidth(ucs)
-    let str = substitute(str, mx_first, '', '')
-  endwhile
-  return width
-endfunction
-
-" UTF-8 only.
-function! s:_wcwidth(ucs)
-  let ucs = a:ucs
-  if (ucs >= 0x1100
-        \  && (ucs <= 0x115f
-        \  || ucs == 0x2329
-        \  || ucs == 0x232a
-        \  || (ucs >= 0x2e80 && ucs <= 0xa4cf
-        \      && ucs != 0x303f)
-        \  || (ucs >= 0xac00 && ucs <= 0xd7a3)
-        \  || (ucs >= 0xf900 && ucs <= 0xfaff)
-        \  || (ucs >= 0xfe30 && ucs <= 0xfe6f)
-        \  || (ucs >= 0xff00 && ucs <= 0xff60)
-        \  || (ucs >= 0xffe0 && ucs <= 0xffe6)
-        \  || (ucs >= 0x20000 && ucs <= 0x2fffd)
-        \  || (ucs >= 0x30000 && ucs <= 0x3fffd)
-        \  ))
-    return 2
-  endif
-  return 1
-endfunction
-"}}}
-
-" Highlight
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
-match ZenkakuSpace /　/
-"highlight tabs ctermbg=green guibg=green
-"match tabs /\t/

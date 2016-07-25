@@ -36,30 +36,29 @@ let g:eskk#start_completion_length = 2
 "let g:eskk#map_normal_keys = 0
 
 " Toggle debug.
-nnoremap <silent> [Space]ed  :<C-u>call ToggleVariable('g:eskk#debug')<CR>
+nnoremap <silent> [Space]ed
+      \ :<C-u>call ToggleVariable('g:eskk#debug')<CR>
 
 autocmd MyAutoCmd User eskk-initialize-post
-      \ EskkMap -remap jj <Plug>(eskk:disable)<Esc>
+      \ EskkMap -remap jj <ESC>
 
 let g:eskk#dictionary = {
       \   'path': expand('$CACHE/skk-jisyo'),
       \   'sorted': 0,
       \   'encoding': 'utf-8',
       \}
-" Use /bin/sh -c "VTE_CJK_WIDTH=1 gnome-terminal --disable-factory"
-" instead of this settings.
-"if &encoding == 'utf-8' && !has('gui_running')
-" GNOME Terminal only.
+if $TERM !~# '^rxvt' && has('nvim') && $NVIM_GUI == ''
+  " For neovim only.
 
-" Use <> instead of ▽.
-"let g:eskk#marker_henkan = '<>'
-" Use >> instead of ▼.
-"let g:eskk#marker_henkan_select = '>>'
-"endif
+  " Use <> instead of ▽.
+  let g:eskk#marker_henkan = '<>'
+  " Use >> instead of ▼.
+  let g:eskk#marker_henkan_select = '>>'
+endif
 
 " Define table.
 autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
-function! s:eskk_initial_pre() "{{{
+function! s:eskk_initial_pre() abort "{{{
   let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
   call t.add_map('z ', '　')
   call t.add_map('~', '〜')

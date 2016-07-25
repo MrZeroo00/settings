@@ -9,63 +9,38 @@ set ambiwidth=double
 if has('win32') || has('win64')
   " For Windows.
 
-  "set guifontwide=VL\ Gothic:h11
-  "set guifontwide=MigMix\ 1M:h11
-  set guifontwide=Ricty:h12
+  " set guifontwide=VL\ Gothic:h11
+   set guifontwide=Ricty:h12
 
-  set guifont=Ricty:h12
-  "set guifont=Anonymous\ Pro:h11
-  "set guifont=Courier\ New:h11
-  "set guifont=MS\ Gothic:h11
-  "set guifont=VL\ Gothic:h11
-  "set guifont=Consolas:h12
-  "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
-  "set guifont=Inconsolata:h12
-  "set guifont=Terminal:h10:cSHIFTJIS
+   set guifont=Ricty:h12
+  " set guifont=Anonymous\ Pro:h11
+  " set guifont=Courier\ New:h11
+  " set guifont=MS\ Gothic:h11
+  " set guifont=VL\ Gothic:h11
+  " set guifont=Consolas:h12
+  " set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+  " set guifont=Inconsolata:h12
+  " set guifont=Terminal:h10:cSHIFTJIS
 
   " Number of pixel lines inserted between characters.
-  set linespace=2
+   set linespace=2
 
   if has('patch-7.4.394')
     " Use DirectWrite
-    set renderoptions=type:directx,gammma:2.2,mode:3
+     "set renderoptions=type:directx
   endif
-
-  " Toggle font setting.
-  function! FontToggle()
-    if &guifont=~ '^VL Gothic:'
-      set guifont=Courier\ New:h11
-      set guifontwide=VL\ Gothic:h11
-
-      " Width of window.
-      set columns=155
-      " Height of window.
-      set lines=50
-    else
-      set guifont=VL\ Gothic:h11.5
-      set guifontwide=
-
-      " Width of window.
-      set columns=200
-      " Height of window.
-      set lines=43
-    endif
-  endfunction
-
-  nnoremap TF     :<C-u>call FontToggle()<CR>
 
   if has('kaoriya')
     " For Kaoriya only.
-    set ambiwidth=auto
+     set ambiwidth=auto
   endif
 elseif has('mac')
   " For Mac.
-  "set guifont=Osaka-Mono:h11
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h11
+   set guifont=Osaka－等幅:h14
 else
   " For Linux.
-  set guifontwide=VL\ Gothic\ 11
-  set guifont=Courier\ 10\ Pitch\ 11
+   set guifontwide=VL\ Gothic\ 13
+   set guifont=Courier\ 10\ Pitch\ 14
 endif"}}}
 
 "---------------------------------------------------------------------------
@@ -73,9 +48,9 @@ endif"}}}
 "
 if has('win32') || has('win64')
   " Width of window.
-  set columns=230
+   set columns=230
   " Height of window.
-  set lines=55
+   set lines=55
 
   " Set transparency.
   "autocmd GuiEnter * set transparency=221
@@ -84,17 +59,19 @@ if has('win32') || has('win64')
         \ (&transparency != 255 && &transparency != 0)? 255 : 221
   nnoremap TT     :<C-u>TransparencyToggle<CR>
 else
-  " Width of window.
-  set columns=151
-  " Height of window.
-  set lines=41
+  if &columns < 170
+    " Width of window.
+     set columns=170
+  endif
+  if &lines < 40
+    " Height of window.
+     set lines=40
+  endif
 endif
 
 " Don't override colorscheme.
 if !exists('g:colors_name')
-  "execute 'colorscheme' globpath(&runtimepath,
-  "      \ 'colors/candy.vim') != '' ? 'candy' : 'desert'
-  execute 'colorscheme' 'solarized'
+  colorscheme candy
 endif
 "}}}
 
@@ -117,7 +94,8 @@ endif
 "---------------------------------------------------------------------------
 " Mouse:"{{{
 "
-set mousemodel=extend
+set mouse=
+set mousemodel=
 
 " Don't focus the window when the mouse pointer is moved.
 set nomousefocus
