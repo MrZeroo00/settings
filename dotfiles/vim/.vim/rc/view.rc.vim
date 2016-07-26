@@ -3,7 +3,7 @@
 "
 
 " Anywhere SID.
-function! s:SID_PREFIX()
+function! s:SID_PREFIX() abort
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
@@ -12,9 +12,9 @@ endfunction
 " Show <TAB> and <CR>
 set list
 if IsWindows()
-  set listchars=tab:>-,trail:-,extends:>,precedes:<
+   set listchars=tab:>-,trail:-,extends:>,precedes:<
 else
-  set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
+   set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
 endif
 " Always display statusline.
 set laststatus=2
@@ -29,50 +29,17 @@ set title
 " Title length.
 set titlelen=95
 " Title string.
-let &titlestring="
+let &g:titlestring="
       \ %{expand('%:p:~:.')}%(%m%r%w%)
       \ %<\(%{".s:SID_PREFIX()."strwidthpart(
       \ fnamemodify(&filetype ==# 'vimfiler' ?
       \ substitute(b:vimfiler.current_dir, '.\\zs/$', '', '') : getcwd(), ':~'),
       \ &columns-len(expand('%:p:.:~')))}\) - VIM"
-
-" Set tabline.
-function! s:my_tabline()  "{{{
-  let s = ''
-
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-
-    let no = i  " display 0-origin tabpagenr.
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-
-    " Use gettabvar().
-    let title =
-          \ !exists('*gettabvar') ?
-          \      fnamemodify(bufname(bufnr), ':t') :
-          \ gettabvar(i, 'title') != '' ?
-          \      gettabvar(i, 'title') :
-          \      fnamemodify((i == tabpagenr() ?
-          \       getcwd() : gettabvar(i, 'cwd')), ':t')
-
-    let title = '[' . title . ']'
-
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= title
-    let s .= mod
-    let s .= '%#TabLineFill#'
-  endfor
-
-  let s .= '%#TabLineFill#%T%=%#TabLine#'
-  return s
-endfunction "}}}
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+" Disable tabline.
 set showtabline=0
 
 " Set statusline.
-let &statusline="%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
+let &g:statusline="%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
       \ . ".(winnr('#')==winnr()?'#':'').']':''}\ "
       \ . "%{(&previewwindow?'[preview] ':'').expand('%:t')}"
       \ . "\ %=%{(winnr('$')==1 || winnr('#')!=winnr()) ?
@@ -85,16 +52,31 @@ set linebreak
 set showbreak=\
 set breakat=\ \	;:,!?
 " Wrap conditions.
-"set whichwrap+=h,l,<,>,[,],b,s,~
+set whichwrap+=h,l,<,>,[,],b,s,~
 if exists('+breakindent')
-  set breakindent
-  set wrap
+   set breakindent
+   set wrap
 else
-  set nowrap
+   set nowrap
 endif
 
-" Do not display greetings message at the time of Vim start.
+" Do not display the greetings message at the time of Vim start.
 set shortmess=aTI
+
+" Do not display the completion messages
+set noshowmode
+if has('patch-7.4.314')
+  set shortmess+=c
+else
+  autocmd MyAutoCmd VimEnter *
+        \ highlight ModeMsg guifg=bg guibg=bg |
+        \ highlight Question guifg=bg guibg=bg
+endif
+
+" Do not display the edit messages
+if has('patch-7.4.1570')
+  set shortmess+=F
+endif
 
 " Don't create backup.
 set nowritebackup
@@ -106,6 +88,7 @@ set backupdir-=.
 set t_vb=
 set noerrorbells
 set novisualbell
+set belloff=all
 
 " Display candidate supplement.
 set nowildmenu
@@ -129,6 +112,9 @@ endif
 
 " Completion setting.
 set completeopt=menuone
+if has('patch-7.4.775')
+  set completeopt+=noinsert
+endif
 " Don't complete from other buffer.
 set complete=.
 "set complete=.,w,b,i,t
@@ -156,7 +142,7 @@ set cmdwinheight=5
 set noequalalways
 
 " Adjust window size of preview and help.
-set previewheight=16
+set previewheight=8
 set helpheight=12
 
 " Don't redraw while macro executing.
@@ -168,10 +154,7 @@ set display=lastline
 " Display an invisible letter with hex format.
 "set display+=uhex
 
-" View setting.
-set viewdir=$CACHE/vim_view viewoptions-=options viewoptions+=slash,unix
-
-function! s:strwidthpart(str, width) "{{{
+function! s:strwidthpart(str, width) abort "{{{
   if a:width <= 0
     return ''
   endif
@@ -188,15 +171,18 @@ endfunction"}}}
 
 if v:version >= 703
   " For conceal.
-  set conceallevel=2 concealcursor=iv
+   set conceallevel=2 concealcursor=niv
 
-  set colorcolumn=79
+   set colorcolumn=79
 
   " Use builtin function.
-  function! s:wcswidth(str)
+  function! s:wcswidth(str) abort
     return strwidth(a:str)
   endfunction
-  finish
+else
+  function! s:wcswidth(str) abort
+    return len(a:str)
+  endfunction
 endif
 
 function! s:wcswidth(str)

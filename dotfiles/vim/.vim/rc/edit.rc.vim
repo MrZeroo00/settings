@@ -7,22 +7,28 @@ set smarttab
 " Exchange tab to spaces.
 set expandtab
 " Substitute <Tab> with blanks.
-"set tabstop=8
+" set tabstop=8
 " Spaces instead <Tab>.
-"set softtabstop=4
+" set softtabstop=4
 " Autoindent width.
-"set shiftwidth=4
+" set shiftwidth=4
 " Round indent by shiftwidth.
 set shiftround
+
+" Enable smart indent.
+set autoindent smartindent
 
 " Enable modeline.
 set modeline
 
 " Use clipboard register.
-if has('unnamedplus')
-  set clipboard& clipboard+=unnamedplus
-else
-  set clipboard& clipboard+=unnamed
+
+if (!has('nvim') || $DISPLAY != '') && has('clipboard')
+  if has('unnamedplus')
+     set clipboard& clipboard+=unnamedplus
+  else
+     set clipboard& clipboard+=unnamed
+  endif
 endif
 
 " Enable backspace delete indent and newline.
@@ -32,7 +38,7 @@ set backspace=indent,eol,start
 set showmatch
 " Highlight when CursorMoved.
 set cpoptions-=m
-set matchtime=3
+set matchtime=1
 " Highlight <>.
 set matchpairs+=<:>
 
@@ -40,14 +46,14 @@ set matchpairs+=<:>
 set hidden
 
 " Auto reload if file is changed.
-"set autoread
+" set autoread
 
 " Ignore case on insert completion.
 set infercase
 
 " Search home directory path on cd.
 " But can't complete.
-" set cdpath+=~
+"  set cdpath+=~
 
 " Enable folding.
 set foldenable
@@ -60,13 +66,13 @@ set commentstring=%s
 
 if exists('*FoldCCtext')
   " Use FoldCCtext().
-  set foldtext=FoldCCtext()
+   set foldtext=FoldCCtext()
 endif
 
 " Use vimgrep.
-"set grepprg=internal
+" set grepprg=internal
 " Use grep.
-set grepprg=ack\ -a
+set grepprg=grep\ -inH
 
 " Exclude = from isfilename.
 set isfname-==
@@ -86,13 +92,13 @@ set directory-=.
 
 if v:version >= 703
   " Set undofile.
-  set undofile
-  let &undodir=&directory
+   set undofile
+  let &g:undodir=&directory
 endif
 
 if v:version < 703 || (v:version == 7.3 && !has('patch336'))
   " Vim's bug.
-  set notagbsearch
+   set notagbsearch
 endif
 
 " Enable virtualedit in visual block mode.
@@ -106,7 +112,7 @@ autocmd MyAutoCmd WinEnter * checktime
 
 " Disable paste.
 autocmd MyAutoCmd InsertLeave *
-      \ if &paste | set nopaste mouse=a | echo 'nopaste' | endif |
+      \ if &paste | setlocal nopaste | echo 'nopaste' | endif |
       \ if &l:diff | diffupdate | endif
 
 " Update diff.
@@ -118,7 +124,7 @@ autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
 
 autocmd MyAutoCmd BufWritePre *
       \ call s:mkdir_as_necessary(expand('<afile>:p:h'), v:cmdbang)
-function! s:mkdir_as_necessary(dir, force)
+function! s:mkdir_as_necessary(dir, force) abort
   if !isdirectory(a:dir) && &l:buftype == '' &&
         \ (a:force || input(printf('"%s" does not exist. Create? [y/N]',
         \              a:dir)) =~? '^y\%[es]$')
@@ -146,7 +152,7 @@ set formatexpr=autofmt#japanese#formatexpr()
 " https://dgl.cx/2014/10/vim-blowfish
 if has('cryptv')
   " It seems 15ms overhead.
-  " set cryptmethod=blowfish2
+  "  set cryptmethod=blowfish2
 endif
 
 " delete git buffer when "set hidden"

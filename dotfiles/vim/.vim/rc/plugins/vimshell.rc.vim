@@ -4,8 +4,9 @@
 
 " let g:vimshell_user_prompt = "3\ngetcwd()"
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]%p", "(%s)-[%b|%a]%p")'
+" let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]%p", "(%s)-[%b|%a]%p")'
+let g:vimshell_right_prompt =
+      \ 'gita#statusline#format("%{|/}ln%lb%{ <> |}rn%{/|}rb")'
 let g:vimshell_prompt = '% '
 " let g:vimshell_prompt = "(U'w'){ "
 "let g:vimshell_environment_term = 'xterm'
@@ -18,7 +19,7 @@ let g:vimshell_force_overwrite_statusline = 1
 " let g:vimshell_prompt_pattern = '^\f\+:\%(\f\|\\.\)\+% '
 
 autocmd MyAutoCmd FileType vimshell call s:vimshell_settings()
-function! s:vimshell_settings()
+function! s:vimshell_settings() abort
   if IsWindows()
     " Display user name on Windows.
     "let g:vimshell_prompt = $USERNAME."% "
@@ -59,7 +60,8 @@ function! s:vimshell_settings()
   xmap <buffer> y <Plug>(operator-concealedyank)
 
   nnoremap <silent><buffer> <C-j>
-        \ :<C-u>Unite -buffer-name=files -default-action=lcd directory_mru<CR>
+        \ :<C-u>Unite -buffer-name=files
+        \ -default-action=lcd directory_mru<CR>
 
   call vimshell#altercmd#define('u', 'cdup')
   call vimshell#altercmd#define('g', 'git')
@@ -76,25 +78,32 @@ function! s:vimshell_settings()
         \ -default-action=lcd -no-split -input=$$args directory_mru')
 
   " Console.
-  call vimshell#set_alias('con', 'lilyterm -d `=b:vimshell.current_dir`')
+  call vimshell#set_alias('con',
+        \ 'lilyterm -d `=b:vimshell.current_dir`')
 
   call vimshell#set_alias('up', 'cdup')
 
-  call vimshell#hook#add('chpwd', 'my_chpwd', s:vimshell_hooks.chpwd)
-  " call vimshell#hook#add('emptycmd', 'my_emptycmd', s:vimshell_hooks.emptycmd)
-  call vimshell#hook#add('notfound', 'my_notfound', s:vimshell_hooks.notfound)
-  call vimshell#hook#add('preprompt', 'my_preprompt', s:vimshell_hooks.preprompt)
-  call vimshell#hook#add('preexec', 'my_preexec', s:vimshell_hooks.preexec)
-  " call vimshell#hook#set('preexec', [s:SID_PREFIX() . 'vimshell_hooks_preexec'])
+  call vimshell#hook#add('chpwd',
+        \ 'my_chpwd', s:vimshell_hooks.chpwd)
+  " call vimshell#hook#add('emptycmd',
+  "     \ 'my_emptycmd', s:vimshell_hooks.emptycmd)
+  call vimshell#hook#add('notfound',
+        \ 'my_notfound', s:vimshell_hooks.notfound)
+  call vimshell#hook#add('preprompt',
+        \ 'my_preprompt', s:vimshell_hooks.preprompt)
+  call vimshell#hook#add('preexec',
+        \ 'my_preexec', s:vimshell_hooks.preexec)
+  " call vimshell#hook#set('preexec',
+  "      \ [s:SID_PREFIX() . 'vimshell_hooks_preexec'])
 endfunction
 
 autocmd MyAutoCmd FileType int-* call s:interactive_settings()
-function! s:interactive_settings()
+function! s:interactive_settings() abort
   call vimshell#hook#set('input', [s:vimshell_hooks.input])
 endfunction
 
 autocmd MyAutoCmd FileType term-* call s:terminal_settings()
-function! s:terminal_settings()
+function! s:terminal_settings() abort
   inoremap <silent><buffer><expr> <Plug>(vimshell_term_send_semicolon)
         \ vimshell#term_mappings#send_key(';')
   inoremap <silent><buffer><expr> j<Space>
@@ -109,11 +118,12 @@ function! s:terminal_settings()
   iunmap <buffer> <ESC><ESC>
   imap <buffer> <ESC>         <Plug>(vimshell_term_send_escape)
 endfunction
-function! s:texe_sticky_func()
+function! s:texe_sticky_func() abort "{{{
   let sticky_table = {
         \',' : '<', '.' : '>', '/' : '?',
         \'1' : '!', '2' : '@', '3' : '#', '4' : '$', '5' : '%',
-        \'6' : '^', '7' : '&', '8' : '*', '9' : '(', '0' : ')', '-' : '_', '=' : '+',
+        \'6' : '^', '7' : '&', '8' : '*', '9' : '(', '0' : ')',
+        \ '-' : '_', '=' : '+',
         \';' : ':', '[' : '{', ']' : '}', '`' : '~', "'" : "\"", '\' : '|',
         \}
   let special_table = {
@@ -139,27 +149,27 @@ function! s:texe_sticky_func()
   else
     return ''
   endif
-endfunction
+endfunction "}}}
 
 let s:vimshell_hooks = {}
-function! s:vimshell_hooks.chpwd(args, context)
+function! s:vimshell_hooks.chpwd(args, context) abort
   if len(split(glob('*'), '\n')) < 100
     call vimshell#execute('ls')
   else
     call vimshell#execute('echo "Many files."')
   endif
 endfunction
-function! s:vimshell_hooks.emptycmd(cmdline, context)
+function! s:vimshell_hooks.emptycmd(cmdline, context) abort
   call vimshell#set_prompt_command('ls')
   return 'ls'
 endfunction
-function! s:vimshell_hooks.notfound(cmdline, context)
+function! s:vimshell_hooks.notfound(cmdline, context) abort
   return ''
 endfunction
-function! s:vimshell_hooks.preprompt(args, context)
+function! s:vimshell_hooks.preprompt(args, context) abort
   " call vimshell#execute('echo "preprompt"')
 endfunction
-function! s:vimshell_hooks.preexec(cmdline, context)
+function! s:vimshell_hooks.preexec(cmdline, context) abort
   " call vimshell#execute('echo "preexec"')
 
   let args = vimproc#parser#split_args(a:cmdline)
@@ -169,7 +179,54 @@ function! s:vimshell_hooks.preexec(cmdline, context)
 
   return a:cmdline
 endfunction
-function! s:vimshell_hooks.input(input, context)
+function! s:vimshell_hooks.input(input, context) abort
   " echomsg 'input'
   return a:input
 endfunction
+
+
+if !exists('g:vimshell_interactive_interpreter_commands')
+    let g:vimshell_interactive_interpreter_commands = {}
+endif
+let g:vimshell_interactive_interpreter_commands.python = 'ipython'
+
+" For themis"{{{
+if dein#tap('vim-themis')
+  " Set to $PATH.
+  let s:bin = dein#get('vim-themis').rtp . '/bin'
+
+  function! s:split_envpath(path) abort "{{{
+    let delimiter = has('win32') ? ';' : ':'
+    if stridx(a:path, '\' . delimiter) < 0
+      return split(a:path, delimiter)
+    endif
+
+    let split = split(a:path, '\\\@<!\%(\\\\\)*\zs' . delimiter)
+    return map(split,'substitute(v:val, ''\\\([\\'
+          \ . delimiter . ']\)'', "\\1", "g")')
+  endfunction"}}}
+
+  function! s:join_envpath(list, orig_path, add_path) abort "{{{
+    let delimiter = has('win32') ? ';' : ':'
+    return (stridx(a:orig_path, '\' . delimiter) < 0
+          \ && stridx(a:add_path, delimiter) < 0) ?
+          \   join(a:list, delimiter) :
+          \   join(map(copy(a:list), 's:escape(v:val)'), delimiter)
+  endfunction"}}}
+
+  " Escape a path for runtimepath.
+  function! s:escape(path) abort "{{{
+    return substitute(a:path, ',\|\\,\@=', '\\\0', 'g')
+  endfunction"}}}
+
+  let $PATH = s:join_envpath(
+        \ dein#util#_uniq(insert(
+        \    s:split_envpath($PATH), s:bin)), $PATH, s:bin)
+  let $THEMIS_HOME = dein#get('vim-themis').rtp
+  " let $THEMIS_VIM = printf('%s/%s',
+  "       \ fnamemodify(exepath(v:progpath), ':h'),
+  "       \ (has('nvim') ? 'nvim' : 'vim'))
+
+  unlet s:bin
+endif"}}}
+

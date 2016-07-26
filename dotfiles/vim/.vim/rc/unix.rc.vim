@@ -2,15 +2,8 @@
 " For UNIX:
 "
 
-if exists('$WINDIR') || !executable('zsh')
-  " Cygwin.
-
-  " Use bash.
-  set shell=bash
-else
-  " Use zsh.
-  set shell=zsh
-endif
+" Use sh.  It is faster
+set shell=sh
 
 " Set path.
 let $PATH = expand('~/bin').':/usr/local/bin/:'.$PATH
@@ -26,13 +19,13 @@ endif
 " Enable 256 color terminal.
 set t_Co=256
 
-if &term =~# 'xterm'
+if &term =~# 'xterm' && !has('nvim')
   let &t_ti .= "\e[?2004h"
   let &t_te .= "\e[?2004l"
   let &pastetoggle = "\e[201~"
 
-  function! XTermPasteBegin(ret)
-    set paste
+  function! XTermPasteBegin(ret) abort
+    setlocal paste
     return a:ret
   endfunction
 
@@ -49,20 +42,13 @@ if &term =~# 'xterm'
   " let &t_CS = "y"
 endif
 
-if has('gui')
-  " Use CSApprox.vim
-  NeoBundleSource csapprox
+  " Change cursor shape.
+  let &t_SI = "\<Esc>]12;lightgreen\x7"
+  let &t_EI = "\<Esc>]12;white\x7"
 
-  " Convert colorscheme in Konsole.
-  let g:CSApprox_konsole = 1
-  let g:CSApprox_attr_map = {
-        \ 'bold' : 'bold',
-        \ 'italic' : '', 'sp' : ''
-        \ }
-  if !exists('g:colors_name')
-    "execute 'colorscheme' globpath(&runtimepath,
-    "      \ 'colors/candy.vim') != '' ? 'candy' : 'desert'
-    execute 'colorscheme' 'solarized'
+  " Enable true color
+  if exists('+termguicolors')
+    set termguicolors
   endif
 else
   " Use guicolorscheme.vim
@@ -75,8 +61,8 @@ else
   let g:CSApprox_verbose_level = 0
 endif
 
-" Change cursor shape.
-if &term =~ "xterm"
-  let &t_SI = "\<Esc>]12;lightgreen\x7"
-  let &t_EI = "\<Esc>]12;white\x7"
-endif
+" Disable the mouse.
+set mouse=
+
+" Colorscheme
+colorscheme candy
