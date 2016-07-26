@@ -6,7 +6,7 @@
 	attributesfile = ~/.gitattributes_global
 	#autocrlf = input
 	#editor = vim
-	editor = /usr/local/Cellar/macvim/HEAD/MacVim.app/Contents/MacOS/Vim --remote-tab-wait-silent
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim --remote-tab-wait-silent
 	pager = "LC_ALL=ja_JP.UTF-8 lv -c"
 	preloadindex = true
 [init]
