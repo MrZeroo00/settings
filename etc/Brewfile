@@ -314,6 +314,7 @@ install zsh-completions || true
 #cask install coolterm || true
 #cask install coteditor || true
 #cask install dash || true
+#cask install docker || true
 #cask install dropbox || true
 #cask install easysimbl || true
 #cask install evernote || true
