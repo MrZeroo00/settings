@@ -77,10 +77,6 @@ set grepprg=grep\ -inH
 " Exclude = from isfilename.
 set isfname-==
 
-" Reload .vimrc automatically.
-autocmd MyAutoCmd BufWritePost .vimrc,vimrc,*.rc.vim,neobundle.toml nested
-      \ NeoBundleClearCache | source $MYVIMRC | redraw
-
 " Keymapping timeout.
 set timeout timeoutlen=3000 ttimeoutlen=100
 
@@ -131,19 +127,6 @@ function! s:mkdir_as_necessary(dir, force) abort
     call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
   endif
 endfunction
-
-" Auto Write
-"set autowrite
-"set updatetime=500
-"
-"function! s:AutoWriteIfPossible()
-"  if !&readonly && bufname('%') !=# ''
-"    w
-"  endif
-"endfunction
-"
-"autocmd MyAutoCmd CursorHold * call s:AutoWriteIfPossible()
-"autocmd MyAutoCmd CursorHoldI * call s:AutoWriteIfPossible()
 
 " Use autofmt.
 set formatexpr=autofmt#japanese#formatexpr()

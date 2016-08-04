@@ -72,11 +72,6 @@ function! s:vimfiler_my_settings() abort "{{{
     nnoremap <silent><buffer><expr> /  line('$') > 10000 ?  'g/' :
           \ ":\<C-u>Unite -buffer-name=search -start-insert line_migemo\<CR>"
   endif
-
-  " One key file operation.
-  " nmap <buffer> c <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_copy_file)
-  " nmap <buffer> m <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_move_file)
-  " nmap <buffer> d <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_delete_file)
 endfunction"}}}
 
 " let g:vimfiler_ignore_pattern = ''

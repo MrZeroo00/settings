@@ -20,8 +20,6 @@ endif
 set laststatus=2
 " Height of command line.
 set cmdheight=2
-" Scroll off
-set scrolloff=5
 " Not show command on statusline.
 set noshowcmd
 " Show title.
@@ -86,7 +84,6 @@ set backupdir-=.
 
 " Disable bell.
 set t_vb=
-set noerrorbells
 set novisualbell
 set belloff=all
 
@@ -102,13 +99,6 @@ set wildoptions=tagfile
 
 " Disable menu
 let g:did_install_default_menus = 1
-
-if !&verbose
-  " Enable spell check.
-  set spelllang=en_us
-  " Enable CJK support.
-  set spelllang+=cjk
-endif
 
 " Completion setting.
 set completeopt=menuone
@@ -145,8 +135,6 @@ set noequalalways
 set previewheight=8
 set helpheight=12
 
-" Don't redraw while macro executing.
-set lazyredraw
 set ttyfast
 
 " When a line is long, do not omit it in @.
@@ -184,51 +172,3 @@ else
     return len(a:str)
   endfunction
 endif
-
-function! s:wcswidth(str)
-  if a:str =~# '^[\x00-\x7f]*$'
-    return strlen(a:str)
-  end
-
-  let mx_first = '^\(.\)'
-  let str = a:str
-  let width = 0
-  while 1
-    let ucs = char2nr(substitute(str, mx_first, '\1', ''))
-    if ucs == 0
-      break
-    endif
-    let width += s:_wcwidth(ucs)
-    let str = substitute(str, mx_first, '', '')
-  endwhile
-  return width
-endfunction
-
-" UTF-8 only.
-function! s:_wcwidth(ucs)
-  let ucs = a:ucs
-  if (ucs >= 0x1100
-        \  && (ucs <= 0x115f
-        \  || ucs == 0x2329
-        \  || ucs == 0x232a
-        \  || (ucs >= 0x2e80 && ucs <= 0xa4cf
-        \      && ucs != 0x303f)
-        \  || (ucs >= 0xac00 && ucs <= 0xd7a3)
-        \  || (ucs >= 0xf900 && ucs <= 0xfaff)
-        \  || (ucs >= 0xfe30 && ucs <= 0xfe6f)
-        \  || (ucs >= 0xff00 && ucs <= 0xff60)
-        \  || (ucs >= 0xffe0 && ucs <= 0xffe6)
-        \  || (ucs >= 0x20000 && ucs <= 0x2fffd)
-        \  || (ucs >= 0x30000 && ucs <= 0x3fffd)
-        \  ))
-    return 2
-  endif
-  return 1
-endfunction
-"}}}
-
-" Highlight
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
-match ZenkakuSpace /　/
-"highlight tabs ctermbg=green guibg=green
-"match tabs /\t/

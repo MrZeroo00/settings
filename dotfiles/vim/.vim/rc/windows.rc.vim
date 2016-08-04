@@ -7,21 +7,6 @@ if $PATH !~? '\(^\|;\)' . escape($VIM, '\\') . '\(;\|$\)'
   let $PATH = $VIM . ';' . $PATH
 endif
 
-" Shell settings.
-" Use NYAOS.
-"set shell=nyaos.exe
-"set shellcmdflag=-e
-"set shellpipe=\|&\ tee
-"set shellredir=>%s\ 2>&1
-"set shellxquote=\"
-
-" Use bash.
-"set shell=bash.exe
-"set shellcmdflag=-c
-"set shellpipe=2>&1\|\ tee
-"set shellredir=>%s\ 2>&1
-"set shellxquote=\"
-
 " Change colorscheme.
 " Don't override colorscheme.
 if !exists('g:colors_name') && !has('gui_running')

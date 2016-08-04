@@ -61,7 +61,6 @@ cnoremap <C-g>          <C-c>
 
 " [Space]: Other useful commands "{{{
 " Smart space mapping.
-" Notice: when starting other <Space> mappings in noremap, disappeared [Space].
 nmap  <Space>   [Space]
 xmap  <Space>   [Space]
 nnoremap  [Space]   <Nop>
@@ -91,7 +90,6 @@ nnoremap [Space]w
 
 " Easily edit .vimrc "{{{
 nnoremap <silent> [Space]ev  :<C-u>edit $MYVIMRC<CR>
-" Load .gvimrc after .vimrc edited at GVim.
 nnoremap <silent> [Space]rv :<C-u>source $MYVIMRC \|
       \ echo "source $MYVIMRC"<CR>
 "}}}
@@ -193,13 +191,6 @@ noremap [Space]j zj
 noremap [Space]k zk
 noremap zu :<C-u>Unite outline:foldings<CR>
 "}}}
-function! s:alternate_buffer() "{{{
-  let listed_buffer_len = len(filter(range(1, bufnr('$')),
-        \ 's:buflisted(v:val) && getbufvar(v:val, "&filetype") !=# "unite"'))
-  if listed_buffer_len <= 1
-    enew
-    return
-  endif
 
 " Substitute.
 xnoremap s :s//g<Left><Left>
@@ -309,8 +300,6 @@ function! s:add_numbers(num) abort
           \ "\\=printf('%0'.len(submatch(0)).'d',
           \         max([0, submatch(0) + a:num]))", '')
   endif
-  echo printf('%s = %s', a:variable_name, eval(a:variable_name))
-endfunction  "}}}
 
   if getline('.') !=# new_line
     call setline('.', new_line)

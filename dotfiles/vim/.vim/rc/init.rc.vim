@@ -18,7 +18,6 @@ endfunction
 language message C
 
 " Use ',' instead of '\'.
-" It is not mapped with respect well unless I set it before setting for plug in.
 " Use <Leader> in global plugin.
 let g:mapleader = ','
 " Use <LocalLeader> in filetype plugin.
@@ -61,16 +60,11 @@ if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
     if !isdirectory(s:dein_dir)
       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
     endif
-
-    execute 'set runtimepath^=' . s:neobundle_dir.'/neobundle.vim'
   endif
   execute ' set runtimepath^=' . substitute(
         \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
-"}}}
 
-let g:neobundle#default_options = {}
-" let g:neobundle#default_options._ = { 'verbose' : 1, 'focus' : 1 }
 
 "---------------------------------------------------------------------------
 " Disable default plugins

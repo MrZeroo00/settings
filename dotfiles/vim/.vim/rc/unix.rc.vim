@@ -40,7 +40,6 @@ if &term =~# 'xterm' && !has('nvim')
   " let &t_te .= "\e7\e[?6;69l\e8"
   " let &t_CV = "\e[%i%p1%d;%p2%ds"
   " let &t_CS = "y"
-endif
 
   " Change cursor shape.
   let &t_SI = "\<Esc>]12;lightgreen\x7"
@@ -50,15 +49,6 @@ endif
   if exists('+termguicolors')
     set termguicolors
   endif
-else
-  " Use guicolorscheme.vim
-  NeoBundleSource vim-guicolorscheme
-
-  autocmd MyAutoCmd VimEnter,BufAdd *
-        \ if !exists('g:colors_name') | GuiColorScheme candy
-
-  " Disable error messages.
-  let g:CSApprox_verbose_level = 0
 endif
 
 " Disable the mouse.

@@ -174,7 +174,6 @@ endfunction"}}}
 " Default configuration.
 let default_context = {
       \ 'vertical' : 0,
-      \ 'cursor_line_highlight' : 'TabLineSel',
       \ 'short_source_names' : 1,
       \ }
 
@@ -182,9 +181,6 @@ let default_context = {
 
 if IsWindows()
 else
-  " Like Textmate icons.
-  let default_context.marked_icon = '✗'
-
   " Prompt choices.
   " let default_context.prompt = '» '
 endif
@@ -217,11 +213,6 @@ elseif executable('jvgrep')
   let g:unite_source_grep_command = 'jvgrep'
   let g:unite_source_grep_default_opts = '-i --exclude ''\.(git|svn|hg|bzr)'''
   let g:unite_source_grep_recursive_opt = '-R'
-elseif executable('ack-grep')
-  " For ack.
-  let g:unite_source_grep_command = 'ack-grep'
-  let g:unite_source_grep_default_opts = '-i --no-heading --no-color -a'
-  let g:unite_source_grep_recursive_opt = ''
 endif
 
 " if executable('ack')
@@ -241,18 +232,6 @@ let g:unite_build_warning_icon  = '~/.vim/signs/warn.'
       \ . (IsWindows() ? 'bmp' : 'png')
 
 let g:unite_source_rec_max_cache_files = -1
-
-" My custom split action
-let s:my_split = {'is_selectable': 1}
-function! s:my_split.func(candidate)
-  let split_action = 'vsplit'
-  if winwidth(winnr('#')) <= 2 * (&tw ? &tw : 80)
-    let split_action = 'split'
-  endif
-  call unite#take_action(split_action, a:candidate)
-endfunction
-call unite#custom_action('openable', 'context_split', s:my_split)
-unlet s:my_split
 
 nnoremap <silent> <Leader>st :NeoCompleteIncludeMakeCache<CR>
             \ :UniteWithCursorWord -immediately -sync
