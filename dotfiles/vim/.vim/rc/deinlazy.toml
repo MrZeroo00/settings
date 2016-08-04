@@ -27,16 +27,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-if = "has('nvim')"
-on_i = 1
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  source ~/.vim/rc/plugins/deoplete.rc.vim
-'''
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_event = 'InsertCharPre'
@@ -144,7 +134,6 @@ on_source = 'unite.vim'
 [[plugins]]
 repo = 'Shougo/neco-vim'
 on_ft = 'vim'
-on_i = 1
 
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
@@ -245,7 +234,6 @@ hook_source = 'source ~/.vim/rc/plugins/eskk.rc.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-on_map = [['n', '<Plug>']]
 
 [[plugins]]
 repo = 'eagletmt/neco-ghc'
