@@ -16,6 +16,10 @@ let g:neosnippet#enable_complete_done = 1
 let g:neosnippet#expand_word_boundary = 1
 
 " let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
-let g:neosnippet#snippets_directory = '~/.vim/snippets'
+let g:neosnippet#snippets_directory = [
+      \'~/.vim/snippets',
+      \'~/.vim/bundle/serverspec-snippets',
+      \'~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets',
+      \]
 
 inoremap <silent> (( <C-r>=neosnippet#anonymous('\left(${1}\right)${0}')<CR>
