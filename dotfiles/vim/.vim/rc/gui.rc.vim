@@ -130,4 +130,6 @@ set guicursor&
 set guicursor+=a:blinkon0
 "}}}
 
+set background=dark
+
 " vim: foldmethod=marker
