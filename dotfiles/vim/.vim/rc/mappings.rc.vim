@@ -323,41 +323,41 @@ nnoremap <silent> <leader>gu :call <SID>InsertGitHubUserInfo()<cr>
 
 nnoremap <silent> #    <C-^>
 
-"" my
-" key bindings
-nnoremap + <C-a>
-nnoremap - <C-x>
-nmap <C-e> :!eijiro <C-R><C-W><CR>
-nmap ,man :!man -S 2,3,1,4,5,6,7,8,9 <C-R><C-W><CR>
-map ,cd :cd %:p:h<CR>
-"nmap <C-N><C-N> :set invnumber<CR>
-nmap ,last '0
-nmap ,msession :mksession $HOME/etc/session.vim<CR>
-nmap ,rsession :source $HOME/etc/session.vim<CR>
-nmap . .`[
-
-" move between function
-map [[ ?{<CR>w99[{
-map ][ /}<CR>b99]}
-map ]] j0[[%/{<CR>
-map [] k$][%?}<CR>
-
-" ctags with screen (C-t key binding)
-nmap <c-\[> :pop<CR>
-
-" short command name
-command! MK make
-command! MKC make clean
-command! MKI make install-files
-command! GF execute "Gtags -f " . expand("%:~:.")
-command! RS %s/\s\+$//
-if has("ruby")
-  command! -nargs=+ Calc :ruby print <args>
-  ruby include Math
-endif
-
-" Don't exit vim when closing last tab with :q and :wq, :qa, :wqa
-cabbrev q   <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 && tabpagenr('$') == 1 && winnr('$') == 1 ? 'enew' : 'q')<CR>
-cabbrev wq  <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 && tabpagenr('$') == 1 && winnr('$') == 1 ? 'w\|enew' : 'wq')<CR>
-cabbrev qa  <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'tabonly\|only\|enew' : 'qa')<CR>
-cabbrev wqa <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'wa\|tabonly\|only\|enew' : 'wqa')<CR>
+""" my
+"" key bindings
+"nnoremap + <C-a>
+"nnoremap - <C-x>
+"nmap <C-e> :!eijiro <C-R><C-W><CR>
+"nmap ,man :!man -S 2,3,1,4,5,6,7,8,9 <C-R><C-W><CR>
+"map ,cd :cd %:p:h<CR>
+""nmap <C-N><C-N> :set invnumber<CR>
+"nmap ,last '0
+"nmap ,msession :mksession $HOME/etc/session.vim<CR>
+"nmap ,rsession :source $HOME/etc/session.vim<CR>
+"nmap . .`[
+"
+"" move between function
+"map [[ ?{<CR>w99[{
+"map ][ /}<CR>b99]}
+"map ]] j0[[%/{<CR>
+"map [] k$][%?}<CR>
+"
+"" ctags with screen (C-t key binding)
+"nmap <c-\[> :pop<CR>
+"
+"" short command name
+"command! MK make
+"command! MKC make clean
+"command! MKI make install-files
+"command! GF execute "Gtags -f " . expand("%:~:.")
+"command! RS %s/\s\+$//
+"if has("ruby")
+"  command! -nargs=+ Calc :ruby print <args>
+"  ruby include Math
+"endif
+"
+"" Don't exit vim when closing last tab with :q and :wq, :qa, :wqa
+"cabbrev q   <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 && tabpagenr('$') == 1 && winnr('$') == 1 ? 'enew' : 'q')<CR>
+"cabbrev wq  <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 && tabpagenr('$') == 1 && winnr('$') == 1 ? 'w\|enew' : 'wq')<CR>
+"cabbrev qa  <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'tabonly\|only\|enew' : 'qa')<CR>
+"cabbrev wqa <C-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'wa\|tabonly\|only\|enew' : 'wqa')<CR>
