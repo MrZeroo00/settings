@@ -172,3 +172,9 @@ else
     return len(a:str)
   endfunction
 endif
+
+"" Highlight
+"highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
+"match ZenkakuSpace /　/
+""highlight tabs ctermbg=green guibg=green
+""match tabs /\t/
