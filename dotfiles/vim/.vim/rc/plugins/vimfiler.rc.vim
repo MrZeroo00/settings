@@ -50,13 +50,15 @@ let g:vimfiler_quick_look_command =
       \ IsMac() ? 'qlmanage -p' : 'gloobus-preview'
 
 autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
-function! s:vimfiler_my_settings() "{{{
+function! s:vimfiler_my_settings() abort "{{{
   call vimfiler#set_execute_file('vim', ['vim', 'notepad'])
   call vimfiler#set_execute_file('txt', 'vim')
+  call vimfiler#set_execute_file('pdf', 'zathura')
 
   " Overwrite settings.
   nnoremap <silent><buffer> J
-        \ <C-u>:Unite -buffer-name=files -default-action=lcd directory_mru<CR>
+        \ <C-u>:Unite -buffer-name=files
+        \ -default-action=lcd directory_mru<CR>
   " Call sendto.
   " nnoremap <buffer> - <C-u>:Unite sendto<CR>
   " setlocal cursorline
@@ -70,9 +72,6 @@ function! s:vimfiler_my_settings() "{{{
     nnoremap <silent><buffer><expr> /  line('$') > 10000 ?  'g/' :
           \ ":\<C-u>Unite -buffer-name=search -start-insert line_migemo\<CR>"
   endif
-
-  " One key file operation.
-  " nmap <buffer> c <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_copy_file)
-  " nmap <buffer> m <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_move_file)
-  " nmap <buffer> d <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_delete_file)
 endfunction"}}}
+
+" let g:vimfiler_ignore_pattern = ''
