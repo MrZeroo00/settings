@@ -36,7 +36,7 @@ if has('win32') || has('win64')
   endif
 elseif has('mac')
   " For Mac.
-   set guifont=Osaka－等幅:h14
+   set guifont=Osaka-Mono:h14
 else
   " For Linux.
    set guifontwide=VL\ Gothic\ 13
