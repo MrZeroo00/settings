@@ -171,3 +171,9 @@ repo = 'cocopon/iceberg.vim'
 [[plugins]]
 repo = 'vim-jp/syntax-vim-ex'
 
+[[plugins]]
+repo    = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes']
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
