@@ -49,3 +49,4 @@ go get github.com/jtopjian/jsed
 go get github.com/dropbox/dbxcli
 go get github.com/SumoLogic/sumoshell
 go get github.com/Songmu/ghg/cmd/ghg
+go get github.com/mattn/qq
