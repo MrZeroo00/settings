@@ -181,7 +181,7 @@ set secure
 "endif " }}}
 
 "" powerline
-call s:source_rc('powerline.rc.vim')
+"call s:source_rc('powerline.rc.vim')
 
 "" http://tangosource.com/blog/a-tmux-crash-course-tips-and-tweaks/
 if exists('$TMUX')
