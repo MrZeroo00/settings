@@ -375,6 +375,7 @@ install zsh-completions || true
 #cask install onyx || true
 #cask install owasp-zap || true
 #cask install p4merge || true
+#cask install powershell || true
 #cask install qlcolorcode || true
 #cask install qlmarkdown || true
 #cask install qlstephen || true
