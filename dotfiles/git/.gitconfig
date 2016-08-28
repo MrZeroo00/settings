@@ -66,6 +66,7 @@
 	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
 	current-branch = rev-parse --abbrev-ref HEAD
 	pr = "!hub browse -- compare/master...$(git symbolic-ref --short HEAD)?body=%23%20Context%0A%0A%23%20Problem%20or%20Idea%0A%0A%23%20Solution%20or%20NextStep"
+	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 [diff]
 	external = git-diff-wrapper
 	tool = vim-diff
