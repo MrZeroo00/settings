@@ -425,6 +425,7 @@ install zsh-completions || true
 #cask install xmind || true
 #cask install xquartz || true
 #cask install xtrafinder || true
+#cask install yujitach-menumeters || true
 
 # pip
 pip install diff-highlight
