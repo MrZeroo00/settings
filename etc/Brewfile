@@ -345,6 +345,7 @@ install zsh-completions || true
 #cask install hosts || true
 #cask install hyperswitch || true
 #cask install imageoptim || true
+# insomnia https://insomnia.rest/
 #cask install insomniax || true
 #cask install intel-power-gadget || true
 #cask install intellij-idea || true
