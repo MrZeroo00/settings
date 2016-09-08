@@ -126,3 +126,5 @@
 	conflictstyle = diff3
 [interactive]
 	diffFilter = diff-highlight
+[log]
+	showSignature = true
