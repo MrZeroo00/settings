@@ -229,6 +229,7 @@ install redis || true
 install redpen || true
 install rexdep || true
 install ricty --powerline --vim-powerline || true
+install https://raw.githubusercontent.com/BurntSushi/ripgrep/master/pkg/brew/ripgrep.rb || true
 install rlwrap || true
 install rsense || true
 install ruby-build || true
