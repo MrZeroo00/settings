@@ -52,3 +52,4 @@ go get github.com/Songmu/ghg/cmd/ghg
 go get github.com/mattn/qq
 go get -u github.com/tomnomnom/gron
 go get -u github.com/timakin/octop
+go get -u github.com/davecheney/httpstat
