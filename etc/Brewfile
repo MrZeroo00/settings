@@ -220,6 +220,7 @@ install pyenv || true
 install pyenv-virtualenv || true
 install q || true
 # qfc https://github.com/pindexis/qfc
+# qira https://github.com/BinaryAnalysisPlatform/qira/
 install rbenv || true
 install rcmdnk/file/brew-file || true
 install rcmdnk/rcmdnkpac/parse-plist || true
