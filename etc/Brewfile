@@ -247,6 +247,7 @@ install sox || true
 #install spark || true
 install sqlite || true
 install sshrc || true
+install sslh || true
 install sslscan || true
 install stow || true
 # svsh http://ido50.github.io/Svsh/
