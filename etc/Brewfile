@@ -179,6 +179,7 @@ install md5sha1sum || true
 install meld || true
 install mercurial || true
 install metashell || true
+install micro || true
 install migemogrep || true
 install mobile-shell || true
 install mruby || true
