@@ -54,3 +54,4 @@ go get -u github.com/tomnomnom/gron
 go get -u github.com/timakin/octop
 go get -u github.com/davecheney/httpstat
 go get -u github.com/Code-Hex/battery/cmd/battery
+go get rsc.io/benchstat
