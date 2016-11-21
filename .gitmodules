@@ -23,9 +23,6 @@
 [submodule "shellscripts/_git/git-prune-remote-branch"]
 	path = shellscripts/_git/git-prune-remote-branch
 	url = git://github.com/kyanny/git-prune-remote-branch.git
-[submodule "etc/iterm/theme/iTerm-2-Color-Themes"]
-	path = etc/iterm/theme/iTerm-2-Color-Themes
-	url = git@github.com:baskerville/iTerm-2-Color-Themes.git
 [submodule "etc/iterm/iTerm2-Color-Schemes"]
 	path = etc/iterm/iTerm2-Color-Schemes
 	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
