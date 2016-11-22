@@ -211,6 +211,7 @@ install plantuml || true
 install play || true
 install progress || true
 install pssh || true
+install pstree || true
 install pv || true
 install pwgen || true
 install pyenv || true
