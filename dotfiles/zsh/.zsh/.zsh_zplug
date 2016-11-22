@@ -1,7 +1,8 @@
 export ZPLUG_HOME=$HOME/.zsh/zplug
-source $ZPLUG_HOME/zplug
+source $ZPLUG_HOME/repos/b4b4r07/zplug/init.zsh
 
-zplug "themes/kolo", from:oh-my-zsh
+zplug "zplug/zplug"
+zplug "themes/kolo", as:theme, from:oh-my-zsh
 #zplug "sindresorhus/pure"
 
 #zplug "plugins/git", from:oh-my-zsh
