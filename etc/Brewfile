@@ -343,6 +343,7 @@ install zsh-completions || true
 #cask install google-photos-backup || true
 #cask install grandperspective || true
 #cask install growlnotify || true
+#cask install hammerspoon || true
 #cask install haroopad || true
 #cask install hipchat || true
 #cask install hocus-focus || true
