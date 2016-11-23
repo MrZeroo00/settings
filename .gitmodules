@@ -41,3 +41,6 @@
 [submodule "dotfiles/zsh/.zsh/.zim"]
 	path = dotfiles/zsh/.zsh/.zim
 	url = git@github.com:Eriner/zim.git
+[submodule "dotfiles/zsh/.zsh/zplug"]
+	path = dotfiles/zsh/.zsh/zplug
+	url = git@github.com:zplug/zplug.git
