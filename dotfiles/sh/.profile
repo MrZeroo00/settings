@@ -48,7 +48,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 #export MAIL="/var/spool/mail/${USERNAME}"
 export LESS='--tabs=4 --RAW-CONTROL-CHARS --clear-screen --quit-if-one-screen --LONG-PROMPT --quiet'
 export LV='-c -l'
-export EDITOR='vim'
+#export EDITOR='vim'
 export PAGER='lv'
 export HTMLPAGER='w3m -T text/html -dump'
 export SVN_EDITOR='vim'
