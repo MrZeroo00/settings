@@ -364,6 +364,7 @@ install zsh-completions || true
 #cask install julia || true
 #cask install karabiner || true
 #cask install kdiff3 || true
+#cask install kindle || true
 #cask install kitematic || true
 #cask install kobito || true
 #cask install krita || true
