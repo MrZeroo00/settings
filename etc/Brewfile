@@ -315,6 +315,7 @@ install zsh-completions || true
 #cask install cloudytabs || true
 #cask install coconutbattery || true
 #cask install codeplane || true
+#cask install commander-one || true
 #cask install controlplane || true
 #cask install coolterm || true
 #cask install coteditor || true
