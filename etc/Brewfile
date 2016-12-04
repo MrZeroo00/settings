@@ -43,6 +43,7 @@ tap caius/jo || true
 tap passy/givegif || true
 tap homebrew/services || true
 tap jhawthorn/fzy || true
+tap simeji/jid || true
 
 # Packages
 install ack || true
@@ -149,6 +150,7 @@ install iftop || true
 install imagemagick || true
 # intrace https://github.com/robertswiecki/intrace
 install ios-simulator-app-installer || true
+install jid || true
 install jless || true
 install jmeter || true
 install jo || true
