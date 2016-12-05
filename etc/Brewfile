@@ -245,6 +245,7 @@ install screenfetch || true
 install shellcheck || true
 install sift || true
 install smartmontools || true
+install snap-telemetry || true
 install socat || true
 install source-highlight || true
 install sox || true
