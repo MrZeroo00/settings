@@ -430,6 +430,7 @@ install zsh-completions || true
 #cask install vault || true
 # veertu http://veertu.com/
 #cask install virtualbox || true
+#cask install visual-studio || true
 #cask install visual-studio-code || true
 #cask install vlc || true
 # wallcat https://www.wall.cat
