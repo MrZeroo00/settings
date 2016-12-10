@@ -1,0 +1,10 @@
+set noautofocus
+set cncpcompletion
+set smoothscroll
+let scrollstep = 120
+let locale = "jp"
+let barposition = "bottom"
+let hintcharacters = "asdfgwertxcvb"
+let blacklists = ["https://mail.google.com/*","https://www.google.com/calendar/*","https://feedly.com/*","https://github.com/*"]
+let completionengines = ["google"]
+let defaultengine = "google.co.jp"
