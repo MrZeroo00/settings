@@ -1,6 +1,7 @@
 set noautofocus
 set cncpcompletion
 set smoothscroll
+set noinsertmappings
 let scrollstep = 120
 let locale = "jp"
 let barposition = "bottom"
