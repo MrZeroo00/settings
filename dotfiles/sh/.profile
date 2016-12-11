@@ -76,7 +76,7 @@ export XDG_CONFIG_HOME=~/.config
 #export PERL_BADLANG=0
 
 # for Python
-export PYTHONPATH="${HOME}/local/lib/python2.7/site-packages"
+#export PYTHONPATH="${HOME}/local/lib/python2.7/site-packages"
 
 # for GO
 export GOPATH="${HOME}/go"
@@ -108,7 +108,7 @@ case "${OS}" in
   export JAVA_OPTS='-Dfile.encoding=UTF-8'
   export GTK_PATH=/usr/local/lib/gtk-2.0
   #export RSENSE_HOME="$(brew --prefix rsense)"
-  export PYTHONPATH="$(brew --prefix)/lib/python2.7/site-packages"
+  #export PYTHONPATH="$(brew --prefix)/lib/python2.7/site-packages"
   ;;
   "Cygwin")
   add_path -a '/c/meadow/bin'
