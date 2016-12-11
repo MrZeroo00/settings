@@ -1,15 +1,16 @@
 [[plugins]]
-repo = 'Shougo/tabpagebuffer.vim'
-on_if = 'tabpagenr() > 1'
+repo = 'Shougo/neomru.vim'
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-on_if = 1
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+on_source = ['unite.vim', 'vimshell.vim']
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_if = 1
-on_source = 'unite.vim'
+on_event = 'TextYankPost'
+on_source = ['unite.vim', 'denite.nvim']
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
@@ -31,80 +32,59 @@ repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_event = 'InsertCharPre'
 on_ft = 'snippet'
-hook_source = 'source ~/.vim/rc/plugins/neosnippet.rc.vim'
+hook_source = '''
+  imap <silent>L     <Plug>(neosnippet_jump_or_expand)
+  smap <silent>L     <Plug>(neosnippet_jump_or_expand)
+  xmap <silent>L     <Plug>(neosnippet_expand_target)
+
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  let g:neosnippet#enable_complete_done = 1
+  let g:neosnippet#expand_word_boundary = 1
+
+  " let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
+  let g:neosnippet#snippets_directory = '~/.vim/snippets'
+'''
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
+on_source = 'denite.nvim'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 hook_add = '''
-  nnoremap <silent> ;b
-        \ :<C-u>Unite -buffer-name=build`tabpagenr()` -no-quit build<CR>
-  nnoremap <silent> ;o
-        \ :<C-u>Unite outline -no-start-insert -resume<CR>
-  nnoremap <silent> <C-k>
-        \ :<C-u>Unite change jump<CR>
-  nnoremap <silent> ;g
-        \ :<C-u>Unite grep -buffer-name=grep`tabpagenr()`
-        \ -auto-preview -no-split -no-empty -resume<CR>
-  nnoremap <silent> ;r
-        \ :<C-u>Unite -buffer-name=register
-        \ -default-action=append register history/yank<CR>
-  xnoremap <silent> ;r
-        \ d:<C-u>Unite -buffer-name=register
-        \ -default-action=append register history/yank<CR>
-
-  nnoremap <silent> <C-t>
-        \ :<C-u>Unite -auto-resize -select=`tabpagenr()-1` tab<CR>
-  nnoremap <silent> <C-w>
-        \ :<C-u>Unite -force-immediately window:all:no-current<CR>
-
-  nnoremap <silent> [Window]s
-        \ :<C-u>Unite -buffer-name=files -no-split -multi-line -unique -silent
-        \ jump_point file_point file_mru
-        \ `finddir('.git', ';') != '' ? 'file_rec/git' : ''`
-        \ buffer_tab:- file file/new<CR>
-
-  nnoremap <silent> [Window]<Space>
-        \ :<C-u>Unite -buffer-name=files -path=~/.vim/rc file_rec<CR>
-  nnoremap <silent> [Window]n
-        \ :<C-u>Unite -start-insert -default-action=lcd dein<CR>
-  nnoremap <silent> [Window]g
-        \ :<C-u>Unite -start-insert ghq<CR>
-
-  nnoremap <silent> [Space]ft
-        \ :<C-u>Unite -start-insert filetype filetype/new<CR>
-
   " Tag jump.
   nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
         \ ":\<C-u>UniteWithCursorWord -buffer-name=tag -immediately
         \  tag tag/include\<CR>"
   nnoremap <silent><expr> tp  &filetype == 'help' ?
         \ ":\<C-u>pop\<CR>" : ":\<C-u>Unite jump\<CR>"
+'''
 
-  " Execute help.
-  nnoremap <silent> <C-h>  :<C-u>Unite -buffer-name=help help<CR>
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_source = 'source ~/.vim/rc/plugins/denite.rc.vim'
+hook_add = '''
+  nnoremap <silent> ;r
+        \ :<C-u>Denite -buffer-name=register unite:register neoyank<CR>
 
-  " Search.
-  nnoremap <silent> /
-        \ :<C-u>Unite -buffer-name=search%`bufnr('%')`
-        \ -start-insert line:forward:wrap<CR>
-  nnoremap <silent> *
-        \ :<C-u>UniteWithCursorWord -buffer-name=search%`bufnr('%')`
-        \ line:forward:wrap<CR>
-  nnoremap [Alt]/       /
-  nnoremap [Alt]?       ?
-  nnoremap <silent> n
-        \ :<C-u>UniteResume search%`bufnr('%')`
-        \  -no-start-insert -force-redraw<CR>
+  nnoremap <silent> [Window]<Space>
+        \ :<C-u>Denite file_rec:~/.vim/rc<CR>
+  nnoremap <silent> / :<C-u>Denite -buffer-name=search line<CR>
+  nnoremap <silent> * :<C-u>DeniteCursorWord -buffer-name=search line<CR>
+  nnoremap <silent> [Window]s :<C-u>Denite file_point file_old
+        \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+
+  nnoremap <silent> [Window]n :<C-u>Denite dein<CR>
+  nnoremap <silent> [Window]g :<C-u>Denite ghq<CR>
+  nnoremap <silent> ;g :<C-u>Denite -buffer-name=search -no-empty grep<CR>
+  nnoremap <silent> n :<C-u>Denite -buffer-name=search -resume -mode=normal<CR>
+  nnoremap <silent> ft :<C-u>Denite filetype<CR>
+  nnoremap <silent> <C-t> :<C-u>Denite deol -select=`tabpagenr()-1` -mode=normal<CR>
+  nnoremap <silent> <C-k> :<C-u>Denite unite:change unite:jump<CR>
 '''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'Shougo/neossh.vim'
-on_ft = ['vimfiler', 'vimshell']
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
@@ -112,11 +92,40 @@ depends = 'unite.vim'
 on_map = {n = '<Plug>'}
 on_if = "isdirectory(bufname('%'))"
 hook_add = 'nnoremap <silent>   [Space]v   :<C-u>VimFiler -invisible<CR>'
-hook_source = 'source ~/.vim/rc/plugins/vimfiler.rc.vim'
+hook_source = '''
+call vimfiler#custom#profile('default', 'context', {
+      \ 'safe' : 0,
+      \ 'auto_expand' : 1,
+      \ 'parent' : 0,
+      \ })
+
+let g:vimfiler_as_default_explorer = 1
+if IsWindows()
+  let g:vimfiler_detect_drives = [
+        \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
+        \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/']
+  " Use trashbox.
+  let g:unite_kind_file_use_trashbox = 1
+else
+  " Like Textmate icons.
+  let g:vimfiler_tree_leaf_icon = ' '
+  let g:vimfiler_tree_opened_icon = '▾'
+  let g:vimfiler_tree_closed_icon = '▸'
+  let g:vimfiler_file_icon = ' '
+  let g:vimfiler_readonly_file_icon = '✗'
+  let g:vimfiler_marked_file_icon = '✓'
+endif
+
+autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
+function! s:vimfiler_my_settings() abort "{{{
+  nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)
+endfunction"}}}
+'''
 
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
 on_map = {n = '<Plug>'}
+on_if = "!has('nvim')"
 hook_add = 'nmap [Space]s  <Plug>(vimshell_switch)'
 hook_source = 'source ~/.vim/rc/plugins/vimshell.rc.vim'
 
@@ -182,22 +191,59 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-on_map = {n = '<Plug>'}
-hook_add = 'nmap <silent> <Leader>r <Plug>(quickrun)'
-
-[[plugins]]
 repo = 'thinca/vim-scouter'
 
 [[plugins]]
 repo = 'thinca/vim-ref'
 on_map = {n = '<Plug>'}
-hook_source = 'source ~/.vim/rc/plugins/ref.rc.vim'
+hook_source = '''
+  let g:ref_cache_dir = expand('$CACHE/ref')
+  let g:ref_use_vimproc = 1
+  if IsWindows()
+    let g:ref_refe_encoding = 'cp932'
+  endif
+
+  autocmd MyAutoCmd FileType ref call s:ref_my_settings()
+  function! s:ref_my_settings() abort "{{{
+    " Overwrite settings.
+    nmap <buffer> [Tag]t  <Plug>(ref-keyword)
+    nmap <buffer> [Tag]p  <Plug>(ref-back)
+    nnoremap <buffer> <TAB> <C-w>w
+  endfunction"}}}
+'''
 
 [[plugins]]
 repo = 'basyura/J6uil.vim'
+on_if = 'has("gui_running")'
 depends = 'webapi-vim'
-hook_source = 'source ~/.vim/rc/plugins/J6uil.rc.vim'
+hook_source = '''
+  let g:J6uil_config_dir = expand('$CACHE/J6uil')
+  let g:J6uil_no_default_keymappings = 1
+  let g:J6uil_display_offline  = 0
+  let g:J6uil_display_online   = 0
+  let g:J6uil_echo_presence    = 1
+  let g:J6uil_display_icon     = 1
+  let g:J6uil_display_interval = 0
+  let g:J6uil_updatetime       = 1000
+  let g:J6uil_align_message    = 0
+
+  autocmd MyAutoCmd FileType J6uil call s:j6uil_settings()
+  autocmd MyAutoCmd FileType J6uil_say call s:j6uil_say_settings()
+
+  function! s:j6uil_settings() abort
+    setlocal wrap
+    setlocal nofoldenable
+    setlocal foldcolumn=0
+    nmap <buffer> o <Plug>(J6uil_open_say_buffer)
+    nmap <silent> <buffer> <CR> <Plug>(J6uil_action_enter)
+  endfunction
+
+  function! s:j6uil_say_settings() abort
+    setlocal wrap
+    setlocal nofoldenable
+    setlocal foldcolumn=0
+  endfunction
+'''
 
 [[plugins]]
 repo = 'tsukkee/unite-tag'
@@ -230,7 +276,48 @@ hook_add = '''
   imap <C-j>     <Plug>(eskk:toggle)
   cmap <C-j>     <Plug>(eskk:toggle)
 '''
-hook_source = 'source ~/.vim/rc/plugins/eskk.rc.vim'
+hook_source = '''
+  let g:eskk#directory = expand('$CACHE/eskk')
+  let g:eskk#keep_state = 0
+  let g:eskk#debug = 0
+  let g:eskk#show_annotation = 1
+  let g:eskk#rom_input_style = 'msime'
+  let g:eskk#egg_like_newline = 1
+  let g:eskk#egg_like_newline_completion = 1
+  let g:eskk#tab_select_completion = 1
+  let g:eskk#start_completion_length = 2
+  let g:eskk#dictionary = {
+        \   'path': expand('$CACHE/skk-jisyo'),
+        \   'sorted': 0,
+        \   'encoding': 'utf-8',
+        \}
+  let g:eskk#large_dictionary = {
+        \   'path': '/usr/share/skk/SKK-JISYO.L',
+        \   'sorted': 1,
+        \   'encoding': 'euc-jp',
+        \}
+
+  if $TERM !~# '^rxvt' && has('nvim')
+    " Use <> instead of ▽.
+    let g:eskk#marker_henkan = '<>'
+    " Use >> instead of ▼.
+    let g:eskk#marker_henkan_select = '>>'
+  endif
+
+  autocmd MyAutoCmd User eskk-initialize-post
+        \ EskkMap -remap jj <ESC>
+  autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
+  function! s:eskk_initial_pre() abort "{{{
+    let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
+    call t.add_map('z ', '　')
+    call t.add_map('~', '〜')
+    call t.add_map('zc', '©')
+    call t.add_map('zr', '®')
+    call t.add_map('z9', '（')
+    call t.add_map('z0', '）')
+    call eskk#register_mode_table('hira', t)
+  endfunction "}}}
+'''
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
@@ -249,10 +336,6 @@ on_source = ['neocomplete.vim', 'deoplete.nvim']
 #on_cmd = 'Explore'
 
 [[plugins]]
-repo = 'kana/vim-tabpagecd'
-on_source = 'unite.vim'
-
-[[plugins]]
 repo = 'rhysd/accelerated-jk'
 on_map = {n = '<Plug>'}
 hook_add = '''
@@ -265,22 +348,8 @@ repo = 'aharisu/vim-gdev'
 on_ft = 'scheme'
 
 [[plugins]]
-repo = 't9md/vim-choosewin'
-on_map = {n = '<Plug>'}
-hook_add = '''
-  nmap g<C-w>  <Plug>(choosewin)
-  let g:choosewin_overlay_enable = 1
-  let g:choosewin_overlay_clear_multibyte = 1
-  let g:choosewin_blink_on_land = 0
-'''
-
-[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
-
-[[plugins]]
-repo = 'todesking/ruby_hl_lvar.vim'
-on_ft = 'ruby'
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
@@ -297,28 +366,6 @@ hook_add = '''
   nmap <silent>sd <Plug>(operator-surround-delete)a
   nmap <silent>sr <Plug>(operator-surround-replace)a
   nmap <silent>sc <Plug>(operator-surround-replace)a
-'''
-
-[[plugins]]
-repo = 'chikatoike/concealedyank.vim'
-on_map = {x = '<Plug>(operator-concealedyank)'}
-
-[[plugins]]
-repo = 'osyo-manga/vim-textobj-multiblock'
-depends = 'vim-textobj-user'
-on_map = {ox = '<Plug>'}
-
-[[plugins]]
-repo = 'saihoooooooo/glowshi-ft.vim'
-on_map = '<Plug>'
-hook_add = '''
-  let g:glowshi_ft_no_default_key_mappings = 1
-  nmap f <Plug>(glowshi-ft-f)
-  xmap f <Plug>(glowshi-ft-f)
-  nmap F <Plug>(glowshi-ft-F)
-  xmap F <Plug>(glowshi-ft-F)
-
-  let g:glowshi_ft_timeoutlen = 1000
 '''
 
 [[plugins]]
@@ -346,13 +393,10 @@ repo = 'lambdalisue/vim-gita'
 hook_add = '''
   nnoremap <silent> [Space]gs  :<C-u>Gita status<CR>
   nnoremap <silent> [Space]gc  :<C-u>Gita commit<CR>
-  nnoremap <silent> [Space]ga  :<C-u>Gita commit --amend<CR>
-  nnoremap <silent> [Space]gd  :<C-u>Gita diff<CR>
-  nnoremap <silent> [Space]gb  :<C-u>Gita browse<CR>
-  nnoremap <silent> [Space]gl  :<C-u>Gita blame<CR>
 
   autocmd FileType gita-status
-  \ nmap <buffer> cc    <Plug>(gita-commit-open) |
+  \ nmap <buffer> cc    <Plug>(gita-commit-open)
+  autocmd FileType gita-status
   \ nmap <buffer> cA    <Plug>(gita-commit-open-amend)
 '''
 
@@ -391,10 +435,6 @@ on_ft = 'rust'
 repo = 'rhysd/rust-doc.vim'
 on_ft = 'rust'
 
-# [[plugins]]
-# repo = 'osyo-manga/vim-marching'
-# on_ft = ['c', 'cpp']
-
 [[plugins]]
 repo = 'artur-shaik/vim-javacomplete2'
 on_ft = 'java'
@@ -404,17 +444,6 @@ hook_source = '''
 
 [[plugins]]
 repo = 'lambdalisue/vim-findent'
-on_if = 1
-hook_add = '''
-  " Note: It is too slow.
-  " autocmd MyAutoCmd BufRead * Findent! --no-warnings
-  nnoremap <silent> [Space]i    :<C-u>Findent! --no-warnings<CR>
-'''
-
-[[plugins]]
-repo = 'Konfekt/FastFold'
-on_event = 'BufEnter'
-hook_post_source = 'FastFoldUpdate'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -424,8 +453,6 @@ hook_add = '''
   nnoremap W     w
   nmap b <Plug>(easymotion-linebackward)
   nnoremap B     b
-  nmap [Alt]j <Plug>(easymotion-j)
-  nmap [Alt]k <Plug>(easymotion-k)
   nmap ' <Plug>(easymotion-prefix)
 
   let g:EasyMotion_startofline = 0
@@ -434,18 +461,56 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'lambdalisue/vim-protocol'
-on_path = '^https\?://'
-
-[[plugins]]
-repo = 'yuratomo/w3m.vim'
-hook_add = 'nnoremap W     :<C-u>W3m<Space><C-r>+'
-
-[[plugins]]
 repo = 'kana/vim-smartchr'
 on_event = 'InsertCharPre'
-hook_source = 'source ~/.vim/rc/plugins/smartchr.rc.vim'
+hook_source = '''
+  inoremap <expr> , smartchr#one_of(', ', ',')
+  inoremap <expr> =
+        \ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\) \%#', 'bcn')? '<bs>= '
+        \ : search('\(*\<bar>!\)\%#', 'bcn') ? '= '
+        \ : smartchr#one_of(' = ', '=', ' == ')
+  augroup MyAutoCmd
+    " Substitute .. into -> .
+    autocmd FileType c,cpp inoremap <buffer> <expr> .
+          \ smartchr#loop('.', '->', '...')
+    autocmd FileType vim inoremap <buffer> <expr> .
+          \ smartchr#loop('.', ' . ', '..', '...')
+    autocmd FileType lisp,scheme,clojure inoremap <buffer> <expr> = =
+
+    autocmd FileType haskell,int-ghci
+          \ inoremap <buffer> <expr> + smartchr#loop('+', ' ++ ')
+          \| inoremap <buffer> <expr> - smartchr#loop('-', ' -> ', ' <- ')
+          \| inoremap <buffer> <expr> $ smartchr#loop(' $ ', '$')
+          \| inoremap <buffer> <expr> \ smartchr#loop('\ ', '\')
+          \| inoremap <buffer> <expr> : smartchr#loop(':', ' :: ', ' : ')
+          \| inoremap <buffer> <expr> . smartchr#loop('.', ' . ', '..')
+  augroup END
+'''
 
 [[plugins]]
-repo = 'hewes/unite-gtags'
-on_source = 'unite.vim'
+repo = 'tweekmonster/impsort.vim'
+on_cmd = 'ImpSort'
+hook_source = 'let g:impsort_highlight_imported = 0'
+
+[[plugins]]
+repo = 'tweekmonster/helpful.vim'
+on_cmd = 'HelpfulVersion'
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+on_source = 'denite.nvim'
+
+[[plugins]]
+repo = 'thinca/vim-themis'
+
+[[plugins]]
+repo = 'Jagua/vim-denite-ghq'
+on_source = 'denite.nvim'
+
+[[plugins]]
+repo = 'ciaranm/securemodelines'
+on_event = 'BufRead'
+
+[[plugins]]
+repo = 'rhysd/vim-gfm-syntax'
+on_event = 'BufRead'

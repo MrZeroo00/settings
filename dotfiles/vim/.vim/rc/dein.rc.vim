@@ -10,8 +10,7 @@ if !dein#load_state(s:path)
   finish
 endif
 
-call dein#begin(s:path, [expand('<sfile>')]
-      \ + split(glob('~/.vim/rc/*.toml'), '\n'))
+call dein#begin(s:path, expand('<sfile>'))
 
 call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
 call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy' : 1})
@@ -25,7 +24,7 @@ if s:vimrc_local !=# ''
   " Load develop version plugins.
   call dein#local(fnamemodify(s:vimrc_local, ':h'),
         \ {'frozen': 1, 'merged': 0},
-        \ ['vim*', 'unite-*', 'neco-*', '*.vim'])
+        \ ['vim*', 'unite-*', 'neco-*', '*.vim', 'denite.nvim'])
   if has('nvim')
     call dein#local(fnamemodify(s:vimrc_local, ':h'),
           \ {'frozen': 1, 'merged': 0},
