@@ -69,6 +69,7 @@ install brew-file || true
 install brew-gem || true
 install brew-pip || true
 install bsdmake || true
+install cabal-install || true
 install casperjs || true
 install ccat || true
 install ccze || true
