@@ -112,6 +112,7 @@ install fpp || true
 install fzf || true
 install fzy || true
 # geeknote http://www.geeknote.me/
+install haskell-stack || true
 install homebrew/dupes/gdb || true
 install homebrew/head-only/xhyve || true
 install ghc || true
