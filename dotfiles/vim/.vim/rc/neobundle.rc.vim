@@ -60,7 +60,6 @@ NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'osyo-manga/unite-qfixhowm'
 
 NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'cohama/lexima.vim'
 NeoBundle 'tpope/vim-abolish'
@@ -82,12 +81,6 @@ NeoBundle 'jeaye/color_coded', {
       \ }
       \ }
 
-NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
-      \ 'name': 'vimperator-syntax',
-      \ 'type': 'hg',
-      \ 'rtp':  'vimperator/contrib/vim/'
-      \ }
-
 "NeoBundleLazy 'terryma/vim-multiple-cursors', {
 "      \ 'autoload': {
 "      \   'commands': ['MultipleCursorsFind'],
@@ -103,18 +96,6 @@ NeoBundleLazy 'mattn/emoji-vim',  {
 NeoBundleLazy 'sgur/vim-textobj-parameter'
 NeoBundleLazy 'osyo-manga/vim-textobj-multiblock'
 NeoBundleLazy 'osyo-manga/vim-textobj-multitextobj'
-
-NeoBundleLazy 'lambdalisue/unite-grep-vcs', {
-      \ 'autoload': {
-      \   'unite_sources': ['grep/git', 'grep/hg'],
-      \}}
-NeoBundleLazy 'ujihisa/unite-locate', { 'autoload' : {
-      \ 'unite_sources' : 'locate',
-      \ }}
-NeoBundleLazy 'osyo-manga/unite-choosewin-actions', {
-      \ 'depends' : 't9md/vim-choosewin',
-      \ 'unite_sources' : ['file']
-      \ }
 
 NeoBundleLazy 'lambdalisue/vim-gita', {
       \ 'autoload': {
