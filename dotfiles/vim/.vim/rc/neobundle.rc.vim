@@ -122,19 +122,6 @@ NeoBundleLazy 'lambdalisue/vim-gita', {
       \}}
 "NeoBundleLazy 'tpope/vim-endwise'
 "NeoBundleLazy 'szw/vim-tags' " => https://github.com/alpaca-tc/alpaca_tags
-"NeoBundle 'marcus/rsense'
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \   'filetypes': 'ruby',
-      \ }}
-NeoBundleLazy 'Shougo/neosnippet-snippets'
-NeoBundleLazy 'lambdalisue/vim-gista', {
-      \ 'autoload': {
-      \   'commands': ['Gista'],
-      \   'mappings': '<Plug>(gista-',
-      \   'unite_sources': 'gista',
-      \}}
 NeoBundleLazy 'codegram/vim-codereview', {
       \ 'depends' : 'junkblocker/patchreview-vim',
       \ 'autoload': {
