@@ -6,7 +6,6 @@
 "NeoBundle 'itchyny/thumbnail.vim'
 "NeoBundle 'ack.vim'
 "NeoBundle 'grep.vim'
-"NeoBundle 'taglist.vim'
 
 "NeoBundle 'closetag.vim'
 
@@ -26,7 +25,6 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mattn/gist-vim'
 
 NeoBundle 'vim-scripts/gtags.vim'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'joonty/vdebug.git'
 NeoBundle 'vim-scripts/CodeReviewer.vim'
 NeoBundle 'Shougo/context_filetype.vim'
