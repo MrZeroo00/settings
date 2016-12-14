@@ -115,3 +115,10 @@ repo = 'kballard/vim-fish'
 [[plugins]]
 repo = 'Shougo/neossh.vim'
 
+
+### my
+[[plugins]]
+repo = 'neomake/neomake'
+hook_add = '''
+  autocmd! BufWritePost * Neomake
+'''

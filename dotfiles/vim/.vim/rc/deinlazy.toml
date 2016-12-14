@@ -350,6 +350,10 @@ on_ft = 'scheme'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_source = '''
+  let g:go_fmt_command = 'goimports'
+  let g:neomake_go_enabled_makers = ['golint', 'govet', 'errcheck']
+'''
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
@@ -514,3 +518,12 @@ on_event = 'BufRead'
 [[plugins]]
 repo = 'rhysd/vim-gfm-syntax'
 on_event = 'BufRead'
+
+
+### my
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
+hook_source = '''
+  let g:neomake_javascript_enabled_makers = ['eslint']
+'''
