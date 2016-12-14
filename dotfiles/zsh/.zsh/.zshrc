@@ -1,6 +1,13 @@
 #source $HOME/.zsh/.zsh_antigen
 source $HOME/.zsh/.zsh_zplug
 
+## modules
+zmodload -a zsh/stat stat
+zmodload -a zsh/zpty zpty
+zmodload -a zsh/zprof zprof
+zmodload -ap zsh/mapfile mapfile
+
+
 # User configuration
 
 # Compilation flags
