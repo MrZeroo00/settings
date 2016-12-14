@@ -118,6 +118,12 @@ repo = 'Shougo/neossh.vim'
 
 ### my
 [[plugins]]
+repo = 'thinca/vim-singleton'
+hook_add = '''
+  call singleton#enable()
+'''
+
+[[plugins]]
 repo = 'neomake/neomake'
 hook_add = '''
   autocmd! BufWritePost * Neomake
