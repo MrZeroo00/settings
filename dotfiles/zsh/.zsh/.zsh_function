@@ -25,7 +25,6 @@ bindkey "^O" edit-command-line
 #history-register-line () { fc -R <(<<<$BUFFER); zle send-break }
 #zle -N history-register-line
 
-autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
@@ -97,8 +96,6 @@ bindkey '^o^_' reverse-menu-complete
 
 ## cdd
 # http://d.hatena.ne.jp/secondlife/20080218/1203303528
-#autoload -U compinit
-#compinit
 CDD_FILE=${HOME}/.zsh/cdd_pwd_list
 source ${HOME}/.zsh/function/cdd/cdd
 chpwd_functions+=_cdd_chpwd
