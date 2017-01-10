@@ -58,3 +58,4 @@ go get rsc.io/benchstat
 go get github.com/motemen/gofind/cmd/gofind
 go get github.com/mattn/jsonargs
 go get -u github.com/kisielk/errcheck
+go get github.com/mattn/cho
