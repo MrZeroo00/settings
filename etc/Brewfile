@@ -48,6 +48,7 @@ tap simeji/jid || true
 # Packages
 install ack || true
 install ag || true
+# alacritty https://github.com/jwilm/alacritty
 install ansible || true
 # anyenv https://github.com/riywo/anyenv
 install apple-gcc42 || true
@@ -89,6 +90,7 @@ install cscope || true
 install csshx || true
 # ctypes.sh https://github.com/taviso/ctypes.sh
 install curl || true
+# dgsh https://github.com/dspinellis/dgsh
 install dinghy || true
 install direnv || true
 install docker || true
@@ -162,6 +164,7 @@ install jq || true
 # jsonnet https://github.com/google/jsonnet
 install keychain || true
 install kibana || true
+# kitty https://github.com/kovidgoyal/kitty
 # kwm https://github.com/koekeishiya/kwm
 install lesspipe || true
 install lha || true
