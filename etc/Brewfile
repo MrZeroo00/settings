@@ -178,7 +178,7 @@ install luarocks || true
 install lv || true
 # m-cli https://github.com/rgcr/m-cli
 # mac-cli https://github.com/guarinogabriel/mac-cli
-install macvim --HEAD --with-lua --with-python3 || true
+install macvim --with-lua --with-python3 || true
 install mackup || true
 install argon/mas/mas || true
 install maven || true
