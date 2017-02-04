@@ -439,6 +439,7 @@ install zsh-completions || true
 #cask install virtualbox || true
 #cask install visual-studio || true
 #cask install visual-studio-code || true
+#cask install vivalidi || true
 #cask install vlc || true
 # wallcat https://www.wall.cat
 #cask install wireshark || true
