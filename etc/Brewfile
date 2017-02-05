@@ -259,6 +259,7 @@ install sqlite || true
 install sshrc || true
 install sslh || true
 install sslscan || true
+install stern || true
 install stow || true
 # svsh http://ido50.github.io/Svsh/
 install syncthing || true
