@@ -60,3 +60,4 @@ go get github.com/mattn/jsonargs
 go get -u github.com/kisielk/errcheck
 go get github.com/mattn/cho
 go get github.com/asciimoo/wuzz
+go get github.com/mattn/memo
