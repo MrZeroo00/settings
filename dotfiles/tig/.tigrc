@@ -25,3 +25,4 @@ bind generic ~ !@hub browse -- commit/%(commit)
 bind generic = !hub ci-status %(commit)
 bind branch [ !@hub compare %(branch)
 bind main { !hub pull-request
+bind generic P @sh -c 'hub browse -- commit/%(commit)'
