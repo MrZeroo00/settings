@@ -216,9 +216,9 @@ fi
 
 eval "$(direnv hook zsh)"
 
-#mkdir -p ${HOME}/log
+#mkdir -p ${HOME}/log/tmux
 #if [ "${TMUX}" != "" ] ; then
-#  tmux pipe-pane 'cat >> ${HOME}/log/`date +%Y-%m-%d`_#S:#I.#P.log'
+#  tmux pipe-pane 'cat >> ${HOME}/log/tmux/`date +%Y-%m-%d`_#S:#I.#P.log'
 #fi
 #if [[ ${TERM} = screen ]] || [[ ${TERM} = screen-256color ]]; then
 #  LOGDIR=${HOME}/log/tmux
