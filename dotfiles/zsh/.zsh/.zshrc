@@ -221,7 +221,7 @@ eval "$(direnv hook zsh)"
 #  tmux pipe-pane 'cat >> ${HOME}/log/`date +%Y-%m-%d`_#S:#I.#P.log'
 #fi
 if [[ ${TERM} = screen ]] || [[ ${TERM} = screen-256color ]]; then
-  LOGDIR=${HOME}/.tmuxlog
+  LOGDIR=${HOME}/log/tmux
   LOGFILE=$(hostname)_$(date +%Y-%m-%d_%H%M%S_%N.log)
   [ ! -d ${LOGDIR} ] && mkdir -p ${LOGDIR}
   tmux set-option default-terminal "screen" \; \
