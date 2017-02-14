@@ -106,6 +106,7 @@ install entr || true
 install envchain || true
 install erlang || true
 install exiftool || true
+install extract_url || true
 install ffmpeg || true
 install fig || true
 install fish || true
@@ -279,6 +280,7 @@ install tree || true
 install unison || true
 install universal-ctags || true
 install unzip || true
+install urlview || true
 # uzbl https://github.com/uzbl/uzbl
 install valgrind || true
 install w3m || true
