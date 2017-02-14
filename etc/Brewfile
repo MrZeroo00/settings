@@ -50,6 +50,7 @@ install ack || true
 install ag || true
 # alacritty https://github.com/jwilm/alacritty
 install ansible || true
+install ansifilter || true
 # anyenv https://github.com/riywo/anyenv
 install apple-gcc42 || true
 install asciinema || true
