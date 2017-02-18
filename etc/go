@@ -62,3 +62,5 @@ go get github.com/mattn/cho
 go get github.com/asciimoo/wuzz
 go get github.com/mattn/memo
 go get github.com/mikefarah/yaml
+go get github.com/wallix/awless
+go get github.com/tj/mmake/cmd/mmake
