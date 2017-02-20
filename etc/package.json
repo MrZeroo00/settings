@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "dependencies": {
+    "nativefier": "^7.0.1",
     "prh": "~1.0.1"
   },
   "devDependencies": {
