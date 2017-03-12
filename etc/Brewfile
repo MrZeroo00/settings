@@ -312,6 +312,7 @@ install zsh-completions || true
 #cask install atom || true
 # automute https://github.com/Lorenzo45/AutoMute
 #cask install bartender || true
+# bdash https://github.com/bdash-app/bdash
 #cask install bettertouchtool || true
 #cask install betterzipql || true
 #cask install bitbar || true
@@ -348,6 +349,7 @@ install zsh-completions || true
 #cask install flux || true
 #cask install font-source-han-code-jp || true
 #cask install franz || true
+# fuwari https://fuwari-app.com/
 #cask install geektool || true
 #cask install genymotion || true
 #cask install gimp || true
