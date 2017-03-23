@@ -65,3 +65,4 @@ go get github.com/mikefarah/yaml
 go get github.com/wallix/awless
 go get github.com/tj/mmake/cmd/mmake
 go get -u github.com/knq/usql
+go get github.com/fd0/machma
