@@ -246,7 +246,7 @@ install ricty --powerline --vim-powerline || true
 install ripgrep || true
 install rlwrap || true
 install rsense || true
-# rtag https://github.com/Andersbakken/rtags
+# rtags https://github.com/Andersbakken/rtags
 install ruby-build || true
 install rust || true
 install sbt || true
