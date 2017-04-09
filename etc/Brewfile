@@ -378,6 +378,7 @@ install zsh-completions || true
 #cask install iterm2 || true
 #cask install iterm2-beta || true
 #cask install jadengeller-helium || true
+#cask install jasper || true
 #cask install java || true
 #cask install julia || true
 #cask install karabiner || true
