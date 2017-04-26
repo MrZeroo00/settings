@@ -61,6 +61,7 @@ install autojump || true
 install automake || true
 install autossh || true
 install awscli || true
+install axel || true
 install bash-completion || true
 install bats || true
 install beeftornado/rmtree/brew-rmtree || true
