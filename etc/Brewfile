@@ -293,6 +293,7 @@ install w3m || true
 install weechat || true
 install wemux || true
 install wget || true
+# whalebrew https://github.com/bfirsh/whalebrew
 install whois || true
 install wine || true
 install wrk || true
