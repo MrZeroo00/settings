@@ -90,6 +90,7 @@ install cpanminus || true
 install cppcheck || true
 install cscope || true
 install csshx || true
+install ctop || true
 # ctypes.sh https://github.com/taviso/ctypes.sh
 install curl || true
 # dgsh https://github.com/dspinellis/dgsh
