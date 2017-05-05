@@ -253,6 +253,7 @@ install ruby-build || true
 install rust || true
 install sbt || true
 install scala || true
+# scat https://github.com/Roman2K/scat
 install screenfetch || true
 install shellcheck || true
 install sift || true
