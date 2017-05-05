@@ -44,6 +44,7 @@ tap passy/givegif || true
 tap homebrew/services || true
 tap jhawthorn/fzy || true
 tap simeji/jid || true
+tap thefox/brewery || true
 
 # Packages
 install ack || true
@@ -219,6 +220,7 @@ install packer || true
 install parallel || true
 install peco || true
 install phantomjs || true
+install phook || true
 install pkg-config || true
 install plantuml || true
 install play || true
