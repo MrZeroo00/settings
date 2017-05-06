@@ -217,6 +217,7 @@ install openssl || true
 install osquery || true
 # osxlockdown https://github.com/SummitRoute/osxlockdown
 install packer || true
+# parallel (rust) https://github.com/mmstick/parallel
 install parallel || true
 install peco || true
 install phantomjs || true
@@ -292,6 +293,7 @@ install urlview || true
 # uzbl https://github.com/uzbl/uzbl
 install valgrind || true
 install w3m || true
+install watchexec || true
 install weechat || true
 install wemux || true
 install wget || true
@@ -300,6 +302,7 @@ install whois || true
 install wine || true
 install wrk || true
 install xonsh || true
+install xsv || true
 install xz || true
 install yasm || true
 # yfiton http://yfiton.com/
