@@ -172,6 +172,7 @@ install keychain || true
 install kibana || true
 # kitty https://github.com/kovidgoyal/kitty
 install knock || true
+install kryptco/tap/kr || true
 # kwm https://github.com/koekeishiya/kwm
 install lesspipe || true
 install lha || true
