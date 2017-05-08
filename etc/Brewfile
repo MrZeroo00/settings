@@ -214,6 +214,7 @@ install nkf || true
 install nodebrew || true
 install nq || true
 install nvm || true
+install olleolleolle/adr-tools/adr_tools || true
 install openssl || true
 install osquery || true
 # osxlockdown https://github.com/SummitRoute/osxlockdown
