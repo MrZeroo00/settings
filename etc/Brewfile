@@ -366,9 +366,9 @@ install zsh-completions || true
 #cask install geektool || true
 #cask install genymotion || true
 #cask install gimp || true
+#cask install github || true
 #cask install github-desktop || true
 #cask install gitscout || true
-#cask install github || true
 #cask install goofy || true
 #cask install google-chrome || true
 #cask install google-drive || true
