@@ -66,6 +66,7 @@ install axel || true
 install bash-completion || true
 install bats || true
 install beeftornado/rmtree/brew-rmtree || true
+# bingrep https://github.com/m4b/bingrep
 # bish https://github.com/tdenniston/bish
 install boot2docker || true
 install boris || true
@@ -112,6 +113,7 @@ install exiftool || true
 install extract_url || true
 install ffmpeg || true
 install fig || true
+install itchyny/fillin/fillin || true
 install fish || true
 install fontforge || true
 install fortune || true
@@ -318,6 +320,7 @@ install zsh-completions || true
 # alternote http://alternoteapp.com/
 #cask install amethyst || true
 #cask install android-studio || true
+# anka https://veertu.com/ankabeta/
 #cask install appcleaner || true
 #cask install appium || true
 #cask install asepsis || true
