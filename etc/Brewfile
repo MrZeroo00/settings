@@ -225,6 +225,7 @@ install packer || true
 # parallel (rust) https://github.com/mmstick/parallel
 install parallel || true
 install peco || true
+install knqyf263/pet/pet || true
 install phantomjs || true
 install phook || true
 install pkg-config || true
