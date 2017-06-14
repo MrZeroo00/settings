@@ -149,6 +149,7 @@ install heroku-toolbelt || true
 install hg || true
 install highlight || true
 install highway || true
+install b4b4r07/history/history || true
 install hping || true
 install htop-osx || true
 install http_load || true
