@@ -199,6 +199,7 @@ install mercurial || true
 install metashell || true
 install micro || true
 install migemogrep || true
+install MisterTea/et/et || true
 install mobile-shell || true
 install mruby || true
 install mycli || true
