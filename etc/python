@@ -17,5 +17,6 @@ pip install --user voltron
 pip install --user awslogs --ignore-installed six
 # marker https://github.com/pindexis/marker
 pip install --user jupyterlab
+pip install --user frida
 jupyter serverextension enable --py jupyterlab
 jupyter lab
