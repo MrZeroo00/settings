@@ -163,6 +163,7 @@ install iftop || true
 install imagemagick || true
 # intrace https://github.com/robertswiecki/intrace
 install ios-simulator-app-installer || true
+install jenv || true
 install jid || true
 install jless || true
 install jmeter || true
