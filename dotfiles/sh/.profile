@@ -187,6 +187,13 @@ if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
 fi
 
 
+# jenv
+if [ -x "$(which jenv)" ]; then
+  export JENV_ROOT="${HOME}/.jenv"
+  eval "$(jenv init -)"
+fi
+
+
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
