@@ -322,6 +322,7 @@ install zsh-completions || true
 #cask install alfred || true
 # alternote http://alternoteapp.com/
 #cask install amethyst || true
+#cask install anaconda || true
 #cask install android-studio || true
 # anka https://veertu.com/ankabeta/
 #cask install appcleaner || true
