@@ -116,6 +116,7 @@ install fig || true
 install itchyny/fillin/fillin || true
 install fish || true
 install fontforge || true
+# forest https://github.com/KoharaKazuya/forest
 install fortune || true
 install fpp || true
 install fzf || true
