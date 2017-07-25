@@ -85,6 +85,8 @@
 	prompt = false
 [difftool "vim-diff"]
 	cmd = vim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
+[difftool "code-diff"]
+	cmd = code --wait --diff $LOCAL $REMOTE
 [difftool "vdwrap"]
 	cmd = /Users/mitsuhiro.tanda/bin/git/vdwrap $LOCAL $REMOTE
 [difftool "sourcetree"]
