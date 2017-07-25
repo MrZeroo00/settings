@@ -364,6 +364,7 @@ install zsh-completions || true
 #cask install evernote || true
 #cask install exa || true
 #cask install fiddler || true
+#cask install caskroom/fonts/font-fira-code || true
 #cask install firefox || true
 #cask install flashlight || true
 #cask install flip4mac || true
