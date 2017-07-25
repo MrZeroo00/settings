@@ -5,4 +5,4 @@ d.each do |f|
   file = Dir.pwd + '/' + f
   `ln -fs #{file} ~/`
 end
-`ln -fs vscode/User "#{ENV['HOME']}/Library/Application Support/Code/User"`
+`ln -fs $(realpath vscode/User) "#{ENV['HOME']}/Library/Application Support/Code/User"`
