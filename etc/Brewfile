@@ -45,6 +45,7 @@ tap homebrew/services || true
 tap jhawthorn/fzy || true
 tap simeji/jid || true
 tap thefox/brewery || true
+tap dteoh/sqa || true
 
 # Packages
 install ack || true
@@ -447,6 +448,7 @@ install zsh-completions || true
 #cask install skitch || true
 #cask install skype || true
 # sikuli https://github.com/sikuli/sikuli
+#cask install slowquitapps || true
 #cask install sourcetree || true
 #cask install spectacle || true
 #cask install sqlitebrowser || true
