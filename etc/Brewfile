@@ -32,7 +32,7 @@ tap tcnksm/license || true
 tap universal-ctags/universal-ctags || true
 tap neovim/neovim || true
 tap yudai/gotty || true
-tap tkengo/highway || true
+#tap tkengo/highway || true
 tap beeftornado/rmtree || true
 tap itchyny/rexdep || true
 tap tldr-pages/tldr || true
@@ -48,8 +48,8 @@ tap thefox/brewery || true
 tap dteoh/sqa || true
 
 # Packages
-install ack || true
-install ag || true
+#install ack || true # use ripgrep
+#install ag || true # use ripgrep
 # alacritty https://github.com/jwilm/alacritty
 install ansible || true
 install ansifilter || true
@@ -150,7 +150,7 @@ install haskell-platform || true
 install heroku-toolbelt || true
 install hg || true
 install highlight || true
-install highway || true
+#install highway || true # use ripgrep
 install b4b4r07/history/history || true
 install hping || true
 install htop-osx || true
@@ -288,7 +288,7 @@ install sysdig || true
 install tcpflow || true
 install tcptrace || true
 install terminal-notifier || true
-install the_silver_searcher || true
+#install the_silver_searcher || true # use ripgrep
 install tig || true
 install tiger-vnc || true
 install tldr || true
