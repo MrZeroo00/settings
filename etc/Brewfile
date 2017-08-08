@@ -277,6 +277,7 @@ install source-highlight || true
 install sox || true
 #install spark || true
 install sqlite || true
+install sqlmap || true
 install sshrc || true
 install sslh || true
 install sslscan || true
@@ -407,6 +408,7 @@ install zsh-completions || true
 #cask install julia || true
 #cask install karabiner || true
 #cask install kdiff3 || true
+#cask install keybase || true
 #cask install kindle || true
 #cask install kitematic || true
 #cask install kobito || true
