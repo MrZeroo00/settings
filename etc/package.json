@@ -47,6 +47,7 @@
     "mocha": "^2.2.5",
     "pdf-markdown-annotator": "~1.0.8",
     "pretty-diff": "~0.2.1",
+    "puppeteer": "*",
     "ramda-cli": "~0.18.0",
     "sinon": "^1.15.4",
     "sloc": "~0.1.9",
