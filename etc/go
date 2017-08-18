@@ -72,3 +72,4 @@ go get github.com/hirose31/pinger
 go get github.com/d4l3k/go-pry
 go get -u github.com/noborus/trdsql
 go get -u sourcegraph.com/sqs/goreturns
+go get github.com/esimov/diagram
