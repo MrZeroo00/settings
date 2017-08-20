@@ -276,6 +276,7 @@ install socat || true
 install source-highlight || true
 install sox || true
 #install spark || true
+# sqlcheck https://github.com/jarulraj/sqlcheck
 install sqlite || true
 install sqlmap || true
 install sshrc || true
