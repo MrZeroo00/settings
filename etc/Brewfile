@@ -196,6 +196,7 @@ install macvim --with-lua --with-python3 || true
 install mackup || true
 install argon/mas/mas || true
 install maven || true
+# mcmd http://www.nysol.jp/
 install md5sha1sum || true
 install meld || true
 install mercurial || true
