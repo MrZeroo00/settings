@@ -1,5 +1,6 @@
 code --install-extension vscodevim.vim
 code --install-extension lukehoban.Go
+code --install-extension rebornix.Ruby
 code --install-extension donjayamanne.python
 code --install-extension ms-vscode.csharp
 code --install-extension ms-vscode.cpptools
@@ -8,5 +9,9 @@ code --install-extension felixfbecker.php-intellisense
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eg2.tslint
 code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension PeterJausovec.vscode-docker
 code --install-extension eamodio.gitlens
 code --install-extension tokoph.ghosttext
+code --install-extension formulahendry.code-runner
+code --install-extension christian-kohler.path-intellisense
+code --install-extension robertohuertasm.vscode-icons
