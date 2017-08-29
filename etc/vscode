@@ -1,0 +1,5 @@
+code --install-extension lukehoban.Go
+code --install-extension donjayamanne.python
+code --install-extension ms-vscode.csharp
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension tokoph.ghosttext
