@@ -19,5 +19,6 @@ pip install --user awslogs --ignore-installed six
 pip install --user jupyterlab
 pip install --user frida
 pip install --user glances
+pip install --user yamllint
 jupyter serverextension enable --py jupyterlab
 jupyter lab
