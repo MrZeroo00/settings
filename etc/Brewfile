@@ -376,6 +376,7 @@ install zsh-completions || true
 #cask install fluid || true
 #cask install flux || true
 #cask install font-source-han-code-jp || true
+#cask install fork || true # git-fork
 #cask install franz || true
 # fuwari https://fuwari-app.com/
 #cask install geektool || true
@@ -383,6 +384,7 @@ install zsh-completions || true
 #cask install gimp || true
 #cask install github || true
 #cask install github-desktop || true
+#cask install gitkraken || true
 #cask install gitscout || true
 #cask install goofy || true
 #cask install google-chrome || true
