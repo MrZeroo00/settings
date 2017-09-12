@@ -30,3 +30,12 @@ site '*://git.*.net/*' {
   unmap y
   unmap ?
 }
+site '*://kcw.kddi.ne.jp/*' {
+  unmap j
+  unmap k
+  unmap g
+  unmap m
+  unmap t
+  unmap c
+  unmap f
+}
