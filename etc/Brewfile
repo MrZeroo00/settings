@@ -323,6 +323,7 @@ install zsh || true
 install zsh-completions || true
 
 # .dmg
+#cask install 1password-cli || true
 #cask install accessmenubarapps || true
 #cask install adobe-reader || true
 #cask install alfred || true
