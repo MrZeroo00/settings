@@ -76,3 +76,4 @@ go get github.com/esimov/diagram
 go get github.com/Guitarbum722/align
 go get github.com/justjanne/powerline-go
 go get github.com/c-bata/go-prompt
+go get -u github.com/aelsabbahy/dargs
