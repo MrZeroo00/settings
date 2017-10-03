@@ -334,6 +334,7 @@ install zsh-completions || true
 # anka https://veertu.com/ankabeta/
 #cask install appcleaner || true
 #cask install appium || true
+#cask install arduino || true
 #cask install asepsis || true
 # ATOK Spark https://github.com/JustSystems/ATOK_Spark
 #cask install atom || true
