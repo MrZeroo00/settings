@@ -366,6 +366,7 @@ install zsh-completions || true
 #cask install dash2 || true
 #cask install dat || true # https://datproject.org/
 #cask install docker || true
+#cask install dotnet-sdk || true
 #cask install dropbox || true
 #cask install easysimbl || true
 #cask install evernote || true
