@@ -10,6 +10,7 @@ dotfiles/atom/.atom/npm-debug.log
 dotfiles/atom/.atom/packages/
 dotfiles/atom/.atom/projects.cson
 dotfiles/atom/.atom/storage/
+dotfiles/bundler/.bundle/
 dotfiles/emacs/.emacs.d/conf/*_local_*.el
 dotfiles/emacs/.emacs.d/data/
 dotfiles/emacs/.emacs.d/elpa/
@@ -21,6 +22,7 @@ dotfiles/vim/.vim/.netrwhist
 dotfiles/vim/.vim/bundle
 dotfiles/vimperator/.vimperator/conf/office.*
 dotfiles/vimperator/.vimperator/info/
+dotfiles/vscode/User/workspaceStorage/
 dotfiles/w3m/.w3m/cookie
 dotfiles/w3m/.w3m/history
 dotfiles/weechat/.weechat/logs/
