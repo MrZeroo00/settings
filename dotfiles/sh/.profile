@@ -180,10 +180,9 @@ fi
 
 # Node Version Manager (NVM)
 if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
-  source "$(brew --prefix nvm)/nvm.sh"
   export NVM_DIR="${HOME}/.nvm"
   mkdir -p ${NVM_DIR}
-  nvm use 7.0.0 > /dev/null 2>&1
+  source "$(brew --prefix nvm)/nvm.sh"
 fi
 
 
