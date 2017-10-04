@@ -3,5 +3,12 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
-    "vim.disableAnnoyingNeovimMessage": true
+    "window.zoomLevel": -1,
+    "extensions.ignoreRecommendations": false,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.easymotion": true,
+    "vim.foldfix": true,
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.visualstar": true
 }
