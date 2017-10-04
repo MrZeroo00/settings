@@ -41,6 +41,7 @@ dotfiles/zsh/.zsh/.zcompdump*
 dotfiles/zsh/.zsh/cdd_pwd_list*
 dotfiles/zsh/.zsh/zplug_repos/
 dotfiles/zsh/.zsh/*local
+etc/node_modules/
 shellscripts/.*
 shellscripts/local
 shellscripts/php/_phpmd_rule

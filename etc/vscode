@@ -18,3 +18,4 @@ code --install-extension robertohuertasm.vscode-icons
 code --install-extension eamodio.gitlens
 code --install-extension jebbs.plantuml
 code --install-extension alefragnani.project-manager
+code --install-extension marchrock.vscode-ghq
