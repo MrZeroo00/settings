@@ -5,6 +5,8 @@
     "editor.fontLigatures": true,
     "window.zoomLevel": -1,
     "extensions.ignoreRecommendations": false,
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "terminal.integrated.shellArgs.osx": [],
     "vim.disableAnnoyingNeovimMessage": true,
     "vim.easymotion": true,
     "vim.foldfix": true,
