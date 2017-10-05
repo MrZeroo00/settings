@@ -1,1 +1,2 @@
 bash -c "`curl -sL get.freshshell.com`"
+sudo launchctl config user path /usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
