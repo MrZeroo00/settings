@@ -323,79 +323,79 @@ install zsh || true
 install zsh-completions || true
 
 # .dmg
-#cask install 1password-cli || true
+cask install 1password-cli || true
 #cask install accessmenubarapps || true
 #cask install adobe-reader || true
-#cask install alfred || true
+cask install alfred || true
 # alternote http://alternoteapp.com/
 #cask install amethyst || true
-#cask install anaconda || true
+cask install anaconda || true
 #cask install android-studio || true
 # anka https://veertu.com/ankabeta/
-#cask install appcleaner || true
+cask install appcleaner || true
 #cask install appium || true
-#cask install arduino || true
+cask install arduino || true
 #cask install asepsis || true
 # ATOK Spark https://github.com/JustSystems/ATOK_Spark
-#cask install atom || true
+cask install atom || true
 # automute https://github.com/Lorenzo45/AutoMute
 #cask install bartender || true
 # bdash https://github.com/bdash-app/bdash
-#cask install bettertouchtool || true
+cask install bettertouchtool || true
 #cask install betterzipql || true
-#cask install bitbar || true
+cask install bitbar || true
 # blisk https://blisk.io/
 # boost http://b00st.io/
 #cask install cargo || true
 #cask install Chromium || true
-#cask install charles || true
-#cask install cheatsheet || true
-#cask install chefdk || true
+cask install charles || true
+cask install cheatsheet || true
+cask install chefdk || true
 # Chemrtron https://github.com/cho45/Chemrtron
 # clipcard
-#cask install clipmenu || true
-#cask install clipy || true
+##cask install clipmenu || true
+cask install clipy || true
 #cask install cloudytabs || true
-#cask install coconutbattery || true
+cask install coconutbattery || true
 #cask install codeplane || true
 #cask install commander-one || true
 #cask install controlplane || true
 #cask install coolterm || true
-#cask install coteditor || true
+cask install coteditor || true
 #cask install dash || true
-#cask install dash2 || true
+cask install dash2 || true
 #cask install dat || true # https://datproject.org/
-#cask install docker || true
+cask install docker || true
 #cask install dotnet-sdk || true
-#cask install dropbox || true
+cask install dropbox || true
 #cask install easysimbl || true
-#cask install evernote || true
-#cask install exa || true
-#cask install fiddler || true
-#cask install caskroom/fonts/font-fira-code || true
-#cask install firefox || true
+cask install evernote || true
+cask install exa || true
+cask install fiddler || true
+cask install caskroom/fonts/font-fira-code || true
+cask install firefox || true
 #cask install flashlight || true
-#cask install flip4mac || true
-#cask install fluid || true
-#cask install flux || true
-#cask install font-source-han-code-jp || true
-#cask install fork || true # git-fork
+cask install flip4mac || true
+cask install fluid || true
+cask install flux || true
+cask install font-source-han-code-jp || true
+cask install fork || true # git-fork
 #cask install franz || true
 # fuwari https://fuwari-app.com/
-#cask install geektool || true
+cask install geektool || true
 #cask install genymotion || true
 #cask install gimp || true
 #cask install github || true
 #cask install github-desktop || true
 #cask install gitkraken || true
 #cask install gitscout || true
-#cask install goofy || true
-#cask install google-chrome || true
-#cask install google-drive || true
-#cask install google-japanese-ime || true
+##cask install goofy || true
+cask install google-chrome || true
+cask install google-drive || true
+cask install google-japanese-ime || true
 #cask install google-photos-backup || true
 #cask install grandperspective || true
-#cask install growlnotify || true
+cask install growlnotify || true
 #cask install hammerspoon || true
 #cask install haroopad || true
 #cask install hipchat || true
@@ -407,17 +407,17 @@ install zsh-completions || true
 # insomnia https://insomnia.rest/
 #cask install insomniax || true
 #cask install intel-power-gadget || true
-#cask install intellij-idea || true
-#cask install iterm2 || true
-#cask install iterm2-beta || true
+cask install intellij-idea || true
+cask install iterm2 || true
+cask install iterm2-beta || true
 #cask install jadengeller-helium || true
 #cask install jasper || true
-#cask install java || true
+cask install java || true
 #cask install julia || true
 #cask install karabiner || true
 #cask install kdiff3 || true
-#cask install keybase || true
-#cask install kindle || true
+cask install keybase || true
+cask install kindle || true
 #cask install kitematic || true
 #cask install kobito || true
 #cask install krita || true
@@ -431,10 +431,10 @@ install zsh-completions || true
 #cask install media-converter || true
 # monosnap https://monosnap.com/
 #cask install mou || true
-#cask install mysql-workbench || true
+cask install mysql-workbench || true
 #cask install node-webkit-32bit || true
-#cask install notifyr || true
-#cask install omnifocus || true
+##cask install notifyr || true
+cask install omnifocus || true
 #cask install onyx || true
 #cask install owasp-zap || true
 #cask install p4merge || true
@@ -454,16 +454,16 @@ install zsh-completions || true
 #cask install sequel-pro || true
 #cask install seil || true
 #cask install shiori || true
-#cask install skim || true
-#cask install skitch || true
+cask install skim || true
+##cask install skitch || true
 #cask install skype || true
 # sikuli https://github.com/sikuli/sikuli
-#cask install slowquitapps || true
+cask install slowquitapps || true
 #cask install sourcetree || true
 #cask install spectacle || true
 #cask install sqlitebrowser || true
 #cask install startninja || true
-#cask install sublime-text || true
+##cask install sublime-text || true
 #cask install td-agent || true
 #cask install textbar || true
 #cask install textexpander || true
@@ -472,25 +472,25 @@ install zsh-completions || true
 #cask install tinkertool || true
 #cask install totalfinder || true
 #cask install totalspace || true
-#cask install totalterminal || true
-#cask install trailer || true
+##cask install totalterminal || true
+cask install trailer || true
 #cask install typora || true
 #cask install unicorns || true
 #cask install utorrent || true
-#cask install vagrant || true
-#cask install vagrant-manager || true
+cask install vagrant || true
+cask install vagrant-manager || true
 #cask install vault || true
 # veertu http://veertu.com/
-#cask install virtualbox || true
+cask install virtualbox || true
 #cask install visual-studio || true
-#cask install visual-studio-code || true
+cask install visual-studio-code || true
 #cask install vivaldi || true
-#cask install vlc || true
+cask install vlc || true
 # wallcat https://www.wall.cat
-#cask install wireshark || true
+cask install wireshark || true
 #cask install xamarin-studio || true
-#cask install xmind || true
-#cask install xquartz || true
+cask install xmind || true
+cask install xquartz || true
 #cask install xtrafinder || true
 #cask install yujitach-menumeters || true
 
