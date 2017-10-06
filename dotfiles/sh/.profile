@@ -205,6 +205,12 @@ if [ -d "/opt/chefdk/bin" ]; then
 fi
 
 
+# kubectl
+if [ -x "$(which kubectl)" ]; then
+  source <(kubectl completion zsh)
+fi
+
+
 ## include .shrc if it exists
 #if [ -f ${HOME}/.shrc ]; then
 #  source ${HOME}/.shrc
