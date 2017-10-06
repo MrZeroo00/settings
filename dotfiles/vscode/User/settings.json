@@ -12,6 +12,7 @@
     "vim.easymotion": true,
     "vim.foldfix": true,
     "vim.hlsearch": true,
+    "vim.startInInsertMode": false,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true
 }
