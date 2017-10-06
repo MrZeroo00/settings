@@ -97,6 +97,7 @@ case "${OS}" in
   ;;
   "Darwin")
   add_path "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin"
+  add_path "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
   add_path "/Applications/android-sdk/platform-tools"
   add_path "/Applications/android-sdk/tools"
   add_path "${HOME}/Library/Python/2.7/bin"
