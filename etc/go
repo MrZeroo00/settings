@@ -46,7 +46,7 @@
 #go get -u github.com/k0kubun/pp # Colored pretty printer for Go language
 #go get -u github.com/gizak/termui # Golang terminal dashboard
 #go get github.com/divan/expvarmon # TermUI based Go apps monitor using expvars variables (/debug/vars).
-#go get github.com/d4l3k/go-pry
+go get github.com/d4l3k/go-pry
 go get -u github.com/motemen/gore
 
 # library
