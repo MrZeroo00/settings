@@ -2,6 +2,7 @@
 
 #go get -u github.com/mailgun/godebug # deprecated, use delve
 #go get github.com/fd0/machma # Easy parallel execution of commands with live feedback
+#go get -u github.com/tcnksm/dmux
 #go get github.com/svent/sift # A fast and powerful open source alternative to grep.
 #go get github.com/tkuchiki/alp # alp is Access Log Profiler for Labeled Tab-separated Values(LTSV).
 #go get github.com/sonots/lltsv # List specified keys of LTSV (Labeled Tab Separated Values)
@@ -22,6 +23,10 @@
 #go get github.com/esimov/diagram # Diagram is a CLI tool to generate hand drawn diagrams from ASCII arts.
 #go get github.com/mizoR/croneye/... # Check the job execution schedule from cron settings.
 #go get github.com/hirose31/pinger # Pinger helps you to monitor many hosts using ICMP ECHO_REQUEST.
+#go get -u github.com/Code-Hex/battery/cmd/battery # Draw battery unicode art written by Go
+#go install github.com/ncw/rclone # "rsync for cloud storage" - Google Drive, Amazon Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Cloudfiles, Google Cloud Storage, Yandex Files
+#go get github.com/SumoLogic/sumoshell
+#go get github.com/otiai10/amesh/amesh
 
 # go development
 go get -u golang.org/x/tools/cmd/cover
@@ -44,16 +49,24 @@ go get github.com/divan/expvarmon # TermUI based Go apps monitor using expvars v
 go get github.com/d4l3k/go-pry
 go get -u github.com/motemen/gore
 
-# other development tool
+# library
+#go get github.com/c-bata/go-prompt
+#go get github.com/bradfitz/http2/h2i
+
+# other development
+go get github.com/tj/mmake/cmd/mmake # Mmake is a small program which wraps make to provide additional functionality, such as user-friendly help output, remote includes, and eventually more. It otherwise acts as a pass-through to standard make.
 go get github.com/moznion/go-setlock # go-setlock is a go port of setlock (an utility of daemontools), and accompanying library.
 go get github.com/mefellows/muxy # Proxy for simulating real-world distributed system failures to improve resilience in your applications.
 go get github.com/iopipe/iopipe # This package provides analytics and distributed tracing for event-driven applications running on AWS Lambda.
+go get rsc.io/benchstat # Benchstat computes and compares statistics about benchmarks.
 
 # install
 go get -u github.com/motemen/ghq
+go get github.com/justjanne/powerline-go
 go get -u github.com/aelsabbahy/dargs # Enhance any command with dynamic arguments
 go get github.com/knqyf263/pet # Simple command-line snippet manager, written in Go.
 go get github.com/mattn/qq # Select stdin with query.
+go get -u github.com/mattn/gof
 go get github.com/mattn/cho
 go get github.com/Guitarbum722/align # A general purpose application that aligns text
 go get github.com/monochromegane/mdt # A markdown table generation tool from CSV/TSV.
@@ -63,24 +76,12 @@ go get -u github.com/tomnomnom/gron # Make JSON greppable!
 go get github.com/jtopjian/jsed # jsed is a small command-line utility to add, remove, and search for data in a JSON structure.
 go get github.com/mikefarah/yaml # yaml is a portable command-line YAML processor
 go get -u github.com/motemen/hub-pr # Personal workflow for handling pull requests on open-source projects
+go get -u github.com/davecheney/httpstat # It's like curl -v, with colours.
 go get github.com/uber-common/cpustat # high frequency performance measurements for Linux
 go get github.com/mattn/memo
+go get -u github.com/b4b4r07/gomi # Trash can in CLI
+go get github.com/pinzolo/spwd # Secret file based password management tool
+go get github.com/naoty/ext # A convention for command extensions
+go get github.com/kohkimakimoto/zssh/cmd/zssh # Extended ssh command.
 go get github.com/dropbox/dbxcli # A command line tool for Dropbox users and team admins
 go get github.com/lukasmartinelli/pipecat # Connect UNIX pipes and message queues
-
-go get -u github.com/tcnksm/dmux
-go get -u github.com/mattn/gof
-go get -u github.com/b4b4r07/gomi
-go install github.com/ncw/rclone
-go get github.com/naoty/ext
-go get github.com/bradfitz/http2/h2i
-go get github.com/kohkimakimoto/zssh/cmd/zssh
-go get github.com/otiai10/amesh/amesh
-go get github.com/SumoLogic/sumoshell
-go get -u github.com/davecheney/httpstat
-go get -u github.com/Code-Hex/battery/cmd/battery
-go get rsc.io/benchstat
-go get github.com/tj/mmake/cmd/mmake
-go get github.com/justjanne/powerline-go
-go get github.com/c-bata/go-prompt
-go get github.com/pinzolo/spwd
