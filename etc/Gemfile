@@ -1,32 +1,40 @@
 source 'https://rubygems.org'
 
-gem 'am'
 gem 'colorls'
-gem 'ec2ssh'
-gem 'furik'
-gem 'ghn'
-gem 'gist'
-gem 'gisty'
-gem 'git'
-gem 'git-commit-autouser'
-gem 'git-gsub'
-gem 'git-issue'
-gem 'git-prune-remote-branch'
-gem 'homesick'
-gem 'ltsvr'
-gem 'msgpack-inspect'
-gem 'netrc'
-gem 'octokit'
-gem 'sconb'
-gem 'sgviz'
-gem 'thor'
 gem 'tmuxinator'
-gem 'watson-ruby'
-gem 'serverkit'
-gem 'serverkit-defaults'
-gem 'ultrahook'
-gem 'winrm'
+#gem 'am' # alias command wrapper
+#gem 'homesick' # Your home directory is your castle. Don't leave your dotfiles behind.
+#gem 'ultrahook' # UltraHook lets you receive webhooks on localhost.
 
+# development
+#gem 'ltsvr' # LTSV viewer for Ruby
+gem 'msgpack-inspect'
+gem 'watson-ruby' # an inline issue manager
+
+# git
+#gem 'git-commit-autouser' # git-commit with setting committer and author automatically
+#gem 'git-gsub' # A Git subcommand to do gsub in a repository
+gem 'git-prune-remote-branch'
+
+# GitHub
+#gem 'furik' # Furik is summary generator for your GitHub activities.
+#gem 'git-issue' # git subcommand of browse/modify issue traker's tickets.
+#gem 'ghn' # List/Open unread GitHub Notifications.
+gem 'gist'
+gem 'gisty' # yet another command line client for gist
+
+# network
+#gem 'sconb' # Ssh CONfig Buckup tool.
+
+# server
+#gem 'serverkit'
+#gem 'serverkit-defaults'
+
+# AWS
+#gem 'ec2ssh'
+#gem 'sgviz' # Visualize AWS VPC security groups.
+
+# library or development
 #gem 'activerecord-import'
 #gem 'activesupport'
 #gem 'annotate'
@@ -40,10 +48,12 @@ gem 'winrm'
 #gem 'database_rewinder'
 #gem 'factory_girl_rails'
 #gem 'faker'
+#gem 'git'
 #gem 'global'
 #gem 'guard-rubocop'
 #gem 'komachi_heartbeat'
 #gem 'meta_request'
+#gem 'netrc'
 #gem 'octokit'
 #gem 'peek'
 #gem 'pry-byebug'
@@ -55,6 +65,8 @@ gem 'winrm'
 #gem 'rspec-retry'
 #gem 'rspec-temp_dir'
 #gem 'rubocop'
+#gem 'thor'
 #gem 'timecop'
 #gem 'view_source_map'
 #gem 'webmock'
+#gem 'winrm' # Ruby library for Windows Remote Management
