@@ -1,6 +1,7 @@
-cpanm Statistics::Swoop
-cpanm App::YG
-cpanm App::FromUnixtime
-cpanm App::Randf
-cpanm Text::Chord::Piano
+# library
+#cpanm Statistics::Swoop
+#cpanm App::YG # log line filter, like \G of MySQL
+#cpanm App::FromUnixtime # to convert from unixtime to date suitably
+#cpanm App::Randf # random filter for STDIN
+#cpanm Text::Chord::Piano # This module is a chord table generator of Piano by the text
 # encoreutils https://github.com/xtetsuji/encoreutils
