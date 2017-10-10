@@ -29,24 +29,24 @@
 #go get github.com/otiai10/amesh/amesh
 
 # go development
-go get -u golang.org/x/tools/cmd/cover
-go get -u golang.org/x/tools/cmd/godoc
-go get -u golang.org/x/tools/cmd/goimports
-go get -u github.com/nsf/gocode
-go get -u github.com/golang/lint/golint
-go get -u code.google.com/p/rog-go/exp/cmd/godef
-go get -u github.com/jstemmer/gotags
-go get -u github.com/motemen/go-quickfix/cmd/goquickfix
-go get -u github.com/tools/godep
-go get github.com/Songmu/goshim/cmd/goshim
-go get github.com/motemen/gofind/cmd/gofind
-go get -u sourcegraph.com/sqs/goreturns
-go get -u github.com/kisielk/errcheck
-go get -d github.com/tcnksm/go-latest # Simple way to check version is latest or not from various sources in Golang
-go get -u github.com/k0kubun/pp # Colored pretty printer for Go language
-go get -u github.com/gizak/termui # Golang terminal dashboard
-go get github.com/divan/expvarmon # TermUI based Go apps monitor using expvars variables (/debug/vars).
-go get github.com/d4l3k/go-pry
+#go get -u golang.org/x/tools/cmd/cover
+#go get -u golang.org/x/tools/cmd/godoc
+#go get -u golang.org/x/tools/cmd/goimports
+#go get -u github.com/nsf/gocode
+#go get -u github.com/golang/lint/golint
+#go get -u code.google.com/p/rog-go/exp/cmd/godef
+#go get -u github.com/jstemmer/gotags
+#go get -u github.com/motemen/go-quickfix/cmd/goquickfix
+#go get -u github.com/tools/godep
+#go get github.com/Songmu/goshim/cmd/goshim
+#go get github.com/motemen/gofind/cmd/gofind
+#go get -u sourcegraph.com/sqs/goreturns
+#go get -u github.com/kisielk/errcheck
+#go get -d github.com/tcnksm/go-latest # Simple way to check version is latest or not from various sources in Golang
+#go get -u github.com/k0kubun/pp # Colored pretty printer for Go language
+#go get -u github.com/gizak/termui # Golang terminal dashboard
+#go get github.com/divan/expvarmon # TermUI based Go apps monitor using expvars variables (/debug/vars).
+#go get github.com/d4l3k/go-pry
 go get -u github.com/motemen/gore
 
 # library
@@ -54,11 +54,11 @@ go get -u github.com/motemen/gore
 #go get github.com/bradfitz/http2/h2i
 
 # other development
-go get github.com/tj/mmake/cmd/mmake # Mmake is a small program which wraps make to provide additional functionality, such as user-friendly help output, remote includes, and eventually more. It otherwise acts as a pass-through to standard make.
-go get github.com/moznion/go-setlock # go-setlock is a go port of setlock (an utility of daemontools), and accompanying library.
-go get github.com/mefellows/muxy # Proxy for simulating real-world distributed system failures to improve resilience in your applications.
-go get github.com/iopipe/iopipe # This package provides analytics and distributed tracing for event-driven applications running on AWS Lambda.
-go get rsc.io/benchstat # Benchstat computes and compares statistics about benchmarks.
+#go get github.com/tj/mmake/cmd/mmake # Mmake is a small program which wraps make to provide additional functionality, such as user-friendly help output, remote includes, and eventually more. It otherwise acts as a pass-through to standard make.
+#go get github.com/moznion/go-setlock # go-setlock is a go port of setlock (an utility of daemontools), and accompanying library.
+#go get github.com/mefellows/muxy # Proxy for simulating real-world distributed system failures to improve resilience in your applications.
+#go get github.com/iopipe/iopipe # This package provides analytics and distributed tracing for event-driven applications running on AWS Lambda.
+#go get rsc.io/benchstat # Benchstat computes and compares statistics about benchmarks.
 
 # install
 go get -u github.com/motemen/ghq
