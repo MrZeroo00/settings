@@ -1,11 +1,16 @@
 #!/bin/sh
 
 #go get -u github.com/mailgun/godebug # deprecated, use delve
+#go get github.com/fd0/machma # Easy parallel execution of commands with live feedback
 #go get github.com/svent/sift # A fast and powerful open source alternative to grep.
 #go get github.com/tkuchiki/alp # alp is Access Log Profiler for Labeled Tab-separated Values(LTSV).
 #go get github.com/sonots/lltsv # List specified keys of LTSV (Labeled Tab Separated Values)
 #go get -u github.com/knq/usql # usql is a universal command-line interface for PostgreSQL, MySQL, Oracle, SQLite3, Microsoft SQL Server, and other databases.
-#go get github.com/yuroyoro/gommit-m # gommit-m - Command Line Client for commit-m (http://commit-m.minamijoyo.com )
+#go get github.com/yuroyoro/gommit-m # Command Line Client for commit-m (http://commit-m.minamijoyo.com )
+#go get -u github.com/motemen/github-commit-status-mark # View GitHub's commit status on your terminal
+#go get github.com/asciimoo/wuzz # Interactive cli tool for HTTP inspection
+#go get -u github.com/jgrahamc/httpdiff # Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
+#go get github.com/yudai/gotty # GoTTY is a simple command line tool that turns your CLI tools into web applications.
 
 # go development
 go get -u golang.org/x/tools/cmd/cover
@@ -30,15 +35,15 @@ go get github.com/moznion/go-setlock # go-setlock is a go port of setlock (an ut
 
 # install
 go get -u github.com/motemen/ghq
+go get github.com/Guitarbum722/align # A general purpose application that aligns text
 go get github.com/monochromegane/mdt # A markdown table generation tool from CSV/TSV.
+go get -u github.com/noborus/trdsql # A tool that can execute SQL queries on CSV and LTSV
 
 go get -u github.com/tcnksm/dmux
 go get -u github.com/mattn/gof
-go get -u github.com/motemen/github-commit-status-mark
 go get -u github.com/handlename/go-get-git-ignore
 go get -u github.com/k0kubun/pp
 go get -u github.com/gizak/termui
-go get -u github.com/jgrahamc/httpdiff
 go get -d github.com/tcnksm/go-latest
 go get -u github.com/motemen/hub-pr
 go get -u github.com/b4b4r07/gomi
@@ -54,7 +59,6 @@ go get github.com/lukasmartinelli/pipecat
 go get -u github.com/variadico/noti
 go get github.com/google/codesearch
 go get -u github.com/tarao/apiconsole
-go get github.com/yudai/gotty
 go get github.com/uber-common/cpustat
 go get github.com/iopipe/iopipe
 go get github.com/jtopjian/jsed
@@ -69,17 +73,13 @@ go get -u github.com/Code-Hex/battery/cmd/battery
 go get rsc.io/benchstat
 go get github.com/mattn/jsonargs
 go get github.com/mattn/cho
-go get github.com/asciimoo/wuzz
 go get github.com/mattn/memo
 go get github.com/mikefarah/yaml
 go get github.com/wallix/awless
 go get github.com/tj/mmake/cmd/mmake
-go get github.com/fd0/machma
 go get github.com/knqyf263/pet
 go get github.com/hirose31/pinger
-go get -u github.com/noborus/trdsql # A tool that can execute SQL queries on CSV and LTSV
 go get github.com/esimov/diagram
-go get github.com/Guitarbum722/align
 go get github.com/justjanne/powerline-go
 go get github.com/c-bata/go-prompt
 go get -u github.com/aelsabbahy/dargs
