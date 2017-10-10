@@ -6,11 +6,22 @@
 #go get github.com/tkuchiki/alp # alp is Access Log Profiler for Labeled Tab-separated Values(LTSV).
 #go get github.com/sonots/lltsv # List specified keys of LTSV (Labeled Tab Separated Values)
 #go get -u github.com/knq/usql # usql is a universal command-line interface for PostgreSQL, MySQL, Oracle, SQLite3, Microsoft SQL Server, and other databases.
+#go get github.com/google/codesearch # Code Search is a tool for indexing and then performing regular expression searches over large bodies of source code.
+#go get -u github.com/handlename/go-get-git-ignore # Fetch and save .gitignore file from github/gitignore quickly.
 #go get github.com/yuroyoro/gommit-m # Command Line Client for commit-m (http://commit-m.minamijoyo.com )
 #go get -u github.com/motemen/github-commit-status-mark # View GitHub's commit status on your terminal
+#go get -u github.com/tarao/apiconsole # Provide a web-based console view to manipulate APIs of an arbitrary website.
 #go get github.com/asciimoo/wuzz # Interactive cli tool for HTTP inspection
 #go get -u github.com/jgrahamc/httpdiff # Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
 #go get github.com/yudai/gotty # GoTTY is a simple command line tool that turns your CLI tools into web applications.
+#go get -u github.com/timakin/octop # OctoPatrol is the command line tool for watching notifications from repositories you watch.
+#go get github.com/Songmu/ghg/cmd/ghg # Get the executable from github releases
+#go get github.com/wallix/awless # awless is a powerful, innovative and small surface command line interface (CLI) to manage Amazon Web Services.
+#go get github.com/dufferzafar/cheat # Cheatsheets for command line, because, you know, life is too short to read manpages.
+#go get -u github.com/variadico/noti # Trigger notifications when a process completes.
+#go get github.com/esimov/diagram # Diagram is a CLI tool to generate hand drawn diagrams from ASCII arts.
+#go get github.com/mizoR/croneye/... # Check the job execution schedule from cron settings.
+#go get github.com/hirose31/pinger # Pinger helps you to monitor many hosts using ICMP ECHO_REQUEST.
 
 # go development
 go get -u golang.org/x/tools/cmd/cover
@@ -26,61 +37,50 @@ go get github.com/Songmu/goshim/cmd/goshim
 go get github.com/motemen/gofind/cmd/gofind
 go get -u sourcegraph.com/sqs/goreturns
 go get -u github.com/kisielk/errcheck
+go get -d github.com/tcnksm/go-latest # Simple way to check version is latest or not from various sources in Golang
+go get -u github.com/k0kubun/pp # Colored pretty printer for Go language
+go get -u github.com/gizak/termui # Golang terminal dashboard
+go get github.com/divan/expvarmon # TermUI based Go apps monitor using expvars variables (/debug/vars).
 go get github.com/d4l3k/go-pry
 go get -u github.com/motemen/gore
 
 # other development tool
-go get github.com/mefellows/muxy # Proxy for simulating real-world distributed system failures to improve resilience in your applications.
 go get github.com/moznion/go-setlock # go-setlock is a go port of setlock (an utility of daemontools), and accompanying library.
+go get github.com/mefellows/muxy # Proxy for simulating real-world distributed system failures to improve resilience in your applications.
+go get github.com/iopipe/iopipe # This package provides analytics and distributed tracing for event-driven applications running on AWS Lambda.
 
 # install
 go get -u github.com/motemen/ghq
+go get -u github.com/aelsabbahy/dargs # Enhance any command with dynamic arguments
+go get github.com/knqyf263/pet # Simple command-line snippet manager, written in Go.
+go get github.com/mattn/qq # Select stdin with query.
+go get github.com/mattn/cho
 go get github.com/Guitarbum722/align # A general purpose application that aligns text
 go get github.com/monochromegane/mdt # A markdown table generation tool from CSV/TSV.
 go get -u github.com/noborus/trdsql # A tool that can execute SQL queries on CSV and LTSV
+go get github.com/mattn/jsonargs # xargs for JSON stream
+go get -u github.com/tomnomnom/gron # Make JSON greppable!
+go get github.com/jtopjian/jsed # jsed is a small command-line utility to add, remove, and search for data in a JSON structure.
+go get github.com/mikefarah/yaml # yaml is a portable command-line YAML processor
+go get -u github.com/motemen/hub-pr # Personal workflow for handling pull requests on open-source projects
+go get github.com/uber-common/cpustat # high frequency performance measurements for Linux
+go get github.com/mattn/memo
+go get github.com/dropbox/dbxcli # A command line tool for Dropbox users and team admins
+go get github.com/lukasmartinelli/pipecat # Connect UNIX pipes and message queues
 
 go get -u github.com/tcnksm/dmux
 go get -u github.com/mattn/gof
-go get -u github.com/handlename/go-get-git-ignore
-go get -u github.com/k0kubun/pp
-go get -u github.com/gizak/termui
-go get -d github.com/tcnksm/go-latest
-go get -u github.com/motemen/hub-pr
 go get -u github.com/b4b4r07/gomi
 go install github.com/ncw/rclone
-go get github.com/dufferzafar/cheat
 go get github.com/naoty/ext
-go get github.com/divan/expvarmon
 go get github.com/bradfitz/http2/h2i
 go get github.com/kohkimakimoto/zssh/cmd/zssh
 go get github.com/otiai10/amesh/amesh
-go get github.com/mizoR/croneye/...
-go get github.com/lukasmartinelli/pipecat
-go get -u github.com/variadico/noti
-go get github.com/google/codesearch
-go get -u github.com/tarao/apiconsole
-go get github.com/uber-common/cpustat
-go get github.com/iopipe/iopipe
-go get github.com/jtopjian/jsed
-go get github.com/dropbox/dbxcli
 go get github.com/SumoLogic/sumoshell
-go get github.com/Songmu/ghg/cmd/ghg
-go get github.com/mattn/qq
-go get -u github.com/tomnomnom/gron
-go get -u github.com/timakin/octop
 go get -u github.com/davecheney/httpstat
 go get -u github.com/Code-Hex/battery/cmd/battery
 go get rsc.io/benchstat
-go get github.com/mattn/jsonargs
-go get github.com/mattn/cho
-go get github.com/mattn/memo
-go get github.com/mikefarah/yaml
-go get github.com/wallix/awless
 go get github.com/tj/mmake/cmd/mmake
-go get github.com/knqyf263/pet
-go get github.com/hirose31/pinger
-go get github.com/esimov/diagram
 go get github.com/justjanne/powerline-go
 go get github.com/c-bata/go-prompt
-go get -u github.com/aelsabbahy/dargs
 go get github.com/pinzolo/spwd
