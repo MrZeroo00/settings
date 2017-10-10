@@ -3,20 +3,33 @@
   "version": "0.0.0",
   "description": "",
   "dependencies": {
+    "diff-so-fancy": "~0.1.2",
+    "pretty-diff": "~0.2.1",
+    "json-diff": "^0.3.1",
+    "textlint": "~3.3.2", // The pluggable natural language linter for text and markdown.
+    "prh": "~1.0.1", // proofread-helper Circle CI
+    "nixar": "~0.1.2030", // Joyable equivalents for existent linux commands
+    "ramda-cli": "~0.18.0", // A command-line tool for processing data with functional pipelines.
+    "dot-clipboard": "~1.2.4", // dot-clipboard monitors your clipboard and runs user-defined scripts based on the clipboard content.
     "get-github-pr-review-comments": "^1.0.1",
-    "nativefier": "^7.0.1",
-    "prh": "~1.0.1"
+    //"black-screen": "^0.0.1", // Black Screen is a modern terminal emulator based on Electron and exploiting capabilities of contemporary interfaces in contrast to most of the terminal emulators.
+    //"sloc": "~0.1.9", // Create stats of your source code:
+    //"asar": "^0.7.2", // Simple extensive tar-like archive format with indexing
+    //"gtop": "*", // System monitoring dashboard for terminal
+    //"caniuse-cmd": "^1.0.0",
+    //"nativefier": "^7.0.1",
+    //"@rafaelrinaldi/hn-cli": "^1.7.1",
+    //"trendy": "^0.1.2", // Trendy is a GitHub Trending Repository viewer for trend-conscious people.
+    //"mdr": "~0.1.0", // Markdown reader with color
+    //"mdast": "~1.0.0", // Markdown Abstract Syntax Tree.
+    //"pdf-markdown-annotator": "~1.0.8",
+    //"wopr": "~0.0.3", // WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
+    //"linux": "~2.2.0" // Download, install and run Linux on OS X in less than 60 seconds!
   },
   "devDependencies": {
-    "@rafaelrinaldi/hn-cli": "^1.7.1",
-    "asar": "^0.7.2",
-    "betwixt": "^0.0.0",
-    "black-screen": "^0.0.1",
+    "betwixt": "^0.0.0", // Betwixt will help you analyze web traffic outside the browser using familiar Chrome DevTools interface.
     "bower": "~1.2.8",
-    "caniuse-cmd": "^1.0.0",
     "devtool": "~1.2.2",
-    "diff-so-fancy": "~0.1.2",
-    "dot-clipboard": "~1.2.4",
     "electron-packager": "^5.0.1",
     "electron-prebuilt": "^0.30.4",
     "eslint": "~0.18.0",
@@ -35,28 +48,15 @@
     "grunt-este-watch": "~0.1.15",
     "grunt-jscs": "^2.0.0",
     "grunt-license-saver": "0.0.0",
-    "gtop": "*",
     "gulp": "~3.8.11",
     "istanbul": "^0.3.17",
     "jshint-stylish": "^2.0.1",
-    "json-diff": "^0.3.1",
     "karma": "^0.13.3",
     "karma-sinon": "^1.0.4",
-    "linux": "~2.2.0",
-    "mdast": "~1.0.0",
-    "mdr": "~0.1.0",
     "mocha": "^2.2.5",
-    "pdf-markdown-annotator": "~1.0.8",
-    "pretty-diff": "~0.2.1",
-    "puppeteer": "*",
-    "ramda-cli": "~0.18.0",
+    "puppeteer": "*", // Puppeteer is a Node library which provides a high-level API to control headless Chrome over the DevTools Protocol. It can also be configured to use full (non-headless) Chrome.
     "sinon": "^1.15.4",
-    "sloc": "~0.1.9",
-    "textlint": "~3.3.2",
-    "trendy": "^0.1.2",
-    "vorlon": "~0.0.7",
-    "wopr": "~0.0.3",
-    "ws": "~0.7.1",
-    "nixar": "~0.1.2030"
+    "vorlon": "~0.0.7", // A new, open source, extensible, platform-agnostic tool for remotely debugging and testing your JavaScript.
+    "ws": "~0.7.1" // Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js
   }
 }
