@@ -14,6 +14,9 @@ go get -u code.google.com/p/rog-go/exp/cmd/godef
 go get -u github.com/jstemmer/gotags
 go get -u github.com/motemen/go-quickfix/cmd/goquickfix
 go get -u github.com/tools/godep
+go get github.com/Songmu/goshim/cmd/goshim
+go get github.com/motemen/gofind/cmd/gofind
+go get -u sourcegraph.com/sqs/goreturns
 go get github.com/d4l3k/go-pry
 go get -u github.com/motemen/gore
 
@@ -43,7 +46,6 @@ go get github.com/kohkimakimoto/zssh/cmd/zssh
 go get github.com/otiai10/amesh/amesh
 go get github.com/mizoR/croneye/...
 go get github.com/lukasmartinelli/pipecat
-go get github.com/Songmu/goshim/cmd/goshim
 go get -u github.com/variadico/noti
 go get github.com/google/codesearch
 go get -u github.com/tarao/apiconsole
@@ -60,7 +62,6 @@ go get -u github.com/timakin/octop
 go get -u github.com/davecheney/httpstat
 go get -u github.com/Code-Hex/battery/cmd/battery
 go get rsc.io/benchstat
-go get github.com/motemen/gofind/cmd/gofind
 go get github.com/mattn/jsonargs
 go get -u github.com/kisielk/errcheck
 go get github.com/mattn/cho
@@ -75,7 +76,6 @@ go get github.com/knqyf263/pet
 go get github.com/sonots/lltsv
 go get github.com/hirose31/pinger
 go get -u github.com/noborus/trdsql
-go get -u sourcegraph.com/sqs/goreturns
 go get github.com/esimov/diagram
 go get github.com/Guitarbum722/align
 go get github.com/justjanne/powerline-go
