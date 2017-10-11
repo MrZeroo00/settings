@@ -57,7 +57,6 @@ install aspell || true
 install autojump || true
 install awscli || true
 install axel || true
-install bash-completion || true
 install bats || true
 # bingrep https://github.com/m4b/bingrep
 # bish https://github.com/tdenniston/bish
@@ -192,6 +191,7 @@ install parallel || true
 install zsh || true
 install zsh-completions || true
 install fish || true
+install bash-completion || true
 
 # utility
 install coreutils || true
