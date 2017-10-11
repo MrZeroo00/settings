@@ -54,9 +54,7 @@ install ansifilter || true
 # anyenv https://github.com/riywo/anyenv
 install asciinema || true
 install aspell || true
-install assh || true
 install autojump || true
-install autossh || true
 install awscli || true
 install axel || true
 install bash-completion || true
@@ -68,11 +66,9 @@ install boris || true
 install casperjs || true
 install ccat || true
 install ccze || true
-install cgdb || true
 install checkbashisms || true
 install chrome-cli || true
 install cmigemo || true
-install csshx || true
 install ctop || true
 # ctypes.sh https://github.com/taviso/ctypes.sh
 # dgsh https://github.com/dspinellis/dgsh
@@ -89,14 +85,10 @@ install embulk || true
 install entr || true
 install envchain || true
 install exiftool || true
-install extract_url || true
 install ffmpeg || true
 install fig || true
-install itchyny/fillin/fillin || true
 install fontforge || true
 # forest https://github.com/KoharaKazuya/forest
-install fortune || true
-install fpp || true
 # geeknote http://www.geeknote.me/
 install homebrew/head-only/xhyve || true
 install ghi || true
@@ -106,8 +98,6 @@ install givegif || true
 install gotty || true
 install graphviz || true
 install heroku-toolbelt || true
-install highlight || true
-install b4b4r07/history/history || true
 install htop-osx || true
 install icdiff || true
 # icGrep http://parabix.costar.sfu.ca/wiki/ICgrep
@@ -115,17 +105,13 @@ install iftop || true
 install imagemagick || true
 # intrace https://github.com/robertswiecki/intrace
 install ios-simulator-app-installer || true
-install jid || true
-install jo || true
 # jsonnet https://github.com/google/jsonnet
 install kibana || true
 # kitty https://github.com/kovidgoyal/kitty
 install knock || true
 install kryptco/tap/kr || true
 # kwm https://github.com/koekeishiya/kwm
-install lesspipe || true
 install license || true
-install lnav || true
 install lrzsz || true
 # m-cli https://github.com/rgcr/m-cli
 # mac-cli https://github.com/guarinogabriel/mac-cli
@@ -136,9 +122,7 @@ install argon/mas/mas || true
 install meld || true
 install metashell || true
 install micro || true
-install migemogrep || true
 install MisterTea/et/et || true
-install mobile-shell || true
 install neomutt/homebrew-neomutt/neomutt || true
 install --HEAD neovim || true
 # nessus http://www.tenable.com/products/nessus-vulnerability-scanner
@@ -146,7 +130,6 @@ install nghttp2 || true
 install nginx-full --with-mruby-module || true
 install ngrok || true
 install ngrep || true
-install nkf || true
 install nq || true
 install olleolleolle/adr-tools/adr_tools || true
 install openssl || true
@@ -154,13 +137,8 @@ install osquery || true
 # osxlockdown https://github.com/SummitRoute/osxlockdown
 install packer || true
 # parallel (rust) https://github.com/mmstick/parallel
-install parallel || true
-install knqyf263/pet/pet || true
 install phantomjs || true
 install phook || true
-install progress || true
-install pssh || true
-install pv || true
 install pwgen || true
 # qfc https://github.com/pindexis/qfc
 # qira https://github.com/BinaryAnalysisPlatform/qira/
@@ -170,7 +148,6 @@ install redis || true
 install redpen || true
 install rexdep || true
 install ricty --powerline --vim-powerline || true
-install rlwrap || true
 # rtags https://github.com/Andersbakken/rtags
 # scat https://github.com/Roman2K/scat
 install screenfetch || true
@@ -178,7 +155,6 @@ install shellcheck || true
 install smartmontools || true
 install snap-telemetry || true
 install sox || true
-install sshrc || true
 install sslh || true
 install stern || true
 install stow || true
@@ -208,6 +184,11 @@ install reattach-to-user-namespace || true
 install peco || true
 install fzf || true
 #install fzy || true
+install fpp || true
+install itchyny/fillin/fillin || true
+install knqyf263/pet/pet || true
+install b4b4r07/history/history || true
+install parallel || true
 install zsh || true
 install zsh-completions || true
 install fish || true
@@ -216,17 +197,26 @@ install fish || true
 install coreutils || true
 install lv || true
 install jless || true
+install lnav || true
 install ripgrep || true
 #install ack || true # use ripgrep
 #install ag || true # use ripgrep
 #install highway || true # use ripgrep
 #install sift || true # use ripgrep
 #install the_silver_searcher || true # use ripgrep
-install pstree || true
-install tree || true
+install migemogrep || true
 install jq || true
+install jid || true
+install jo || true
 install q || true
 install nkf || true
+install lesspipe || true
+install rlwrap || true
+install extract_url || true
+install progress || true
+install pv || true
+install pstree || true
+install tree || true
 install spark || true
 install md5sha1sum || true
 install keychain || true
@@ -235,6 +225,15 @@ install gnu-tar || true
 install unzip || true
 install lha || true
 install xz || true
+install fortune || true
+
+# ssh
+install mobile-shell || true
+install autossh || true
+install pssh || true
+install sshrc || true
+install assh || true
+install csshx || true
 
 # network
 install whois || true
@@ -298,6 +297,7 @@ install pkg-config || true
 install universal-ctags || true
 install global --with-exuberant-ctags --with-pygments || true
 install homebrew/dupes/gdb || true
+install cgdb || true
 install sysdig || true
 install valgrind || true
 install apple-gcc42 || true
@@ -307,6 +307,7 @@ install mercurial || true
 install codeclimate || true
 install plantuml || true
 install source-highlight || true
+install highlight || true
 
 # git
 install git || true
