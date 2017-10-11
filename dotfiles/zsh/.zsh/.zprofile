@@ -51,9 +51,9 @@ fi
 
 
 # tmux
-if [ -x "$(which tmux)" ]; then
-  if [ -z $TMUX ]; then
-    if $(tmux has-session); then
+if [[ -x "$(which tmux)" ]]; then
+  if [[ -z $TMUX && -n $PS1 ]]; then
+    if $(tmux has-session 2>/dev/null); then
       tmux attach
     else
       tmux -l
