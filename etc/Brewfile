@@ -106,7 +106,6 @@ install givegif || true
 install gotty || true
 install graphviz || true
 install heroku-toolbelt || true
-install hg || true
 install highlight || true
 install b4b4r07/history/history || true
 install htop-osx || true
@@ -303,6 +302,7 @@ install sysdig || true
 install valgrind || true
 install apple-gcc42 || true
 install llvm --with-clang || true
+install hg || true
 install mercurial || true
 install codeclimate || true
 install plantuml || true
