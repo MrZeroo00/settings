@@ -106,7 +106,6 @@ install packer || true
 install phantomjs || true
 install phook || true
 install pwgen || true
-# qfc https://github.com/pindexis/qfc
 # qira https://github.com/BinaryAnalysisPlatform/qira/
 install rcmdnk/rcmdnkpac/parse-plist || true
 install rds-command-line-tools || true
@@ -145,6 +144,7 @@ install fpp || true
 install itchyny/fillin/fillin || true
 install knqyf263/pet/pet || true
 install b4b4r07/history/history || true
+# qfc https://github.com/pindexis/qfc # Quick Command-line File Completion
 install parallel || true
 # parallel (rust) https://github.com/mmstick/parallel
 install nq || true # Unix command line queue utility
