@@ -61,14 +61,10 @@ install awscli || true
 install axel || true
 install bash-completion || true
 install bats || true
-install beeftornado/rmtree/brew-rmtree || true
 # bingrep https://github.com/m4b/bingrep
 # bish https://github.com/tdenniston/bish
 install boot2docker || true
 install boris || true
-install brew-file || true
-install brew-gem || true
-install brew-pip || true
 install casperjs || true
 install ccat || true
 install ccze || true
@@ -76,7 +72,6 @@ install cgdb || true
 install checkbashisms || true
 install chrome-cli || true
 install cmigemo || true
-install codefirst/sparkling/brew-sparkling
 install csshx || true
 install ctop || true
 # ctypes.sh https://github.com/taviso/ctypes.sh
@@ -170,7 +165,6 @@ install pv || true
 install pwgen || true
 # qfc https://github.com/pindexis/qfc
 # qira https://github.com/BinaryAnalysisPlatform/qira/
-install rcmdnk/file/brew-file || true
 install rcmdnk/rcmdnkpac/parse-plist || true
 install rds-command-line-tools || true
 install redis || true
@@ -185,8 +179,6 @@ install shellcheck || true
 install smartmontools || true
 install snap-telemetry || true
 install sox || true
-#install spark || true
-# sqlcheck https://github.com/jarulraj/sqlcheck
 install sshrc || true
 install sslh || true
 install stern || true
@@ -236,6 +228,7 @@ install tree || true
 install jq || true
 install q || true
 install nkf || true
+install spark || true
 install md5sha1sum || true
 install keychain || true
 install gpg || true
@@ -332,6 +325,14 @@ install mysql || true
 install mycli || true
 install sqlite || true
 install sqlmap || true
+# sqlcheck https://github.com/jarulraj/sqlcheck
+
+# homebrew
+install brew-file || true
+install brew-gem || true
+install brew-pip || true
+install beeftornado/rmtree/brew-rmtree || true
+install codefirst/sparkling/brew-sparkling
 
 # .dmg
 cask install 1password-cli || true
