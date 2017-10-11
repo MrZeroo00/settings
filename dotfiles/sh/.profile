@@ -205,6 +205,12 @@ if [ -d "/opt/chefdk/bin" ]; then
 fi
 
 
+# awscli
+if [ -x "$(which aws)" ]; then
+  source aws_zsh_completer.sh
+fi
+
+
 # kubectl
 if [ -x "$(which kubectl)" ]; then
   source <(kubectl completion zsh)
