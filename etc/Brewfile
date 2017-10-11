@@ -48,19 +48,14 @@ tap thefox/brewery || true
 tap dteoh/sqa || true
 
 # Packages
-#install ack || true # use ripgrep
-#install ag || true # use ripgrep
 # alacritty https://github.com/jwilm/alacritty
 install ansible || true
 install ansifilter || true
 # anyenv https://github.com/riywo/anyenv
-install apple-gcc42 || true
 install asciinema || true
 install aspell || true
 install assh || true
-install autoconf || true
 install autojump || true
-install automake || true
 install autossh || true
 install awscli || true
 install axel || true
@@ -74,28 +69,17 @@ install boris || true
 install brew-file || true
 install brew-gem || true
 install brew-pip || true
-install bsdmake || true
-install cabal-install || true
 install casperjs || true
 install ccat || true
 install ccze || true
 install cgdb || true
 install checkbashisms || true
 install chrome-cli || true
-install clib || true
-install closure-compiler || true
-install cmake || true
 install cmigemo || true
-install codeclimate || true
 install codefirst/sparkling/brew-sparkling
-install coreutils || true
-install cpanminus || true
-install cppcheck || true
-install cscope || true
 install csshx || true
 install ctop || true
 # ctypes.sh https://github.com/taviso/ctypes.sh
-install curl || true
 # dgsh https://github.com/dspinellis/dgsh
 install dinghy || true
 install direnv || true
@@ -109,120 +93,67 @@ install emacs || true
 install embulk || true
 install entr || true
 install envchain || true
-install erlang || true
 install exiftool || true
 install extract_url || true
 install ffmpeg || true
 install fig || true
 install itchyny/fillin/fillin || true
-install fish || true
 install fontforge || true
 # forest https://github.com/KoharaKazuya/forest
 install fortune || true
 install fpp || true
-install fzf || true
-install fzy || true
 # geeknote http://www.geeknote.me/
-install haskell-stack || true
-install homebrew/dupes/gdb || true
 install homebrew/head-only/xhyve || true
-install ghc || true
 install ghi || true
 install gibo || true
 install gist || true
-install git || true
-install git-cal || true
-install git-forgot || true
-install git-lfs || true
-install git-now || true
-install git-secret || true
-install git-secrets || true
-install gitsh || true
 install givegif || true
-install global --with-exuberant-ctags --with-pygments || true
-install gnu-tar || true
-install go --cross-compile-common || true
 install gotty || true
-install gpg || true
 install graphviz || true
-install grepcidr || true
-install haskell-platform || true
 install heroku-toolbelt || true
 install hg || true
 install highlight || true
-#install highway || true # use ripgrep
 install b4b4r07/history/history || true
-install hping || true
 install htop-osx || true
-install http_load || true
-install httpie || true
-install httping || true
-install httpry || true
-install httpstat || true
-install hub || true
 install icdiff || true
 # icGrep http://parabix.costar.sfu.ca/wiki/ICgrep
 install iftop || true
 install imagemagick || true
 # intrace https://github.com/robertswiecki/intrace
 install ios-simulator-app-installer || true
-install jenv || true
 install jid || true
-install jless || true
-install jmeter || true
 install jo || true
-install ipcalc || true
-install iperf3 || true
-install jq || true
 # jsonnet https://github.com/google/jsonnet
-install keychain || true
 install kibana || true
 # kitty https://github.com/kovidgoyal/kitty
 install knock || true
 install kryptco/tap/kr || true
 # kwm https://github.com/koekeishiya/kwm
 install lesspipe || true
-install lha || true
 install license || true
-install llvm --with-clang || true
 install lnav || true
 install lrzsz || true
-install lua || true
-# luakit https://github.com/mason-larobina/luakit
-install luarocks || true
-install lv || true
 # m-cli https://github.com/rgcr/m-cli
 # mac-cli https://github.com/guarinogabriel/mac-cli
 install macvim --with-lua --with-python3 || true
 install mackup || true
 install argon/mas/mas || true
-install maven || true
 # mcmd http://www.nysol.jp/
-install md5sha1sum || true
 install meld || true
-install mercurial || true
 install metashell || true
 install micro || true
 install migemogrep || true
 install MisterTea/et/et || true
 install mobile-shell || true
-install mruby || true
-install mycli || true
-install mysql || true
 install neomutt/homebrew-neomutt/neomutt || true
 install --HEAD neovim || true
 # nessus http://www.tenable.com/products/nessus-vulnerability-scanner
-install netcat || true
 install nghttp2 || true
 install nginx-full --with-mruby-module || true
 install ngrok || true
-install nkf || true
-install nmap || true
 install ngrep || true
 install nkf || true
-install nodebrew || true
 install nq || true
-install nvm || true
 install olleolleolle/adr-tools/adr_tools || true
 install openssl || true
 install osquery || true
@@ -230,98 +161,177 @@ install osquery || true
 install packer || true
 # parallel (rust) https://github.com/mmstick/parallel
 install parallel || true
-install peco || true
 install knqyf263/pet/pet || true
 install phantomjs || true
 install phook || true
-install pkg-config || true
-install plantuml || true
-install play || true
 install progress || true
 install pssh || true
-install pstree || true
 install pv || true
 install pwgen || true
-install pyenv || true
-install pyenv-virtualenv || true
-install python || true
-install python3 || true
-install pyenv || true
-install pyenv-virtualenv || true
-install q || true
 # qfc https://github.com/pindexis/qfc
 # qira https://github.com/BinaryAnalysisPlatform/qira/
-install rbenv || true
 install rcmdnk/file/brew-file || true
 install rcmdnk/rcmdnkpac/parse-plist || true
 install rds-command-line-tools || true
-install reattach-to-user-namespace || true
 install redis || true
 install redpen || true
 install rexdep || true
 install ricty --powerline --vim-powerline || true
-install ripgrep || true
 install rlwrap || true
-install rsense || true
 # rtags https://github.com/Andersbakken/rtags
-install ruby-build || true
-install rust || true
-install sbt || true
-install scala || true
 # scat https://github.com/Roman2K/scat
 install screenfetch || true
 install shellcheck || true
-install sift || true
 install smartmontools || true
 install snap-telemetry || true
-install socat || true
-install source-highlight || true
 install sox || true
 #install spark || true
 # sqlcheck https://github.com/jarulraj/sqlcheck
-install sqlite || true
-install sqlmap || true
 install sshrc || true
 install sslh || true
-install sslscan || true
 install stern || true
 install stow || true
 # svsh http://ido50.github.io/Svsh/
 install syncthing || true
-install sysdig || true
-install tcpflow || true
-install tcptrace || true
 install terminal-notifier || true
-#install the_silver_searcher || true # use ripgrep
-install tig || true
 install tiger-vnc || true
 install tldr || true
 install tmate || true
-install tmux || true
 install tofrodos || true
-install tree || true
 install unison || true
-install universal-ctags || true
-install unzip || true
 install urlview || true
 # uzbl https://github.com/uzbl/uzbl
-install valgrind || true
-install w3m || true
 install watchexec || true
 install weechat || true
 install wemux || true
-install wget || true
 # whalebrew https://github.com/bfirsh/whalebrew
-install whois || true
 install wine || true
 install wrk || true
 install xonsh || true
 install xsv || true
-install xz || true
-install yasm || true
 # yfiton http://yfiton.com/
+
+# shell
+install tmux || true
+install reattach-to-user-namespace || true
+install peco || true
+install fzf || true
+#install fzy || true
 install zsh || true
 install zsh-completions || true
+install fish || true
+
+# utility
+install coreutils || true
+install lv || true
+install jless || true
+install ripgrep || true
+#install ack || true # use ripgrep
+#install ag || true # use ripgrep
+#install highway || true # use ripgrep
+#install sift || true # use ripgrep
+#install the_silver_searcher || true # use ripgrep
+install pstree || true
+install tree || true
+install jq || true
+install q || true
+install nkf || true
+install md5sha1sum || true
+install keychain || true
+install gpg || true
+install gnu-tar || true
+install unzip || true
+install lha || true
+install xz || true
+
+# network
+install whois || true
+install netcat || true
+install socat || true
+install tcpflow || true
+install tcptrace || true
+install hping || true
+install httpie || true
+install httping || true
+install httpry || true
+install httpstat || true
+install nmap || true
+install sslscan || true
+install jmeter || true
+install http_load || true
+install iperf3 || true
+install ipcalc || true
+install grepcidr || true
+install curl || true
+install wget || true
+install w3m || true
+
+# development
+install mruby || true
+install rbenv || true
+install ruby-build || true
+install rsense || true
+install python || true
+install python3 || true
+install pyenv || true
+install pyenv-virtualenv || true
+install cpanminus || true
+install nvm || true
+install nodebrew || true
+install closure-compiler || true
+install go --cross-compile-common || true
+install jenv || true
+install maven || true
+install scala || true
+install sbt || true
+install play || true
+install ghc || true
+install haskell-platform || true
+install haskell-stack || true
+install cabal-install || true
+install erlang || true
+install rust || true
+install lua || true
+# luakit https://github.com/mason-larobina/luakit
+install luarocks || true
+install clib || true
+install cppcheck || true
+install cscope || true
+install yasm || true
+install cmake || true
+install bsdmake || true
+install autoconf || true
+install automake || true
+install pkg-config || true
+install universal-ctags || true
+install global --with-exuberant-ctags --with-pygments || true
+install homebrew/dupes/gdb || true
+install sysdig || true
+install valgrind || true
+install apple-gcc42 || true
+install llvm --with-clang || true
+install mercurial || true
+install codeclimate || true
+install plantuml || true
+install source-highlight || true
+
+# git
+install git || true
+install tig || true
+install hub || true
+install git-cal || true
+install git-forgot || true
+install git-lfs || true
+install git-now || true
+install git-secret || true
+install git-secrets || true
+install gitsh || true
+
+# database
+install mysql || true
+install mycli || true
+install sqlite || true
+install sqlmap || true
 
 # .dmg
 cask install 1password-cli || true
