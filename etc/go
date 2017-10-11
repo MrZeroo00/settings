@@ -13,6 +13,7 @@
 #go get -u github.com/motemen/github-commit-status-mark # View GitHub's commit status on your terminal
 #go get -u github.com/tarao/apiconsole # Provide a web-based console view to manipulate APIs of an arbitrary website.
 #go get github.com/asciimoo/wuzz # Interactive cli tool for HTTP inspection
+#go get -u github.com/davecheney/httpstat # It's like curl -v, with colours.
 #go get -u github.com/jgrahamc/httpdiff # Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
 #go get github.com/yudai/gotty # GoTTY is a simple command line tool that turns your CLI tools into web applications.
 #go get -u github.com/timakin/octop # OctoPatrol is the command line tool for watching notifications from repositories you watch.
@@ -76,7 +77,6 @@ go get -u github.com/tomnomnom/gron # Make JSON greppable!
 go get github.com/jtopjian/jsed # jsed is a small command-line utility to add, remove, and search for data in a JSON structure.
 go get github.com/mikefarah/yaml # yaml is a portable command-line YAML processor
 go get -u github.com/motemen/hub-pr # Personal workflow for handling pull requests on open-source projects
-go get -u github.com/davecheney/httpstat # It's like curl -v, with colours.
 go get github.com/uber-common/cpustat # high frequency performance measurements for Linux
 go get github.com/mattn/memo
 go get -u github.com/b4b4r07/gomi # Trash can in CLI

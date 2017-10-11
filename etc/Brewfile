@@ -158,6 +158,7 @@ install http_load || true
 install httpie || true
 install httping || true
 install httpry || true
+install httpstat || true
 install hub || true
 install icdiff || true
 # icGrep http://parabix.costar.sfu.ca/wiki/ICgrep
