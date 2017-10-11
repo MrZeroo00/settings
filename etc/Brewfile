@@ -174,7 +174,6 @@ install wemux || true
 install wine || true
 install wrk || true
 install xonsh || true
-install xsv || true
 # yfiton http://yfiton.com/
 
 # shell
@@ -206,9 +205,10 @@ install ripgrep || true
 #install the_silver_searcher || true # use ripgrep
 install migemogrep || true
 install jq || true
-install jid || true
-install jo || true
+install jid || true # json incremental digger
+install jo || true # JSON output from a shell
 install q || true
+install xsv || true # A fast CSV toolkit written in Rust.
 install nkf || true
 install lesspipe || true
 install rlwrap || true
@@ -313,13 +313,13 @@ install highlight || true
 install git || true
 install tig || true
 install hub || true
-install git-cal || true
-install git-forgot || true
-install git-lfs || true
-install git-now || true
-install git-secret || true
-install git-secrets || true
 install gitsh || true
+install git-secrets || true # Prevents you from committing secrets and credentials into git repositories
+install git-lfs || true
+install git-secret || true # A bash-tool to store your private data inside a git repository.
+install git-forgot || true # A tool to help you avoid forgetting git push/commit.
+#install git-now || true # A temporary commit tool for git
+#install git-cal || true # github like contributions calendar on terminal
 
 # database
 install mysql || true
