@@ -66,6 +66,7 @@ go get -u github.com/motemen/ghq
 go get github.com/justjanne/powerline-go
 go get -u github.com/aelsabbahy/dargs # Enhance any command with dynamic arguments
 go get github.com/knqyf263/pet # Simple command-line snippet manager, written in Go.
+go get github.com/ericfreese/rat # Compose shell commands to build terminal applications
 go get github.com/mattn/qq # Select stdin with query.
 go get -u github.com/mattn/gof
 go get github.com/mattn/cho
