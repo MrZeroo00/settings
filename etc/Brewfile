@@ -50,46 +50,24 @@ tap dteoh/sqa || true
 # Packages
 # alacritty https://github.com/jwilm/alacritty
 install ansible || true
-install ansifilter || true
-# anyenv https://github.com/riywo/anyenv
 install asciinema || true
-install aspell || true
-install autojump || true
 install awscli || true
 install axel || true
-install bats || true
 # bingrep https://github.com/m4b/bingrep
-# bish https://github.com/tdenniston/bish
-install boot2docker || true
-install boris || true
 install casperjs || true
-install ccat || true
 install ccze || true
-install checkbashisms || true
 install chrome-cli || true
 install cmigemo || true
-install ctop || true
 # ctypes.sh https://github.com/taviso/ctypes.sh
 # dgsh https://github.com/dspinellis/dgsh
-install dinghy || true
-install direnv || true
-install docker || true
-install docker-compose || true
-install docker-machine || true
-install docker-swarm || true
 install dynamodb-local || true
 # egzact https://github.com/greymd/egzact
-install emacs || true
 install embulk || true
-install entr || true
-install envchain || true
 install exiftool || true
 install ffmpeg || true
-install fig || true
 install fontforge || true
 # forest https://github.com/KoharaKazuya/forest
 # geeknote http://www.geeknote.me/
-install homebrew/head-only/xhyve || true
 install ghi || true
 install gibo || true
 install gist || true
@@ -103,7 +81,6 @@ install icdiff || true
 install iftop || true
 install imagemagick || true
 # intrace https://github.com/robertswiecki/intrace
-install ios-simulator-app-installer || true
 # jsonnet https://github.com/google/jsonnet
 install kibana || true
 # kitty https://github.com/kovidgoyal/kitty
@@ -111,31 +88,21 @@ install knock || true
 install kryptco/tap/kr || true
 # kwm https://github.com/koekeishiya/kwm
 install license || true
-install lrzsz || true
 # m-cli https://github.com/rgcr/m-cli
 # mac-cli https://github.com/guarinogabriel/mac-cli
-install macvim --with-lua --with-python3 || true
 install mackup || true
 install argon/mas/mas || true
 # mcmd http://www.nysol.jp/
-install meld || true
-install metashell || true
-install micro || true
 install MisterTea/et/et || true
 install neomutt/homebrew-neomutt/neomutt || true
-install --HEAD neovim || true
-# nessus http://www.tenable.com/products/nessus-vulnerability-scanner
 install nghttp2 || true
 install nginx-full --with-mruby-module || true
 install ngrok || true
-install ngrep || true
-install nq || true
 install olleolleolle/adr-tools/adr_tools || true
 install openssl || true
 install osquery || true
 # osxlockdown https://github.com/SummitRoute/osxlockdown
 install packer || true
-# parallel (rust) https://github.com/mmstick/parallel
 install phantomjs || true
 install phook || true
 install pwgen || true
@@ -145,17 +112,14 @@ install rcmdnk/rcmdnkpac/parse-plist || true
 install rds-command-line-tools || true
 install redis || true
 install redpen || true
-install rexdep || true
 install ricty --powerline --vim-powerline || true
 # rtags https://github.com/Andersbakken/rtags
 # scat https://github.com/Roman2K/scat
 install screenfetch || true
-install shellcheck || true
 install smartmontools || true
 install snap-telemetry || true
 install sox || true
 install sslh || true
-install stern || true
 install stow || true
 # svsh http://ido50.github.io/Svsh/
 install syncthing || true
@@ -163,22 +127,17 @@ install terminal-notifier || true
 install tiger-vnc || true
 install tldr || true
 install tmate || true
-install tofrodos || true
 install unison || true
-install urlview || true
 # uzbl https://github.com/uzbl/uzbl
-install watchexec || true
 install weechat || true
-install wemux || true
-# whalebrew https://github.com/bfirsh/whalebrew
 install wine || true
-install wrk || true
 install xonsh || true
 # yfiton http://yfiton.com/
 
 # shell
 install tmux || true
 install reattach-to-user-namespace || true
+install wemux || true
 install peco || true
 install fzf || true
 #install fzy || true
@@ -187,10 +146,19 @@ install itchyny/fillin/fillin || true
 install knqyf263/pet/pet || true
 install b4b4r07/history/history || true
 install parallel || true
+# parallel (rust) https://github.com/mmstick/parallel
+install nq || true # Unix command line queue utility
+install autojump || true
+install envchain || true
+install direnv || true
 install zsh || true
 install zsh-completions || true
 install fish || true
 install bash-completion || true
+# bish https://github.com/tdenniston/bish
+install bats || true
+install checkbashisms || true
+install shellcheck || true
 
 # utility
 install coreutils || true
@@ -210,9 +178,12 @@ install jo || true # JSON output from a shell
 install q || true
 install xsv || true # A fast CSV toolkit written in Rust.
 install nkf || true
+install tofrodos || true
+install ansifilter || true
 install lesspipe || true
 install rlwrap || true
 install extract_url || true
+install urlview || true
 install progress || true
 install pv || true
 install pstree || true
@@ -225,6 +196,9 @@ install gnu-tar || true
 install unzip || true
 install lha || true
 install xz || true
+install entr || true # Run arbitrary commands when files change
+install watchexec || true
+install aspell || true
 install fortune || true
 
 # ssh
@@ -234,11 +208,14 @@ install pssh || true
 install sshrc || true
 install assh || true
 install csshx || true
+install lrzsz || true # Tools for zmodem/xmodem/ymodem file transfer
 
 # network
 install whois || true
 install netcat || true
 install socat || true
+install tcpdump || true
+install ngrep || true
 install tcpflow || true
 install tcptrace || true
 install hping || true
@@ -248,8 +225,10 @@ install httpry || true
 install httpstat || true
 install nmap || true
 install sslscan || true
+# nessus http://www.tenable.com/products/nessus-vulnerability-scanner
 install jmeter || true
 install http_load || true
+install wrk || true
 install iperf3 || true
 install ipcalc || true
 install grepcidr || true
@@ -267,6 +246,8 @@ install python3 || true
 install pyenv || true
 install pyenv-virtualenv || true
 install cpanminus || true
+install php72 || true
+install boris || true
 install nvm || true
 install nodebrew || true
 install closure-compiler || true
@@ -286,6 +267,7 @@ install lua || true
 # luakit https://github.com/mason-larobina/luakit
 install luarocks || true
 install clib || true
+install metashell || true
 install cppcheck || true
 install cscope || true
 install yasm || true
@@ -306,8 +288,13 @@ install hg || true
 install mercurial || true
 install codeclimate || true
 install plantuml || true
+install rexdep || true # Roughly extract dependency relation from source code
+install meld || true
+install ccat || true # Like cat but displays content with syntax highlighting
 install source-highlight || true
 install highlight || true
+install ios-simulator-app-installer || true
+# anyenv https://github.com/riywo/anyenv
 
 # git
 install git || true
@@ -320,6 +307,24 @@ install git-secret || true # A bash-tool to store your private data inside a git
 install git-forgot || true # A tool to help you avoid forgetting git push/commit.
 #install git-now || true # A temporary commit tool for git
 #install git-cal || true # github like contributions calendar on terminal
+
+# editor
+install macvim --with-lua --with-python3 || true
+install --HEAD neovim || true
+install emacs || true
+#install micro || true
+
+# container
+install docker || true
+install docker-compose || true
+install docker-machine || true
+install docker-swarm || true
+#install boot2docker || true
+install ctop || true
+install stern || true
+#install dinghy || true
+#install fig || true
+install homebrew/head-only/xhyve || true
 
 # database
 install mysql || true
@@ -334,6 +339,7 @@ install brew-gem || true
 install brew-pip || true
 install beeftornado/rmtree/brew-rmtree || true
 install codefirst/sparkling/brew-sparkling
+# whalebrew https://github.com/bfirsh/whalebrew
 
 # .dmg
 cask install 1password-cli || true
