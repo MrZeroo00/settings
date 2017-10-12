@@ -48,90 +48,17 @@ tap thefox/brewery || true
 tap dteoh/sqa || true
 
 # Packages
-# alacritty https://github.com/jwilm/alacritty
-install ansible || true
-install asciinema || true
-install awscli || true
-install axel || true
-# bingrep https://github.com/m4b/bingrep
-install casperjs || true
-install ccze || true
-install chrome-cli || true
-install cmigemo || true
-# ctypes.sh https://github.com/taviso/ctypes.sh
-# dgsh https://github.com/dspinellis/dgsh
-install dynamodb-local || true
-# egzact https://github.com/greymd/egzact
 install embulk || true
-install exiftool || true
-install ffmpeg || true
-install fontforge || true
-# forest https://github.com/KoharaKazuya/forest
-# geeknote http://www.geeknote.me/
-install ghi || true
-install gibo || true
-install gist || true
-install givegif || true
-install gotty || true
 install graphviz || true
-install heroku-toolbelt || true
-install htop-osx || true
-install icdiff || true
-# icGrep http://parabix.costar.sfu.ca/wiki/ICgrep
-install iftop || true
-install imagemagick || true
-# intrace https://github.com/robertswiecki/intrace
 # jsonnet https://github.com/google/jsonnet
-install kibana || true
-# kitty https://github.com/kovidgoyal/kitty
-install knock || true
-install kryptco/tap/kr || true
-# kwm https://github.com/koekeishiya/kwm
+# kwm https://github.com/koekeishiya/kwm # Tiling window manager with focus follows mouse for OSX
 install license || true
-# m-cli https://github.com/rgcr/m-cli
-# mac-cli https://github.com/guarinogabriel/mac-cli
-install mackup || true
-install argon/mas/mas || true
 # mcmd http://www.nysol.jp/
-install MisterTea/et/et || true
-install neomutt/homebrew-neomutt/neomutt || true
-install nghttp2 || true
-install nginx-full --with-mruby-module || true
-install ngrok || true
 install olleolleolle/adr-tools/adr_tools || true
-install openssl || true
 install osquery || true
-# osxlockdown https://github.com/SummitRoute/osxlockdown
-install packer || true
-install phantomjs || true
 install phook || true
-install pwgen || true
-# qira https://github.com/BinaryAnalysisPlatform/qira/
-install rcmdnk/rcmdnkpac/parse-plist || true
-install rds-command-line-tools || true
-install redis || true
-install redpen || true
-install ricty --powerline --vim-powerline || true
-# rtags https://github.com/Andersbakken/rtags
-# scat https://github.com/Roman2K/scat
-install screenfetch || true
-install smartmontools || true
-install snap-telemetry || true
-install sox || true
-install sslh || true
-install stow || true
-# svsh http://ido50.github.io/Svsh/
-install syncthing || true
-install terminal-notifier || true
-install tiger-vnc || true
-install tldr || true
-install tmate || true
-install unison || true
-# uzbl https://github.com/uzbl/uzbl
-install weechat || true
+install stow || true # Organize software neatly under a single directory tree (e.g. /usr/local)
 install wine || true
-install xonsh || true
-# yfiton http://yfiton.com/
 
 # shell
 install tmux || true
@@ -148,6 +75,9 @@ install b4b4r07/history/history || true
 install parallel || true
 # parallel (rust) https://github.com/mmstick/parallel
 install nq || true # Unix command line queue utility
+# dgsh https://github.com/dspinellis/dgsh # Shell supporting pipelines to and from multiple processes
+# egzact https://github.com/greymd/egzact # Strengthen weak points of the shell
+# ctypes.sh https://github.com/taviso/ctypes.sh # A foreign function interface for bash.
 install autojump || true
 install envchain || true
 install direnv || true
@@ -155,10 +85,17 @@ install zsh || true
 install zsh-completions || true
 install fish || true
 install bash-completion || true
-# bish https://github.com/tdenniston/bish
+# bish https://github.com/tdenniston/bish # Bish is a language that compiles to Bash.
+#install xonsh || true # Python-ish, BASHwards-compatible shell language and command prompt
 install bats || true
 install checkbashisms || true
 install shellcheck || true
+install tmate || true # Instant terminal sharing
+install gotty || true # Share your terminal as a web application
+install asciinema || true # Record and share terminal sessions
+install screenfetch || true # Generate ASCII art with terminal, shell, and OS info
+# alacritty https://github.com/jwilm/alacritty # A cross-platform, GPU-accelerated terminal emulator
+# kitty https://github.com/kovidgoyal/kitty # A modern, hackable, featureful, OpenGL based terminal emulator
 
 # utility
 install coreutils || true
@@ -171,12 +108,16 @@ install ripgrep || true
 #install highway || true # use ripgrep
 #install sift || true # use ripgrep
 #install the_silver_searcher || true # use ripgrep
+# icGrep http://parabix.costar.sfu.ca/wiki/ICgrep # The Modern Grep Replacement
+install cmigemo || true # Migemo is a tool that supports Japanese incremental search with Romaji
 install migemogrep || true
+# bingrep https://github.com/m4b/bingrep
 install jq || true
 install jid || true # json incremental digger
 install jo || true # JSON output from a shell
 install q || true
 install xsv || true # A fast CSV toolkit written in Rust.
+# forest https://github.com/KoharaKazuya/forest
 install nkf || true
 install tofrodos || true
 install ansifilter || true
@@ -192,23 +133,42 @@ install spark || true
 install md5sha1sum || true
 install keychain || true
 install gpg || true
+install pwgen || true # Password generator
 install gnu-tar || true
 install unzip || true
 install lha || true
 install xz || true
 install entr || true # Run arbitrary commands when files change
 install watchexec || true
+install givegif || true # Find and display GIFs from the command line.
 install aspell || true
 install fortune || true
+install tldr || true # Simplified and community-driven man pages
+install syncthing || true # Open source continuous file synchronization application
+install mackup || true # Keep your Mac's application settings in sync
+# scat https://github.com/Roman2K/scat # Decentralized, trustless backup tool
+install terminal-notifier || true # Send macOS User Notifications from the command-line
+install rcmdnk/rcmdnkpac/parse-plist || true # Parser of plist in OS X.
+# yfiton http://yfiton.com/ # Send notifications from the command-line using well-known or modern communication services
+# m-cli https://github.com/rgcr/m-cli # Swiss Army Knife for macOS
+# mac-cli https://github.com/guarinogabriel/mac-cli # OS X command line tools for developers
+# osxlockdown https://github.com/SummitRoute/osxlockdown # Apple OS X tool to audit for, and remediate, security configuration settings.
+# osx-config-check https://github.com/kristovatlas/osx-config-check
+install argon/mas/mas || true # Mac App Store command line interface
 
-# ssh
+# ssh / remote login
 install mobile-shell || true
+install MisterTea/et/et || true # Eternal Terminal is a remote shell that automatically reconnects without interrupting the session.
 install autossh || true
 install pssh || true
 install sshrc || true
 install assh || true
 install csshx || true
+install kryptco/tap/kr || true # the new home for your SSH private key on your phone
 install lrzsz || true # Tools for zmodem/xmodem/ymodem file transfer
+install knock || true # Port-knock server
+install ngrok || true # Secure tunnels to localhost
+install tiger-vnc || true
 
 # network
 install whois || true
@@ -219,10 +179,13 @@ install ngrep || true
 install tcpflow || true
 install tcptrace || true
 install hping || true
+# intrace https://github.com/robertswiecki/intrace # Enumeration of IP hops using existing TCP connections
 install httpie || true
 install httping || true
 install httpry || true
 install httpstat || true
+install nghttp2 || true
+install openssl || true
 install nmap || true
 install sslscan || true
 # nessus http://www.tenable.com/products/nessus-vulnerability-scanner
@@ -234,7 +197,20 @@ install ipcalc || true
 install grepcidr || true
 install curl || true
 install wget || true
+install axel || true # Light UNIX download accelerator
+install rsync || true
+install unison || true
+install sslh || true # Applicative Protocol Multiplexer (e.g. share SSH and HTTPS on the same port)
+
+# browser / client
 install w3m || true
+# uzbl https://github.com/uzbl/uzbl # A web browser that adheres to the unix philosophy.
+install chrome-cli || true
+install phantomjs || true
+install casperjs || true
+install neomutt/homebrew-neomutt/neomutt || true
+install weechat || true
+# geeknote http://www.geeknote.me/ # Work with Evernote from command line
 
 # development
 install mruby || true
@@ -277,10 +253,10 @@ install autoconf || true
 install automake || true
 install pkg-config || true
 install universal-ctags || true
+# rtags https://github.com/Andersbakken/rtags # A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs based on clang.
 install global --with-exuberant-ctags --with-pygments || true
 install homebrew/dupes/gdb || true
 install cgdb || true
-install sysdig || true
 install valgrind || true
 install apple-gcc42 || true
 install llvm --with-clang || true
@@ -289,10 +265,12 @@ install mercurial || true
 install codeclimate || true
 install plantuml || true
 install rexdep || true # Roughly extract dependency relation from source code
+install icdiff || true # Improved colored diff
 install meld || true
 install ccat || true # Like cat but displays content with syntax highlighting
 install source-highlight || true
 install highlight || true
+install redpen || true # Proofreading tool to help writers of technical documentation
 install ios-simulator-app-installer || true
 # anyenv https://github.com/riywo/anyenv
 
@@ -305,6 +283,9 @@ install git-secrets || true # Prevents you from committing secrets and credentia
 install git-lfs || true
 install git-secret || true # A bash-tool to store your private data inside a git repository.
 install git-forgot || true # A tool to help you avoid forgetting git push/commit.
+install gibo || true # Access GitHub's .gitignore boilerplates
+install ghi || true # Work on GitHub issues on the command-line
+install gist || true # Command-line utility for uploading Gists
 #install git-now || true # A temporary commit tool for git
 #install git-cal || true # github like contributions calendar on terminal
 
@@ -313,6 +294,14 @@ install macvim --with-lua --with-python3 || true
 install --HEAD neovim || true
 install emacs || true
 #install micro || true
+
+# image / movie / font
+install imagemagick || true
+install exiftool || true
+install ffmpeg || true
+install sox || true # SOund eXchange: universal sound sample translator
+install fontforge || true
+install ricty --powerline --vim-powerline || true
 
 # container
 install docker || true
@@ -326,12 +315,33 @@ install stern || true
 #install fig || true
 install homebrew/head-only/xhyve || true
 
+# monitoring
+install htop-osx || true
+install iftop || true
+install sysdig || true
+install smartmontools || true
+install snap-telemetry || true
+# qira https://github.com/BinaryAnalysisPlatform/qira/ # QEMU Interactive Runtime Analyser
+install ccze || true # CCZE is a robust and modular log coloriser, with plugins for apm, exim, fetchmail, httpd, postfix, procmail, squid, syslog, ulogd, vsftpd, xferlog and more.
+
 # database
 install mysql || true
 install mycli || true
 install sqlite || true
 install sqlmap || true
 # sqlcheck https://github.com/jarulraj/sqlcheck
+
+# server
+install packer || true
+install ansible || true
+install nginx-full --with-mruby-module || true
+install redis || true
+install kibana || true
+# svsh http://ido50.github.io/Svsh/ # svsh is a command line shell for process supervision suites of the daemontools family.
+install awscli || true
+install rds-command-line-tools || true
+install dynamodb-local || true
+install heroku-toolbelt || true
 
 # homebrew
 install brew-file || true
