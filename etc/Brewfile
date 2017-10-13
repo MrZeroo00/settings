@@ -161,6 +161,7 @@ install mobile-shell || true
 install MisterTea/et/et || true # Eternal Terminal is a remote shell that automatically reconnects without interrupting the session.
 install autossh || true
 install pssh || true
+install pdsh || true
 install sshrc || true
 install assh || true
 install csshx || true
@@ -374,7 +375,7 @@ cask install bettertouchtool || true
 #cask install betterzipql || true
 cask install bitbar || true
 # blisk https://blisk.io/
-# boost http://b00st.io/
+cask install boostnote || true
 #cask install cargo || true
 #cask install Chromium || true
 cask install charles || true
