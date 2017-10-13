@@ -1,0 +1,5 @@
+#!/bin/bash
+
+MSG="$@"
+echo -ne '\033]9;' $MSG '\a'
+echo $MSG
