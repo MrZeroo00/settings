@@ -34,6 +34,7 @@ dotfiles/xdg/.config/menus/
 dotfiles/xdg/.config/hub
 dotfiles/xdg/.config/stetic/
 dotfiles/xdg/.config/vim/
+dotfiles/xdg/.config/wireshark/
 dotfiles/xdg/.config/xbuild/
 dotfiles/zsh/.zsh/.chpwd-recent-dirs
 dotfiles/zsh/.zsh/.zcompcache/
