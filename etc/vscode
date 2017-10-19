@@ -20,5 +20,6 @@ code --install-extension felixfbecker.php-intellisense
 
 code --install-extension PeterJausovec.vscode-docker
 code --install-extension formulahendry.code-runner
+code --install-extension humao.rest-client
 code --install-extension christian-kohler.path-intellisense
 code --install-extension jebbs.plantuml
