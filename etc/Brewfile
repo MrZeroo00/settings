@@ -102,6 +102,7 @@ install coreutils || true
 install lv || true
 install jless || true
 install lnav || true
+install tavianator/tap/bfs || true # A breadth-first version of the UNIX find command
 install ripgrep || true
 #install ack || true # use ripgrep
 #install ag || true # use ripgrep
