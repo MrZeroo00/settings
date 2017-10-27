@@ -50,7 +50,6 @@ tap dteoh/sqa || true
 # Packages
 install embulk || true
 install graphviz || true
-# jsonnet https://github.com/google/jsonnet
 # kwm https://github.com/koekeishiya/kwm # Tiling window manager with focus follows mouse for OSX
 install license || true
 # mcmd http://www.nysol.jp/
@@ -249,6 +248,7 @@ install metashell || true
 install cppcheck || true
 install cscope || true
 install yasm || true
+install jsonnet || true # https://github.com/google/jsonnet
 install cmake || true
 install bsdmake || true
 install autoconf || true
@@ -344,6 +344,7 @@ install awscli || true
 install rds-command-line-tools || true
 install dynamodb-local || true
 install heroku-toolbelt || true
+#install akamai || true
 
 # homebrew
 install brew-file || true
