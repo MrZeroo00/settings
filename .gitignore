@@ -28,6 +28,7 @@ dotfiles/w3m/.w3m/history
 dotfiles/weechat/.weechat/logs/
 dotfiles/xdg/.config/Affinic Debugger.ini
 dotfiles/xdg/.config/configstore/
+dotfiles/xdg/.config/fillin/fillin.json
 dotfiles/xdg/.config/gcloud/
 dotfiles/xdg/.config/gtk-2.0/
 dotfiles/xdg/.config/menus/
