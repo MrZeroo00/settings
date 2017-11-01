@@ -180,11 +180,11 @@ fi
 
 
 # Node Version Manager (NVM)
-if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
-  export NVM_DIR="${HOME}/.nvm"
-  mkdir -p ${NVM_DIR}
-  source "$(brew --prefix nvm)/nvm.sh"
-fi
+#if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
+#  export NVM_DIR="${HOME}/.nvm"
+#  mkdir -p ${NVM_DIR}
+#  source "$(brew --prefix nvm)/nvm.sh"
+#fi
 
 
 # jenv

@@ -24,6 +24,10 @@ zplug "greymd/tmux-xpanes"
 zplug "holman/spark", as:command
 zplug "mrowa44/emojify", as:command
 
+export NVM_DIR="${HOME}/.nvm"
+export NVM_LAZY_LOAD=true
+zplug "lukechilds/zsh-nvm"
+
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
