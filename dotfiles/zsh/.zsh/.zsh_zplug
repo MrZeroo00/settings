@@ -22,17 +22,18 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 #zplug "modules/prompt", from:prezto
 zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
 zplug "b4b4r07/enhancd", use:init.sh
-zplug "b4b4r07/emoji-cli"
-zplug "b4b4r07/http_code"
-zplug "supercrabtree/k"
 zplug "jamesob/desk"
-#zplug "themattrix/bash-concurrent"
 zplug "marzocchi/zsh-notify", if:"has 'terminal-notifier' || has 'notify-send'"
-zplug "Tarrasch/zsh-colors"
+#zplug "themattrix/bash-concurrent"
 zplug "greymd/tmux-xpanes"
 
-zplug "holman/spark", as:command
+zplug "Tarrasch/zsh-colors"
+zplug "b4b4r07/emoji-cli"
 zplug "mrowa44/emojify", as:command
+zplug "holman/spark", as:command
+zplug "b4b4r07/http_code"
+
+zplug "supercrabtree/k"
 
 export NVM_DIR="${HOME}/.nvm"
 export NVM_LAZY_LOAD=true
