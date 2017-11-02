@@ -174,9 +174,9 @@ fi
 
 
 # nodebrew
-if [ -x "$(which nodebrew)" ]; then
-  export PATH="${HOME}/.nodebrew/current/bin:${PATH}"
-fi
+#if [ -x "$(which nodebrew)" ]; then
+#  export PATH="${HOME}/.nodebrew/current/bin:${PATH}"
+#fi
 
 
 # Node Version Manager (NVM)
