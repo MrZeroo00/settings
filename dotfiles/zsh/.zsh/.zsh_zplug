@@ -2,8 +2,9 @@ export ZPLUG_HOME=$HOME/.zsh/zplug
 export ZPLUG_REPOS=$HOME/.zsh/zplug_repos
 source $ZPLUG_HOME/init.zsh
 
-zplug "themes/kolo", as:theme, from:oh-my-zsh
-#zplug "sindresorhus/pure"
+#zplug "themes/kolo", as:theme, from:oh-my-zsh
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 #zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
