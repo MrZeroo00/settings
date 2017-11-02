@@ -8,7 +8,7 @@ zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 #zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
+#zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
 zplug "plugins/vagrant", from:oh-my-zsh
 
