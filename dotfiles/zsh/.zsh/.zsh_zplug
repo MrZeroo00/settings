@@ -12,15 +12,21 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "plugins/osx", from:oh-my-zsh
 zplug "plugins/vagrant", from:oh-my-zsh
 
+zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
 zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 #zplug "zsh-users/zsh-autosuggestions"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/http_code"
 zplug "jamesob/desk"
 #zplug "themattrix/bash-concurrent"
+zplug "marzocchi/zsh-notify", if:"has 'terminal-notifier' || has 'notify-send'"
+zplug "Tarrasch/zsh-colors"
 zplug "greymd/tmux-xpanes"
+#zplug "tcnksm/docker-alias", use:zshrc
+#zplug "modules/prompt", from:prezto
+#zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 
 zplug "holman/spark", as:command
 zplug "mrowa44/emojify", as:command
