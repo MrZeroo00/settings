@@ -30,16 +30,6 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 typeset -ga chpwd_functions
 
-## cdr system stuff.
-if is-at-least 4.3.11; then
-  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-  add-zsh-hook chpwd chpwd_recent_dirs
-  zstyle ':chpwd:*' recent-dirs-max 5000
-  zstyle ':chpwd:*' recent-dirs-default yes
-  zstyle ':completion:*' recent-dirs-insert both
-fi
-
-
 ## change prompt color by return value
 # comment out temporally
 #if [ -z "${EMACS}" ]; then
@@ -67,11 +57,6 @@ fi
 
 
 function history-all { history -E 1 }
-
-## autojump
-if [ -s `brew --prefix`/etc/autojump.sh ]; then
-  `brew --prefix`/etc/autojump.sh
-fi
 
 ## percol
 source ${HOME}/.zsh/function/percol
