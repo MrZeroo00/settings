@@ -2,8 +2,9 @@ export ZPLUG_HOME=$HOME/.zsh/zplug
 export ZPLUG_REPOS=$HOME/.zsh/zplug_repos
 source $ZPLUG_HOME/init.zsh
 
-#zplug "themes/kolo", as:theme, from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
+
+#zplug "themes/kolo", as:theme, from:oh-my-zsh
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 #zplug "plugins/git", from:oh-my-zsh
@@ -14,7 +15,6 @@ zplug "plugins/vagrant", from:oh-my-zsh
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 #zplug "zsh-users/zsh-autosuggestions"
-zplug "mafredri/zsh-async"
 zplug "b4b4r07/enhancd"
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/http_code"
