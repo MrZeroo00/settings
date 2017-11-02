@@ -201,17 +201,17 @@ function zman() {
 
 
 ## cd history
-if [[ -n "$PS1" ]]; then
-  cd() {
-    builtin cd "$@"
-    local s=$?
-    #if [[ ($s -eq 0) && (${#FUNCNAME[*]} -eq 1) ]]; then
-    if [[ ($s -eq 0) ]]; then
-      print -s cd $(printf "%q" "$PWD")
-    fi
-    return $s
-  }
-fi
+#if [[ -n "$PS1" ]]; then
+#  cd() {
+#    builtin cd "$@"
+#    local s=$?
+#    #if [[ ($s -eq 0) && (${#FUNCNAME[*]} -eq 1) ]]; then
+#    if [[ ($s -eq 0) ]]; then
+#      print -s cd $(printf "%q" "$PWD")
+#    fi
+#    return $s
+#  }
+#fi
 
 
 # local setting
