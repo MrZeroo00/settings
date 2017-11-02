@@ -7,8 +7,8 @@ zplug "mafredri/zsh-async", from:github
 #zplug "themes/kolo", as:theme, from:oh-my-zsh
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 #zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 #zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
 zplug "plugins/vagrant", from:oh-my-zsh
