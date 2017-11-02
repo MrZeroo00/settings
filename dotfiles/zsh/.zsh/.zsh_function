@@ -200,7 +200,7 @@ function zman() {
 }
 
 
-## cd
+## cd history
 if [[ -n "$PS1" ]]; then
   cd() {
     builtin cd "$@"
