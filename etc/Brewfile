@@ -9,6 +9,7 @@ tap Homebrew/brewdler || true
 tap Homebrew/bundle || true
 tap homebrew/versions || true
 tap homebrew/dupes || true
+tap homebrew/command-not-found || true
 tap caskroom/cask || true
 tap caskroom/versions || true
 tap phinze/homebrew-cask || true
