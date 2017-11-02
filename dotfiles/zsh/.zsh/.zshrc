@@ -232,6 +232,10 @@ if [ -f ${HOME}/.zsh/.zshrc.`hostname -s`.local ]; then
   source ${HOME}/.zsh/.zshrc.`hostname -s`.local
 fi
 
+if [ ${ZDOTDIR}/.zshrc -nt ${ZDOTDIR}/.zshrc.zwc ]; then
+  zcompile ${ZDOTDIR}/.zshrc
+fi
+
 if type zprof > /dev/null 2>&1; then
   zprof | less
 fi
