@@ -20,6 +20,7 @@ zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,w
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/http_code"
+zplug "supercrabtree/k"
 zplug "jamesob/desk"
 #zplug "themattrix/bash-concurrent"
 zplug "marzocchi/zsh-notify", if:"has 'terminal-notifier' || has 'notify-send'"
