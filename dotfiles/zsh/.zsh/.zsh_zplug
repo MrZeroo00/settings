@@ -30,7 +30,7 @@ zplug "marzocchi/zsh-notify"
 zplug "Tarrasch/zsh-colors"
 zplug "b4b4r07/emoji-cli"
 zplug "mrowa44/emojify", as:command
-zplug "holman/spark", as:command
+#zplug "holman/spark", as:command # homebrew
 zplug "b4b4r07/http_code"
 
 zplug "supercrabtree/k"
