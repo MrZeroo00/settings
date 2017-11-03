@@ -133,7 +133,7 @@ install progress || true
 install pv || true
 install pstree || true
 install tree || true
-install spark || true
+install spark || true # Sparklines for the shell
 install md5sha1sum || true
 install keychain || true
 install gpg || true
