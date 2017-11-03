@@ -22,6 +22,7 @@
 #go get github.com/dufferzafar/cheat # Cheatsheets for command line, because, you know, life is too short to read manpages.
 #go get -u github.com/variadico/noti # Trigger notifications when a process completes.
 #go get github.com/esimov/diagram # Diagram is a CLI tool to generate hand drawn diagrams from ASCII arts.
+#go get github.com/gopherdata/gophernotes # The Go kernel for Jupyter notebooks and nteract.
 #go get github.com/mizoR/croneye/... # Check the job execution schedule from cron settings.
 #go get github.com/hirose31/pinger # Pinger helps you to monitor many hosts using ICMP ECHO_REQUEST.
 #go get -u github.com/Code-Hex/battery/cmd/battery # Draw battery unicode art written by Go
