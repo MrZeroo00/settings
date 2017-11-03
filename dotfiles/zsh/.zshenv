@@ -54,11 +54,11 @@ for d in "/share/zsh-completions" "/share/zsh/zsh-site-functions"; do
   fi
 done
 autoload -U compinit
-if [ "${OS}" != "Cygwin" ]; then
-  compinit
-else
-  compinit -u
-fi
+#if [ "${OS}" != "Cygwin" ]; then
+#  compinit
+#else
+#  compinit -u
+#fi
 
 # autoload
 autoload zargs
