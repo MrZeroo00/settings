@@ -5,7 +5,6 @@ fi
 ## autoload
 # Where to look for autoloaded function definitions
 #fpath=($fpath ${HOME}/.zsh/function)
-fpath=(${ZDOTDIR}/function/zsh-completions/src $fpath)
 
 # Autoload all shell functions from all directories in $fpath (following
 # symlinks) that have the executable bit on (the executable bit is not

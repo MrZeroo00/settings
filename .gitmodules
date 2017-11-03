@@ -10,9 +10,6 @@
 [submodule "dotfiles/zsh/.zsh/function/cdd"]
 	path = dotfiles/zsh/.zsh/function/cdd
 	url = git@github.com:m4i/cdd.git
-[submodule "dotfiles/zsh/.zsh/function/zsh-completions"]
-	path = dotfiles/zsh/.zsh/function/zsh-completions
-	url = git@github.com:zsh-users/zsh-completions.git
 [submodule "dotfiles/tmux/.tmux.d/tmux-powerline"]
 	path = dotfiles/tmux/.tmux.d/tmux-powerline
 	url = git@github.com:erikw/tmux-powerline.git
@@ -35,12 +32,6 @@
 [submodule "dotfiles/zsh/.zsh/antigen"]
 	path = dotfiles/zsh/.zsh/antigen
 	url = git@github.com:zsh-users/antigen.git
-[submodule "dotfiles/zsh/.zprezto"]
-	path = dotfiles/zsh/.zprezto
-	url = git@github.com:sorin-ionescu/prezto.git
-[submodule "dotfiles/zsh/.zsh/.zim"]
-	path = dotfiles/zsh/.zsh/.zim
-	url = git@github.com:Eriner/zim.git
 [submodule "dotfiles/zsh/.zsh/zplug"]
 	path = dotfiles/zsh/.zsh/zplug
 	url = git@github.com:zplug/zplug.git
