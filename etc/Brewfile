@@ -63,7 +63,10 @@ install wine || true
 # shell
 install tmux || true
 install reattach-to-user-namespace || true
+tap greymd/tools || true
+install tmux-xpanes || true
 install wemux || true
+install desk || true # A lightweight workspace manager for the shell
 install peco || true
 install fzf || true
 #install fzy || true
