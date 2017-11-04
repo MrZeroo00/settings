@@ -126,15 +126,6 @@ function peco-exec () {
   done
 }
 
-function peco-pkill() {
-  for pid in `ps aux | peco | awk '{ print $2 }'`
-  do
-    kill $pid
-    echo "Killed ${pid}"
-  done
-}
-alias pk="peco-pkill"
-
 function peco-ssh() {
   SSH=$(grep "^\s*Host " ~/.ssh/config | sed s/"[\s ]*Host "// | grep -v "^\*$" | sort | peco)
   ssh $SSH
