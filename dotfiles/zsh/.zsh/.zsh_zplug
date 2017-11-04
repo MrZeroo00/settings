@@ -37,7 +37,9 @@ zplug "supercrabtree/k"
 zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
 zle -N anyframe-widget-execute-history
 bindkey '^R' anyframe-widget-execute-history
+bindkey '^]' anyframe-widget-cd-ghq-repository
 #bindkey '^x^k' anyframe-widget-kill
+#bindkey '^x^a' anyframe-widget-git-add
 
 export NVM_DIR="${HOME}/.nvm"
 export NVM_LAZY_LOAD=true
