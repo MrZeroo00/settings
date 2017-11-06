@@ -3,6 +3,18 @@
 # overwrite oh-my-zsh setting
 export LESS='--tabs=4 --RAW-CONTROL-CHARS --clear-screen --quit-if-one-screen --LONG-PROMPT --quiet'
 
+
+# awscli
+if [ -x "$(which aws)" ]; then
+  source aws_zsh_completer.sh
+fi
+
+# kubectl
+if [ -x "$(which kubectl)" ]; then
+  source <(kubectl completion zsh)
+fi
+
+
 # local setting
 if [ -f ${HOME}/.shrc.`hostname -s`.local ]; then
     source ${HOME}/.shrc.`hostname -s`.local
