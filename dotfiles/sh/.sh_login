@@ -4,9 +4,9 @@ clear
 #stty dec new cr0 -tabs
 #mesg y
 #uptime
-if [ -x "`which fortune`" ]; then
-  fortune
-fi
+#if [ -x "`which fortune`" ]; then
+#  fortune
+#fi
 #log
 #from 2>/dev/null
 #cat notes
