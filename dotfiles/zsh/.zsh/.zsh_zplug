@@ -18,6 +18,7 @@ zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
 #zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 #zplug "modules/prompt", from:prezto
 zplug "b4b4r07/enhancd", use:init.sh
