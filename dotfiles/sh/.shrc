@@ -6,7 +6,7 @@ export LESS='--tabs=4 --RAW-CONTROL-CHARS --clear-screen --quit-if-one-screen --
 
 # awscli
 if [ -x "$(which aws)" ]; then
-  source aws_zsh_completer.sh
+  source "$(brew --prefix awscli)/share/zsh/site-functions/aws_zsh_completer.sh"
 fi
 
 # kubectl
