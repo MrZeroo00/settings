@@ -131,16 +131,6 @@ bindkey '^S' zaw-cdr
 #source ${HOME}/.zsh/function/notify-command-exit.sh
 
 
-## ssh_screen
-function ssh_screen() {
-  eval server=\${$#}
-    screen -t $server ssh -t "$@"
-}
-#if [ "${TERM}" = "${TERMSCREEN}" ]; then
-#  alias ssh=ssh_screen
-#fi
-
-
 ## setenv (csh compatibility)
 setenv() {
   typeset -x "${1}${1:+=}${(@)argv[2,$#]}"
@@ -154,12 +144,6 @@ freload() {
     autoload -U $1;
     shift;
   done
-}
-
-
-## zman
-function zman() {
-  PAGER="less -g -s '+/^       "$1"'" man zshall
 }
 
 
