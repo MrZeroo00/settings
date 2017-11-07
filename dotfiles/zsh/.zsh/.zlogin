@@ -9,8 +9,8 @@ fi
 #export watch=(notme)                   # watch for everybody but me
 #export LOGCHECK=300                    # check every 5 min for login/logout activity
 #export WATCHFMT='%n %a %l from %m at %t.'
-watch="all"
-log
+#watch="all"
+#log
 
 # local setting
 if [ -f ${HOME}/.zsh/.zlogin.`hostname -s`.local ]; then
