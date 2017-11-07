@@ -104,13 +104,6 @@ source ${HOME}/.zsh/function/fzf
 #bindkey '^o^_' reverse-menu-complete
 
 
-## cdd
-# http://d.hatena.ne.jp/secondlife/20080218/1203303528
-CDD_FILE=${HOME}/.zsh/cdd_pwd_list
-source ${HOME}/.zsh/function/cdd/cdd
-chpwd_functions+=_cdd_chpwd
-
-
 ## view/edit-file
 source ${HOME}/.zsh/function/view-edit-file.sh
 #zle -N view-file

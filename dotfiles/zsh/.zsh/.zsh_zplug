@@ -41,6 +41,10 @@ k() {
   k "$@"
 }
 
+CDD_FILE=${HOME}/.zsh/cdd_pwd_list
+zplug "m4i/cdd", use:'cdd', lazy:true
+chpwd_functions+=_cdd_chpwd
+
 zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
 zstyle ":anyframe:selector:peco:" command 'peco --layout bottom-up'
 zle -N anyframe-widget-execute-history
