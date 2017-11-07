@@ -15,6 +15,7 @@ zplug "plugins/vagrant", from:oh-my-zsh
 zplug "docker/cli", use:contrib/completion/zsh
 
 zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
+zplug "/usr/local/share/zsh/site-functions", use:'_*', from:local, lazy:true
 #zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2

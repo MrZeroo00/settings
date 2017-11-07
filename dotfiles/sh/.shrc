@@ -4,11 +4,11 @@
 export LESS='--tabs=4 --RAW-CONTROL-CHARS --clear-screen --quit-if-one-screen --LONG-PROMPT --quiet'
 
 
-# awscli
-if [ -x "$(which aws)" ]; then
-  #source "$(brew --prefix awscli)/share/zsh/site-functions/aws_zsh_completer.sh"
-  source /usr/local/opt/awscli/share/zsh/site-functions/aws_zsh_completer.sh
-fi
+# awscli (load from zplug)
+#if [ -x "$(which aws)" ]; then
+#  #source "$(brew --prefix awscli)/share/zsh/site-functions/aws_zsh_completer.sh"
+#  source /usr/local/opt/awscli/share/zsh/site-functions/aws_zsh_completer.sh
+#fi
 
 # kubectl
 if [ -x "$(which kubectl)" ]; then

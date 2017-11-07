@@ -143,24 +143,6 @@ disable r
 source $HOME/.zsh/.zsh_zplug
 
 
-## completion
-# Setup new style completion system. To see examples of the old style (compctl
-# based) programmable completion, check Misc/compctl-examples in the zsh
-# distribution.
-for d in "/share/zsh-completions" "/share/zsh/zsh-site-functions"; do
-  brew_completion=$(brew --prefix 2>/dev/null)$d
-  if [ $? -eq 0 ] && [ -d "$brew_completion" ]; then
-    fpath=($brew_completion $fpath)
-  fi
-done
-# zplug will call compinit
-#autoload -U compinit
-#if [ "${OS}" != "Cygwin" ]; then
-#  compinit
-#else
-#  compinit -u
-#fi
-
 # Completion Styles
 
 # list of completers to use
