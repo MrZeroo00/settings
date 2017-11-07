@@ -31,14 +31,6 @@ log
 typeset -U path cdpath fpath manpath
 
 
-case "${OS}" in
-  "Darwin")
-  #compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open
-  source ${HOME}/.iterm2_shell_integration.$(basename ${SHELL})
-  ;;
-esac
-
-
 # local setting
 if [ -f ${HOME}/.zsh/.zprofile.`hostname -s`.local ]; then
   source ${HOME}/.zsh/.zprofile.`hostname -s`.local

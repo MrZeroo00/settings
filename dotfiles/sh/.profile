@@ -205,6 +205,15 @@ if [ -d "/opt/chefdk/bin" ]; then
 fi
 
 
+# iTerm2
+case "${OS}" in
+  "Darwin")
+  #compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open
+  source ${HOME}/.iterm2_shell_integration.$(basename ${SHELL})
+  ;;
+esac
+
+
 ## include .shrc if it exists
 #if [ -f ${HOME}/.shrc ]; then
 #  source ${HOME}/.shrc
