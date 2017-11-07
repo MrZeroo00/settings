@@ -33,7 +33,12 @@ zplug "mrowa44/emojify", as:command
 #zplug "holman/spark", as:command # homebrew
 zplug "b4b4r07/http_code"
 
-zplug "supercrabtree/k"
+zplug 'supercrabtree/k', use:'!*'
+k() {
+  unfunction k
+  source "${ZPLUG_REPOS}/supercrabtree/k/k.sh"
+  k "$@"
+}
 
 zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
 zstyle ":anyframe:selector:peco:" command 'peco --layout bottom-up'
