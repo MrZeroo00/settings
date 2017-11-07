@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# overwrite oh-my-zsh setting
-export LESS='--tabs=4 --RAW-CONTROL-CHARS --clear-screen --quit-if-one-screen --LONG-PROMPT --quiet'
-
-
 # awscli (load from zplug)
 #if [ -x "$(which aws)" ]; then
 #  #source "$(brew --prefix awscli)/share/zsh/site-functions/aws_zsh_completer.sh"
