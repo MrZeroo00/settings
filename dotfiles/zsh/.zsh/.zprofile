@@ -5,8 +5,6 @@ fi
 
 
 ## variables
-#export LPROMPT="%n@%m%% "
-#export LPROMPT="%n@%m %T%% "
 #TRAPALRM () { zle reset-prompt }
 #TMOUT=30
 #zmodload zsh/datetime # $EPOCHSECONDS, strftime等を利用可能に
@@ -14,9 +12,6 @@ fi
 #precmd_functions=($precmd_functions reset_tmout) # プロンプト表示時に更新までの時間を再計算
 #redraw_tmout() { zle reset-prompt; reset_tmout } # 時刻を更新
 #TRAPALRM() { redraw_tmout }
-#export PROMPT="${LPROMPT}"
-#export RPROMPT="[%~]"
-#export SPROMPT="correct: %R -> %r ? "
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 #export cdpath=(.. ~ ~/src ~/zsh)
 export DIRSTACKSIZE=20
