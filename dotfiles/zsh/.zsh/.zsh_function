@@ -97,19 +97,11 @@ source ${HOME}/.zsh/function/percol
 ## fzf
 source ${HOME}/.zsh/function/fzf
 
-## magic-abbrev-expand
-source ${HOME}/.zsh/function/magic-abbrev-expand.sh
-#zle -N magic-abbrev-expand
-#zle -N no-magic-abbrev-expand
-#bindkey " " magic-abbrev-expand
-#bindkey "^x " no-magic-abbrev-expand
-
-
 ## dabbrev-complete
-source ${HOME}/.zsh/function/dabbrev-complete.sh
-zle -C dabbrev-complete menu-complete dabbrev-complete
-bindkey '^o' dabbrev-complete
-bindkey '^o^_' reverse-menu-complete
+#source ${HOME}/.zsh/function/dabbrev-complete.sh
+#zle -C dabbrev-complete menu-complete dabbrev-complete
+#bindkey '^o' dabbrev-complete
+#bindkey '^o^_' reverse-menu-complete
 
 
 ## cdd
