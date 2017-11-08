@@ -40,6 +40,7 @@ dotfiles/xdg/.config/xbuild/
 dotfiles/zsh/.zsh/.chpwd-recent-dirs
 dotfiles/zsh/.zsh/.zcompcache/
 dotfiles/zsh/.zsh/.zcompdump*
+dotfiles/zsh/.zsh/.zshrc.zwc
 dotfiles/zsh/.zsh/cdd_pwd_list*
 dotfiles/zsh/.zsh/zplug_repos/
 dotfiles/zsh/.zsh/*local
