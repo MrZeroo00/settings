@@ -111,13 +111,6 @@ source ${HOME}/.zsh/function/view-edit-file.sh
 #bindkey "^x^f" edit-file
 
 
-## zaw
-# https://github.com/zsh-users/zaw
-source ${HOME}/.zsh/function/zaw/zaw.zsh
-zstyle ':filter-select' case-insensitive yes
-bindkey '^S' zaw-cdr
-
-
 ## notify-command-exit (replaced by marzocchi/zsh-notify)
 # http://qiita.com/hayamiz/items/d64730b61b7918fbb970
 #source ${HOME}/.zsh/function/notify-command-exit.sh
