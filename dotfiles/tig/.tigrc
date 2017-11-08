@@ -1,7 +1,4 @@
-#set show-author = no
-#set show-date = relative
-set show-rev-graph = yes
-set show-refs = yes
+set main-view = id date author commit-title:graph=yes,refs=yes
 set line-graphics = yes
 
 # vi-like scroll
