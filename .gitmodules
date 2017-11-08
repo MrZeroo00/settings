@@ -4,9 +4,6 @@
 [submodule "dotfiles/emacs/.emacs.d/elisp/geben"]
 	path = dotfiles/emacs/.emacs.d/elisp/geben
 	url = git@github.com:blipvert/geben-svn.git
-[submodule "dotfiles/zsh/.zsh/function/zaw"]
-	path = dotfiles/zsh/.zsh/function/zaw
-	url = git@github.com:zsh-users/zaw.git
 [submodule "dotfiles/tmux/.tmux.d/tmux-powerline"]
 	path = dotfiles/tmux/.tmux.d/tmux-powerline
 	url = git@github.com:erikw/tmux-powerline.git
