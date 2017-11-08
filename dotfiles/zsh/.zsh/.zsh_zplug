@@ -5,24 +5,24 @@ source $ZPLUG_HOME/init.zsh
 zplug "mafredri/zsh-async", from:github
 
 #zplug "themes/kolo", as:theme, from:oh-my-zsh
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme
 
 #zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-#zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
+#zplug "plugins/git", from:oh-my-zsh
 #zplug "plugins/vagrant", from:oh-my-zsh # included /usr/local/share/zsh-completions
-zplug "docker/cli", use:'contrib/completion/zsh/_docker', lazy:true
+zplug "docker/cli", use:"contrib/completion/zsh/_docker", lazy:true
 
-zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
-zplug "/usr/local/share/zsh/site-functions", use:'_*', from:local, lazy:true
+zplug "zsh-users/zsh-completions", use:"src/_*", lazy:true
+zplug "/usr/local/share/zsh/site-functions", use:"_*", from:local, lazy:true
 #zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 #zplug "modules/prompt", from:prezto
-zplug "b4b4r07/enhancd", use:init.sh
+zplug "b4b4r07/enhancd", use:"init.sh"
 #zplug "jamesob/desk" # homebrew
 zplug "marzocchi/zsh-notify"
 #zplug "themattrix/bash-concurrent"
@@ -42,7 +42,8 @@ k() {
 }
 
 CDD_FILE=${HOME}/.zsh/cdd_pwd_list
-zplug "m4i/cdd", use:'cdd', lazy:true
+zplug "m4i/cdd", use:'cdd'
+typeset -ga chpwd_functions
 chpwd_functions+=_cdd_chpwd
 
 zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
