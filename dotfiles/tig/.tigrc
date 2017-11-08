@@ -1,5 +1,7 @@
 set main-view = id date author commit-title:graph=yes,refs=yes
 set line-graphics = yes
+set split-view-height = 80%
+#set diff-context = 6
 
 # vi-like scroll
 bind diff h scroll-left
