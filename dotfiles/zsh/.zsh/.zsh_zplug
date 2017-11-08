@@ -12,7 +12,7 @@ zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 #zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
 zplug "plugins/vagrant", from:oh-my-zsh
-zplug "docker/cli", use:contrib/completion/zsh
+zplug "docker/cli", use:'contrib/completion/zsh/_docker', lazy:true
 
 zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
 zplug "/usr/local/share/zsh/site-functions", use:'_*', from:local, lazy:true
