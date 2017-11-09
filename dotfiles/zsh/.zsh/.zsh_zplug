@@ -26,6 +26,7 @@ zplug "Tarrasch/zsh-functional"
 
 #zplug "modules/prompt", from:prezto
 zplug "b4b4r07/enhancd", use:"init.sh"
+ENHANCD_FILTER=peco:fzf
 #zplug "jamesob/desk" # homebrew
 zplug "marzocchi/zsh-notify"
 #zplug "themattrix/bash-concurrent"
@@ -53,9 +54,10 @@ typeset -ga chpwd_functions
 chpwd_functions+=_cdd_chpwd
 
 zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
+zstyle ":anyframe:selector:" use peco
 zstyle ":anyframe:selector:peco:" command 'peco --layout bottom-up'
-zle -N anyframe-widget-execute-history
-bindkey '^R' anyframe-widget-execute-history
+zle -N anyframe-widget-put-history
+bindkey '^R' anyframe-widget-put-history
 bindkey '^]' anyframe-widget-cd-ghq-repository
 #bindkey '^x^k' anyframe-widget-kill
 #bindkey '^x^a' anyframe-widget-git-add
