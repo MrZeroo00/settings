@@ -508,6 +508,7 @@ cask install slowquitapps || true
 #cask install the-unarchiver || true
 # Tickeys https://github.com/yingDev/Tickeys
 #cask install tinkertool || true
+# Trace Compass http://tracecompass.org/ Eclipse Trace Compass is an open source application for viewing and analyzing any type of logs or traces.
 #cask install totalfinder || true
 #cask install totalspace || true
 ##cask install totalterminal || true
