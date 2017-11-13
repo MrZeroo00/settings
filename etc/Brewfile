@@ -138,6 +138,7 @@ install md5sha1sum || true
 install keychain || true
 install gpg || true
 install gpg2 || true
+install pinentry-mac || true
 install pwgen || true # Password generator
 install gnu-tar || true
 install unzip || true
