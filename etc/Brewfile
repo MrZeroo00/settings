@@ -5,53 +5,21 @@ update || true
 # upgrade
 
 # Add Repository
-tap Homebrew/brewdler || true
 tap Homebrew/bundle || true
 tap homebrew/versions || true
-tap homebrew/dupes || true
+tap homebrew/services || true
 tap homebrew/command-not-found || true
 tap caskroom/cask || true
 tap caskroom/versions || true
-tap phinze/homebrew-cask || true
-tap homebrew/binary || true
-tap Homebrew/brewdler || true
-#tap homebrew/boneyard || true
-tap jimbojsb/launchrocket || true
-tap thoughtbot/formulae || true
-tap railwaycat/emacsmacport || true
-tap sanemat/font || true
-tap suin/suin || true
-tap rcmdnk/file || true
-tap peco/peco || true
 tap caskroom/fonts || true
-tap stepanhruda/tap || true
-tap jingweno/ccat || true
-tap nviennot/tmate || true
-tap codeclimate/formulae || true
-tap homebrew/head-only || true
-tap tcnksm/license || true
-tap universal-ctags/universal-ctags || true
-tap neovim/neovim || true
-tap yudai/gotty || true
-#tap tkengo/highway || true
-tap beeftornado/rmtree || true
-tap itchyny/rexdep || true
-tap tldr-pages/tldr || true
-tap homebrew/nginx || true
-tap codekitchen/dinghy || true
-tap caskroom/cask || true
-tap caius/jo || true
-tap passy/givegif || true
-tap homebrew/services || true
-tap jhawthorn/fzy || true
-tap simeji/jid || true
+tap suin/suin || true
 tap thefox/brewery || true
-tap dteoh/sqa || true
 
 # Packages
 install embulk || true
 install graphviz || true
 # kwm https://github.com/koekeishiya/kwm # Tiling window manager with focus follows mouse for OSX
+tap tcnksm/license || true
 install license || true
 # mcmd http://www.nysol.jp/
 install olleolleolle/adr-tools/adr_tools || true
@@ -69,6 +37,7 @@ install wemux || true
 install desk || true # A lightweight workspace manager for the shell
 install peco || true
 install fzf || true
+#tap jhawthorn/fzy || true
 #install fzy || true
 install fpp || true
 install itchyny/fillin/fillin || true
@@ -93,7 +62,9 @@ install bash-completion || true
 install bats || true
 install checkbashisms || true
 install shellcheck || true
+tap nviennot/tmate || true
 install tmate || true # Instant terminal sharing
+tap yudai/gotty || true
 install gotty || true # Share your terminal as a web application
 install asciinema || true # Record and share terminal sessions
 install screenfetch || true # Generate ASCII art with terminal, shell, and OS info
@@ -109,6 +80,7 @@ install tavianator/tap/bfs || true # A breadth-first version of the UNIX find co
 install ripgrep || true
 #install ack || true # use ripgrep
 #install ag || true # use ripgrep
+#tap tkengo/highway || true
 #install highway || true # use ripgrep
 #install sift || true # use ripgrep
 #install the_silver_searcher || true # use ripgrep
@@ -117,7 +89,9 @@ install cmigemo || true # Migemo is a tool that supports Japanese incremental se
 install migemogrep || true
 # bingrep https://github.com/m4b/bingrep
 install jq || true
+tap simeji/jid || true
 install jid || true # json incremental digger
+tap caius/jo || true
 install jo || true # JSON output from a shell
 install q || true
 install xsv || true # A fast CSV toolkit written in Rust.
@@ -146,9 +120,11 @@ install lha || true
 install xz || true
 install entr || true # Run arbitrary commands when files change
 install watchexec || true
+tap passy/givegif || true
 install givegif || true # Find and display GIFs from the command line.
 install aspell || true
 install fortune || true
+tap tldr-pages/tldr || true
 install tldr || true # Simplified and community-driven man pages
 install syncthing || true # Open source continuous file synchronization application
 install mackup || true # Keep your Mac's application settings in sync
@@ -260,6 +236,7 @@ install bsdmake || true
 install autoconf || true
 install automake || true
 install pkg-config || true
+tap universal-ctags/universal-ctags || true
 install universal-ctags || true
 # rtags https://github.com/Andersbakken/rtags # A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs based on clang.
 install global --with-exuberant-ctags --with-pygments || true
@@ -270,15 +247,19 @@ install apple-gcc42 || true
 install llvm --with-clang || true
 install hg || true
 install mercurial || true
+tap codeclimate/formulae || true
 install codeclimate || true
 install plantuml || true
+tap itchyny/rexdep || true
 install rexdep || true # Roughly extract dependency relation from source code
 install icdiff || true # Improved colored diff
 install meld || true
+tap jingweno/ccat || true
 install ccat || true # Like cat but displays content with syntax highlighting
 install source-highlight || true
 install highlight || true
 install redpen || true # Proofreading tool to help writers of technical documentation
+tap stepanhruda/tap || true
 install ios-simulator-app-installer || true
 # anyenv https://github.com/riywo/anyenv
 
@@ -286,6 +267,7 @@ install ios-simulator-app-installer || true
 install git || true
 install tig || true
 install hub || true
+tap thoughtbot/formulae || true
 install gitsh || true
 install git-secrets || true # Prevents you from committing secrets and credentials into git repositories
 install git-lfs || true
@@ -299,6 +281,7 @@ install gist || true # Command-line utility for uploading Gists
 
 # editor
 install macvim --with-lua --with-python3 || true
+tap neovim/neovim || true
 install --HEAD neovim || true
 install emacs || true
 #install micro || true
@@ -309,6 +292,7 @@ install exiftool || true
 install ffmpeg || true
 install sox || true # SOund eXchange: universal sound sample translator
 install fontforge || true
+tap sanemat/font || true
 install ricty --powerline --vim-powerline || true
 
 # container
@@ -319,6 +303,7 @@ install docker-swarm || true
 #install boot2docker || true
 install ctop || true
 install stern || true
+#tap codekitchen/dinghy || true
 #install dinghy || true
 #install fig || true
 install homebrew/head-only/xhyve || true
@@ -342,6 +327,7 @@ install sqlmap || true
 # server
 install packer || true
 install ansible || true
+tap homebrew/nginx || true
 install nginx-full --with-mruby-module || true
 install redis || true
 install kibana || true
@@ -353,9 +339,11 @@ install heroku-toolbelt || true
 #install akamai || true
 
 # homebrew
+tap rcmdnk/file || true
 install brew-file || true
 install brew-gem || true
 install brew-pip || true
+tap beeftornado/rmtree || true
 install beeftornado/rmtree/brew-rmtree || true
 install codefirst/sparkling/brew-sparkling
 # whalebrew https://github.com/bfirsh/whalebrew
@@ -408,6 +396,8 @@ cask install docker || true
 #cask install dotnet-sdk || true
 cask install dropbox || true
 #cask install easysimbl || true
+#tap railwaycat/emacsmacport || true
+#cask install emacs-mac || true
 cask install evernote || true
 cask install exa || true
 cask install fiddler || true
@@ -460,6 +450,7 @@ cask install kindle || true
 #cask install kitematic || true
 #cask install kobito || true
 #cask install krita || true
+#tap jimbojsb/launchrocket || true
 #cask install launchrocket || true
 #cask install libreoffice || true
 #cask install licecap || true
@@ -498,6 +489,7 @@ cask install skim || true
 ##cask install skitch || true
 #cask install skype || true
 # sikuli https://github.com/sikuli/sikuli
+tap dteoh/sqa || true
 cask install slowquitapps || true
 #cask install sourcetree || true
 #cask install spectacle || true
