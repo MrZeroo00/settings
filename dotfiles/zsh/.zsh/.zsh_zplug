@@ -16,7 +16,7 @@ prompt_pure_update_vim_prompt() {
         print "error: pure_update_vim_prompt must be called when zle is active"
         return 1
     }
-    VIM_PROMPT=${${KEYMAP/vicmd/vivis/vivli/❮}/(main|viins)/❯}
+    VIM_PROMPT=${${KEYMAP/vicmd/❮}/(main|viins)/❯}
     zle .reset-prompt
 }
 
