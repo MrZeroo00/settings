@@ -7,8 +7,6 @@ zplug "mafredri/zsh-async", from:github
 
 #zplug "themes/kolo", as:theme, from:oh-my-zsh
 zplug "sindresorhus/pure", use:"pure.zsh", from:github, as:theme
-prompt pure
-PROMPT='%(?.%F{magenta}△.%F{red}▲)%f '
 
 VIM_PROMPT="❯"
 PROMPT='%(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
