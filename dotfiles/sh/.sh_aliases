@@ -74,6 +74,7 @@ case "${OS}" in
   alias ls='ls -G'
   alias top='top -o cpu'
   alias run='open -a'
+  alias tac='tail -r'
   #alias [=g[
   #alias base64=gbase64
   #alias basename=gbasename
