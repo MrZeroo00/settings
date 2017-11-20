@@ -425,7 +425,7 @@ cask install google-japanese-ime || true
 #cask install google-photos-backup || true
 #cask install grandperspective || true
 cask install growlnotify || true
-#cask install hammerspoon || true
+cask install hammerspoon || true
 #cask install haroopad || true
 #cask install hipchat || true
 #cask install hocus-focus || true
@@ -443,7 +443,7 @@ cask install iterm2-beta || true
 #cask install jasper || true
 cask install java || true
 #cask install julia || true
-#cask install karabiner || true
+#cask install karabiner-elements || true
 #cask install kdiff3 || true
 cask install keybase || true
 cask install kindle || true
