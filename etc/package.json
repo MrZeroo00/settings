@@ -11,6 +11,7 @@
     "nixar": "~0.1.2030", // Joyable equivalents for existent linux commands
     "ramda-cli": "~0.18.0", // A command-line tool for processing data with functional pipelines.
     "dot-clipboard": "~1.2.4", // dot-clipboard monitors your clipboard and runs user-defined scripts based on the clipboard content.
+    "quicktype": "*", // Quick types from data https://quicktype.io
     "get-github-pr-review-comments": "^1.0.1"
     //"black-screen": "^0.0.1", // Black Screen is a modern terminal emulator based on Electron and exploiting capabilities of contemporary interfaces in contrast to most of the terminal emulators.
     //"sloc": "~0.1.9", // Create stats of your source code:
