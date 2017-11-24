@@ -118,6 +118,7 @@ install gnu-tar || true
 install unzip || true
 install lha || true
 install xz || true
+install rename || true
 install entr || true # Run arbitrary commands when files change
 install watchexec || true
 tap passy/givegif || true
@@ -126,6 +127,7 @@ install aspell || true
 install fortune || true
 tap tldr-pages/tldr || true
 install tldr || true # Simplified and community-driven man pages
+install cheat || true
 install syncthing || true # Open source continuous file synchronization application
 install mackup || true # Keep your Mac's application settings in sync
 # scat https://github.com/Roman2K/scat # Decentralized, trustless backup tool
@@ -162,6 +164,8 @@ install ngrep || true
 install tcpflow || true
 install tcptrace || true
 install hping || true
+install tcping || true
+install tcptraceroute || true
 # intrace https://github.com/robertswiecki/intrace # Enumeration of IP hops using existing TCP connections
 install httpie || true
 install httping || true
@@ -204,6 +208,7 @@ install python || true
 install python3 || true
 install pyenv || true
 install pyenv-virtualenv || true
+install perl || true
 install cpanminus || true
 install php72 || true
 install boris || true
@@ -285,6 +290,7 @@ tap neovim/neovim || true
 install --HEAD neovim || true
 install emacs || true
 #install micro || true
+install bvi || true
 
 # image / movie / font
 install imagemagick || true
@@ -401,6 +407,7 @@ cask install dropbox || true
 cask install evernote || true
 cask install exa || true
 cask install fiddler || true
+#cask install filezilla || true
 cask install caskroom/fonts/font-fira-code || true
 cask install firefox || true
 #cask install flashlight || true
@@ -517,6 +524,7 @@ cask install vagrant-manager || true
 cask install virtualbox || true
 #cask install visual-studio || true
 cask install visual-studio-code || true
+#cask install visualvm || true
 #cask install vivaldi || true
 cask install vlc || true
 # wallcat https://www.wall.cat
