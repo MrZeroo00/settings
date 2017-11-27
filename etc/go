@@ -28,6 +28,7 @@
 #go get -u github.com/Code-Hex/battery/cmd/battery # Draw battery unicode art written by Go
 #go install github.com/ncw/rclone # "rsync for cloud storage" - Google Drive, Amazon Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Cloudfiles, Google Cloud Storage, Yandex Files
 #go get github.com/SumoLogic/sumoshell
+#go get github.com/jessfraz/udict # A command line urban dictionary
 #go get github.com/otiai10/amesh/amesh
 
 # go development
