@@ -152,6 +152,7 @@ install sshrc || true
 install assh || true
 install csshx || true
 install kryptco/tap/kr || true # the new home for your SSH private key on your phone
+# sekey https://github.com/ntrippar/sekey Use Touch ID / Secure Enclave for SSH Authentication!
 install lrzsz || true # Tools for zmodem/xmodem/ymodem file transfer
 install knock || true # Port-knock server
 install ngrok || true # Secure tunnels to localhost
