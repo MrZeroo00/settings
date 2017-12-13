@@ -16,5 +16,6 @@
     "vim.startInInsertMode": false,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "python.pythonPath": "/Users/mitsuhiro.tanda/.pyenv/shims/python"
 }
