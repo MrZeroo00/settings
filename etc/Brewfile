@@ -468,6 +468,8 @@ cask install kindle || true
 #cask install licecap || true
 #cask install limechat || true
 #cask install loading || true
+#tap aereal/mackerelappactivity || true
+#cask install mackerelappactivity || true
 #cask install macs-fan-control || true
 #cask install manuscripts || true
 #cask install media-converter || true
