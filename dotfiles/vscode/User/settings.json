@@ -6,6 +6,7 @@
     "window.zoomLevel": -1,
     "extensions.ignoreRecommendations": false,
     "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
     "search.useRipgrep": true,
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
     "terminal.integrated.shellArgs.osx": [],
