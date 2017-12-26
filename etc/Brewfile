@@ -1,3 +1,5 @@
+brew analytics off
+
 # Make sure using latest Homebrew
 update || true
 
