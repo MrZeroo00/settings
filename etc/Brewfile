@@ -132,6 +132,7 @@ install fortune || true
 tap tldr-pages/tldr || true
 install tldr || true # Simplified and community-driven man pages
 install cheat || true
+install --HEAD motemen/furoshiki2/furoshiki2 || true # furoshiki is a thin wrapper around CUI operation that records command execution results.
 install syncthing || true # Open source continuous file synchronization application
 install mackup || true # Keep your Mac's application settings in sync
 # scat https://github.com/Roman2K/scat # Decentralized, trustless backup tool
