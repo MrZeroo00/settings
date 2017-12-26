@@ -18,6 +18,7 @@ pip install --user powerline-status
 
 # network
 pip install --user pinggraph
+# https://www.netresec.com/?download=trimpcap
 
 # monitoring
 #pip install --user glances
