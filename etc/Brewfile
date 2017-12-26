@@ -135,6 +135,7 @@ install mackup || true # Keep your Mac's application settings in sync
 # scat https://github.com/Roman2K/scat # Decentralized, trustless backup tool
 install gitfs || true
 install terminal-notifier || true # Send macOS User Notifications from the command-line
+# alerter https://github.com/vjeantet/alerter
 install rcmdnk/rcmdnkpac/parse-plist || true # Parser of plist in OS X.
 # yfiton http://yfiton.com/ # Send notifications from the command-line using well-known or modern communication services
 # m-cli https://github.com/rgcr/m-cli # Swiss Army Knife for macOS
