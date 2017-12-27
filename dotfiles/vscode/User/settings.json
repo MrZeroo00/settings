@@ -3,6 +3,7 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
     "window.zoomLevel": -1,
     "extensions.ignoreRecommendations": false,
     "files.trimTrailingWhitespace": true,
@@ -18,5 +19,14 @@
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
     "workbench.iconTheme": "vscode-icons",
+    "go.formatTool": "goimports",
+    "ruby.lint": {
+        "reek": true,
+        "rubocop": true,
+        "ruby": true, //Runs ruby -wc
+        "fasterer": true,
+        "debride": true,
+        "ruby-lint": true
+    },
     "python.pythonPath": "/Users/mitsuhiro.tanda/.pyenv/shims/python"
 }
