@@ -291,6 +291,7 @@ install ghi || true # Work on GitHub issues on the command-line
 install gist || true # Command-line utility for uploading Gists
 #install git-now || true # A temporary commit tool for git
 #install git-cal || true # github like contributions calendar on terminal
+# whichpr https://github.com/pocke/whichpr
 
 # editor
 install macvim --with-lua --with-python3 || true
