@@ -437,7 +437,7 @@ cask install geektool || true
 #cask install gitscout || true
 ##cask install goofy || true
 cask install google-chrome || true
-cask install google-drive || true
+cask install google-drive-file-stream || true
 cask install google-japanese-ime || true
 #cask install google-photos-backup || true
 #cask install grandperspective || true
