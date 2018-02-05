@@ -97,6 +97,8 @@ tap simeji/jid || true
 install jid || true # json incremental digger
 tap caius/jo || true
 install jo || true # JSON output from a shell
+tap tidwall/jd || true
+install jd || true # Interactive JSON Editor
 install q || true
 install xsv || true # A fast CSV toolkit written in Rust.
 # forest https://github.com/KoharaKazuya/forest
