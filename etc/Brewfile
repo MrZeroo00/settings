@@ -325,6 +325,7 @@ install stern || true
 #install dinghy || true
 #install fig || true
 install homebrew/head-only/xhyve || true
+install linux-noah/noah/noah || true
 
 # monitoring
 install htop-osx || true
