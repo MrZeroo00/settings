@@ -101,6 +101,7 @@ tap tidwall/jd || true
 install jd || true # Interactive JSON Editor
 install q || true
 install xsv || true # A fast CSV toolkit written in Rust.
+install saulpw/vd/visidata || true # VisiData (vd on the command-line) is an open-source multitool for interacting with tabular data from within the terminal.
 # forest https://github.com/KoharaKazuya/forest
 install nkf || true
 install tofrodos || true
