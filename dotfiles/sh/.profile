@@ -100,7 +100,7 @@ case "${OS}" in
   add_path "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
   add_path "/Applications/android-sdk/platform-tools"
   add_path "/Applications/android-sdk/tools"
-  add_path "${HOME}/Library/Python/2.7/bin"
+  add_path "${HOME}/.local/bin"
   add_path "/usr/local/share/git-core/contrib/diff-highlight"
   export MANPATH="/usr/local/share/man:/opt/local/share/man:/Developer/usr/share/man:/usr/X11/man:/usr/share/man:${MANPATH}"
   export INFOPATH="/opt/local/share/info:/Developer/usr/share/info:/usr/share/info"
