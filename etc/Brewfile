@@ -128,6 +128,7 @@ install xz || true
 install rename || true
 install entr || true # Run arbitrary commands when files change
 install watchexec || true
+install watchman || true
 tap passy/givegif || true
 install givegif || true # Find and display GIFs from the command line.
 install aspell || true
