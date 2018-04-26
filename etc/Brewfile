@@ -454,6 +454,7 @@ cask install hammerspoon || true
 #cask install hocus-focus || true
 #cask install hoster || true
 #cask install hosts || true
+#cask install hyper || true
 #cask install hyperswitch || true
 #cask install imageoptim || true
 # insomnia https://insomnia.rest/
