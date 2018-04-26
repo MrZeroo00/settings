@@ -72,7 +72,7 @@ tap yudai/gotty || true
 install gotty || true # Share your terminal as a web application
 install asciinema || true # Record and share terminal sessions
 install screenfetch || true # Generate ASCII art with terminal, shell, and OS info
-# alacritty https://github.com/jwilm/alacritty # A cross-platform, GPU-accelerated terminal emulator
+install --HEAD cema-sp/tap/alacritty || true # https://github.com/jwilm/alacritty # A cross-platform, GPU-accelerated terminal emulator
 # kitty https://github.com/kovidgoyal/kitty # A modern, hackable, featureful, OpenGL based terminal emulator
 
 # utility
