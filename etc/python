@@ -16,6 +16,7 @@ pip install --user powerline-status
 #pip install --user voltron # Voltron is an extensible debugger UI toolkit written in Python.
 #pip install --user yamllint
 #pip install --user yq
+#pip install --user csvkit
 
 # network
 pip install --user pinggraph
