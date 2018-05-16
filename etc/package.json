@@ -30,6 +30,7 @@
   "devDependencies": {
     "betwixt": "^0.0.0", // Betwixt will help you analyze web traffic outside the browser using familiar Chrome DevTools interface.
     "bower": "~1.2.8",
+    "caniuse-cli": "*",
     "devtool": "~1.2.2",
     "electron-packager": "^5.0.1",
     "electron-prebuilt": "^0.30.4",
