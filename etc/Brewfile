@@ -126,6 +126,7 @@ install unzip || true
 install lha || true
 install xz || true
 install rename || true
+install watch || true
 install entr || true # Run arbitrary commands when files change
 install watchexec || true
 install watchman || true
