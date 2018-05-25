@@ -497,6 +497,7 @@ cask install omnifocus || true
 #cask install onyx || true
 #cask install owasp-zap || true
 #cask install p4merge || true
+#cask install phoenix || true # A lightweight macOS/OS X window and app manager scriptable with JavaScript
 #cask install powershell || true
 #cask install qlcolorcode || true
 #cask install qlmarkdown || true
