@@ -34,6 +34,7 @@
 # https://github.com/rgburke/grv
 #go get github.com/reconquest/orgalorg
 #go get github.com/segmentio/cwlogs
+#go get -u github.com/senorprogrammer/wtf
 
 # go development
 #go get -u golang.org/x/tools/cmd/cover
