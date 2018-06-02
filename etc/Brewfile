@@ -201,6 +201,7 @@ install axel || true # Light UNIX download accelerator
 install rsync || true
 install unison || true
 install sslh || true # Applicative Protocol Multiplexer (e.g. share SSH and HTTPS on the same port)
+install mitmproxy || true
 
 # browser / client
 install w3m || true
