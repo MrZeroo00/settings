@@ -67,6 +67,7 @@ go get -u github.com/motemen/gore
 #go get github.com/mefellows/muxy # Proxy for simulating real-world distributed system failures to improve resilience in your applications.
 #go get github.com/iopipe/iopipe # This package provides analytics and distributed tracing for event-driven applications running on AWS Lambda.
 #go get rsc.io/benchstat # Benchstat computes and compares statistics about benchmarks.
+#go get -u github.com/windmilleng/mish/cmd/mish
 
 # install
 go get -u github.com/motemen/ghq
