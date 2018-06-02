@@ -441,6 +441,7 @@ cask install geektool || true
 #cask install github-desktop || true
 #cask install gitkraken || true
 #cask install gitscout || true
+#cask install gitup || true
 ##cask install goofy || true
 cask install google-backup-and-sync || true
 cask install google-chrome || true
