@@ -9,6 +9,7 @@ pip install --user git+git://github.com/powerline/powerline
 pip install --user powerline-status
 
 # development
+#pip install --user diff-highlight
 #pip install --user blockdiag # blockdiag generates block-diagram images from .diag files (similar to graphviz’s DOT files).
 #pip install --user frida # Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers.
 #pip install --user mitmproxy # An interactive console program that allows traffic flows to be intercepted, inspected, modified and replayed.
