@@ -35,6 +35,7 @@
 #go get github.com/reconquest/orgalorg
 #go get github.com/segmentio/cwlogs
 #go get -u github.com/senorprogrammer/wtf
+#go get github.com/Songmu/jfill/cmd/jfill
 
 # go development
 #go get -u golang.org/x/tools/cmd/cover
