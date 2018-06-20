@@ -281,6 +281,7 @@ install redpen || true # Proofreading tool to help writers of technical document
 tap stepanhruda/tap || true
 install ios-simulator-app-installer || true
 # anyenv https://github.com/riywo/anyenv
+# t2b https://thosakwe.github.io/t2b/
 
 # git
 install git || true
