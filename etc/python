@@ -34,6 +34,7 @@ pip install --user saws
 # other
 #pip install --user thefuck # Magnificent app which corrects your previous console command.
 #pip install --user twtxt # twtxt is a decentralised, minimalist microblogging service for hackers.
+#pip3 install --user termtosvg
 
 # jupyter
 #pip install --user ipython
