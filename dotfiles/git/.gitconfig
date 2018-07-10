@@ -68,6 +68,7 @@
 	pr = "!hub browse -- compare/master...$(git symbolic-ref --short HEAD)?body=%23%20Context%0A%0A%23%20Problem%20or%20Idea%0A%0A%23%20Solution%20or%20NextStep"
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFX; }; f"
+	gwap = "git diff -w --no-color | git apply --cached --ignore-whitespace && git checkout -- . && git reset && git add -p"
 [diff]
 	#external = git-diff-wrapper
 	tool = vim-diff
