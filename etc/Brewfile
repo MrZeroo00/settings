@@ -211,6 +211,8 @@ install phantomjs || true
 install casperjs || true
 install neomutt/homebrew-neomutt/neomutt || true
 install weechat || true
+tap browsh-org/homebrew-browsh || true
+install browsh || true
 # geeknote http://www.geeknote.me/ # Work with Evernote from command line
 
 # development
