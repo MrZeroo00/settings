@@ -282,6 +282,8 @@ tap stepanhruda/tap || true
 install ios-simulator-app-installer || true
 # anyenv https://github.com/riywo/anyenv
 # t2b https://thosakwe.github.io/t2b/
+tap facebook/homebrew-fb || true
+install xar || true
 
 # git
 install git || true
@@ -498,6 +500,7 @@ cask install mysql-workbench || true
 ##cask install notifyr || true
 cask install omnifocus || true
 #cask install onyx || true
+#cask install osxfuse || true
 #cask install owasp-zap || true
 #cask install p4merge || true
 #cask install phoenix || true # A lightweight macOS/OS X window and app manager scriptable with JavaScript
