@@ -1,16 +1,27 @@
 {
     "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.iconTheme": "vscode-icons",
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
-    "window.zoomLevel": -1,
-    "extensions.ignoreRecommendations": false,
+    "editor.minimap.enabled": false,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "search.useRipgrep": true,
+    "window.zoomLevel": -1,
+    "extensions.ignoreRecommendations": false,
+    "bookmarks.treeview.visible": true,
+
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
     "terminal.integrated.shellArgs.osx": [],
+
+    "gitlens.keymap": "alternate",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.historyExplorer.enabled": true,
+
     "vim.disableAnnoyingNeovimMessage": true,
     "vim.easymotion": true,
     "vim.foldfix": true,
@@ -19,7 +30,7 @@
     "vim.statusBarColorControl": false,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
-    "workbench.iconTheme": "vscode-icons",
+
     "go.formatTool": "goimports",
     "ruby.lint": {
         "reek": true,
@@ -29,10 +40,5 @@
         "debride": true,
         "ruby-lint": true
     },
-    "python.pythonPath": "/Users/mitsuhiro.tanda/.pyenv/shims/python",
-    "gitlens.keymap": "alternate",
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "gitlens.historyExplorer.enabled": true
+    "python.pythonPath": "/Users/mitsuhiro.tanda/.pyenv/shims/python"
 }
