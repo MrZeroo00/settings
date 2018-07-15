@@ -71,6 +71,7 @@
 	gwap = "git diff -w --no-color | git apply --cached --ignore-whitespace && git checkout -- . && git reset && git add -p"
 	gsub = !"f() { git grep -l \"$1\" | xargs sed -i '' -e \"s/$1/$2/g\"; }; f"
 	open-branch = !"f() { hub browse -- \"pull/`git rev-parse --abbrev-ref HEAD`\"; }; f"
+	pbcopy = !printf "$1" | pbcopy
 [diff]
 	#external = git-diff-wrapper
 	tool = vim-diff

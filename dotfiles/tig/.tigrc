@@ -18,7 +18,7 @@ bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
 # etc
 bind generic L !git reflog
-bind generic p !%(commit) | cbcopy
+#bind generic p !%(commit) | cbcopy
 # github
 bind generic ^ !@hub browse
 bind generic - !@hub browse -- issues
@@ -27,7 +27,7 @@ bind generic = !hub ci-status %(commit)
 bind branch [ !@hub compare %(branch)
 bind main { !hub pull-request
 
-#bind main Y !@git pbcopy %(commit)
+bind main Y !@git pbcopy %(commit)
 #bind status B !@hub browse -- blob/master/%(file)
 bind main D !@hub compare %(commit)...%(branch)
 bind refs D !@hub compare master...%(branch)
