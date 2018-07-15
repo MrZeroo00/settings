@@ -1,8 +1,9 @@
-set main-view = id date author commit-title:graph=yes,refs=yes
+set main-view = id date author commit-title:graph=v2,refs=yes
 set line-graphics = yes
 set vertical-split = no
 set split-view-height = 80%
 #set diff-context = 6
+set mouse = yes
 
 # vi-like scroll
 bind diff h scroll-left
@@ -26,3 +27,10 @@ bind generic = !hub ci-status %(commit)
 bind branch [ !@hub compare %(branch)
 bind main { !hub pull-request
 bind generic P @sh -c 'hub browse -- commit/%(commit)'
+
+bind main Y !@git pbcopy %(commit)
+bind status B !@hub browse -- blob/master/%(file)
+bind main D !@hub compare %(commit)...%(branch)
+bind refs D !@hub compare master...%(branch)
+bind main P !@git openpr %(commit)
+bind blame P !@git openpr %(commit)
