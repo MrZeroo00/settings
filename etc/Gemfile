@@ -5,6 +5,7 @@ gem 'colorls'
 gem 'tmuxinator'
 #gem 'homesick' # Your home directory is your castle. Don't leave your dotfiles behind.
 #gem 'ultrahook' # UltraHook lets you receive webhooks on localhost.
+gem 'furik'
 
 # development
 #gem 'ltsvr' # LTSV viewer for Ruby
