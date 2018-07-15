@@ -16,6 +16,7 @@
     "vim.foldfix": true,
     "vim.hlsearch": true,
     "vim.startInInsertMode": false,
+    "vim.statusBarColorControl": false,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
     "workbench.iconTheme": "vscode-icons",
@@ -29,5 +30,9 @@
         "ruby-lint": true
     },
     "python.pythonPath": "/Users/mitsuhiro.tanda/.pyenv/shims/python",
-    "gitlens.keymap": "alternate"
+    "gitlens.keymap": "alternate",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.historyExplorer.enabled": true
 }
