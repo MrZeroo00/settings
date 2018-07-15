@@ -516,6 +516,7 @@ cask install omnifocus || true
 #cask install quicklook-json || true
 # quitter https://marco.org/apps#quitter
 # quiver https://github.com/HappenApps/Quiver
+cask install rescuetime || true
 # remixos http://www.jide.com/en/remixos
 #cask install rightfont || true
 # riverflow http://questbe.at/riverflow/
