@@ -30,9 +30,17 @@
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.startInInsertMode": false,
-    "vim.statusBarColorControl": false,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors": {
+        "normal": "#268bd2",
+        "insert": "#d33682",
+        "visual": "#268bd2",
+        "visualline": "#2aa198",
+        "visualblock": "#859900",
+        "replace": "#b58900"
+    }
 
     "go.formatTool": "goimports",
     "ruby.lint": {
