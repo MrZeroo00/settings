@@ -13,7 +13,11 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.screencapture name ''
 defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
+defaults write org.vim.MacVim ApplePressAndHoldEnabled -bool false
 defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+#defaults delete -g ApplePressAndHoldEnabled
 sudo sysctl -w net.inet.tcp.delayed_ack=0
 
 pushd .
