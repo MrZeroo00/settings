@@ -18,6 +18,7 @@ code --install-extension redhat.java
 code --install-extension ms-vscode.csharp
 code --install-extension ms-vscode.cpptools
 code --install-extension felixfbecker.php-intellisense
+code --install-extension mathiasfrohlich.kotlin
 code --install-extension zxh404.vscode-proto3
 
 code --install-extension rafaelmaiolla.remote-vscode
