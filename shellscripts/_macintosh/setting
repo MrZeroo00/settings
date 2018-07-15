@@ -1,5 +1,7 @@
 #!/bin/sh
 
+defaults write -g InitialKeyRepeat -int 11
+defaults write -g KeyRepeat -int 1
 defaults write com.apple.dashboard devmode YES
 defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder FinderSounds -bool no
