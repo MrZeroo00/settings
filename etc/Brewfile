@@ -302,6 +302,8 @@ install ghi || true # Work on GitHub issues on the command-line
 install gist || true # Command-line utility for uploading Gists
 #install git-now || true # A temporary commit tool for git
 #install git-cal || true # github like contributions calendar on terminal
+tap gesquive/git-user https://github.com/gesquive/git-user.git || true
+install gesquive/git-user/git-user || true # Git plugin that allows you to save multiple user profiles and set them as project defaults
 # whichpr https://github.com/pocke/whichpr
 
 # editor
