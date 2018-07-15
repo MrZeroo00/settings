@@ -22,14 +22,13 @@ bind generic p !%(commit) | cbcopy
 # github
 bind generic ^ !@hub browse
 bind generic - !@hub browse -- issues
-bind generic ~ !@hub browse -- commit/%(commit)
+#bind generic ~ !@hub browse -- commit/%(commit)
 bind generic = !hub ci-status %(commit)
 bind branch [ !@hub compare %(branch)
 bind main { !hub pull-request
-bind generic P @sh -c 'hub browse -- commit/%(commit)'
 
-bind main Y !@git pbcopy %(commit)
-bind status B !@hub browse -- blob/master/%(file)
+#bind main Y !@git pbcopy %(commit)
+#bind status B !@hub browse -- blob/master/%(file)
 bind main D !@hub compare %(commit)...%(branch)
 bind refs D !@hub compare master...%(branch)
 bind main P !@git openpr %(commit)
