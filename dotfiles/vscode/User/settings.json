@@ -11,10 +11,12 @@
     "search.useRipgrep": true,
     "window.zoomLevel": -1,
     "extensions.ignoreRecommendations": false,
-    "bookmarks.treeview.visible": true,
 
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
     "terminal.integrated.shellArgs.osx": [],
+    "terminal.integrated.copyOnSelection": true,
+
+    "debug.inlineValues": true,
 
     "gitlens.keymap": "alternate",
     "gitlens.advanced.messages": {
@@ -26,6 +28,7 @@
     "vim.easymotion": true,
     "vim.foldfix": true,
     "vim.hlsearch": true,
+    "vim.incsearch": true,
     "vim.startInInsertMode": false,
     "vim.statusBarColorControl": false,
     "vim.useSystemClipboard": true,
