@@ -118,6 +118,7 @@
 	#smudge = git-media filter-smudge
 [ghq]
 	root = ~/src
+	root = ~/go/src
 [commit]
 	template = ~/.git_commit_msg.txt
 [secrets]
