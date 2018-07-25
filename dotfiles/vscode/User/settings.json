@@ -42,7 +42,6 @@
         "replace": "#b58900"
     }
 
-    "go.formatTool": "goimports",
     "ruby.lint": {
         "reek": true,
         "rubocop": true,
