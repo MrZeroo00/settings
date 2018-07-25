@@ -53,7 +53,7 @@ zplug "m4i/cdd", use:'cdd'
 typeset -ga chpwd_functions
 chpwd_functions+=_cdd_chpwd
 
-zplug "mollifier/anyframe", use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
+zplug "mollifier/anyframe" #, use:'anyframe-functions/{actions,selectors,sources,widgets}/*', lazy:true
 zstyle ":anyframe:selector:" use peco
 zstyle ":anyframe:selector:peco:" command 'peco --layout bottom-up'
 zle -N anyframe-widget-put-history
