@@ -27,6 +27,8 @@ zplug "Tarrasch/zsh-functional"
 #zplug "modules/prompt", from:prezto
 zplug "b4b4r07/enhancd", use:"init.sh"
 ENHANCD_FILTER=fzf-tmux:fzf:peco
+ENHANCD_HYPHEN_ARG="-ls"
+ENHANCD_DOT_ARG="-up"
 #zplug "jamesob/desk" # homebrew
 zplug "marzocchi/zsh-notify"
 #zplug "themattrix/bash-concurrent"
