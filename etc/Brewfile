@@ -151,6 +151,7 @@ install rcmdnk/rcmdnkpac/parse-plist || true # Parser of plist in OS X.
 # osxlockdown https://github.com/SummitRoute/osxlockdown # Apple OS X tool to audit for, and remediate, security configuration settings.
 # osx-config-check https://github.com/kristovatlas/osx-config-check
 install argon/mas/mas || true # Mac App Store command line interface
+install pdfgrep || true
 
 # ssh / remote login
 install mobile-shell || true
