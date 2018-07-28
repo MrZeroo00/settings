@@ -60,7 +60,11 @@ zstyle ":anyframe:selector:" use peco
 zstyle ":anyframe:selector:peco:" command 'peco --layout bottom-up'
 zle -N anyframe-widget-put-history
 bindkey '^R' anyframe-widget-put-history
-bindkey '^]' anyframe-widget-cd-ghq-repository
+cd-ghq-repository() {
+  zle push-line && LBUFFER='builtin cd $(ghq list -p | peco)' && zle accept-line
+}
+zle -N cd-ghq-repository
+bindkey '^]' cd-ghq-repository
 #bindkey '^x^k' anyframe-widget-kill
 #bindkey '^x^a' anyframe-widget-git-add
 
