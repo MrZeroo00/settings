@@ -70,6 +70,7 @@
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFX; }; f"
 	gwap = "git diff -w --no-color | git apply --cached --ignore-whitespace && git checkout -- . && git reset && git add -p"
 	gsub = !"f() { git grep -l \"$1\" | xargs sed -i '' -e \"s/$1/$2/g\"; }; f"
+	signoff-rebase = "!GIT_SEQUENCE_EDITOR='sed -i -re s/^pick/e/' sh -c 'git rebase -i $1 && while git rebase --continue; do git commit --amend --signoff --no-edit; done' -"
 	open-branch = !"f() { hub browse -- \"pull/`git rev-parse --abbrev-ref HEAD`\"; }; f"
 	pbcopy = !printf "$1" | pbcopy
 [diff]
