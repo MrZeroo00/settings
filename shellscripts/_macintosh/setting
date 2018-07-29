@@ -18,6 +18,7 @@ defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 #defaults delete -g ApplePressAndHoldEnabled
+defaults write -g NSWindowDarkChocolate -bool TRUE
 sudo sysctl -w net.inet.tcp.delayed_ack=0
 
 pushd .
