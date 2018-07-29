@@ -23,11 +23,11 @@ alias .......='cd ../../../../../..'
 
 
 # global aliases
-abbrev-alias -g L='|lv'
-abbrev-alias -g V='|vim -R -'
-abbrev-alias -g H='|head'
-abbrev-alias -g T='|tail'
-abbrev-alias -g G='|grep'
+abbrev-alias -g L='| lv'
+abbrev-alias -g V='| vim -R -'
+abbrev-alias -g H='| head'
+abbrev-alias -g T='| tail'
+abbrev-alias -g G='| grep'
 abbrev-alias -g E="| xargs vim"
 abbrev-alias -g O="| xargs open"
 abbrev-alias -g P="| peco"
