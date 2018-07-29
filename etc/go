@@ -4,6 +4,7 @@
 #go get github.com/fd0/machma # Easy parallel execution of commands with live feedback
 #go get -u github.com/tcnksm/dmux
 #go get github.com/svent/sift # A fast and powerful open source alternative to grep.
+#go get github.com/mattn/jvgrep
 #go get github.com/tkuchiki/alp # alp is Access Log Profiler for Labeled Tab-separated Values(LTSV).
 #go get github.com/sonots/lltsv # List specified keys of LTSV (Labeled Tab Separated Values)
 #go get -u github.com/knq/usql # usql is a universal command-line interface for PostgreSQL, MySQL, Oracle, SQLite3, Microsoft SQL Server, and other databases.
@@ -55,10 +56,10 @@
 #go get -u github.com/k0kubun/pp # Colored pretty printer for Go language
 #go get -u github.com/gizak/termui # Golang terminal dashboard
 #go get github.com/divan/expvarmon # TermUI based Go apps monitor using expvars variables (/debug/vars).
-go get -u github.com/golang/dep/cmd/dep
-go get github.com/d4l3k/go-pry
-go get -u github.com/motemen/gore
-go get github.com/uber/go-torch
+#go get -u github.com/golang/dep/cmd/dep
+#go get github.com/d4l3k/go-pry
+#go get -u github.com/motemen/gore
+#go get github.com/uber/go-torch
 
 # library
 #go get github.com/c-bata/go-prompt
