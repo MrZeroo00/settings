@@ -57,6 +57,7 @@
     "karma-sinon": "^1.0.4",
     "mocha": "^2.2.5",
     "ndb": "*",
+    "prettier": "*",
     "puppeteer": "*", // Puppeteer is a Node library which provides a high-level API to control headless Chrome over the DevTools Protocol. It can also be configured to use full (non-headless) Chrome.
     "sinon": "^1.15.4",
     "vorlon": "~0.0.7", // A new, open source, extensible, platform-agnostic tool for remotely debugging and testing your JavaScript.
