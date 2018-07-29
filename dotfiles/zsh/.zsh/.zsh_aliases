@@ -23,28 +23,28 @@ alias .......='cd ../../../../../..'
 
 
 # global aliases
-alias -g L='|lv'
-alias -g V='|vim -R -'
-alias -g H='|head'
-alias -g T='|tail'
-alias -g G='|grep'
-alias -g E="| xargs vim"
-alias -g O="| xargs open"
-alias -g P="| peco"
-alias -g C="| pbcopy"
-alias -g B='&|'
-alias -g HL='--help'
-alias -g LL='2>&1 | lv'
-alias -g TE='2>&1 | tee'
-alias -g NE='2> /dev/null'
-alias -g NUL='> /dev/null 2>&1'
-alias -g GBR='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
-alias -g GBRR='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
-alias -g GR='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
-alias -g GH='$(git-hash)'
-alias -g GF='$(git-changed-files)'
-alias -g GH='`curl -sL https://api.github.com/users/mtanda/repos | jq -r ".[].full_name" | peco --prompt "GITHUB REPOS>" | head -n 1`'
-alias -g GLR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
+abbrev-alias -g L='|lv'
+abbrev-alias -g V='|vim -R -'
+abbrev-alias -g H='|head'
+abbrev-alias -g T='|tail'
+abbrev-alias -g G='|grep'
+abbrev-alias -g E="| xargs vim"
+abbrev-alias -g O="| xargs open"
+abbrev-alias -g P="| peco"
+abbrev-alias -g C="| pbcopy"
+abbrev-alias -g B='&|'
+abbrev-alias -g HL='--help'
+abbrev-alias -g LL='2>&1 | lv'
+abbrev-alias -g TE='2>&1 | tee'
+abbrev-alias -g NE='2> /dev/null'
+abbrev-alias -g NUL='> /dev/null 2>&1'
+abbrev-alias -g GBR='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
+abbrev-alias -g GBRR='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+abbrev-alias -g GR='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
+abbrev-alias -g GH='$(git-hash)'
+abbrev-alias -g GF='$(git-changed-files)'
+abbrev-alias -g GH='`curl -sL https://api.github.com/users/mtanda/repos | jq -r ".[].full_name" | peco --prompt "GITHUB REPOS>" | head -n 1`'
+abbrev-alias -g GLR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
 
 
 # relate file extensions to open command
