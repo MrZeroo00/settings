@@ -29,3 +29,4 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension akfish.vscode-devdocs
 code --install-extension jebbs.plantuml
 code --install-extension Tyriar.sort-lines
+code --install-extension coenraads.bracket-pair-colorizer
