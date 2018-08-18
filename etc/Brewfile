@@ -548,6 +548,7 @@ cask install slowquitapps || true
 #cask install totalspace || true
 ##cask install totalterminal || true
 cask install trailer || true
+cask install tweeten || true
 #cask install typora || true
 #cask install unicorns || true
 #cask install utorrent || true
