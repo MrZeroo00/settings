@@ -20,6 +20,7 @@ alias d='dirs -v'
 alias h='history'
 
 # etc
+alias l='exa'
 #alias wcd=/usr/lib/wcd/wcd.exec
 alias less='lv'
 alias sl='ls'
