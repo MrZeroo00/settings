@@ -74,6 +74,7 @@ install asciinema || true # Record and share terminal sessions
 install screenfetch || true # Generate ASCII art with terminal, shell, and OS info
 install --HEAD cema-sp/tap/alacritty || true # https://github.com/jwilm/alacritty # A cross-platform, GPU-accelerated terminal emulator
 install --HEAD cema-sp/tap/kitty || true # https://github.com/kovidgoyal/kitty # A modern, hackable, featureful, OpenGL based terminal emulator
+install bat || true # cat
 
 # utility
 install coreutils || true
