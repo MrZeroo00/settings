@@ -75,6 +75,8 @@ install screenfetch || true # Generate ASCII art with terminal, shell, and OS in
 install --HEAD cema-sp/tap/alacritty || true # https://github.com/jwilm/alacritty # A cross-platform, GPU-accelerated terminal emulator
 install --HEAD cema-sp/tap/kitty || true # https://github.com/kovidgoyal/kitty # A modern, hackable, featureful, OpenGL based terminal emulator
 install bat || true # cat
+install exa || true # ls
+install fd || true # find
 
 # utility
 install coreutils || true
@@ -431,7 +433,6 @@ cask install dropbox || true
 #tap railwaycat/emacsmacport || true
 #cask install emacs-mac || true
 cask install evernote || true
-cask install exa || true
 cask install fiddler || true
 #cask install filezilla || true
 cask install caskroom/fonts/font-fira-code || true
