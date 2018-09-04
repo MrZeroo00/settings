@@ -85,7 +85,7 @@
 [credential]
 	helper = cache --timeout=3600
 [include]
-	path = .gitconfig.local
+	path = ~/.gitconfig.local
 [difftool]
 	prompt = false
 [difftool "vim-diff"]
