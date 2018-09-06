@@ -155,6 +155,7 @@ install rcmdnk/rcmdnkpac/parse-plist || true # Parser of plist in OS X.
 # osx-config-check https://github.com/kristovatlas/osx-config-check
 install argon/mas/mas || true # Mac App Store command line interface
 install pdfgrep || true
+install ncdu || true # NCurses Disk Usage
 
 # ssh / remote login
 install mobile-shell || true
@@ -180,6 +181,7 @@ install tcpdump || true
 install ngrep || true
 install tcpflow || true
 install tcptrace || true
+install prettyping || true
 install hping || true
 install tcping || true
 install tcptraceroute || true
@@ -277,6 +279,7 @@ install codeclimate || true
 install plantuml || true
 tap itchyny/rexdep || true
 install rexdep || true # Roughly extract dependency relation from source code
+install diff-so-fancy || true
 install icdiff || true # Improved colored diff
 install meld || true
 tap jingweno/ccat || true
