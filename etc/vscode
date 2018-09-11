@@ -6,6 +6,7 @@ code --install-extension marchrock.vscode-ghq
 code --install-extension alefragnani.project-manager
 
 code --install-extension eamodio.gitlens
+code --install-extension github.vscode-pull-request-github
 
 code --install-extension lukehoban.Go
 code --install-extension rebornix.Ruby
