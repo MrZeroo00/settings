@@ -37,6 +37,7 @@
 #go get github.com/segmentio/cwlogs
 #go get -u github.com/senorprogrammer/wtf
 #go get github.com/Songmu/jfill/cmd/jfill
+#go get -u github.com/tsenart/vegeta # HTTP load testing tool and library.
 
 # go development
 #go get -u golang.org/x/tools/cmd/cover
