@@ -508,6 +508,7 @@ cask install minikube || true
 cask install mysql-workbench || true
 #cask install node-webkit-32bit || true
 ##cask install notifyr || true
+cask install notion || true
 cask install omnifocus || true
 #cask install onyx || true
 #cask install osxfuse || true
