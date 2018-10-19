@@ -11,6 +11,7 @@
     "search.useRipgrep": true,
     "window.zoomLevel": -1,
     "extensions.ignoreRecommendations": false,
+    "telemetry.enableTelemetry": false,
 
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
     "terminal.integrated.shellArgs.osx": [],
