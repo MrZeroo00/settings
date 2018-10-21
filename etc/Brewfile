@@ -156,6 +156,7 @@ install rcmdnk/rcmdnkpac/parse-plist || true # Parser of plist in OS X.
 install argon/mas/mas || true # Mac App Store command line interface
 install pdfgrep || true
 install ncdu || true # NCurses Disk Usage
+install thefuck || true # Magnificent app which corrects your previous console command.
 
 # ssh / remote login
 install mobile-shell || true
