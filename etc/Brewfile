@@ -414,7 +414,7 @@ cask install boostnote || true
 #cask install Chromium || true
 cask install charles || true
 cask install cheatsheet || true
-cask install chefdk || true
+cask install chef/chef/chefdk || true
 # Chemrtron https://github.com/cho45/Chemrtron
 # clipcard
 ##cask install clipmenu || true
