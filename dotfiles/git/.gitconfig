@@ -83,7 +83,7 @@
 	show = diff-highlight | lv -c
 	diff = diff-highlight | lv -c
 [credential]
-	helper = cache --timeout=3600
+	helper = osxkeychain
 [include]
 	path = ~/.gitconfig.local
 [difftool]
