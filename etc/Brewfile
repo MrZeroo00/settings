@@ -274,6 +274,7 @@ install cgdb || true
 install valgrind || true
 install apple-gcc42 || true
 install llvm --with-clang || true
+install mono || true
 install hg || true
 install mercurial || true
 tap codeclimate/formulae || true
