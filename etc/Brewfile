@@ -96,6 +96,7 @@ install cmigemo || true # Migemo is a tool that supports Japanese incremental se
 install migemogrep || true
 # bingrep https://github.com/m4b/bingrep
 install jq || true
+install tanishiking/jpp/jpp || true
 tap simeji/jid || true
 install jid || true # json incremental digger
 tap caius/jo || true
