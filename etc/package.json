@@ -25,6 +25,7 @@
     //"mdast": "~1.0.0", // Markdown Abstract Syntax Tree.
     //"pdf-markdown-annotator": "~1.0.8",
     //"wopr": "~0.0.3", // WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
+    //"ervy": "*", // Bring charts to terminal.
     //"linux": "~2.2.0" // Download, install and run Linux on OS X in less than 60 seconds!
   },
   "devDependencies": {
