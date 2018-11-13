@@ -95,6 +95,8 @@ install ag || true # use ripgrep
 install cmigemo || true # Migemo is a tool that supports Japanese incremental search with Romaji
 install migemogrep || true
 # bingrep https://github.com/m4b/bingrep
+tap thecasualcoder/stable || true
+install tztail || true
 install jq || true
 install tanishiking/jpp/jpp || true
 tap simeji/jid || true
