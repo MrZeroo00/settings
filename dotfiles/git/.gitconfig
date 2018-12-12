@@ -60,7 +60,7 @@
 	overwrite = push --force-with-lease
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+#	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
 	info = remote show origin
 	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
