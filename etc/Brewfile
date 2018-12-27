@@ -366,6 +366,7 @@ install mysql || true
 install mycli || true
 install sqlite || true
 install sqlmap || true
+install percona-toolkit || true
 # sqlcheck https://github.com/jarulraj/sqlcheck
 
 # server
