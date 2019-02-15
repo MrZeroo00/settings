@@ -101,3 +101,4 @@ go get github.com/naoty/ext # A convention for command extensions
 go get github.com/kohkimakimoto/zssh/cmd/zssh # Extended ssh command.
 go get github.com/dropbox/dbxcli # A command line tool for Dropbox users and team admins
 go get github.com/lukasmartinelli/pipecat # Connect UNIX pipes and message queues
+go get github.com/cjbassi/gotop # A terminal based graphical activity monitor inspired by gtop and vtop
