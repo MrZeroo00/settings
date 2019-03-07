@@ -23,7 +23,7 @@ install graphviz || true
 install ioping || true
 install joplin || true # Joplin - a note taking and to-do application with synchronization capabilities for Windows, macOS, Linux, Android and iOS.
 # kwm https://github.com/koekeishiya/kwm # Tiling window manager with focus follows mouse for OSX
-tap crisidev/homebrew-chunkwm || true
+tap koekeishiya/formulae || true
 install chunkwm || true
 tap tcnksm/license || true
 install license || true
