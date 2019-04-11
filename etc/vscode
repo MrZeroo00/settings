@@ -38,3 +38,4 @@ code --install-extension fwcd.kotlindebug
 code --install-extension castwide.solargraph
 code --install-extension mauve.terraform
 code --install-extension visualstudioexptteam.vscodeintellicode
+code --install-extension vscode-org-mode.org-mode
