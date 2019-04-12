@@ -547,6 +547,7 @@ cask install skim || true
 ##cask install skitch || true
 #cask install skype || true
 # sikuli https://github.com/sikuli/sikuli
+cask install sloth || true # Mac app that shows all open files and sockets in use by all running processes. Nice GUI for lsof.
 tap dteoh/sqa || true
 cask install slowquitapps || true
 #cask install sourcetree || true
