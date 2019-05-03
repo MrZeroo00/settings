@@ -103,3 +103,4 @@ go get github.com/dropbox/dbxcli # A command line tool for Dropbox users and tea
 go get github.com/lukasmartinelli/pipecat # Connect UNIX pipes and message queues
 go get github.com/cjbassi/gotop # A terminal based graphical activity monitor inspired by gtop and vtop
 go get github.com/gcla/termshark/cmd/termshark # A terminal user-interface for tshark, inspired by Wireshark.
+go get github.com/motemen/go-pocket/... # Pocket (getpocket.com) API client for Go (golang).
