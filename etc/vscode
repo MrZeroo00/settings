@@ -40,3 +40,4 @@ code --install-extension mauve.terraform
 code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension vscode-org-mode.org-mode
 code --install-extension ziyasal.vscode-open-in-github
+code --install-extension ms-vscode-remote.remote-ssh
