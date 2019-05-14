@@ -5,7 +5,9 @@
 Gemfile.lock
 dotfiles/atom/.atom/.apm/
 dotfiles/atom/.atom/.node-gyp/
+dotfiles/atom/.atom/blob-store/
 dotfiles/atom/.atom/compile-cache/
+dotfiles/atom/.atom/github.cson
 dotfiles/atom/.atom/npm-debug.log
 dotfiles/atom/.atom/packages/
 dotfiles/atom/.atom/projects.cson
@@ -34,6 +36,7 @@ dotfiles/xdg/.config/gcloud/
 dotfiles/xdg/.config/gtk-2.0/
 dotfiles/xdg/.config/menus/
 dotfiles/xdg/.config/hub
+dotfiles/xdg/.config/pocket/
 dotfiles/xdg/.config/stetic/
 dotfiles/xdg/.config/vim/
 dotfiles/xdg/.config/wireshark/
