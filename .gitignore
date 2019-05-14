@@ -24,6 +24,7 @@ dotfiles/vim/.vim/.netrwhist
 dotfiles/vim/.vim/bundle
 dotfiles/vimperator/.vimperator/conf/office.*
 dotfiles/vimperator/.vimperator/info/
+dotfiles/vscode/User/globalStorage/
 dotfiles/vscode/User/workspaceStorage/
 dotfiles/w3m/.w3m/cookie
 dotfiles/w3m/.w3m/history
