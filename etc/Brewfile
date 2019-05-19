@@ -584,6 +584,7 @@ cask install visual-studio-code || true
 #cask install vivaldi || true
 cask install vlc || true
 # wallcat https://www.wall.cat
+cask install wkhtmltopdf || true
 cask install wireshark || true
 #cask install xamarin-studio || true
 cask install xmind || true
