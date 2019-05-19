@@ -165,6 +165,7 @@ install pdfgrep || true
 install ncdu || true # NCurses Disk Usage
 install thefuck || true # Magnificent app which corrects your previous console command.
 install qrencode || true
+install pandoc || true
 
 # ssh / remote login
 install mobile-shell || true
