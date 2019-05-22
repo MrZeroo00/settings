@@ -78,6 +78,7 @@ install --HEAD cema-sp/tap/alacritty || true # https://github.com/jwilm/alacritt
 install --HEAD cema-sp/tap/kitty || true # https://github.com/kovidgoyal/kitty # A modern, hackable, featureful, OpenGL based terminal emulator
 install bat || true # cat
 install exa || true # ls
+install lsd || true # ls
 install fd || true # find
 
 # utility
