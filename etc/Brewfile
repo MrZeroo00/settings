@@ -560,6 +560,7 @@ cask install slowquitapps || true
 #cask install station || true
 ##cask install sublime-text || true
 #cask install td-agent || true
+cask install terminus || true
 #cask install textbar || true
 #cask install textexpander || true
 #cask install the-unarchiver || true
